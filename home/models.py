@@ -1,0 +1,157 @@
+from django.db import models
+from django.db.models import FloatField
+from django.utils.translation import gettext_lazy as _
+
+
+class CategoryModel(models.Model):
+    category = models.CharField(max_length=99, verbose_name=_('category'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
+
+    def __str__(self):
+        return self.category
+
+    class Meta:
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+
+
+class SubCategoryModel(models.Model):
+    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'))
+    subcategory = models.CharField(max_length=90, verbose_name=_('subcategory'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
+
+    def __str__(self):
+        return self.subcategory
+
+    class Meta:
+        verbose_name = _('subcategory')
+        verbose_name_plural = _('subcategories')
+
+
+class SecondSubCategoryModel(models.Model):
+    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'))
+    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'))
+    secondsubcategory = models.CharField(max_length=90, verbose_name=_('second_subcategory'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
+
+    def __str__(self):
+        return self.secondsubcategory
+
+    class Meta:
+        verbose_name = _('second_subcategory')
+        verbose_name_plural = _('second_subcategories')
+
+
+class BannerInfoModel(models.Model):
+    title = models.CharField(max_length=99, verbose_name=_('title'))
+    sku = models.CharField(max_length=90, verbose_name=_('sku'))
+    image = models.ImageField(upload_to='banner', verbose_name=_('image'))
+    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), null=True)
+    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'),
+                                    null=True)
+    secondsubcategory = models.ForeignKey(SecondSubCategoryModel, on_delete=models.PROTECT, verbose_name=_('second_subcategory'), null=True)
+    price = models.IntegerField(verbose_name=_('price'), null=True)
+    price_dollar = models.IntegerField(verbose_name=_('price_dollar'), null=True)
+    discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'))
+    error = models.CharField(max_length=30, null=True)
+    inbox = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('inbox'))
+    delivery = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('delivery'))
+    short_description = models.TextField(verbose_name=_('short_description'), null=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
+
+    def is_discount(self):
+        return self.discount != 0
+
+    def get_price(self):
+        if self.is_discount():
+            return self.price - self.price * self.discount / 100
+        return self.price
+
+    def get_price_dollar(self):
+        if self.is_discount():
+            return self.price_dollar - self.price_dollar * self.discount / 100
+        return self.price_dollar
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'banner_info'
+        verbose_name_plural = 'banner_info'
+
+
+class SingleBannerModel(models.Model):
+    banner_title = models.ForeignKey(BannerInfoModel, on_delete=models.PROTECT, related_name='banner', null=True)
+    banner_sku = models.ForeignKey(BannerInfoModel, on_delete=models.PROTECT, related_name='banner_sku', null=True)
+    banner_image = models.ImageField(upload_to='banner_image', verbose_name=_('banner_image'), null=True)
+    error = models.CharField(max_length=30, null=True)
+    banner_price = models.ForeignKey(BannerInfoModel, on_delete=models.PROTECT, related_name='banner_price', null=True)
+    banner_price_dollar = models.ForeignKey(BannerInfoModel, on_delete=models.PROTECT,
+                                            related_name='banner_price_dollar', null=True)
+    banner_description = models.TextField(verbose_name=_('banner_description'), null=True)
+    bonus = models.CharField(max_length=120, )
+    first_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('first_specifications'))
+    second_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('second_specifications'))
+    third_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('third_specifications'))
+    four_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('four_specifications'))
+    five_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('five_specifications'))
+    six_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('six_specifications'))
+    seven_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('seven_specifications'))
+    eight_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('eight_specifications'))
+    nine_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('nine_specifications'))
+    ten_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('ten_specifications'))
+    eleven_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('eleven_specifications'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
+
+    def __str__(self):
+        return self.banner_title
+
+    class Meta:
+        verbose_name = 'single_banner'
+        verbose_name_plural = 'single_banners'
+
+
+class ErrorModel(models.Model):
+    error = models.CharField(max_length=50, verbose_name=_('error'))
+
+    def __str__(self):
+        return self.error
+
+    class Meta:
+        verbose_name = 'error'
+        verbose_name_plural = 'errors'
+
+# translate
+# Header and footer
+# 1.Create models to blog:(for)-see more
+#     1.image,banner-image,title,price,send to social networks,description,specifications,buy now(form),save PDF file.
+# 2.Create categorymodels:
+#     1.Category name,category_title.
+# 3.Crete Productmodels(for):
+#     1.image,banner-image,name,id,price($) and price(SOM),see more CAROUSEL
+# 4.Create VideoModels:
+#     1.Iframe youtube or video models,created_at,title
+# 5.ProjectsModel(for):see-more
+#     1.Image,title,see more
+#     2.title,banner-image, description and buy or PDF
+# 6.Articles(for):see-more
+#     1.Image,banner-image,title,description and buy or PDF
+# 7.Form
+#     1.Title,name,phone,send
+
+
+# PRODUCTS
+# 1.create category filter
+# 2.create all,have a storage and filter all a-z,z-a,top products,new products,price 1-100
+# 3.create products(for):
+#     1.image,name,price($) and price(SOM), see more
+# 4.Product info
+#     1.image1-2,name product,price($) and price(SOM),text,ID,buy and PDF, link social links,scpetifications,recommentation products CAROUSEL
+# 5.ProjectsModel(for):see-more HEADER
+#     1.Image,title,see more
+#     2.title,banner-image, description and buy or PDF
+
+
+# back to top ))
+
+# jivo

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href=" {% static 'css/style.css' %} ">
+</head>
+<body>
+<div class="container">
+    <form>
+        <input class="form-control" style="width:500px" value="{{ request.GET.q }}" name="q" type="text" placeholder="search here"><button type="submit" class="btn btn-primary">asd</button>
+    </form>
+    <div class="row">
+        {% for category in banners %}
+            <a onclick="addUrlParameter('category', '{{ category.pk }}')" style="cursor:pointer">
+                <span>{{ category.title }}</span>
+            </a>
+        {% endfor %}
+
+        {% for banner in banners %}
+                <div class="col-md-4">
+                    <div class="box p-5">
+                        <div class="objects">
+                            <h3>Название:{{ banner.title }}</h3>
+                        <img src="{{ banner.image.url }}" style="width:300px" alt="">
+                        <p>ID:{{ banner.sku }}</p>
+                        <p>Цена:{{ banner.price }}SO'M</p>
+                        <p>Категория:{{ banner.category }} </p>
+                        <p>Подкатегория:{{ banner.subcategory }} </p>
+                        <p>Подкатегория:{{ banner.secondsubcategory|default:'asd' }} </p>
+                        <p>Цена в долларе: {{ banner.price_dollar }}$</p>
+                        <p>Описание:{{ banner.short_description }}</p>
+                        <p>SOM:{{ banner.get_price }}</p>
+                        <p>$:{{ banner.get_price_dollar }}</p>
+                            <p>{{ banner.inbox|default:'' }}</p>
+                            <p>{{ banner.delivery|default:'' }}</p>
+                            <a href=""> <button class="btn btn-outline-success">Подробнее</button></a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolorum ducimus, expedita mollitia nisi nobis possimus veniam voluptates voluptatibus voluptatum.</p>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+            <p>saasdad</p>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
