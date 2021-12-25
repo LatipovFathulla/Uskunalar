@@ -1,8 +1,8 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
-from home.models import BannerInfoModel, SingleBannerModel, CategoryModel, ErrorModel, SecondSubCategoryModel, \
-    SubCategoryModel
+from home.models import BannerInfoModel, CategoryModel, SecondSubCategoryModel, \
+    SubCategoryModel, BannerImageModel
 
 
 class MyTranslationAdmin(TranslationAdmin):
@@ -34,29 +34,21 @@ class SubCategoryModelAdmin(admin.ModelAdmin):
 @admin.register(SecondSubCategoryModel)
 class SecondSubCategoryModelAdmin(admin.ModelAdmin):
     list_display = ['category', 'subcategory', 'secondsubcategory', 'created_at']
-    search_fields = ['category', 'subcategory', 'secondsubcategory',]
-    list_filter = ['category', 'subcategory', 'secondsubcategory',]
+    search_fields = ['category', 'subcategory', 'secondsubcategory', ]
+    list_filter = ['category', 'subcategory', 'secondsubcategory', ]
+
+
+class BannerImageModelAdmin(admin.TabularInline):
+    model = BannerImageModel
 
 
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'sku', 'price', 'price_dollar', 'get_price', 'get_price_dollar', 'created_at',
-                    'discount', 'inbox', 'delivery', 'category', 'subcategory', 'secondsubcategory',]
+                    'discount', 'inbox', 'delivery', 'category', 'subcategory', 'secondsubcategory', ]
     search_fields = ['title', 'sku']
     list_filter = ['created_at']
-
     readonly_fields = ['get_price', 'get_price_dollar']
 
+    inlines = [BannerImageModelAdmin]
 
-@admin.register(SingleBannerModel)
-class SingleBannerModelAdmin(admin.ModelAdmin):
-    list_display = ['banner_title', 'banner_sku', 'banner_price', 'banner_price_dollar']
-    search_fields = ['banner_title', 'banner_sku']
-    list_filter = ['created_at']
-
-
-@admin.register(ErrorModel)
-class ErrorModelAdmin(admin.ModelAdmin):
-    list_display = ['error', ]
-    search_fields = ['error']
-    list_filter = ['error', ]

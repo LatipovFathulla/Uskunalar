@@ -3,9 +3,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from about.views import AboutModelListView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls', namespace='banners')),
+    path('', include('about.urls', namespace='home')),
 ]
 
 

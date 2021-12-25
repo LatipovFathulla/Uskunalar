@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-25 11:17+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: home/models.py:7 home/models.py:19 home/models.py:32 home/models.py:49
+msgid "category"
+msgstr ""
+
+#: home/models.py:8 home/models.py:60 home/models.py:103
+msgid "created_at"
+msgstr ""
+
+#: home/models.py:20 home/models.py:27 home/models.py:33 home/models.py:50
+msgid "subcategory"
+msgstr ""
+
+#: home/models.py:21 home/models.py:35
+msgid "crated_at"
+msgstr ""
+
+#: home/models.py:28
+msgid "subcategories"
+msgstr ""
+
+#: home/models.py:34 home/models.py:41 home/models.py:52
+msgid "second_subcategory"
+msgstr ""
+
+#: home/models.py:42
+msgid "second_subcategories"
+msgstr ""
+
+#: home/models.py:46
+msgid "title"
+msgstr ""
+
+#: home/models.py:47
+msgid "sku"
+msgstr ""
+
+#: home/models.py:48
+msgid "image"
+msgstr ""
+
+#: home/models.py:53
+msgid "price"
+msgstr ""
+
+#: home/models.py:54
+msgid "price_dollar"
+msgstr ""
+
+#: home/models.py:55
+msgid "discount"
+msgstr ""
+
+#: home/models.py:57
+msgid "inbox"
+msgstr ""
+
+#: home/models.py:58
+msgid "delivery"
+msgstr ""
+
+#: home/models.py:59
+msgid "short_description"
+msgstr ""
+
+#: home/models.py:84
+msgid "banner_title"
+msgstr ""
+
+#: home/models.py:85
+msgid "banner_sku"
+msgstr ""
+
+#: home/models.py:86
+msgid "banner_image"
+msgstr ""
+
+#: home/models.py:88
+msgid "banner_price"
+msgstr ""
+
+#: home/models.py:89
+msgid "banner_price_dollar"
+msgstr ""
+
+#: home/models.py:90
+msgid "banner_description"
+msgstr ""
+
+#: home/models.py:92
+msgid "first_specifications"
+msgstr ""
+
+#: home/models.py:93
+msgid "second_specifications"
+msgstr ""
+
+#: home/models.py:94
+msgid "third_specifications"
+msgstr ""
+
+#: home/models.py:95
+msgid "four_specifications"
+msgstr ""
+
+#: home/models.py:96
+msgid "five_specifications"
+msgstr ""
+
+#: home/models.py:97
+msgid "six_specifications"
+msgstr ""
+
+#: home/models.py:98
+msgid "seven_specifications"
+msgstr ""
+
+#: home/models.py:99
+msgid "eight_specifications"
+msgstr ""
+
+#: home/models.py:100
+msgid "nine_specifications"
+msgstr ""
+
+#: home/models.py:101
+msgid "ten_specifications"
+msgstr ""
+
+#: home/models.py:102
+msgid "eleven_specifications"
+msgstr ""
+
+#: home/models.py:114
+msgid "error"
+msgstr ""
+
+#: uskunalar/settings.py:100
+msgid "English"
+msgstr ""
+
+#: uskunalar/settings.py:101
+msgid "Russian"
+msgstr ""
+
+#: uskunalar/settings.py:102
+msgid "Uzbek"
+msgstr ""

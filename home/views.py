@@ -1,12 +1,7 @@
-from django.core.handlers import exception
 from django.db.models import Q
-from django.http import Http404, request
-from django.shortcuts import render
-from django.template import RequestContext
-from django.views import defaults
 from django.views.generic import ListView
 
-from home.models import BannerInfoModel, SingleBannerModel
+from home.models import BannerInfoModel
 
 
 class BannerInfoModelView(ListView):
@@ -35,15 +30,5 @@ class BannerInfoModelView(ListView):
             qs = qs.filter(Q(title__icontains=q) |
                            Q(sku__icontains=q)
                            )
-        return qs
-
-
-class SingleBannerModelView(ListView):
-    template_name = 'single-product.html'
-    context_object_name = 'single'
-
-    def get_queryset(self):
-        qs = SingleBannerModel.objects.all()
-
         return qs
 

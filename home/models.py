@@ -49,7 +49,8 @@ class BannerInfoModel(models.Model):
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), null=True)
     subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'),
                                     null=True)
-    secondsubcategory = models.ForeignKey(SecondSubCategoryModel, on_delete=models.PROTECT, verbose_name=_('second_subcategory'), null=True)
+    secondsubcategory = models.ForeignKey(SecondSubCategoryModel, on_delete=models.PROTECT,
+                                          verbose_name=_('second_subcategory'), null=True)
     price = models.IntegerField(verbose_name=_('price'), null=True)
     price_dollar = models.IntegerField(verbose_name=_('price_dollar'), null=True)
     discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'))
@@ -80,46 +81,14 @@ class BannerInfoModel(models.Model):
         verbose_name_plural = 'banner_info'
 
 
-class SingleBannerModel(models.Model):
-    banner_title = models.ForeignKey(BannerInfoModel, on_delete=models.PROTECT, related_name='banner', null=True)
-    banner_sku = models.ForeignKey(BannerInfoModel, on_delete=models.PROTECT, related_name='banner_sku', null=True)
-    banner_image = models.ImageField(upload_to='banner_image', verbose_name=_('banner_image'), null=True)
-    error = models.CharField(max_length=30, null=True)
-    banner_price = models.ForeignKey(BannerInfoModel, on_delete=models.PROTECT, related_name='banner_price', null=True)
-    banner_price_dollar = models.ForeignKey(BannerInfoModel, on_delete=models.PROTECT,
-                                            related_name='banner_price_dollar', null=True)
-    banner_description = models.TextField(verbose_name=_('banner_description'), null=True)
-    bonus = models.CharField(max_length=120, )
-    first_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('first_specifications'))
-    second_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('second_specifications'))
-    third_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('third_specifications'))
-    four_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('four_specifications'))
-    five_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('five_specifications'))
-    six_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('six_specifications'))
-    seven_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('seven_specifications'))
-    eight_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('eight_specifications'))
-    nine_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('nine_specifications'))
-    ten_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('ten_specifications'))
-    eleven_specifications = models.CharField(max_length=99, blank=True, verbose_name=_('eleven_specifications'))
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
-
-    def __str__(self):
-        return self.banner_title
+class BannerImageModel(models.Model):
+    product = models.ForeignKey(BannerInfoModel, on_delete=models.CASCADE, related_name='images',
+                                verbose_name=_('product'))
+    image = models.ImageField(upload_to='products', verbose_name=_('image'))
 
     class Meta:
-        verbose_name = 'single_banner'
-        verbose_name_plural = 'single_banners'
-
-
-class ErrorModel(models.Model):
-    error = models.CharField(max_length=50, verbose_name=_('error'))
-
-    def __str__(self):
-        return self.error
-
-    class Meta:
-        verbose_name = 'error'
-        verbose_name_plural = 'errors'
+        verbose_name = _('product image')
+        verbose_name_plural = _('product images')
 
 # translate
 # Header and footer
