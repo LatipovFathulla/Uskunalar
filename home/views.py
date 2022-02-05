@@ -1,7 +1,7 @@
 from django.db.models import Q
 from django.views.generic import ListView
 
-from home.models import BannerInfoModel
+from home.models import BannerInfoModel, CategoryModel
 
 
 class BannerInfoModelView(ListView):
@@ -28,7 +28,8 @@ class BannerInfoModelView(ListView):
 
         if q:
             qs = qs.filter(Q(title__icontains=q) |
-                           Q(sku__icontains=q)
+                           Q(sku__icontains=q) |
+                           Q(city__icontains=q)
                            )
         return qs
 

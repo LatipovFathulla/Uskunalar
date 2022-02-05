@@ -44,7 +44,7 @@ class BannerImageModelAdmin(admin.TabularInline):
 
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'sku', 'price', 'pdf',  'created_at', 'category', 'subcategory', 'secondsubcategory', ]
+    list_display = ['id', 'title', 'sku', 'price', 'pdf', 'city', 'created_at', 'category', 'subcategory', 'secondsubcategory', ]
     search_fields = ['title', 'sku']
     list_filter = ['created_at']
     readonly_fields = ['get_price', 'get_price_dollar']

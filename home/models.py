@@ -50,6 +50,7 @@ class BannerInfoModel(models.Model):
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), null=True)
     subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'),
                                     null=True)
+    city = models.CharField(max_length=99, verbose_name=_('city'), null=True)
     secondsubcategory = models.ForeignKey(SecondSubCategoryModel, on_delete=models.PROTECT,
                                           verbose_name=_('second_subcategory'), null=True)
     price = models.IntegerField(verbose_name=_('price'), null=True)
