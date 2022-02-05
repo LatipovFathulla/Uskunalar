@@ -9,153 +9,77 @@
     <link rel="stylesheet" href=" {% static 'css/style.css' %} ">
 </head>
 <body>
-<div class="container">
-    <div class="about" style="background-color:#fff">
-        <a href="{% url 'home:about' %}">about</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img src="https://uskunalar.uz/vendor/new.site/img/logo.png"
+                                              style="width:130px" alt=""><span
+                style="margin-left:4%">Uskunalar-admin</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Categories</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" value="{{ request.GET.q }}" name="q" type="search" placeholder="Search"
+                       aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
     </div>
-    <form>
-        <input class="form-control" style="width:500px" value="{{ request.GET.q }}" name="q" type="text"
-               placeholder="search here">
-        <button type="submit" class="btn btn-primary">asd</button>
-    </form>
+</nav>
+<div class="container">
+    <!--    <div class="about" style="background-color:#fff">-->
+    <!--        <a href="{% url 'home:about' %}">about</a>-->
+    <!--    </div>-->
     <div class="row">
-        {% for category in banners %}
-        <a onclick="addUrlParameter('category', '{{ category.pk }}')" style="cursor:pointer">
-            <span>{{ category.title }}</span>
-        </a>
-        {% endfor %}
-
-        {% for banner in banners %}
-        <div class="col-md-4">
-            <div class="box p-5">
-                <div class="objects">
-                    <h3>Название:{{ banner.title }}</h3>
-                    <img src="{{ banner.image.url }}" style="width:300px" alt="">
-                    <p>ID:{{ banner.sku }}</p>
-                    <p>Цена:{{ banner.price }}SO'M</p>
-                    <p>Категория:{{ banner.category }} </p>
-                    <p>Подкатегория:{{ banner.subcategory }} </p>
-                    <p>Подкатегория:{{ banner.secondsubcategory|default:'asd' }} </p>
-                    <p>Цена в долларе: {{ banner.price_dollar }}$</p>
-                    <p>Описание:{{ banner.short_description }}</p>
-                    <p>SOM:{{ banner.get_price }}</p>
-                    <p>$:{{ banner.get_price_dollar }}</p>
-                    <p>{{ banner.inbox|default:'' }}</p>
-                    <p>{{ banner.delivery|default:'' }}</p>
-                    <a href="">
-                        <button class="btn btn-outline-success">Подробнее</button>
-                    </a>
-                </div>
+        <div class="col-md-3">
+            <div class="categories-blog" style="box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);height:auto;padding:20px">
+                  <h3>Categories</h3>
+            <hr>
+            {% for category in banners %}
+            <a onclick="addUrlParameter('category', '{{ category.pk }}')" style="cursor:pointer">
+                <span>{{ category.title }}<br></span>
+            </a>
+            {% endfor %}
             </div>
         </div>
-        {% endfor %}
-        <p>saasdad</p>
 
-    </div>
 
-</div>
 
-<div class="container">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-               aria-selected="true">Description</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-               aria-selected="false">Specification</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-               aria-selected="false">Comments</a>
-        </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane  fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <p>object.long_description</p>
-        </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <div class="table-responsive">
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <td>
-                            <h5>Width</h5>
-                        </td>
-                        <td>
-                            <h5>object.width</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Height</h5>
-                        </td>
-                        <td>
-                            <h5>object.height</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Weight</h5>
-                        </td>
-                        <td>
-                            <h5>object.weight</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Quality checking</h5>
-                        </td>
-                        <td>
-                            <h5>yes</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Freshness Duration</h5>
-                        </td>
-                        <td>
-                            <h5>03days</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>When packeting</h5>
-                        </td>
-                        <td>
-                            <h5>Without touch of hand</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h5>Each Box contains</h5>
-                        </td>
-                        <td>
-                            <h5>60pcs</h5>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="col-md-9">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="comment_list">
-                        <div class="review_item">
-                            asdasd
+                {% for banner in banners %}
+                <div class="col-md-4">
+                    <div class="card" style="width: 19rem;border:none;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);">
+                        <img src="{{ banner.image.url }}" style="width:100%;height:300px" class="card-img-top"
+                             alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ banner.title }}</h5>
+                            <p>ID:{{ banner.sku }}</p>
+                            <p class="card-text">Цена:{{ banner.price }}$</p>
+                            <p>Категория:{{ banner.category }} </p>
+                            <p>Подкатегория:{{ banner.subcategory }} </p>
+                            <p>Подкатегория:{{ banner.secondsubcategory|default:'asd' }} </p>
+                            {% if banner.pdf %}
+                                <a href="{{ banner.pdf.url }}">PDF ni korish</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-                <div id="comment-section" class="col-lg-6">
-                    <div class="review_box">
-                        <p>nashdbhabsdhn</p>
-                    </div>
-                </div>
+               {% endfor %}
             </div>
+
         </div>
+
     </div>
+
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
