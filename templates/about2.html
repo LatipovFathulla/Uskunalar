@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% for about in abouts %}
+<h3>{{ about.title }}</h3>
+<img src="{{ about.image.url }}" style="width:300px;height:300px" alt="">
+<p>{{ about.description|safe }}</p>
+<video width="300" controls>
+    <source src="{{ about.video.url }}" type="video/mp4">
+    asdfasdfasdf
+</video>
+<p>{{ about.created_at }}</p>
+{% endfor %}
+<br>
+<a href="{% url 'home:home' %}">home</a>
+<a href="{% url 'home:blog' %}">blog</a>
+</body>
