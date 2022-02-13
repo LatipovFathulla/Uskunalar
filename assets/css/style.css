@@ -124,7 +124,7 @@ p {
 
 
 .slide-burger {
-  background: url(.static/images/background.svg);
+  background: url(/static/images/background.svg);
   height: 100%;
   background-repeat: no-repeat;
   background-origin: content-box;
@@ -625,7 +625,7 @@ p {
 
 
 .back_elements {
-  background: url(./static/images/backgorund-shadow.svg);
+  background: url(/static/images/backgorund-shadow.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1860,7 +1860,7 @@ nav .nav-ul li a span.rotate {
   position: absolute;
   width: 19px;
   height: 19px;
-  background-image: url(./static/images/squares_2.svg);
+  background-image: url(/static/images/squares_2.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -1868,7 +1868,7 @@ nav .nav-ul li a span.rotate {
 }
 
 .hamburger-active .my_menu {
-  background-image: url(./static/images/close.svg);
+  background-image: url(/static/images/close.svg);
   transition: 2s ease left translate(7px, 7px);
   ;
 
@@ -2441,7 +2441,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .all {
-    background-image: url(./images/alls.png);
+    background-image: url(/images/alls.png);
     background-position: center;
     width: 100%;
     height: 355px;
@@ -2453,7 +2453,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .boys {
-    background-image: url(./images/boy.png);
+    background-image: url(/static/images/boy.png);
     background-position: center;
     width: 100%;
     height: 355px;
@@ -2465,7 +2465,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .girls {
-    background-image: url(./images/girl.png);
+    background-image: url(/static/images/girl.png);
     background-position: center;
     width: 100%;
     height: 355px;
@@ -2573,7 +2573,7 @@ nav .nav-ul li a span.rotate {
 
   /* banner */
   .banner {
-    background-image: url(./images/phone_mobile.svg);
+    background-image: url(/static/images/phone_mobile.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -2583,7 +2583,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .banner2 {
-    background-image: url(./images/phone_mobile.svg);
+    background-image: url(/static/images/phone_mobile.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -3235,14 +3235,14 @@ nav .nav-ul li a span.rotate {
 
 
   .ded {
-    background-image: url(../static/images/ded.png);
+    background-image: url(/static/images/ded.png);
     width: 580px;
     height: 670px;
     border-radius: 6px;
   }
 
   .all {
-    background-image: url(./images/alls.png);
+    background-image: url(/static/images/alls.png);
     width: 170px;
     height: 210px;
     border-radius: 6px;
@@ -3250,7 +3250,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .boys {
-    background-image: url(./images/boy.png);
+    background-image: url(/static/images/boy.png);
     width: 170px;
     height: 210px;
     border-radius: 6px;
@@ -3258,7 +3258,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .girls {
-    background-image: url(./images/girl.png);
+    background-image: url(/static/images/girl.png);
     width: 170px;
     height: 210px;
     border-radius: 6px;
@@ -3337,7 +3337,7 @@ nav .nav-ul li a span.rotate {
 
   /* banner */
   .banner {
-    background-image: url(./images/desk_back.svg);
+    background-image: url(/static/images/desk_back.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -3387,7 +3387,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .banner2 {
-    background-image: url(./images/desk_back.svg);
+    background-image: url(/static/images/desk_back.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -3686,7 +3686,7 @@ nav .nav-ul li a span.rotate {
 
 .parallax {
   /* The image used */
-  background-image: url("./images/all.jpg");
+  background-image: url("/static/images/all.jpg");
 
   /* Set a specific height */
   min-height: 400px;
