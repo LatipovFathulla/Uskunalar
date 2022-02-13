@@ -1,3 +1,4 @@
+{%  load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About us</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="./splide.min.css">
+  <link rel="stylesheet" href="{% static 'css/splide.min.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -16,7 +17,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel='stylesheet' href='https://mverissimo.github.io/tweenslideshow/dist/assets/stylesheet/application.min.css'>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
@@ -38,7 +39,7 @@
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <li class="nav-item">
-          <a class="nav-link-2" href="#"> <img src="./images/search_product.svg" class="not-found" alt=""> Не нашли
+          <a class="nav-link-2" href="#"> <img src="{% static './images/search_product.svg' %}" class="not-found" alt=""> Не нашли
             товар?</a>
         </li>
         <ul class="navbar-nav mr-auto">
@@ -67,14 +68,14 @@
   <!-- mobile menu -->
   <nav class="container navbar navbar-expand-lg navbar-light bg-white" style="width: 100%;background-color: red;">
     <ul class="navbar-nav">
-      <a href="./index.html"><img src="./images/logo.png" class="logo_image" alt=""></a>
+      <a href="./index.html"><img src="{% static './images/logo.png' %}" class="logo_image" alt=""></a>
       <a href="./wishlist.html">
-        <img src="./images/like.svg" class="like-mobile" alt="">
+        <img src="{% static './images/like.svg' %}" class="like-mobile" alt="">
         <span class="like_radius_mobile">
           <p class="like_count">5</p>
         </span>
       </a>
-      <img src="./images/search.svg" class="search-mobile" alt="">
+      <img src="{% static './images/search.svg' %}" class="search-mobile" alt="">
       <div class="hamburger-wrapper">
         <div class="hamburger">
           <div class="my_menu">
@@ -83,14 +84,14 @@
         </div>
         <div class="hamburger-menu">
           <ul class="main-links">
-            <img src="./images/logo.png" class="logo_image2" alt="">
+            <img src="{% static './images/logo.png' %}" class="logo_image2" alt="">
             <li class="delay02"><a href="./catalog.html">Каталог</a></li>
             <li class="delay03"><a href="./our_works.html">Наши работы</a></li>
             <li class="delay04"><a href="./videos.html">Наши видео</a></li>
             <li class="delay05"><a href="./blog.html">Наши статьи</a></li>
             <li class="delay06"><a href="./about.html">О нас</a></li>
             <li class="delay07"><a href="./contacts.html">Контакты</a></li>
-            <li class="delay08"><a href="./not_found_product.html"><img src="./images/search_product.svg" class="not-found" alt=""> Не нашли
+            <li class="delay08"><a href="./not_found_product.html"><img src="{% static './images/search_product.svg' %}" class="not-found" alt=""> Не нашли
                 товар?</a></li>
             <li class="delay09"><a href="tel:+998 71 250 77 77">
                 <p style="color: #000;font-weight: bold;">+998 71 250 77 77</p>
@@ -105,7 +106,7 @@
       <div class="btn1 nav-drop-menu" style="box-shadow: none;padding: 10px;text-align: center;padding-top: -9%;">
         <div class="elemet-menu">
           <span class="fas fa-th-large1" style="width:146px;height: 53px;background-color: #FFE700;line-height: 39px;">
-            <img src="./images/squares_2.svg" alt=""> <b
+            <img src="{% static './images/squares_2.svg' %}" alt=""> <b
               style="color: #132E6B;padding: 0px;font-size: 18px;font-weight: 500;font-style: normal;font-family: 'TT Norms';text-align: center;margin-left:3%;">Каталог</b>
           </span>
         </div>
@@ -118,45 +119,45 @@
         <div class="minimalist-tab-menu2">
           <ul class="list-group2">
             <li class="menu-item2 has-child3">
-              <img src="./images/pishevaya.svg" style="margin-top: 0%;" alt=""><span
+              <img src="{% static './images/pishevaya.svg' %}" style="margin-top: 0%;" alt=""><span
                 style="margin-top: 0%;position: absolute;font-size: 13px;font-weight: normal;font-style: normal;">Пищевая
                 промышленностьяяя</span>
             </li>
             <li class="menu-item2 has-child2">
-              <img src="./images/pishevaya_2.svg" style="margin-top: 5%;" alt=""><span
+              <img src="{% static './images/pishevaya_2.svg' %}" style="margin-top: 5%;" alt=""><span
                 style="margin-top: 0%;position: absolute;font-size: 13px;margin-left: -2.5%;font-weight: normal;font-style: normal;">Пищевая
                 промышленность</span>
             </li>
             <li class="menu-item2 has-child2">
-              <img src="./images/memak_2.svg" style="margin-top: 5%;" alt=""><span
+              <img src="{% static './images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
                 style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: normal;font-style: normal;">Мемас</span>
             </li>
             <li class="menu-item2 has-child2">
-              <img src="./images/pishevaya5.png" style="margin-top: 3%;" alt=""><span
+              <img src="{% static './images/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
                 style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Строительная
                 промышленность</span>
             </li>
             <li class="menu-item2 has-child2">
-              <img src="./images/pishevaya4.svg" style="margin-top: 5%;" alt=""><span
+              <img src="{% static './images/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
                 style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
                 промышленность</span>
             </li>
             <li class="menu-item2 has-child2">
-              <img src="./images/memak_2.svg" style="margin-top: 5%;" alt=""><span
+              <img src="{% static './images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
                 style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: normal;font-style: normal;">Мемас</span>
             </li>
             <li class="menu-item2 has-child2">
-              <img src="./images/pishevaya5.png" style="margin-top: 3%;" alt=""><span
+              <img src="{% static './images/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
                 style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Строительная
                 промышленность</span>
             </li>
             <li class="menu-item2 has-child2">
-              <img src="./images/pishevaya4.svg" style="margin-top: 5%;" alt=""><span
+              <img src="{% static './images/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
                 style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
                 промышленность</span>
             </li>
             <li class="menu-item2 has-child2">
-              <img src="./images/squares_2.svg" style="margin-top: 5%;" alt=""><span
+              <img src="{% static './images/squares_2.svg' %}" style="margin-top: 5%;" alt=""><span
                 style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2.9%;font-weight: normal;font-style: normal;">Все
                 категории</span>
             </li>
@@ -173,15 +174,15 @@
         <form action="">
           <input class="form-control" placeholder="Поиск" style="width: 516px;height: 53px;margin-top: 3px;" type="name">
         <a href="" type="sumbit">
-          <img src="./images/search.svg" class="search_icon" alt="">
+          <img src="{% static './images/search.svg' %}" class="search_icon" alt="">
         </a>
-        </form> 
+        </form>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item-like">
               <a href="./wishlist.html">
-              <img src="./images/like.svg" class="like_icon" alt="">
+              <img src="{% static './images/like.svg' %}" class="like_icon" alt="">
               </a>
               <a href="./wishlist.html">
                 <span class="like_radius">
@@ -189,7 +190,7 @@
                 </span>
               </a>
             </li>
-          
+
           <li class="nav-item">
             <a class="nav-link" href="tel:+99871 250 77 77" style="color: #000;padding: 0px;margin: 0px;"><span class="phone_link">+998 71
                 250 77 77</span></a>
@@ -216,16 +217,16 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="menu-dropdown2 has-promotion2">
-                      <div class="dropdown-item2"><a href="#"><img src="./images/pishevaya.svg">
+                      <div class="dropdown-item2"><a href="#"><img src="{% static './images/pishevaya.svg' %}">
                           <div>
                             Пицца</div>
                         </a></div>
-                      <div class="dropdown-item2 "><a href=""><img src="./images/muzlatgich.jpeg">
+                      <div class="dropdown-item2 "><a href=""><img src="{% static './images/muzlatgich.jpeg' %}">
                           <div
                             style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
                             Музкаймок ишлаб чикариш</div>
                         </a></div>
-                      <div class="dropdown-item2 "><a href=""><img src="./images/pishevaya4.svg">
+                      <div class="dropdown-item2 "><a href=""><img src="{% static './images/pishevaya4.svg' %}">
                           <div
                             style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
                             Музлаткичлар</div>
@@ -255,7 +256,7 @@
                       <p>Пищевая промышленность</p>
                       <a href="#">
                         <div class="box-img2" style="width: 250px;height: 250px;margin-left: -30%;"><img
-                            src="./images/memak.svg">
+                            src="{% static './images/memak.svg' %}">
                         </div>
                       </a>
                     </div>
@@ -798,7 +799,7 @@
       <h1 class="banner-text">О нашей компании</h1>
       <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">О нас</a></span></p>
 
-      <img src="./images/backgorund-shadow.svg" style="margin-top: -30%;margin-left: -60%;" alt="">
+      <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
 
   </section>
@@ -807,7 +808,7 @@
   <br>
   <br>
 <div class="container about-mobile-drop">
-  <img src="./images/settings.svg" class="icon-right-11" style="position: absolute;margin-top: -15%;width: 60px;" alt="">
+  <img src="{% static './images/settings.svg' %}" class="icon-right-11" style="position: absolute;margin-top: -15%;width: 60px;" alt="">
   <div class="sidebar-categories">
     <ul id="accordion4_1" class="accordion">
 
@@ -860,12 +861,12 @@
           <hr class="hr-menu">
           <button class="tablinks" onclick="openCity(event, 'Tokyo-tn')">Что означает код ТН ВЭД?</button>
           <hr class="hr-menu">
-          <img src="./images/Group_417.svg" class="icon-right" style="left: -7%;margin: 10px;transform: rotate(-29deg)" alt="">
+          <img src="{% static './images/Group_417.svg' %}" class="icon-right" style="left: -7%;margin: 10px;transform: rotate(-29deg)" alt="">
         </div>
       </div>
       <br>
-      <img src="./images/settings.svg" class="icon-right" style="margin-top: -1.8%;right: 15%;" alt="">
-      
+      <img src="{% static './images/settings.svg' %}" class="icon-right" style="margin-top: -1.8%;right: 15%;" alt="">
+
       <div class="col-md-9">
         <div id="London" class="tabcontent">
           <h1 style="font-size: 25px;">Ассалому алайкум !!!</h1>
@@ -880,16 +881,16 @@
 
           <div class="row">
             <div class="col-md-4">
-              <img src="./images/first.png" class="img-fluid" style="border-radius:15px;margin: 10px 0px;" alt="">
+              <img src="{% static './images/first.png' %}" class="img-fluid" style="border-radius:15px;margin: 10px 0px;" alt="">
             </div>
             <div class="col-md-4">
-              <img src="./images/12aa.png" class="img-fluid" style="    border-radius: 15px;
+              <img src="{% static './images/12aa.png' %}" class="img-fluid" style="    border-radius: 15px;
               margin: auto;
               display: table;
               margin-top: 10px;" alt="">
             </div>
             <div class="col-md-4">
-              <img src="./images/third.png" class="img-fluid" style="border-radius:15px;margin: 10px 0px;" alt="">
+              <img src="{% static './images/third.png' %}" class="img-fluid" style="border-radius:15px;margin: 10px 0px;" alt="">
             </div>
           </div>
 
@@ -987,7 +988,7 @@
     <!-- TABS PRESENTATION // -->
   </div>
   <!-- form -->
-  <img src="./images/Group_417.svg" class="icon-right-transform2" style="right:20%" alt="">
+  <img src="{% static './images/Group_417.svg' %}" class="icon-right-transform2" style="right:20%" alt="">
   <div class="container mt-5">
     <div class="form">
       <h3 class="text-center form-us">Обратная связь с нами</h3>
@@ -1029,7 +1030,7 @@
     </div>
 
   </div>
-  <img src="./images/settings.svg" class="icon-left-absolute"
+  <img src="{% static './images/settings.svg' %}" class="icon-left-absolute"
     style="margin-top: -3%;margin-left: 3%;z-index: 0;position: absolute;" alt="">
 
   <!-- end form -->
@@ -1052,7 +1053,7 @@
                     placeholder="Введите свой email">
                 </div>
                 <div class="col-md-3">
-                  <button class="btn send-email"><img src="./images/send.svg" style="position: absolute;
+                  <button class="btn send-email"><img src="{% static './images/send.svg' %}" style="position: absolute;
     left: 12px;
     top: 13px;" alt=""></button>
                 </div>
@@ -1089,12 +1090,12 @@
           <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="widget no-box">
               <h5 class="widget-title">Контакты<span></span></h5>
-              <p class="widget-number"> <img src="./images/map1.png" style="width: 25px;height: 25px;" alt=""> Тошкент
+              <p class="widget-number"> <img src="{% static './images/map1.png' %}" style="width: 25px;height: 25px;" alt=""> Тошкент
                 шаҳри, Сирғали тумани, Катта олмос 1-тор кўчаси 9а-уй.</p>
               <a href="tel:+998 71 250 77 77">
-                <p class="widget-number"> <img src="./images/phone.svg" alt=""> +998 71 250 77 77</p>
+                <p class="widget-number"> <img src="{% static './images/phone.svg' %}" alt=""> +998 71 250 77 77</p>
               </a>
-              <p class="widget-number"> <img src="./images/clock.svg" alt=""> c 9:00 до 18:00 ежедневно</p>
+              <p class="widget-number"> <img src="{% static './images/clock.svg' %}" alt=""> c 9:00 до 18:00 ежедневно</p>
             </div>
           </div>
 
@@ -1103,11 +1104,11 @@
             <div class="widget no-box">
               <h5 class="widget-title">Соц.сети<span></span></h5>
               <a href="">
-                <p class="widget-number"> <img src="./images/facebook.svg" style="width: 25px;" alt=""> <span
+                <p class="widget-number"> <img src="{% static './images/facebook.svg' %}" style="width: 25px;" alt=""> <span
                     style="margin-left: 2%;position: absolute;">Facebook</span> </p>
               </a>
               <a href="">
-                <p class="widget-number"> <img src="./images/instagram.svg" style="width: 25px;" alt=""> <span
+                <p class="widget-number"> <img src="{% static './images/instagram.svg' %}" style="width: 25px;" alt=""> <span
                     style="margin-left: 2%;position: absolute;">Instasgram</span> </p>
               </a>
               <a href="">
@@ -1140,7 +1141,7 @@
 </body>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="./splide.min.js"></script>
+<script src={% static 'js/splide.min.js' %}></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
 <script src='https://mverissimo.github.io/tweenslideshow/dist/assets/javascript/script.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
@@ -1152,7 +1153,7 @@
   integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
 <script src='https://kenwheeler.github.io/slick/slick/slick.js'></script>
 <script src='https://s3.amazonaws.com/dimsemenov-static/dist/jquery.magnific-popup.min.js'></script>
-<script src="./main.js"></script>
+<script src="{% static 'js/main.js' %}"></script>
 <script> 
   console.clear();
 

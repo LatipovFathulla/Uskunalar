@@ -5,7 +5,7 @@ from about.models import AboutModel
 
 
 class AboutModelListView(ListView):
-    template_name = 'about2.html'
+    template_name = 'about.html'
     context_object_name = 'abouts'
 
     def get_queryset(self):

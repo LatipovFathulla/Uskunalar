@@ -36,7 +36,7 @@
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <li class="nav-item">
-          <a class="nav-link-2" href="#"> <img src="{% static './img/search_product.svg' %}" class="not-found" alt=""> Не нашли
+          <a class="nav-link-2" href="#"> <img src="{% static './images/search_product.svg' %}" class="not-found" alt=""> Не нашли
             товар?</a>
         </li>
         <ul class="navbar-nav mr-auto">
@@ -50,7 +50,7 @@
             <a class="nav-link" href="./videos.html">Наши видео</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./about.html">О нас</a>
+            <a class="nav-link" href="{% url 'home:about' %}">О нас</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./contacts.html">Контакты</a>
@@ -65,14 +65,14 @@
   <!-- mobile menu -->
   <nav class="container navbar navbar-expand-lg navbar-light bg-white" style="width: 100%;background-color: red;">
     <ul class="navbar-nav">
-      <a href="./index.html"><img src="{% static './img/logo.png' %}" class="logo_image" alt=""></a>
+      <a href="./index.html"><img src="{% static './images/logo.png' %}" class="logo_image" alt=""></a>
       <a href="./wishlist.html">
-        <img src="{% static 'img/like.svg' %}" class="like-mobile" alt="">
+        <img src="{% static 'images/like.svg' %}" class="like-mobile" alt="">
         <span class="like_radius_mobile">
           <p class="like_count">5</p>
         </span>
       </a>
-      <img src="{% static 'img/' %}search.svg" class="search-mobile" alt="">
+      <img src="{% static 'images/' %}search.svg" class="search-mobile" alt="">
       <div class="hamburger-wrapper">
         <div class="hamburger">
           <div class="my_menu">
@@ -81,14 +81,14 @@
         </div>
         <div class="hamburger-menu">
           <ul class="main-links">
-            <img src="{% static 'img/logo.png' %}" class="logo_image2" alt="">
+            <img src="{% static 'images/logo.png' %}" class="logo_image2" alt="">
             <li class="delay02"><a href="./catalog.html">Каталог</a></li>
             <li class="delay03"><a href="./our_works.html">Наши работы</a></li>
             <li class="delay04"><a href="./videos.html">Наши видео</a></li>
             <li class="delay05"><a href="./blog.html">Наши статьи</a></li>
             <li class="delay06"><a href="./about.html">О нас</a></li>
             <li class="delay07"><a href="./contacts.html">Контакты</a></li>
-            <li class="delay08"><a href="./not_found_product.html"><img src="{% static 'img/search_product.svg' %}" class="not-found" alt=""> Не нашли
+            <li class="delay08"><a href="./not_found_product.html"><img src="{% static 'images/search_product.svg' %}" class="not-found" alt=""> Не нашли
                 товар?</a></li>
             <li class="delay09"><a href="tel:+998 71 250 77 77">
                 <p style="color: #000;font-weight: bold;">+998 71 250 77 77</p>
@@ -125,7 +125,7 @@
           top: 10px;
           left: 26%;" type="name">
         <a href="" type="sumbit">
-          <img src="{% static 'img/search.svg' %}" class="search_icon" alt="">
+          <img src="{% static 'images/search.svg' %}" class="search_icon" alt="">
         </a>
         </form> 
       </ul>
@@ -133,7 +133,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item-like">
               <a href="./wishlist.html">
-              <img src="{% static 'img/like.svg' %}" class="like_icon" alt="">
+              <img src="{% static 'images/like.svg' %}" class="like_icon" alt="">
               </a>
               <a href="./wishlist.html">
                 <span class="like_radius">
@@ -162,64 +162,64 @@
           <div class="minimalist-tab-menu2">
             <ul class="list-group2">
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/pishevaya.svg' %}" style="margin-top: 5%;" alt=""><span
+                <img src="{% static 'images/pishevaya.svg' %}" style="margin-top: 5%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size: 13px;margin-left: -2.5%;font-weight: normal;font-style: normal;">Пищевая
                   промышленность</span>
               </li>
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/pishevaya_2.svg' %}" style="margin-top: 5%;" alt=""><span
+                <img src="{% static 'images/pishevaya_2.svg' %}" style="margin-top: 5%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size: 13px;margin-left: -2.5%;font-weight: normal;font-style: normal;">Пищевая
                   промышленность</span>
               </li>
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
+                <img src="{% static 'images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: normal;font-style: normal;">Мемас</span>
               </li>
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
+                <img src="{% static 'images/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Строительная
                   промышленность</span>
               </li>
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
+                <img src="{% static 'images/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
                   промышленность</span>
               </li>
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
+                <img src="{% static 'images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: normal;font-style: normal;">Мемас</span>
               </li>
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
+                <img src="{% static 'images/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Строительная
                   промышленность</span>
               </li>
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
+                <img src="{% static 'images/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
                   промышленность</span>
               </li>
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
+                <img src="{% static 'images/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
                   промышленность</span>
               </li>
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
+                <img src="{% static 'images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: normal;font-style: normal;">Мемас</span>
               </li>
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
+                <img src="{% static 'images/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Строительная
                   промышленность</span>
               </li>
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
+                <img src="{% static 'images/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
                   промышленность</span>
               </li>
               <li class="menu-item2 has-child2">
-                <img src="{% static 'img/squares_2.svg' %}" style="margin-top: 5%;" alt=""><span
+                <img src="{% static 'images/squares_2.svg' %}" style="margin-top: 5%;" alt=""><span
                   style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2.9%;font-weight: normal;font-style: normal;">Все
                   категории</span>
               </li>
@@ -282,7 +282,7 @@
                       <div class="blog-yellow-2">
                         
                       </div>
-                        <img src="{% static 'img/' %}memak.svg" style="width: 427px;height: 477px;position: relative;z-index: 2;" alt="">
+                        <img src="{% static 'images/memak.svg' %}" style="width: 427px;height: 477px;position: relative;z-index: 2;" alt="">
                         </a>
                         <div class="blog-yellow-3">
                         
@@ -831,7 +831,7 @@
                         </button></li>
                     </ul>
                   </div>
-                  <div class="column"><img src="{% static 'img/' %}carousel1.svg" id="image-carousel" class="image burger"></div>
+                  <div class="column"><img src="{% static 'images/carousel1.svg' %}" id="image-carousel" class="image burger"></div>
                 </div>
               </div>
               <div class="slider__item slide-astronaut">
@@ -840,7 +840,7 @@
                     <h1 class="title" style="color: #fff;">lost</h1>
                     <h1 class="title" style="color: #fff;">in space</h1>
                   </div>
-                  <div class="column"><img src="{% static 'img/' %}carousel1.svg" class="image astronaut"></div>
+                  <div class="column"><img src="{% static 'images/carousel1.svg' %}" class="image astronaut"></div>
                 </div>
               </div>
               <div class="slider__item slide-coffee">
@@ -849,7 +849,7 @@
                     <h1 class="title" style="color: #fff;">I Love</h1>
                     <h1 class="title" style="color: #fff;">Coffee</h1>
                   </div>
-                  <div class="column"><img src="{% static 'img/' %}carousel1.svg" class="image cup"></div>
+                  <div class="column"><img src="{% static 'images/carousel1.svg' %}" class="image cup"></div>
                 </div>
               </div>
             </div>
@@ -865,7 +865,7 @@
     <div class="back_elements">
 
     </div>
-    <img src="{% static 'img/' %}settings.svg" class="icon-right" alt="">
+    <img src="{% static 'images/settings.svg' %}" class="icon-right" alt="">
     <h1 class="text-center" style="font-weight: 600;font-size: 30px;padding: 20px;margin-top: 30px;">Производственииые
       линии</h1>
     <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
@@ -882,7 +882,7 @@
               <li class="splide__slide">
                 <div class="col-md-4">
                   <a href="">
-                    <img src="{% static 'img/' %}Rectangle 33.png" style="border-radius: 6px;" alt="">
+                    <img src="{% static 'images/Rectangle 33.png' %}" style="border-radius: 6px;" alt="">
                     <div class="shadow">
                       <hr class="shadow_hr">
                       <p class="shadow_text">Производство
@@ -893,7 +893,7 @@
               </li>
               <li class="splide__slide">
                 <div class="col-md-4">
-                  <img src="{% static 'img/' %}Rectangle 34.png" class="img-splide-1" alt="">
+                  <img src="{% static 'images/Rectangle 34.png' %}" class="img-splide-1" alt="">
                   <div class="shadow">
                     <hr class="shadow_hr">
                     <p class="shadow_text">Производство
@@ -902,7 +902,7 @@
                 </div>
               </li>
               <li class="splide__slide">
-                <img src="{% static 'img/' %}Rectangle 35.png" class="img-splide-2" alt="">
+                <img src="{% static 'images/Rectangle 35.png' %}" class="img-splide-2" alt="">
                 <div class="shadow2">
                   <hr class="shadow_hr">
                   <p class="shadow_text">Производство лапши быстрого приготовления</p>
@@ -910,7 +910,7 @@
               </li>
               <li class="splide__slide">
                 <div class="col-md-4">
-                  <img src="{% static 'img/' %}Rectangle 34_2.png" alt="">
+                  <img src="{% static 'images/Rectangle 34_2.png' %}" alt="">
                   <div class="shadow">
                     <hr class="shadow_hr">
                     <p class="shadow_text">Производство
@@ -927,7 +927,7 @@
     <div class="row lines-1">
       <div class="col-md-4">
         <a href="">
-          <img src="{% static 'img/' %}Rectangle 33.png" style="border-radius: 6px;" alt="">
+          <img src="{% static 'images/Rectangle 33.png' %}" style="border-radius: 6px;" alt="">
           <div class="shadow">
             <hr class="shadow_hr">
             <p class="shadow_text">Производство
@@ -936,20 +936,20 @@
         </a>
       </div>
       <div class="col-md-4">
-        <img src="{% static 'img/' %}Rectangle 34.png" alt="">
+        <img src="{% static 'images/Rectangle 34.png' %}" alt="">
         <div class="shadow">
           <hr class="shadow_hr">
           <p class="shadow_text">Производство
             утилизационных <br>контейнеров </p>
         </div>
-        <img src="{% static 'img/' %}Rectangle 35.png" alt="">
+        <img src="{% static 'images/Rectangle 35.png' %}" alt="">
         <div class="shadow2">
           <hr class="shadow_hr">
           <p class="shadow_text">Производство лапши быстрого приготовления</p>
         </div>
       </div>
       <div class="col-md-4">
-        <img src="{% static 'img/' %}Rectangle 34_2.png" alt="">
+        <img src="{% static 'images/Rectangle 34_2.png' %}" alt="">
         <div class="shadow">
           <hr class="shadow_hr">
           <p class="shadow_text">Производство
@@ -957,7 +957,7 @@
         </div>
       </div>
     </div>
-    <img src="{% static 'img/' %}Group_417.svg" class="icon-left" style="position: absolute;right: 4%;transform: rotate(-23.65deg);width: 70px;" alt="">
+    <img src="{% static 'images/Group_417.svg' %}" class="icon-left" style="position: absolute;right: 4%;transform: rotate(-23.65deg);width: 70px;" alt="">
   </div>
 
 
@@ -981,22 +981,22 @@
         <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
         <div class="row" style="margin-top: 6%;text-align: center;">
           <div class="col-md-3 col-6 number_icons">
-            <img src="{% static 'img/' %}box_1.svg" style="margin-top: -50%;" alt="">
+            <img src="{% static 'images/box_1.svg' %}" style="margin-top: -50%;" alt="">
             <h3 class="dark-number">980+</h3>
             <p class="number-desc">Продано</p>
           </div>
           <div class="col-md-3 col-6 number_icons">
-            <img src="{% static 'img/' %}man-user_1.svg" style="margin-top: -50%;" alt="">
+            <img src="{% static 'images/man-user_1.svg' %}" style="margin-top: -50%;" alt="">
             <h3 class="dark-number">650+</h3>
             <p class="number-desc">Постоянных клиентов</p>
           </div>
           <div class="col-md-3 col-6 number_icons">
-            <img src="{% static 'img/' %}project_1.svg" style="margin-top: -50%;" alt="">
+            <img src="{% static 'images/project_1.svg' %}" style="margin-top: -50%;" alt="">
             <h3 class="dark-number">999+</h3>
             <p class="number-desc">Реализация проектов</p>
           </div>
           <div class="col-md-3 col-6 number_icons">
-            <img src="{% static 'img/' %}group_1.svg" style="margin-top: -50%;" alt="">
+            <img src="{% static 'images/group_1.svg' %}" style="margin-top: -50%;" alt="">
             <h3 class="dark-number">599+</h3>
             <p class="number-desc">Сотрудников</p>
           </div>
@@ -1012,7 +1012,7 @@
     <div class="back_elements">
 
     </div>
-    <img src="{% static 'img/' %}Group_418.svg" class="icon-right-transform" style="position: absolute;" alt="">
+    <img src="{% static 'images/Group_418.svg' %}" class="icon-right-transform" style="position: absolute;" alt="">
     <h1 class="text-center catalog-uskuna">
       Каталог Uskunalar</h1>
     <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
@@ -1034,113 +1034,113 @@
           <div>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}ovqat1.svg" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/ovqat1.svg' %}" alt="">
             </div>
             <h3></h3>
             <div class="box">
               <p>Строительная промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}stroitel2.svg" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/stroitel2.svg' %}" alt="">
             </div>
           </div>
           <div>
             <div>
               <div class="box">
                 <p>Пищевая промышленность</p>
-                <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}ovqat2.svg" alt="">
+                <img class="img-fluid float-right mt-3"  src="{% static 'images/ovqat2.svg' %}" alt="">
               </div>
               <h3></h3>
               <div class="box">
                 <p>Пластиковая промышленнaость</p>
-                <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}plastik.svg" alt="">
+                <img class="img-fluid float-right mt-3"  src="{% static 'images/plastik.svg' %}" alt="">
               </div>
             </div>
           </div>
           <div>
             <div class="box">
               <p>Мемас</p>
-              <img class="img-fluid float-right memac-carousel"  src="{% static 'img/' %}memac22.svg" alt="">
+              <img class="img-fluid float-right memac-carousel"  src="{% static 'images/memac22.svg' %}" alt="">
             </div>
             <h3></h3>
             <div class="box">
               <p>Полиэтиленовая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}politelin.svg" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/politelin.svg' %}" alt="">
             </div>
           </div>
           <div>
             <div class="box">
               <p>Производство мебели и обработка древесины</p>
-              <img class="img-fluid float-right mt-3 mebel-carousel"  src="{% static 'img/' %}drevesina.svg" alt="">
+              <img class="img-fluid float-right mt-3 mebel-carousel"  src="{% static 'images/drevesina.svg' %}" alt="">
             </div>
             <h3></h3>
             <div class="box">
               <p>Упаковочное оборудования</p>
-              <img class="img-fluid float-right mt-3" src="{% static 'img/' %}upakovka.svg" alt="">
+              <img class="img-fluid float-right mt-3" src="{% static 'images/upakovka.svg' %}" alt="">
             </div>
           </div>
           <div>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}pishevaya.png" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/pishevaya.png' %}" alt="">
             </div>
             <h3></h3>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}pishevaya.png" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/pishevaya.png' %}" alt="">
             </div>
           </div>
           <div>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}pishevaya.png" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/pishevaya.png' %}" alt="">
             </div>
             <h3></h3>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}pishevaya.png" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/pishevaya.png' %}" alt="">
             </div>
           </div>
           <div>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}pishevaya.png" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/pishevaya.png' %}" alt="">
             </div>
             <h3></h3>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}pishevaya.png" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/pishevaya.png' %}" alt="">
             </div>
           </div>
           <div>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}pishevaya.png" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/pishevaya.png' %}" alt="">
             </div>
             <h3></h3>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}pishevaya.png" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/pishevaya.png' %}" alt="">
             </div>
           </div>
           <div>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}pishevaya.png" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/pishevaya.png' %}" alt="">
             </div>
             <h3></h3>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}pishevaya.png" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/pishevaya.png' %}" alt="">
             </div>
           </div>
           <div>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}pishevaya.png" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/' %}pishevaya.png" alt="">
             </div>
             <h3></h3>
             <div class="box">
               <p>Пищевая промышленность</p>
-              <img class="img-fluid float-right mt-3"  src="{% static 'img/' %}pishevaya.png" alt="">
+              <img class="img-fluid float-right mt-3"  src="{% static 'images/' %}pishevaya.png" alt="">
             </div>
           </div>
 
@@ -1164,7 +1164,7 @@
     <div class="back_elements">
 
     </div>
-    <img src="{% static 'img/' %}Group_419.svg" class="icon-left-transform " alt="">
+    <img src="{% static 'images/Group_419.svg' %}" class="icon-left-transform " alt="">
     <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
       Популярные товары</h1>
     <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
@@ -1194,12 +1194,12 @@
                       <div class="card-front bg-violet">
                         <a href="#" class="card-link"><button class="btn"
                             style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                              src="{% static 'img/' %}like.svg" style="margin-top: 7px;" alt=""></button></a>
+                              src="{% static 'images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                         <a href="#" class="card-link"><button class="btn"
                             style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                             <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                           </button></a>
-                        <img src="{% static 'img/' %}stanok.png"
+                        <img src="{% static 'images/stanok.png' %}"
                           style="width: 281px;height: 300px;display: table;margin: auto;" alt="">
                         <div class="card-text"
                           style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
@@ -1234,12 +1234,12 @@
                       <div class="card-front bg-violet">
                         <a href="#" class="card-link"><button class="btn"
                             style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                              src="{% static 'img/' %}like.svg" style="margin-top: 7px;" alt=""></button></a>
+                              src="{% static 'images/' %}like.svg" style="margin-top: 7px;" alt=""></button></a>
                         <a href="#" class="card-link"><button class="btn"
                             style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                             <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                           </button></a>
-                        <img src="{% static 'img/' %}stanok.png"
+                        <img src="{% static 'images/stanok.png' %}"
                           style="width: 281px;height: 300px;display: table;margin: auto;" alt="">
                         <div class="card-text"
                           style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
@@ -1274,12 +1274,12 @@
                       <div class="card-front bg-violet">
                         <a href="#" class="card-link"><button class="btn"
                             style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                              src="{% static 'img/' %}like.svg" style="margin-top: 7px;" alt=""></button></a>
+                              src="{% static 'images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                         <a href="#" class="card-link"><button class="btn"
                             style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                             <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                           </button></a>
-                        <img src="{% static 'img/' %}stanok.png"
+                        <img src="{% static 'images/stanok.png' %}"
                           style="width: 281px;height: 300px;display: table;margin: auto;" alt="">
                         <div class="card-text"
                           style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
@@ -1313,13 +1313,12 @@
                     <a href="#">
                       <div class="card-front bg-violet">
                         <a href="#" class="card-link"><button class="btn"
-                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                              src="{% static 'img/' %}like.svg" style="margin-top: 7px;" alt=""></button></a>
+                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img src="{% static 'images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                         <a href="#" class="card-link"><button class="btn"
                             style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                             <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                           </button></a>
-                        <img src="{% static 'img/' %}stanok.png"
+                        <img src="{% static 'images/stanok.png' %}"
                           style="width: 281px;height: 300px;display: table;margin: auto;" alt="">
                         <div class="card-text"
                           style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
@@ -1362,12 +1361,12 @@
                 <div class="card-front bg-violet">
                   <a href="#" class="card-link"><button class="btn"
                       style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                        src="{% static 'img/' %}like.svg" style="margin-top: 7px;" alt=""></button></a>
+                        src="{% static 'images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                   <a href="#" class="card-link"><button class="btn"
                       style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                       <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                     </button></a>
-                  <img src="{% static 'img/' %}stanok.png" style="width: 100%;height: auto;" alt="">
+                  <img src="{% static 'images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                   <div class="card-text">
                     <h4 class="front-title">Буровая установка БР 73212С</h4>
                     <p class="detail">Артикул: US</p>
@@ -1448,7 +1447,7 @@
                           <p style="font-size: 16px;">Заказать</p>
                         </button></li>
                     </ul>
-                    <a href="#" class="card-link"><button class="btn-like2"><img src="{% static 'img/' %}like.svg"
+                    <a href="#" class="card-link"><button class="btn-like2"><img src="{% static 'images/like.svg' %}"
                           alt=""></button></a>
                   </div>
                 </div>
@@ -1468,12 +1467,12 @@
                 <div class="card-front bg-violet">
                   <a href="#" class="card-link"><button class="btn"
                       style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                        src="{% static 'img/' %}like.svg" style="margin-top: 7px;" alt=""></button></a>
+                        src="{% static 'images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                   <a href="#" class="card-link"><button class="btn"
                       style="width: 48px;height: 48px;background-color: #2EC1AC;position: absolute;right: 70px;border-radius: 50px;">
                       <p style="margin-left:-52%;color: #fff;font-weight: normal;font-size: 16px;">NEW!</p>
                     </button></a>
-                  <img src="{% static 'img/' %}stanok.png" style="width: 100%;height: auto;" alt="">
+                  <img src="{% static 'images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                   <div class="card-text">
                     <h4 class="front-title">Буровая установка БР 73212С</h4>
                     <p class="detail">Артикул: US</p>
@@ -1554,7 +1553,7 @@
                           <p style="font-size: 16px;">Заказать</p>
                         </button></li>
                     </ul>
-                    <a href="#" class="card-link"><button class="btn-like2"><img src="{% static 'img/' %}like.svg"
+                    <a href="#" class="card-link"><button class="btn-like2"><img src="{% static 'images/like.svg' %}"
                           alt=""></button></a>
                   </div>
                 </div>
@@ -1573,12 +1572,12 @@
                 <div class="card-front bg-violet">
                   <a href="#" class="card-link"><button class="btn"
                       style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                        src="{% static 'img/' %}like.svg" style="margin-top: 7px;" alt=""></button></a>
+                        src="{% static 'images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                   <a href="#" class="card-link"><button class="btn"
                       style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                       <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                     </button></a>
-                  <img src="{% static 'img/' %}stanok.png" style="width: 100%;height: auto;" alt="">
+                  <img src="{% static 'images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                   <div class="card-text">
                     <h4 class="front-title">Буровая установка БР 73212С</h4>
                     <p class="detail">Артикул: US</p>
@@ -1659,7 +1658,7 @@
                           <p style="font-size: 16px;">Заказать</p>
                         </button></li>
                     </ul>
-                    <a href="#" class="card-link"><button class="btn-like2"><img src="{% static 'img/' %}like.svg"
+                    <a href="#" class="card-link"><button class="btn-like2"><img src="{% static 'images/like.svg' %}"
                           alt=""></button></a>
                   </div>
                 </div>
@@ -1678,12 +1677,12 @@
                 <div class="card-front bg-violet">
                   <a href="#" class="card-link"><button class="btn"
                       style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                        src="{% static 'img/' %}like.svg" style="margin-top: 7px;" alt=""></button></a>
+                        src="{% static 'images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                   <a href="#" class="card-link"><button class="btn"
                       style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                       <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                     </button></a>
-                  <img src="{% static 'img/' %}stanok.png" style="width: 100%;height: auto;" alt="">
+                  <img src="{% static 'images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                   <div class="card-text">
                     <h4 class="front-title">Буровая установка БР 73212С</h4>
                     <p class="detail">Артикул: US</p>
@@ -1764,7 +1763,7 @@
                           <p style="font-size: 16px;">Заказать</p>
                         </button></li>
                     </ul>
-                    <a href="#" class="card-link"><button class="btn-like2"><img src="{% static 'img/' %}like.svg"
+                    <a href="#" class="card-link"><button class="btn-like2"><img src="{% static 'images/like.svg' %}"
                           alt=""></button></a>
                   </div>
                 </div>
@@ -1781,7 +1780,7 @@
     <div class="back_elements">
 
     </div>
-    <img src="{% static 'img/' %}Group_417.svg" class="icon-right-transform2" alt="">
+    <img src="{% static 'images/Group_417.svg' %}" class="icon-right-transform2" alt="">
     <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
       Готовый бизнес</h1>
     <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
@@ -1891,7 +1890,7 @@
     <div class="back_elements">
 
     </div>
-    <img src="{% static 'img/' %}Group_418.svg" class="icon-left-transform2" alt="">
+    <img src="{% static 'images/Group_418.svg' %}" class="icon-left-transform2" alt="">
     <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
       Статьи и советы</h1>
     <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
@@ -1981,14 +1980,14 @@
             </div>
           </li>
           <li class="splide__slide">
-            <img src="{% static 'img/' %}carousel-1.png" style="width: 350px;border-radius: 6px;" alt="">
+            <img src="{% static 'images/carousel-1.png' %}" style="width: 350px;border-radius: 6px;" alt="">
             <div class="article">
               <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
               <p class="article-date">16 января 2020</p>
             </div>
           </li>
           <li class="splide__slide">
-            <img src="{% static 'img/' %}carousel-1.png" style="width: 350px;border-radius: 6px;" alt="">
+            <img src="{% static 'images/carousel-1.png' %}" style="width: 350px;border-radius: 6px;" alt="">
             <div class="article">
               <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
               <p class="article-date">16 января 2020</p>
@@ -2013,7 +2012,7 @@
     <div class="back_elements">
 
     </div>
-    <img src="{% static 'img/' %}settings.svg" class="icon-right-transform3" alt="">
+    <img src="{% static 'images/settings.svg' %}" class="icon-right-transform3" alt="">
     <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;">
       Наши работы</h1>
     <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также
@@ -2026,16 +2025,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <img src="{% static 'img/' %}video.png" style="margin-top: 20px;" alt="">
+        <img src="{% static 'images/video.png' %}" style="margin-top: 20px;" alt="">
       </div>
       <div class="col-md-3">
-        <img src="{% static 'img/' %}photo.png" style="margin: 20px auto;display: table;" alt="">
+        <img src="{% static 'images/photo.png' %}" style="margin: 20px auto;display: table;" alt="">
       </div>
       <div class="col-md-3">
-        <img src="{% static 'img/' %}photo2].png" style="margin: 20px auto;display: table;" alt="">
+        <img src="{% static 'images/photo2].png' %}" style="margin: 20px auto;display: table;" alt="">
       </div>
     </div>
-    <img src="{% static 'img/' %}Group_417.svg" class="icon-left-absolute" alt="">
+    <img src="{% static 'images/Group_417.svg' %}" class="icon-left-absolute" alt="">
     <div class="text-center">
       <ul>
         <li><button class="button-center button-bottom">
@@ -2050,7 +2049,7 @@
     <div class="back_elements">
 
     </div>
-    <img src="{% static 'img/' %}Group_418.svg" class="icon-right-transform2" alt="">
+    <img src="{% static 'images/Group_418.svg' %}" class="icon-right-transform2" alt="">
     <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
       Наши партнеры</h1>
     <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
@@ -2103,7 +2102,7 @@
                     placeholder="Введите свой email">
                 </div>
                 <div class="col-md-3">
-                  <button class="btn send-email"><img src="{% static 'img/' %}send.svg" style="position: absolute;
+                  <button class="btn send-email"><img src="{% static 'images/send.svg' %}" style="position: absolute;
     left: 12px;
     top: 13px;" alt=""></button>
                 </div>
@@ -2140,10 +2139,10 @@
           <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="widget no-box">
               <h5 class="widget-title">Контакты<span></span></h5>
-              <p class="widget-number"> <img src="{% static 'img/' %}map1.png" style="width: 25px;height: 25px;" alt=""> Тошкент
+              <p class="widget-number"> <img src="{% static 'images/map1.png' %}" style="width: 25px;height: 25px;" alt=""> Тошкент
                 шаҳри, Сирғали тумани, Катта олмос 1-тор кўчаси 9а-уй.</p>
-            <a href="tel:+998 71 250 77 77"> <p class="widget-number"> <img src="{% static 'img/' %}phone.svg" alt=""> +998 71 250 77 77</p></a> 
-              <p class="widget-number"> <img src="{% static 'img/' %}clock.svg" alt=""> c 9:00 до 18:00 ежедневно</p>
+            <a href="tel:+998 71 250 77 77"> <p class="widget-number"> <img src="{% static 'images/phone.svg' %}" alt=""> +998 71 250 77 77</p></a>
+              <p class="widget-number"> <img src="{% static 'images/clock.svg' %}" alt=""> c 9:00 до 18:00 ежедневно</p>
             </div>
           </div>
 
@@ -2151,8 +2150,8 @@
 
             <div class="widget no-box">
               <h5 class="widget-title">Соц.сети<span></span></h5>
-            <a href=""><p class="widget-number"> <img src="{% static 'img/' %}facebook.svg" style="width: 25px;"  alt=""> <span style="margin-left: 2%;position: absolute;">Facebook</span> </p></a>  
-            <a href=""> <p class="widget-number"> <img src="{% static 'img/' %}instagram.svg" style="width: 25px;" alt=""> <span style="margin-left: 2%;position: absolute;">Instasgram</span> </p></a> 
+            <a href=""><p class="widget-number"> <img src="{% static 'images/facebook.svg' %}" style="width: 25px;"  alt=""> <span style="margin-left: 2%;position: absolute;">Facebook</span> </p></a>
+            <a href=""> <p class="widget-number"> <img src="{% static 'images/instagram.svg' %}" style="width: 25px;" alt=""> <span style="margin-left: 2%;position: absolute;">Instasgram</span> </p></a>
             <a href=""><p class="widget-number"> <img src="https://img.icons8.com/color/29/000000/telegram-app--v1.png"/> <span style="margin-left: 2%;position: absolute;">Telegram</span> </p></a>  
             </div>
           </div>

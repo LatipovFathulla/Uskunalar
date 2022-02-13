@@ -124,7 +124,7 @@ p {
 
 
 .slide-burger {
-  background: url(./images/background.svg);
+  background: url(.static/images/background.svg);
   height: 100%;
   background-repeat: no-repeat;
   background-origin: content-box;
@@ -625,7 +625,7 @@ p {
 
 
 .back_elements {
-  background: url(./images/backgorund-shadow.svg);
+  background: url(./static/images/backgorund-shadow.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1860,7 +1860,7 @@ nav .nav-ul li a span.rotate {
   position: absolute;
   width: 19px;
   height: 19px;
-  background-image: url(./images/squares_2.svg);
+  background-image: url(./static/images/squares_2.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -1868,7 +1868,7 @@ nav .nav-ul li a span.rotate {
 }
 
 .hamburger-active .my_menu {
-  background-image: url(./images/close.svg);
+  background-image: url(./static/images/close.svg);
   transition: 2s ease left translate(7px, 7px);
   ;
 
@@ -2207,7 +2207,7 @@ nav .nav-ul li a span.rotate {
 
 
   .slide-burger {
-    background: url(./images/background.svg);
+    background: url(./static/img/background.svg);
     height: 50%;
     top: -50%;
   }
@@ -2240,7 +2240,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .back_elements {
-    background: url(./images/backgorund-shadow.svg);
+    background: url(/static/img/backgorund-shadow.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -2433,7 +2433,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .ded {
-    background-image: url(./images/ded.png);
+    background-image: url(/static/images/ded.png);
     background-position: center;
     width: 100%;
     height: 570px;
@@ -3235,7 +3235,7 @@ nav .nav-ul li a span.rotate {
 
 
   .ded {
-    background-image: url(./images/ded.png);
+    background-image: url(../static/images/ded.png);
     width: 580px;
     height: 670px;
     border-radius: 6px;
