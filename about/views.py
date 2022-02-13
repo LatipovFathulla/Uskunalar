@@ -35,3 +35,10 @@ class WishlistModelListView(ListView):
     def get_queryset(self):
         return BannerInfoModel.get_from_wishlist(self.request)
 
+
+class HomeView(TemplateView):
+    template_name = 'index.html'
+
+
+class CatalogView(TemplateView):
+    template_name = 'catalog.html'

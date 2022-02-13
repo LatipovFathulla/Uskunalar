@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 
 from works.models import WorkModel
 
@@ -11,3 +11,7 @@ class WorkModelListView(ListView):
         qs = WorkModel.objects.order_by('-pk')
 
         return qs
+
+
+class SingleWorkTemplateView(TemplateView):
+    template_name = 'single-work.html'

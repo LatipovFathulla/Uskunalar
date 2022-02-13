@@ -36,24 +36,24 @@
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <li class="nav-item">
-          <a class="nav-link-2" href="#"> <img src="{% static './images/search_product.svg' %}" class="not-found" alt=""> Не нашли
+          <a class="nav-link-2" href="{% url 'products:product' %}"> <img src="{% static './images/search_product.svg' %}" class="not-found" alt=""> Не нашли
             товар?</a>
         </li>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'home:about' %}" style="color: #202634;">Наши работы</a>
+            <a class="nav-link" href="{% url 'work:works' %}" style="color: #202634;">Наши работы</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'home:blog' %}">Статьи</a>
+            <a class="nav-link" href="{% url 'blog:blogs' %}">Статьи</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'home:about' %}">Наши видео</a>
+            <a class="nav-link" href="{% url 'home:videos' %}">Наши видео</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'home:about' %}">О нас</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./contacts.html">Контакты</a>
+            <a class="nav-link" href="{% url 'home:contacts' %}">Контакты</a>
           </li>
         </ul>
       </form>
@@ -82,7 +82,7 @@
         <div class="hamburger-menu">
           <ul class="main-links">
             <img src="{% static 'images/logo.png' %}" class="logo_image2" alt="">
-            <li class="delay02"><a href="./catalog.html">Каталог</a></li>
+            <li class="delay02"><a href="{% url 'home:catalog' %}">Каталог</a></li>
             <li class="delay03"><a href="./our_works.html">Наши работы</a></li>
             <li class="delay04"><a href="./videos.html">Наши видео</a></li>
             <li class="delay05"><a href="./blog.html">Наши статьи</a></li>

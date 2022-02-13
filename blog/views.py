@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 
 from blog.models import BlogModel
 
@@ -12,3 +12,6 @@ class BlogModelView(ListView):
         qs = BlogModel.objects.order_by('-pk')
 
         return qs
+
+class SingleBlogView(TemplateView):
+    template_name = 'single-blog.html'

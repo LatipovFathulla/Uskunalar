@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<!-- china leasing impex header and footer, number in header and social icons -->
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="./splide.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link rel='stylesheet' href='https://mverissimo.github.io/tweenslideshow/dist/assets/stylesheet/application.min.css'>
-  <link rel="stylesheet" href="./style.css">
-</head>
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
 
 <style>
   @media (max-width:950px) {
@@ -36,778 +18,6 @@
     }
   }
 </style>
-
-<body>
-  <!-- start navbar -->
-  <nav class="container navbar navbar-expand-lg navbar-light bg-white">
-    <ul id="accordion4" class="accordion4">
-      <li>
-        <div class="link">Русский<i class="fa fa-chevron-down"></i></div>
-        <ul class="submenu4">
-          <li><a href="#">Узбекский</a></li>
-          <hr class="mb-0 mt-0">
-          <li><a href="#">Английский</a></li>
-        </ul>
-      </li>
-    </ul>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <li class="nav-item">
-          <a class="nav-link-2" href="#"> <img src="./images/search_product.svg" class="not-found" alt=""> Не нашли
-            товар?</a>
-        </li>
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="./our_works.html" style="color: #202634;">Наши работы</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./blog.html">Статьи</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./videos.html">Наши видео</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./about.html">О нас</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./contacts.html">Контакты</a>
-          </li>
-        </ul>
-      </form>
-    </div>
-  </nav>
-  <div class="container">
-    <hr class="hr-top" style="margin-top: 0px;">
-  </div>
-  <!-- mobile menu -->
-  <nav class="container navbar navbar-expand-lg navbar-light bg-white" style="width: 100%;background-color: red;">
-    <ul class="navbar-nav">
-      <a href="./index.html"><img src="./images/logo.png" class="logo_image" alt=""></a>
-      <a href="./wishlist.html">
-        <img src="./images/like.svg" class="like-mobile" alt="">
-        <span class="like_radius_mobile">
-          <p class="like_count">5</p>
-        </span>
-      </a>
-      <img src="./images/search.svg" class="search-mobile" alt="">
-      <div class="hamburger-wrapper">
-        <div class="hamburger">
-          <div class="my_menu">
-
-          </div>
-        </div>
-        <div class="hamburger-menu">
-          <ul class="main-links">
-            <img src="./images/logo.png" class="logo_image2" alt="">
-            <li class="delay02"><a href="./catalog.html">Каталог</a></li>
-            <li class="delay03"><a href="./our_works.html">Наши работы</a></li>
-            <li class="delay04"><a href="./videos.html">Наши видео</a></li>
-            <li class="delay05"><a href="./blog.html">Наши статьи</a></li>
-            <li class="delay06"><a href="./about.html">О нас</a></li>
-            <li class="delay07"><a href="./contacts.html">Контакты</a></li>
-            <li class="delay08"><a href="./not_found_product.html"><img src="./images/search_product.svg" class="not-found" alt=""> Не нашли
-                товар?</a></li>
-            <li class="delay09"><a href="tel:+998 71 250 77 77">
-                <p style="color: #000;font-weight: bold;">+998 71 250 77 77</p>
-              </a></li>
-            <li class="delay08" style="margin-top: -7%"><a href="">
-                <p style="color: #FF0007;">заказать звонок</p>
-              </a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="btn1 nav-drop-menu" style="box-shadow: none;padding: 10px;text-align: center;padding-top: -9%;">
-        <div class="elemet-menu">
-          <span class="fas fa-th-large1" style="width:146px;height: 53px;background-color: #FFE700;line-height: 39px;">
-            <img src="./images/squares_2.svg" alt=""> <b
-              style="color: #132E6B;padding: 0px;font-size: 18px;font-weight: 500;font-style: normal;font-family: 'TT Norms';text-align: center;margin-left:3%;">Каталог</b>
-          </span>
-        </div>
-      </div>
-      <nav class="sidebar">
-        <div class="text">
-          Категории
-        </div>
-        <!-- menu in categories -->
-        <div class="minimalist-tab-menu2">
-          <ul class="list-group2">
-            <li class="menu-item2 has-child3">
-              <img src="./images/pishevaya.svg" style="margin-top: 0%;" alt=""><span
-                style="margin-top: 0%;position: absolute;font-size: 13px;font-weight: normal;font-style: normal;">Пищевая
-                промышленностьяяя</span>
-            </li>
-            <li class="menu-item2 has-child2">
-              <img src="./images/pishevaya_2.svg" style="margin-top: 5%;" alt=""><span
-                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left: -2.5%;font-weight: normal;font-style: normal;">Пищевая
-                промышленность</span>
-            </li>
-            <li class="menu-item2 has-child2">
-              <img src="./images/memak_2.svg" style="margin-top: 5%;" alt=""><span
-                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: normal;font-style: normal;">Мемас</span>
-            </li>
-            <li class="menu-item2 has-child2">
-              <img src="./images/pishevaya5.png" style="margin-top: 3%;" alt=""><span
-                style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Строительная
-                промышленность</span>
-            </li>
-            <li class="menu-item2 has-child2">
-              <img src="./images/pishevaya4.svg" style="margin-top: 5%;" alt=""><span
-                style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
-                промышленность</span>
-            </li>
-            <li class="menu-item2 has-child2">
-              <img src="./images/memak_2.svg" style="margin-top: 5%;" alt=""><span
-                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: normal;font-style: normal;">Мемас</span>
-            </li>
-            <li class="menu-item2 has-child2">
-              <img src="./images/pishevaya5.png" style="margin-top: 3%;" alt=""><span
-                style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Строительная
-                промышленность</span>
-            </li>
-            <li class="menu-item2 has-child2">
-              <img src="./images/pishevaya4.svg" style="margin-top: 5%;" alt=""><span
-                style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
-                промышленность</span>
-            </li>
-            <li class="menu-item2 has-child2">
-              <img src="./images/squares_2.svg" style="margin-top: 5%;" alt=""><span
-                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2.9%;font-weight: normal;font-style: normal;">Все
-                категории</span>
-            </li>
-          </ul>
-
-        </div>
-        <!-- end menu in categories -->
-      </nav>
-    </ul>
-
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <form action="">
-          <input class="form-control" placeholder="Поиск" style="width: 516px;height: 53px;margin-top: 3px;" type="name">
-        <a href="" type="sumbit">
-          <img src="./images/search.svg" class="search_icon" alt="">
-        </a>
-        </form> 
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item-like">
-              <a href="./wishlist.html">
-              <img src="./images/like.svg" class="like_icon" alt="">
-              </a>
-              <a href="./wishlist.html">
-                <span class="like_radius">
-                  <p class="like_count">5</p>
-                </span>
-              </a>
-            </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="tel:+99871 250 77 77" style="color: #000;padding: 0px;margin: 0px;"><span class="phone_link">+998 71
-                250 77 77</span></a>
-            <br>
-            <span class="call">заказать звонок </span>
-          </li>
-        </ul>
-      </form>
-    </div>
-    <!-- end navbar -->
-  </nav>
-  <!-- end mobile menu -->
-  <!-- start carousel -->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <nav class="minimalist-vertical-menu2">
-          <div class="minimalist-tab-menu2">
-
-          </div>
-          <div class="minimalist-tab2">
-            <div class="minimalist-tab-content2">
-              <div class="container-fluid" style="background-color: #fff;">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="menu-dropdown2 has-promotion2">
-                      <div class="dropdown-item2"><a href="#"><img src="./images/pishevaya.svg">
-                          <div>
-                            Пицца</div>
-                        </a></div>
-                      <div class="dropdown-item2 "><a href=""><img src="./images/muzlatgich.jpeg">
-                          <div
-                            style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                            Музкаймок ишлаб чикариш</div>
-                        </a></div>
-                      <div class="dropdown-item2 "><a href=""><img src="./images/pishevaya4.svg">
-                          <div
-                            style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                            Музлаткичлар</div>
-                        </a></div>
-                      <div class="dropdown-item2 "><a href=""><img
-                            src="https://uskunalar.uz/uploads/products/phpqEAkiw.jpg">
-                          <div
-                            style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                            Ошхона жихозлари</div>
-                        </a></div>
-                      <div class="dropdown-item2 "><a href=""><img
-                            src="https://uskunalar.uz/uploads/products/phpPPcivt.jpg">
-                          <div
-                            style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                            Ун тегирмони</div>
-                        </a></div>
-                      <div class="dropdown-item2 "><a href=""><img
-                            src="https://uskunalar.uz/uploads/products/phpPPcivt.jpg">
-                          <div
-                            style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                            Ун тегирмони2</div>
-                        </a></div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="promotion2">
-                      <p>Пищевая промышленность</p>
-                      <a href="#">
-                        <div class="box-img2" style="width: 250px;height: 250px;margin-left: -30%;"><img
-                            src="./images/memak.svg">
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-            <div class="minimalist-tab-content2">
-              <div class="menu-dropdown2">
-                <div class="dropdown-item2">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    isotônicos e energéticos</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    bebidas deффф soja</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    vinhos e espumantes</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    destilados e aperitivos</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    sucos e refrescos</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    águas</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    refrigerantes</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    cervejas</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    chás</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    polpa de fruta</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="minimalist-tab-content2">
-              <div class="menu-dropdown2">
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    ambientes</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    louças</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    lavanderia </div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    calçados</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    automóveis</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    inseticidas</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="minimalist-tab-content2">
-              <div class="menu-dropdown2">
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    infantil</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    íntima</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    facial</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    papel higiênico, lenços, etc</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    higiene bucal</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    corporal</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    cabelos</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="minimalist-tab-content2">
-              <div class="menu-dropdown2">
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    hambúrger e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    massas</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    empanados</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pratos prontos</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    vegetais e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    sorvetes e picolés</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pizzas e laффффsanhas</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="minimalist-tab-content2">
-              <div class="menu-dropdown2">
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    hambúrger e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    massas</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    empanados</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pratos prontos</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    vegetais e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    sorvetes e picolés</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pizzas e laффффsanhas</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="minimalist-tab-content2">
-              <div class="menu-dropdown2">
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    hambúrger e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    massas</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    empanados</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pratos prontos</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    vegetais e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    sorvetes e picolés</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pizzas e laффффsanhas</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="minimalist-tab-content2">
-              <div class="menu-dropdown2">
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    hambúrger e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    massas</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    empanados</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pratos prontos</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    vegetais e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    sorvetes e picolés</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pizzas e laффффsanhas</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="minimalist-tab-content2">
-              <div class="menu-dropdown2">
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    hambúrger e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    massas</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    empanados</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pratos prontos</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    vegetais e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    sorvetes e picolés</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pizzas e laффффsanhas</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="minimalist-tab-content2">
-              <div class="menu-dropdown2">
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    hambúrger e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    massas</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    empanados</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pratos prontos</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    vegetais e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    sorvetes e picolés</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pizzas e laффффsanhas</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="minimalist-tab-content2">
-              <div class="menu-dropdown2">
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    hambúrger e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    massas</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    empanados</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pratos prontos</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    vegetais e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    sorvetes e picolés</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pizzas e laффффsanhas</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="minimalist-tab-content2">
-              <div class="menu-dropdown2">
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    hambúrger e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    massas</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    empanados</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pratos prontos</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    vegetais e cia</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    sorvetes e picolés</div>
-                  </a>
-                </div>
-                <div class="dropdown-item2 ">
-                  <div
-                    style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;">
-                    pizzas e laффффsanhas</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </div>
-
-
   <section class="banner">
     <div class="container">
       <div class="row">
@@ -816,7 +26,7 @@
       <h1 class="banner-text">Каталог</h1>
       <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Каталог</a></span></p>
 
-      <img src="./images/backgorund-shadow.svg" style="margin-top: -30%;margin-left: -60%;" alt="">
+      <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
 
   </section>
@@ -824,7 +34,7 @@
   <br>
 
 
-  <img src="./images/settings.svg" class="icon-right" style="right: 15%;transform: rotate(20.33deg);" alt="">
+  <img src="{% static './images/settings.svg' %}" class="icon-right" style="right: 15%;transform: rotate(20.33deg);" alt="">
   <!-- filter -->
   <div class="container ">
     <ul id="accordion2" class="accordion" style="position:relative">
@@ -838,7 +48,7 @@
                   class="fa fa-chevron-down"></i></div>
               <ul class="submenu"
                 style="position: absolute;z-index: 99;width: 88%;margin-top: 12px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                <img src="./images/triangle.svg" style="overflow: hidden;" alt="">
+                <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
                 <li><a href="#">Арзондан бошлаб</a></li>
                 <li><a href="#">Кимматдан бошлаб</a></li>
                 <li><a href="#">Барчаси</a></li>
@@ -851,7 +61,7 @@
                   class="fa fa-chevron-down"></i></div>
               <ul class="submenu"
                 style="position: absolute;z-index: 99;width: 88%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                <img src="./images/triangle.svg" style="overflow: hidden;" alt="">
+                <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
                 <li><a href="#">Доллар</a></li>
                 <li><a href="#">Сум</a></li>
               </ul>
@@ -863,7 +73,7 @@
                   class="fa fa-chevron-down"></i></div>
               <ul class="submenu"
                 style="position: absolute;z-index: 99;width: 88%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                <img src="./images/triangle.svg" style="overflow: hidden;" alt="">
+                <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
                 <li><a href="#">В наличии</a></li>
                 <li><a href="#">В складе</a></li>
               </ul>
@@ -875,7 +85,7 @@
                   class="fa fa-chevron-down"></i></div>
               <ul class="submenu"
                 style="position: absolute;z-index: 99;width: 88%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                <img src="./images/triangle.svg" style="overflow: hidden;" alt="">
+                <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
                 <li>
                   <div class="container p-3">
                     <div class="row">
@@ -915,7 +125,7 @@
         <ul id="accordion4_2" class="accordion" style="border-radius: 6px;">
 
           <li>
-            <div class="link" style="background-color: #FFE700;border-radius: 6px;"> <img src="./images/pishevaya.svg"
+            <div class="link" style="background-color: #FFE700;border-radius: 6px;"> <img src="{% static './images/pishevaya.svg' %}"
                 alt=""> <span
                 style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
                 промышленность</span><i class="fa fa-chevron-down"></i>
@@ -968,7 +178,7 @@
           <ul id="accordion" class="accordion">
 
             <li>
-              <div class="link"> <img src="./images/pishevaya.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya.svg' %}" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -984,7 +194,7 @@
             </li>
 
             <li>
-              <div class="link"> <img src="./images/pishevaya2.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya2.svg' %}" alt=""> <span
                   style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Производство мебели и
                   обработка древесины </span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -999,7 +209,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya3.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya3.svg' %}" alt=""> <span
                   style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Полиэтиленовая
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1014,7 +224,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya4.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya4.svg' %}" alt=""> <span
                   style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Пластиковая<br>
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1028,9 +238,9 @@
                 <li><a href="#">Переработка молока</a></li>
               </ul>
             </li>
-            <img src="./images/Group_417.svg" class="icon-left" style="left: -24%;" alt="">
+            <img src="{% static './images/Group_417.svg' %}" class="icon-left" style="left: -24%;" alt="">
             <li>
-              <div class="link"> <img src="./images/pishevaya6.svg" style="margin-left: 7px;" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya6.svg' %}" style="margin-left: 7px;" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Упаковочное
                   оборудования</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1045,7 +255,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya7.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya7.svg' %}" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Memak</span><i
                   class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1060,7 +270,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya.svg' %}" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1076,7 +286,7 @@
             </li>
             <!-- logotip product, дочерние компании, homiylar...., bayroqlar va davlat -->
             <li>
-              <div class="link"> <img src="./images/pishevaya2.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya2.svg' %}" alt=""> <span
                   style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Производство мебели и
                   обработка древесины </span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1091,7 +301,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya3.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya3.svg' %}" alt=""> <span
                   style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Полиэтиленовая
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1106,7 +316,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya4.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya4.svg' %}" alt=""> <span
                   style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Пластиковая<br>
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1121,7 +331,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya6.svg" style="margin-left: 7px;" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya6.svg' %}" style="margin-left: 7px;" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Упаковочное
                   оборудования</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1136,7 +346,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya7.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya7.svg' %}" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Memak</span><i
                   class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1151,7 +361,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya5.png" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya5.png' %}" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 1%;font-family: revert;font-weight: 100;">Строительная
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1166,7 +376,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya_2.svg" style="margin-left:3px" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya_2.svg' %}" style="margin-left:3px" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1181,7 +391,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya.svg' %}" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1197,7 +407,7 @@
             </li>
 
             <li>
-              <div class="link"> <img src="./images/pishevaya2.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya2.svg' %}" alt=""> <span
                   style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Производство мебели и
                   обработка древесины </span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1212,7 +422,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya3.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya3.svg' %}" alt=""> <span
                   style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Полиэтиленовая
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1227,7 +437,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya4.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya4.svg' %}" alt=""> <span
                   style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Пластиковая<br>
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1242,7 +452,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya6.svg" style="margin-left: 7px;" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya6.svg' %}" style="margin-left: 7px;" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Упаковочное
                   оборудования</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1257,7 +467,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya7.svg" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya7.svg' %}" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Memak</span><i
                   class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1272,7 +482,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya5.png" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya5.png' %}" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 1%;font-family: revert;font-weight: 100;">Строительная
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1287,7 +497,7 @@
               </ul>
             </li>
             <li>
-              <div class="link"> <img src="./images/pishevaya_2.svg" style="margin-left:3px" alt=""> <span
+              <div class="link"> <img src="{% static './images/pishevaya_2.svg' %}" style="margin-left:3px" alt=""> <span
                   style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
                   промышленность</span><i class="fa fa-chevron-down"></i>
                 <hr class="hr-menu" style="position: absolute;bottom: -1px;">
@@ -1351,7 +561,7 @@
                                 товары<i class="fa fa-chevron-down"></i></div>
                               <ul class="submenu"
                                 style="position: relative;z-index: 99;width: 100%;margin-top: 12px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                                <img src="./images/triangle.svg" style="overflow: hidden;" alt="">
+                                <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
                                 <li><a href="#">Арзондан бошлаб</a></li>
                                 <li><a href="#">Кимматдан бошлаб</a></li>
                                 <li><a href="#">Барчаси</a></li>
@@ -1365,7 +575,7 @@
                                   class="fas fa-dollar-sign"></i>Валюта<i class="fa fa-chevron-down"></i></div>
                               <ul class="submenu"
                                 style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                                <img src="./images/triangle.svg" style="overflow: hidden;" alt="">
+                                <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
                                 <li><a href="#">Доллар</a></li>
                                 <li><a href="#">Сум</a></li>
                               </ul>
@@ -1378,7 +588,7 @@
                                 наличии<i class="fa fa-chevron-down"></i></div>
                               <ul class="submenu"
                                 style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                                <img src="./images/triangle.svg" style="overflow: hidden;" alt="">
+                                <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
                                 <li><a href="#">В наличии</a></li>
                                 <li><a href="#">В складе</a></li>
                               </ul>
@@ -1391,7 +601,7 @@
                                   class="fas fa-search-dollar"></i>Цена<br><i class="fa fa-chevron-down"></i></div>
                               <ul class="submenu"
                                 style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                                <img src="./images/triangle.svg" style="overflow: hidden;" alt="">
+                                <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
                                 <li>
                                   <div class="container p-3">
                                     <div class="row">
@@ -1431,8 +641,8 @@
             </div>
           </div>
           <div class="tab3">
-            <a class="tablinks" onclick="openCity(event, 'Paris')"><img src="./images/sorted.svg" alt=""></a>
-            <a class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen"><img src="./images/six_boxes.svg"
+            <a class="tablinks" onclick="openCity(event, 'Paris')"><img src="{% static './images/sorted.svg' %}" alt=""></a>
+            <a class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen"><img src="{% static './images/six_boxes.svg' %}"
                 alt=""></a>
           </div>
 
@@ -1452,12 +662,12 @@
                         <!-- card -->
                         <a href="#">
                           <div class="card-front bg-vioet">
-                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                                   class="like-img-mobile" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn new-mobile-1">
                                 <p class="new-mobile-text">NEW!</p>
                               </button></a>
-                            <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                            <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                             <div class="card-text">
                               <h4 class="front-title">Буровая установка БР 73212С</h4>
                               <p class="detail">Артикул: US</p>
@@ -1467,7 +677,7 @@
                             </div>
                             <ul>
                               <li>
-                                <a href="./single-product.html">
+                                <a href="{% url 'products:single' %}">
                                   <button class="button-left button-bottom-left ds-none" type="button"
                                     style="width: 127px;height: 52px;">
                                     <p class="carousel-button-text" style="font-size: 16px;">Заказать</p>
@@ -1546,13 +756,13 @@
                             </div>
                             <div class="buttons" style="text-align: center;padding: 10px;">
                               <ul>
-                                <li><a href="./single-product.html">
+                                <li><a href="{% url 'products:single' %}">
                                     <button class="button-product button-bottom-product">
                                       <p style="font-size: 16px;">Заказать</p>
                                     </button>
                                   </a></li>
                               </ul>
-                              <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                              <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                     alt=""></button></a>
                             </div>
                           </div>
@@ -1569,12 +779,12 @@
                         <!-- card -->
                         <a href="#">
                           <div class="card-front bg-vioet">
-                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                                   class="like-img-mobile" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn new-mobile-1">
                                 <p class="new-mobile-text">NEW!</p>
                               </button></a>
-                            <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                            <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                             <div class="card-text">
                               <h4 class="front-title">Буровая установка БР 73212С</h4>
                               <p class="detail">Артикул: US</p>
@@ -1669,7 +879,7 @@
                                     </button>
                                   </a></li>
                               </ul>
-                              <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                              <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                     alt=""></button></a>
                             </div>
                           </div>
@@ -1686,12 +896,12 @@
                         <!-- card -->
                         <a href="#">
                           <div class="card-front bg-vioet">
-                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                                   class="like-img-mobile" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn new-mobile-1">
                                 <p class="new-mobile-text">NEW!</p>
                               </button></a>
-                            <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                            <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                             <div class="card-text">
                               <h4 class="front-title">Буровая установка БР 73212С</h4>
                               <p class="detail">Артикул: US</p>
@@ -1786,7 +996,7 @@
                                     </button>
                                   </a></li>
                               </ul>
-                              <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                              <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                     alt=""></button></a>
                             </div>
                           </div>
@@ -1803,12 +1013,12 @@
                         <!-- card -->
                         <a href="#">
                           <div class="card-front bg-vioet">
-                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                                   class="like-img-mobile" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn new-mobile-1">
                                 <p class="new-mobile-text">NEW!</p>
                               </button></a>
-                            <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                            <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                             <div class="card-text">
                               <h4 class="front-title">Буровая установка БР 73212С</h4>
                               <p class="detail">Артикул: US</p>
@@ -1903,7 +1113,7 @@
                                     </button>
                                   </a></li>
                               </ul>
-                              <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                              <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                     alt=""></button></a>
                             </div>
                           </div>
@@ -1920,12 +1130,12 @@
                         <!-- card -->
                         <a href="#">
                           <div class="card-front bg-vioet">
-                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                                   class="like-img-mobile" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn new-mobile-1">
                                 <p class="new-mobile-text">NEW!</p>
                               </button></a>
-                            <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                            <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                             <div class="card-text">
                               <h4 class="front-title">Буровая установка БР 73212С</h4>
                               <p class="detail">Артикул: US</p>
@@ -2020,7 +1230,7 @@
                                     </button>
                                   </a></li>
                               </ul>
-                              <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                              <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                     alt=""></button></a>
                             </div>
                           </div>
@@ -2037,12 +1247,12 @@
                         <!-- card -->
                         <a href="#">
                           <div class="card-front bg-vioet">
-                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                                   class="like-img-mobile" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn new-mobile-1">
                                 <p class="new-mobile-text">NEW!</p>
                               </button></a>
-                            <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                            <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                             <div class="card-text">
                               <h4 class="front-title">Буровая установка БР 73212С</h4>
                               <p class="detail">Артикул: US</p>
@@ -2137,7 +1347,7 @@
                                     </button>
                                   </a></li>
                               </ul>
-                              <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                              <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                     alt=""></button></a>
                             </div>
                           </div>
@@ -2154,12 +1364,12 @@
                         <!-- card -->
                         <a href="#">
                           <div class="card-front bg-vioet">
-                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                                   class="like-img-mobile" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn new-mobile-1">
                                 <p class="new-mobile-text">NEW!</p>
                               </button></a>
-                            <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                            <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                             <div class="card-text">
                               <h4 class="front-title">Буровая установка БР 73212С</h4>
                               <p class="detail">Артикул: US</p>
@@ -2254,7 +1464,7 @@
                                     </button>
                                   </a></li>
                               </ul>
-                              <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                              <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                     alt=""></button></a>
                             </div>
                           </div>
@@ -2271,12 +1481,12 @@
                         <!-- card -->
                         <a href="#">
                           <div class="card-front bg-vioet">
-                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                                   class="like-img-mobile" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn new-mobile-1">
                                 <p class="new-mobile-text">NEW!</p>
                               </button></a>
-                            <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                            <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                             <div class="card-text">
                               <h4 class="front-title">Буровая установка БР 73212С</h4>
                               <p class="detail">Артикул: US</p>
@@ -2371,7 +1581,7 @@
                                     </button>
                                   </a></li>
                               </ul>
-                              <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                              <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                     alt=""></button></a>
                             </div>
                           </div>
@@ -2388,12 +1598,12 @@
                         <!-- card -->
                         <a href="#">
                           <div class="card-front bg-vioet">
-                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                                   class="like-img-mobile" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn new-mobile-1">
                                 <p class="new-mobile-text">NEW!</p>
                               </button></a>
-                            <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                            <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                             <div class="card-text">
                               <h4 class="front-title">Буровая установка БР 73212С</h4>
                               <p class="detail">Артикул: US</p>
@@ -2488,7 +1698,7 @@
                                     </button>
                                   </a></li>
                               </ul>
-                              <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                              <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                     alt=""></button></a>
                             </div>
                           </div>
@@ -2505,12 +1715,12 @@
                         <!-- card -->
                         <a href="#">
                           <div class="card-front bg-vioet">
-                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                                   class="like-img-mobile" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn new-mobile-1">
                                 <p class="new-mobile-text">NEW!</p>
                               </button></a>
-                            <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                            <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                             <div class="card-text">
                               <h4 class="front-title">Буровая установка БР 73212С</h4>
                               <p class="detail">Артикул: US</p>
@@ -2605,7 +1815,7 @@
                                     </button>
                                   </a></li>
                               </ul>
-                              <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                              <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                     alt=""></button></a>
                             </div>
                           </div>
@@ -2622,12 +1832,12 @@
                         <!-- card -->
                         <a href="#">
                           <div class="card-front bg-vioet">
-                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                                   class="like-img-mobile" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn new-mobile-1">
                                 <p class="new-mobile-text">NEW!</p>
                               </button></a>
-                            <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                            <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                             <div class="card-text">
                               <h4 class="front-title">Буровая установка БР 73212С</h4>
                               <p class="detail">Артикул: US</p>
@@ -2722,7 +1932,7 @@
                                     </button>
                                   </a></li>
                               </ul>
-                              <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                              <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                     alt=""></button></a>
                             </div>
                           </div>
@@ -2739,12 +1949,12 @@
                         <!-- card -->
                         <a href="#">
                           <div class="card-front bg-vioet">
-                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                            <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                                   class="like-img-mobile" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn new-mobile-1">
                                 <p class="new-mobile-text">NEW!</p>
                               </button></a>
-                            <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                            <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                             <div class="card-text">
                               <h4 class="front-title">Буровая установка БР 73212С</h4>
                               <p class="detail">Артикул: US</p>
@@ -2839,7 +2049,7 @@
                                     </button>
                                   </a></li>
                               </ul>
-                              <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                              <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                     alt=""></button></a>
                             </div>
                           </div>
@@ -2858,7 +2068,7 @@
               <div class="sort-menu-products">
                 <div class="row">
                   <div class="col-md-3 col-6 d-like" style="position: absolute;z-index: 8;">
-                    <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                    <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                           style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn new-mobile-1">
                         <p class="new-mobile-text">NEW!</p>
@@ -2866,7 +2076,7 @@
                   </div>
 
                   <div class="col-md-3 col-6">
-                    <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                    <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                   </div>
                   <div class="col-md-6 col-6 mt-3">
                     <h4 class="front-title-paris">
@@ -2891,7 +2101,7 @@
                   <div class="col-md-3 m-like">
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 15px;"><img
-                          src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                          src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #2EC1AC;position: absolute;right: 70px;border-radius: 50px;">
                         <p style="margin-left:-52%;color: #fff;font-weight: normal;font-size: 16px;">NEW!</p>
@@ -2943,7 +2153,7 @@
               <div class="sort-menu-products">
                 <div class="row">
                   <div class="col-md-3 col-6 d-like" style="position: absolute;z-index: 8;">
-                    <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                    <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                           style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn new-mobile-1">
                         <p class="new-mobile-text">NEW!</p>
@@ -2951,7 +2161,7 @@
                   </div>
 
                   <div class="col-md-3 col-6">
-                    <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                    <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                   </div>
                   <div class="col-md-6 col-6 mt-3">
                     <h4 class="front-title-paris">
@@ -2976,7 +2186,7 @@
                   <div class="col-md-3 m-like">
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 15px;"><img
-                          src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                          src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #2EC1AC;position: absolute;right: 70px;border-radius: 50px;">
                         <p style="margin-left:-52%;color: #fff;font-weight: normal;font-size: 16px;">NEW!</p>
@@ -3028,7 +2238,7 @@
               <div class="sort-menu-products">
                 <div class="row">
                   <div class="col-md-3 col-6 d-like" style="position: absolute;z-index: 8;">
-                    <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                    <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                           style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn new-mobile-1">
                         <p class="new-mobile-text">NEW!</p>
@@ -3036,7 +2246,7 @@
                   </div>
 
                   <div class="col-md-3 col-6">
-                    <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                    <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                   </div>
                   <div class="col-md-6 col-6 mt-3">
                     <h4 class="front-title-paris">
@@ -3061,7 +2271,7 @@
                   <div class="col-md-3 m-like">
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 15px;"><img
-                          src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                          src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #2EC1AC;position: absolute;right: 70px;border-radius: 50px;">
                         <p style="margin-left:-52%;color: #fff;font-weight: normal;font-size: 16px;">NEW!</p>
@@ -3113,7 +2323,7 @@
               <div class="sort-menu-products">
                 <div class="row">
                   <div class="col-md-3 col-6 d-like" style="position: absolute;z-index: 8;">
-                    <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                    <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                           style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn new-mobile-1">
                         <p class="new-mobile-text">NEW!</p>
@@ -3121,7 +2331,7 @@
                   </div>
 
                   <div class="col-md-3 col-6">
-                    <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                    <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                   </div>
                   <div class="col-md-6 col-6 mt-3">
                     <h4 class="front-title-paris">
@@ -3146,7 +2356,7 @@
                   <div class="col-md-3 m-like">
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 15px;"><img
-                          src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                          src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #2EC1AC;position: absolute;right: 70px;border-radius: 50px;">
                         <p style="margin-left:-52%;color: #fff;font-weight: normal;font-size: 16px;">NEW!</p>
@@ -3198,7 +2408,7 @@
               <div class="sort-menu-products">
                 <div class="row">
                   <div class="col-md-3 col-6 d-like" style="position: absolute;z-index: 8;">
-                    <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                    <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                           style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn new-mobile-1">
                         <p class="new-mobile-text">NEW!</p>
@@ -3206,7 +2416,7 @@
                   </div>
 
                   <div class="col-md-3 col-6">
-                    <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                    <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                   </div>
                   <div class="col-md-6 col-6 mt-3">
                     <h4 class="front-title-paris">
@@ -3231,7 +2441,7 @@
                   <div class="col-md-3 m-like">
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 15px;"><img
-                          src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                          src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #2EC1AC;position: absolute;right: 70px;border-radius: 50px;">
                         <p style="margin-left:-52%;color: #fff;font-weight: normal;font-size: 16px;">NEW!</p>
@@ -3283,7 +2493,7 @@
               <div class="sort-menu-products">
                 <div class="row">
                   <div class="col-md-3 col-6 d-like" style="position: absolute;z-index: 8;">
-                    <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="./images/like.svg"
+                    <a href="#" class="card-link"><button class="btn like-mobile-1"><img src="{% static './images/like.svg' %}"
                           style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn new-mobile-1">
                         <p class="new-mobile-text">NEW!</p>
@@ -3291,7 +2501,7 @@
                   </div>
 
                   <div class="col-md-3 col-6">
-                    <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                    <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                   </div>
                   <div class="col-md-6 col-6 mt-3">
                     <h4 class="front-title-paris">
@@ -3316,7 +2526,7 @@
                   <div class="col-md-3 m-like">
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 15px;"><img
-                          src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                          src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #2EC1AC;position: absolute;right: 70px;border-radius: 50px;">
                         <p style="margin-left:-52%;color: #fff;font-weight: normal;font-size: 16px;">NEW!</p>
@@ -3373,7 +2583,7 @@
         <!-- pagination menu -->
         <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
 justify-content: center;">
-          <a class="prew_icon" href=""><img src="./images/left.svg" alt=""></a>
+          <a class="prew_icon" href=""><img src="{% static './images/left.svg' %}" alt=""></a>
           <ul style=" display: flex;
  justify-content: center;">
             <li class="page_numb"><a href="" style="color: #132E6B;">1</a></li>
@@ -3382,7 +2592,7 @@ justify-content: center;">
             <li class="page_numb"><a href="" style="color: #132E6B;">4</a></li>
             <li class="page_numb"><a href="" style="color: #132E6B;">5</a></li>
           </ul>
-          <a href=""><img src="./images/right.svg" alt=""></a>
+          <a href=""><img src="{% static './images/right.svg' %}" alt=""></a>
         </nav>
 
         <!-- end pagination menu -->
@@ -3412,7 +2622,7 @@ justify-content: center;">
       <div class="back_elements" style="margin-top: -2%;">
 
       </div>
-      <img src="./images/Group_417.svg" class="icon-right-transform" style="position: absolute;" alt="">
+      <img src="{% static './images/Group_417.svg' %}" class="icon-right-transform" style="position: absolute;" alt="">
       <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
         Популярные товары</h1>
       <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
@@ -3439,12 +2649,12 @@ justify-content: center;">
                           <div class="card-front bg-violet">
                             <a href="#" class="card-link"><button class="btn"
                                 style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                                  src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                                  src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn"
                                 style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                                 <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                               </button></a>
-                            <img src="./images/stanok.png"
+                            <img src="{% static './images/stanok.png' %}"
                               style="width: 281px;height: 300px;display: table;margin: auto;" alt="">
                             <div class="card-text"
                               style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
@@ -3479,12 +2689,12 @@ justify-content: center;">
                           <div class="card-front bg-violet">
                             <a href="#" class="card-link"><button class="btn"
                                 style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                                  src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                                  src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn"
                                 style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                                 <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                               </button></a>
-                            <img src="./images/stanok.png"
+                            <img src="{% static './images/stanok.png' %}"
                               style="width: 281px;height: 300px;display: table;margin: auto;" alt="">
                             <div class="card-text"
                               style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
@@ -3519,12 +2729,12 @@ justify-content: center;">
                           <div class="card-front bg-violet">
                             <a href="#" class="card-link"><button class="btn"
                                 style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                                  src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                                  src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn"
                                 style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                                 <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                               </button></a>
-                            <img src="./images/stanok.png"
+                            <img src="{% static './images/stanok.png' %}"
                               style="width: 281px;height: 300px;display: table;margin: auto;" alt="">
                             <div class="card-text"
                               style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
@@ -3559,12 +2769,12 @@ justify-content: center;">
                           <div class="card-front bg-violet">
                             <a href="#" class="card-link"><button class="btn"
                                 style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                                  src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                                  src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                             <a href="#" class="card-link"><button class="btn"
                                 style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                                 <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                               </button></a>
-                            <img src="./images/stanok.png"
+                            <img src="{% static './images/stanok.png' %}"
                               style="width: 281px;height: 300px;display: table;margin: auto;" alt="">
                             <div class="card-text"
                               style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
@@ -3606,12 +2816,12 @@ justify-content: center;">
                   <div class="card-front bg-violet">
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                          src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                          src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                         <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                       </button></a>
-                    <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                    <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                     <div class="card-text">
                       <h4 class="front-title">Буровая установка БР 73212С</h4>
                       <p class="detail">Артикул: US</p>
@@ -3692,7 +2902,7 @@ justify-content: center;">
                             <p style="font-size: 16px;">Заказать</p>
                           </button></li>
                       </ul>
-                      <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                      <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                             alt=""></button></a>
                     </div>
                   </div>
@@ -3712,12 +2922,12 @@ justify-content: center;">
                   <div class="card-front bg-violet">
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                          src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                          src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #2EC1AC;position: absolute;right: 70px;border-radius: 50px;">
                         <p style="margin-left:-52%;color: #fff;font-weight: normal;font-size: 16px;">NEW!</p>
                       </button></a>
-                    <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                    <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                     <div class="card-text">
                       <h4 class="front-title">Буровая установка БР 73212С</h4>
                       <p class="detail">Артикул: US</p>
@@ -3798,7 +3008,7 @@ justify-content: center;">
                             <p style="font-size: 16px;">Заказать</p>
                           </button></li>
                       </ul>
-                      <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                      <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                             alt=""></button></a>
                     </div>
                   </div>
@@ -3817,12 +3027,12 @@ justify-content: center;">
                   <div class="card-front bg-violet">
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                          src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                          src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                         <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                       </button></a>
-                    <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                    <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                     <div class="card-text">
                       <h4 class="front-title">Буровая установка БР 73212С</h4>
                       <p class="detail">Артикул: US</p>
@@ -3903,7 +3113,7 @@ justify-content: center;">
                             <p style="font-size: 16px;">Заказать</p>
                           </button></li>
                       </ul>
-                      <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                      <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                             alt=""></button></a>
                     </div>
                   </div>
@@ -3922,12 +3132,12 @@ justify-content: center;">
                   <div class="card-front bg-violet">
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                          src="./images/like.svg" style="margin-top: 7px;" alt=""></button></a>
+                          src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
                     <a href="#" class="card-link"><button class="btn"
                         style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
                         <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                       </button></a>
-                    <img src="./images/stanok.png" style="width: 100%;height: auto;" alt="">
+                    <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
                     <div class="card-text">
                       <h4 class="front-title">Буровая установка БР 73212С</h4>
                       <p class="detail">Артикул: US</p>
@@ -4008,7 +3218,7 @@ justify-content: center;">
                             <p style="font-size: 16px;">Заказать</p>
                           </button></li>
                       </ul>
-                      <a href="#" class="card-link"><button class="btn-like2"><img src="./images/like.svg"
+                      <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
                             alt=""></button></a>
                     </div>
                   </div>
@@ -4029,300 +3239,10 @@ justify-content: center;">
 
 
   <br>
-  <br>
-  <footer id="footer" class="footer-1">
-    <div class="main-footer widgets-dark typo-light">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="widget subscribe no-box">
-              <h5 class="widget-title">Uskunalar<span></span></h5>
-              <p class="widget-desc">Команда USKUNALAR.UZ экономит ваше время и деньги, поставляя Производственииые
-                оборудования.</p>
-              <h5 class="widget-title">Будь в курсе<span></span></h5>
-              <div class="row">
-                <div class="col-md-9">
-                  <input class="form-control" type="text" style="border: none;width: 236px;height: 45px;"
-                    placeholder="Введите свой email">
-                </div>
-                <div class="col-md-3">
-                  <button class="btn send-email"><img src="./images/send.svg" style="position: absolute;
-    left: 12px;
-    top: 13px;" alt=""></button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="widget no-box">
-              <h5 class="widget-title ml-2">Меню<span></span></h5>
-              <ul class="thumbnail-widget">
-                <li>
-                  <div class="thumb-content"><a href="./catelog.html" class="thumb-content">Каталог</a></div>
-                </li>
-                <li>
-                  <div class="thumb-content"><a href="./our_works.html" class="thumb-content">Наши работа</a></div>
-                </li>
-                <li>
-                  <div class="thumb-content"><a href="./videos.html" class="thumb-content">Наши видео</a></div>
-                </li>
-                <li>
-                  <div class="thumb-content"><a href="./blog.html" class="thumb-content">Статьи</a></div>
-                </li>
-                <li>
-                  <div class="thumb-content"><a href="./about.html" class="thumb-content">О нас</a></div>
-                </li>
-                <li>
-                  <div class="thumb-content"><a href="./contacts.html" class="thumb-content">Контакты</a></div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="widget no-box">
-              <h5 class="widget-title">Контакты<span></span></h5>
-              <p class="widget-number"> <img src="./images/map1.png" style="width: 25px;height: 25px;" alt=""> Тошкент
-                шаҳри, Сирғали тумани, Катта олмос 1-тор кўчаси 9а-уй.</p>
-              <a href="tel:+998 71 250 77 77">
-                <p class="widget-number"> <img src="./images/phone.svg" alt=""> +998 71 250 77 77</p>
-              </a>
-              <p class="widget-number"> <img src="./images/clock.svg" alt=""> c 9:00 до 18:00 ежедневно</p>
-            </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-md-3">
-
-            <div class="widget no-box">
-              <h5 class="widget-title">Соц.сети<span></span></h5>
-              <a href="">
-                <p class="widget-number"> <img src="./images/facebook.svg" style="width: 25px;" alt=""> <span
-                    style="margin-left: 2%;position: absolute;">Facebook</span> </p>
-              </a>
-              <a href="">
-                <p class="widget-number"> <img src="./images/instagram.svg" style="width: 25px;" alt=""> <span
-                    style="margin-left: 2%;position: absolute;">Instasgram</span> </p>
-              </a>
-              <a href="">
-                <p class="widget-number"> <img src="https://img.icons8.com/color/29/000000/telegram-app--v1.png" />
-                  <span style="margin-left: 2%;position: absolute;">Telegram</span>
-                </p>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-copyright">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <p>Copyright Uskunalar.uz © <span id="year"></span> . All rights reserved. LF</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("year").innerHTML = new Date().getFullYear();
-  </script>
-
-
-</body>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="./splide.min.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
-<script src='https://mverissimo.github.io/tweenslideshow/dist/assets/javascript/script.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
-  integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-<script src='https://kenwheeler.github.io/slick/slick/slick.js'></script>
-<script src='https://s3.amazonaws.com/dimsemenov-static/dist/jquery.magnific-popup.min.js'></script>
-<script src="./main.js"></script>
-<script>
+    <script>
   console.clear();
-</script>
 <script>
-  $(".js-range-slider2").ionRangeSlider({
-    type: "double",
-    min: 0,
-    max: 1000,
-    from: 200,
-    to: 500,
-    grid: true
-  });
 
-</script>
-<script>
-  $(function () {
-    var Accordion = function (el, multiple) {
-      this.el = el || {};
-      this.multiple = multiple || false;
-
-      // Variables privadas
-      var links = this.el.find('.link');
-      // Evento
-      links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
-    }
-
-    Accordion.prototype.dropdown = function (e) {
-      var $el = e.data.el;
-      $this = $(this),
-        $next = $this.next();
-
-      $next.slideToggle();
-      $this.parent().toggleClass('open');
-
-      if (!e.data.multiple) {
-        $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-      };
-    }
-
-    var accordion = new Accordion($('#accordion'), false);
-  });
-
-
-</script>
-
-<script>
-  console.clear();
-
-  function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent3");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-
-  // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
-</script>
-<script>
-  $(function () {
-    var Accordion = function (el, multiple) {
-      this.el = el || {};
-      this.multiple = multiple || false;
-
-      // Variables privadas
-      var links = this.el.find('.link');
-      // Evento
-      links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
-    }
-
-    Accordion.prototype.dropdown = function (e) {
-      var $el = e.data.el;
-      $this = $(this),
-        $next = $this.next();
-
-      $next.slideToggle();
-      $this.parent().toggleClass('open');
-
-      if (!e.data.multiple) {
-        $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-      };
-    }
-
-    var accordion = new Accordion($('#accordion2'), false);
-  });
-
-</script>
-<script>
-  $(function () {
-    var Accordion = function (el, multiple) {
-      this.el = el || {};
-      this.multiple = multiple || false;
-
-      // Variables privadas
-      var links = this.el.find('.link');
-      // Evento
-      links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
-    }
-
-    Accordion.prototype.dropdown = function (e) {
-      var $el = e.data.el;
-      $this = $(this),
-        $next = $this.next();
-
-      $next.slideToggle();
-      $this.parent().toggleClass('open');
-
-      if (!e.data.multiple) {
-        $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-      };
-    }
-
-    var accordion = new Accordion($('#accordion4_2'), false);
-  });
-
-</script>
-
-<script>
-  $(function () {
-    var Accordion = function (el, multiple) {
-      this.el = el || {};
-      this.multiple = multiple || false;
-
-      // Variables privadas
-      var links = this.el.find('.link');
-      // Evento
-      links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
-    }
-
-    Accordion.prototype.dropdown = function (e) {
-      var $el = e.data.el;
-      $this = $(this),
-        $next = $this.next();
-
-      $next.slideToggle();
-      $this.parent().toggleClass('open');
-
-      if (!e.data.multiple) {
-        $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-      };
-    }
-
-    var accordion = new Accordion($('#accordion7_2'), false);
-  });
-
-</script>
-<script>
-  (function ($) {
-    $('.accordion5_1 > a').addClass('active').next().slideDown();
-
-    $('.accordion5_1 a').click(function (j) {
-      var dropDown = $(this).closest('li').find('p');
-
-      $(this).closest('.accordion5_1').find('p').not(dropDown).slideUp();
-
-      if ($(this).hasClass('active')) {
-        $(this).removeClass('active');
-      } else {
-        $(this).closest('.accordion5_1').find('a.active').removeClass('active');
-        $(this).addClass('active');
-      }
-
-      dropDown.stop(false, true).slideToggle();
-
-      j.preventDefault();
-    });
-  })(jQuery);
 </script>
 <script>
   var splide = new Splide('.splide_3_2', {
@@ -4339,4 +3259,4 @@ justify-content: center;">
   });
 </script>
 
-</html>
+{% endblock %}

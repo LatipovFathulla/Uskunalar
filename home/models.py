@@ -48,18 +48,18 @@ class BannerInfoModel(models.Model):
     image = models.ImageField(upload_to='banner', verbose_name=_('image'))
     pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True )
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), null=True)
-    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'),
-                                    null=True)
+    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'), null=True)
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True)
     secondsubcategory = models.ForeignKey(SecondSubCategoryModel, on_delete=models.PROTECT,
                                           verbose_name=_('second_subcategory'), null=True)
     price = models.IntegerField(verbose_name=_('price'), null=True)
-    # price_dollar = models.IntegerField(verbose_name=_('price_dollar'), null=True)
-    # discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'))
-    # error = models.CharField(max_length=30, null=True)
-    # inbox = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('inbox'))
-    # delivery = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('delivery'))
-    # short_description = models.TextField(verbose_name=_('short_description'), null=True)
+    price_dollar = models.IntegerField(verbose_name=_('price_dollar'), null=True)
+    discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'))
+    error = models.CharField(max_length=30, null=True)
+    inbox = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('inbox'))
+    delivery = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('delivery'))
+    city = models.CharField(max_length=50, null=True)
+    short_description = models.TextField(verbose_name=_('short_description'), null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def is_discount(self):

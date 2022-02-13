@@ -17,7 +17,7 @@
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <li class="nav-item">
-          <a class="nav-link-2" href="#"> <img src="{% static './images/search_product.svg' %}" class="not-found" alt=""> Не нашли
+          <a class="nav-link-2" href="{% url 'products:product' %}"> <img src="{% static './images/search_product.svg' %}" class="not-found" alt=""> Не нашли
             товар?</a>
         </li>
         <ul class="navbar-nav mr-auto">
@@ -63,10 +63,10 @@
         <div class="hamburger-menu">
           <ul class="main-links">
             <img src="{% static './images/logo.png' %}" class="logo_image2" alt="">
-            <li class="delay02"><a href="./catalog.html">Каталог</a></li>
-            <li class="delay03"><a href="{% url 'blog:blogs' %}">Наши работы</a></li>
+            <li class="delay02"><a href="{% url 'home:catalog' %}">Каталог</a></li>
+            <li class="delay03"><a href="{% url 'work:works' %}">Наши работы</a></li>
             <li class="delay04"><a href="{% url 'home:videos' %}">Наши видео</a></li>
-            <li class="delay05"><a href="./blog.html">Наши статьи</a></li>
+            <li class="delay05"><a href="{% url 'blog:blogs' %}">Наши статьи</a></li>
             <li class="delay06"><a href="{% url 'home:about' %}">О нас</a></li>
             <li class="delay07"><a href="{% url 'home:contacts' %}">Контакты</a></li>
             <li class="delay08"><a href="./not_found_product.html"><img src="{% static './images/search_product.svg' %}" class="not-found" alt=""> Не нашли

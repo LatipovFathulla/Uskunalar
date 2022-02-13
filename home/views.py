@@ -1,12 +1,11 @@
 from django.db.models import Q
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 
 from home.models import BannerInfoModel, CategoryModel
 
 
 class BannerInfoModelView(ListView):
-    template_name = 'index.html'
-    context_object_name = 'banners'
+    template_name = 'products.html'
 
     def get_queryset(self):
         qs = BannerInfoModel.objects.order_by('-pk')
@@ -33,3 +32,6 @@ class BannerInfoModelView(ListView):
                            )
         return qs
 
+
+class SingleModelView(TemplateView):
+    template_name = 'single-product.html'
