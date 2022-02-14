@@ -1,3 +1,5 @@
+@import url("/static/fonts/stylesheet.css");
+
 * {
   padding: 0px;
   margin: 0px;
@@ -945,18 +947,18 @@ p {
 }
 
 .button-product {
-  position: absolute;
-  right: 16%;
-  margin-top: 1%;
-  letter-spacing: 1px;
-  background: #FFE700;
-  border: none;
-  position: relative;
-  z-index: 99;
-  border-radius: 6px;
-  width: 127px;
-  height: 48px;
-  overflow: hidden;
+    left: 10%;
+    margin-top: 1%;
+    letter-spacing: 1px;
+    background: #FFE700;
+    border: none;
+    position: absolute;
+    bottom: 40px;
+    z-index: 9;
+    border-radius: 6px;
+    width: 127px;
+    height: 48px;
+    overflow: hidden;
 }
 
 .button-product:after {
@@ -976,6 +978,52 @@ p {
 }
 
 .button-bottom-product:hover:after {
+  bottom: 0;
+}
+
+/*single */
+
+.button-bottom-left:after {
+  bottom: -94%;
+  left: 0;
+}
+
+.button-bottom-left:hover:after {
+  bottom: 0;
+}
+
+.button-bottom-single-product {
+    left: 0%;
+    margin-top: 1%;
+    letter-spacing: 1px;
+    background: #FFE700;
+    border: none;
+    position: relative;
+    bottom: 3px;
+    z-index: 9;
+    border-radius: 6px;
+    width: 127px;
+    height: 48px;
+    overflow: hidden;
+}
+
+.button-product:after {
+  content: '';
+  background: #FF0007;
+  position: absolute;
+  width: 127px;
+  height: 48px;
+  z-index: -1;
+  transition: all 0.4s ease-in-out;
+}
+
+/* hover-bottom */
+.button-bottom-single-product:after {
+  bottom: -94%;
+  left: 0;
+}
+
+.button-bottom-single-product:hover:after {
   bottom: 0;
 }
 
@@ -3219,7 +3267,7 @@ nav .nav-ul li a span.rotate {
 
 
   .card-text {
-    margin-top: 10%;
+    margin-top: 5%;
   }
 
   .splide_3 .splide__arrow {

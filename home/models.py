@@ -5,6 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 class CategoryModel(models.Model):
     category = models.CharField(max_length=99, verbose_name=_('category'))
+    image = models.FileField(upload_to='category_image', verbose_name=_('category_image'), null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
@@ -50,15 +51,12 @@ class BannerInfoModel(models.Model):
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), null=True)
     subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'), null=True)
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True)
-    secondsubcategory = models.ForeignKey(SecondSubCategoryModel, on_delete=models.PROTECT,
-                                          verbose_name=_('second_subcategory'), null=True)
+    secondsubcategory = models.ForeignKey(SecondSubCategoryModel, on_delete=models.PROTECT, verbose_name=_('second_subcategory'), null=True)
     price = models.IntegerField(verbose_name=_('price'), null=True)
-    price_dollar = models.IntegerField(verbose_name=_('price_dollar'), null=True)
+    dollar = models.IntegerField(verbose_name=_('dollar'), null=True)
     discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'))
-    error = models.CharField(max_length=30, null=True)
     inbox = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('inbox'))
     delivery = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('delivery'))
-    city = models.CharField(max_length=50, null=True)
     short_description = models.TextField(verbose_name=_('short_description'), null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
@@ -72,14 +70,14 @@ class BannerInfoModel(models.Model):
 
     def get_price_dollar(self):
         if self.is_discount():
-            return self.price_dollar - self.price_dollar * self.discount / 100
-        return self.price_dollar
+            return self.dollar - self.dollar * self.discount / 100
+        return self.dollar
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = 'Products'
+        verbose_name = 'products'
         verbose_name_plural = 'products'
 
 
@@ -91,6 +89,17 @@ class BannerImageModel(models.Model):
     class Meta:
         verbose_name = _('product image')
         verbose_name_plural = _('product images')
+
+
+class ProductSpecificationsModel(models.Model):
+    product = models.ForeignKey(BannerInfoModel, on_delete=models.CASCADE, related_name='specifications', verbose_name=_('products'))
+    product_customer = models.CharField(max_length=99, verbose_name=_('product_customer'))
+    product_number = models.CharField(max_length=99, verbose_name=_('product_numbers'))
+
+    class Meta:
+        verbose_name = _('product specification')
+        verbose_name_plural = _('product specifications')
+
 
 # translate
 # Header and footer

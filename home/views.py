@@ -1,11 +1,12 @@
 from django.db.models import Q
 from django.views.generic import ListView, TemplateView
 
-from home.models import BannerInfoModel, CategoryModel
+from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 
 
 class BannerInfoModelView(ListView):
     template_name = 'products.html'
+    context_object_name = 'products'
 
     def get_queryset(self):
         qs = BannerInfoModel.objects.order_by('-pk')
@@ -20,7 +21,7 @@ class BannerInfoModelView(ListView):
             qs = qs.filter(category_id=category)
         return qs
 
-    def get_queryset(self, ):
+    def get_queryset2(self, ):
         qs = BannerInfoModel.objects.order_by('pk')
 
         q = self.request.GET.get('q', '')
@@ -31,6 +32,14 @@ class BannerInfoModelView(ListView):
                            Q(city__icontains=q)
                            )
         return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = CategoryModel.objects.order_by('-pk')
+        context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
+
+        return context
+
 
 
 class SingleModelView(TemplateView):

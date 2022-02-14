@@ -2,7 +2,7 @@ from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
 from home.models import BannerInfoModel, CategoryModel, SecondSubCategoryModel, \
-    SubCategoryModel, BannerImageModel
+    SubCategoryModel, BannerImageModel, ProductSpecificationsModel
 
 
 class MyTranslationAdmin(TranslationAdmin):
@@ -42,6 +42,10 @@ class BannerImageModelAdmin(admin.TabularInline):
     model = BannerImageModel
 
 
+class ProductSpecificationsModelAdmin(admin.TabularInline):
+    model = ProductSpecificationsModel
+
+
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'sku', 'price', 'pdf', 'city', 'created_at', 'category', 'subcategory', 'secondsubcategory', ]
@@ -49,5 +53,5 @@ class BannerInfoModelAdmin(admin.ModelAdmin):
     list_filter = ['created_at']
     readonly_fields = ['get_price', 'get_price_dollar']
 
-    inlines = [BannerImageModelAdmin]
+    inlines = [ProductSpecificationsModelAdmin, BannerImageModelAdmin]
 

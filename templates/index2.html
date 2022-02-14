@@ -76,19 +76,20 @@
 
         <div class="col-md-9">
             <div class="row">
-                {% for banner in banners %}
+                asd
+                {% for product in products %}
                 <div class="col-md-4">
                     <div class="card" style="width: 19rem;border:none;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);margin:10px">
                         <img src="{{ banner.image.url }}" style="width:100%;height:300px" class="card-img-top"
                              alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">{{ banner.title }}</h5>
-                            <p>ID:{{ banner.sku }}</p>
-                            <p class="card-text">Цена:{{ banner.price }}$</p>
-                            <p>Категория:{{ banner.category }} </p>
-                            <p>Подкатегория:{{ banner.subcategory }} </p>
-                            <p>Страна,город:{{ banner.city }} </p>
-                            <p>Подкатегория:{{ banner.secondsubcategory|default:'asd' }} </p>
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p>ID:{{ product.sku }}</p>
+                            <p class="card-text">Цена:{{ product.price }}$</p>
+                            <p>Категория:{{ product.category }} </p>
+                            <p>Подкатегория:{{ product.subcategory }} </p>
+                            <p>Страна,город:{{ product.city }} </p>
+                            <p>Подкатегория:{{ product.secondsubcategory|default:'asd' }} </p>
                             {% if banner.pdf %}
                                 <a href="{{ banner.pdf.url }}">
                                     <button class="btn btn-warning">PDF ni korish</button></a>
