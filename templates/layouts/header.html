@@ -149,11 +149,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <form action="">
-          <input class="form-control" placeholder="Поиск" style="width: 516px;height: 53px;margin-top: 3px;" type="name">
-        <a href="" type="sumbit">
-          <img src="{% static './images/search.svg' %}" class="search_icon" alt="">
-        </a>
+        <form action="{% url 'products:product' %}">
+          <input class="form-control" name="q" value="{{ request.GET.q }}"  placeholder="Поиск" style="width: 516px;height: 53px;margin-top: 3px;" type="name">
+            <a href="" type="sumbit">
+                <img src="{% static './images/search.svg' %}" class="search_icon" alt="">
+            </a>
         </form>
       </ul>
       <form class="form-inline my-2 my-lg-0">

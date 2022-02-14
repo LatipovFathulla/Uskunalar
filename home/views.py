@@ -13,12 +13,17 @@ class BannerInfoModelView(ListView):
 
         q = self.request.GET.get('q')
         category = self.request.GET.get('category')
+        sku = self.request.GET.get('sku')
 
         if q:
             qs = qs.filter(title__icontains=q)
 
         if category:
             qs = qs.filter(category_id=category)
+
+        if sku:
+            qs = qs.filter(sku__icontains=sku)
+
         return qs
 
     def get_queryset2(self, ):
@@ -39,7 +44,6 @@ class BannerInfoModelView(ListView):
         context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
 
         return context
-
 
 
 class SingleModelView(TemplateView):
