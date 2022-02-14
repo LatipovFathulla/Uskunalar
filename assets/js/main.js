@@ -178,6 +178,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
 }());
 
+
+// splide
+
+    var splide = new Splide('.splide_2', {
+      perPage: 1,
+      rewind: true,
+    });
+
+    splide.mount();
+
+
+//splide 3
+   var splide = new Splide('.splide_4', {
+      perPage: 1,
+      rewind: true,
+    });
+
+    splide.mount();
+
+//splide 4
+  var splide = new Splide('.splide_3_2', {
+    perPage: 1,
+    rewind: true,
+  });
+
+  splide.mount();
+//  end
+
 // menu
 
 $(function () {
@@ -208,9 +236,16 @@ $(function () {
     var accordion = new Accordion($('#accordion4'), false);
 });
 
+//splide 2
+  var splide = new Splide('.splide_3', {
+    perPage: 1,
+    rewind: true,
+  });
+
+  splide.mount();
+
 
 // submenu
-
 
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
@@ -231,63 +266,6 @@ document.getElementById("defaultOpen").click();
 
 
 //  asd
-
-$(function () {
-    var Accordion = function (el, multiple) {
-        this.el = el || {};
-        this.multiple = multiple || false;
-
-        // Variables privadas
-        var links = this.el.find('.link');
-        // Evento
-        links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
-    }
-
-    Accordion.prototype.dropdown = function (e) {
-        var $el = e.data.el;
-        $this = $(this),
-            $next = $this.next();
-
-        $next.slideToggle();
-        $this.parent().toggleClass('open');
-
-        if (!e.data.multiple) {
-            $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-        }
-        ;
-    }
-
-    var accordion = new Accordion($('#accordion2'), false);
-});
-
-
-$(function () {
-    var Accordion = function (el, multiple) {
-        this.el = el || {};
-        this.multiple = multiple || false;
-
-        // Variables privadas
-        var links = this.el.find('.link');
-        // Evento
-        links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
-    }
-
-    Accordion.prototype.dropdown = function (e) {
-        var $el = e.data.el;
-        $this = $(this),
-            $next = $this.next();
-
-        $next.slideToggle();
-        $this.parent().toggleClass('open');
-
-        if (!e.data.multiple) {
-            $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-        }
-        ;
-    }
-
-    var accordion = new Accordion($('#accordion4_2'), false);
-});
 
 
 $(function () {
@@ -341,33 +319,7 @@ $(function () {
 })(jQuery);
 
 
-$(function () {
-    var Accordion = function (el, multiple) {
-        this.el = el || {};
-        this.multiple = multiple || false;
 
-        // Variables privadas
-        var links = this.el.find('.link');
-        // Evento
-        links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
-    }
-
-    Accordion.prototype.dropdown = function (e) {
-        var $el = e.data.el;
-        $this = $(this),
-            $next = $this.next();
-
-        $next.slideToggle();
-        $this.parent().toggleClass('open');
-
-        if (!e.data.multiple) {
-            $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-        }
-        ;
-    }
-
-    var accordion = new Accordion($('#accordion'), false);
-});
 
 $(".js-range-slider2").ionRangeSlider({
     type: "double",
@@ -377,4 +329,6 @@ $(".js-range-slider2").ionRangeSlider({
     to: 500,
     grid: true
 });
+
+
 

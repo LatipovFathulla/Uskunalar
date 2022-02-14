@@ -2134,7 +2134,7 @@ nav .nav-ul li a span.rotate {
   }
 
   #slider {
-    margin-top: 10%;
+    margin-top: 5%;
   }
 
   .title {
@@ -2207,7 +2207,6 @@ nav .nav-ul li a span.rotate {
 
 
   .slide-burger {
-    background: url(./static/img/background.svg);
     height: 50%;
     top: -50%;
   }
@@ -2287,13 +2286,13 @@ nav .nav-ul li a span.rotate {
   }
 
   .shadow {
-    position: absolute;
-    width: 92.1%;
+    position: sticky;
+    width: 100%;
     background: #fff;
     height: 82px;
-    bottom: 20px;
+    bottom: 56px;
     opacity: 0.8;
-    margin-top: 6px;
+    margin-top: -80px;
     border-radius: 0px 0px 6px 6px;
   }
 
@@ -2438,10 +2437,11 @@ nav .nav-ul li a span.rotate {
     width: 100%;
     height: 570px;
     border-radius: 6px;
+    box-shadow: 5px 19px 29px rgb(169 169 170 / 10%);
   }
 
   .all {
-    background-image: url(/images/alls.png);
+    background-image: url(/static/images/alls.png);
     background-position: center;
     width: 100%;
     height: 355px;
@@ -2449,7 +2449,7 @@ nav .nav-ul li a span.rotate {
     background-size: cover;
     border-radius: 6px;
     margin-top: 13px;
-
+    box-shadow: 5px 19px 29px rgb(169 169 170 / 10%);
   }
 
   .boys {
@@ -2461,7 +2461,7 @@ nav .nav-ul li a span.rotate {
     background-size: cover;
     border-radius: 6px;
     margin-top: 13px;
-
+    box-shadow: 5px 19px 29px rgb(169 169 170 / 10%);
   }
 
   .girls {
@@ -2473,6 +2473,7 @@ nav .nav-ul li a span.rotate {
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 13px;
+    box-shadow: 5px 19px 29px rgb(169 169 170 / 10%);
   }
 
 
@@ -2527,7 +2528,7 @@ nav .nav-ul li a span.rotate {
   .icon-right-transform2 {
     position: absolute;
     width: 60px;
-    margin-top: 1%;
+    margin-top: -13%;
     transform: rotate(23.85deg);
   }
 
@@ -2902,7 +2903,7 @@ nav .nav-ul li a span.rotate {
   }
   
   .icon-right-2 {
-    margin-top: 29%;
+    margin-top: 28%;
   }
 
   .btn.btn-prev-mobile {

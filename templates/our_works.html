@@ -359,7 +359,7 @@
       </div>
     </div>
 
-    <div id="Paris" class="tabcontent2">
+    <div id="Paris" class="tabcontent2 mt-3">
       <div class="row">
         <div class="col-md-6">
           <img src="https://uskunalar.uz/uploads/posts/yp6yLTFRYmpuLSQu5sKpqx8OoHe5sQeiuMUYxqet.jpg" class="work_image"
@@ -796,28 +796,28 @@ justify-content: center;">
     style="margin-top: -3%;margin-left: 3%;z-index: 0;position: absolute;" alt="">
 
   <!-- end form -->
+<!-- Code by FathullaLatipov LF-->
   <br>
 
+{% endblock %}
 
+{% block extra_js %}
 <script>
-  console.clear();
-
   function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent2");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent2");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
 
-  // Get the element with id="defaultOpen" and click on it
+      // Get the element with id="defaultOpen" and click on it
   document.getElementById("defaultOpen").click();
 </script>
-
 {% endblock %}
