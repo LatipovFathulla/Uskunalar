@@ -1,7 +1,10 @@
 from django.db.models import Q, Min, Max
+from django.http import JsonResponse
 from django.views.generic import ListView, TemplateView
+from requests import Response
 
 from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
+from home.utils import get_wishlist_data
 
 
 class BannerInfoModelView(ListView):
@@ -30,8 +33,6 @@ class BannerInfoModelView(ListView):
 
         if sku:
             qs = qs.filter(sku_id=sku)
-
-
 
         if price:
             price_from, price_to = price.split(';')
@@ -73,3 +74,31 @@ class BannerInfoModelView(ListView):
 
 class SingleModelView(TemplateView):
     template_name = 'single-product.html'
+
+
+def add_to_wishlist(request, pk):
+    try:
+        product = BannerInfoModel.objects.get(pk=pk)
+    except BannerInfoModel.DoesNotExist:
+        return Response(data={'status': False})
+        # if not wishlist:
+        #     wishlist = []
+    wishlist = request.session.get('wishlist', [])
+    if product.pk in wishlist:
+        wishlist.remove(product.pk)
+        data = {'status': True, 'added': False}
+    else:
+        wishlist.append(product.pk)
+        data = {'status': True, 'added': True}
+    request.session['wishlist'] = wishlist
+
+    data['wishlist_len'] = get_wishlist_data(wishlist)
+    return JsonResponse(data)
+
+
+class WishlistModelListView(ListView):
+    template_name = 'wishlist.html'
+    paginate_by = 7
+
+    def get_queryset(self):
+        return BannerInfoModel.get_from_wishlist(self.request)

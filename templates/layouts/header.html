@@ -1,4 +1,5 @@
 {% load static %}
+{% load tags %}
   <!-- start navbar -->
   <nav class="container navbar navbar-expand-lg navbar-light bg-white">
     <ul id="accordion4" class="accordion4">
@@ -21,19 +22,22 @@
             товар?</a>
         </li>
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item-active">
+          <li class="nav-item{% if request.path == '/blogs/' %}-active{% endif %}">
+            <a class="nav-link" href="{% url 'blog:blogs' %}">Линии</a>
+          </li>
+          <li class="nav-item{% if request.path == '/works/' %}-active{% endif %}">
             <a class="nav-link" href="{% url 'work:works' %}">Наши работы</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item{% if request.path == '/blogs/' %}-active{% endif %}">
             <a class="nav-link" href="{% url 'blog:blogs' %}">Статьи</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item{% if request.path == '/videos/' %}-active{% endif %}">
             <a class="nav-link" href="{% url 'home:videos' %}">Наши видео</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item{% if request.path == '/about/' %}-active{% endif %}">
             <a class="nav-link" href="{% url 'home:about' %}">О нас</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item{% if request.path == '/contacts/' %}-active{% endif %}">
             <a class="nav-link" href="{% url 'home:contacts' %}">Контакты</a>
           </li>
         </ul>
@@ -47,7 +51,7 @@
   <nav class="container navbar navbar-expand-lg navbar-light bg-white" style="width: 100%;background-color: red;">
     <ul class="navbar-nav">
       <a href="/"><img src="{% static './images/logo.png' %}" class="logo_image" alt=""></a>
-      <a href="{% url 'home:wishlist' %}">
+      <a href="{% url 'products:wishlist' %}">
         <img src="{% static './images/like.svg' %}" class="like-mobile" alt="">
         <span class="like_radius_mobile">
           <p class="like_count">5</p>
@@ -159,12 +163,12 @@
       <form class="form-inline my-2 my-lg-0">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item-like">
-              <a href="{% url 'home:wishlist' %}">
+              <a href="{% url 'products:wishlist' %}">
               <img src="{% static './images/like.svg' %}" class="like_icon" alt="">
               </a>
-              <a href="{% url 'home:wishlist' %}">
+              <a href="{% url 'products:wishlist' %}">
                 <span class="like_radius">
-                  <p class="like_count">5</p>
+                  <p class="like_count">{% get_wishlist_count request %}</p>
                 </span>
               </a>
             </li>

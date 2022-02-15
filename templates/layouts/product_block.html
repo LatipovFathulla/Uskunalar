@@ -1,3 +1,4 @@
+{% load tags %}
 {% load static %}
 {% block content %}
 <div class="produdcs-section">
@@ -6,7 +7,7 @@
             <!-- card -->
             <a href="#">
                 <div class="card-front bg-vioet">
-                    <a href="#" class="card-link">
+                    <a href="" class="card-link">
                         <button class="btn like-mobile-1"><img
                                 src="{% static './images/like.svg' %}"
                                 class="like-img-mobile" alt=""></button>
@@ -76,8 +77,8 @@
                                 </button>
                             </a></li>
                         </ul>
-                        <a href="#" class="card-link">
-                            <button class="btn-like2"><img
+                        <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
+                            <button class="btn-like2" type="submit"><img
                                     src="{% static './images/like.svg' %}"
                                     alt=""></button>
                         </a>
@@ -89,4 +90,37 @@
     </div>
 </div>
 
+<script>
+    function add_to_wishlist(element, pk) {
+        $.getJSON('/products/' + "wishlist/" + pk, function (data) {
+            if (!data.status) {
+               $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            Error
+                        </div>
+                    </div>`);
+            } else {
+                if (data.added) {
+                    $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            Added to wishlist
+                        </div>
+                    </div>`);
+                    element.innerHTML = '<span class="lnr" style="background-color:#828bb2;border-radius:50%"><i class="fa fa-heart" style="color:red;font-size:20px;margin-top:6px"></i><p class="hover-text">Added </p></span>'
+                } else {
+                    $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-success">
+                            <button type="button" onclick="MyFunction()" class="close" data-dismiss="alert">&times;</button>
+                            Removed from wishlist
+                        </div>
+                    </div>`);
+                    element.innerHTML = '<span class="lnr" style="background-color:#828bb2;border-radius:50%"><i class="fa fa-heart" style="font-size:20px;margin-top:6px"></i><p class="hover-text">Removed </p></span>'
+                }
+                  $('#wishlist_length2').html(data.wishlist_len);
+            }
+        });
+    }
+</script>
 {% endblock %}

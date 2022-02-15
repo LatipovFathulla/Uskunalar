@@ -17,8 +17,8 @@ class CategoryModel(models.Model):
 
 
 class SubCategoryModel(models.Model):
-    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'))
-    subcategory = models.CharField(max_length=90, verbose_name=_('subcategory'))
+    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), related_name='subcategories')
+    subcategory = models.CharField(max_length=90, verbose_name=_('subcategory'),)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
 
     def __str__(self):
@@ -73,6 +73,16 @@ class BannerInfoModel(models.Model):
             return self.dollar - self.dollar * self.discount / 100
         return self.dollar
 
+    @staticmethod
+    def get_from_wishlist(request):
+        wishlist = request.session.get('wishlist', [])
+        return BannerInfoModel.objects.filter(pk__in=wishlist)
+
+    @staticmethod
+    def get_from_cart(request):
+        cart = request.session.get('cart', [])
+        return BannerInfoModel.objects.filter(pk__in=cart)
+
     def __str__(self):
         return self.title
 
@@ -95,6 +105,7 @@ class ProductSpecificationsModel(models.Model):
     product = models.ForeignKey(BannerInfoModel, on_delete=models.CASCADE, related_name='specifications', verbose_name=_('products'))
     product_customer = models.CharField(max_length=99, verbose_name=_('product_customer'))
     product_number = models.CharField(max_length=99, verbose_name=_('product_numbers'))
+    product_image = models.FileField(upload_to='pdf_image', verbose_name=_('product_image'), null=True)
 
     class Meta:
         verbose_name = _('product specification')

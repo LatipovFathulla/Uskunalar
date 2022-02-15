@@ -199,11 +199,9 @@
                             <hr class="hr-menu" style="position: absolute;bottom: -1px;">
                         </div>
                         <ul class="submenu">
-                            {% for subcategory in subcategories %}
-                            {% if category.pk == subcategory.pk %}
-                            <li><a href="?subcategory={{ subcategory.pk }}">{{ subcategory.subcategory }}</a></li>
-                            {% endif %}
-                            {% endfor %}
+                                {% for subcategory in category.subcategories.all %}
+                                    <li><a href="?subcategory={{ subcategory.pk }}">{{ subcategory }}</a></li>
+                                {% endfor %}
                         </ul>
                     </li>
                     {% endfor %}
@@ -261,8 +259,7 @@
                                                 <div class="col-md-3">
                                                     <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
                                                         <div class="link" style="padding: 20px 20px 20px 35px;"><i
-                                                                class="fa fa-database"></i>Все
-                                                            товары<i class="fa fa-chevron-down"></i></div>
+                                                                class="fa fa-database"></i>Все товары<i class="fa fa-chevron-down"></i></div>
                                                         <ul class="submenu"
                                                             style="position: relative;z-index: 99;width: 100%;margin-top: 12px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
                                                             <img src="{% static './images/triangle.svg' %}"
@@ -279,9 +276,7 @@
                                                 <br>
                                                 <div class="col-md-3">
                                                     <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                                                        <div class="link" style="padding: 20px 20px 20px 35px;"><i
-                                                                class="fas fa-dollar-sign"></i>Валюта<i
-                                                                class="fa fa-chevron-down"></i></div>
+                                                        <div class="link" style="padding: 20px 20px 20px 35px;"><i class="fas fa-dollar-sign"></i>Валюта<i class="fa fa-chevron-down"></i></div>
                                                         <ul class="submenu"
                                                             style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
                                                             <img src="{% static './images/triangle.svg' %}"
@@ -295,8 +290,7 @@
                                                 <div class="col-md-3">
                                                     <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
                                                         <div class="link" style="padding: 20px 20px 20px 35px;"><i
-                                                                class="fa fa-check"></i>В
-                                                            наличии<i class="fa fa-chevron-down"></i></div>
+                                                                class="fa fa-check"></i>В наличии<i class="fa fa-chevron-down"></i></div>
                                                         <ul class="submenu"
                                                             style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
                                                             <img src="{% static './images/triangle.svg' %}"
@@ -375,15 +369,13 @@
             <!-- End Filter Bar -->
             <!-- Start Best Seller -->
             <section class="lattest-product-area  category-list">
-
-
                 <div id="London" class="tabcontent3">
-                    <div class="container-1">
+                    <div class="container-fluid">
                         <div class="row">
                             {% for product in object_list %}
-                            <div class="col-md-4 col-6">
-                                {% include 'layouts/product_block.html' %}
-                            </div>
+                                <div class="col-md-4 col-6">
+                                    {% include 'layouts/product_block.html' %}
+                                </div>
                             {% endfor %}
                         </div>
                     </div>
@@ -425,8 +417,7 @@
                                                 <button class="button-left button-bottom-left ds-none2"
                                                         type="button"
                                                         style="width: 127px;height: 52px;">
-                                                    <p class="carousel-button-text" style="font-size: 16px;">
-                                                        Заказать</p>
+                                                    <p class="carousel-button-text" style="font-size: 16px;">Заказать</p>
                                                 </button>
                                             </a>
                                         </li>
@@ -502,7 +493,7 @@ justify-content: center;">
                 <a class="prew_icon" href=""></a>
                 <ul style="display: flex;justify-content: center;">
                     {% for page in page_obj.paginator.page_range %}
-                    <li {% if page == page_obj.number %} class="page_numb-active" {% endif %}  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;padding:15px"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
+                    <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
                     {% endfor %}
                 </ul>
                 <a href="?page={{ page }}"></a>
@@ -925,6 +916,38 @@ justify-content: center;">
 
 
 </script>
+
+<script>
+$(function () {
+    var Accordion = function (el, multiple) {
+        this.el = el || {};
+        this.multiple = multiple || false;
+
+        // Variables privadas
+        var links = this.el.find('.link');
+        // Evento
+        links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+    }
+
+    Accordion.prototype.dropdown = function (e) {
+        var $el = e.data.el;
+        $this = $(this),
+            $next = $this.next();
+
+        $next.slideToggle();
+        $this.parent().toggleClass('open');
+
+        if (!e.data.multiple) {
+            $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+        }
+        ;
+    }
+
+    var accordion = new Accordion($('#accordion4'), false);
+});
+</script>
+
+
 <!--asd-->
 
 {% endblock %}

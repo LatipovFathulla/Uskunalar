@@ -8,8 +8,8 @@ from about.views import AboutModelListView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('about.urls', namespace='home')),
-    path('blog/', include('blog.urls', namespace='blog')),
-    path('work/', include('works.urls', namespace='work')),
+    path('blogs/', include('blog.urls', namespace='blog')),
+    path('works/', include('works.urls', namespace='work')),
     path('products/', include('home.urls', namespace='products'))
 ]
 

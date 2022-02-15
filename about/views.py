@@ -28,14 +28,6 @@ class VideoModelListView(ListView):
         return  qs
 
 
-class WishlistModelListView(ListView):
-    template_name = 'wishlist.html'
-    paginate_by = 7
-
-    def get_queryset(self):
-        return BannerInfoModel.get_from_wishlist(self.request)
-
-
 class HomeView(TemplateView):
     template_name = 'index.html'
 
