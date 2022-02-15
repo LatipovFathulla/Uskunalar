@@ -16,13 +16,13 @@
                             <p class="new-mobile-text">NEW!</p>
                         </button>
                     </a>
-                    <img src="{{ product.image.url }}"
-                         style="width: 100%;height: 250px;" alt="">
+                    <img src="{{ product.image.url }}" class="product-image-url" alt="">
                     <div class="card-text">
                         <h4 class="front-title">{{ product.title }}</h4>
                         <p class="detail">Артикул: {{ product.sku }}</p>
                         <p class="detail" style="margin-top:2px">
                             Город: {{ product.city }}</p>
+                        <p>{{product.category}}</p>
                         <p class="desc-price">{{ product.dollar }} $
                             - {{ product.price }} сум</p>
                         <p class="mob-price">{{ product.dollar }} $</p>

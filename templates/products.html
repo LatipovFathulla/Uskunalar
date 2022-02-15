@@ -194,15 +194,14 @@
                             {% if category.image %}
                             <img src="{{ category.image.url }}" style="width:20px" alt="">
                             {% endif %}
-                            <span
-                                    style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 500;">{{ category.category }}</span><i
+                            <a href="?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 500;">{{ category.category }}</span></a> <i
                                 class="fa fa-chevron-down"></i>
                             <hr class="hr-menu" style="position: absolute;bottom: -1px;">
                         </div>
                         <ul class="submenu">
                             {% for subcategory in subcategories %}
                             {% if category.pk == subcategory.pk %}
-                            <li><a href="#">{{ subcategory.subcategory }}</a></li>
+                            <li><a href="?subcategory={{ subcategory.pk }}">{{ subcategory.subcategory }}</a></li>
                             {% endif %}
                             {% endfor %}
                         </ul>
@@ -268,8 +267,11 @@
                                                             style="position: relative;z-index: 99;width: 100%;margin-top: 12px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
                                                             <img src="{% static './images/triangle.svg' %}"
                                                                  style="overflow: hidden;" alt="">
-                                                            <li><a href="#">Арзондан бошлаб</a></li>
-                                                            <li><a href="#">Кимматдан бошлаб</a></li>
+                                                              <select onchange="addUrlParameter('sort', this.value)">
+                                                                <option value="default">{% trans 'Default' %}</option>
+                                                                <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price">{% trans 'Low to high' %}</option>
+                                                                <option {% if request.GET.sort == '-price' %}selected{% endif %}  value="-price">{% trans 'High to low' %}</option>
+                                                            </select>
                                                             <li><a href="#">Барчаси</a></li>
                                                         </ul>
                                                     </li>
@@ -332,9 +334,12 @@
                                                                     </div>
                                                                 </div>
                                                             </li>
-                                                            <li><input type="text" class="js-range-slider2"
-                                                                       name="my_range" value=""/></li>
-                                                            <li><a href="#"></a></li>
+                                                            <li>
+                                                                <form action="">
+                                                                    <input type="range" class="js-range-slider" name="js-range-slider" />
+                                                                </form>
+                                                            </li>
+
                                                         </ul>
                                                     </li>
                                                 </div>
@@ -408,13 +413,12 @@
                                 </div>
                                 <div class="col-md-6 col-6 mt-3">
                                     <h4 class="front-title-paris">
-                                        Буровая установка БР 73212С</h4>
+                                        {{ product.title }}</h4>
                                     <p class="detail-paris">
-                                        Артикул: US</p>
-                                    <p class="desc-paris">$3 800 - 24
-                                        731 675 сум</p>
-                                    <p class="mob-price" style="margin-left: 2%;">$3 800</p>
-                                    <p class="mob-price mt-2" style="margin-left: 2%;">24 731 675 cум</p>
+                                        Артикул: {{ product.sku }}</p>
+                                    <p class="desc-paris">$ {{ product.dollar }} - {{ product.price }} сум</p>
+                                    <p class="mob-price" style="margin-left: 2%;">${{ product.dollar }}</p>
+                                    <p class="mob-price mt-2" style="margin-left: 2%;">{{ product.price }} cум</p>
                                     <ul>
                                         <li>
                                             <a href="./single-product.html">
@@ -451,28 +455,24 @@
                             <div class="sort-menu-info">
                                 <div class="container">
                                     <div class="row">
+                                        {% for j in product.specifications.all %}
                                         <div class="col-md-3">
-                                            <p class="info-back-product">Емкость лотка:</p>
-                                            <p class="info-back-product">Емкость шаблона:</p>
-                                            <p class="info-back-product">Напряжение:</p>
-                                            <p class="info-back-product">Размер оборудования:</p>
+                                            <p class="info-back-product">{{ j.product_customer }}:</p>
                                         </div>
                                         <div class="col-md-3">
-                                            <p style="padding-top: 3%;">9 та</p>
-                                            <p style="padding-top: 19%;">108 дона</p>
-                                            <p style="padding-top: 11%;">380 В 50 Гц</p>
-                                            <p style="padding-top: 17%;">мм</p>
+                                            <p style="padding-top: 8%;">{{ j.product_number }}</p>
                                         </div>
-                                        <div class="col-md-3">
-                                            <p class="info-back-product">Энергопотребление:</p>
-                                            <p class="info-back-product">Материал:</p>
-                                            <p class="info-back-product">Тип энергии:</p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <p style="padding-top: 3%;">25 кв / ч.</p>
-                                            <p style="padding-top: 11%;">Зангламас металл S208:</p>
-                                            <p style="padding-top: 11%;">Ток</p>
-                                        </div>
+                                        {% endfor %}
+<!--                                        <div class="col-md-3">-->
+<!--                                            <p class="info-back-product">Энергопотребление:</p>-->
+<!--                                            <p class="info-back-product">Материал:</p>-->
+<!--                                            <p class="info-back-product">Тип энергии:</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-md-3">-->
+<!--                                            <p style="padding-top: 3%;">25 кв / ч.</p>-->
+<!--                                            <p style="padding-top: 11%;">Зангламас металл S208:</p>-->
+<!--                                            <p style="padding-top: 11%;">Ток</p>-->
+<!--                                        </div>-->
 
                                     </div>
                                     <div class="text-center">
@@ -898,6 +898,20 @@ justify-content: center;">
 
 
 
+</script>
+
+<script>
+      $(".js-range-slider").ionRangeSlider({
+        type: "double",
+        grid: true,
+        min: {{ min_price }},
+        max: {{ max_price }},
+        prefix: "$",
+        onFinish(data) {
+            let result = data.from.toString() + ';' + data.to.toString()
+            addUrlParameter('price', result);
+        }
+    });
 </script>
 
 <!--asd-->

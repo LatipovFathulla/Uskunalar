@@ -994,12 +994,12 @@ p {
 
 .button-bottom-single-product {
     left: 0%;
-    margin-top: 1%;
     letter-spacing: 1px;
     background: #FFE700;
     border: none;
     position: relative;
-    bottom: 3px;
+    top:50px;
+    bottom: 0px;
     z-index: 9;
     border-radius: 6px;
     width: 127px;
@@ -1413,17 +1413,6 @@ nav .nav-ul li a span.rotate {
   border-radius: 20px;
 }
 
-.sort-menu-products {
-  margin-left: 1%;
-  padding: 20px 10px;
-  width: 100%;
-  margin-top: 20px;
-  border-left: none;
-  height: auto;
-  background-color: #fff;
-  box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);
-  border-radius: 6px;
-}
 
 .btn-prev {
   background: #E5ECF0;
@@ -1529,15 +1518,7 @@ nav .nav-ul li a span.rotate {
   box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);
 }
 
-.produdcs-section {
-  width: 100%;
-  margin-top: 20px;
-  border-left: none;
-  height: 400px;
-  border-radius: 15px;
-  background-color: #fff;
-  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important
-}
+
 
 .filter {
   padding: 20px 32px;
@@ -2270,8 +2251,10 @@ nav .nav-ul li a span.rotate {
 
   .button-left {
     position: absolute;
-    left: 9%;
-    bottom: 10px;
+    left: 14%;
+    /* top: 0px; */
+    margin-top: 8px;
+    /* bottom: -1px; */
     background: #FFE700;
     border: none;
     z-index: 1;
@@ -2280,6 +2263,24 @@ nav .nav-ul li a span.rotate {
     height: 57px;
     overflow: hidden;
   }
+
+  .product-image-url {
+    width:100%;
+    height:190px
+  }
+
+   .sort-menu-products {
+      margin-left: 1%;
+      padding: 20px 10px;
+      width: 100%;
+      margin-top: 20px;
+      border-left: none;
+      height: 230px;
+      background-color: #fff;
+      box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);
+      border-radius: 6px;
+    }
+
 
   .icon-right {
     position: absolute;
@@ -2916,6 +2917,16 @@ nav .nav-ul li a span.rotate {
     color: #fff;
 
   }
+
+  .produdcs-section {
+  width: 100%;
+  margin-top: 20px;
+  border-left: none;
+  height: 440px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important
+}
 }
 
 
@@ -3139,6 +3150,33 @@ nav .nav-ul li a span.rotate {
     color: #fff;
     font-weight: normal;
     font-size: 16px;
+  }
+
+  .sort-menu-products {
+  margin-left: 1%;
+  padding: 20px 10px;
+  width: 100%;
+  margin-top: 20px;
+  border-left: none;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);
+  border-radius: 6px;
+  }
+
+.produdcs-section {
+  width: 100%;
+  margin-top: 20px;
+  border-left: none;
+  height: 400px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important
+}
+
+.product-image-url {
+    width:100%;
+    height:250px
   }
 
   .card-text .front-title {
