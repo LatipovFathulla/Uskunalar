@@ -7,11 +7,12 @@ from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 class BannerInfoModelView(ListView):
     template_name = 'products.html'
     context_object_name = 'products'
+    paginate_by = 9
 
-    def get_queryset(self):
+    def get_queryset(self, ):
         qs = BannerInfoModel.objects.order_by('-pk')
 
-        q = self.request.GET.get('q')
+        q = self.request.GET.get('q', '')
         category = self.request.GET.get('category')
         sku = self.request.GET.get('sku')
 
@@ -19,24 +20,24 @@ class BannerInfoModelView(ListView):
             qs = qs.filter(title__icontains=q)
 
         if category:
-            qs = qs.filter(category_id=category)
+            qs = qs.filter(sku_id=q)
 
         if sku:
-            qs = qs.filter(sku__icontains=sku)
+            qs = qs.filter(category_id=q)
 
         return qs
-
-    def get_queryset2(self, ):
-        qs = BannerInfoModel.objects.order_by('pk')
-
-        q = self.request.GET.get('q', '')
-
-        if q:
-            qs = qs.filter(Q(title__icontains=q) |
-                           Q(sku__icontains=q) |
-                           Q(city__icontains=q)
-                           )
-        return qs
+    #
+    # def get_queryset2(self, ):
+    #     qs = BannerInfoModel.objects.order_by('pk')
+    #
+    #     q = self.request.GET.get('q', '')
+    #
+    #     if q:
+    #         qs = qs.filter(Q(title__icontains=q) |
+    #                        Q(sku__icontains=q) |
+    #                        Q(city__icontains=q)
+    #                        )
+    #     return qs
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

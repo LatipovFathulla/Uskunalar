@@ -1,0 +1,92 @@
+{% load static %}
+{% block content %}
+<div class="produdcs-section">
+    <div class="flex-item">
+        <div class="flex-item-inner">
+            <!-- card -->
+            <a href="#">
+                <div class="card-front bg-vioet">
+                    <a href="#" class="card-link">
+                        <button class="btn like-mobile-1"><img
+                                src="{% static './images/like.svg' %}"
+                                class="like-img-mobile" alt=""></button>
+                    </a>
+                    <a href="#" class="card-link">
+                        <button class="btn new-mobile-1">
+                            <p class="new-mobile-text">NEW!</p>
+                        </button>
+                    </a>
+                    <img src="{{ product.image.url }}"
+                         style="width: 100%;height: 250px;" alt="">
+                    <div class="card-text">
+                        <h4 class="front-title">{{ product.title }}</h4>
+                        <p class="detail">Артикул: {{ product.sku }}</p>
+                        <p class="detail" style="margin-top:2px">
+                            Город: {{ product.city }}</p>
+                        <p class="desc-price">{{ product.dollar }} $
+                            - {{ product.price }} сум</p>
+                        <p class="mob-price">{{ product.dollar }} $</p>
+                        <p class="mob-price">{{ product.price }} сум</p>
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="{% url 'products:single' %}">
+                                <button class="button-left button-bottom-left ds-none"
+                                        type="button"
+                                        style="width: 127px;height: 52px;">
+                                    <p class="carousel-button-text"
+                                       style="font-size: 16px;">Заказать</p>
+                                </button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-back bg-violet">
+                    <p class="back-title">{{ product.title }}</p>
+                    <p class="desc">{{ product.dollar }} $ - {{ product.price }}
+                        сум</p>
+                    <div class="container">
+                        <div class="spetifications"
+                             style="margin-top: 15%;padding: 1px;">
+                            <div class="row">
+                                {% for j in product.specifications.all %}
+                                <div class="col-md-6">
+
+                                    <p style="font-size: 14px;margin-bottom: 8px;">
+                                        {{ j.product_customer }}:</p>
+                                </div>
+                                <br>
+                                <div class="col-md-6">
+                                    <p style="font-size: 14px;margin-bottom: 8px;">
+                                        {{ j.product_number }}</p>
+                                </div>
+                                <br>
+                                <br>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons"
+                         style="text-align: center;padding: 10px;">
+                        <ul>
+                            <li><a href="{% url 'products:single' %}">
+                                <button class="button-product button-bottom-product">
+                                    <p style="font-size: 16px;">Заказать</p>
+                                </button>
+                            </a></li>
+                        </ul>
+                        <a href="#" class="card-link">
+                            <button class="btn-like2"><img
+                                    src="{% static './images/like.svg' %}"
+                                    alt=""></button>
+                        </a>
+                    </div>
+                </div>
+            </a>
+            <!-- /card -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
