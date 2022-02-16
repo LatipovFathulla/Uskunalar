@@ -204,6 +204,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   splide.mount();
+
+
 //  end
 
 // menu

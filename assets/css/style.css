@@ -3299,7 +3299,7 @@ nav .nav-ul li a span.rotate {
   .splide__track {
     padding-left: 0px;
     padding-right: 0px;
-    height: 351px;
+    height: 431px;
     margin: 19px;
   }
 
@@ -4089,7 +4089,7 @@ nav .nav-ul li a span.rotate {
 
 footer .main-footer {
   padding: 20px 0;
-  background: #F4F5F7;
+  background: #32414a;
 }
 
 footer ul {
@@ -4213,7 +4213,7 @@ footer.light .footer-copyright {
 .widget-title {
   margin-bottom: 20px;
   font-size: 20px;
-  color: #131311;
+  color: #fff;
   font-weight: bold;
   font-style: normal;
   line-height: 24px;
@@ -4241,11 +4241,11 @@ footer.light .footer-copyright {
   font-style: normal;
   line-height: 150%;
   font-family: sans-serif;
-  color: #616161;
+  color: #fff;
 }
 
 .widget-number {
-  color: #616161;
+  color: #fff;
   font-size: 16px;
   line-height: 150%;
   font-style: normal;
@@ -4302,7 +4302,7 @@ ul.social-footer2 li a {
   line-height: 150%;
   font-weight: normal;
   font-style: normal;
-  color: #616161;
+  color: #fff;
   font-family: sans-serif;
 }
 

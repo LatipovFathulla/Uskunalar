@@ -18,7 +18,12 @@
           href='https://mverissimo.github.io/tweenslideshow/dist/assets/stylesheet/application.min.css'>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-
+<style>
+    .splide__arrows {
+        position: relative;
+        top: 159px;
+    }
+</style>
 <body>
 <!-- start navbar -->
 <nav class="container navbar navbar-expand-lg navbar-light bg-white">
@@ -165,64 +170,64 @@
                     <ul class="list-group2">
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/pishevaya.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left: -2.5%;font-weight: normal;font-style: normal;">Пищевая
+                                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left: -2.5%;font-weight: 500;font-style: normal;">Пищевая
                   промышленность</span>
                         </li>
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/pishevaya_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left: -2.5%;font-weight: normal;font-style: normal;">Пищевая
+                                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left: -2.5%;font-weight: 500;font-style: normal;">Пищевая
                   промышленность</span>
                         </li>
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: normal;font-style: normal;">Мемас</span>
+                                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: 500;font-style: normal;">Мемас</span>
                         </li>
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Строительная
+                                style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: 500;font-style: normal;">Строительная
                   промышленность</span>
                         </li>
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
+                                style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: 500;font-style: normal;">Пластиковая
                   промышленность</span>
                         </li>
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: normal;font-style: normal;">Мемас</span>
+                                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: 500;font-style: normal;">Мемас</span>
                         </li>
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Строительная
+                                style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: 500;font-style: normal;">Строительная
                   промышленность</span>
                         </li>
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
+                                style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: 500;font-style: normal;">Пластиковая
                   промышленность</span>
                         </li>
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
+                                style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: 500;font-style: normal;">Пластиковая
                   промышленность</span>
                         </li>
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: normal;font-style: normal;">Мемас</span>
+                                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: 500;font-style: normal;">Мемас</span>
                         </li>
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Строительная
+                                style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: 500;font-style: normal;">Строительная
                   промышленность</span>
                         </li>
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
+                                style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: 500;font-style: normal;">Пластиковая
                   промышленность</span>
                         </li>
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/squares_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2.9%;font-weight: normal;font-style: normal;">Все
+                                style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2.9%;font-weight: 500;font-style: normal;">Все
                   категории</span>
                         </li>
                     </ul>
@@ -970,90 +975,89 @@
     <br>
     <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
     <br>
-    <div class="container">
-        <div class="row">
-            <div class="splide_2">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <li class="splide__slide">
-                            <div class="col-md-4">
-                                <a href="">
-                                    <img src="{% static 'images/Rectangle 33.png' %}" style="border-radius: 6px;"
-                                         alt="">
-                                    <div class="shadow">
-                                        <hr class="shadow_hr">
-                                        <p class="shadow_text">Производство
-                                            утилизационных <br>контейнеров </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="col-md-4">
-                                <img src="{% static 'images/Rectangle 34_2.png' %}" class="img-splide-2" alt="">
-                                <div class="shadow">
-                                    <hr class="shadow_hr">
-                                    <p class="shadow_text">Производство
-                                        утилизационных <br>контейнеров </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <img src="{% static 'images/Rectangle 35.png' %}" class="img-splide-2" alt="">
-                            <div class="shadow2">
-                                <hr class="shadow_hr">
-                                <p class="shadow_text">Производство лапши быстрого приготовления</p>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="col-md-4">
-                                <img src="{% static 'images/Rectangle 34_2.png' %}" alt="">
-                                <div class="shadow">
-                                    <hr class="shadow_hr">
-                                    <p class="shadow_text">Производство
-                                        утилизационных <br>контейнеров </p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+    <div class="contaiåer">
+        <div class="splide_4_5">
+            <div class="splide__track" style="height:580px">
+                <ul class="splide__list">
+                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
+                    <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
+                        <span style="position:absolute;margin:3px">Линия по производству бутылок</span>
+                        <br>
+                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
+                        <br>
+                        <button class="btn btn-warning" style="margin: 10px;margin-left: 32%;">Подробнее</button>
+                    </div>
+
+                    </li>
+                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
+                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
+                        <span style="position:absolute;margin:3px">Линия по производству бутылок</span>
+                        <br>
+                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
+                        <br>
+                        <button class="btn btn-warning" style="margin: 10px;margin-left: 32%;">Подробнее</button>
+                    </div>
+                    </li>
+                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
+                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
+                        <span style="position:absolute;margin:3px">Линия по производству бутылок</span>
+                        <br>
+                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
+                        <br>
+                        <button class="btn btn-warning" style="margin: 10px;margin-left: 32%;">Подробнее</button>
+                    </div>
+                    </li>
+                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
+                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
+                        <span style="position:absolute;margin:3px">Линия по производству бутылок</span>
+                        <br>
+                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
+                        <br>
+                        <button class="btn btn-warning" style="margin: 10px;margin-left: 32%;">Подробнее</button>
+                    </div>
+                    </li>
+                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
+                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
+                        <span>Линия по производству бутылок</span>
+                        <br>
+                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
+                        <br>
+                        <button class="btn btn-warning" style="margin: 10px;margin-left: 32%;">Подробнее</button>
+                    </div>
+                    </li>
+                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
+                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
+                        <span>Линия по производству бутылок</span>
+                        <br>
+                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
+                        <br>
+                        <button class="btn btn-warning" style="margin: 10px;margin-left: 32%;">Подробнее</button>
+                    </div>
+                    </li>
+                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
+                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
+                        <span>Линия по производству бутылок</span>
+                        <br>
+                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
+                        <br>
+                        <button class="btn btn-warning" style="margin: 10px;margin-left: 32%;">Подробнее</button>
+                    </div>
+                    </li>
+                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
+                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
+                        <span>Линия по производству бутылок</span>
+                        <br>
+                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
+                        <br>
+                        <button class="btn btn-warning" style="margin: 10px;margin-left: 32%;">Подробнее</button>
+                    </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+
     <br>
-    <div class="row lines-1">
-        <div class="col-md-4">
-            <a href="">
-                <img src="{% static 'images/Rectangle 33.png' %}" style="border-radius: 6px;" alt="">
-                <div class="shadow">
-                    <hr class="shadow_hr">
-                    <p class="shadow_text">Производство
-                        утилизационных <br>контейнеров </p>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-4">
-            <img src="{% static 'images/Rectangle 34.png' %}" alt="">
-            <div class="shadow">
-                <hr class="shadow_hr">
-                <p class="shadow_text">Производство
-                    утилизационных <br>контейнеров </p>
-            </div>
-            <img src="{% static 'images/Rectangle 35.png' %}" alt="">
-            <div class="shadow2">
-                <hr class="shadow_hr">
-                <p class="shadow_text">Производство лапши быстрого приготовления</p>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <img src="{% static 'images/Rectangle 34_2.png' %}" alt="">
-            <div class="shadow">
-                <hr class="shadow_hr">
-                <p class="shadow_text">Производство
-                    утилизационных <br>контейнеров </p>
-            </div>
-        </div>
-    </div>
     <img src="{% static 'images/Group_417.svg' %}" class="icon-left"
          style="position: absolute;right: 4%;transform: rotate(-23.65deg);width: 70px;" alt="">
 </div>
@@ -1353,9 +1357,9 @@
 <div class="container ">
     <div class="row desk-product">
         {% for product in products %}
-            <div class="col-md-3">
-                {% include 'layouts/product_block.html' %}
-            </div>
+        <div class="col-md-3">
+            {% include 'layouts/product_block.html' %}
+        </div>
         {% endfor %}
     </div>
 </div>
@@ -1736,8 +1740,8 @@
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="widget no-box">
                         <h5 class="widget-title">Контакты<span></span></h5>
-                        <p class="widget-number"><img src="{% static 'images/map1.png' %}"
-                                                      style="width: 25px;height: 25px;" alt=""> Тошкент
+                        <p class="widget-number"><img src="{% static 'images/map_footer.svg' %}"
+                                                      alt=""> Тошкент
                             шаҳри, Сирғали тумани, Катта олмос 1-тор кўчаси 9а-уй.</p>
                         <a href="tel:+998 71 250 77 77"><p class="widget-number"><img
                                 src="{% static 'images/phone.svg' %}" alt=""> +998 71 250 77 77</p></a>
@@ -1779,9 +1783,6 @@
 
 <script>
     document.getElementById("year").innerHTML = new Date().getFullYear();
-
-
-
 </script>
 
 <!-- Code by Fathulla Latipov LF -->
@@ -1804,6 +1805,16 @@
 <script src='https://kenwheeler.github.io/slick/slick/slick.js'></script>
 <script src='https://s3.amazonaws.com/dimsemenov-static/dist/jquery.magnific-popup.min.js'></script>
 <script src="{% static 'js/main.js' %}"></script>
+<script>
+    var splide = new Splide('.splide_4_5', {
+        type   : 'loop',
+        perPage: 4,
+        perMove: 1,
+    });
+
+    splide.mount();
+
+</script>
 
 </body>
 </html>
