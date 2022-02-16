@@ -2,314 +2,249 @@
 {% load static %}
 {% block content %}
 
-  <section class="banner2" >
-    <div class="container">
-      <div class="row">
+    <section class="banner2">
+        <div class="container">
+            <div class="row">
 
-      </div>
-      <h1 class="banner-text">Наши статьи</h1>
-      <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Наши статьи</a></span></p>
-
-      <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
-    </div>
-
-  </section>
-
-
-  <img src="{% static './images/settings.svg' %}" class="icon-right m-3" style="right: 7%;" alt="">
-
-
-  <br>
-
-<div class="desc-blog">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="blog-yellow"></div>
-        <div class="date"><span class="date-number">28</span> <span class="date-date">Сентябрь</span></div>
-        <div class="blog-box mt-5">
-          <div class="row p-5">
-            <div class="col-md-3">
-              <img src="{% static './images/blog-image.png' %}" style="width: 169px;height: 225px;" alt="">
             </div>
-            <div class="col-md-9 blog-info">
-              <p class="blog-views">Просмотрено 357 человек</p>
-              <p class="blog-title">Как повысить эффективность производства</p>
-              <p class="blog-desc">В последние годы на рынке появилось достаточно широкое предложение оборудования для производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
-              <br>
-              <a href="{% url 'blog:single-blog' %}" style="font-size: 18px;font-weight: 500;">Читать дальше <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
+            <h1 class="banner-text">Наши статьи</h1>
+            <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Наши статьи</a></span></p>
+
+            <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
+        </div>
+
+    </section>
+
+
+    <img src="{% static './images/settings.svg' %}" class="icon-right m-3" style="right: 7%;" alt="">
+
+
+    <br>
+
+    <div class="desc-blog">
+        <div class="container">
+            <div class="row">
+                {% for blog in blogs %}
+                    <div class="col-md-12">
+                        <div class="blog-yellow"></div>
+                        <div class="date"><span class="date-number">{{ blog.created_at|date:'d' }}</span> <span class="date-date">{{ blog.created_at|date:'F' }}</span>
+                        </div>
+                        <div class="blog-box mt-5">
+                            <div class="row p-5">
+                                <div class="col-md-3">
+                                    <img src="{{ blog.image.url }}" style="width: 169px;height: 225px;" alt="">
+                                </div>
+                                <div class="col-md-9 blog-info">
+                                    <p class="blog-views">Просмотрено 357 человек</p>
+                                    <p class="blog-title">{{ blog.title }}</p>
+                                    <p class="blog-desc">{{ blog.description }}</p>
+                                    <br>
+                                    <a href="{% url 'blog:single-blog' pk=blog.pk %}" style="font-size: 18px;font-weight: 500;">Читать дальше <img
+                                            src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="container blog-container">
-    <div class="row">
-      <img src="{% static './images/Group_417.svg' %}" class="icon-left" style="left: 8%;" alt="">
-      <div class="col-md-12">
-        <div class="blog-yellow"></div>
-        <div class="date"><span class="date-number">28</span> <span class="date-date">Сентябрь</span></div>
-        <div class="blog-box mt-5">
-          <div class="row p-5">
-            <div class="col-md-3">
-              <img src="{% static './images/blog-image.png' %}" style="width: 169px;height: 225px;" alt="">
+
+    </div>
+
+    <div class="mobile-blog">
+        <div class="container">
+            <div class="row">
+                {% for blog in blogs %}
+                    <div class="col-md-12">
+                        <div class="blog-yellow-mobile">
+
+                        </div>
+                        <div class="box" style="width: 95%;float: right;height: auto;z-index: 4;position: relative;">
+                            <img src="{{ blog.image.url }}" style="width: 100%;height: auto;" alt="">
+                            <br>
+                            <br>
+                            <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;">
+                                Просмотрено 457 человек</small>
+                            <br>
+                            <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">{{ blog.title }}</p>
+                            <br>
+                            <p>{{ blog.description }}</p>
+                            <br>
+                            <a href="./single-blog.html">Читать дальше <img src="{% static './images/right.svg' %}"
+                                                                            style="position: absolute;margin-left: 2%;"
+                                                                            alt=""></a>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-            <div class="col-md-9 blog-info">
-              <p class="blog-views">Просмотрено 357 человек</p>
-              <p class="blog-title">Как повысить эффективность производства</p>
-              <p class="blog-desc">В последние годы на рынке появилось достаточно широкое предложение оборудования для производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
-              <br>
-              <a href="./single-blog.html" style="font-size: 18px;font-weight: 500;">Читать дальше <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-yellow-mobile">
+
+                    </div>
+                    <div class="box" style="width: 95%;float: right;height: auto;z-index: 4;position: relative;">
+                        <img src="{% static './images/blog-image.png' %}" style="width: 100%;height: auto;" alt="">
+                        <br>
+                        <br>
+                        <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;">
+                            Просмотрено 457 человек</small>
+                        <br>
+                        <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">Как повысить эффективность
+                            производства</p>
+                        <br>
+                        <p>В последние годы на рынке появилось достаточно широкое предложение оборудования для
+                            производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов
+                            активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
+                        <br>
+                        <a href="./single-blog.html">Читать дальше <img src="{% static './images/right.svg' %}"
+                                                                        style="position: absolute;margin-left: 2%;"
+                                                                        alt=""></a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="container blog-container">
-    <div class="row">
-      <img src="{% static './images/Group_418.svg' %}" class="icon-right" style="right: 8%;transform: rotate(-29.52deg);" alt="">
-      <div class="col-md-12">
-        <div class="blog-yellow"></div>
-        <div class="date"><span class="date-number">28</span> <span class="date-date">Сентябрь</span></div>
-        <div class="blog-box mt-5">
-          <div class="row p-5">
-            <div class="col-md-3">
-              <img src="{% static './images/blog-image.png' %}" style="width: 169px;height: 225px;" alt="">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-yellow-mobile">
+
+                    </div>
+                    <div class="box" style="width: 95%;float: right;height: auto;z-index: 4;position: relative;">
+                        <img src="{% static './images/blog-image.png' %}" style="width: 100%;height: auto;" alt="">
+                        <br>
+                        <br>
+                        <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;">
+                            Просмотрено 457 человек</small>
+                        <br>
+                        <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">Как повысить эффективность
+                            производства</p>
+                        <br>
+                        <p>В последние годы на рынке появилось достаточно широкое предложение оборудования для
+                            производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов
+                            активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
+                        <br>
+                        <a href="./single-blog.html">Читать дальше <img src="{% static './images/right.svg' %}"
+                                                                        style="position: absolute;margin-left: 2%;"
+                                                                        alt=""></a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-9 blog-info">
-              <p class="blog-views">Просмотрено 357 человек</p>
-              <p class="blog-title">Как повысить эффективность производства</p>
-              <p class="blog-desc">В последние годы на рынке появилось достаточно широкое предложение оборудования для производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
-              <br>
-              <a href="./single-blog.html" style="font-size: 18px;font-weight: 500;">Читать дальше <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-yellow-mobile">
+
+                    </div>
+                    <div class="box" style="width: 95%;float: right;height: auto;z-index: 4;position: relative;">
+                        <img src="{% static './images/blog-image.png' %}" style="width: 100%;height: auto;" alt="">
+                        <br>
+                        <br>
+                        <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;">
+                            Просмотрено 457 человек</small>
+                        <br>
+                        <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">Как повысить эффективность
+                            производства</p>
+                        <br>
+                        <p>В последние годы на рынке появилось достаточно широкое предложение оборудования для
+                            производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов
+                            активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
+                        <br>
+                        <a href="./single-blog.html">Читать дальше <img src="{% static './images/right.svg' %}"
+                                                                        style="position: absolute;margin-left: 2%;"
+                                                                        alt=""></a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-yellow-mobile">
 
-  <div class="container blog-container">
-    <div class="row">
-      <img src="{% static './images/Group_419.svg' %}" class="icon-left" style="left: 8%;" alt="">
-      <div class="col-md-12">
-        <div class="blog-yellow"></div>
-        <div class="date"><span class="date-number">28</span> <span class="date-date">Сентябрь</span></div>
-        <div class="blog-box mt-5">
-          <div class="row p-5">
-            <div class="col-md-3">
-              <img src="{% static './images/blog-image.png' %}" style="width: 169px;height: 225px;" alt="">
+                    </div>
+                    <div class="box" style="width: 95%;float: right;height: auto;z-index: 4;position: relative;">
+                        <img src="{% static './images/blog-image.png' %}" style="width: 100%;height: auto;" alt="">
+                        <br>
+                        <br>
+                        <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;">
+                            Просмотрено 457 человек</small>
+                        <br>
+                        <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">Как повысить эффективность
+                            производства</p>
+                        <br>
+                        <p>В последние годы на рынке появилось достаточно широкое предложение оборудования для
+                            производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов
+                            активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
+                        <br>
+                        <a href="./single-blog.html">Читать дальше <img src="{% static './images/right.svg' %}"
+                                                                        style="position: absolute;margin-left: 2%;"
+                                                                        alt=""></a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-9 blog-info">
-              <p class="blog-views">Просмотрено 357 человек</p>
-              <p class="blog-title">Как повысить эффективность производства</p>
-              <p class="blog-desc">В последние годы на рынке появилось достаточно широкое предложение оборудования для производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
-              <br>
-              <a href="./single-blog.html" style="font-size: 18px;font-weight: 500;">Читать дальше <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <div class="container blog-container">
-    <div class="row">
-      <img src="{% static './images/settings.svg' %}" class="icon-right m-3" style="right: 7%;" alt="">
-      <div class="col-md-12">
-        <div class="blog-yellow"></div>
-        <div class="date"><span class="date-number">28</span> <span class="date-date">Сентябрь</span></div>
-        <div class="blog-box mt-5">
-          <div class="row p-5">
-            <div class="col-md-3">
-              <img src="{% static './images/blog-image.png' %}" style="width: 169px;height: 225px;" alt="">
-            </div>
-            <div class="col-md-9 blog-info">
-              <p class="blog-views">Просмотрено 357 человек</p>
-              <p class="blog-title">Как повысить эффективность производства</p>
-              <p class="blog-desc">В последние годы на рынке появилось достаточно широкое предложение оборудования для производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
-              <br>
-              <a href="./single-blog.html" style="font-size: 18px;font-weight: 500;">Читать дальше <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="mobile-blog">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="blog-yellow-mobile">
-
-        </div>
-        <div class="box" style="width: 95%;float: right;height: auto;z-index: 4;position: relative;">
-          <img src="{% static './images/blog-image.png' %}" style="width: 100%;height: auto;" alt="">
-          <br>
-          <br>
-          <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;"> Просмотрено 457 человек</small>
-          <br>
-          <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">Как повысить эффективность производства</p>
-          <br>
-          <p>В последние годы на рынке появилось достаточно широкое предложение оборудования для производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
-          <br>
-          <a href="./single-blog.html">Читать дальше <img src="{% static './images/right.svg' %}" style="position: absolute;margin-left: 2%;" alt=""></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="blog-yellow-mobile">
-
-        </div>
-        <div class="box" style="width: 95%;float: right;height: auto;z-index: 4;position: relative;">
-          <img src="{% static './images/blog-image.png' %}" style="width: 100%;height: auto;" alt="">
-          <br>
-          <br>
-          <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;"> Просмотрено 457 человек</small>
-          <br>
-          <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">Как повысить эффективность производства</p>
-          <br>
-          <p>В последние годы на рынке появилось достаточно широкое предложение оборудования для производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
-          <br>
-          <a href="./single-blog.html">Читать дальше <img src="{% static './images/right.svg' %}" style="position: absolute;margin-left: 2%;" alt=""></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="blog-yellow-mobile">
-
-        </div>
-        <div class="box" style="width: 95%;float: right;height: auto;z-index: 4;position: relative;">
-          <img src="{% static './images/blog-image.png' %}" style="width: 100%;height: auto;" alt="">
-          <br>
-          <br>
-          <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;"> Просмотрено 457 человек</small>
-          <br>
-          <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">Как повысить эффективность производства</p>
-          <br>
-          <p>В последние годы на рынке появилось достаточно широкое предложение оборудования для производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
-          <br>
-          <a href="./single-blog.html">Читать дальше <img src="{% static './images/right.svg' %}" style="position: absolute;margin-left: 2%;" alt=""></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="blog-yellow-mobile">
-
-        </div>
-        <div class="box" style="width: 95%;float: right;height: auto;z-index: 4;position: relative;">
-          <img src="{% static './images/blog-image.png' %}" style="width: 100%;height: auto;" alt="">
-          <br>
-          <br>
-          <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;"> Просмотрено 457 человек</small>
-          <br>
-          <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">Как повысить эффективность производства</p>
-          <br>
-          <p>В последние годы на рынке появилось достаточно широкое предложение оборудования для производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
-          <br>
-          <a href="./single-blog.html">Читать дальше <img src="{% static './images/right.svg' %}" style="position: absolute;margin-left: 2%;" alt=""></a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="blog-yellow-mobile">
-
-        </div>
-        <div class="box" style="width: 95%;float: right;height: auto;z-index: 4;position: relative;">
-          <img src="{% static './images/blog-image.png' %}" style="width: 100%;height: auto;" alt="">
-          <br>
-          <br>
-          <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;"> Просмотрено 457 человек</small>
-          <br>
-          <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">Как повысить эффективность производства</p>
-          <br>
-          <p>В последние годы на рынке появилось достаточно широкое предложение оборудования для производства корпусной мебели. Российские поставщики оборудования, инструмента и материалов активно отреагировали на возросший интерес рынка к производству корпусной мебели.</p>
-          <br>
-          <a href="./single-blog.html">Читать дальше <img src="{% static './images/right.svg' %}" style="position: absolute;margin-left: 2%;" alt=""></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="mobile-pagination" style="position: relative;margin-top: 20%;">
-  <!-- pagination menu -->
-<nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
+    <div class="mobile-pagination" style="position: relative;margin-top: 20%;">
+        <!-- pagination menu -->
+        <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
 justify-content: center;">
-  <a class="prew_icon" href=""><img src="{% static './images/left.svg' %}" alt=""></a>
-  <ul style=" display: flex;
- justify-content: center;">
-    <li class="page_numb"><a href="" style="color: #132E6B;">1</a></li>
-    <li class="page_numb-active"><a href="" style="color: #132E6B;">2</a></li>
-    <li class="page_numb"><a href="" style="color: #132E6B;">3</a></li>
-    <li class="page_numb"><a href="" style="color: #132E6B;">4</a></li>
-    <li class="page_numb"><a href="" style="color: #132E6B;">5</a></li>
-  </ul>
-  <a href=""><img src="{% static './images/right.svg' %}" alt=""></a>
-</nav>
+                <a class="prew_icon" href=""></a>
+                <ul style="display: flex;justify-content: center;">
+                    {% for page in page_obj.paginator.page_range %}
+                    <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
+                    {% endfor %}
+                </ul>
+                <a href="?page={{ page }}"></a>
+            </nav>
 
-<!-- end pagination menu -->
-</div>
+        <!-- end pagination menu -->
+    </div>
 
 
 
-<div class="desk_pagination" style="position: relative;">
-  <!-- pagination menu -->
-<nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
-justify-content: center;position: relative;bottom: -45%;">
-  <a class="prew_icon" href=""><img src="{% static './images/left.svg' %}" alt=""></a>
-  <ul style=" display: flex;
- justify-content: center;">
-    <li class="page_numb"><a href="" style="color: #132E6B;">1</a></li>
-    <li class="page_numb-active"><a href="" style="color: #132E6B;">2</a></li>
-    <li class="page_numb"><a href="" style="color: #132E6B;">3</a></li>
-    <li class="page_numb"><a href="" style="color: #132E6B;">4</a></li>
-    <li class="page_numb"><a href="" style="color: #132E6B;">5</a></li>
-  </ul>
-  <a href=""><img src="{% static './images/right.svg' %}" alt=""></a>
-</nav>
+    <div class="desk_pagination" style="position: relative;">
+        <!-- pagination menu -->
+         <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
+justify-content: center;">
+                <a class="prew_icon" href=""></a>
+                <ul style="display: flex;justify-content: center;">
+                    {% for page in page_obj.paginator.page_range %}
+                    <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
+                    {% endfor %}
+                </ul>
+                <a href="?page={{ page }}"></a>
+            </nav>
 
-<!-- end pagination menu -->
-</div>
 
-  <br>
+        <!-- end pagination menu -->
+    </div>
 
-<script>
-  console.clear();
-</script>
- <!-- Code by FathullaLatipov LF -->
+    <br>
+
+    <script>
+        console.clear();
+    </script>
+    <!-- Code by FathullaLatipov LF -->
 
 {% endblock %}

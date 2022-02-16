@@ -7,8 +7,10 @@
       <div class="row">
 
       </div>
-      <h1 class="banner-text2">Как повысить эффективность производства</h1>
-      <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Наши статьи</a></span> > <a href="" class="banner-desc-title">Как повысить эффективность производства</a></span></p>
+      <h1 class="banner-text2">{{ object.title }}</h1>
+        <a href="/" style="color: #132E6B"><p class="banner-desc">Главная <span></a> > <a
+                href="{% url 'blog:blogs' %}" class="banner-desc-title">Наши статьи</a></span> > <a href=""
+                                                                                                    class="banner-desc-title">{{ object.title }}</a></span></p>
 
       <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
@@ -21,16 +23,13 @@
   <br>
   <br>
   <div class="container mt-4">
-    <img src="{% static './images/first_blog.png' %}" style="filter: drop-shadow(0px 4px 6px rgba(105, 105, 105, 0.25));
-    border-radius: 6px;width: 100%;" alt="">
+    <img src="{{ object.image.url }}" style="filter: drop-shadow(0px 4px 6px rgba(105, 105, 105, 0.25));
+    border-radius: 6px;width: 100%;height: 600px" alt="">
     <br>
-    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">Управление рисками важно в любом технологическом бизнесе, но в строительстве оно имеет решающее значение и может определить успех или результат всего проекта, переосмысливая бэкэнд-идеи для кроссплатформенных моделей. Постоянно обновляйте интегрированные процессы с помощью технически надежного интеллектуального капитала. Целостно продвигайте передовые методологии без передовых рыночных практик.</p>
+    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">{{ object.description }}.</p>
     <br>
     <img src="{% static './images/Group_417.svg' %}" class="icon-left" style="left: 5%;" alt="">
-    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">Управление рисками важно в любом технологическом бизнесе, но в строительстве оно имеет решающее значение и может определить успех или результат всего проекта, переосмысливая бэкэнд-идеи для кроссплатформенных моделей. Постоянно обновляйте интегрированные процессы с помощью технически надежного интеллектуального капитала. Целостно продвигайте передовые методологии без передовых рыночных практик.</p>
-    <br>
-    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">Полностью синергизируйте отношения налогообложения ресурсов через ведущие нишевые рынки. Профессионально развивайте индивидуальное обслуживание клиентов с помощью надежных идей.</p>
-    <br>
+      <br>
 
     <div class="best-text">
       <img src="{% static './images/azx.svg' %}" alt="">
@@ -39,12 +38,12 @@
     </div>
     <br>
     <br>
-    <img src="{% static './images/second_blog.png' %}" style="width: 100%;border-radius: 10px;" alt="">
+    <img src="{{ object.image.url }}" style="width: 100%;border-radius: 10px;" alt="">
     <img src="{% static './images/Group_418.svg' %}" class="icon-right" style="right: 5%;margin-top: 7%;transform: rotate(-29.52deg);" alt="">
     <br>
     <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">Прогнозируемый опыт на основе мультимедиа и стратегии кросс-медиа роста. Легко визуализируйте качественный интеллектуальный капитал без превосходного сотрудничества и обмена идеями. Целостный понтификат установленных базовых порталов после ремонтопригодных продуктов.</p>
 
-    <p style="float: left;margin-top: 1%;">28 sentyabr</p>
+    <p style="float: left;margin-top: 1%;">{{ object.created_at|date:'d.F' }}</p>
 
     <p style="float: right;margin-top: 1%;">See 459 peoples</p>
     <br>

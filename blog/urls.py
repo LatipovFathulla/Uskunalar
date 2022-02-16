@@ -6,5 +6,5 @@ app_name = 'blog'
 
 urlpatterns = [
     path('', BlogModelView.as_view(), name='blogs'),
-    path('single-blog/', SingleBlogView.as_view(), name='single-blog')
+    path('<int:pk>/', SingleBlogView.as_view(), name='single-blog')
 ]

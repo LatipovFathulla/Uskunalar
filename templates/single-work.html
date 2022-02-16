@@ -40,7 +40,7 @@
                                 <tr>
                                     <td style="font-weight: 500;">{{ i.work_customer }}</td>
                                     <td style="text-align:center">{{ i.work_number }}</td>
-                                    <td style="text-align: center"><img src="{{ i.work_image.url }}" style="width: 34px" alt=""></td>
+                                    <td style="text-align: center"><img src="{% if i.work_image %} {{ i.work_image.url}} {% endif %}" style="width: 34px" alt=""></td>
                                 </tr>
                             {% endfor %}
 {#                            <tr>#}
