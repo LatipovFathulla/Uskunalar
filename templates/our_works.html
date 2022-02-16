@@ -3,821 +3,227 @@
 {% block content %}
 
     <section class="banner">
-    <div class="container">
-      <div class="row">
+        <div class="container">
+            <div class="row">
 
-      </div>
-      <h1 class="banner-text">Наши работы</h1>
-      <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Наши работы</a></span></p>
+            </div>
+            <h1 class="banner-text">Наши работы</h1>
+            <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Наши работы</a></span></p>
 
-      <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
-    </div>
+            <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
+        </div>
 
-  </section>
+    </section>
 
-  <img src="{% static './images/settings.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);" alt="">
+    <img src="{% static './images/settings.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);" alt="">
 
-
-  <br>
-
-
-  <br>
-  <div class="container" style="position: relative;z-index: 1;">
-    <div class="tab2">
-      <a class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Все работы</a>
-      <a class="tablinks" onclick="openCity(event, 'Paris')">Пищевая промышленность</a>
-      <a class="tablinks" onclick="openCity(event, 'Tokyo')">Строительная промышленность</a>
-    </div>
 
     <br>
-    <div id="London" class="tabcontent2">
-      <div class="row" style="padding: 20px;">
-        <div class="col-md-6">
-          <img src="https://uskunalar.uz/uploads/posts/yp6yLTFRYmpuLSQu5sKpqx8OoHe5sQeiuMUYxqet.jpg" class="work_image"
-            alt="">
+
+
+    <br>
+    <div class="container" style="position: relative;z-index: 1;">
+        <div class="tab2">
+            <a class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Все работы</a>
+            {#            <a class="tablinks" onclick="openCity(event, 'Paris')">Пищевая промышленность</a>#}
+            {#            <a class="tablinks" onclick="openCity(event, 'Tokyo')">Строительная промышленность</a>#}
         </div>
-        <div class="col-md-6">
-          <p class="title-work">ЯГОЧГА ИШЛОВ БЕРИШ (1325-РОВЕР)</p>
-          <p class="desc-work">Равным образом начало повседневной работы по формированию позиции позволяет оценить
-            значение новых предложений.</p>
-          <p class="aim_project">Цель проекта:</p>
-          <p class="client_work">Представить новые услуги, увеличения клиентов</p>
-          <p class="aim_project">Сроки использования:</p>
-          <p class="client_work">07.02.2020 - 07.02.2025</p>
-          <p class="aim_project">Оказание услуги:</p>
-          <p class="client_work">Пример текста</p>
-          <p class="client_work">Объектная фотосъемка</p>
-          <p class="client_work">Разработка брендбука</p>
-        </div>
-      </div>
-      <div class="elements">
+
         <br>
-        <br>
+        <div id="London" class="tabcontent2">
+            <div class="row" style="padding: 20px;">
+                {% for work in object_list|slice:":1" %}
+                    <div class="col-md-6">
+                        <img src="{{ work.image.url }}"
+                             class="work_image"
+                             alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <p class="title-work">{{ work.title }}</p>
+                        <p class="desc-work">{{ work.short_descriptions }}</p>
+                        {#                    <p class="aim_project">Цель проекта:</p>#}
+                        {#                    <p class="client_work">Представить новые услуги, увеличения клиентов</p>#}
+                        <p class="aim_project">Сроки использования:</p>
+                        <p class="client_work">{{ work.created_at|date:'m.d.Y' }}</p>
+                        {#                    <p class="aim_project">Оказание услуги:</p>#}
+                        {#                    <p class="client_work">Пример текста</p>#}
+                        {#                    <p class="client_work">Объектная фотосъемка</p>#}
+                        {#                    <p class="client_work">Разработка брендбука</p>#}
+                    </div>
+                {% endfor %}
 
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="{% static './images/Group_417.svg' %}" class="icon-left-works" alt="">
-              <div class="card">
-                <div data-aos="fade-right">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button"  class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-down">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="elements">
+                <br>
+                <br>
 
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-left">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
+                <div class="container">
                     <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
+                        {% for work in object_list %}
+                            <div class="col-md-4">
+                                <img src="{% static './images/Group_417.svg' %}" class="icon-left-works" alt="">
+                                <div class="card">
+                                    <div data-aos="fade-right">
+                                        <div class="imagewrap">
+                                            <div class="thumbnail">
+                                                <img src="{{ work.image.url }}">
+                                            </div>
+                                            <a href="{% url 'work:single-work' pk=work.pk %}"> <input type="button" class="button1 ig-btn"
+                                                               value="Смотреть"/></a>
+                                        </div>
+                                        <div class="info">
+                                            <div class="row">
+                                              <span>
+                                                <hr class="hr-left">
+                                              </span>
+                                                <div class="col-md-11 col-11">
+                                                    <p style="color: #000;font-weight: 500;width: 100%;">{{ work.title }}</p>
+                                                    <br>
+                                                    <p style="color: #132E6B;font-weight: 500;width: 100%">{{ work.created_at|date:'m.d.Y' }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-right">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <a href="{% url 'work:single-work' %}"><input type="button" class="button1 ig-btn" value="Смотреть" /></a>
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-down">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-left">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-right">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <a href="./single-work.html"><input type="button" class="button1 ig-btn" value="Смотреть" /></a>
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-down">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <img src="{% static './images/Group_418.svg' %}" class="icon-right-transform-work" alt="">
-              <div class="card">
-                <div data-aos="fade-left">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-
-              <div class="card" style="z-index: 999;">
-                <div data-aos="fade-right">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <a href="./single-work.html"><input type="button" class="button1 ig-btn" value="Смотреть" /></a>
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-                <img src="{% static './images/Group_419.svg' %}" class="icon-left-transform-work" alt="">
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-down">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-left">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <div id="Paris" class="tabcontent2 mt-3">
-      <div class="row">
-        <div class="col-md-6">
-          <img src="https://uskunalar.uz/uploads/posts/yp6yLTFRYmpuLSQu5sKpqx8OoHe5sQeiuMUYxqet.jpg" class="work_image"
-            alt="">
-        </div>
-        <div class="col-md-6">
-          <p class="title-work">Non pishirish uskunasi</p>
-          <p class="desc-work">Равным образом начало повседневной работы по формированию позиции позволяет оценить
-            значение новых предложений.</p>
-          <p class="aim_project">Цель проекта:</p>
-          <p class="client_work">Представить новые услуги, увеличения клиентов</p>
-          <p class="aim_project">Сроки использования:</p>
-          <p class="client_work">07.02.2020 - 07.02.2025</p>
-          <p class="aim_project">Оказание услуги:</p>
-          <p class="client_work">Пример текста</p>
-          <p class="client_work">Объектная фотосъемка</p>
-          <p class="client_work">Разработка брендбука</p>
-        </div>
-      </div>
-      <div class="elements">
-        <br>
-        <br>
 
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <img src="{% static './images/Group_417.svg' %}" class="icon-left-works" alt="">
-              <div class="card">
-                <div data-aos="fade-right">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-down">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-left">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-right">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <a href="./single-work.html"><input type="button" class="button1 ig-btn" value="Смотреть" /></a>
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-down">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-left">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-right">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <a href="./single-work.html"><input type="button" class="button1 ig-btn" value="Смотреть" /></a>
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-down">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <img src="{% static './images/Group_418.svg' %}" class="icon-right-transform-work" alt="">
-              <div class="card">
-                <div data-aos="fade-left">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-
-              <div class="card" style="z-index: 999;">
-                <div data-aos="fade-right">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <a href="./single-work.html"><input type="button" class="button1 ig-btn" value="Смотреть" /></a>
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-                <img src="{% static './images/Group_419.svg' %}" class="icon-left-transform-work" alt="">
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-down">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card">
-                <div data-aos="fade-left">
-                  <div class="imagewrap">
-                    <div class="thumbnail">
-                      <img src="https://uskunalar.uz/uploads/posts/YXJDMdSrPTZSdjov0SajHLHDdepTFN1cIxRmlLgz.jpg">
-                    </div>
-                    <input type="button" class="button1 ig-btn" value="Смотреть" />
-                  </div>
-                  <div class="info">
-                    <div class="row">
-                      <span>
-                        <hr class="hr-left">
-                      </span>
-                      <div class="col-md-11 col-11">
-                        <p style="color: #000;font-weight: 500;width: 100%;">КАДОКЛАШ УСКУНАСИ (КУКУНСИМОН КУКУНСИМОН)
-                          1,5-30</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-      </div>
-    </div>
-
-    <div id="Tokyo" class="tabcontent2">
-      <h3>Tokyo</h3>
-      <p>Tokyo is the capital of Japan.</p>
-    </div>
-  </div>
-
-
-  <!-- pagination menu -->
-  <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
+    <!-- pagination menu -->
+    <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
 justify-content: center;">
-    <a class="prew_icon" href=""><img src="{% static './images/left.svg' %}" alt=""></a>
-    <ul style=" display: flex;
- justify-content: center;">
-      <li class="page_numb"><a href="" style="color: #132E6B;">1</a></li>
-      <li class="page_numb-active"><a href="" style="color: #132E6B;">2</a></li>
-      <li class="page_numb"><a href="" style="color: #132E6B;">3</a></li>
-      <li class="page_numb"><a href="" style="color: #132E6B;">4</a></li>
-      <li class="page_numb"><a href="" style="color: #132E6B;">5</a></li>
-    </ul>
-    <a href=""><img src="{% static './images/right.svg' %}" alt=""></a>
-  </nav>
+        <a class="prew_icon" href=""></a>
+        <ul style="display: flex;justify-content: center;">
+            {% for page in page_obj.paginator.page_range %}
+                <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"
+                    onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;"><a href="?page={{ page }}"
+                                                                                               style="color: #132E6B;top: 9px;position: relative;">{{ page }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="?page={{ page }}"></a>
+    </nav>
 
-  <!-- end pagination menu -->
-  <br>
-  <!-- parallax -->
-  <div class="parallax">
+    <!-- end pagination menu -->
     <br>
-    <div class="dark-overlay">
-      <div class="container p-5">
-        <h3 class="dark-text">О компании Uskunalar</h3>
-        <p class="dark-desc">Идейные соображения высшего порядка, а также постоянное информационно-пропагандистское
-          обеспечение нашей деятельности представляет собой интересный.</p>
-        <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
-        <div class="row" style="margin-top: 6%;text-align: center;">
-          <div class="col-md-3 col-6 number_icons">
-            <img src="{% static './images/box_1.svg' %}" style="margin-top: -50%;" alt="">
-            <h3 class="dark-number">980+</h3>
-            <p class="number-desc">Продано</p>
-          </div>
-          <div class="col-md-3 col-6 number_icons">
-            <img src="{% static './images/man-user_1.svg' %}" style="margin-top: -50%;" alt="">
-            <h3 class="dark-number">650+</h3>
-            <p class="number-desc">Постоянных клиентов</p>
-          </div>
-          <div class="col-md-3 col-6 number_icons">
-            <img src="{% static './images/project_1.svg' %}" style="margin-top: -50%;" alt="">
-            <h3 class="dark-number">999+</h3>
-            <p class="number-desc">Реализация проектов</p>
-          </div>
-          <div class="col-md-3 col-6 number_icons">
-            <img src="{% static './images/group_1.svg' %}" style="margin-top: -50%;" alt="">
-            <h3 class="dark-number">599+</h3>
-            <p class="number-desc">Сотрудников</p>
-          </div>
+    <!-- parallax -->
+    <div class="parallax">
+        <br>
+        <div class="dark-overlay">
+            <div class="container p-5">
+                <h3 class="dark-text">О компании Uskunalar</h3>
+                <p class="dark-desc">Идейные соображения высшего порядка, а также постоянное
+                    информационно-пропагандистское
+                    обеспечение нашей деятельности представляет собой интересный.</p>
+                <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+                <div class="row" style="margin-top: 6%;text-align: center;">
+                    <div class="col-md-3 col-6 number_icons">
+                        <img src="{% static './images/box_1.svg' %}" style="margin-top: -50%;" alt="">
+                        <h3 class="dark-number">980+</h3>
+                        <p class="number-desc">Продано</p>
+                    </div>
+                    <div class="col-md-3 col-6 number_icons">
+                        <img src="{% static './images/man-user_1.svg' %}" style="margin-top: -50%;" alt="">
+                        <h3 class="dark-number">650+</h3>
+                        <p class="number-desc">Постоянных клиентов</p>
+                    </div>
+                    <div class="col-md-3 col-6 number_icons">
+                        <img src="{% static './images/project_1.svg' %}" style="margin-top: -50%;" alt="">
+                        <h3 class="dark-number">999+</h3>
+                        <p class="number-desc">Реализация проектов</p>
+                    </div>
+                    <div class="col-md-3 col-6 number_icons">
+                        <img src="{% static './images/group_1.svg' %}" style="margin-top: -50%;" alt="">
+                        <h3 class="dark-number">599+</h3>
+                        <p class="number-desc">Сотрудников</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-  </div>
-  <!-- end parallax -->
-  <br>
-  <!-- form -->
-  <img src="{% static './images/Group_417.svg' %}" class="icon-right-transform2" style="right:20%" alt="">
-  <div class="container mt-5">
-    <div class="form">
-      <h3 class="text-center form-us">Обратная связь с нами</h3>
-      <p class="text-center">Идейные соображения высшего порядка, а также постоянное информационно-<br>пропагандистское
-        обеспечение нашей деятельности представляет собой интересный.</p>
-      <br>
-      <hr class="hr-center">
-      <div class="row mt-3">
-        <div class="col-md-6">
-          <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" type="text"
-            placeholder="ФИО">
-        </div>
-        <div class="col-md-6">
-          <select class="form-control city12" style="height: 50px;background-color: #F4F5F7;border: none;padding: 5px;" id="exampleFormControlSelect1">
-            <option value="tash" class="options">Ташкент</option>
-            <option value="tash" class="options">Самарканд</option>
-            <option value="tash" class="options">Андижан</option>
-            <option value="tash" class="options">Фаргона</option>
-            <option value="tash" class="options">Хорезм</option>
-          </select>
-        </div>
-        <div class="col-md-12 mt-4">
-          <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" type="text" placeholder="Ваш номер">
-        </div>
-        <div class="col-md-12 mt-4">
+    </div>
+    <!-- end parallax -->
+    <br>
+    <!-- form -->
+    <img src="{% static './images/Group_417.svg' %}" class="icon-right-transform2" style="right:20%" alt="">
+    <div class="container mt-5">
+        <div class="form">
+            <h3 class="text-center form-us">Обратная связь с нами</h3>
+            <p class="text-center">Идейные соображения высшего порядка, а также постоянное информационно-<br>пропагандистское
+                обеспечение нашей деятельности представляет собой интересный.</p>
+            <br>
+            <hr class="hr-center">
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" type="text"
+                           placeholder="ФИО">
+                </div>
+                <div class="col-md-6">
+                    <select class="form-control city12"
+                            style="height: 50px;background-color: #F4F5F7;border: none;padding: 5px;"
+                            id="exampleFormControlSelect1">
+                        <option value="tash" class="options">Ташкент</option>
+                        <option value="tash" class="options">Самарканд</option>
+                        <option value="tash" class="options">Андижан</option>
+                        <option value="tash" class="options">Фаргона</option>
+                        <option value="tash" class="options">Хорезм</option>
+                    </select>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" type="text"
+                           placeholder="Ваш номер">
+                </div>
+                <div class="col-md-12 mt-4">
           <textarea class="form-control" style="background-color: #F4F5F7;border: none;" name="" id="" cols="30"
-            rows="10" placeholder="Введите сообщения"></textarea>
+                    rows="10" placeholder="Введите сообщения"></textarea>
+                </div>
+                <div class="text-center" style="margin: auto;">
+                    <ul>
+                        <li>
+                            <button class="button-center button-bottom">
+                                <p style="font-size: 16px;">Отправить</p>
+                            </button>
+                        </li>
+                    </ul>
+                    <br>
+                </div>
+            </div>
+
         </div>
-        <div class="text-center" style="margin: auto;">
-          <ul>
-            <li><button class="button-center button-bottom">
-                <p style="font-size: 16px;">Отправить</p>
-              </button></li>
-          </ul>
-          <br>
-        </div>
-      </div>
 
     </div>
+    <img src="{% static './images/settings.svg' %}" class="icon-left-absolute"
+         style="margin-top: -3%;margin-left: 3%;z-index: 0;position: absolute;" alt="">
 
-  </div>
-  <img src="{% static './images/settings.svg' %}" class="icon-left-absolute"
-    style="margin-top: -3%;margin-left: 3%;z-index: 0;position: absolute;" alt="">
-
-  <!-- end form -->
-<!-- Code by FathullaLatipov LF-->
-  <br>
+    <!-- end form -->
+    <!-- Code by FathullaLatipov LF-->
+    <br>
 
 {% endblock %}
 
 {% block extra_js %}
-<script>
-  function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent2");
-        for (i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].style.display = "none";
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent2");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
         }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-          tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-      }
 
-      // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
-</script>
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 {% endblock %}
