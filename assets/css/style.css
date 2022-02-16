@@ -3211,6 +3211,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .splide__pagination {
+    display:none;
     bottom: -0em;
     left: 0;
     padding: 0px 6em;
@@ -3297,10 +3298,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .splide__track {
-    padding-left: 0px;
-    padding-right: 0px;
-    height: 431px;
-    margin: 19px;
+
   }
 
 
