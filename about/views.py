@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
 
-from about.models import AboutModel, VideoModel
+from about.models import AboutModel
 from home.models import BannerInfoModel
 
 
@@ -17,15 +17,6 @@ class AboutModelListView(ListView):
 
 class ContactModelTemplateView(TemplateView):
     template_name = 'contacts.html'
-
-
-class VideoModelListView(ListView):
-    template_name = 'videos.html'
-
-    def get_queryset(self):
-        qs = VideoModel.objects.order_by('-pk')
-
-        return  qs
 
 
 class HomeView(TemplateView):

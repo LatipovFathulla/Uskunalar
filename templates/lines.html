@@ -1,5 +1,4 @@
 {% extends 'layouts/base.html' %}
-{% load embed_video_tags %}
 {% load static %}
 {% block content %}
 
@@ -22,17 +21,17 @@
   <br>
   <div class="container">
       <div class="row">
-          {% for item in videos %}
+
           <div class="col-md-4">
               <div class="box" style="width: 100%;height: auto;">
-                 {% video item.url '320x230' %}
+
                <div>
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.description }} </p>
+                <h3>asdasdasd</h3>
+                <p>asdasdas </p>
                </div>
               </div>
           </div>
-          {% endfor %}
+
     </div>
   </div>
 <!-- pagination menu -->
@@ -50,5 +49,4 @@ justify-content: center;">
 <!-- end pagination menu -->
 
   <br>
-
 {% endblock %}

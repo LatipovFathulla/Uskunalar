@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from about.models import AboutModel, VideoModel
+from about.models import AboutModel
 
 
 @admin.register(AboutModel)
@@ -10,11 +10,5 @@ class AboutModelAdmin(admin.ModelAdmin):
     search_fields = ['title']
     list_filter = ['title', 'created_at']
 
-
-@admin.register(VideoModel)
-class VideoModelAdmin(admin.ModelAdmin):
-    list_display = ['name', 'created_at', 'video']
-    search_fields = ['name']
-    list_filter = ['name', 'created_at']
 
 

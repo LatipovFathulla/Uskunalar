@@ -10,6 +10,8 @@ urlpatterns = [
     path('', include('about.urls', namespace='home')),
     path('blogs/', include('blog.urls', namespace='blog')),
     path('works/', include('works.urls', namespace='work')),
+    path('videos/', include('videos.urls', namespace='video')),
+    path('lines/', include('lines.urls', namespace='line')),
     path('products/', include('home.urls', namespace='products'))
 ]
 

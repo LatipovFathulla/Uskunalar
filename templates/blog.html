@@ -37,7 +37,7 @@
                                 <div class="col-md-9 blog-info">
                                     <p class="blog-views">Просмотрено 357 человек</p>
                                     <p class="blog-title">{{ blog.title }}</p>
-                                    <p class="blog-desc">{{ blog.description }}</p>
+                                    <p class="blog-desc">{{ blog.smart_text|slice:":300"  }}...</p>
                                     <br>
                                     <a href="{% url 'blog:single-blog' pk=blog.pk %}" style="font-size: 18px;font-weight: 500;">Читать дальше <img
                                             src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>

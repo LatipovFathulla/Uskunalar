@@ -6,6 +6,8 @@ class BlogModel(models.Model):
     title = models.CharField(max_length=40, verbose_name=_('title'))
     image = models.ImageField(upload_to='blog', verbose_name=_('image'))
     description = models.TextField(null=True, verbose_name=_('description'))
+    smart_description = models.TextField(null=True, blank=True, verbose_name=_('smart_decoration'))
+    smart_text = models.TextField(null=True, blank=True, verbose_name=_('smart_text'))
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

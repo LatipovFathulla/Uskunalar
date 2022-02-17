@@ -34,14 +34,14 @@
     <div class="best-text">
       <img src="{% static './images/azx.svg' %}" alt="">
       <br>
-      <p class="best-info-text">Как только вы получите все названия и выберете лучшее, следующее, что вам нужно сделать, - это создать магнитный контент. Великие маркетологи контента преуспевают в создании контента.</p>
+      <p class="best-info-text">{{ object.smart_description }}</p>
     </div>
     <br>
     <br>
-    <img src="{{ object.image.url }}" style="width: 100%;border-radius: 10px;" alt="">
+    <img src="{{ object.image.url|slice:'2' }}" style="width: 100%;border-radius: 10px;" alt="">
     <img src="{% static './images/Group_418.svg' %}" class="icon-right" style="right: 5%;margin-top: 7%;transform: rotate(-29.52deg);" alt="">
     <br>
-    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">Прогнозируемый опыт на основе мультимедиа и стратегии кросс-медиа роста. Легко визуализируйте качественный интеллектуальный капитал без превосходного сотрудничества и обмена идеями. Целостный понтификат установленных базовых порталов после ремонтопригодных продуктов.</p>
+    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">{{ object.smart_text }}</p>
 
     <p style="float: left;margin-top: 1%;">{{ object.created_at|date:'d.F' }}</p>
 

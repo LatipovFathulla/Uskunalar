@@ -4,7 +4,7 @@
   <nav class="container navbar navbar-expand-lg navbar-light bg-white">
     <ul id="accordion4" class="accordion4">
       <li>
-        <div class="link">Русский<i class="fa fa-chevron-down"></i></div>
+        <div class="link"><a href="" style="color:#000">Русский</a> <i class="fa fa-chevron-down"></i></div>
         <ul class="submenu4">
           <li><a href="#">Узбекский</a></li>
           <hr class="mb-0 mt-0">
@@ -23,7 +23,7 @@
         </li>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item{% if request.path == '/lines/' %}-active{% endif %}">
-            <a class="nav-link" href="{% url 'blog:blogs' %}">Линии</a>
+            <a class="nav-link" href="{% url 'line:lines' %}">Линии</a>
           </li>
           <li class="nav-item{% if request.path == '/works/' %}-active{% endif %}">
             <a class="nav-link" href="{% url 'work:works' %}">Наши работы</a>
@@ -32,7 +32,7 @@
             <a class="nav-link" href="{% url 'blog:blogs' %}">Статьи</a>
           </li>
           <li class="nav-item{% if request.path == '/videos/' %}-active{% endif %}">
-            <a class="nav-link" href="{% url 'home:videos' %}">Наши видео</a>
+            <a class="nav-link" href="/videos/">Наши видео</a>
           </li>
           <li class="nav-item{% if request.path == '/about/' %}-active{% endif %}">
             <a class="nav-link" href="{% url 'home:about' %}">О нас</a>
@@ -69,7 +69,7 @@
             <img src="{% static './images/logo.png' %}" class="logo_image2" alt="">
             <li class="delay02"><a href="{% url 'home:catalog' %}">Каталог</a></li>
             <li class="delay03"><a href="{% url 'work:works' %}">Наши работы</a></li>
-            <li class="delay04"><a href="{% url 'home:videos' %}">Наши видео</a></li>
+            <li class="delay04"><a href="/videos/">Наши видео</a></li>
             <li class="delay05"><a href="{% url 'blog:blogs' %}">Наши статьи</a></li>
             <li class="delay06"><a href="{% url 'home:about' %}">О нас</a></li>
             <li class="delay07"><a href="{% url 'home:contacts' %}">Контакты</a></li>
