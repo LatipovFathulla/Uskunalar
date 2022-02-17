@@ -15,3 +15,13 @@ class LineModel(models.Model):
     class Meta:
         verbose_name = _('line')
         verbose_name_plural = _('lines')
+
+
+class LineSpecificationModel(models.Model):
+    title = models.ForeignKey(LineModel, on_delete=models.CASCADE, related_name='line', verbose_name=_('title'))
+    line_specification = models.CharField(max_length=90, verbose_name=_('line_specification'))
+    line_number = models.CharField(max_length=90, verbose_name=_('line_number'))
+
+    class Meta:
+        verbose_name = _('line specification')
+        verbose_name_plural = _('line specifications')

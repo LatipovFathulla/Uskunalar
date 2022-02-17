@@ -1,0 +1,104 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+       <section class="banner">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <h1 class="banner-text">Наши работы</h1>
+            <a href="/" style="color: #132E6B"><p class="banner-desc">Главная <span></a> > <a
+                href="{% url 'work:works' %}" class="banner-desc-title">Наши работы</a></span> > <a href="" class="banner-desc-title">{{ object.title }}</a></span></p>
+
+            <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
+        </div>
+
+    </section>
+    <br>
+    <img src="{% static './images/settings.svg' %}" class="icon-right" alt="">
+
+    <br>
+
+
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="single-blog ">
+                    <p style="font-size: 32px;color: #131311;line-height: 38px;font-weight: 500;">{{ object.title }}</p>
+                    {#          <p style="font-size: 16px;font-weight: 500;line-height: 20px;color: #132E6B;padding: 20px 0px;">ДЕРЕВООБРАБОТКА(ФРЕЗЕРОВАНИЕ)</p>#}
+                    <p style="color: #131311;font-size: 16px;line-height: 24px;margin-top: 10px">{{ object.description }} </p>
+                    <img src="{% static './images/Group_417.svg' %}" class="icon-right-22" alt="">
+                    <img class="img-fluid" style="margin:15px auto;display: table;" width="100%" height="300px"
+                         src="{{ object.image.url }}" alt="">
+                    <br>
+                    <div class="container mobile-work">
+                        <table class="table table-striped" style="border-top: 0px;">
+                            <tbody>
+                            {% for a in lines.line.all %}
+                                <tr>
+                                    <td style="font-weight: 500;">{{ a.line_customer }}</td>
+                                    <td style="text-align:center">{{ a.line_number }}</td>
+                                    <td style="text-align: center"><img src="{% if i.work_image %} {{ i.work_image.url}} {% endif %}" style="width: 34px" alt=""></td>
+                                </tr>
+                            {% endfor %}
+{#                            <tr>#}
+{#                                <td style="font-weight: 500;">Автоматическая система смазки:</td>#}
+{#                                <td style="text-align:center">#}
+{#                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"#}
+{#                                           checked>#}
+{#                                    <label class="form-check-label" for="flexCheckChecked">#}
+{#                                        Есть#}
+{#                                    </label>#}
+{#                                </td>#}
+{#                            </tr>#}
+{#                            <tr>#}
+{#                                <td style="font-weight: 500;">Датчик Автоматического управления:</td>#}
+{#                                <td style="text-align:center">#}
+{#                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"#}
+{#                                           checked>#}
+{#                                    <label class="form-check-label" for="flexCheckChecked">#}
+{#                                        Есть#}
+{#                                    </label>#}
+{#                                </td>#}
+{#                            </tr>#}
+                            </tbody>
+                        </table>
+                        <img src="{% static './images/Group_418.svg' %}" class="icon-right"
+                             style="right:-7%;transform: rotate(-29.52deg);" alt="">
+                        <div class="row">
+                            {% for k in workmodel.work_image.all %}
+                                <div class="col-md-3">
+                                <img src="{{ k.image.url|default:'none' }}" class="img-fluid"
+                                     style="display: table;margin: 3px auto;" alt="">
+                            </div>
+                            {% endfor %}
+                            <div class="container">
+                                <p style="margin-top: 20px;">{{ object.short_descriptions }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container p-3">
+        <button class="btn btn-prev"><img src="{% static './images/left.svg' %}"
+                                          style="position: absolute;padding: 2px;margin-left: -9px;" alt=""><span
+                style="font-size: 20px;line-height: 24px;position: relative;left: 9px;">  Перейти к предыдущей</span>
+        </button>
+        <button class="btn btn-next float-right"><span
+                style="font-size: 17px;line-height: 24px;position: relative;left: -8px;">Перейти к следующей</span> <img
+                src="{% static './images/right.svg' %}" style="position: absolute;padding: 2px;margin-left: -3px;"
+                alt=""></button>
+
+        <button class="btn btn-prev-mobile"><img src="{% static './images/left.svg' %}"
+                                                 style="position: absolute;padding: 2px;margin-left: -9px;" alt=""><span
+                style="font-size: 19px;line-height: 24px;position: relative;left: 9px;">Назад</span></button>
+        <button class="btn btn-next-mobile float-right"><span
+                style="font-size: 19px;line-height: 24px;position: absolute;margin-left: -3%;"></span>Далее <b></b><img
+                src="{% static './images/right.svg' %}" style="position: absolute;padding: 2px;margin-left: -3px;"
+                alt=""></button>
+    </div>
+    <br>
+{% endblock %}

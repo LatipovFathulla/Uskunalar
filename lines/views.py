@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from lines.models import LineModel
 
@@ -7,3 +7,9 @@ from lines.models import LineModel
 class LineModelView(ListView):
     template_name = 'lines.html'
     queryset = LineModel.objects.order_by('-pk')
+    context_object_name = 'lines'
+
+
+class LineDetailModelView(DetailView):
+    template_name = 'single-lines.html'
+    model = LineModel
