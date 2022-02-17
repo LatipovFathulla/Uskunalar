@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import ListView, TemplateView
+from django.urls import reverse
+from django.views.generic import ListView, TemplateView, CreateView
 
+from about.forms import RequestModelForm
 from about.models import AboutModel
 from home.models import BannerInfoModel
 
@@ -25,3 +27,16 @@ class HomeView(TemplateView):
 
 class CatalogView(TemplateView):
     template_name = 'catalog.html'
+
+
+class RequestCreateView(CreateView):
+    form_class = RequestModelForm
+    template_name = 'request.html'
+
+    def form_valid(self, form):
+        form.save()
+
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('home:about')

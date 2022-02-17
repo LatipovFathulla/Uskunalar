@@ -200,7 +200,8 @@
   <!-- form -->
   <img src="{% static './images/Group_417.svg' %}" class="icon-right-transform2" style="right:20%" alt="">
   <div class="container mt-5">
-    <div class="form">
+    <form method="post" action="{% url 'home:request' %}" class="form">
+        {% csrf_token %}
       <h3 class="text-center form-us">Обратная связь с нами</h3>
       <p class="text-center">Идейные соображения высшего порядка, а также постоянное информационно-<br>пропагандистское
         обеспечение нашей деятельности представляет собой интересный.</p>
@@ -208,28 +209,28 @@
       <hr class="hr-center">
       <div class="row mt-3">
         <div class="col-md-6">
-          <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" type="text"
+          <input class="form-control" name="name" style="height: 50px;background-color: #F4F5F7;border: none;" type="text"
             placeholder="ФИО">
         </div>
-        <div class="col-md-6">
-          <select class="form-control city12" style="height: 50px;background-color: #F4F5F7;border: none;padding: 5px;" id="exampleFormControlSelect1">
-            <option value="tash" class="options">Ташкент</option>
-            <option value="tash" class="options">Самарканд</option>
-            <option value="tash" class="options">Андижан</option>
-            <option value="tash" class="options">Фаргона</option>
-            <option value="tash" class="options">Хорезм</option>
-          </select>
-        </div>
+{#        <div class="col-md-6">#}
+{#          <select class="form-control city12" style="height: 50px;background-color: #F4F5F7;border: none;padding: 5px;" id="exampleFormControlSelect1">#}
+{#            <option value="tash" class="options">Ташкент</option>#}
+{#            <option value="tash" class="options">Самарканд</option>#}
+{#            <option value="tash" class="options">Андижан</option>#}
+{#            <option value="tash" class="options">Фаргона</option>#}
+{#            <option value="tash" class="options">Хорезм</option>#}
+{#          </select>#}
+{#        </div>#}
         <div class="col-md-12 mt-4">
-          <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" type="text" placeholder="Ваш номер">
+          <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" type="tel" name="phone_number" placeholder="Ваш номер">
         </div>
-        <div class="col-md-12 mt-4">
-          <textarea class="form-control" style="background-color: #F4F5F7;border: none;" name="" id="" cols="30"
-            rows="10" placeholder="Введите сообщения"></textarea>
-        </div>
+{#        <div class="col-md-12 mt-4">#}
+{#          <textarea class="form-control" style="background-color: #F4F5F7;border: none;" name="" id="" cols="30"#}
+{#            rows="10" placeholder="Введите сообщения"></textarea>#}
+{#        </div>#}
         <div class="text-center" style="margin: auto;">
           <ul>
-            <li><button class="button-center button-bottom">
+            <li><button type="submit" class="button-center button-bottom">
                 <p style="font-size: 16px;">Отправить</p>
               </button></li>
           </ul>
@@ -237,7 +238,7 @@
         </div>
       </div>
 
-    </div>
+    </form>
 
   </div>
   <img src="{% static './images/settings.svg' %}" class="icon-left-absolute"
