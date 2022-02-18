@@ -16,16 +16,17 @@ class AboutModel(models.Model):
         verbose_name_plural = 'abouts'
 
 
-class RequestsModel(models.Model):
-    name = models.CharField(max_length=250, verbose_name=_('name'))
-    phone_number = models.CharField(max_length=20, verbose_name=_('phone_number'))
+class ContactModel(models.Model):
+    name = models.CharField(max_length=90, verbose_name=_('name'))
+    phone = models.CharField(max_length=20, verbose_name=_('phone'))
+    message = models.TextField(verbose_name=_('message'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = _('Request')
-        verbose_name_plural = _('Requests')
+        verbose_name = 'contact'
+        verbose_name_plural = 'contacts'
 
 

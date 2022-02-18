@@ -26,6 +26,7 @@
 
 
 
+
 </style>
 <body>
 <!-- start navbar -->
@@ -1038,13 +1039,17 @@
             <div class="slider responsive">
                 {% for category in categories2 %}
                 <div>
-
-                    <div class="box {{ category|slice:':1' }}">
-                        <p>{{ category.category }}</p>
-                        <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
-                             style="width:150px;height:180px" alt="">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="box">
+                                <p>{{ category.category }}</p>
+                                <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
+                                     style="width:150px;height:180px" alt="">
+                            </div>
+                        </div>
                     </div>
-                    <div class="box {{ category|slice:':1' }}">
+
+                    <div class="box">
                         <p>{{ category.category }}</p>
                         <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
                              style="width:150px;height:180px" alt="">
@@ -1525,6 +1530,7 @@
 
 
 
+
 </script>
 
 <!-- Code by Fathulla Latipov LF -->
@@ -1555,6 +1561,7 @@
     });
 
     splide.mount();
+
 
 
 
@@ -1591,6 +1598,7 @@
 
 
 
+
 </script>
 <script>
   var splide = new Splide('.splide_3_2', {
@@ -1599,6 +1607,7 @@
   });
 
   splide.mount();
+
 
 
 </script>

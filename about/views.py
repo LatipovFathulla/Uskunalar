@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import ListView, TemplateView, CreateView
 
-from about.forms import RequestModelForm
+from about.forms import ContactModelForm
 from about.models import AboutModel
 from blog.models import BlogModel
 from home.models import BannerInfoModel, CategoryModel
@@ -20,8 +20,10 @@ class AboutModelListView(ListView):
         return qs
 
 
-class ContactModelTemplateView(TemplateView):
+class ContactModelCreateView(CreateView):
     template_name = 'contacts.html'
+    form_class = ContactModelForm
+    success_url = '/'
 
 
 class HomeView(TemplateView):
@@ -30,7 +32,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['products'] = BannerInfoModel.objects.order_by('-pk')[:8]
-        context['categories'] = CategoryModel.objects.order_by('-pk')[:9]
+        context['categories'] = CategoryModel.objects.order_by('-pk')[:13]
         context['categories2'] = CategoryModel.objects.order_by('-pk')
         context['lines'] = LineModel.objects.order_by('-pk')[:8]
         context['works'] = WorkModel.objects.order_by('-pk')[:4]
@@ -42,15 +44,3 @@ class HomeView(TemplateView):
 class CatalogView(TemplateView):
     template_name = 'catalog.html'
 
-
-class RequestCreateView(CreateView):
-    form_class = RequestModelForm
-    template_name = 'request.html'
-
-    def form_valid(self, form):
-        form.save()
-
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        return reverse('home:about')

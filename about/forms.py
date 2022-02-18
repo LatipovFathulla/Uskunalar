@@ -1,9 +1,9 @@
 from django import forms
 
-from about.models import RequestsModel
+from about.models import ContactModel
 
 
-class RequestModelForm (forms. ModelForm):
+class ContactModelForm(forms.ModelForm):
     class Meta:
-        model = RequestsModel
+        model = ContactModel
         exclude = ['created_at']
