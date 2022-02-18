@@ -23,6 +23,7 @@
         position: relative;
         top: 159px;
     }
+
 </style>
 <body>
 <!-- start navbar -->
@@ -48,6 +49,9 @@
                     товар?</a>
             </li>
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'line:lines' %}" style="color: #202634;">Линии</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'work:works' %}" style="color: #202634;">Наши работы</a>
                 </li>
@@ -91,6 +95,7 @@
                 <ul class="main-links">
                     <img src="{% static 'images/logo.png' %}" class="logo_image2" alt="">
                     <li class="delay02"><a href="{% url 'home:catalog' %}">Каталог</a></li>
+                    <li class="delay03"><a href="./our_works.html">Линии</a></li>
                     <li class="delay03"><a href="./our_works.html">Наши работы</a></li>
                     <li class="delay04"><a href="./videos.html">Наши видео</a></li>
                     <li class="delay05"><a href="./blog.html">Наши статьи</a></li>
@@ -168,66 +173,15 @@
             <nav class="minimalist-vertical-menu2">
                 <div class="minimalist-tab-menu2">
                     <ul class="list-group2">
+                        {% for category in categories %}
                         <li class="menu-item2 has-child2">
-                            <img src="{% static 'images/pishevaya.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left: -2.5%;font-weight: 500;font-style: normal;">Пищевая
-                  промышленность</span>
+                            <img src="{{ category.image.url }}" style="margin-top: 5%;" alt=""><span
+                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left: -2.5%;font-weight: 500;font-style: normal;">{{ category.category }}</span>
                         </li>
-                        <li class="menu-item2 has-child2">
-                            <img src="{% static 'images/pishevaya_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left: -2.5%;font-weight: 500;font-style: normal;">Пищевая
-                  промышленность</span>
-                        </li>
-                        <li class="menu-item2 has-child2">
-                            <img src="{% static 'images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left:-2%;font-weight: 500;font-style: normal;">Мемас</span>
-                        </li>
-                        <li class="menu-item2 has-child2">
-                            <img src="{% static 'images/pishevaya.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left: -2.5%;font-weight: 500;font-style: normal;">Пищевая
-                  промышленность</span>
-                        </li>
-                        <li class="menu-item2 has-child2">
-                            <img src="{% static 'images/pishevaya_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left: -3.5%;font-weight: 500;font-style: normal;">Cтроительная
-                  промышленность</span>
-                        </li>
-                        <li class="menu-item2 has-child2">
-                            <img src="{% static 'images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left:-2%;font-weight: 500;font-style: normal;">Мемас</span>
-                        </li>
-                        <li class="menu-item2 has-child2">
-                            <img src="{% static 'images/pishevaya.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left: -2.5%;font-weight: 500;font-style: normal;">Пищевая
-                  промышленность</span>
-                        </li>
-                         <li class="menu-item2 has-child2">
-                            <img src="{% static 'images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left:-2%;font-weight: 500;font-style: normal;">Мемас</span>
-                        </li>
-                        <li class="menu-item2 has-child2">
-                            <img src="{% static 'images/pishevaya_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left: -2.5%;font-weight: 500;font-style: normal;">Пищевая
-                  промышленность</span>
-                        </li>
-                        <li class="menu-item2 has-child2">
-                            <img src="{% static 'images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left:-2%;font-weight: 500;font-style: normal;">Мемас</span>
-                        </li>
-                       <li class="menu-item2 has-child2">
-                            <img src="{% static 'images/pishevaya.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left: -2.5%;font-weight: 500;font-style: normal;">Пищевая
-                  промышленность</span>
-                        </li>
-                        <li class="menu-item2 has-child2">
-                            <img src="{% static 'images/pishevaya_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left: -2.5%;font-weight: 500;font-style: normal;">Пищевая
-                  промышленность</span>
-                        </li>
+                        {% endfor %}
                         <li class="menu-item2 has-child2">
                             <img src="{% static 'images/squares_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left:-2.9%;font-weight: 500;font-style: normal;">Все
-                  категории</span>
+                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left:-2.9%;font-weight: 500;font-style: normal;">Все категории</span>
                         </li>
                     </ul>
 
@@ -975,86 +929,28 @@
     <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
     <br>
     <div class="contaiåer">
-        <div class="splide_4_5" >
+        <div class="splide_4_5">
             <div class="splide__track" style="    padding-left: 0px;
     padding-right: 0px;
     height: 431px;
     margin: 19px;">
+
                 <ul class="splide__list">
-                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
-                    <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
-                        <span style="position:absolute;margin:3px">Линия по производству бутылок</span>
-                        <br>
-                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
-                        <br>
-                        <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">Подробнее</button>
-                    </div>
+                    {% for line in lines %}
+                    <li class="splide__slide"><img src="{{ line.image.url }}" style="width:250px;height:230px" alt="">
+                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
+                            <span style="position:absolute;margin:3px">{{ line.title }}</span>
+                            <br>
+                            <span style="margin-top: 2%;position: absolute;margin-left: 35%;">{{ line.created_at|date:'m.d.Y' }}</span>
+                            <br>
+                            <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">Подробнее
+                            </button>
+                        </div>
 
                     </li>
-                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
-                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
-                        <span style="position:absolute;margin:3px">Линия по производству бутылок</span>
-                        <br>
-                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
-                        <br>
-                        <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">Подробнее</button>
-                    </div>
-                    </li>
-                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
-                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
-                        <span style="position:absolute;margin:3px">Линия по производству бутылок</span>
-                        <br>
-                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
-                        <br>
-                     <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">Подробнее</button>
-                    </div>
-                    </li>
-                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
-                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
-                        <span style="position:absolute;margin:3px">Линия по производству бутылок</span>
-                        <br>
-                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
-                        <br>
-                  <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">Подробнее</button>
-                    </div>
-                    </li>
-                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
-                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
-                        <span>Линия по производству бутылок</span>
-                        <br>
-                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
-                        <br>
-                         <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">Подробнее</button>
-                    </div>
-                    </li>
-                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
-                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
-                        <span>Линия по производству бутылок</span>
-                        <br>
-                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
-                        <br>
-                         <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">Подробнее</button>
-                    </div>
-                    </li>
-                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
-                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
-                        <span>Линия по производству бутылок</span>
-                        <br>
-                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
-                        <br>
-                        <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">Подробнее</button>
-                    </div>
-                    </li>
-                    <li class="splide__slide"><img src="{% static './images/Rectangle%2034_2.png' %}" style="width:250px" alt="">
-                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
-                        <span>Линия по производству бутылок</span>
-                        <br>
-                        <span style="margin-top: 2%;position: absolute;margin-left: 35%;">22.01.2022</span>
-                        <br>
-                         <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">Подробнее</button>
-                    </div>
-                    </li>
+                    {% endfor %}
                 </ul>
+
             </div>
         </div>
     </div>
@@ -1297,7 +1193,7 @@
                 <ul class="splide__list">
                     <li class="splide__slide">
                         <div class="col-md-3">
-                            {% for product in products %}
+                            {% for product in object.list %}
                             <div class="produdcs-section2">
                                 <div class="flex-itm">
                                     <div class="flex-iem-inner">
@@ -1788,6 +1684,7 @@
 
 <script>
     document.getElementById("year").innerHTML = new Date().getFullYear();
+
 </script>
 
 <!-- Code by Fathulla Latipov LF -->
@@ -1819,6 +1716,7 @@
 
     splide.mount();
 
+
 </script>
 <script>
     (function () {
@@ -1848,6 +1746,7 @@
 
     var accordion = new Accordion($('#accordion4'), false);
 });
+
 </script>
 
 </body>

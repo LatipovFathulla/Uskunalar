@@ -4,7 +4,8 @@ from django.views.generic import ListView, TemplateView, CreateView
 
 from about.forms import RequestModelForm
 from about.models import AboutModel
-from home.models import BannerInfoModel
+from home.models import BannerInfoModel, CategoryModel
+from lines.models import LineModel
 
 
 class AboutModelListView(ListView):
@@ -23,6 +24,14 @@ class ContactModelTemplateView(TemplateView):
 
 class HomeView(TemplateView):
     template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products'] = BannerInfoModel.objects.order_by('-pk')[:8]
+        context['categories'] = CategoryModel.objects.order_by('-pk')[:9]
+        context['lines'] = LineModel.objects.order_by('-pk')[:8]
+
+        return context
 
 
 class CatalogView(TemplateView):
