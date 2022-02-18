@@ -24,6 +24,8 @@
         top: 159px;
     }
 
+
+
 </style>
 <body>
 <!-- start navbar -->
@@ -1034,121 +1036,22 @@
     <div class="gallery-carousel-content">
         <div class="container">
             <div class="slider responsive">
+                {% for category in categories2 %}
                 <div>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/ovqat1.svg' %}" alt="">
-                    </div>
-                    <h3></h3>
-                    <div class="box">
-                        <p>Строительная промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/stroitel2.svg' %}" alt="">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <div class="box">
-                            <p>Пищевая промышленность</p>
-                            <img class="img-fluid float-right mt-3" src="{% static 'images/ovqat2.svg' %}" alt="">
-                        </div>
-                        <h3></h3>
-                        <div class="box">
-                            <p>Пластиковая промышленнaость</p>
-                            <img class="img-fluid float-right mt-3" src="{% static 'images/plastik.svg' %}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="box">
-                        <p>Мемас</p>
-                        <img class="img-fluid float-right memac-carousel" src="{% static 'images/memac22.svg' %}"
-                             alt="">
-                    </div>
-                    <h3></h3>
-                    <div class="box">
-                        <p>Полиэтиленовая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/politelin.svg' %}" alt="">
-                    </div>
-                </div>
-                <div>
-                    <div class="box">
-                        <p>Производство мебели и обработка древесины</p>
-                        <img class="img-fluid float-right mt-3 mebel-carousel" src="{% static 'images/drevesina.svg' %}"
-                             alt="">
-                    </div>
-                    <h3></h3>
-                    <div class="box">
-                        <p>Упаковочное оборудования</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/upakovka.svg' %}" alt="">
-                    </div>
-                </div>
-                <div>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/pishevaya.png' %}" alt="">
-                    </div>
-                    <h3></h3>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/pishevaya.png' %}" alt="">
-                    </div>
-                </div>
-                <div>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/pishevaya.png' %}" alt="">
-                    </div>
-                    <h3></h3>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/pishevaya.png' %}" alt="">
-                    </div>
-                </div>
-                <div>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/pishevaya.png' %}" alt="">
-                    </div>
-                    <h3></h3>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/pishevaya.png' %}" alt="">
-                    </div>
-                </div>
-                <div>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/pishevaya.png' %}" alt="">
-                    </div>
-                    <h3></h3>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/pishevaya.png' %}" alt="">
-                    </div>
-                </div>
-                <div>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/pishevaya.png' %}" alt="">
-                    </div>
-                    <h3></h3>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/pishevaya.png' %}" alt="">
-                    </div>
-                </div>
-                <div>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/' %}pishevaya.png" alt="">
-                    </div>
-                    <h3></h3>
-                    <div class="box">
-                        <p>Пищевая промышленность</p>
-                        <img class="img-fluid float-right mt-3" src="{% static 'images/' %}pishevaya.png" alt="">
-                    </div>
-                </div>
 
+                    <div class="box {{ category|slice:':1' }}">
+                        <p>{{ category.category }}</p>
+                        <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
+                             style="width:150px;height:180px" alt="">
+                    </div>
+                    <div class="box {{ category|slice:':1' }}">
+                        <p>{{ category.category }}</p>
+                        <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
+                             style="width:150px;height:180px" alt="">
+                    </div>
+
+                </div>
+                {% endfor %}
             </div>
             <div class="text-center">
                 <ul>
@@ -1180,8 +1083,6 @@
     <br>
     <br>
     <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
-    <br>
-    <br>
 </div>
 <br>
 
@@ -1193,8 +1094,9 @@
                 <ul class="splide__list">
                     <li class="splide__slide">
                         <div class="col-md-3">
-                            {% for product in object.list %}
+
                             <div class="produdcs-section2">
+                                {% for product in products %}
                                 <div class="flex-itm">
                                     <div class="flex-iem-inner">
                                         <!-- card -->
@@ -1203,6 +1105,7 @@
                                                 <a href="#" class="card-link">
                                                     <button class="btn"
                                                             style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
+
                                                         <img
                                                                 src="{% static 'images/like.svg' %}"
                                                                 style="margin-top: 7px;" alt=""></button>
@@ -1215,13 +1118,13 @@
                                                     </button>
                                                 </a>
                                                 <img src="{{ product.image.url }}"
-                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
+                                                     style="width: 100%;height: 300px;display: table;margin: auto;"
                                                      alt="">
                                                 <div class="card-text"
                                                      style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
                                                     <h4 class="front-title">{{ product.title }}</h4>
                                                     <p class="detail">Артикул: {{ product.sku }}</p>
-                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
+                                                    <p class="desc">${{ product.dollar }} - {{ product.price }} сум</p>
                                                     <div class="text-center">
                                                         <ul>
                                                             <li>
@@ -1239,8 +1142,9 @@
                                         <!-- /card -->
                                     </div>
                                 </div>
+                                {% endfor %}
                             </div>
-                            {% endfor %}
+
                         </div>
 
                     </li>
@@ -1280,82 +1184,43 @@
 </div>
 <div class="container">
     <div class="row">
+        {% for work in works|slice:':1' %}
         <div class="col-md-6">
             <div class="ded">
+                <img src="{{ work.image.url }}" style="width: 580px;height: 670px;" alt="">
                 <div class="home-blog2">
-                    <p class="home-text">Как сделать бизнес по производству бытылок?</p>
-                    <p class="home-desc">Таким образом начало занимаемых участниками
-                        в отношении поставленных задач. Значимость проблем настолько очевидна что...</p>
+                    <p class="home-text">{{ work.title }}</p>
+                    <p class="home-desc">{{ work.short_descriptions }}</p>
                     <br>
                     <a href="" style="position: absolute;bottom: 10px;color: #132E6B;">Читать полностью</a>
                 </div>
             </div>
-
         </div>
+        {% endfor %}
         <div class="col-md-6">
             <div class="container">
                 <div class="blog1">
                     <div class="row">
+                        {% for work in works %}
                         <div class="col-md-3">
                             <div class="all">
-
+                                <img src="{{ work.image.url }}" style="height:210px;width:100%" alt="">
                             </div>
 
                         </div>
                         <div class="col-md-9">
+
                             <div class="home-blog">
-                                <p class="home-text">Как сделать бизнес по производству бытылок?</p>
-                                <p class="home-desc">Таким образом начало эксперимент проверки позиций, занимаемых
-                                    участниками в отношении поставленных задач очевидна что...</p>
+                                <p class="home-text">{{ work.title }}</p>
+                                <p class="home-desc">{{ work.short_descriptions }}</p>
                                 <br>
-                                <a href="" style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
+                                <a href="{% url 'work:single-work' pk=work.pk %}"
+                                   style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
                             </div>
-                        </div>
 
+                        </div>
+                        {% endfor %}
                     </div>
-                </div>
-                <div class="blog2">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="boys">
-
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="home-blog">
-                                <p class="home-text">Как сделать бизнес по производству бытылок?</p>
-                                <p class="home-desc">Таким образом начало повседневной работы
-                                    по формированию позиции представляет собой интересный эксперимент проверки позиций,
-                                    занимаемых
-                                    участниками в отношении поставленных задач. Значимость проблем настолько очевидна
-                                    что...</p>
-                                <br>
-                                <a href="" style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="blog3">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="girls">
-
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="home-blog">
-                                <p class="home-text">Как сделать бизнес по производству бытылок?</p>
-                                <p class="home-desc">Таким образом начало повседневной работы
-                                    по формированию позиции представляет очевидна что...</p>
-                                <br>
-                                <a href="" style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
-                            </div>
-                        </div>
-
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -1370,7 +1235,7 @@
     <ul>
         <li>
             <button class="button-center button-bottom">
-                <p style="font-size: 16px;">Читать еще</p>
+                <a href="{% url 'work:works' %}"><p style="font-size: 16px;">Читать еще</p></a>
             </button>
         </li>
     </ul>
@@ -1449,53 +1314,26 @@
     <div class="splide">
         <div class="splide__track">
             <ul class="splide__list">
-                <li class="splide__slide">
-                    <img src="https://uskunalar.uz/uploads/posts/PLpVelEkPkVOkox7ClFeifhoKpjLt7b3RHhWukhE.jpeg"
-                         style="width: 350px;border-radius: 6px;" alt="">
+                {% for blog in blogs %}
+                <li class="splide__slide" style="height:500px">
+                    <img src="{{ blog.image.url }}"
+                         style="width: 350px;border-radius: 6px;height:400px" alt="">
                     <div class="article">
-                        <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
-                        <p class="article-date">16 января 2020</p>
+                        <p class="article-text">{{ blog.title }}</p>
+                        <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
                     </div>
                 </li>
-                <li class="splide__slide">
-                    <img src="https://uskunalar.uz/uploads/posts/PLpVelEkPkVOkox7ClFeifhoKpjLt7b3RHhWukhE.jpeg"
-                         style="width: 350px;border-radius: 6px;" alt="">
-                    <div class="article">
-                        <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
-                        <p class="article-date">16 января 2020</p>
-                    </div>
-                </li>
-                <li class="splide__slide">
-                    <img src="https://uskunalar.uz/uploads/posts/PLpVelEkPkVOkox7ClFeifhoKpjLt7b3RHhWukhE.jpeg"
-                         style="width: 350px;border-radius: 6px;" alt="">
-                    <div class="article">
-                        <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
-                        <p class="article-date">16 января 2020</p>
-                    </div>
-                </li>
-                <li class="splide__slide">
-                    <img src="{% static 'images/carousel-1.png' %}" style="width: 350px;border-radius: 6px;" alt="">
-                    <div class="article">
-                        <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
-                        <p class="article-date">16 января 2020</p>
-                    </div>
-                </li>
-                <li class="splide__slide">
-                    <img src="{% static 'images/carousel-1.png' %}" style="width: 350px;border-radius: 6px;" alt="">
-                    <div class="article">
-                        <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
-                        <p class="article-date">16 января 2020</p>
-                    </div>
-                </li>
-                <li class="splide__slide">
-                    <img src="https://uskunalar.uz/uploads/posts/PLpVelEkPkVOkox7ClFeifhoKpjLt7b3RHhWukhE.jpeg"
-                         style="width: 350px;border-radius: 6px;" alt="">
-                    <div class="container">
-                        <div class="article1">
-                            <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
-                            <p class="article-date">16 января 2020</p>
-                        </div>
-                    </div>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="text-center">
+            <ul>
+                <li>
+                    <a href="{% url 'blog:blogs' %}">
+                        <button class="button-center button-bottom">
+                            <p style="font-size: 16px;">Смотреть еще</p>
+                        </button>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -1685,6 +1523,8 @@
 <script>
     document.getElementById("year").innerHTML = new Date().getFullYear();
 
+
+
 </script>
 
 <!-- Code by Fathulla Latipov LF -->
@@ -1717,6 +1557,8 @@
     splide.mount();
 
 
+
+
 </script>
 <script>
     (function () {
@@ -1746,6 +1588,18 @@
 
     var accordion = new Accordion($('#accordion4'), false);
 });
+
+
+
+</script>
+<script>
+  var splide = new Splide('.splide_3_2', {
+    perPage: 1,
+    rewind: true,
+  });
+
+  splide.mount();
+
 
 </script>
 

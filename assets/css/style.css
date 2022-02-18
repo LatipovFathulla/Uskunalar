@@ -2541,7 +2541,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .home-blog2 {
-    display: initial;
+
     position: absolute;
     margin: auto;
     bottom: 0px;
@@ -3320,14 +3320,14 @@ nav .nav-ul li a span.rotate {
 
 
   .ded {
-    background-image: url(/static/images/ded.png);
+  /*  background-image: url(/static/images/ded.png); */
     width: 580px;
     height: 670px;
     border-radius: 6px;
   }
 
   .all {
-    background-image: url(/static/images/alls.png);
+  /*   background-image: url(/static/images/alls.png); */
     width: 170px;
     height: 210px;
     border-radius: 6px;
@@ -3335,7 +3335,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .boys {
-    background-image: url(/static/images/boy.png);
+   /*  background-image: url(/static/images/boy.png); */
     width: 170px;
     height: 210px;
     border-radius: 6px;
@@ -3343,7 +3343,7 @@ nav .nav-ul li a span.rotate {
   }
 
   .girls {
-    background-image: url(/static/images/girl.png);
+  /*   background-image: url(/static/images/girl.png); */
     width: 170px;
     height: 210px;
     border-radius: 6px;

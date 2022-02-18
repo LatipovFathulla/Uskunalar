@@ -52,6 +52,13 @@ $(document).ready(function () {
 
 });
 
+var splide = new Splide('.splide_3_2', {
+    perPage: 1,
+    rewind: true,
+  });
+
+splide.mount();
+
 $(function () {
     var Accordion = function (el, multiple) {
         this.el = el || {};
@@ -227,12 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
     splide.mount();
 
 //splide 4
-  var splide = new Splide('.splide_3_2', {
-    perPage: 1,
-    rewind: true,
-  });
 
-  splide.mount();
 
 
 //  end

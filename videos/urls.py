@@ -1,9 +1,9 @@
 from django.urls import path
 
-from .views import index
+from .views import  VideoListView
 
 app_name = 'video'
 
 urlpatterns = [
-    path('', index)
+    path('', VideoListView.as_view(), name='videos')
 ]

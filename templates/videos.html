@@ -22,13 +22,13 @@
   <br>
   <div class="container">
       <div class="row">
-          {% for item in videos %}
+          {% for video in videos %}
           <div class="col-md-4">
               <div class="box" style="width: 100%;height: auto;">
-                 {% video item.url '320x230' %}
+                 {% video video.url '320x230' %}
                <div>
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.description }} </p>
+                <h3>{{ video.title }}</h3>
+                <p>{{ video.description }} </p>
                </div>
               </div>
           </div>
@@ -41,7 +41,7 @@ justify-content: center;">
                 <a class="prew_icon" href=""></a>
                 <ul style="display: flex;justify-content: center;">
                     {% for page in page_obj.paginator.page_range %}
-                    <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
+                    <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position:relative;padding-top:15px"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
                     {% endfor %}
                 </ul>
                 <a href="?page={{ page }}"></a>
