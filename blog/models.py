@@ -10,6 +10,12 @@ class BlogModel(models.Model):
     smart_text = models.TextField(null=True, blank=True, verbose_name=_('smart_text'))
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def get_prev(self):
+        return self.get_previous_by_created_at()
+
+    def get_next(self):
+        return self.get_next_by_created_at()
+
     def __str__(self):
         return self.title
 

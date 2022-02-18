@@ -51,24 +51,23 @@
       <div class="col-md-6">
         <img src="{% static './images/Group_419.svg' %}" class="icon-left" style="left: -13%;" alt="">
         <div class="single-image p-3">
-          <img src="{% static './images/third_blog.png' %}" class="img-fluid" alt="">
-          <h3 style="font-size: 19px;padding: 10px;">Как повысить эффективность производства</h3>
-          <p style="padding: 10px;margin-top: 0px;padding-top: 0px;">Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Repudiandae nesciunt animi id expedita debitis non tempore ut officiis molestias consequatur! Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Asperiores temporibus possimus natus alias rerum libero,
-            ipsum est consequatur magni quos.</p>
-            <a href="./single-blog.html" style="font-size: 18px;font-weight: 500;margin-left: 3%;">Читать дальше <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
+          <img src="{{ object.get_prev.image.url }}" class="img-fluid w-100" style="width:100%;height:350px" alt="">
+          <h3 style="font-size: 19px;padding: 10px;">{{ object.get_prev.title }}</h3>
+          <p style="padding: 10px;margin-top: 0px;padding-top: 0px;">{{ object.get_prev.smart_description }}</p>
+             {% if object.get_prev %}
+                     <a href="{% url 'blog:single-blog' pk=object.get_prev.pk %}" style="font-size: 18px;font-weight: 500;margin-left: 3%;">Читать дальше <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
+             {% endif %}
+
         </div>
       </div>
       <div class="col-md-6">
         <div class="single-image p-3">
-          <img src="{% static './images/eight_blog.png' %}" class="img-fluid" alt="">
-          <h3 style="font-size: 19px;padding: 10px;">Как повысить эффективность производства</h3>
-          <p style="padding: 10px;margin-top: 0px;padding-top: 0px;">Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Repudiandae nesciunt animi id expedita debitis non tempore ut officiis molestias consequatur! Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Asperiores temporibus possimus natus alias rerum libero,
-            ipsum est consequatur magni quos.</p>
-            <a href="./single-blog.html" style="font-size: 18px;font-weight: 500;margin-left: 3%;">Читать дальше <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
+          <img src="{{ object.get_next.image.url }}" class="img-fluid"  style="width:100%;height:350px" alt="">
+          <h3 style="font-size: 19px;padding: 10px;">{{ object.get_next.title }}</h3>
+          <p style="padding: 10px;margin-top: 0px;padding-top: 0px;">{{ object.get_next.smart_description }}</p>
+            {% if object.get_next %}
+              <a href="{% url 'blog:single-blog' pk=object.get_next.pk %}" style="font-size: 18px;font-weight: 500;margin-left: 3%;">Читать дальше <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
+            {% endif %}
         </div>
         <img src="{% static './images/Group_417.svg' %}" class="icon-right" style="bottom: 0px;right: -3%;transform: rotate(23.85deg);" alt="">
       </div>
