@@ -18,6 +18,7 @@ class CategoryModel(models.Model):
 
 class SubCategoryModel(models.Model):
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), related_name='subcategories')
+    image = models.FileField(upload_to='sub_image', verbose_name=_('sub_image'), null=True)
     subcategory = models.CharField(max_length=90, verbose_name=_('subcategory'),)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
 

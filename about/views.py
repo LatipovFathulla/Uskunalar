@@ -5,7 +5,7 @@ from django.views.generic import ListView, TemplateView, CreateView
 from about.forms import ContactModelForm
 from about.models import AboutModel
 from blog.models import BlogModel
-from home.models import BannerInfoModel, CategoryModel
+from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 from lines.models import LineModel
 from works.models import WorkModel
 
@@ -37,6 +37,7 @@ class HomeView(TemplateView):
         context['lines'] = LineModel.objects.order_by('-pk')[:8]
         context['works'] = WorkModel.objects.order_by('-pk')[:4]
         context['blogs'] = BlogModel.objects.order_by('-pk')
+        context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
 
         return context
 
