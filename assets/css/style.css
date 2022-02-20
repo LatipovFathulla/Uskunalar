@@ -2151,16 +2151,19 @@ nav .nav-ul li a span.rotate {
         top: 15px;
     }
 
+    .splide_4_5 {
+        display: none;
+    }
+
 
     .like_count {
         position: absolute;
         z-index: 999;
-        font-weight: 100;
+        font-weight: 500;
         margin-top: -16%;
-        margin-left: 2%;
+        margin-left: 4%;
         font-size: 14px;
         color: #fff;
-
     }
 
     .btn1.nav-drop-menu {
@@ -2269,9 +2272,10 @@ nav .nav-ul li a span.rotate {
 
     .button-left {
         position: absolute;
-        left: 14%;
-        /* top: 0px; */
-        margin-top: 8px;
+        left: 9%;
+        top: 35%;
+        /* right: 0%; */
+        /* margin-top: 28px; */
         /* bottom: -1px; */
         background: #FFE700;
         border: none;
@@ -3278,6 +3282,10 @@ nav .nav-ul li a span.rotate {
         position: absolute;
         right: 0;
         z-index: 1;
+    }
+
+    .splide_4_6 {
+        display: none;
     }
 
     .dark-desc {

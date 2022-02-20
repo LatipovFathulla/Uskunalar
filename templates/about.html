@@ -1,408 +1,842 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% block content %}
-  <section class="banner">
-    <div class="container">
-      <div class="row">
+    <section class="banner">
+        <div class="container">
+            <div class="row">
 
-      </div>
-      <h1 class="banner-text">О нашей компании</h1>
-      <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">О нас</a></span></p>
-
-      <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
-    </div>
-
-  </section>
-
-  <br>
-  <br>
-  <br>
-<div class="container about-mobile-drop">
-  <img src="{% static './images/settings.svg' %}" class="icon-right-11" style="position: absolute;margin-top: -15%;width: 60px;" alt="">
-  <div class="sidebar-categories">
-    <ul id="accordion4_1" class="accordion">
-
-      <li>
-        <div class="link" style="height:51px"> <span
-            style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;" class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">О нашей компании</span><i class="fa fa-chevron-down"></i>
-        </div>
-        <ul class="submenu">
-          <li><a href="#" class="tablinks" onclick="openCity(event, 'Paris')">О сайте www.uskunalar.uz</a></li>
-          <li><a href="#" class="tablinks" onclick="openCity(event, 'Tokyo')">Какие документы необходимы для заключения договора?</a></li>
-          <li><a href="#" class="tablinks" onclick="openCity(event, 'London-china')">Качество китайского оборудования?</a></li>
-          <li><a href="#" class="tablinks" onclick="openCity(event, 'Paris-price')">Сколько стоит привезти товар?</a></li>
-          <li><a href="#" class="tablinks" onclick="openCity(event, 'Tokyo-standart')">Как определяется стандарт?</a></li>
-          <li><a href="#" class="tablinks" onclick="openCity(event, 'Paris-inko')">Что такое ИНКОТЕРМС?</a></li>
-        </ul>
-      </li>
-    </ul>
-    </div>
-</div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 about-desktop-drop">
-        <div class="tab">
-          <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">О нашей компании</button>
-          <hr class="hr-menu">
-          <button class="tablinks" onclick="openCity(event, 'Paris')">О сайте www.uskunalar.uz</button>
-          <hr class="hr-menu">
-          <button class="tablinks" onclick="openCity(event, 'Tokyo')">Какие документы необходимы для заключения договора?</button>
-          <hr class="hr-menu">
-          <button class="tablinks" onclick="openCity(event, 'London-china')">Качество китайского оборудования?</button>
-          <hr class="hr-menu">
-          <button class="tablinks" onclick="openCity(event, 'Paris-price')">Сколько стоит привезти товар?</button>
-          <hr class="hr-menu">
-          <button class="tablinks" onclick="openCity(event, 'Tokyo-standart')">Как определяется стандарт?</button>
-          <hr class="hr-menu">
-          <button class="tablinks" onclick="openCity(event, 'London-count')">Сколько оплачивается приобретенный
-            товар?</button>
-          <hr class="hr-menu">
-          <button class="tablinks" onclick="openCity(event, 'Paris-inko')">Что такое ИНКОТЕРМС?</button>
-          <hr class="hr-menu">
-          <button class="tablinks" onclick="openCity(event, 'Tokyo-uzb')">Какие грузы можно привезти из Китая в
-            Узбекистан?</button>
-          <hr class="hr-menu">
-          <button class="tablinks" onclick="openCity(event, 'London-transport')">Какие виды транспорта
-            доступны?</button>
-          <hr class="hr-menu">
-          <button class="tablinks" onclick="openCity(event, 'Paris-biznes')">Бизнесмен, который не занимается
-            уборкой.</button>
-          <hr class="hr-menu">
-          <button class="tablinks" onclick="openCity(event, 'Tokyo-tn')">Что означает код ТН ВЭД?</button>
-          <hr class="hr-menu">
-          <img src="{% static './images/Group_417.svg' %}" class="icon-right" style="left: -7%;margin: 10px;transform: rotate(-29deg)" alt="">
-        </div>
-      </div>
-      <br>
-      <img src="{% static './images/settings.svg' %}" class="icon-right" style="margin-top: -1.8%;right: 15%;" alt="">
-
-      <div class="col-md-9">
-        <div id="London" class="tabcontent">
-          <h1 style="font-size: 25px;">Ассалому алайкум !!!</h1>
-          <br>
-          <p style="line-height: 22px;">
-
-            Хурматли тадбиркорлар Хонимлар ва Жаноблар USKUNALAR.UZ сайти кузатувчилари бу муълумотларни такдим
-            килишимиздан максад биз олиб келадиган ускуналар ва таклиф киладиган техникалар ёки ишлаб чикаришда зарурий
-            хомашёларни Хитой давлатиниг куплаб шахарларида булиб заводларда текширувлар утказиб сифати буйича ишонч
-            хосил килиб заводлар билан ишлаймиз бу албатта USKUNALAR.UZ компаниясининг эртангги куни мижозларимизнинг
-            бизга бўлган ишончларини ортишига замин яратади. </p>
-
-          <div class="row">
-            <div class="col-md-4">
-              <img src="{% static './images/first.png' %}" class="img-fluid" style="border-radius:15px;margin: 10px 0px;" alt="">
             </div>
-            <div class="col-md-4">
-              <img src="{% static './images/12aa.png' %}" class="img-fluid" style="    border-radius: 15px;
+            <h1 class="banner-text">О нашей компании</h1>
+            <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">О нас</a></span></p>
+
+            <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
+        </div>
+
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <div class="container about-mobile-drop">
+        <img src="{% static './images/settings.svg' %}" class="icon-right-11"
+             style="position: absolute;margin-top: -15%;width: 60px;" alt="">
+        <div class="sidebar-categories">
+            <ul id="accordion4_1" class="accordion">
+
+                <li>
+                    <div class="link" style="height:51px"> <span
+                            style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;"
+                            class="tablinks" onclick="openCity(event, 'London')"
+                            id="defaultOpen">О нашей компании</span><i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="#" class="tablinks" onclick="openCity(event, 'Paris')">О сайте www.uskunalar.uz</a>
+                        </li>
+                        <li><a href="#" class="tablinks" onclick="openCity(event, 'Tokyo')">Какие документы необходимы
+                            для заключения договора?</a></li>
+                        <li><a href="#" class="tablinks" onclick="openCity(event, 'London-china')">Качество китайского
+                            оборудования?</a></li>
+                        <li><a href="#" class="tablinks" onclick="openCity(event, 'Paris-price')">Сколько стоит привезти
+                            товар?</a></li>
+                        <li><a href="#" class="tablinks" onclick="openCity(event, 'Tokyo-standart')">Как определяется
+                            стандарт?</a></li>
+                        <li><a href="#" class="tablinks" onclick="openCity(event, 'Paris-inko')">Что такое
+                            ИНКОТЕРМС?</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 about-desktop-drop">
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">О нашей компании
+                    </button>
+                    <hr class="hr-menu">
+                    <button class="tablinks" onclick="openCity(event, 'Paris')">О сайте www.uskunalar.uz</button>
+                    <hr class="hr-menu">
+                    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Какие документы необходимы для
+                        заключения договора?
+                    </button>
+                    <hr class="hr-menu">
+                    <button class="tablinks" onclick="openCity(event, 'London-china')">Качество китайского
+                        оборудования?
+                    </button>
+                    <hr class="hr-menu">
+                    <button class="tablinks" onclick="openCity(event, 'Paris-price')">Сколько стоит привезти товар?
+                    </button>
+                    <hr class="hr-menu">
+                    <button class="tablinks" onclick="openCity(event, 'Tokyo-standart')">Как определяется стандарт?
+                    </button>
+                    <hr class="hr-menu">
+                    <button class="tablinks" onclick="openCity(event, 'London-count')">Сколько оплачивается
+                        приобретенный
+                        товар?
+                    </button>
+                    <hr class="hr-menu">
+                    <button class="tablinks" onclick="openCity(event, 'Paris-inko')">Что такое ИНКОТЕРМС?</button>
+                    <hr class="hr-menu">
+                    <button class="tablinks" onclick="openCity(event, 'Tokyo-uzb')">Какие грузы можно привезти из Китая
+                        в
+                        Узбекистан?
+                    </button>
+                    <hr class="hr-menu">
+                    <button class="tablinks" onclick="openCity(event, 'London-transport')">Какие виды транспорта
+                        доступны?
+                    </button>
+                    <hr class="hr-menu">
+                    <button class="tablinks" onclick="openCity(event, 'Paris-biznes')">Бизнесмен, который не занимается
+                        уборкой.
+                    </button>
+                    <hr class="hr-menu">
+                    <button class="tablinks" onclick="openCity(event, 'Tokyo-tn')">Что означает код ТН ВЭД?</button>
+                    <hr class="hr-menu">
+                    <img src="{% static './images/Group_417.svg' %}" class="icon-right"
+                         style="left: -7%;margin: 10px;transform: rotate(-29deg)" alt="">
+                </div>
+            </div>
+            <br>
+            <img src="{% static './images/settings.svg' %}" class="icon-right" style="margin-top: -1.8%;right: 15%;"
+                 alt="">
+
+            <div class="col-md-9">
+                <div id="London" class="tabcontent">
+                    <h1 style="font-size: 25px;">Ассалому алайкум !!!</h1>
+                    <br>
+                    <p style="line-height: 22px;">
+
+                        Хурматли тадбиркорлар Хонимлар ва Жаноблар USKUNALAR.UZ сайти кузатувчилари бу муълумотларни
+                        такдим
+                        килишимиздан максад биз олиб келадиган ускуналар ва таклиф киладиган техникалар ёки ишлаб
+                        чикаришда зарурий
+                        хомашёларни Хитой давлатиниг куплаб шахарларида булиб заводларда текширувлар утказиб сифати
+                        буйича ишонч
+                        хосил килиб заводлар билан ишлаймиз бу албатта USKUNALAR.UZ компаниясининг эртангги куни
+                        мижозларимизнинг
+                        бизга бўлган ишончларини ортишига замин яратади. </p>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{% static './images/first.png' %}" class="img-fluid"
+                                 style="border-radius:15px;margin: 10px 0px;" alt="">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="{% static './images/12aa.png' %}" class="img-fluid" style="    border-radius: 15px;
               margin: auto;
               display: table;
               margin-top: 10px;" alt="">
-            </div>
-            <div class="col-md-4">
-              <img src="{% static './images/third.png' %}" class="img-fluid" style="border-radius:15px;margin: 10px 0px;" alt="">
-            </div>
-          </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="{% static './images/third.png' %}" class="img-fluid"
+                                 style="border-radius:15px;margin: 10px 0px;" alt="">
+                        </div>
+                    </div>
 
-          <p style="line-height: 22px;"> Вахтимизнинг куп қисмини Хитой давлатида утказишга харакат киламиз. Хитой бозори ва малумотлар буйича дунёдаги
-          енг йирик худуд хисобланади. Бу худудларда завод, фабрикаларда булиш урганиш негизида куп машаккатли мехнат ва
-          сармоя ётади. Буни тадбиркорларимиз тушунишлари керак. Бизнинг жамоамиз куп йиллик тажриба ва турли хил
-          ходисаларни ўз бошидан ўтказиб кўриб ишлаб келмоқда. Икки давлат уртасидаги турли хил шартномавий муаммолар
-          тушунмовчиликлар юзага келиши табий хол. Шундай вазият хич бир энди иш бошлаган тадбиркорда бўлмаслигига ким
-          кафолат бера олади?. Табийики бизнинг USKUNALAR.UZ компанияси кумагидан окилона ва самарали фойдаланинг
-          бизнинг харакатимиз мехнатимиз ва билимимиз сизлар учун хизмат килади. Ўз орзу-хавасингизни ва мисколлаб
-          ортирган сармоянгизни таваккалчиликдан асранг.
+                    <p style="line-height: 22px;"> Вахтимизнинг куп қисмини Хитой давлатида утказишга харакат киламиз.
+                        Хитой бозори ва малумотлар буйича дунёдаги
+                        енг йирик худуд хисобланади. Бу худудларда завод, фабрикаларда булиш урганиш негизида куп
+                        машаккатли мехнат ва
+                        сармоя ётади. Буни тадбиркорларимиз тушунишлари керак. Бизнинг жамоамиз куп йиллик тажриба ва
+                        турли хил
+                        ходисаларни ўз бошидан ўтказиб кўриб ишлаб келмоқда. Икки давлат уртасидаги турли хил
+                        шартномавий муаммолар
+                        тушунмовчиликлар юзага келиши табий хол. Шундай вазият хич бир энди иш бошлаган тадбиркорда
+                        бўлмаслигига ким
+                        кафолат бера олади?. Табийики бизнинг USKUNALAR.UZ компанияси кумагидан окилона ва самарали
+                        фойдаланинг
+                        бизнинг харакатимиз мехнатимиз ва билимимиз сизлар учун хизмат килади. Ўз орзу-хавасингизни ва
+                        мисколлаб
+                        ортирган сармоянгизни таваккалчиликдан асранг.
 
-          Пул чунтагимда узим Хитойга бориб келаман барча масалаларни пул билан хал кила оламан деган фикир сизда болса
-          хато киласиз!. Сиз Хитой давлатига бориб кайси шахардан сизга керакли ускунани топиш, уни сифатини аниклаш,
-          юкни манзилга етказиш, хужжатларни таёёрлаш буйича масалалар сизни чартатиб куйиши аник. Яна юк сиз кутгандек
-          тулик хеч камчиликсиз етиб келса. Хитой бозоридан ниманидир танлаб сотиб олиш бу сизнинг кизикувчанлигингиз
-          жуда кимматга тушиб кетиши мумкун таваккалчиликка йул куйманг. Бизнинг максадимиз битта сизни химоялаш ва
-          ёрдам бериш. Бу дегани биз билан ишланг демокчи эмасмиз хохлаган корхона ва хизматларидан фойдаланишингиз
-          мумкун лекин хар ким уз тушунадиган ишини килгани тугри деб хисоблаймиз.
+                        Пул чунтагимда узим Хитойга бориб келаман барча масалаларни пул билан хал кила оламан деган
+                        фикир сизда болса
+                        хато киласиз!. Сиз Хитой давлатига бориб кайси шахардан сизга керакли ускунани топиш, уни
+                        сифатини аниклаш,
+                        юкни манзилга етказиш, хужжатларни таёёрлаш буйича масалалар сизни чартатиб куйиши аник. Яна юк
+                        сиз кутгандек
+                        тулик хеч камчиликсиз етиб келса. Хитой бозоридан ниманидир танлаб сотиб олиш бу сизнинг
+                        кизикувчанлигингиз
+                        жуда кимматга тушиб кетиши мумкун таваккалчиликка йул куйманг. Бизнинг максадимиз битта сизни
+                        химоялаш ва
+                        ёрдам бериш. Бу дегани биз билан ишланг демокчи эмасмиз хохлаган корхона ва хизматларидан
+                        фойдаланишингиз
+                        мумкун лекин хар ким уз тушунадиган ишини килгани тугри деб хисоблаймиз.
 
-          Биз бу маълумотларни бежизга сизнинг этиборингизга хавола этаётганимиз йук. USKUNALAR.UZ компанияси Хитойдаги
-          турли шахарлар аро изланишларимизни куриб хулоса чикаринг.
+                        Биз бу маълумотларни бежизга сизнинг этиборингизга хавола этаётганимиз йук. USKUNALAR.UZ
+                        компанияси Хитойдаги
+                        турли шахарлар аро изланишларимизни куриб хулоса чикаринг.
 
-          Сизлар хам ўз бизнесингизни бошлашингизга туртки болсин, имкониятлардан тугри самарали фойдаланинг демокчимиз.
+                        Сизлар хам ўз бизнесингизни бошлашингизга туртки болсин, имкониятлардан тугри самарали
+                        фойдаланинг демокчимиз.
 
-          Хурмат билан !!!
+                        Хурмат билан !!!
 
-          USKUNALAR.UZ Компанияси маъмуряти. </p>
-        </div>
-
-        <div id="Paris" class="tabcontent">
-          <h3>О сайте www.uskunalar.uz</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore alias harum corporis quasi doloribus. Veritatis cum minus quae repellendus voluptates! Iste sunt quae ad consequatur earum! Laborum minima ullam sint? Recusandae corrupti modi voluptate nihil nesciunt, iste, natus porro quas nostrum repellat reprehenderit exercitationem culpa, cupiditate fugiat eos maxime sequi totam unde? Placeat natus dolorem beatae, in perferendis doloribus ea? Quis praesentium doloribus necessitatibus cupiditate, quod tempora voluptas quidem fuga officiis ad voluptatibus dignissimos tenetur. Minima, dolores expedita? Ullam odit inventore deserunt est rem sit, quis consequatur, corrupti, autem delectus quaerat porro libero qui quasi perferendis fugit repudiandae aspernatur neque sunt ipsa dolorem nesciunt tempore? Explicabo, dolorem eius. Debitis possimus repellat omnis dolorum expedita suscipit ullam eaque ab perferendis aliquid itaque unde sint ut, iusto deserunt numquam, obcaecati facilis reprehenderit fuga veritatis nostrum voluptas enim labore. Expedita repellat rem asperiores velit explicabo illum. Sint delectus et magni omnis porro officia aut reiciendis cum eveniet repudiandae. Quibusdam facilis sequi inventore enim dicta. Fuga, eius minima ea laudantium vel illo autem quidem. Laborum recusandae, provident odio distinctio impedit consequatur vel laboriosam perferendis quos tenetur error suscipit voluptatem repudiandae tempore minus optio excepturi sunt ex eaque molestiae? Nesciunt omnis eius perspiciatis sapiente facere iusto placeat nihil qui! Deserunt id sapiente iure repellendus facilis praesentium non saepe animi dicta fuga quod veniam, officia, tempore minus. Nulla placeat temporibus illum a sunt! Praesentium, a iste! Atque ut itaque architecto odit possimus accusantium corporis, qui, quae deleniti laborum ipsam earum cumque! Voluptatibus minus voluptatem praesentium unde quo cumque, maxime molestiae, voluptate reiciendis non illum quam maiores enim corrupti doloribus debitis dolore at deleniti autem dolores. Expedita labore consectetur debitis recusandae soluta voluptas quas molestias fugit eaque aspernatur incidunt ex doloremque repudiandae, laborum, dolorem sequi veniam corrupti saepe ipsum! Delectus, culpa ullam consequatur quia veniam dolor fugit nemo temporibus doloribus minima quae harum, in, blanditiis maiores animi odio fuga debitis natus. Sapiente incidunt recusandae at odit eveniet, obcaecati similique suscipit ipsum commodi necessitatibus deleniti corporis totam, possimus amet quaerat expedita ab praesentium? Fugiat laudantium accusamus possimus magni architecto sapiente delectus, inventore quo deleniti quia aliquid repudiandae quibusdam adipisci iste necessitatibus pariatur id quos, corporis sequi repellat natus cumque facere, debitis cum. Veniam sunt aspernatur magnam minima eveniet consequuntur sint sed laboriosam, porro animi. Voluptatum maiores ipsum at obcaecati. Officia magnam maxime unde cupiditate deleniti adipisci, atque quas neque quod eveniet reiciendis voluptates nam officiis enim voluptatum soluta!</p>
-        </div>
-
-        <div id="Tokyo" class="tabcontent">
-          <h3>Какие документы необходимы для заключения договора?</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro deleniti soluta eius in reiciendis, perspiciatis officia qui ducimus blanditiis praesentium quis provident quae repellendus atque ea ex id accusantium. Fuga consequuntur expedita cumque quis consequatur quidem perferendis porro libero eligendi eos optio ipsa reprehenderit tempora assumenda temporibus, suscipit deleniti atque esse ad sit! Necessitatibus quos minus optio! Fuga dolorem ullam quas ut tenetur ipsam ab corporis iure laudantium possimus veniam atque quia nostrum recusandae itaque ipsa exercitationem laboriosam eligendi inventore odio blanditiis eveniet, optio ratione! Nesciunt quidem iusto ipsam incidunt eius sint! Quidem porro dignissimos aut sint at, ipsam mollitia, facere velit temporibus illo optio veniam perspiciatis. Consequuntur necessitatibus repudiandae eos distinctio aliquid at iure doloremque, eius esse. Perspiciatis natus ducimus sit harum molestiae, eaque nisi nemo error vitae ullam assumenda officiis corporis culpa dolorum veniam? Eius ipsam quia eveniet harum officiis totam reprehenderit praesentium alias, culpa aperiam in corporis ullam vel sunt nobis saepe sed pariatur explicabo? Porro ut sint ex ullam delectus odit asperiores ipsum. Adipisci atque nobis hic debitis alias harum voluptates beatae explicabo animi nisi quae nam vitae nostrum ipsa, totam sunt, veritatis voluptatem, obcaecati numquam mollitia tenetur? Natus incidunt blanditiis magni, laudantium excepturi dolorem exercitationem maiores unde? Odit neque nam, eveniet, adipisci quas cumque iusto voluptates minima inventore voluptatibus sit officia et repudiandae est praesentium nemo quasi veritatis tempore porro ullam! Praesentium odio sapiente veritatis obcaecati asperiores provident itaque. Quos, blanditiis nobis. Harum veniam incidunt ipsum quia velit iste consectetur, neque, eos eum dicta et sed eveniet quibusdam molestiae ex labore reiciendis. Ea nulla nobis amet iure non aut recusandae repellat rerum debitis. Quas culpa dolor veritatis aperiam! Ducimus rerum quasi harum quod quis asperiores repellendus eius? Facere itaque qui delectus soluta optio accusantium reprehenderit alias! Dolorum qui rem optio ea a temporibus corporis, ab repellendus obcaecati assumenda sint non. Deserunt blanditiis provident unde neque eveniet laudantium porro. Iure optio, eaque, fuga a error eveniet itaque eligendi exercitationem asperiores alias debitis nam doloribus fugiat velit, est autem! Dolor nemo, assumenda similique, quasi eaque earum, iusto totam veritatis explicabo sed doloremque commodi. Unde sunt natus soluta quae fugiat deserunt, libero eaque totam incidunt alias veritatis laboriosam voluptas ducimus nobis est necessitatibus, tenetur tempore obcaecati ad, nemo eius magni. Odio, itaque ea enim nam ipsam exercitationem minus rerum laborum. Veritatis perferendis odio asperiores accusamus earum non vero ullam reiciendis expedita. Cumque est et eveniet culpa tempore adipisci.</p>
-        </div>
-
-        <div id="London-china" class="tabcontent">
-         <h3>Качество китайского оборудования?</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, deleniti laudantium eum earum iste, fugiat dicta voluptatibus vero rem, nihil esse accusantium dolorem explicabo quisquam illo? Natus harum, a sequi, magni esse eos, expedita ipsum eius delectus et ex eveniet? Dignissimos placeat quasi eum fugiat accusantium, sequi officiis natus reiciendis. Necessitatibus id itaque provident? Beatae at aut soluta nulla, assumenda deserunt cum quod! Modi corrupti dignissimos aperiam eius consequuntur est sunt aliquam quod perferendis nulla laborum assumenda unde repellat illum iusto quidem minus, natus libero error. Impedit magnam saepe, quaerat vel possimus enim velit porro harum, cum maxime dolorum officiis voluptatem, architecto aperiam nam voluptatum perspiciatis aliquam! Tenetur laborum nesciunt nemo quod facilis quas laboriosam. Odit, iure exercitationem modi maxime eligendi rem dolor autem corporis accusamus, recusandae sed dolores non cum minima alias error. Non laborum placeat eos voluptatibus quas magnam, nobis sint neque. Praesentium veritatis tempora fugiat quae quam explicabo suscipit recusandae blanditiis impedit, neque in nostrum ducimus, laboriosam sunt perspiciatis aperiam. Non totam laudantium tempore itaque iste ipsa temporibus ad quae. Minima quam id minus, autem labore possimus velit eveniet nisi repellat consectetur dicta esse. Facere temporibus natus reiciendis nam? Modi, nemo ratione cupiditate excepturi eos beatae, fugit adipisci magni molestias numquam omnis, pariatur quam ipsam sequi hic quos aliquid! Corporis ullam natus commodi eum in atque non vitae! Autem sapiente labore illum, placeat modi ducimus, accusamus laborum omnis illo neque provident ab deleniti recusandae iure a necessitatibus assumenda. Amet sint facilis, at voluptatibus sequi repudiandae excepturi mollitia reiciendis quisquam corporis, aperiam itaque reprehenderit iure, minima tenetur consequuntur a libero pariatur enim culpa voluptate voluptatum? Veritatis, libero. Autem vel dolorum architecto voluptate saepe eos optio fuga facilis non enim atque nesciunt ratione rem ab asperiores, consequatur quis. Omnis rem reprehenderit at? Dignissimos dolorum ad neque nihil? Vitae qui laborum odit ducimus magni quia nemo, tenetur modi minus officiis ut facere quae cupiditate fugit placeat similique praesentium? Voluptas quibusdam reiciendis ab a! Eveniet possimus adipisci nostrum delectus esse optio, quam velit, accusantium impedit in odio dolor ex. Molestias neque molestiae consequuntur expedita vel minima, doloremque impedit quam incidunt eaque quia, nostrum sed temporibus dolor provident inventore illum harum placeat ex repudiandae saepe consectetur eos magni omnis. Fugiat libero animi saepe qui ducimus architecto modi id voluptas. Explicabo, blanditiis. Explicabo, officia quae reprehenderit odio vero odit fuga aliquid sequi similique asperiores ut incidunt non, alias dolorum, doloribus nulla dolor rerum.</p>
-        </div>
-
-        <div id="Paris-price" class="tabcontent">
-          <h3>Сколько стоит привезти товар?</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus. Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto? Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium, mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem, maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam, aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus. Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda, explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi? Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
-        </div>
-
-        <div id="Tokyo-standart" class="tabcontent">
-          <h3>Как определяется стандарт?</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus. Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto? Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium, mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem, maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam, aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus. Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda, explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi? Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
-        </div>
-
-        <div id="London-count" class="tabcontent">
-          <h3>Сколько оплачивается приобретенный товар?</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus. Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto? Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium, mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem, maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam, aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus. Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda, explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi? Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
-        </div>
-
-        <div id="Paris-inko" class="tabcontent">
-          <h3>Что такое ИНКОТЕРМС?</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus. Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto? Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium, mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem, maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam, aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus. Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda, explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi? Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
-        </div>
-
-        <div id="Tokyo-uzb" class="tabcontent">
-          <h3>Какие грузы можно привезти из Китая в Узбекистан?</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus. Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto? Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium, mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem, maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam, aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus. Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda, explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi? Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
-        </div>
-
-        <div id="London-transport" class="tabcontent">
-          <h3>Какие виды транспорта доступны?</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus. Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto? Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium, mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem, maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam, aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus. Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda, explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi? Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
-        </div>
-
-        <div id="Paris-biznes" class="tabcontent">
-          <h3>Бизнесмен, который не занимается уборкой. </h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus. Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto? Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium, mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem, maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam, aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus. Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda, explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi? Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
-        </div>
-
-        <div id="Tokyo-tn" class="tabcontent">
-          <h3>Что означает код ТН ВЭД?</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus. Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto? Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium, mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem, maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam, aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus. Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda, explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi? Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
-        </div>
-
-        <section class="video">
-          <h3>Видео о нас</h3>
-          <iframe style="width: 100%;height: 350px;border-radius: 15px;margin-top: 10px;"
-            src="https://www.youtube.com/embed/Thcmf8yiVx8"></iframe>
-        </section>
-      </div>
-    </div>
-    <!-- TABS PRESENTATION -->
-
-    <!-- TABS PRESENTATION // -->
-  </div>
-  <!-- form -->
-  <img src="{% static './images/Group_418.svg' %}" class="icon-right-transform2" style="right:20%" alt="">
-  <div class="container mt-5">
-    <form method="post"  class="form">
-        {% csrf_token %}
-      <h3 class="text-center form-us">Обратная связь с нами</h3>
-      <p class="text-center">Идейные соображения высшего порядка, а также постоянное информационно-<br>пропагандистское
-        обеспечение нашей деятельности представляет собой интересный.</p>
-      <br>
-      <hr class="hr-center">
-      <div class="row mt-3">
-        <div class="col-md-6">
-          <input class="form-control" name="name" style="height: 50px;background-color: #F4F5F7;border: none;" type="text"
-            placeholder="ФИО">
-        </div>
-{#        <div class="col-md-6">#}
-{#          <select class="form-control city12" style="height: 50px;background-color: #F4F5F7;border: none;padding: 5px;" id="exampleFormControlSelect1">#}
-{#            <option value="tash" class="options">Ташкент</option>#}
-{#            <option value="tash" class="options">Самарканд</option>#}
-{#            <option value="tash" class="options">Андижан</option>#}
-{#            <option value="tash" class="options">Фаргона</option>#}
-{#            <option value="tash" class="options">Хорезм</option>#}
-{#          </select>#}
-{#        </div>#}
-        <div class="col-md-12 mt-4">
-          <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" type="tel" name="phone_number" placeholder="Ваш номер">
-        </div>
-{#        <div class="col-md-12 mt-4">#}
-{#          <textarea class="form-control" style="background-color: #F4F5F7;border: none;" name="" id="" cols="30"#}
-{#            rows="10" placeholder="Введите сообщения"></textarea>#}
-{#        </div>#}
-        <div class="text-center" style="margin: auto;">
-          <ul>
-            <li><button type="submit" class="button-center button-bottom">
-                <p style="font-size: 16px;">Отправить</p>
-              </button></li>
-          </ul>
-          <br>
-        </div>
-      </div>
-
-    </form>
-
-  </div>
-  <img src="{% static './images/settings.svg' %}" class="icon-left-absolute"
-    style="margin-top: -3%;margin-left: 3%;z-index: 0;position: absolute;" alt="">
-
-  <!-- end form -->
-  <br>
-  <br>
-  <footer id="footer" class="footer-1">
-    <div class="main-footer widgets-dark typo-light">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="widget subscribe no-box">
-              <h5 class="widget-title">Uskunalar<span></span></h5>
-              <p class="widget-desc">Команда USKUNALAR.UZ экономит ваше время и деньги, поставляя Производственииые
-                оборудования.</p>
-              <h5 class="widget-title">Будь в курсе<span></span></h5>
-              <div class="row">
-                <div class="col-md-9">
-                  <input class="form-control" type="text" style="border: none;width: 236px;height: 45px;"
-                    placeholder="Введите свой email">
+                        USKUNALAR.UZ Компанияси маъмуряти. </p>
                 </div>
-                <div class="col-md-3">
-                  <button class="btn send-email"><img src="{% static './images/send.svg' %}" style="position: absolute;
+
+                <div id="Paris" class="tabcontent">
+                    <h3>О сайте www.uskunalar.uz</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore alias harum corporis quasi
+                        doloribus. Veritatis cum minus quae repellendus voluptates! Iste sunt quae ad consequatur earum!
+                        Laborum minima ullam sint? Recusandae corrupti modi voluptate nihil nesciunt, iste, natus porro
+                        quas nostrum repellat reprehenderit exercitationem culpa, cupiditate fugiat eos maxime sequi
+                        totam unde? Placeat natus dolorem beatae, in perferendis doloribus ea? Quis praesentium
+                        doloribus necessitatibus cupiditate, quod tempora voluptas quidem fuga officiis ad voluptatibus
+                        dignissimos tenetur. Minima, dolores expedita? Ullam odit inventore deserunt est rem sit, quis
+                        consequatur, corrupti, autem delectus quaerat porro libero qui quasi perferendis fugit
+                        repudiandae aspernatur neque sunt ipsa dolorem nesciunt tempore? Explicabo, dolorem eius.
+                        Debitis possimus repellat omnis dolorum expedita suscipit ullam eaque ab perferendis aliquid
+                        itaque unde sint ut, iusto deserunt numquam, obcaecati facilis reprehenderit fuga veritatis
+                        nostrum voluptas enim labore. Expedita repellat rem asperiores velit explicabo illum. Sint
+                        delectus et magni omnis porro officia aut reiciendis cum eveniet repudiandae. Quibusdam facilis
+                        sequi inventore enim dicta. Fuga, eius minima ea laudantium vel illo autem quidem. Laborum
+                        recusandae, provident odio distinctio impedit consequatur vel laboriosam perferendis quos
+                        tenetur error suscipit voluptatem repudiandae tempore minus optio excepturi sunt ex eaque
+                        molestiae? Nesciunt omnis eius perspiciatis sapiente facere iusto placeat nihil qui! Deserunt id
+                        sapiente iure repellendus facilis praesentium non saepe animi dicta fuga quod veniam, officia,
+                        tempore minus. Nulla placeat temporibus illum a sunt! Praesentium, a iste! Atque ut itaque
+                        architecto odit possimus accusantium corporis, qui, quae deleniti laborum ipsam earum cumque!
+                        Voluptatibus minus voluptatem praesentium unde quo cumque, maxime molestiae, voluptate
+                        reiciendis non illum quam maiores enim corrupti doloribus debitis dolore at deleniti autem
+                        dolores. Expedita labore consectetur debitis recusandae soluta voluptas quas molestias fugit
+                        eaque aspernatur incidunt ex doloremque repudiandae, laborum, dolorem sequi veniam corrupti
+                        saepe ipsum! Delectus, culpa ullam consequatur quia veniam dolor fugit nemo temporibus doloribus
+                        minima quae harum, in, blanditiis maiores animi odio fuga debitis natus. Sapiente incidunt
+                        recusandae at odit eveniet, obcaecati similique suscipit ipsum commodi necessitatibus deleniti
+                        corporis totam, possimus amet quaerat expedita ab praesentium? Fugiat laudantium accusamus
+                        possimus magni architecto sapiente delectus, inventore quo deleniti quia aliquid repudiandae
+                        quibusdam adipisci iste necessitatibus pariatur id quos, corporis sequi repellat natus cumque
+                        facere, debitis cum. Veniam sunt aspernatur magnam minima eveniet consequuntur sint sed
+                        laboriosam, porro animi. Voluptatum maiores ipsum at obcaecati. Officia magnam maxime unde
+                        cupiditate deleniti adipisci, atque quas neque quod eveniet reiciendis voluptates nam officiis
+                        enim voluptatum soluta!</p>
+                </div>
+
+                <div id="Tokyo" class="tabcontent">
+                    <h3>Какие документы необходимы для заключения договора?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro deleniti soluta eius in
+                        reiciendis, perspiciatis officia qui ducimus blanditiis praesentium quis provident quae
+                        repellendus atque ea ex id accusantium. Fuga consequuntur expedita cumque quis consequatur
+                        quidem perferendis porro libero eligendi eos optio ipsa reprehenderit tempora assumenda
+                        temporibus, suscipit deleniti atque esse ad sit! Necessitatibus quos minus optio! Fuga dolorem
+                        ullam quas ut tenetur ipsam ab corporis iure laudantium possimus veniam atque quia nostrum
+                        recusandae itaque ipsa exercitationem laboriosam eligendi inventore odio blanditiis eveniet,
+                        optio ratione! Nesciunt quidem iusto ipsam incidunt eius sint! Quidem porro dignissimos aut sint
+                        at, ipsam mollitia, facere velit temporibus illo optio veniam perspiciatis. Consequuntur
+                        necessitatibus repudiandae eos distinctio aliquid at iure doloremque, eius esse. Perspiciatis
+                        natus ducimus sit harum molestiae, eaque nisi nemo error vitae ullam assumenda officiis corporis
+                        culpa dolorum veniam? Eius ipsam quia eveniet harum officiis totam reprehenderit praesentium
+                        alias, culpa aperiam in corporis ullam vel sunt nobis saepe sed pariatur explicabo? Porro ut
+                        sint ex ullam delectus odit asperiores ipsum. Adipisci atque nobis hic debitis alias harum
+                        voluptates beatae explicabo animi nisi quae nam vitae nostrum ipsa, totam sunt, veritatis
+                        voluptatem, obcaecati numquam mollitia tenetur? Natus incidunt blanditiis magni, laudantium
+                        excepturi dolorem exercitationem maiores unde? Odit neque nam, eveniet, adipisci quas cumque
+                        iusto voluptates minima inventore voluptatibus sit officia et repudiandae est praesentium nemo
+                        quasi veritatis tempore porro ullam! Praesentium odio sapiente veritatis obcaecati asperiores
+                        provident itaque. Quos, blanditiis nobis. Harum veniam incidunt ipsum quia velit iste
+                        consectetur, neque, eos eum dicta et sed eveniet quibusdam molestiae ex labore reiciendis. Ea
+                        nulla nobis amet iure non aut recusandae repellat rerum debitis. Quas culpa dolor veritatis
+                        aperiam! Ducimus rerum quasi harum quod quis asperiores repellendus eius? Facere itaque qui
+                        delectus soluta optio accusantium reprehenderit alias! Dolorum qui rem optio ea a temporibus
+                        corporis, ab repellendus obcaecati assumenda sint non. Deserunt blanditiis provident unde neque
+                        eveniet laudantium porro. Iure optio, eaque, fuga a error eveniet itaque eligendi exercitationem
+                        asperiores alias debitis nam doloribus fugiat velit, est autem! Dolor nemo, assumenda similique,
+                        quasi eaque earum, iusto totam veritatis explicabo sed doloremque commodi. Unde sunt natus
+                        soluta quae fugiat deserunt, libero eaque totam incidunt alias veritatis laboriosam voluptas
+                        ducimus nobis est necessitatibus, tenetur tempore obcaecati ad, nemo eius magni. Odio, itaque ea
+                        enim nam ipsam exercitationem minus rerum laborum. Veritatis perferendis odio asperiores
+                        accusamus earum non vero ullam reiciendis expedita. Cumque est et eveniet culpa tempore
+                        adipisci.</p>
+                </div>
+
+                <div id="London-china" class="tabcontent">
+                    <h3>Качество китайского оборудования?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, deleniti laudantium eum
+                        earum iste, fugiat dicta voluptatibus vero rem, nihil esse accusantium dolorem explicabo
+                        quisquam illo? Natus harum, a sequi, magni esse eos, expedita ipsum eius delectus et ex eveniet?
+                        Dignissimos placeat quasi eum fugiat accusantium, sequi officiis natus reiciendis.
+                        Necessitatibus id itaque provident? Beatae at aut soluta nulla, assumenda deserunt cum quod!
+                        Modi corrupti dignissimos aperiam eius consequuntur est sunt aliquam quod perferendis nulla
+                        laborum assumenda unde repellat illum iusto quidem minus, natus libero error. Impedit magnam
+                        saepe, quaerat vel possimus enim velit porro harum, cum maxime dolorum officiis voluptatem,
+                        architecto aperiam nam voluptatum perspiciatis aliquam! Tenetur laborum nesciunt nemo quod
+                        facilis quas laboriosam. Odit, iure exercitationem modi maxime eligendi rem dolor autem corporis
+                        accusamus, recusandae sed dolores non cum minima alias error. Non laborum placeat eos
+                        voluptatibus quas magnam, nobis sint neque. Praesentium veritatis tempora fugiat quae quam
+                        explicabo suscipit recusandae blanditiis impedit, neque in nostrum ducimus, laboriosam sunt
+                        perspiciatis aperiam. Non totam laudantium tempore itaque iste ipsa temporibus ad quae. Minima
+                        quam id minus, autem labore possimus velit eveniet nisi repellat consectetur dicta esse. Facere
+                        temporibus natus reiciendis nam? Modi, nemo ratione cupiditate excepturi eos beatae, fugit
+                        adipisci magni molestias numquam omnis, pariatur quam ipsam sequi hic quos aliquid! Corporis
+                        ullam natus commodi eum in atque non vitae! Autem sapiente labore illum, placeat modi ducimus,
+                        accusamus laborum omnis illo neque provident ab deleniti recusandae iure a necessitatibus
+                        assumenda. Amet sint facilis, at voluptatibus sequi repudiandae excepturi mollitia reiciendis
+                        quisquam corporis, aperiam itaque reprehenderit iure, minima tenetur consequuntur a libero
+                        pariatur enim culpa voluptate voluptatum? Veritatis, libero. Autem vel dolorum architecto
+                        voluptate saepe eos optio fuga facilis non enim atque nesciunt ratione rem ab asperiores,
+                        consequatur quis. Omnis rem reprehenderit at? Dignissimos dolorum ad neque nihil? Vitae qui
+                        laborum odit ducimus magni quia nemo, tenetur modi minus officiis ut facere quae cupiditate
+                        fugit placeat similique praesentium? Voluptas quibusdam reiciendis ab a! Eveniet possimus
+                        adipisci nostrum delectus esse optio, quam velit, accusantium impedit in odio dolor ex.
+                        Molestias neque molestiae consequuntur expedita vel minima, doloremque impedit quam incidunt
+                        eaque quia, nostrum sed temporibus dolor provident inventore illum harum placeat ex repudiandae
+                        saepe consectetur eos magni omnis. Fugiat libero animi saepe qui ducimus architecto modi id
+                        voluptas. Explicabo, blanditiis. Explicabo, officia quae reprehenderit odio vero odit fuga
+                        aliquid sequi similique asperiores ut incidunt non, alias dolorum, doloribus nulla dolor
+                        rerum.</p>
+                </div>
+
+                <div id="Paris-price" class="tabcontent">
+                    <h3>Сколько стоит привезти товар?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis
+                        culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt
+                        accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus
+                        doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam
+                        sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem
+                        delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus.
+                        Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere
+                        provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum
+                        consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis
+                        cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum
+                        ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto?
+                        Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium,
+                        mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum
+                        culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio
+                        alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae
+                        dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae
+                        corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium
+                        inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum
+                        atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima
+                        officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem,
+                        maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus
+                        deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint
+                        error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam,
+                        aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus.
+                        Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis
+                        ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione
+                        facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit
+                        asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit
+                        sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda,
+                        explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita
+                        voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa
+                        blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur
+                        dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi?
+                        Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
+                </div>
+
+                <div id="Tokyo-standart" class="tabcontent">
+                    <h3>Как определяется стандарт?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis
+                        culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt
+                        accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus
+                        doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam
+                        sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem
+                        delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus.
+                        Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere
+                        provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum
+                        consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis
+                        cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum
+                        ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto?
+                        Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium,
+                        mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum
+                        culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio
+                        alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae
+                        dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae
+                        corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium
+                        inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum
+                        atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima
+                        officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem,
+                        maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus
+                        deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint
+                        error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam,
+                        aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus.
+                        Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis
+                        ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione
+                        facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit
+                        asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit
+                        sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda,
+                        explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita
+                        voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa
+                        blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur
+                        dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi?
+                        Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
+                </div>
+
+                <div id="London-count" class="tabcontent">
+                    <h3>Сколько оплачивается приобретенный товар?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis
+                        culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt
+                        accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus
+                        doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam
+                        sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem
+                        delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus.
+                        Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere
+                        provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum
+                        consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis
+                        cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum
+                        ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto?
+                        Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium,
+                        mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum
+                        culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio
+                        alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae
+                        dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae
+                        corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium
+                        inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum
+                        atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima
+                        officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem,
+                        maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus
+                        deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint
+                        error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam,
+                        aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus.
+                        Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis
+                        ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione
+                        facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit
+                        asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit
+                        sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda,
+                        explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita
+                        voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa
+                        blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur
+                        dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi?
+                        Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
+                </div>
+
+                <div id="Paris-inko" class="tabcontent">
+                    <h3>Что такое ИНКОТЕРМС?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis
+                        culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt
+                        accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus
+                        doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam
+                        sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem
+                        delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus.
+                        Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere
+                        provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum
+                        consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis
+                        cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum
+                        ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto?
+                        Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium,
+                        mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum
+                        culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio
+                        alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae
+                        dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae
+                        corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium
+                        inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum
+                        atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima
+                        officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem,
+                        maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus
+                        deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint
+                        error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam,
+                        aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus.
+                        Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis
+                        ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione
+                        facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit
+                        asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit
+                        sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda,
+                        explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita
+                        voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa
+                        blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur
+                        dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi?
+                        Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
+                </div>
+
+                <div id="Tokyo-uzb" class="tabcontent">
+                    <h3>Какие грузы можно привезти из Китая в Узбекистан?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis
+                        culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt
+                        accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus
+                        doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam
+                        sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem
+                        delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus.
+                        Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere
+                        provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum
+                        consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis
+                        cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum
+                        ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto?
+                        Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium,
+                        mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum
+                        culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio
+                        alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae
+                        dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae
+                        corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium
+                        inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum
+                        atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima
+                        officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem,
+                        maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus
+                        deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint
+                        error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam,
+                        aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus.
+                        Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis
+                        ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione
+                        facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit
+                        asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit
+                        sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda,
+                        explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita
+                        voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa
+                        blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur
+                        dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi?
+                        Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
+                </div>
+
+                <div id="London-transport" class="tabcontent">
+                    <h3>Какие виды транспорта доступны?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis
+                        culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt
+                        accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus
+                        doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam
+                        sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem
+                        delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus.
+                        Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere
+                        provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum
+                        consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis
+                        cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum
+                        ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto?
+                        Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium,
+                        mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum
+                        culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio
+                        alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae
+                        dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae
+                        corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium
+                        inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum
+                        atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima
+                        officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem,
+                        maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus
+                        deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint
+                        error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam,
+                        aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus.
+                        Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis
+                        ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione
+                        facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit
+                        asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit
+                        sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda,
+                        explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita
+                        voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa
+                        blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur
+                        dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi?
+                        Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
+                </div>
+
+                <div id="Paris-biznes" class="tabcontent">
+                    <h3>Бизнесмен, который не занимается уборкой. </h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis
+                        culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt
+                        accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus
+                        doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam
+                        sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem
+                        delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus.
+                        Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere
+                        provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum
+                        consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis
+                        cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum
+                        ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto?
+                        Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium,
+                        mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum
+                        culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio
+                        alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae
+                        dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae
+                        corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium
+                        inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum
+                        atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima
+                        officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem,
+                        maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus
+                        deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint
+                        error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam,
+                        aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus.
+                        Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis
+                        ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione
+                        facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit
+                        asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit
+                        sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda,
+                        explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita
+                        voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa
+                        blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur
+                        dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi?
+                        Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
+                </div>
+
+                <div id="Tokyo-tn" class="tabcontent">
+                    <h3>Что означает код ТН ВЭД?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, minima aperiam sunt blanditiis
+                        culpa necessitatibus autem quidem cupiditate natus accusantium eveniet, quasi in quos deserunt
+                        accusamus dolorem libero atque maiores harum vero. Deserunt quo aut voluptatibus necessitatibus
+                        doloribus aliquam, nostrum cum consequatur facilis fuga, natus quasi sunt? Tempore modi ipsam
+                        sit accusamus ratione explicabo nam aliquam sunt molestiae, laboriosam distinctio exercitationem
+                        delectus dolorum sequi incidunt eveniet quidem fugit minus est quia expedita voluptatibus.
+                        Accusantium quisquam eos corporis porro aperiam distinctio, explicabo nisi nobis facere
+                        provident maiores! Dolores voluptate commodi mollitia explicabo aliquid a iure harum nostrum
+                        consequuntur, soluta repellat necessitatibus dignissimos sequi sapiente obcaecati. Corporis
+                        cumque molestiae praesentium mollitia dolorum, qui vel dolore reiciendis dolores nulla laborum
+                        ipsum assumenda deserunt. Tempora aperiam nostrum voluptatum delectus architecto?
+                        Necessitatibus, dicta. Reprehenderit vero unde aut, quia eveniet modi sequi, accusantium,
+                        mollitia expedita impedit possimus qui quaerat eum corporis. Ad reprehenderit ex debitis nostrum
+                        culpa eligendi sit earum pariatur delectus cum est voluptas, veritatis distinctio doloribus odio
+                        alias vero deleniti praesentium. Doloremque et quia fuga sint quis! Quisquam necessitatibus quae
+                        dignissimos vel eos voluptas, amet esse earum? Et consequatur possimus dignissimos quae
+                        corrupti, sit placeat nihil eius. Nihil quaerat possimus delectus molestiae? Accusantium
+                        inventore eum ratione reiciendis recusandae voluptates enim quibusdam modi eos? Obcaecati rerum
+                        atque nulla sapiente praesentium? Nulla, eveniet dolorem! Eligendi sint labore vero minima
+                        officiis animi dolores fugit beatae recusandae placeat, deleniti autem nisi tenetur quidem,
+                        maiores, provident reiciendis voluptas tempora maxime itaque aspernatur ea. Laudantium ducimus
+                        deleniti magnam deserunt unde laboriosam labore eum aperiam? Dolores corporis et officia sint
+                        error hic. Dolor quod veritatis quas et natus tenetur delectus officiis cumque odit quisquam,
+                        aperiam soluta ullam amet animi aut magnam fugiat consectetur atque vitae quos ducimus.
+                        Consequuntur aut expedita quam rerum harum dolore dignissimos necessitatibus, saepe perferendis
+                        ducimus, culpa fugit accusantium, recusandae laboriosam quia totam laborum iste porro ratione
+                        facilis dolorem. Consequatur alias quibusdam, excepturi culpa tempore quasi eum error sit
+                        asperiores, esse qui vitae laborum! Eveniet quo, culpa quam excepturi labore aliquam ea impedit
+                        sit possimus rerum nobis ab tenetur repellendus harum soluta dicta sequi nisi assumenda,
+                        explicabo voluptates dolore quae. Amet molestias velit quod perferendis minus assumenda expedita
+                        voluptates suscipit sunt officia, nihil rerum, ipsum architecto quos esse excepturi? Culpa
+                        blanditiis non, sapiente totam voluptatem, quibusdam in praesentium eaque quos consectetur
+                        dolorem dicta quo natus modi ratione, necessitatibus dignissimos cupiditate excepturi?
+                        Consectetur assumenda rerum quaerat repudiandae, unde dolor!</p>
+                </div>
+
+                <section class="video">
+                    <h3>Видео о нас</h3>
+                    <iframe style="width: 100%;height: 350px;border-radius: 15px;margin-top: 10px;"
+                            src="https://www.youtube.com/embed/Thcmf8yiVx8"></iframe>
+                </section>
+            </div>
+        </div>
+        <!-- TABS PRESENTATION -->
+
+        <!-- TABS PRESENTATION // -->
+    </div>
+    <!-- form -->
+    <img src="{% static './images/Group_418.svg' %}" class="icon-right-transform2" style="right:20%" alt="">
+    <div class="container mt-5">
+        <form method="post" class="form">
+            {% csrf_token %}
+            <h3 class="text-center form-us">Обратная связь с нами</h3>
+            <p class="text-center">Идейные соображения высшего порядка, а также постоянное информационно-<br>пропагандистское
+                обеспечение нашей деятельности представляет собой интересный.</p>
+            <br>
+            <hr class="hr-center">
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <input class="form-control" name="name" style="height: 50px;background-color: #F4F5F7;border: none;"
+                           type="text"
+                           placeholder="ФИО">
+                </div>
+                {#        <div class="col-md-6">#}
+                {#          <select class="form-control city12" style="height: 50px;background-color: #F4F5F7;border: none;padding: 5px;" id="exampleFormControlSelect1">#}
+                {#            <option value="tash" class="options">Ташкент</option>#}
+                {#            <option value="tash" class="options">Самарканд</option>#}
+                {#            <option value="tash" class="options">Андижан</option>#}
+                {#            <option value="tash" class="options">Фаргона</option>#}
+                {#            <option value="tash" class="options">Хорезм</option>#}
+                {#          </select>#}
+                {#        </div>#}
+                <div class="col-md-12 mt-4">
+                    <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" type="tel"
+                           name="phone_number" placeholder="Ваш номер">
+                </div>
+                {#        <div class="col-md-12 mt-4">#}
+                {#          <textarea class="form-control" style="background-color: #F4F5F7;border: none;" name="" id="" cols="30"#}
+                {#            rows="10" placeholder="Введите сообщения"></textarea>#}
+                {#        </div>#}
+                <div class="text-center" style="margin: auto;">
+                    <ul>
+                        <li>
+                            <button type="submit" class="button-center button-bottom">
+                                <p style="font-size: 16px;">Отправить</p>
+                            </button>
+                        </li>
+                    </ul>
+                    <br>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    <img src="{% static './images/settings.svg' %}" class="icon-left-absolute"
+         style="margin-top: -3%;margin-left: 3%;z-index: 0;position: absolute;" alt="">
+
+    <!-- end form -->
+    <br>
+    <br>
+    <footer id="footer" class="footer-1">
+        <div class="main-footer widgets-dark typo-light">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="widget subscribe no-box">
+                            <h5 class="widget-title">Uskunalar<span></span></h5>
+                            <p class="widget-desc">Команда USKUNALAR.UZ экономит ваше время и деньги, поставляя
+                                Производственииые
+                                оборудования.</p>
+                            <h5 class="widget-title">Будь в курсе<span></span></h5>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <input class="form-control" type="text"
+                                           style="border: none;width: 236px;height: 45px;"
+                                           placeholder="Введите свой email">
+                                </div>
+                                <div class="col-md-3">
+                                    <button class="btn send-email"><img src="{% static './images/send.svg' %}" style="position: absolute;
     left: 12px;
     top: 13px;" alt=""></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="widget no-box">
+                            <h5 class="widget-title ml-2">Меню<span></span></h5>
+                            <ul class="thumbnail-widget">
+                                <li>
+                                    <div class="thumb-content"><a href="./catelog.html"
+                                                                  class="thumb-content">Каталог</a></div>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a href="./our_works.html" class="thumb-content">Наши
+                                        работа</a></div>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a href="./videos.html" class="thumb-content">Наши
+                                        видео</a></div>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a href="./blog.html" class="thumb-content">Статьи</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a href="./about.html" class="thumb-content">О нас</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a href="./contacts.html"
+                                                                  class="thumb-content">Контакты</a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="widget no-box">
+                            <h5 class="widget-title">Контакты<span></span></h5>
+                            <p class="widget-number"><img src="{% static './images/map1.png' %}"
+                                                          style="width: 25px;height: 25px;" alt=""> Тошкент
+                                шаҳри, Сирғали тумани, Катта олмос 1-тор кўчаси 9а-уй.</p>
+                            <a href="tel:+998 71 250 77 77">
+                                <p class="widget-number"><img src="{% static './images/phone.svg' %}" alt=""> +998 71
+                                    250 77 77</p>
+                            </a>
+                            <p class="widget-number"><img src="{% static './images/clock.svg' %}" alt=""> c 9:00 до
+                                18:00 ежедневно</p>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+
+                        <div class="widget no-box">
+                            <h5 class="widget-title">Соц.сети<span></span></h5>
+                            <a href="">
+                                <p class="widget-number"><img src="{% static './images/facebook.svg' %}"
+                                                              style="width: 25px;" alt=""> <span
+                                        style="margin-left: 2%;position: absolute;">Facebook</span></p>
+                            </a>
+                            <a href="">
+                                <p class="widget-number"><img src="{% static './images/instagram.svg' %}"
+                                                              style="width: 25px;" alt=""> <span
+                                        style="margin-left: 2%;position: absolute;">Instasgram</span></p>
+                            </a>
+                            <a href="">
+                                <p class="widget-number"><img
+                                        src="https://img.icons8.com/color/29/000000/telegram-app--v1.png"/>
+                                    <span style="margin-left: 2%;position: absolute;">Telegram</span></p>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
-              </div>
             </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="widget no-box">
-              <h5 class="widget-title ml-2">Меню<span></span></h5>
-              <ul class="thumbnail-widget">
-                <li>
-                  <div class="thumb-content"><a href="./catelog.html" class="thumb-content">Каталог</a></div>
-                </li>
-                <li>
-                  <div class="thumb-content"><a href="./our_works.html" class="thumb-content">Наши работа</a></div>
-                </li>
-                <li>
-                  <div class="thumb-content"><a href="./videos.html" class="thumb-content">Наши видео</a></div>
-                </li>
-                <li>
-                  <div class="thumb-content"><a href="./blog.html" class="thumb-content">Статьи</a></div>
-                </li>
-                <li>
-                  <div class="thumb-content"><a href="./about.html" class="thumb-content">О нас</a></div>
-                </li>
-                <li>
-                  <div class="thumb-content"><a href="./contacts.html" class="thumb-content">Контакты</a></div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <div class="widget no-box">
-              <h5 class="widget-title">Контакты<span></span></h5>
-              <p class="widget-number"> <img src="{% static './images/map1.png' %}" style="width: 25px;height: 25px;" alt=""> Тошкент
-                шаҳри, Сирғали тумани, Катта олмос 1-тор кўчаси 9а-уй.</p>
-              <a href="tel:+998 71 250 77 77">
-                <p class="widget-number"> <img src="{% static './images/phone.svg' %}" alt=""> +998 71 250 77 77</p>
-              </a>
-              <p class="widget-number"> <img src="{% static './images/clock.svg' %}" alt=""> c 9:00 до 18:00 ежедневно</p>
-            </div>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-md-3">
-
-            <div class="widget no-box">
-              <h5 class="widget-title">Соц.сети<span></span></h5>
-              <a href="">
-                <p class="widget-number"> <img src="{% static './images/facebook.svg' %}" style="width: 25px;" alt=""> <span
-                    style="margin-left: 2%;position: absolute;">Facebook</span> </p>
-              </a>
-              <a href="">
-                <p class="widget-number"> <img src="{% static './images/instagram.svg' %}" style="width: 25px;" alt=""> <span
-                    style="margin-left: 2%;position: absolute;">Instasgram</span> </p>
-              </a>
-              <a href="">
-                <p class="widget-number"> <img src="https://img.icons8.com/color/29/000000/telegram-app--v1.png" />
-                  <span style="margin-left: 2%;position: absolute;">Telegram</span> </p>
-              </a>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </div>
 
-    <div class="footer-copyright">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <p>Copyright Uskunalar.uz © <span id="year"></span> . All rights reserved. LF</p>
-          </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>Copyright Uskunalar.uz © <span id="year"></span> . All rights reserved. LF</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <script>
-    document.getElementById("year").innerHTML = new Date().getFullYear();
-  </script>
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
 
 
-</body>
+    </body>
 
-<script> 
-  console.clear();
-</script>
+    <script>
+        console.clear();
+    </script>
 
-<!-- Code by Fathulla Latipov LF -->
+    <!-- Code by Fathulla Latipov LF -->
 {% endblock %}
 
 {% block extra_js %}
-<script>
-      function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
 
-  // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
 
 
-  $(function () {
-    var Accordion = function (el, multiple) {
-      this.el = el || {};
-      this.multiple = multiple || false;
+        $(function () {
+            var Accordion = function (el, multiple) {
+                this.el = el || {};
+                this.multiple = multiple || false;
 
-      // Variables privadas
-      var links = this.el.find('.link');
-      // Evento
-      links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
-    }
+                // Variables privadas
+                var links = this.el.find('.link');
+                // Evento
+                links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+            }
 
-    Accordion.prototype.dropdown = function (e) {
-      var $el = e.data.el;
-      $this = $(this),
-        $next = $this.next();
+            Accordion.prototype.dropdown = function (e) {
+                var $el = e.data.el;
+                $this = $(this),
+                    $next = $this.next();
 
-      $next.slideToggle();
-      $this.parent().toggleClass('open');
+                $next.slideToggle();
+                $this.parent().toggleClass('open');
 
-      if (!e.data.multiple) {
-        $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-      };
-    }
+                if (!e.data.multiple) {
+                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                }
+                ;
+            }
 
-    var accordion = new Accordion($('#accordion4_1'), false);
-  });
-</script>
+            var accordion = new Accordion($('#accordion4_1'), false);
+        });
+    </script>
+    <script>
+        (function () {
+
+            $(".hamburger").on("click", function () {
+                $(this).parent(".hamburger-wrapper").toggleClass("hamburger-active")
+            });
+
+        }());
+    </script>
 {% endblock %}

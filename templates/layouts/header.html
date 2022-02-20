@@ -73,7 +73,7 @@
                     <img src="{% static './images/logo.png' %}" class="logo_image2" alt="">
                     <li class="delay02"><a href="{% url 'home:catalog' %}">Каталог</a></li>
                     <li class="delay03"><a href="{% url 'work:works' %}">Наши работы</a></li>
-                    <li class="delay04"><a href="/videos/">Наши видео</a></li>
+                    <li class="delay04"><a href="{% url 'video:videos' %}">Наши видео</a></li>
                     <li class="delay05"><a href="{% url 'blog:blogs' %}">Наши статьи</a></li>
                     <li class="delay06"><a href="{% url 'home:about' %}">О нас</a></li>
                     <li class="delay07"><a href="{% url 'home:contacts' %}">Контакты</a></li>

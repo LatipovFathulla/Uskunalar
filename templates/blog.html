@@ -27,30 +27,32 @@
                 {% for blog in blogs %}
                     <div class="col-md-12">
 
-                    <div class="blog-yellow">
+                        <div class="blog-yellow">
 
-                    </div>
-                    <div class="blog-box" style="position: relative;z-index: 9;">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <img src="{{ blog.image.url }}" style="padding: 45px;margin-left: 8%;"
-                                     alt="">
-                            </div>
-                            <div class="col-md-9">
-                                <div class="blog-date">
-                                    <p class="date-number">{{ blog.created_at|date:'d' }}<span>
-                                    <p class="date-date">{{ blog.created_at|date:'F' }}</p></span></p>
+                        </div>
+                        <div class="blog-box" style="position: relative;z-index: 9;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="{{ blog.image.url }}" style="padding: 45px;margin-left: 8%;"
+                                         alt="">
                                 </div>
-                                <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 50px;position: absolute;">Просмотрено 457 человек</small>
-                                <p class="blog-title">{{ blog.title }}</p>
-                                <p class="blog-desc" style="padding: 10px;">{{ blog.smart_description }}</p>
-                                <a href="./single-blog.html">Читать дальше <img src="{% static './images/right.svg' %}"
-                                                                                style="position: absolute;margin-left: 2%;"
-                                                                                alt=""></a>
+                                <div class="col-md-9">
+                                    <div class="blog-date">
+                                        <p class="date-number">{{ blog.created_at|date:'d' }}<span>
+                                        <p class="date-date">{{ blog.created_at|date:'F' }}</p></span></p>
+                                    </div>
+                                    <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 50px;position: absolute;">Просмотрено
+                                        457 человек</small>
+                                    <p class="blog-title">{{ blog.title }}</p>
+                                    <p class="blog-desc" style="padding: 10px;">{{ blog.smart_description }}</p>
+                                    <a href="./single-blog.html">Читать дальше <img
+                                            src="{% static './images/right.svg' %}"
+                                            style="position: absolute;margin-left: 2%;"
+                                            alt=""></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 {% endfor %}
             </div>
         </div>
@@ -135,4 +137,15 @@ justify-content: center;">
     </script>
     <!-- Code by FathullaLatipov LF -->
 
+{% endblock %}
+{% block extra_js %}
+    <script>
+        (function () {
+
+            $(".hamburger").on("click", function () {
+                $(this).parent(".hamburger-wrapper").toggleClass("hamburger-active")
+            });
+
+        }());
+    </script>
 {% endblock %}

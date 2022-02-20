@@ -14,7 +14,7 @@
 
     </section>
 
-        <img src="{% static './images/settings.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);" alt="">
+    <img src="{% static './images/settings.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);" alt="">
 
     <br>
     <div class="container mt-5">
@@ -88,7 +88,7 @@
     </div>
 
     <br>
-        <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
+    <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
 justify-content: center;">
         <a class="prew_icon" href=""></a>
         <ul style="display: flex;justify-content: center;">
@@ -120,5 +120,14 @@ justify-content: center;">
 
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
+    </script>
+    <script>
+        (function () {
+
+            $(".hamburger").on("click", function () {
+                $(this).parent(".hamburger-wrapper").toggleClass("hamburger-active")
+            });
+
+        }());
     </script>
 {% endblock %}

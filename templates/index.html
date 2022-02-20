@@ -1,4 +1,5 @@
 {% load static %}
+{% load tags %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,10 +83,10 @@
 <nav class="container navbar navbar-expand-lg navbar-light bg-white" style="width: 100%;background-color: red;">
     <ul class="navbar-nav">
         <a href="./index.html"><img src="{% static './images/logo.png' %}" class="logo_image" alt=""></a>
-        <a href="./wishlist.html">
+        <a href="{% url 'products:wishlist' %}">
             <img src="{% static 'images/like.svg' %}" class="like-mobile" alt="">
             <span class="like_radius_mobile">
-          <p class="like_count">5</p>
+          <p class="like_count">{% get_wishlist_count request %}</p>
         </span>
         </a>
         <img src="{% static 'images/' %}search.svg" class="search-mobile" alt="">
@@ -99,12 +100,12 @@
                 <ul class="main-links">
                     <img src="{% static 'images/logo.png' %}" class="logo_image2" alt="">
                     <li class="delay02"><a href="{% url 'home:catalog' %}">Каталог</a></li>
-                    <li class="delay03"><a href="./our_works.html">Линии</a></li>
-                    <li class="delay03"><a href="./our_works.html">Наши работы</a></li>
-                    <li class="delay04"><a href="./videos.html">Наши видео</a></li>
-                    <li class="delay05"><a href="./blog.html">Наши статьи</a></li>
-                    <li class="delay06"><a href="./about.html">О нас</a></li>
-                    <li class="delay07"><a href="./contacts.html">Контакты</a></li>
+                    <li class="delay03"><a href="{% url 'line:lines' %}">Линии</a></li>
+                    <li class="delay03"><a href="{% url 'work:works' %}">Наши работы</a></li>
+                    <li class="delay04"><a href="{% url 'video:videos' %}">Наши видео</a></li>
+                    <li class="delay05"><a href="{% url 'blog:blogs' %}">Наши статьи</a></li>
+                    <li class="delay06"><a href="{% url 'home:about' %}">О нас</a></li>
+                    <li class="delay07"><a href="{% url 'home:contacts' %}">Контакты</a></li>
                     <li class="delay08"><a href="./not_found_product.html"><img
                             src="{% static 'images/search_product.svg' %}" class="not-found" alt=""> Не нашли
                         товар?</a></li>
@@ -132,26 +133,23 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent2">
         <ul class="navbar-nav mr-auto">
-            <form action="">
-                <input class="form-control" placeholder="Поиск" style="width: 623px;
-          height: 53px;
-          position: absolute;
-          top: 10px;
-          left: 26%;" type="name">
+            <form action="{% url 'products:product' %}">
+                <input class="form-control" name="q" value="{{ request.GET.q }}" placeholder="Поиск"
+                       style="width: 656px;height: 53px;margin-top: 3px;" type="name">
                 <a href="" type="sumbit">
-                    <img src="{% static 'images/search.svg' %}" class="search_icon" alt="">
+                    <img src="{% static './images/search.svg' %}" class="search_icon" alt="">
                 </a>
             </form>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item-like">
-                    <a href="./wishlist.html">
-                        <img src="{% static 'images/like.svg' %}" class="like_icon" alt="">
+                    <a href="{% url 'products:wishlist' %}">
+                        <img src="{% static './images/like.svg' %}" class="like_icon" alt="">
                     </a>
-                    <a href="./wishlist.html">
+                    <a href="{% url 'products:wishlist' %}">
                 <span class="like_radius">
-                  <p class="like_count">5</p>
+                  <p class="like_count">{% get_wishlist_count request %}</p>
                 </span>
                     </a>
                 </li>
@@ -303,7 +301,7 @@
         <br>
         <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
         <br>
-        <div class="contaiåer">
+        <div class="contaier">
             <div class="splide_4_5">
                 <div class="splide__track" style="    padding-left: 0px;
     padding-right: 0px;
@@ -324,6 +322,35 @@
                                             Подробнее
                                         </button>
                                     </a>
+                                </div>
+
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </div>
+            <div class="splide_4_6">
+                <div class="splide__track" style="padding-left: 0px;padding-right: 0px;height: 431px;margin: 19px;">
+
+                    <ul class="splide__list">
+                        {% for line in lines %}
+                            <li class="splide__slide"><img src="{{ line.image.url }}" style="width:100%;height:230px"
+                                                           alt="">
+                                <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:100%">
+                                    <span style="position:absolute;margin:3px">{{ line.title }}</span>
+                                    <br>
+                                    <span style="margin-top: 2%;position: absolute;">{{ line.created_at|date:'m.d.Y' }}</span>
+                                    <br>
+                                    <div class="center_4_6">
+                                        <a href="{% url 'line:detail' pk=line.pk %}">
+                                            <button class="btn"
+                                                    style="margin: 12px auto;display: table;background:#FFE700">
+                                                Подробнее
+                                            </button>
+                                        </a>
+                                    </div>
+
                                 </div>
 
                             </li>
@@ -418,17 +445,14 @@
             <div class="container">
                 <div class="slider responsive">
                     {% for category in categories2 %}
-                        <div>
+                        <div class="box">
                             <div class="row">
-                                <div class="box">
-                                    <p>{{ category.category }}</p>
-                                    <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
-                                         style="width:150px;height:180px" alt="">
-                                </div>
-                                <div class="box">
-                                    <p>{{ category.category }}</p>
-                                    <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
-                                         style="width:150px;height:180px" alt="">
+                                <div class="col-md-12">
+                                    <div>
+                                        <p>{{ category.category }}</p>
+                                        <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
+                                             style="width: 150px; height: 180px" alt="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -437,9 +461,11 @@
                 <div class="text-center">
                     <ul>
                         <li>
-                            <button class="button-center button-bottom mobile-button">
-                                <p style="font-size: 15px;">Смотреть все</p>
-                            </button>
+                            <a href="{% url 'home:catalog' %}">
+                                <button class="button-center button-bottom mobile-button">
+                                    <p style="font-size: 15px;">Смотреть все</p>
+                                </button>
+                            </a>
                         </li>
                     </ul>
                     <br>
@@ -512,10 +538,13 @@
                                                             <div class="text-center">
                                                                 <ul>
                                                                     <li>
-                                                                        <button class="button-center button-bottom2 mobile-button"
-                                                                                style="width: 127px;height: 43px;">
-                                                                            <p style="font-size: 13px;">Заказать</p>
-                                                                        </button>
+                                                                        <a href="{% url 'products:single' %}">
+                                                                            <button class="button-center button-bottom2 mobile-button"
+                                                                                    style="width: 127px;height: 43px;">
+                                                                                <p style="font-size: 13px;">Заказать</p>
+                                                                            </button>
+                                                                        </a>
+
                                                                     </li>
                                                                 </ul>
                                                                 <br>
@@ -930,6 +959,17 @@
     var splide = new Splide('.splide_4_5', {
         type: 'loop',
         perPage: 4,
+        perMove: 1,
+    });
+
+    splide.mount();
+
+
+</script>
+<script>
+    var splide = new Splide('.splide_4_6', {
+        type: 'loop',
+        perPage: 1,
         perMove: 1,
     });
 
