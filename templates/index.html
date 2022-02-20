@@ -89,7 +89,8 @@
           <p class="like_count">{% get_wishlist_count request %}</p>
         </span>
         </a>
-        <img src="{% static 'images/' %}search.svg" class="search-mobile" alt="">
+        <button class="search"><img src="{% static 'images/search.svg' %}" class="search-mobile" id="search2" alt="">
+        </button>
         <div class="hamburger-wrapper">
             <div class="hamburger">
                 <div class="my_menu">
@@ -445,15 +446,16 @@
             <div class="container">
                 <div class="slider responsive">
                     {% for category in categories2 %}
-                        <div class="box">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div>
-                                        <p>{{ category.category }}</p>
-                                        <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
-                                             style="width: 150px; height: 180px" alt="">
-                                    </div>
-                                </div>
+                        <div>
+                            <div class="box">
+                                <p>{{ category.category }}</p>
+                                <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
+                                     style="width: 150px; height: 180px" alt="">
+                            </div>
+                            <div class="box">
+                                <p>{{ category.category }}</p>
+                                <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
+                                     style="width: 150px; height: 180px" alt="">
                             </div>
                         </div>
                     {% endfor %}
@@ -701,6 +703,8 @@
                             <div class="article2">
                                 <p class="article-text">{{ line.title }}</p>
                                 <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
+                                <a href="{% url 'line:detail' pk=line.pk %}"
+                                           style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
                             </div>
                         </li>
                     {% endfor %}
@@ -721,6 +725,8 @@
                             <div class="article">
                                 <p class="article-text">{{ line.title }}</p>
                                 <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
+                                   <a href="{% url 'line:detail' pk=line.pk %}"
+                                           style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
                             </div>
                         </li>
                     {% endfor %}
@@ -729,7 +735,7 @@
             <div class="text-center">
                 <ul>
                     <li>
-                        <a href="{% url 'blog:blogs' %}">
+                        <a href="{% url 'line:lines' %}">
                             <button class="button-center button-bottom">
                                 <p style="font-size: 16px;">Смотреть еще</p>
                             </button>
@@ -987,6 +993,16 @@
     splide.mount();
 
 
+</script>
+<script>
+    $("#search2_input_box").hide();
+    $("#search2").on("click", function () {
+        $("#search2_input_box").slideToggle();
+        $("#search2_input").focus();
+    });
+    $("#close_search2").on("click", function () {
+        $('#search2_input_box').slideUp(500);
+    });
 </script>
 <script>
     (function () {

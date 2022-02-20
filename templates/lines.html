@@ -2,75 +2,80 @@
 {% load static %}
 {% block content %}
 
-<section class="banner">
-    <div class="container" style="margin-top: -1%;">
-        <div class="row">
+    <section class="banner">
+        <div class="container" style="margin-top: -1%;">
+            <div class="row">
 
+            </div>
+            <h1 class="banner-text">Линии</h1>
+            <a href="/" style="color:#132E6B"><p class="banner-desc">Главная</a> <span> > <a href=""
+                                                                                             class="banner-desc-title">Линии</a></span></p>
+
+            <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
         </div>
-        <h1 class="banner-text">Линии</h1>
-        <a href="/" style="color:#132E6B"><p class="banner-desc">Главная</a> <span> > <a href=""
-                                                                                         class="banner-desc-title">Линии</a></span></p>
 
-        <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
-    </div>
+    </section>
 
-</section>
-
-<br>
-<img src="{% static './images/settings.svg' %}" class="icon-right" alt="">
-<br>
-<br>
-<div class="container">
-    <div class="row">
-     <img src="{% static './images/Group_417.svg' %}" class="icon-left-works" alt="">
-        {% for line in lines %}
-        <div class="col-md-4">
-            <div class="card">
-                <div data-aos="fade-right">
-                    <div class="imagewrap">
-                        <div class="thumbnail">
-                            <img src="{{ line.image.url }}" style="width:90%;margin:auto;display:table;height:250px">
-                        </div>
-                        <a href="{% url  'line:detail' pk=line.pk %}"> <input type="button" class="button1 ig-btn"
-                                                                                  value="Смотреть"/></a>
-                    </div>
-                    <div class="info">
-                        <div class="row">
+    <br>
+    <img src="{% static './images/settings.svg' %}" class="icon-right" alt="">
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <img src="{% static './images/Group_417.svg' %}" class="icon-left-works" alt="">
+            {% for line in lines %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div data-aos="fade-right">
+                            <div class="imagewrap">
+                                <div class="thumbnail">
+                                    <img src="{{ line.image.url }}"
+                                         style="width:90%;margin:auto;display:table;height:250px">
+                                </div>
+                                <a href="{% url  'line:detail' pk=line.pk %}"> <input type="button"
+                                                                                      class="button1 ig-btn"
+                                                                                      value="Смотреть"/></a>
+                            </div>
+                            <div class="info">
+                                <div class="row">
                                               <span>
                                                 <hr class="hr-left" style="height:69px">
                                               </span>
-                            <div class="col-md-11 col-11">
-                                <p style="color: #000;font-weight: 500;width: 100%;">{{ line.title }}</p>
+                                    <div class="col-md-11 col-11">
+                                        <p style="color: #000;font-weight: 500;width: 100%;">{{ line.title }}</p>
 
-                                <p style="color: #132E6B;font-weight: 500;width: 100%;position:relative;top:7px">{{ line.created_at|date:'m.d.Y' }}</p>
-                                <br>
-                                <a href="{% url  'line:detail' pk=line.pk %}" style="position:relative;bottom:5px">Читать дальше..</a>
-                                <br>
-                                <p></p>
+                                        <p style="color: #132E6B;font-weight: 500;width: 100%;position:relative;top:7px">{{ line.created_at|date:'m.d.Y' }}</p>
+                                        <br>
+                                        <a href="{% url  'line:detail' pk=line.pk %}"
+                                           style="position:relative;bottom:5px">Читать дальше..</a>
+                                        <br>
+                                        <p></p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</div>
-<!-- pagination menu -->
-<nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
+    <!-- pagination menu -->
+    <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
 justify-content: center;">
-    <a class="prew_icon" href=""></a>
-    <ul style="display: flex;justify-content: center;">
-        {% for page in page_obj.paginator.page_range %}
-        <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"
-            onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position: relative;padding-top: 15px"><a href="?page={{ page }}"
-                                                                                       style="color: #132E6B;">{{ page }}</a></li>
-        {% endfor %}
-    </ul>
-    <a href="?page={{ page }}"></a>
-</nav>
+        <a class="prew_icon" href=""></a>
+        <ul style="display: flex;justify-content: center;">
+            {% for page in page_obj.paginator.page_range %}
+                <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"
+                    onclick="addUrlParameter('page', '{{ page }}')"
+                    style="cursor:pointer;position: relative;padding-top: 15px"><a href="?page={{ page }}"
+                                                                                   style="color: #132E6B;">{{ page }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="?page={{ page }}"></a>
+    </nav>
 
-<!-- end pagination menu -->
+    <!-- end pagination menu -->
 
-<br>
+    <br>
 {% endblock %}

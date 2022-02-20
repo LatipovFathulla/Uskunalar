@@ -58,7 +58,7 @@
         <a href="{% url 'products:wishlist' %}">
             <img src="{% static './images/like.svg' %}" class="like-mobile" alt="">
             <span class="like_radius_mobile">
-          <p class="like_count">5</p>
+          <p class="like_count">{% get_wishlist_count request %}</p>
         </span>
         </a>
         <img src="{% static './images/search.svg' %}" class="search-mobile" alt="">
