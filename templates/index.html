@@ -319,9 +319,11 @@
                                     <br>
                                     <span style="margin-top: 2%;position: absolute;margin-left: 35%;">{{ line.created_at|date:'m.d.Y' }}</span>
                                     <br>
-                                    <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">
-                                        Подробнее
-                                    </button>
+                                    <a href="{% url 'line:detail' pk=line.pk %}">
+                                        <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">
+                                            Подробнее
+                                        </button>
+                                    </a>
                                 </div>
 
                             </li>
@@ -341,9 +343,11 @@
     <div class="text-center">
         <ul>
             <li>
-                <button class="button-center button-bottom" style="margin-top:0px">
-                    <p style="font-size: 15px;">Смотреть все</p>
-                </button>
+                <a href="{% url 'line:lines' %}">
+                    <button class="button-center button-bottom" style="margin-top:0px">
+                        <p style="font-size: 15px;">Смотреть все</p>
+                    </button>
+                </a>
             </li>
         </ul>
         <br>
@@ -539,6 +543,18 @@
                 </div>
             {% endfor %}
         </div>
+        <div class="text-center">
+            <ul>
+                <li>
+                    <a href="{% url 'products:product' %}">
+                        <button class="button-center button-bottom" style="margin-top:0px">
+                            <p style="font-size: 15px;">Смотреть все</p>
+                        </button>
+                    </a>
+                </li>
+            </ul>
+            <br>
+        </div>
     </div>
 
     <div class="container">
@@ -611,9 +627,11 @@
     <div class="text-center">
         <ul>
             <li>
-                <button class="button-center button-bottom">
-                    <a href="{% url 'work:works' %}"><p style="font-size: 16px;">Читать еще</p></a>
-                </button>
+                <a href="{% url 'work:works' %}">
+                    <button class="button-center button-bottom">
+                        <p style="font-size: 16px;">Читать еще</p>
+                    </button>
+                </a>
             </li>
         </ul>
     </div>
@@ -707,7 +725,9 @@
         <div class="row">
             {% for work in works %}
                 <div class="col-md-4">
-                    <img src="{{ work.image.url }}" style="margin-top: 20px;" alt="">
+                    <a href="{% url 'work:single-work' pk=work.pk %}">
+                        <img src="{{ work.image.url }}" style="margin-top: 20px;" alt="">
+                    </a>
                 </div>
             {% endfor %}
 
@@ -716,9 +736,11 @@
         <div class="text-center">
             <ul>
                 <li>
-                    <button class="button-center button-bottom">
+                    <a href="{% url 'work:works' %}">
+                        <button class="button-center button-bottom">
                         <p style="font-size: 16px;">Смотреть еще</p>
                     </button>
+                    </a>
                 </li>
             </ul>
         </div>
