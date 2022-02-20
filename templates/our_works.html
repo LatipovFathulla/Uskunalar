@@ -39,16 +39,35 @@
                              alt="">
                     </div>
                     <div class="col-md-6">
-                        <p class="title-work">{{ work.title }}</p>
-                        <p class="desc-work">{{ work.short_descriptions }}</p>
-                        {#                    <p class="aim_project">Цель проекта:</p>#}
-                        {#                    <p class="client_work">Представить новые услуги, увеличения клиентов</p>#}
-                        <p class="aim_project">Сроки использования:</p>
-                        <p class="client_work">{{ work.created_at|date:'m.d.Y' }}</p>
-                        {#                    <p class="aim_project">Оказание услуги:</p>#}
-                        {#                    <p class="client_work">Пример текста</p>#}
-                        {#                    <p class="client_work">Объектная фотосъемка</p>#}
-                        {#                    <p class="client_work">Разработка брендбука</p>#}
+                        <div class="row">
+                            <div class="col-md-12 col-6">
+                                <p class="title-work">{{ work.title }}</p>
+                                <p class="desc-work">{{ work.short_descriptions }}</p>
+                                {#                    <p class="aim_project">Цель проекта:</p>#}
+                                {#                    <p class="client_work">Представить новые услуги, увеличения клиентов</p>#}
+                                <p class="aim_project">Сроки использования:</p>
+                                <p class="client_work">{{ work.created_at|date:'m.d.Y' }}</p>
+                                {#                    <p class="aim_project">Оказание услуги:</p>#}
+                                {#                    <p class="client_work">Пример текста</p>#}
+                                {#                    <p class="client_work">Объектная фотосъемка</p>#}
+                                {#                    <p class="client_work">Разработка брендбука</p>#}
+                            </div>
+                            <div class="col-md-12 col-6">
+                                <div class="text-center">
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'work:single-work' pk=work.pk %}">
+                                                <button class="button-left button-bottom"
+                                                        style="margin-top: 4%;right: 32%">
+                                                    <p style="font-size: 16px;">Смотреть еще</p>
+                                                </button>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 {% endfor %}
 
@@ -61,15 +80,15 @@
                     <div class="row">
                         {% for work in object_list %}
                             <div class="col-md-4">
-                                <img src="{% static './images/Group_417.svg' %}" class="icon-left-works" alt="">
                                 <div class="card">
                                     <div data-aos="fade-right">
                                         <div class="imagewrap">
                                             <div class="thumbnail">
                                                 <img src="{{ work.image.url }}">
                                             </div>
-                                            <a href="{% url 'work:single-work' pk=work.pk %}"> <input type="button" class="button1 ig-btn"
-                                                               value="Смотреть"/></a>
+                                            <a href="{% url 'work:single-work' pk=work.pk %}"> <input type="button"
+                                                                                                      class="button1 ig-btn"
+                                                                                                      value="Смотреть"/></a>
                                         </div>
                                         <div class="info">
                                             <div class="row">

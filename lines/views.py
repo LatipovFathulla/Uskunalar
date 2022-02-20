@@ -8,6 +8,7 @@ class LineModelView(ListView):
     template_name = 'lines.html'
     queryset = LineModel.objects.order_by('-pk')
     context_object_name = 'lines'
+    paginate_by = 7
 
 
 class LineDetailModelView(DetailView):

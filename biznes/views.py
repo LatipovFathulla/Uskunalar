@@ -8,6 +8,7 @@ class BiznesModelView(ListView):
     template_name = 'biznes.html'
     queryset = BiznesModel.objects.order_by('-pk')
     context_object_name = 'biznes'
+    paginate_by = 7
 
 
 class BiznesModelDetailView(DetailView):

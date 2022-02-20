@@ -7,9 +7,9 @@
         <div class="row">
 
         </div>
-        <h1 class="banner-text">Наши видео</h1>
+        <h1 class="banner-text">Линии</h1>
         <a href="/" style="color:#132E6B"><p class="banner-desc">Главная</a> <span> > <a href=""
-                                                                                         class="banner-desc-title">Наши видео</a></span></p>
+                                                                                         class="banner-desc-title">Линии</a></span></p>
 
         <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
@@ -22,9 +22,9 @@
 <br>
 <div class="container">
     <div class="row">
+     <img src="{% static './images/Group_417.svg' %}" class="icon-left-works" alt="">
         {% for line in lines %}
         <div class="col-md-4">
-            <img src="{% static './images/Group_417.svg' %}" class="icon-left-works" alt="">
             <div class="card">
                 <div data-aos="fade-right">
                     <div class="imagewrap">
@@ -63,9 +63,8 @@ justify-content: center;">
     <ul style="display: flex;justify-content: center;">
         {% for page in page_obj.paginator.page_range %}
         <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"
-            onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;"><a href="?page={{ page }}"
-                                                                                       style="color: #132E6B;">{{ page
-            }}</a></li>
+            onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position: relative;padding-top: 15px"><a href="?page={{ page }}"
+                                                                                       style="color: #132E6B;">{{ page }}</a></li>
         {% endfor %}
     </ul>
     <a href="?page={{ page }}"></a>
