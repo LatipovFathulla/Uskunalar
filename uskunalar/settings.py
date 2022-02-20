@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'blog',
     'works',
     'videos',
-    'lines'
+    'lines',
+    'biznes'
 ]
 
 MIDDLEWARE = [

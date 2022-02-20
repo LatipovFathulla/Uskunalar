@@ -414,15 +414,15 @@
             <div class="container">
                 <div class="slider responsive">
                     <div>
-                            <div class="row">
-                                {% for category in categories2 %}
-                                    <div class="box">
-                                        <p>{{ category.category }}</p>
-                                        <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
-                                             style="width:150px;height:180px" alt="">
-                                    </div>
-                                {% endfor %}
-                            </div>
+                        <div class="row">
+                            {% for category in categories2 %}
+                                <div class="box">
+                                    <p>{{ category.category }}</p>
+                                    <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
+                                         style="width:150px;height:180px" alt="">
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
                 <div class="text-center">
@@ -567,7 +567,7 @@
                         <img src="{{ work.image.url }}" style="width: 580px;height: 670px;" alt="">
                         <div class="home-blog2">
                             <p class="home-text">{{ work.title }}</p>
-                            <p class="home-desc">{{ work.short_descriptions }}</p>
+                            <p class="home-desc">{{ work.short_descriptions|slice:':320' }}...</p>
                             <br>
                             <a href="" style="position: absolute;bottom: 10px;color: #132E6B;">Читать полностью</a>
                         </div>
@@ -589,7 +589,7 @@
 
                                     <div class="home-blog">
                                         <p class="home-text">{{ work.title }}</p>
-                                        <p class="home-desc">{{ work.short_descriptions }}</p>
+                                        <p class="home-desc" style="">{{ work.short_descriptions|slice:':200' }}...</p>
                                         <br>
                                         <a href="{% url 'work:single-work' pk=work.pk %}"
                                            style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
@@ -637,51 +637,21 @@
     </div>
     <div class="container">
         <div class="splide_4">
-            <div class="splide__track" style="    padding-left: 0px;
+            <div class="splide__track" style="padding-left: 0px;
     padding-right: 0px;
     height: 281px;
     margin: 19px;">
                 <ul class="splide__list">
-                    <li class="splide__slide">
-                        <img src="https://uskunalar.uz/uploads/posts/PLpVelEkPkVOkox7ClFeifhoKpjLt7b3RHhWukhE.jpeg"
-                             style="width: 99%;border-radius: 6px;" alt="">
-                        <div class="article2">
-                            <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
-                            <p class="article-date">16 января 2020</p>
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <img src="https://uskunalar.uz/uploads/posts/PLpVelEkPkVOkox7ClFeifhoKpjLt7b3RHhWukhE.jpeg"
-                             style="width: 99%;border-radius: 6px;" alt="">
-                        <div class="article2">
-                            <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
-                            <p class="article-date">16 января 2020</p>
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <img src="https://uskunalar.uz/uploads/posts/PLpVelEkPkVOkox7ClFeifhoKpjLt7b3RHhWukhE.jpeg"
-                             style="width: 99%;border-radius: 6px;" alt="">
-                        <div class="article2">
-                            <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
-                            <p class="article-date">16 января 2020</p>
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <img src="https://uskunalar.uz/uploads/posts/PLpVelEkPkVOkox7ClFeifhoKpjLt7b3RHhWukhE.jpeg"
-                             style="width: 99%;border-radius: 6px;" alt="">
-                        <div class="article2">
-                            <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
-                            <p class="article-date">16 января 2020</p>
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <img src="https://uskunalar.uz/uploads/posts/PLpVelEkPkVOkox7ClFeifhoKpjLt7b3RHhWukhE.jpeg"
-                             style="width: 99%;border-radius: 6px;" alt="">
-                        <div class="article2">
-                            <p class="article-text">Бытовая техника для малогабаритной квартиры, как выбрать?</p>
-                            <p class="article-date">16 января 2020</p>
-                        </div>
-                    </li>
+                    {% for line in lines %}
+                        <li class="splide__slide">
+                            <img src="{{ line.image.url }}"
+                                 style="width: 99%;border-radius: 6px;" alt="">
+                            <div class="article2">
+                                <p class="article-text">{{ line.title }}</p>
+                                <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
+                            </div>
+                        </li>
+                    {% endfor %}
                 </ul>
                 <br>
             </div>
@@ -692,12 +662,12 @@
         <div class="splide">
             <div class="splide__track">
                 <ul class="splide__list">
-                    {% for blog in blogs %}
+                    {% for line in lines %}
                         <li class="splide__slide" style="height:500px">
-                            <img src="{{ blog.image.url }}"
+                            <img src="{{ line.image.url }}"
                                  style="width: 350px;border-radius: 6px;height:400px" alt="">
                             <div class="article">
-                                <p class="article-text">{{ blog.title }}</p>
+                                <p class="article-text">{{ line.title }}</p>
                                 <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
                             </div>
                         </li>
@@ -735,15 +705,12 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <img src="{% static 'images/video.png' %}" style="margin-top: 20px;" alt="">
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'images/photo.png' %}" style="margin: 20px auto;display: table;" alt="">
-            </div>
-            <div class="col-md-3">
-                <img src="{% static 'images/photo2].png' %}" style="margin: 20px auto;display: table;" alt="">
-            </div>
+            {% for work in works %}
+                <div class="col-md-4">
+                    <img src="{{ work.image.url }}" style="margin-top: 20px;" alt="">
+                </div>
+            {% endfor %}
+
         </div>
         <img src="{% static 'images/Group_417.svg' %}" class="icon-left-absolute" alt="">
         <div class="text-center">
@@ -936,6 +903,17 @@
     var splide = new Splide('.splide_4_5', {
         type: 'loop',
         perPage: 4,
+        perMove: 1,
+    });
+
+    splide.mount();
+
+
+</script>
+<script>
+    var splide = new Splide('.splide_4', {
+        type: 'loop',
+        perPage: 1,
         perMove: 1,
     });
 
