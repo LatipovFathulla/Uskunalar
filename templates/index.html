@@ -417,17 +417,22 @@
         <div class="gallery-carousel-content">
             <div class="container">
                 <div class="slider responsive">
-                    <div>
-                        <div class="row">
-                            {% for category in categories2 %}
+                    {% for category in categories2 %}
+                        <div>
+                            <div class="row">
                                 <div class="box">
                                     <p>{{ category.category }}</p>
                                     <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
                                          style="width:150px;height:180px" alt="">
                                 </div>
-                            {% endfor %}
+                                <div class="box">
+                                    <p>{{ category.category }}</p>
+                                    <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
+                                         style="width:150px;height:180px" alt="">
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="text-center">
                     <ul>
@@ -738,8 +743,8 @@
                 <li>
                     <a href="{% url 'work:works' %}">
                         <button class="button-center button-bottom">
-                        <p style="font-size: 16px;">Смотреть еще</p>
-                    </button>
+                            <p style="font-size: 16px;">Смотреть еще</p>
+                        </button>
                     </a>
                 </li>
             </ul>
