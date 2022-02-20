@@ -45,7 +45,7 @@
                                         457 человек</small>
                                     <p class="blog-title">{{ blog.title }}</p>
                                     <p class="blog-desc" style="padding: 10px;">{{ blog.smart_description }}</p>
-                                    <a href="./single-blog.html">Читать дальше <img
+                                    <a href="{% url 'blog:single-blog' pk=blog.pk %}">Читать дальше <img
                                             src="{% static './images/right.svg' %}"
                                             style="position: absolute;margin-left: 2%;"
                                             alt=""></a>
@@ -77,7 +77,7 @@
                             <br>
                             <p>{{ blog.description }}</p>
                             <br>
-                            <a href="./single-blog.html">Читать дальше <img src="{% static './images/right.svg' %}"
+                            <a href="{% url 'blog:single-blog' pk=blog.pk %}">Читать дальше <img src="{% static './images/right.svg' %}"
                                                                             style="position: absolute;margin-left: 2%;"
                                                                             alt=""></a>
                         </div>
@@ -137,15 +137,4 @@ justify-content: center;">
     </script>
     <!-- Code by FathullaLatipov LF -->
 
-{% endblock %}
-{% block extra_js %}
-    <script>
-        (function () {
-
-            $(".hamburger").on("click", function () {
-                $(this).parent(".hamburger-wrapper").toggleClass("hamburger-active")
-            });
-
-        }());
-    </script>
 {% endblock %}
