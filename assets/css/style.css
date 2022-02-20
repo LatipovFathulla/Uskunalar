@@ -2950,6 +2950,17 @@ nav .nav-ul li a span.rotate {
         background-color: #fff;
         box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important
     }
+
+    .blog-box {
+        display: none;
+        background: #ffffff;
+        float: right;
+        width: 100%;
+        height: 315px;
+        margin-top: 40px;
+        box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);
+        border-radius: 6px;
+    }
 }
 
 
@@ -2981,7 +2992,7 @@ nav .nav-ul li a span.rotate {
     }
 
     .desk_pagination {
-        margin-top: 29%;
+        margin-top: 4%;
     }
 
     .icon-right-2 {
@@ -3102,6 +3113,30 @@ nav .nav-ul li a span.rotate {
         left: -7%;
         top: 20%;
         transform: rotate(-25deg);
+    }
+
+    .blog-box {
+        background: #ffffff;
+        float: right;
+        width: 100%;
+        height: 315px;
+        margin-top: 40px;
+        box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);
+        border-radius: 6px;
+    }
+
+    .blog-date {
+        position: absolute;
+        right: 7%;
+        top: -9%;
+        background: #131311;
+        color: #fff;
+        padding: 18px;
+        text-align: center;
+        width: 82px;
+        height: 80px;
+        box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);
+        border-radius: 6px;
     }
 
     .button-left.button-bottom-left.ds-none {
@@ -3859,6 +3894,7 @@ nav .nav-ul li a span.rotate {
     font-style: normal;
     letter-spacing: -0.02em;
     color: #000;
+    margin-top: 80px;
 }
 
 .blog-views {
@@ -3877,6 +3913,7 @@ nav .nav-ul li a span.rotate {
     color: #131311;
     line-height: 25px;
     margin-top: 10px;
+    margin-left: -1%;
 }
 
 .blog-right {
@@ -3905,6 +3942,7 @@ nav .nav-ul li a span.rotate {
     line-height: 22px;
     font-weight: bold;
     font-style: normal;
+    color: #fff;
 }
 
 .date-date {
@@ -3920,7 +3958,7 @@ nav .nav-ul li a span.rotate {
 .blog-yellow {
     position: absolute;
     left: -34px;
-    bottom: -408px;
+    top: 35%;
     background: #FFE700;
     width: 80px;
     height: 260px;
@@ -3958,8 +3996,8 @@ nav .nav-ul li a span.rotate {
     background: #FFE700;
     z-index: 1;
     width: 50px;
-    height: 670px;
-    box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);
+    height: 353px;
+    box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);
     border-radius: 6px;
 }
 
