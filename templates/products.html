@@ -67,15 +67,30 @@
                       <!-- Custom select structure -->
                 </div>
                 <div class="col-md-3">
-                    <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                        <div class="link" style="padding: 20px 20px 20px 35px;"><i class="fas fa-dollar-sign"></i>Валюта<i class="fa fa-chevron-down"></i></div>
-                        <ul class="submenu"
-                            style="position: absolute;z-index: 99;width: 88%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                            <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
-                            <li><a href="#">Доллар</a></li>
-                            <li><a href="#">Сум</a></li>
-                        </ul>
-                    </li>
+                       <!-- Custom select structure -->
+                    <div class="select_mate" data-mate-select="active" >
+
+                        <select onchange="addUrlParameter('sort', this.value)">
+                            <option>Валюта</option>
+                            <option {% if request.GET.sort == 'som' %}selected{% endif %} value="som">Сум</option>
+                            <option {% if request.GET.sort == '-som' %}selected{% endif %} value="-som">Доллар</option>
+
+
+                        </select>
+                          <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                              <path d="M0-.75h24v24H0z" fill="none"/>
+                          </svg></span>
+                          <div class="cont_list_select_mate">
+                            <ul class="cont_select_int">  </ul>
+                          </div>
+                      </div>
+                    <select name="" id="">
+                        <option value="" selected>asdasd</option>
+                        <option value="" >asdawwsd</option>
+                        <option value="" >asdasdsdsdawwsd</option>
+                    </select>
+                      <!-- Custom select structure -->
                 </div>
                 <div class="col-md-3">
                     <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
