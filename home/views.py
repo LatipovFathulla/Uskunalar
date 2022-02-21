@@ -1,6 +1,6 @@
 from django.db.models import Q, Min, Max
 from django.http import JsonResponse
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, TemplateView, DetailView
 from requests import Response
 
 from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
@@ -21,6 +21,8 @@ class BannerInfoModelView(ListView):
         sku = self.request.GET.get('sku')
         price = self.request.GET.get('price')
         sort = self.request.GET.get('sort')
+        som = self.request.GET.get('price')
+        dollar = self.request.GET.get('dollar')
 
         if q:
             qs = qs.filter(title__icontains=q)
@@ -40,9 +42,15 @@ class BannerInfoModelView(ListView):
 
         if sort:
             if sort == 'price':
-                qs = qs.order_by('price')
+                qs = sorted(qs, key=lambda i: i.get_price())
             elif sort == '-price':
-                qs = qs.order_by('-price')
+                qs = sorted(qs, key=lambda i: i.get_price(), reverse=True)
+
+        if som:
+            if som == 'som':
+                qs = sorted(qs, key=lambda i: i.get_price())
+            elif som == '-som':
+                qs = sorted(qs, key=lambda i: i.get_price(), reverse=True)
 
         return qs
 
@@ -72,8 +80,14 @@ class BannerInfoModelView(ListView):
         return context
 
 
-class SingleModelView(TemplateView):
+class SingleModelDetailView(DetailView):
     template_name = 'single-product.html'
+    model = BannerInfoModel
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['related'] = BannerInfoModel.objects.order_by('-pk')
+        return context
 
 
 def add_to_wishlist(request, pk):

@@ -26,6 +26,7 @@
     }
 
 
+
 </style>
 <body>
 <!-- start navbar -->
@@ -169,277 +170,274 @@
 </nav>
 <!-- end mobile menu -->
 {% block content %}
-    <!-- start carousel -->
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-md-3">
-                <nav class="minimalist-vertical-menu2">
-                    <div class="minimalist-tab-menu2">
-                        <ul class="list-group2">
-                            {% for category in categories %}
-                                <li class="menu-item2 has-child2">
-                                    <img src="{{ category.image.url }}" style="margin-top: 5%;" alt=""><span
-                                        style="margin-top: 0%;position: absolute;font-size: 14px;margin-left: -2.5%;font-weight: 500;font-style: normal;">{{ category.category }}</span>
-                                </li>
-                            {% endfor %}
-                            <a href="{% url 'products:product' %}">
-                                <li class="menu-ite has-child1" style="">
-                                    <img src="{% static 'images/squares_2.svg' %}" style="margin-top: 5%;" alt="">
-                                    <span style="margin-top: 0%;position: absolute;font-size: 14px;margin-left:-2.9%;font-weight: 500;font-style: normal;">Все категории</span>
-                                </li>
-                            </a>
-                        </ul>
-
-                    </div>
-                    <div class="minimalist-tab2">
-                        {% for subcategory in subcategories %}
-                            <div class="minimalist-tab-content2">
-                                <div class="container" style="height: 605px;">
-                                    <h3 class="mt-4">{{ subcategory.category|slice:':1' }}</h3>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="menu-dropdown2">
-                                                <div class="dropdown-item2">
-                                                    <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;height: 30px;margin-top: 20px;margin-left: 10px;">
-                                                        {{ subcategory.subcategory }}
-                                                    </div>
-                                                    <hr class="hr-menu">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="menu-dropdown2">
-                                                <div class="blog-yellow-2">
-
-                                                </div>
-                                                <img src="{{ subcategory.image.url }}"
-                                                     style="width: 427px;height: 477px;position: relative;z-index: 2;"
-                                                     alt="">
-                                                </a>
-                                                <div class="blog-yellow-3">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+<!-- start carousel -->
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-3">
+            <nav class="minimalist-vertical-menu2">
+                <div class="minimalist-tab-menu2">
+                    <ul class="list-group2">
+                        {% for category in categories %}
+                        <li class="menu-item2 has-child2">
+                            <img src="{{ category.image.url }}" style="margin-top: 5%;" alt=""><span
+                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left: -2.5%;font-weight: 500;font-style: normal;">{{ category.category }}</span>
+                        </li>
                         {% endfor %}
-                    </div>
-                </nav>
-            </div>
-            <div class="col-md-9" style="padding-left: 0px;padding-right: 0px;">
-                <section id="slider" class="section">
-                    <div class="slider">
-                        <div class="slider__container">
-                            <div class="slider__item slide-burger">
-                                <div class="slider__content grid">
-                                    <div class="column">
-                                        <p class="title">Все новогодние</p>
-                                        <h1 class="title">предложения</h1>
-                                        <p class="title2">Новогоднии скидки успейте купить<br> по выгодным ценам только
-                                            сейчас!</p>
-                                        <p class="title2_2">Новогоднии скидки успейте<br> купить по выгодным ценам<br>
-                                            только сейчас!</p>
-                                        <ul>
-                                            <li>
-                                                <button class="button-left button-bottom-left">
-                                                    <p class="carousel-button-text">Читать подробнее</p>
-                                                </button>
-                                            </li>
-                                        </ul>
+                        <a href="{% url 'products:product' %}">
+                            <li class="menu-ite has-child1" style="">
+                                <img src="{% static 'images/squares_2.svg' %}" style="margin-top: 5%;" alt="">
+                                <span style="margin-top: 0%;position: absolute;font-size: 14px;margin-left:-2.9%;font-weight: 500;font-style: normal;">Все категории</span>
+                            </li>
+                        </a>
+                    </ul>
+
+                </div>
+                <div class="minimalist-tab2">
+                    {% for subcategory in subcategories %}
+                    <div class="minimalist-tab-content2">
+                        <div class="container" style="height: 605px;">
+                            <h3 class="mt-4">{{ subcategory.category|slice:':1' }}</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="menu-dropdown2">
+                                        <div class="dropdown-item2">
+                                            <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;height: 30px;margin-top: 20px;margin-left: 10px;">
+                                                {{ subcategory.subcategory }}
+                                            </div>
+                                            <hr class="hr-menu">
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="column"><img src="{% static 'images/carousel1.svg' %}"
-                                                             id="image-carousel"
-                                                             class="image burger"></div>
                                 </div>
-                            </div>
-                            <div class="slider__item slide-astronaut">
-                                <div class="slider__content grid">
-                                    <div class="column">
-                                        <h1 class="title" style="color: #fff;">lost</h1>
-                                        <h1 class="title" style="color: #fff;">in space</h1>
-                                    </div>
-                                    <div class="column"><img src="{% static 'images/carousel1.svg' %}"
-                                                             class="image astronaut"></div>
-                                </div>
-                            </div>
-                            <div class="slider__item slide-coffee">
-                                <div class="slider__content grid">
-                                    <div class="column">
-                                        <h1 class="title" style="color: #fff;">I Love</h1>
-                                        <h1 class="title" style="color: #fff;">Coffee</h1>
-                                    </div>
-                                    <div class="column"><img src="{% static 'images/carousel1.svg' %}"
-                                                             class="image cup">
+                                <div class="col-md-6">
+                                    <div class="menu-dropdown2">
+                                        <div class="blog-yellow-2">
+
+                                        </div>
+                                        <img src="{{ subcategory.image.url }}"
+                                             style="width: 427px;height: 477px;position: relative;z-index: 2;"
+                                             alt="">
+                                        </a>
+                                        <div class="blog-yellow-3">
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
-                </section>
-            </div>
+                    {% endfor %}
+                </div>
+            </nav>
+        </div>
+        <div class="col-md-9" style="padding-left: 0px;padding-right: 0px;">
+            <section id="slider" class="section">
+                <div class="slider">
+                    <div class="slider__container">
+                        <div class="slider__item slide-burger">
+                            <div class="slider__content grid">
+                                <div class="column">
+                                    <p class="title">Все новогодние</p>
+                                    <h1 class="title">предложения</h1>
+                                    <p class="title2">Новогоднии скидки успейте купить<br> по выгодным ценам только
+                                        сейчас!</p>
+                                    <p class="title2_2">Новогоднии скидки успейте<br> купить по выгодным ценам<br>
+                                        только сейчас!</p>
+                                    <ul>
+                                        <li>
+                                            <button class="button-left button-bottom-left">
+                                                <p class="carousel-button-text">Читать подробнее</p>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="column"><img src="{% static 'images/carousel1.svg' %}"
+                                                         id="image-carousel"
+                                                         class="image burger"></div>
+                            </div>
+                        </div>
+                        <div class="slider__item slide-astronaut">
+                            <div class="slider__content grid">
+                                <div class="column">
+                                    <h1 class="title" style="color: #fff;">lost</h1>
+                                    <h1 class="title" style="color: #fff;">in space</h1>
+                                </div>
+                                <div class="column"><img src="{% static 'images/carousel1.svg' %}"
+                                                         class="image astronaut"></div>
+                            </div>
+                        </div>
+                        <div class="slider__item slide-coffee">
+                            <div class="slider__content grid">
+                                <div class="column">
+                                    <h1 class="title" style="color: #fff;">I Love</h1>
+                                    <h1 class="title" style="color: #fff;">Coffee</h1>
+                                </div>
+                                <div class="column"><img src="{% static 'images/carousel1.svg' %}"
+                                                         class="image cup">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
+</div>
 
-    <!-- end carousel -->
+<!-- end carousel -->
 
-    <div class="container ">
-        <div class="back_elements">
+<div class="container ">
+    <div class="back_elements">
 
-        </div>
-        <img src="{% static 'images/settings.svg' %}" class="icon-right" alt="">
-        <h1 class="text-center" style="font-weight: 600;font-size: 30px;padding: 20px;margin-top: 30px;">
-            Производственииые
-            линии</h1>
-        <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-            aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
-            aliquid
-            ex
-            repudiandae nobis</p>
-        <br>
-        <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
-        <br>
-        <div class="contaier">
-            <div class="splide_4_5">
-                <div class="splide__track" style="    padding-left: 0px;
+    </div>
+    <img src="{% static 'images/settings.svg' %}" class="icon-right" alt="">
+    <h1 class="text-center" style="font-weight: 600;font-size: 30px;padding: 20px;margin-top: 30px;">
+        Производственииые
+        линии</h1>
+    <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+        aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
+        aliquid
+        ex
+        repudiandae nobis</p>
+    <br>
+    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+    <br>
+    <div class="contaier">
+        <div class="splide_4_5">
+            <div class="splide__track" style="    padding-left: 0px;
     padding-right: 0px;
     height: 431px;
     margin: 19px;">
 
-                    <ul class="splide__list">
-                        {% for line in lines %}
-                            <li class="splide__slide"><img src="{{ line.image.url }}" style="width:250px;height:230px"
-                                                           alt="">
-                                <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
-                                    <span style="position:absolute;margin:3px">{{ line.title }}</span>
-                                    <br>
-                                    <span style="margin-top: 2%;position: absolute;margin-left: 35%;">{{ line.created_at|date:'m.d.Y' }}</span>
-                                    <br>
-                                    <a href="{% url 'line:detail' pk=line.pk %}">
-                                        <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">
-                                            Подробнее
-                                        </button>
-                                    </a>
-                                </div>
+                <ul class="splide__list">
+                    {% for line in lines %}
+                    <li class="splide__slide"><img src="{{ line.image.url }}" style="width:250px;height:230px"
+                                                   alt="">
+                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
+                            <span style="position:absolute;margin:3px">{{ line.title }}</span>
+                            <br>
+                            <span style="margin-top: 2%;position: absolute;margin-left: 35%;">{{ line.created_at|date:'m.d.Y' }}</span>
+                            <br>
+                            <a href="{% url 'line:detail' pk=line.pk %}">
+                                <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">
+                                    Подробнее
+                                </button>
+                            </a>
+                        </div>
 
-                            </li>
-                        {% endfor %}
-                    </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
 
-                </div>
-            </div>
-            <div class="splide_4_6">
-                <div class="splide__track" style="padding-left: 0px;padding-right: 0px;height: 431px;margin: 19px;">
-
-                    <ul class="splide__list">
-                        {% for line in lines %}
-                            <li class="splide__slide"><img src="{{ line.image.url }}" style="width:100%;height:230px"
-                                                           alt="">
-                                <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:100%">
-                                    <span style="position:absolute;margin:3px">{{ line.title }}</span>
-                                    <br>
-                                    <span style="margin-top: 2%;position: absolute;">{{ line.created_at|date:'m.d.Y' }}</span>
-                                    <br>
-                                    <div class="center_4_6">
-                                        <a href="{% url 'line:detail' pk=line.pk %}">
-                                            <button class="btn"
-                                                    style="margin: 12px auto;display: table;background:#FFE700">
-                                                Подробнее
-                                            </button>
-                                        </a>
-                                    </div>
-
-                                </div>
-
-                            </li>
-                        {% endfor %}
-                    </ul>
-
-                </div>
             </div>
         </div>
+        <div class="splide_4_6">
+            <div class="splide__track" style="padding-left: 0px;padding-right: 0px;height: 431px;margin: 19px;">
 
-        <br>
-        <img src="{% static 'images/Group_417.svg' %}" class="icon-left"
-             style="position: absolute;right: 4%;transform: rotate(-23.65deg);width: 70px;" alt="">
-    </div>
+                <ul class="splide__list">
+                    {% for line in lines %}
+                    <li class="splide__slide"><img src="{{ line.image.url }}" style="width:100%;height:230px"
+                                                   alt="">
+                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:100%">
+                            <span style="position:absolute;margin:3px">{{ line.title }}</span>
+                            <br>
+                            <span style="margin-top: 2%;position: absolute;">{{ line.created_at|date:'m.d.Y' }}</span>
+                            <br>
+                            <div class="center_4_6">
+                                <a href="{% url 'line:detail' pk=line.pk %}">
+                                    <button class="btn"
+                                            style="margin: 12px auto;display: table;background:#FFE700">
+                                        Подробнее
+                                    </button>
+                                </a>
+                            </div>
 
+                        </div>
 
-    <div class="text-center">
-        <ul>
-            <li>
-                <a href="{% url 'line:lines' %}">
-                    <button class="button-center button-bottom" style="margin-top:0px">
-                        <p style="font-size: 15px;">Смотреть все</p>
-                    </button>
-                </a>
-            </li>
-        </ul>
-        <br>
-    </div>
-    <br>
-    <!-- parallax -->
-    <div class="parallax">
-        <br>
-        <div class="dark-overlay">
-            <div class="container p-5">
-                <h3 class="dark-text">О компании Uskunalar</h3>
-                <p class="dark-desc">Идейные соображения высшего порядка, а также постоянное
-                    информационно-пропагандистское
-                    обеспечение нашей деятельности представляет собой интересный.</p>
-                <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
-                <div class="row" style="margin-top: 6%;text-align: center;">
-                    <div class="col-md-3 col-6 number_icons">
-                        <img src="{% static 'images/box_1.svg' %}" style="margin-top: -50%;" alt="">
-                        <h3 class="dark-number">980+</h3>
-                        <p class="number-desc">Продано</p>
-                    </div>
-                    <div class="col-md-3 col-6 number_icons">
-                        <img src="{% static 'images/man-user_1.svg' %}" style="margin-top: -50%;" alt="">
-                        <h3 class="dark-number">650+</h3>
-                        <p class="number-desc">Постоянных клиентов</p>
-                    </div>
-                    <div class="col-md-3 col-6 number_icons">
-                        <img src="{% static 'images/project_1.svg' %}" style="margin-top: -50%;" alt="">
-                        <h3 class="dark-number">999+</h3>
-                        <p class="number-desc">Реализация проектов</p>
-                    </div>
-                    <div class="col-md-3 col-6 number_icons">
-                        <img src="{% static 'images/group_1.svg' %}" style="margin-top: -50%;" alt="">
-                        <h3 class="dark-number">599+</h3>
-                        <p class="number-desc">Сотрудников</p>
-                    </div>
-                </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+
             </div>
         </div>
-
-    </div>
-    <!-- end parallax -->
-
-
-    <div class="container">
-        <div class="back_elements">
-
-        </div>
-        <img src="{% static 'images/Group_418.svg' %}" class="icon-right-transform" style="position: absolute;" alt="">
-        <h1 class="text-center catalog-uskuna">
-            Каталог Uskunalar</h1>
-        <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-            aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
-            aliquid
-            ex
-            repudiandae nobis</p>
-        <br>
-
-        <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
-        <br>
     </div>
 
     <br>
+    <img src="{% static 'images/Group_417.svg' %}" class="icon-left"
+         style="position: absolute;right: 4%;transform: rotate(-23.65deg);width: 70px;" alt="">
+</div>
 
+
+<div class="text-center">
+    <ul>
+        <li>
+            <a href="{% url 'line:lines' %}">
+                <button class="button-center button-bottom" style="margin-top:0px">
+                    <p style="font-size: 15px;">Смотреть все</p>
+                </button>
+            </a>
+        </li>
+    </ul>
+    <br>
+</div>
+<br>
+<!-- parallax -->
+<div class="parallax">
+    <br>
+    <div class="dark-overlay">
+        <div class="container p-5">
+            <h3 class="dark-text">О компании Uskunalar</h3>
+            <p class="dark-desc">Идейные соображения высшего порядка, а также постоянное
+                информационно-пропагандистское
+                обеспечение нашей деятельности представляет собой интересный.</p>
+            <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+            <div class="row" style="margin-top: 6%;text-align: center;">
+                <div class="col-md-3 col-6 number_icons">
+                    <img src="{% static 'images/box_1.svg' %}" style="margin-top: -50%;" alt="">
+                    <h3 class="dark-number">980+</h3>
+                    <p class="number-desc">Продано</p>
+                </div>
+                <div class="col-md-3 col-6 number_icons">
+                    <img src="{% static 'images/man-user_1.svg' %}" style="margin-top: -50%;" alt="">
+                    <h3 class="dark-number">650+</h3>
+                    <p class="number-desc">Постоянных клиентов</p>
+                </div>
+                <div class="col-md-3 col-6 number_icons">
+                    <img src="{% static 'images/project_1.svg' %}" style="margin-top: -50%;" alt="">
+                    <h3 class="dark-number">999+</h3>
+                    <p class="number-desc">Реализация проектов</p>
+                </div>
+                <div class="col-md-3 col-6 number_icons">
+                    <img src="{% static 'images/group_1.svg' %}" style="margin-top: -50%;" alt="">
+                    <h3 class="dark-number">599+</h3>
+                    <p class="number-desc">Сотрудников</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- end parallax -->
+
+
+<div class="container">
+    <div class="back_elements">
+
+    </div>
+    <img src="{% static 'images/Group_418.svg' %}" class="icon-right-transform" style="position: absolute;" alt="">
+    <h1 class="text-center catalog-uskuna">
+        Каталог Uskunalar</h1>
+    <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+        aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
+        aliquid
+        ex
+        repudiandae nobis</p>
+    <br>
+
+    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+    <br>
+</div>
     <section id="gallery-carousel">
         <div class="gallery-carousel-content">
             <div class="container">
@@ -465,312 +463,304 @@
                         </li>
                     </ul>
                     <br>
-                </div>
-            </div>
-        </div>
-
-    </section>
+<br>
 
 
-    <div class="container">
-        <div class="back_elements">
-
-        </div>
-        <img src="{% static 'images/Group_419.svg' %}" class="icon-left-transform " alt="">
-        <h1 class="text-center"
-            style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
-            Популярные товары</h1>
-        <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-            aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
-            aliquid
-            ex
-            repudiandae nobis</p>
-        <br>
-        <br>
-        <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
-    </div>
-    <br>
-
-    <div class="container">
-        <div class="row-1">
-            <br>
-            <div class="splide_3_2">
-                <div class="splide__track" style="height: 520px;">
-                    <ul class="splide__list">
-                        <li class="splide__slide">
-                            <div class="col-md-3">
-
-                                <div class="produdcs-section2">
-                                    {% for product in products %}
-                                        <div class="flex-itm">
-                                            <div class="flex-iem-inner">
-                                                <!-- card -->
-                                                <a href="#">
-                                                    <div class="card-front bg-violet">
-                                                        <a href="#" class="card-link">
-                                                            <button class="btn"
-                                                                    style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-
-                                                                <img
-                                                                        src="{% static 'images/like.svg' %}"
-                                                                        style="margin-top: 7px;" alt=""></button>
-                                                        </a>
-                                                        <a href="#" class="card-link">
-                                                            <button class="btn"
-                                                                    style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                                <p style="margin-left:-32%;color: #fff;font-weight: normal;">
-                                                                    -30%</p>
-                                                            </button>
-                                                        </a>
-                                                        <img src="{{ product.image.url }}"
-                                                             style="width: 100%;height: 300px;display: table;margin: auto;"
-                                                             alt="">
-                                                        <div class="card-text"
-                                                             style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                            <h4 class="front-title">{{ product.title }}</h4>
-                                                            <p class="detail">Артикул: {{ product.sku }}</p>
-                                                            <p class="desc">${{ product.dollar }} - {{ product.price }}
-                                                                сум</p>
-                                                            <div class="text-center">
-                                                                <ul>
-                                                                    <li>
-                                                                        <a href="{% url 'products:single' %}">
-                                                                            <button class="button-center button-bottom2 mobile-button"
-                                                                                    style="width: 127px;height: 43px;">
-                                                                                <p style="font-size: 13px;">Заказать</p>
-                                                                            </button>
-                                                                        </a>
-
-                                                                    </li>
-                                                                </ul>
-                                                                <br>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <!-- /card -->
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-
-                            </div>
-
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br>
-    <div class="container ">
-        <div class="row desk-product">
-            {% for product in products %}
-                <div class="col-md-3">
-                    {% include 'layouts/product_block.html' %}
-                </div>
-            {% endfor %}
-        </div>
-        <div class="text-center">
-            <ul>
-                <li>
-                    <a href="{% url 'products:product' %}">
-                        <button class="button-center button-bottom" style="margin-top:0px">
-                            <p style="font-size: 15px;">Смотреть все</p>
-                        </button>
-                    </a>
-                </li>
-            </ul>
-            <br>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="back_elements">
-
-        </div>
-        <img src="{% static 'images/Group_417.svg' %}" class="icon-right-transform2" alt="">
-        <h1 class="text-center"
-            style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
-            Готовый бизнес</h1>
-        <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-            aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
-            aliquid
-            ex
-            repudiandae nobis</p>
-        <br>
-        <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
-        <br>
-        <br>
-    </div>
-    <div class="container">
-        <div class="row">
-            {% for work in works|slice:':1' %}
-                <div class="col-md-6">
-                    <div class="ded">
-                        <img src="{{ work.image.url }}" style="width: 580px;height: 670px;" alt="">
-                        <div class="home-blog2">
-                            <p class="home-text">{{ work.title }}</p>
-                            <p class="home-desc">{{ work.short_descriptions|slice:':320' }}...</p>
-                            <br>
-                            <a href="" style="position: absolute;bottom: 10px;color: #132E6B;">Читать полностью</a>
-                        </div>
+<section id="gallery-carousel">
+    <div class="gallery-carousel-content">
+        <div class="container">
+            <div class="slider responsive">
+                {% for category in categories2 %}
+                <div>
+                    <div class="box">
+                        <p>{{ category.category }}</p>
+                        <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
+                             style="width: 150px; height: 180px" alt="">
+                    </div>
+                    <div class="box">
+                        <p>{{ category.category }}</p>
+                        <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
+                             style="width: 150px; height: 180px" alt="">
                     </div>
                 </div>
-            {% endfor %}
-            <div class="col-md-6">
-                <div class="container">
-                    <div class="blog1">
-                        <div class="row">
-                            {% for work in works %}
-                                <div class="col-md-3">
-                                    <div class="all">
-                                        <img src="{{ work.image.url }}" style="height:210px;width:100%" alt="">
-                                    </div>
-
-                                </div>
-                                <div class="col-md-9">
-
-                                    <div class="home-blog">
-                                        <p class="home-text">{{ work.title }}</p>
-                                        <p class="home-desc" style="">{{ work.short_descriptions|slice:':200' }}...</p>
-                                        <br>
-                                        <a href="{% url 'work:single-work' pk=work.pk %}"
-                                           style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
-                                    </div>
-
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
-
-        </div>
-
-    </div>
-
-
-    </div>
-    <div class="text-center">
-        <ul>
-            <li>
-                <a href="{% url 'work:works' %}">
-                    <button class="button-center button-bottom">
-                        <p style="font-size: 16px;">Читать еще</p>
-                    </button>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <br>
-    <br>
-    <div class="container">
-        <div class="back_elements">
-
-        </div>
-        <img src="{% static 'images/Group_418.svg' %}" class="icon-left-transform2" alt="">
-        <h1 class="text-center"
-            style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
-            Статьи и советы</h1>
-        <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
-            информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
-        <br>
-        <br>
-        <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
-        <br>
-
-    </div>
-    <div class="container">
-        <div class="splide_4">
-            <div class="splide__track" style="padding-left: 0px;
-    padding-right: 0px;
-    height: 281px;
-    margin: 19px;">
-                <ul class="splide__list">
-                    {% for line in lines %}
-                        <li class="splide__slide">
-                            <img src="{{ line.image.url }}"
-                                 style="width: 99%;border-radius: 6px;" alt="">
-                            <div class="article2">
-                                <p class="article-text">{{ line.title }}</p>
-                                <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
-                                <a href="{% url 'line:detail' pk=line.pk %}"
-                                   style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
-                            </div>
-                        </li>
-                    {% endfor %}
+            <div class="text-center">
+                <ul>
+                    <li>
+                        <a href="{% url 'home:catalog' %}">
+                            <button class="button-center button-bottom mobile-button">
+                                <p style="font-size: 15px;">Смотреть все</p>
+                            </button>
+                        </a>
+                    </li>
                 </ul>
                 <br>
             </div>
         </div>
     </div>
+
+</section>
+
+
+<div class="container">
+    <div class="back_elements">
+
+    </div>
+    <img src="{% static 'images/Group_419.svg' %}" class="icon-left-transform " alt="">
+    <h1 class="text-center"
+        style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
+        Популярные товары</h1>
+    <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+        aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
+        aliquid
+        ex
+        repudiandae nobis</p>
     <br>
-    <div class="container">
-        <div class="splide">
-            <div class="splide__track">
+    <br>
+    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+</div>
+<br>
+
+<div class="container">
+    <div class="row-1">
+        <br>
+        <div class="splide_3_2">
+            <div class="splide__track" style="height: 520px;">
                 <ul class="splide__list">
-                    {% for line in lines %}
-                        <li class="splide__slide" style="height:500px">
-                            <img src="{{ line.image.url }}"
-                                 style="width: 350px;border-radius: 6px;height:400px" alt="">
-                            <div class="article">
-                                <p class="article-text">{{ line.title }}</p>
-                                <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
-                                <a href="{% url 'line:detail' pk=line.pk %}"
+                    <li class="splide__slide">
+                        <div class="col-md-3">
+
+                            <div class="produdcs-section2">
+                                {% for product in products %}
+                                <div class="flex-itm">
+                                    <div class="flex-iem-inner">
+                                        <!-- card -->
+                                        <a href="#">
+                                            <div class="card-front bg-violet">
+                                                <a href="#" class="card-link">
+                                                    <button class="btn"
+                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
+
+                                                        <img
+                                                                src="{% static 'images/like.svg' %}"
+                                                                style="margin-top: 7px;" alt=""></button>
+                                                </a>
+                                                <a href="#" class="card-link">
+                                                    <button class="btn"
+                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
+                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
+                                                            -30%</p>
+                                                    </button>
+                                                </a>
+                                                <img src="{{ product.image.url }}"
+                                                     style="width: 100%;height: 300px;display: table;margin: auto;"
+                                                     alt="">
+                                                <div class="card-text"
+                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
+                                                    <h4 class="front-title">{{ product.title }}</h4>
+                                                    <p class="detail">Артикул: {{ product.sku }}</p>
+                                                    <p class="desc">${{ product.dollar }} - {{ product.price }}
+                                                        сум</p>
+                                                    <div class="text-center">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="{% url 'products:single' pk=product.pk %}">
+                                                                    <button class="button-center button-bottom2 mobile-button"
+                                                                            style="width: 127px;height: 43px;">
+                                                                        <p style="font-size: 13px;">Заказать</p>
+                                                                    </button>
+                                                                </a>
+
+                                                            </li>
+                                                        </ul>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- /card -->
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<div class="container ">
+    <div class="row desk-product">
+        {% for product in products %}
+        <div class="col-md-3">
+            {% include 'layouts/product_block.html' %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="text-center mt-3">
+    <ul>
+        <li>
+            <a href="{% url 'products:product' %}">
+                <button class="button-center button-bottom" style="margin-top:0px">
+                    <p style="font-size: 15px;">Смотреть все</p>
+                </button>
+            </a>
+        </li>
+    </ul>
+    <br>
+</div>
+
+<div class="container">
+    <div class="back_elements">
+
+    </div>
+    <img src="{% static 'images/Group_417.svg' %}" class="icon-right-transform2" alt="">
+    <h1 class="text-center"
+        style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
+        Готовый бизнес</h1>
+    <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
+        aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
+        aliquid
+        ex
+        repudiandae nobis</p>
+    <br>
+    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+    <br>
+    <br>
+</div>
+<div class="container">
+    <div class="row">
+        {% for work in works|slice:':1' %}
+        <div class="col-md-6">
+            <div class="ded">
+                <img src="{{ work.image.url }}" style="width: 580px;height: 670px;" alt="">
+                <div class="home-blog2">
+                    <p class="home-text">{{ work.title }}</p>
+                    <p class="home-desc">{{ work.short_descriptions|slice:':320' }}...</p>
+                    <br>
+                    <a href="" style="position: absolute;bottom: 10px;color: #132E6B;">Читать полностью</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-md-6">
+            <div class="container">
+                <div class="blog1">
+                    <div class="row">
+                        {% for work in works %}
+                        <div class="col-md-3">
+                            <div class="all">
+                                <img src="{{ work.image.url }}" style="height:210px;width:100%" alt="">
+                            </div>
+
+                        </div>
+                        <div class="col-md-9">
+
+                            <div class="home-blog">
+                                <p class="home-text">{{ work.title }}</p>
+                                <p class="home-desc" style="">{{ work.short_descriptions|slice:':200' }}...</p>
+                                <br>
+                                <a href="{% url 'work:single-work' pk=work.pk %}"
                                    style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
                             </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="text-center">
-                <ul>
-                    <li>
-                        <a href="{% url 'line:lines' %}">
-                            <button class="button-center button-bottom">
-                                <p style="font-size: 16px;">Смотреть еще</p>
-                            </button>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="back_elements">
-
-        </div>
-        <img src="{% static 'images/settings.svg' %}" class="icon-right-transform3" alt="">
-        <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;">
-            Наши работы</h1>
-        <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также
-            постоянное информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.
-        </p>
-        <br>
-        <br>
-        <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
-        <br>
-    </div>
-    <div class="container">
-        <div class="row">
-            {% for work in works %}
-                <div class="col-md-4">
-                    <a href="{% url 'work:single-work' pk=work.pk %}">
-                        <img src="{{ work.image.url }}" style="margin-top: 20px;" alt="">
-                    </a>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
-            {% endfor %}
-
+            </div>
         </div>
-        <img src="{% static 'images/Group_417.svg' %}" class="icon-left-absolute" alt="">
+
+    </div>
+
+</div>
+
+
+</div>
+<div class="text-center">
+    <ul>
+        <li>
+            <a href="{% url 'work:works' %}">
+                <button class="button-center button-bottom">
+                    <p style="font-size: 16px;">Читать еще</p>
+                </button>
+            </a>
+        </li>
+    </ul>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="back_elements">
+
+    </div>
+    <img src="{% static 'images/Group_418.svg' %}" class="icon-left-transform2" alt="">
+    <h1 class="text-center"
+        style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
+        Статьи и советы</h1>
+    <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
+        информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
+    <br>
+    <br>
+    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+    <br>
+
+</div>
+<div class="container">
+    <div class="splide_4">
+        <div class="splide__track" style="padding-left: 0px;
+    padding-right: 0px;
+    height: 281px;
+    margin: 19px;">
+            <ul class="splide__list">
+                {% for line in lines %}
+                <li class="splide__slide">
+                    <img src="{{ line.image.url }}"
+                         style="width: 99%;border-radius: 6px;" alt="">
+                    <div class="article2">
+                        <p class="article-text">{{ line.title }}</p>
+                        <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
+                        <a href="{% url 'line:detail' pk=line.pk %}"
+                           style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="splide">
+        <div class="splide__track">
+            <ul class="splide__list">
+                {% for line in lines %}
+                <li class="splide__slide" style="height:500px">
+                    <img src="{{ line.image.url }}"
+                         style="width: 350px;border-radius: 6px;height:400px" alt="">
+                    <div class="article">
+                        <p class="article-text">{{ line.title }}</p>
+                        <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
+                        <a href="{% url 'line:detail' pk=line.pk %}"
+                           style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
         <div class="text-center">
             <ul>
                 <li>
-                    <a href="{% url 'work:works' %}">
+                    <a href="{% url 'line:lines' %}">
                         <button class="button-center button-bottom">
                             <p style="font-size: 16px;">Смотреть еще</p>
                         </button>
@@ -779,163 +769,205 @@
             </ul>
         </div>
     </div>
+</div>
 
-
-    <div class="container">
-        <div class="back_elements">
-
-        </div>
-        <img src="{% static 'images/Group_418.svg' %}" class="icon-right-transform2" alt="">
-        <h1 class="text-center"
-            style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
-            Наши партнеры</h1>
-        <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
-            информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
-        <br>
-        <br>
-        <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
-        <br>
+<div class="container">
+    <div class="back_elements">
 
     </div>
+    <img src="{% static 'images/settings.svg' %}" class="icon-right-transform3" alt="">
+    <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;">
+        Наши работы</h1>
+    <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также
+        постоянное информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.
+    </p>
+    <br>
+    <br>
+    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+    <br>
+</div>
+<div class="container">
+    <div class="row">
+        {% for work in works %}
+        <div class="col-md-4">
+            <a href="{% url 'work:single-work' pk=work.pk %}">
+                <img src="{{ work.image.url }}" style="margin-top: 20px;" alt="">
+            </a>
+        </div>
+        {% endfor %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <img class="img-fluid" src="https://torguem.uz/files/images/items/2/2149v22c8851e.jpg" alt="">
-            </div>
-            <div class="col-md-3">
-                <img class="img-fluid"
-                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMYTzqKbfu6MCXwtE4bYD8AcwSORvmzO2PW5woNS6ltRAzbrhdI3m1kt9thoDcOFb7aMc&usqp=CAU"
-                     style="margin: auto;display:table" alt="">
-            </div>
-            <div class="col-md-3">
-                <img class="img-fluid"
-                     src="https://media-exp1.licdn.com/dms/image/C560BAQFmtNZAuvaLIQ/company-logo_200_200/0/1519864885842?e=2159024400&v=beta&t=Hr39gQqbBuW2uaZ6EgZXc9q62i5v10SHhsHlUzxMPdo"
-                     style="margin: auto;display:table" alt="">
-            </div>
-            <div class="col-md-3">
-                <img class="img-fluid" src="http://s019.radikal.ru/i643/1708/96/e23ed2965badt.jpg"
-                     style="margin: auto;display:table" alt="">
-            </div>
+    </div>
+    <img src="{% static 'images/Group_417.svg' %}" class="icon-left-absolute" alt="">
+    <div class="text-center">
+        <ul>
+            <li>
+                <a href="{% url 'work:works' %}">
+                    <button class="button-center button-bottom">
+                        <p style="font-size: 16px;">Смотреть еще</p>
+                    </button>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="back_elements">
+
+    </div>
+    <img src="{% static 'images/Group_418.svg' %}" class="icon-right-transform2" alt="">
+    <h1 class="text-center"
+        style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
+        Наши партнеры</h1>
+    <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
+        информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
+    <br>
+    <br>
+    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+    <br>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <img class="img-fluid" src="https://torguem.uz/files/images/items/2/2149v22c8851e.jpg" alt="">
+        </div>
+        <div class="col-md-3">
+            <img class="img-fluid"
+                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMYTzqKbfu6MCXwtE4bYD8AcwSORvmzO2PW5woNS6ltRAzbrhdI3m1kt9thoDcOFb7aMc&usqp=CAU"
+                 style="margin: auto;display:table" alt="">
+        </div>
+        <div class="col-md-3">
+            <img class="img-fluid"
+                 src="https://media-exp1.licdn.com/dms/image/C560BAQFmtNZAuvaLIQ/company-logo_200_200/0/1519864885842?e=2159024400&v=beta&t=Hr39gQqbBuW2uaZ6EgZXc9q62i5v10SHhsHlUzxMPdo"
+                 style="margin: auto;display:table" alt="">
+        </div>
+        <div class="col-md-3">
+            <img class="img-fluid" src="http://s019.radikal.ru/i643/1708/96/e23ed2965badt.jpg"
+                 style="margin: auto;display:table" alt="">
         </div>
     </div>
+</div>
 
-    <br>
-    <br>
+<br>
+<br>
 
-    <footer id="footer" class="footer-1">
-        <div class="main-footer widgets-dark typo-light">
-            <div class="container">
-                <div class="row">
+<footer id="footer" class="footer-1">
+    <div class="main-footer widgets-dark typo-light">
+        <div class="container">
+            <div class="row">
 
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="widget subscribe no-box">
-                            <h5 class="widget-title">Uskunalar<span></span></h5>
-                            <p class="widget-desc">Команда USKUNALAR.UZ экономит ваше время и деньги, поставляя
-                                Производственииые
-                                оборудования.</p>
-                            <h5 class="widget-title">Будь в курсе<span></span></h5>
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <input class="form-control" type="text"
-                                           style="border: none;width: 236px;height: 45px;"
-                                           placeholder="Введите свой email">
-                                </div>
-                                <div class="col-md-3">
-                                    <button class="btn send-email"><img src="{% static 'images/send.svg' %}" style="position: absolute;
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="widget subscribe no-box">
+                        <h5 class="widget-title">Uskunalar<span></span></h5>
+                        <p class="widget-desc">Команда USKUNALAR.UZ экономит ваше время и деньги, поставляя
+                            Производственииые
+                            оборудования.</p>
+                        <h5 class="widget-title">Будь в курсе<span></span></h5>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <input class="form-control" type="text"
+                                       style="border: none;width: 236px;height: 45px;"
+                                       placeholder="Введите свой email">
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn send-email"><img src="{% static 'images/send.svg' %}" style="position: absolute;
     left: 12px;
     top: 13px;" alt=""></button>
-                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="widget no-box">
-                            <h5 class="widget-title ml-2">Меню<span></span></h5>
-                            <ul class="thumbnail-widget">
-                                <li>
-                                    <div class="thumb-content"><a href="./catelog.html"
-                                                                  class="thumb-content">Каталог</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb-content"><a href="./our_works.html" class="thumb-content">Наши
-                                        работа</a></div>
-                                </li>
-                                <li>
-                                    <div class="thumb-content"><a href="./videos.html" class="thumb-content">Наши
-                                        видео</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb-content"><a href="./blog.html" class="thumb-content">Статьи</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb-content"><a href="./about.html" class="thumb-content">О нас</a>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="thumb-content"><a href="./contacts.html"
-                                                                  class="thumb-content">Контакты</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="widget no-box">
+                        <h5 class="widget-title ml-2">Меню<span></span></h5>
+                        <ul class="thumbnail-widget">
+                            <li>
+                                <div class="thumb-content"><a href="./catelog.html"
+                                                              class="thumb-content">Каталог</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="thumb-content"><a href="./our_works.html" class="thumb-content">Наши
+                                    работа</a></div>
+                            </li>
+                            <li>
+                                <div class="thumb-content"><a href="./videos.html" class="thumb-content">Наши
+                                    видео</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="thumb-content"><a href="./blog.html" class="thumb-content">Статьи</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="thumb-content"><a href="./about.html" class="thumb-content">О нас</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="thumb-content"><a href="./contacts.html"
+                                                              class="thumb-content">Контакты</a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
+                </div>
 
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="widget no-box">
-                            <h5 class="widget-title">Контакты<span></span></h5>
-                            <p class="widget-number"><img src="{% static 'images/map_footer.svg' %}"
-                                                          alt=""> Тошкент
-                                шаҳри, Сирғали тумани, Катта олмос 1-тор кўчаси 9а-уй.</p>
-                            <a href="tel:+998 71 250 77 77"><p class="widget-number"><img
-                                    src="{% static 'images/phone.svg' %}" alt=""> +998 71 250 77 77</p></a>
-                            <p class="widget-number"><img src="{% static 'images/clock.svg' %}" alt=""> c 9:00 до 18:00
-                                ежедневно</p>
-                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="widget no-box">
+                        <h5 class="widget-title">Контакты<span></span></h5>
+                        <p class="widget-number"><img src="{% static 'images/map_footer.svg' %}"
+                                                      alt=""> Тошкент
+                            шаҳри, Сирғали тумани, Катта олмос 1-тор кўчаси 9а-уй.</p>
+                        <a href="tel:+998 71 250 77 77"><p class="widget-number"><img
+                                src="{% static 'images/phone.svg' %}" alt=""> +998 71 250 77 77</p></a>
+                        <p class="widget-number"><img src="{% static 'images/clock.svg' %}" alt=""> c 9:00 до 18:00
+                            ежедневно</p>
                     </div>
+                </div>
 
-                    <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="col-xs-12 col-sm-6 col-md-3">
 
-                        <div class="widget no-box">
-                            <h5 class="widget-title">Соц.сети<span></span></h5>
-                            <a href=""><p class="widget-number"><img src="{% static 'images/facebook.svg' %}"
-                                                                     style="width: 25px;" alt=""> <span
-                                    style="margin-left: 2%;position: absolute;">Facebook</span></p></a>
-                            <a href=""><p class="widget-number"><img src="{% static 'images/instagram.svg' %}"
-                                                                     style="width: 25px;" alt=""> <span
-                                    style="margin-left: 2%;position: absolute;">Instasgram</span></p></a>
-                            <a href=""><p class="widget-number"><img
-                                    src="https://img.icons8.com/color/29/000000/telegram-app--v1.png"/> <span
-                                    style="margin-left: 2%;position: absolute;">Telegram</span></p></a>
-                        </div>
+                    <div class="widget no-box">
+                        <h5 class="widget-title">Соц.сети<span></span></h5>
+                        <a href=""><p class="widget-number"><img src="{% static 'images/facebook.svg' %}"
+                                                                 style="width: 25px;" alt=""> <span
+                                style="margin-left: 2%;position: absolute;">Facebook</span></p></a>
+                        <a href=""><p class="widget-number"><img src="{% static 'images/instagram.svg' %}"
+                                                                 style="width: 25px;" alt=""> <span
+                                style="margin-left: 2%;position: absolute;">Instasgram</span></p></a>
+                        <a href=""><p class="widget-number"><img
+                                src="https://img.icons8.com/color/29/000000/telegram-app--v1.png"/> <span
+                                style="margin-left: 2%;position: absolute;">Telegram</span></p></a>
                     </div>
+                </div>
 
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>Copyright Uskunalar.uz © <span id="year"></span> . All rights reserved. LF</p>
                 </div>
             </div>
         </div>
+    </div>
+</footer>
 
-        <div class="footer-copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <p>Copyright Uskunalar.uz © <span id="year"></span> . All rights reserved. LF</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
+<script>
         document.getElementById("year").innerHTML = new Date().getFullYear();
 
 
-    </script>
 
-    <!-- Code by Fathulla Latipov LF -->
+</script>
+
+<!-- Code by Fathulla Latipov LF -->
 
 {% endblock %}
 <script src="{% static 'js/splide.min.js' %}"></script>
@@ -965,6 +997,7 @@
     splide.mount();
 
 
+
 </script>
 <script>
     var splide = new Splide('.splide_4_6', {
@@ -974,6 +1007,7 @@
     });
 
     splide.mount();
+
 
 
 </script>
@@ -987,6 +1021,7 @@
     splide.mount();
 
 
+
 </script>
 <script>
     $("#search2_input_box").hide();
@@ -997,6 +1032,7 @@
     $("#close_search2").on("click", function () {
         $('#search2_input_box').slideUp(500);
     });
+
 </script>
 <script>
     $(function () {
@@ -1027,6 +1063,7 @@
         var accordion = new Accordion($('#accordion4'), false);
     });
 
+
 </script>
 
 <script>
@@ -1036,6 +1073,7 @@
     });
 
     splide.mount();
+
 
 
 </script>
