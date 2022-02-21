@@ -440,18 +440,12 @@
 
     <br>
 
-
     <section id="gallery-carousel">
         <div class="gallery-carousel-content">
             <div class="container">
                 <div class="slider responsive">
                     {% for category in categories2 %}
                         <div>
-                            <div class="box">
-                                <p>{{ category.category }}</p>
-                                <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
-                                     style="width: 150px; height: 180px" alt="">
-                            </div>
                             <div class="box">
                                 <p>{{ category.category }}</p>
                                 <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
