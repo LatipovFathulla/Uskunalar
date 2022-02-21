@@ -1,3 +1,6 @@
+from datetime import datetime
+
+import pytz as pytz
 from django.db import models
 from django.db.models import FloatField
 from django.utils.translation import gettext_lazy as _
@@ -74,6 +77,10 @@ class BannerInfoModel(models.Model):
         if self.is_discount():
             return self.dollar - self.dollar * self.discount / 100
         return self.dollar
+
+    def is_new(self):
+        diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
+        return diff.days <= 3
 
     @staticmethod
     def get_from_wishlist(request):

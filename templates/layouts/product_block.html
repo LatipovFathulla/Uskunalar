@@ -12,21 +12,29 @@
                                 src="{% static './images/like.svg' %}"
                                 class="like-img-mobile" alt=""></button>
                     </a>
-                    <a href="#" class="card-link">
+                    {% if product.is_discount %}
+                    <a href="#" class="card-link1"><button class="btn"
+                        style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
+                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">Sale</p>
+                      </button></a>
+                    {% elif product.is_new %}
+                        <a href="#" class="card-link1">
                         <button class="btn new-mobile-1">
-                            <p class="new-mobile-text">NEW!</p>
+                            <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
                         </button>
                     </a>
+                    {% endif %}
                     <img src="{{ product.image.url }}" class="product-image-url" alt="">
                     <div class="card-text">
                         <h4 class="front-title">{{ product.title }}</h4>
                         <p class="detail">Артикул: {{ product.sku }}</p>
+                        <p class="detail">{{ product.is_discount}}</p>
                         <p class="detail" style="margin-top:2px">
                             Город: {{ product.city }}</p>
-                        <p class="desc-price">{{ product.dollar }} $
-                            - {{ product.price }} сум</p>
-                        <p class="mob-price">{{ product.dollar }} $</p>
-                        <p class="mob-price">{{ product.price }} сум</p>
+                        <p class="desc-price">{{ product.get_price_dollar }} $
+                            - {{ product.get_price }} сум</p>
+                        <p class="mob-price">{{ product.get_price_dollar }} $</p>
+                        <p class="mob-price">{{ product.get_price }} сум</p>
                     </div>
                     <ul>
                         <li>
@@ -43,7 +51,7 @@
                 </div>
                 <div class="card-back bg-violet">
                     <p class="back-title">{{ product.title }}</p>
-                    <p class="desc">{{ product.dollar }} $ - {{ product.price }}
+                    <p class="desc">{{ product.get_price_dollar }} $ - {{ product.get_price }}
                         сум</p>
 
                     <div class="container">
@@ -111,7 +119,6 @@
                             Added to wishlist
                         </div>
                     </div>`);
-                    element.innerHTML = '<span class="lnr" style="background-color:#828bb2;border-radius:50%"><i class="fa fa-heart" style="color:red;font-size:20px;margin-top:6px"></i><p class="hover-text">Added </p></span>'
                 } else {
                     $('#message').append(`<div style="padding:5px">
                         <div id="inner-message" class="alert alert-success">
@@ -119,7 +126,6 @@
                             Removed from wishlist
                         </div>
                     </div>`);
-                    element.innerHTML = '<span class="lnr" style="background-color:#828bb2;border-radius:50%"><i class="fa fa-heart" style="font-size:20px;margin-top:6px"></i><p class="hover-text">Removed </p></span>'
                 }
                   $('#wishlist_length2').html(data.wishlist_len);
             }

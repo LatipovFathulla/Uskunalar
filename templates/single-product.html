@@ -422,7 +422,8 @@
 
 <div class="container ">
     <div class="row desk-product">
-        <div class="col-md-3">
+        {% for product in related|slice:':4' %}
+            <div class="col-md-3">
             <div class="produdcs-section">
                 <div class="flex-item">
                     <div class="flex-item-inner">
@@ -442,7 +443,7 @@
                                         <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
                                     </button>
                                 </a>
-                                <img src="{{ object.image.url }}" class="product-image-url" alt="">
+                                <img src="{{ product.image.url }}" class="product-image-url" alt="">
                                 <div class="card-text">
                                     <h4 class="front-title">{{ object.title }}</h4>
                                     <p class="detail">Артикул: {{ object.sku }}</p>
@@ -493,27 +494,12 @@
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>
 </div>
 
 <br>
-<!-- pagination menu -->
-<nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
-justify-content: center;">
-    <a class="prew_icon" href=""><img src="{% static './images/left.svg' %}" alt=""></a>
-    <ul style=" display: flex;
- justify-content: center;">
-        <li class="page_numb"><a href="" style="color: #132E6B;">1</a></li>
-        <li class="page_numb-active"><a href="" style="color: #132E6B;">2</a></li>
-        <li class="page_numb"><a href="" style="color: #132E6B;">3</a></li>
-        <li class="page_numb"><a href="" style="color: #132E6B;">4</a></li>
-        <li class="page_numb"><a href="" style="color: #132E6B;">5</a></li>
-    </ul>
-    <a href=""><img src="{% static './images/right.svg' %}" alt=""></a>
-</nav>
-
-<!-- end pagination menu -->
 
 
 <br>

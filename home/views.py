@@ -40,9 +40,9 @@ class BannerInfoModelView(ListView):
 
         if sort:
             if sort == 'price':
-                qs = qs.order_by('price')
+                qs = sorted(qs, key=lambda i: i.get_price())
             elif sort == '-price':
-                qs = qs.order_by('-price')
+                qs = sorted(qs, key=lambda i: i.get_price(), reverse=True)
 
         return qs
 
@@ -75,6 +75,11 @@ class BannerInfoModelView(ListView):
 class SingleModelDetailView(DetailView):
     template_name = 'single-product.html'
     model = BannerInfoModel
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['related'] = BannerInfoModel.objects.order_by('-pk')
+        return context
 
 
 def add_to_wishlist(request, pk):
