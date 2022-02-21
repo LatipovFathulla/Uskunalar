@@ -30,7 +30,7 @@
                     </div>
                     <ul>
                         <li>
-                            <a href="{% url 'products:single' %}">
+                            <a href="{% url 'products:single' pk=product.pk %}">
                                 <button class="button-left button-bottom-left ds-none"
                                         type="button"
                                         style="width: 127px;height: 52px;">
@@ -45,10 +45,13 @@
                     <p class="back-title">{{ product.title }}</p>
                     <p class="desc">{{ product.dollar }} $ - {{ product.price }}
                         сум</p>
+
                     <div class="container">
                         <div class="spetifications"
                              style="margin-top: 15%;padding: 1px;">
+
                             <div class="row">
+
                                 {% for j in product.specifications.all %}
                                 <div class="col-md-6">
 
@@ -63,14 +66,15 @@
                                 <br>
                                 <br>
                                 {% endfor %}
-
                             </div>
                         </div>
                     </div>
                     <div class="buttons"
                          style="text-align: center;padding: 10px;">
+
                         <ul>
-                            <li><a href="{% url 'products:single' %}">
+
+                            <li><a href="{% url 'products:single' pk=product.pk %}">
                                 <button class="button-product button-bottom-product">
                                     <p style="font-size: 16px;">Заказать</p>
                                 </button>

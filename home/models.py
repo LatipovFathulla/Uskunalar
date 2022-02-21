@@ -46,9 +46,9 @@ class SecondSubCategoryModel(models.Model):
 
 class BannerInfoModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'))
-    sku = models.CharField(max_length=90, verbose_name=_('sku'))
+    sku = models.AutoField(primary_key=True)
     image = models.ImageField(upload_to='banner', verbose_name=_('image'))
-    pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True )
+    pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True)
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), null=True)
     subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'), null=True)
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True)
@@ -59,6 +59,7 @@ class BannerInfoModel(models.Model):
     inbox = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('inbox'))
     delivery = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('delivery'))
     short_description = models.TextField(verbose_name=_('short_description'), null=True)
+    long_description = models.TextField(verbose_name=_('long_description'), null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def is_discount(self):
@@ -95,7 +96,7 @@ class BannerInfoModel(models.Model):
 class BannerImageModel(models.Model):
     product = models.ForeignKey(BannerInfoModel, on_delete=models.CASCADE, related_name='images',
                                 verbose_name=_('product'))
-    image = models.ImageField(upload_to='products', verbose_name=_('image'))
+    image = models.ImageField(upload_to='products', verbose_name=_('image'), null=True, blank=True)
 
     class Meta:
         verbose_name = _('product image')
@@ -106,7 +107,7 @@ class ProductSpecificationsModel(models.Model):
     product = models.ForeignKey(BannerInfoModel, on_delete=models.CASCADE, related_name='specifications', verbose_name=_('products'))
     product_customer = models.CharField(max_length=99, verbose_name=_('product_customer'))
     product_number = models.CharField(max_length=99, verbose_name=_('product_numbers'))
-    product_image = models.FileField(upload_to='pdf_image', verbose_name=_('product_image'), null=True)
+    product_image = models.FileField(upload_to='pdf_image', verbose_name=_('product_image'), null=True, blank=True)
 
     class Meta:
         verbose_name = _('product specification')

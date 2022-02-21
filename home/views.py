@@ -1,6 +1,6 @@
 from django.db.models import Q, Min, Max
 from django.http import JsonResponse
-from django.views.generic import ListView, TemplateView
+from django.views.generic import ListView, TemplateView, DetailView
 from requests import Response
 
 from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
@@ -72,8 +72,9 @@ class BannerInfoModelView(ListView):
         return context
 
 
-class SingleModelView(TemplateView):
+class SingleModelDetailView(DetailView):
     template_name = 'single-product.html'
+    model = BannerInfoModel
 
 
 def add_to_wishlist(request, pk):

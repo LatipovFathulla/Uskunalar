@@ -2,856 +2,518 @@
 {% load static %}
 {% block content %}
 
-  <section class="banner">
+<section class="banner">
     <div class="container">
-      <div class="row">
+        <div class="row">
 
-      </div>
-      <h1 class="banner-text">Карточка товара</h1>
-      <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Карточка товара</a></span> > <a href="" class="banner-desc-title">Духовка с 3 конфорками, 6 противней Standard</a></span></p>
+        </div>
+        <h1 class="banner-text">Карточка товара</h1>
+        <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Карточка товара</a></span> > <a
+                href="" class="banner-desc-title">{{ object.title }}</a></span></p>
 
-      <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
+        <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
 
-  </section>
+</section>
 
-  <br>
-  <br>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="single-image">
-          <div class="product-gallery">
-            <div class="product-image">
-              <img class="active" src="{% static './images/info_product.svg' %}" style="width: 100%;margin-top: 10px;height: auto;">
-            </div>
-            <ul class="image-list" style="margin-left: 2%;">
-              <li class="image-item" ><img style="width: 80px;height: 79px;padding: 2px;" src="{% static './images/info_product.svg' %}"></li>
-              <li class="image-item" ><img style="width: 80px;height: 79px;padding: 2px;" src="{% static './images/single-2.svg' %}"></li>
-              <li class="image-item" ><img style="width: 80px;height: 79px;padding: 2px;" src="{% static './images/single-3.svg' %}"></li>
-              <li class="image-item" ><img style="width: 80px;height: 79px;padding: 2px;" src="{% static './images/single-4.svg' %}"></li>
-              <li class="image-item" ><img style="width: 80px;height: 79px;padding: 2px;" src="{% static './images/single-5.svg' %}"></li>
-            </ul>
-          </div>
-          <a href="#" class="card-link"><button class="btn"
-            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 16.3%;top: 25px;"><img
-              src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <p class="single-product-title" style="font-size: 24px;">Буровая установка БР 73212С</p>
-        <div class="row">
-          <div class="col-md-6 mt-3">
-            <p class="in_box"> <img src="{% static './images/radius.svg' %}" alt=""> Есть в наличии</p>
-          </div>
-          <div class="col-md-6 mt-3">
-            <p class="in_article">Артикул:BR1243</p>
-          </div>
-        </div>
-        <p class="desc_prod mt-4">Печь подовая хлебопекарная  FROSTY PL-4 состоит из двух независимых друг от друга секций с размером пода 865х655 мм. Подовые хлебопекарные печи с пароувлажнением являются профессиональным оборудованием</p>
-        <div class="row">
-          <div class="col-md-6 mt-4">
-            <p class="price_prod">Цена в долорах:</p>
-            <h3 class="count_prod">$2 470</h3>
-          </div>
-          <div class="col-md-6 mt-4">
-            <p class="price_prod">Цена в суммах:</p>
-            <h3 class="count_prod">30 825 734 сум</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-5 col-6">
-            <div class="numbers_prod">
-              <p class="count_num">Количество</p>
-              <div class='ctrl mt-2'>
-                <div class='ctrl-button ctrl-button-decrement'>-</div>
-                <div class='ctrl-counter'>
-                  <input class='ctrl-counter-input' maxlength='10' type='text' value='1'>
-                  <div class='ctrl-counter-num'>1</div>
-                </div>
-                <div class='ctrl-button ctrl-button-increment'>+</div>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-3 col-6">
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalCenterTitle">Заполните форму и наши операторы с вами свяжутся</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <form action="">
-                        <div class="row mt-3">
-                          <div class="col-md-6">
-                            <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" type="text"
-                              placeholder="ФИО">
-                          </div>
-                          <div class="col-md-6">
-                            <select class="form-control city12" style="height: 50px;background-color: #F4F5F7;border: none;padding: 5px;" id="exampleFormControlSelect1">
-                              <option value="tash" class="options">Ташкент</option>
-                              <option value="tash" class="options">Самарканд</option>
-                              <option value="tash" class="options">Андижан</option>
-                              <option value="tash" class="options">Фаргона</option>
-                              <option value="tash" class="options">Хорезм</option>
-                            </select>
-                          </div>
-                          <div class="col-md-12 mt-4">
-                            <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" type="text" placeholder="Ваш номер">
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" style="height: 55px;margin-top: 5%;" data-dismiss="modal">Закрыть</button>
-                      <ul>
-                        <li><button class="button-left button-bottom-left" type="submit" data-toggle="modal" data-target="#exampleModalCenter" style="width: 113px;height: 55px;position: relative;left: 5%;">
-                            <p class="carousel-button-text">Купить</p>
-                          </button></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <div class="numbers_prod" style="margin-left: 20%;margin-top: 35px;">
-              <ul>
-                <li><button id="single-buttom" class="button-left button-bottom-left" type="button" data-toggle="modal" data-target="#exampleModalCenter" style="width: 113px;height: 57px;">
-                    <p class="carousel-button-text">Купить</p>
-                  </button></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-4 mt-4">
-            <div class="numbers_prod">
-             <p class="mas" ><a href="" style="border-bottom: 1px dashed #132E6B;color: #132E6B;list-style-type: none;">Купить через банк</a></p>
-            </div>
-          </div>
-        </div>
-        <a href=""> <img src="{% static './images/pdf' %} 1.svg" alt=""><span class="download_pdf">Скачать Pdf</span></a>
-      </div>
-      <img src="{% static './images/settings.svg' %}" class="icon-right" style="transform: rotate(-25deg);" alt="">
-      <img src="{% static './images/Group_419.svg' %}" class="icon-right-2" style="position: absolute;right: 27%;transform: rotate(-35deg);" alt="">
-    </div>
-  </div>
 <br>
-  <div data-aos="fade-right">
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="single-image">
+                <div class="product-gallery">
+                    <div class="product-image">
+                        <img class="active" src="{{ object.image.url }}"
+                             style="width: 100%;margin-top: 10px;height: 450px;">
+                    </div>
+                    <ul class="image-list" style="margin-left: 2%;">
+                        <li class="image-item"><img style="width: 80px;height: 79px;padding: 2px;"
+                                                    src="{{ object.image.url }}"></li>
+                        {% for i in object.images.all %}
+                        <li class="image-item"><img style="width: 80px;height: 79px;padding: 2px;"
+                                                    src="{{ i.image.url }}"></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <a href="#" class="card-link">
+                    <button class="btn"
+                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 16.3%;top: 25px;">
+                        <img
+                                src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <p class="single-product-title" style="font-size: 24px;">{{ object.title }}</p>
+            <div class="row">
+                <div class="col-md-6 mt-3">
+                    <p class="in_box"><img src="{% static './images/radius.svg' %}" alt="">{{ object.inbox }}</p>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <p class="in_article">Артикул:{{ object.sku }}</p>
+                </div>
+            </div>
+            <p class="desc_prod mt-4">{{ object.short_description }}</p>
+            <div class="row">
+                <div class="col-md-6 mt-4">
+                    <p class="price_prod">Цена в долорах:</p>
+                    <h3 class="count_prod">${{ object.dollar }}</h3>
+                </div>
+                <div class="col-md-6 mt-4">
+                    <p class="price_prod">Цена в суммах:</p>
+                    <h3 class="count_prod">{{ object.price }} сум</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-6">
+                    <div class="numbers_prod">
+                        <p class="count_num">Количество</p>
+                        <div class='ctrl mt-2'>
+                            <div class='ctrl-button ctrl-button-decrement'>-</div>
+                            <div class='ctrl-counter'>
+                                <input class='ctrl-counter-input' maxlength='10' type='text' value='1'>
+                                <div class='ctrl-counter-num'>1</div>
+                            </div>
+                            <div class='ctrl-button ctrl-button-increment'>+</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-6">
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Заполните форму и наши
+                                        операторы с вами свяжутся</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="">
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <input class="form-control"
+                                                       style="height: 50px;background-color: #F4F5F7;border: none;"
+                                                       type="text"
+                                                       placeholder="ФИО">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control city12"
+                                                        style="height: 50px;background-color: #F4F5F7;border: none;padding: 5px;"
+                                                        id="exampleFormControlSelect1">
+                                                    <option value="tash" class="options">Ташкент</option>
+                                                    <option value="tash" class="options">Самарканд</option>
+                                                    <option value="tash" class="options">Андижан</option>
+                                                    <option value="tash" class="options">Фаргона</option>
+                                                    <option value="tash" class="options">Хорезм</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-12 mt-4">
+                                                <input class="form-control"
+                                                       style="height: 50px;background-color: #F4F5F7;border: none;"
+                                                       type="text" placeholder="Ваш номер">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" style="height: 55px;margin-top: 5%;"
+                                            data-dismiss="modal">Закрыть
+                                    </button>
+                                    <ul>
+                                        <li>
+                                            <button class="button-left button-bottom-left" type="submit"
+                                                    data-toggle="modal" data-target="#exampleModalCenter"
+                                                    style="width: 113px;height: 55px;position: relative;left: 5%;">
+                                                <p class="carousel-button-text">Купить</p>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="numbers_prod" style="margin-left: 20%;margin-top: 35px;">
+                        <ul>
+                            <li>
+                                <button id="single-buttom" class="button-left button-bottom-left" type="button"
+                                        data-toggle="modal" data-target="#exampleModalCenter"
+                                        style="width: 113px;height: 57px;">
+                                    <p class="carousel-button-text">Купить</p>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 mt-4">
+                    <div class="numbers_prod">
+                        <p class="mas"><a href="https://qishloqqurilishbank.uz/ru" target="_blank"
+                                          style="border-bottom: 1px dashed #132E6B;color: #132E6B;list-style-type: none;">Купить
+                            через банк</a></p>
+                    </div>
+                </div>
+            </div>
+            <a href="{{ object.pdf.url }}"> <img src="{% static './images/pdf' %} 1.svg" alt=""><span
+                    class="download_pdf">Скачать Pdf</span></a>
+        </div>
+        <img src="{% static './images/settings.svg' %}" class="icon-right" style="transform: rotate(-25deg);" alt="">
+        <img src="{% static './images/Group_419.svg' %}" class="icon-right-2"
+             style="position: absolute;right: 27%;transform: rotate(-35deg);" alt="">
+    </div>
+</div>
+<br>
+<div data-aos="fade-right">
     <div class="container">
-      <p class="description_prod">Характеристики и описания оборудования</p>
+        <p class="description_prod">Характеристики и описания оборудования</p>
     </div>
     <div class="container" style="border: 1px solid #C9C8D3;border-radius: 4px;padding: 20px;">
-      <table class="table table-striped">
-        <tbody>
-          <tr>
-            <td style="font-weight: 500;">Модель</td>
-            <td style="text-align:center">ROVER - 1325A</td>
-
-          </tr>
-          <tr>
-            <td style="font-weight: 500;">Размер рабочего стола:</td>
-            <td style="text-align:center">1300х2500х200 mm</td>
-
-          </tr>
-          <tr>
-            <td style="font-weight: 500;">Система управления:</td>
-            <td style="text-align:center">NC STUDIO</td>
-
-          </tr>
-          <tr>
-            <td style="font-weight: 500;">Рабочий стол:</td>
-            <td style="text-align:center">Без ваккума</td>
-
-          </tr>
-          <tr>
-            <td style="font-weight: 500;">Мощность шпинделя:</td>
-            <td style="text-align:center">5,5 кв, 24000 об / мин</td>
-
-          </tr>
-          <tr>
-            <td style="font-weight: 500;">Система охлаждения шпинделя:</td>
-            <td style="text-align:center">Водяное охлаждения</td>
-
-          </tr>
-          <tr>
-            <td style="font-weight: 500;">Напряжения:</td>
-            <td style="text-align:center">350V50Hz</td>
-
-          </tr>
-          <tr>
-            <td style="font-weight: 500;">Страна происхрождения:</td>
-            <td style="text-align:center">Китайский</td>
-
-          </tr>
-          <tr>
-            <td style="font-weight: 500;">Автоматическая система смазки:</td>
-            <td style="text-align:center">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-              <label class="form-check-label" for="flexCheckChecked">
-                Есть
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td style="font-weight: 500;">Датчик Автоматического управления:</td>
-            <td style="text-align:center">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-              <label class="form-check-label" for="flexCheckChecked">
-                Есть
-              </label>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <p style=" border-bottom: 3px silver dashed;"></p>
-      <br>
-      <p class="description_long">Печь подовая хлебопекарная  FROSTY PL-4 состоит из двух независимых друг от друга секций с размером пода 865х655 мм. Подовые хлебопекарные печи с пароувлажнением являются профессиональным оборудованием и применяются в супермаркетах, механизированных пекарнях, ресторанах, в кондитерских производствах, на предприятиях общепита. Выпечка, производимая в подовых печах, отличается высоким качеством за счет равномерного распределения температуры и пароувлажнения внутри пекарной камеры. Под - это металлическая или керамическая плита, непосредственно на которой производится выпечка. Выпечка ставится на под в формах либо на противнях.
-        В верхней и нижней части рабочей камеры установлены нагревательные элементы, ТЭНы, расположенных под днищем и сводом каждой камеры, обеспечивая постоянное равномерное распределение тепла. </p>
-      <br>
-      <p class="description_long">В случае конструкции печи в несколько камер, каждая секция печи независима друг от друга, оснащена независимым терморегулятором с возможностью отключения верхних нагревательных элементов и системой пароувлажнения для каждой секции. Пароувлажнение в секциях печи достигается за счет расположенных ванн для испарения воды. Вода в ванны заливается через отверстия, расположенные с левой стороны каждой камеры.</p>
+        <table class="table table-striped">
+            <tbody>
+            {% for z in object.specifications.all %}
+            <tr>
+                <td style="font-weight: 500;">{{ z.product_customer }}</td>
+                <td style="text-align:center">{{ z.product_number }}</td>
+                <td style="text-align:center"><img src="{% if z.product_image %} {{ z.product_image.url }} {% endif %}"
+                                                   style="width:44px" alt=""></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <p style=" border-bottom: 3px silver dashed;"></p>
+        <br>
+        <p class="description_long">{{ object.long_description }} </p>
+        <br>
     </div>
-  </div>
-  <img src="{% static './images/Group_418.svg' %}" class="icon-left" style="width: 90px;margin-left: 4%;" alt="">
-  <br>
-  <br>
+</div>
+<img src="{% static './images/Group_418.svg' %}" class="icon-left" style="width: 90px;margin-left: 4%;" alt="">
+<br>
+<br>
 
-  <div class="container">
+<div class="container">
     <div class="back_elements">
 
     </div>
     <img src="{% static './images/Group_417.svg' %}" class="icon-right-transform" style="position: absolute;" alt="">
     <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
-      Популярные товары</h1>
+        Популярные товары</h1>
     <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
-      информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
-      <br>
+        информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
+    <br>
     <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;background-color: #ffe700;">
-  </div>
+</div>
 
-  <div class="container">
+<div class="container">
     <div class="row-1">
-      <br>
-      <div class="splide_3_2">
-        <div class="splide__track" style="height: 520px;">
-          <ul class="splide__list">
-            <li class="splide__slide">
-              <div class="col-md-3">
-                <div class="produdcs-section2">
-                  <div class="flex-itm">
-                    <div class="flex-iem-inner">
-                      <!-- card -->
-                      <a href="#">
-                        <div class="card-front bg-violet">
-                          <a href="#" class="card-link"><button class="btn"
-                              style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                                src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
-                          <a href="#" class="card-link"><button class="btn"
-                              style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                              <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
-                            </button></a>
-                          <img src="{% static './images/stanok.png' %}"
-                            style="width: 281px;height: 300px;display: table;margin: auto;" alt="">
-                          <div class="card-text"
-                            style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                            <h4 class="front-title">Буровая установка БР 73212С</h4>
-                            <p class="detail">Артикул: US</p>
-                            <p class="desc">$3 800 - 24 731 675 сум</p>
-                            <div class="text-center">
-                              <ul>
-                                <li><button class="button-center button-bottom2 mobile-button"
-                                    style="width: 127px;height: 43px;">
-                                    <p style="font-size: 13px;">Заказать</p>
-                                  </button></li>
-                              </ul>
-                              <br>
+        <br>
+        <div class="splide_3_2">
+            <div class="splide__track" style="height: 520px;">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <div class="col-md-3">
+                            <div class="produdcs-section2">
+                                <div class="flex-itm">
+                                    <div class="flex-iem-inner">
+                                        <!-- card -->
+                                        <a href="#">
+                                            <div class="card-front bg-violet">
+                                                <a href="#" class="card-link">
+                                                    <button class="btn"
+                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
+                                                        <img
+                                                                src="{% static './images/like.svg' %}"
+                                                                style="margin-top: 7px;" alt=""></button>
+                                                </a>
+                                                <a href="#" class="card-link">
+                                                    <button class="btn"
+                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
+                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
+                                                            -30%</p>
+                                                    </button>
+                                                </a>
+                                                <img src="{% static './images/stanok.png' %}"
+                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
+                                                     alt="">
+                                                <div class="card-text"
+                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
+                                                    <h4 class="front-title">Буровая установка БР 73212С</h4>
+                                                    <p class="detail">Артикул: US</p>
+                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
+                                                    <div class="text-center">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="button-center button-bottom2 mobile-button"
+                                                                        style="width: 127px;height: 43px;">
+                                                                    <p style="font-size: 13px;">Заказать</p>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- /card -->
+                                    </div>
+                                </div>
                             </div>
-                          </div>
                         </div>
-                      </a>
-                      <!-- /card -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="col-md-3">
-                <div class="produdcs-section2">
-                  <div class="flex-item">
-                    <div class="flex-item-inner">
-                      <!-- card -->
-                      <a href="#">
-                        <div class="card-front bg-violet">
-                          <a href="#" class="card-link"><button class="btn"
-                              style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                                src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
-                          <a href="#" class="card-link"><button class="btn"
-                              style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                              <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
-                            </button></a>
-                          <img src="{% static './images/stanok.png' %}"
-                            style="width: 281px;height: 300px;display: table;margin: auto;" alt="">
-                          <div class="card-text"
-                            style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                            <h4 class="front-title">Буровая установка БР 73212С</h4>
-                            <p class="detail">Артикул: US</p>
-                            <p class="desc">$3 800 - 24 731 675 сум</p>
-                            <div class="text-center">
-                              <ul>
-                                <li><button class="button-center button-bottom2 mobile-button"
-                                    style="width: 127px;height: 43px;">
-                                    <p style="font-size: 13px;">Заказать</p>
-                                  </button></li>
-                              </ul>
-                              <br>
+                    </li>
+                    <li class="splide__slide">
+                        <div class="col-md-3">
+                            <div class="produdcs-section2">
+                                <div class="flex-item">
+                                    <div class="flex-item-inner">
+                                        <!-- card -->
+                                        <a href="#">
+                                            <div class="card-front bg-violet">
+                                                <a href="#" class="card-link">
+                                                    <button class="btn"
+                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
+                                                        <img
+                                                                src="{% static './images/like.svg' %}"
+                                                                style="margin-top: 7px;" alt=""></button>
+                                                </a>
+                                                <a href="#" class="card-link">
+                                                    <button class="btn"
+                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
+                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
+                                                            -30%</p>
+                                                    </button>
+                                                </a>
+                                                <img src="{% static './images/stanok.png' %}"
+                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
+                                                     alt="">
+                                                <div class="card-text"
+                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
+                                                    <h4 class="front-title">Буровая установка БР 73212С</h4>
+                                                    <p class="detail">Артикул: US</p>
+                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
+                                                    <div class="text-center">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="button-center button-bottom2 mobile-button"
+                                                                        style="width: 127px;height: 43px;">
+                                                                    <p style="font-size: 13px;">Заказать</p>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- /card -->
+                                    </div>
+                                </div>
                             </div>
-                          </div>
                         </div>
-                      </a>
-                      <!-- /card -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="col-md-3">
-                <div class="produdcs-section2">
-                  <div class="flex-item">
-                    <div class="flex-item-inner">
-                      <!-- card -->
-                      <a href="#">
-                        <div class="card-front bg-violet">
-                          <a href="#" class="card-link"><button class="btn"
-                              style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                                src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
-                          <a href="#" class="card-link"><button class="btn"
-                              style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                              <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
-                            </button></a>
-                          <img src="{% static './images/stanok.png' %}"
-                            style="width: 281px;height: 300px;display: table;margin: auto;" alt="">
-                          <div class="card-text"
-                            style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                            <h4 class="front-title">Буровая установка БР 73212С</h4>
-                            <p class="detail">Артикул: US</p>
-                            <p class="desc">$3 800 - 24 731 675 сум</p>
-                            <div class="text-center">
-                              <ul>
-                                <li><button class="button-center button-bottom2 mobile-button"
-                                    style="width: 127px;height: 43px;">
-                                    <p style="font-size: 13px;">Заказать</p>
-                                  </button></li>
-                              </ul>
-                              <br>
+                    </li>
+                    <li class="splide__slide">
+                        <div class="col-md-3">
+                            <div class="produdcs-section2">
+                                <div class="flex-item">
+                                    <div class="flex-item-inner">
+                                        <!-- card -->
+                                        <a href="#">
+                                            <div class="card-front bg-violet">
+                                                <a href="#" class="card-link">
+                                                    <button class="btn"
+                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
+                                                        <img
+                                                                src="{% static './images/like.svg' %}"
+                                                                style="margin-top: 7px;" alt=""></button>
+                                                </a>
+                                                <a href="#" class="card-link">
+                                                    <button class="btn"
+                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
+                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
+                                                            -30%</p>
+                                                    </button>
+                                                </a>
+                                                <img src="{% static './images/stanok.png' %}"
+                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
+                                                     alt="">
+                                                <div class="card-text"
+                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
+                                                    <h4 class="front-title">Буровая установка БР 73212С</h4>
+                                                    <p class="detail">Артикул: US</p>
+                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
+                                                    <div class="text-center">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="button-center button-bottom2 mobile-button"
+                                                                        style="width: 127px;height: 43px;">
+                                                                    <p style="font-size: 13px;">Заказать</p>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- /card -->
+                                    </div>
+                                </div>
                             </div>
-                          </div>
                         </div>
-                      </a>
-                      <!-- /card -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="col-md-3">
-                <div class="produdcs-section2">
-                  <div class="flex-item">
-                    <div class="flex-item-inner">
-                      <!-- card -->
-                      <a href="#">
-                        <div class="card-front bg-violet">
-                          <a href="#" class="card-link"><button class="btn"
-                              style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                                src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
-                          <a href="#" class="card-link"><button class="btn"
-                              style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                              <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
-                            </button></a>
-                          <img src="{% static './images/stanok.png' %}"
-                            style="width: 281px;height: 300px;display: table;margin: auto;" alt="">
-                          <div class="card-text"
-                            style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                            <h4 class="front-title">Буровая установка БР 73212С</h4>
-                            <p class="detail">Артикул: US</p>
-                            <p class="desc">$3 800 - 24 731 675 сум</p>
-                            <div class="text-center">
-                              <ul>
-                                <li><button class="button-center button-bottom2 mobile-button"
-                                    style="width: 127px;height: 43px;">
-                                    <p style="font-size: 13px;">Заказать</p>
-                                  </button></li>
-                              </ul>
-                              <br>
+                    </li>
+                    <li class="splide__slide">
+                        <div class="col-md-3">
+                            <div class="produdcs-section2">
+                                <div class="flex-item">
+                                    <div class="flex-item-inner">
+                                        <!-- card -->
+                                        <a href="#">
+                                            <div class="card-front bg-violet">
+                                                <a href="#" class="card-link">
+                                                    <button class="btn"
+                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
+                                                        <img
+                                                                src="{% static './images/like.svg' %}"
+                                                                style="margin-top: 7px;" alt=""></button>
+                                                </a>
+                                                <a href="#" class="card-link">
+                                                    <button class="btn"
+                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
+                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
+                                                            -30%</p>
+                                                    </button>
+                                                </a>
+                                                <img src="{% static './images/stanok.png' %}"
+                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
+                                                     alt="">
+                                                <div class="card-text"
+                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
+                                                    <h4 class="front-title">Буровая установка БР 73212С</h4>
+                                                    <p class="detail">Артикул: US</p>
+                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
+                                                    <div class="text-center">
+                                                        <ul>
+                                                            <li>
+                                                                <button class="button-center button-bottom2 mobile-button"
+                                                                        style="width: 127px;height: 43px;">
+                                                                    <p style="font-size: 13px;">Заказать</p>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- /card -->
+                                    </div>
+                                </div>
                             </div>
-                          </div>
                         </div>
-                      </a>
-                      <!-- /card -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
-  <div class="container ">
+<div class="container ">
     <div class="row desk-product">
-      <div class="col-md-3">
-        <div class="produdcs-section">
-          <div class="flex-item">
-            <div class="flex-item-inner">
-              <!-- card -->
-              <a href="#">
-                <div class="card-front bg-violet">
-                  <a href="#" class="card-link"><button class="btn"
-                      style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                        src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
-                  <a href="#" class="card-link"><button class="btn"
-                      style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                      <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
-                    </button></a>
-                  <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
-                  <div class="card-text">
-                    <h4 class="front-title">Буровая установка БР 73212С</h4>
-                    <p class="detail">Артикул: US</p>
-                    <p class="desc">$3 800 - 24 731 675 сум</p>
-                  </div>
-                </div>
-                <div class="card-back bg-violet">
-                  <p class="back-title">Буровая установка БР 73212С</p>
-                  <p class="desc">$3 800 - 24 731 675 сум</p>
-                  <div class="container">
-                    <div class="spetifications" style="margin-top: 15%;padding: 1px;">
-                      <div class="row">
-                        <div class="col-md-8">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Емкость лотка:</p>
-                        </div>
-                        <br>
-                        <div class="col-md-4">
-                          <p style="font-size: 14px;margin-bottom: 8px;">9та</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-7">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Емкость шаблона:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-5">
-                          <p style="font-size: 14px;margin-bottom: 8px;">108 дона</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Напряжения:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 14px;margin-bottom: 8px;">380 В 50 Гц</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-9">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Размер оборудования:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-3">
-                          <p style="font-size: 14px;margin-bottom: 8px;">мм</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-8">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Энергопотребления:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-4">
-                          <p style="font-size: 14px;margin-bottom: 8px;">25 кв/ч</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Материал:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 13px;margin-bottom: 8px;">Зангламас металл S208</p>
-                        </div>
-                        <br>
-                        <br>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="buttons" style="text-align: center;padding: 10px;">
-                    <ul>
-                      <li><button class="button-product button-bottom-product">
-                          <p style="font-size: 16px;">Заказать</p>
-                        </button></li>
-                    </ul>
-                    <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
-                          alt=""></button></a>
-                  </div>
-                </div>
-              </a>
-              <!-- /card -->
-            </div>
-          </div>
-        </div>
-      </div>
+        <div class="col-md-3">
+            <div class="produdcs-section">
+                <div class="flex-item">
+                    <div class="flex-item-inner">
+                        <!-- card -->
+                        <a href="#">
+                            <div class="card-front bg-violet">
+                                <a href="#" class="card-link">
+                                    <button class="btn"
+                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
+                                        <img
+                                                src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt="">
+                                    </button>
+                                </a>
+                                <a href="#" class="card-link">
+                                    <button class="btn"
+                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
+                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
+                                    </button>
+                                </a>
+                                <img src="{{ object.image.url }}" class="product-image-url" alt="">
+                                <div class="card-text">
+                                    <h4 class="front-title">{{ object.title }}</h4>
+                                    <p class="detail">Артикул: {{ object.sku }}</p>
+                                    <p class="detail">Город: {{ object.city }}</p>
+                                    <p class="desc">${{ object.dollar }} - {{ object.price }} сум</p>
+                                </div>
+                            </div>
+                            <div class="card-back bg-violet">
+                                <p class="back-title">{{ object.title }}</p>
+                                <p class="desc">${{ object.dollar }} - {{ object.price }} сум</p>
+                                <div class="container">
+                                    <div class="spetifications" style="margin-top: 15%;padding: 1px;">
+                                        <div class="row">
+                                            {% for j in object.specifications.all %}
+                                            <div class="col-md-6">
 
-      <div class="col-md-3">
-        <div class="produdcs-section">
-          <div class="flex-item">
-            <div class="flex-item-inner">
-              <!-- card -->
-              <a href="#">
-                <div class="card-front bg-violet">
-                  <a href="#" class="card-link"><button class="btn"
-                      style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                        src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
-                  <a href="#" class="card-link"><button class="btn"
-                      style="width: 48px;height: 48px;background-color: #2EC1AC;position: absolute;right: 70px;border-radius: 50px;">
-                      <p style="margin-left:-52%;color: #fff;font-weight: normal;font-size: 16px;">NEW!</p>
-                    </button></a>
-                  <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
-                  <div class="card-text">
-                    <h4 class="front-title">Буровая установка БР 73212С</h4>
-                    <p class="detail">Артикул: US</p>
-                    <p class="desc">$3 800 - 24 731 675 сум</p>
-                  </div>
-                </div>
-                <div class="card-back bg-violet">
-                  <p class="back-title">Буровая установка БР 73212С</p>
-                  <p class="desc">$3 800 - 24 731 675 сум</p>
-                  <div class="container">
-                    <div class="spetifications" style="margin-top: 15%;padding: 1px;">
-                      <div class="row">
-                        <div class="col-md-8">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Емкость лотка:</p>
-                        </div>
-                        <br>
-                        <div class="col-md-4">
-                          <p style="font-size: 14px;margin-bottom: 8px;">9та</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-7">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Емкость шаблона:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-5">
-                          <p style="font-size: 14px;margin-bottom: 8px;">108 дона</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Напряжения:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 14px;margin-bottom: 8px;">380 В 50 Гц</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-9">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Размер оборудования:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-3">
-                          <p style="font-size: 14px;margin-bottom: 8px;">мм</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-8">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Энергопотребления:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-4">
-                          <p style="font-size: 14px;margin-bottom: 8px;">25 кв/ч</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Материал:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 13px;margin-bottom: 8px;">Зангламас металл S208</p>
-                        </div>
-                        <br>
-                        <br>
-                      </div>
+                                                <p style="font-size: 14px;margin-bottom: 8px;">
+                                                    {{ j.product_customer }}:</p>
+                                            </div>
+                                            <br>
+                                            <div class="col-md-6">
+                                                <p style="font-size: 14px;margin-bottom: 8px;">
+                                                    {{ j.product_number }}</p>
+                                            </div>
+                                            <br>
+                                            <br>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="buttons" style="text-align: center;padding: 10px;">
+                                    <ul>
+                                        <li>
+                                            <button class="button-product button-bottom-product">
+                                                <p style="font-size: 16px;">Заказать</p>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="card-link">
+                                        <button class="btn-like2"><img src="{% static './images/like.svg' %}"
+                                                                       alt=""></button>
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                        <!-- /card -->
                     </div>
-                  </div>
-                  <div class="buttons" style="text-align: center;padding: 10px;">
-                    <ul>
-                      <li><button class="button-product button-bottom-product">
-                          <p style="font-size: 16px;">Заказать</p>
-                        </button></li>
-                    </ul>
-                    <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
-                          alt=""></button></a>
-                  </div>
                 </div>
-              </a>
-              <!-- /card -->
             </div>
-          </div>
         </div>
-      </div>
-      <div class="col-md-3">
-        <div class="produdcs-section">
-          <div class="flex-item">
-            <div class="flex-item-inner">
-              <!-- card -->
-              <a href="#">
-                <div class="card-front bg-violet">
-                  <a href="#" class="card-link"><button class="btn"
-                      style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                        src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
-                  <a href="#" class="card-link"><button class="btn"
-                      style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                      <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
-                    </button></a>
-                  <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
-                  <div class="card-text">
-                    <h4 class="front-title">Буровая установка БР 73212С</h4>
-                    <p class="detail">Артикул: US</p>
-                    <p class="desc">$3 800 - 24 731 675 сум</p>
-                  </div>
-                </div>
-                <div class="card-back bg-violet">
-                  <p class="back-title">Буровая установка БР 73212С</p>
-                  <p class="desc">$3 800 - 24 731 675 сум</p>
-                  <div class="container">
-                    <div class="spetifications" style="margin-top: 15%;padding: 1px;">
-                      <div class="row">
-                        <div class="col-md-8">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Емкость лотка:</p>
-                        </div>
-                        <br>
-                        <div class="col-md-4">
-                          <p style="font-size: 14px;margin-bottom: 8px;">9та</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-7">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Емкость шаблона:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-5">
-                          <p style="font-size: 14px;margin-bottom: 8px;">108 дона</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Напряжения:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 14px;margin-bottom: 8px;">380 В 50 Гц</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-9">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Размер оборудования:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-3">
-                          <p style="font-size: 14px;margin-bottom: 8px;">мм</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-8">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Энергопотребления:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-4">
-                          <p style="font-size: 14px;margin-bottom: 8px;">25 кв/ч</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Материал:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 13px;margin-bottom: 8px;">Зангламас металл S208</p>
-                        </div>
-                        <br>
-                        <br>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="buttons" style="text-align: center;padding: 10px;">
-                    <ul>
-                      <li><button class="button-product button-bottom-product">
-                          <p style="font-size: 16px;">Заказать</p>
-                        </button></li>
-                    </ul>
-                    <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
-                          alt=""></button></a>
-                  </div>
-                </div>
-              </a>
-              <!-- /card -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="produdcs-section">
-          <div class="flex-item">
-            <div class="flex-item-inner">
-              <!-- card -->
-              <a href="#">
-                <div class="card-front bg-violet">
-                  <a href="#" class="card-link"><button class="btn"
-                      style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img
-                        src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button></a>
-                  <a href="#" class="card-link"><button class="btn"
-                      style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                      <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
-                    </button></a>
-                  <img src="{% static './images/stanok.png' %}" style="width: 100%;height: auto;" alt="">
-                  <div class="card-text">
-                    <h4 class="front-title">Буровая установка БР 73212С</h4>
-                    <p class="detail">Артикул: US</p>
-                    <p class="desc">$3 800 - 24 731 675 сум</p>
-                  </div>
-                </div>
-                <div class="card-back bg-violet">
-                  <p class="back-title">Буровая установка БР 73212С</p>
-                  <p class="desc">$3 800 - 24 731 675 сум</p>
-                  <div class="container">
-                    <div class="spetifications" style="margin-top: 15%;padding: 1px;">
-                      <div class="row">
-                        <div class="col-md-8">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Емкость лотка:</p>
-                        </div>
-                        <br>
-                        <div class="col-md-4">
-                          <p style="font-size: 14px;margin-bottom: 8px;">9та</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-7">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Емкость шаблона:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-5">
-                          <p style="font-size: 14px;margin-bottom: 8px;">108 дона</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Напряжения:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 14px;margin-bottom: 8px;">380 В 50 Гц</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-9">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Размер оборудования:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-3">
-                          <p style="font-size: 14px;margin-bottom: 8px;">мм</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-8">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Энергопотребления:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-4">
-                          <p style="font-size: 14px;margin-bottom: 8px;">25 кв/ч</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 14px;margin-bottom: 8px;">Материал:</p>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-md-6">
-                          <p style="font-size: 13px;margin-bottom: 8px;">Зангламас металл S208</p>
-                        </div>
-                        <br>
-                        <br>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="buttons" style="text-align: center;padding: 10px;">
-                    <ul>
-                      <li><button class="button-product button-bottom-product">
-                          <p style="font-size: 16px;">Заказать</p>
-                        </button></li>
-                    </ul>
-                    <a href="#" class="card-link"><button class="btn-like2"><img src="{% static './images/like.svg' %}"
-                          alt=""></button></a>
-                  </div>
-                </div>
-              </a>
-              <!-- /card -->
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 </div>
 
 <br>
-  <!-- pagination menu -->
-  <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
+<!-- pagination menu -->
+<nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
 justify-content: center;">
     <a class="prew_icon" href=""><img src="{% static './images/left.svg' %}" alt=""></a>
     <ul style=" display: flex;
  justify-content: center;">
-      <li class="page_numb"><a href="" style="color: #132E6B;">1</a></li>
-      <li class="page_numb-active"><a href="" style="color: #132E6B;">2</a></li>
-      <li class="page_numb"><a href="" style="color: #132E6B;">3</a></li>
-      <li class="page_numb"><a href="" style="color: #132E6B;">4</a></li>
-      <li class="page_numb"><a href="" style="color: #132E6B;">5</a></li>
+        <li class="page_numb"><a href="" style="color: #132E6B;">1</a></li>
+        <li class="page_numb-active"><a href="" style="color: #132E6B;">2</a></li>
+        <li class="page_numb"><a href="" style="color: #132E6B;">3</a></li>
+        <li class="page_numb"><a href="" style="color: #132E6B;">4</a></li>
+        <li class="page_numb"><a href="" style="color: #132E6B;">5</a></li>
     </ul>
     <a href=""><img src="{% static './images/right.svg' %}" alt=""></a>
-  </nav>
+</nav>
 
-  <!-- end pagination menu -->
-
-
-
-
+<!-- end pagination menu -->
 
 
 <br>
@@ -957,6 +619,8 @@ justify-content: center;">
     var controls = new ctrls();
     document.addEventListener('DOMContentLoaded', controls.ready);
   })();
+
+
 </script>
 <script>
   const activeImage = document.querySelector(".product-image .active");
@@ -973,6 +637,8 @@ justify-content: center;">
 
   productImages.forEach(image => image.addEventListener("click", changeImage));
   navItem.addEventListener('click', toggleNavigation);
+
+
 </script>
 <script>
   var splide = new Splide('.splide_3_2', {
@@ -981,9 +647,13 @@ justify-content: center;">
   });
 
   splide.mount();
+
+
 </script>
 <script>
   AOS.init();
+
+
 </script>
 
 {% endblock %}
