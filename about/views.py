@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import ListView, TemplateView, CreateView
+from django.views.generic import ListView, TemplateView, CreateView, DetailView
 
 from about.forms import ContactModelForm
 from about.models import AboutModel
@@ -18,6 +18,16 @@ class AboutModelListView(ListView):
         qs = AboutModel.objects.order_by('-pk')
 
         return qs
+
+
+class AboutModelDetailView(DetailView):
+    template_name = 'about.html'
+    model = AboutModel
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['detail'] = AboutModel.objects.order_by('pk')
+        return context
 
 
 class ContactModelCreateView(CreateView):

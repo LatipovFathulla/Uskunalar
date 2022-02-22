@@ -1,5 +1,18 @@
 {% load static %}
 {% load tags %}
+<style>
+  @media (min-width:1200px) {
+      .form {
+        display:none
+      }
+      .control {
+        display:none
+      }
+      .icon-close {
+        display:none
+      }
+  }
+</style>
 <!-- start navbar -->
 <nav class="container navbar navbar-expand-lg navbar-light bg-white">
     <ul id="accordion4" class="accordion4">
@@ -61,7 +74,16 @@
           <p class="like_count">{% get_wishlist_count request %}</p>
         </span>
         </a>
-        <img src="{% static './images/search.svg' %}" class="search-mobile" alt="">
+            <div class='control' tabindex='1'>
+                <div class='btn' style="padding: 20px;"></div>
+                <i class='icon-search ion-search'></i>
+            </div>
+
+            <i class='icon-close ion-ios-close-empty'></i>
+            <form action="{% url 'products:product' %}" class='form' style="width: 96%;position: fixed;left: 1%;">
+                <input class='input-search' name="q" value="{{ request.GET.q }}"  placeholder='Start Typing' type='text'>
+                <button class="btn" type="submit" style="width: 16%;height: 62px;position: absolute;right: 10px;top: 10px;background:#FFE700"><i class='icon-search ion-search' style="top:12px"></i></button>
+            </form>
         <div class="hamburger-wrapper">
             <div class="hamburger">
                 <div class="my_menu">

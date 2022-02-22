@@ -575,6 +575,7 @@ p {
     width: 250px;
 }
 
+
 .category_title {
     text-align: left;
     border-bottom: 1px solid #F4F5F7;
@@ -2362,9 +2363,8 @@ nav .nav-ul li a span.rotate {
     .button-left {
         position: absolute;
         left: 9%;
-        top: 35%;
         /* right: 0%; */
-        /* margin-top: 28px; */
+        margin-top: 25px;
         /* bottom: -1px; */
         background: #FFE700;
         border: none;
@@ -3129,6 +3129,102 @@ nav .nav-ul li a span.rotate {
         font-weight: 600;
         cursor: pointer;
         padding: 10px 3px;
+    }
+
+      /* search in mobile */
+
+body.mode-search {
+      overflow: hidden;
+    }
+    body.mode-search .form,
+    body.mode-search .icon-close {
+      opacity: 1;
+      transform: none;
+      pointer-events: all;
+    }
+    body.mode-search .control .icon-search {
+      opacity: 0;
+    }
+    body.mode-search .control .btn {
+      transform: scale(70);
+      background:#888
+    }
+
+
+    .control {
+      width: 64px;
+      height: 64px;
+      position: absolute;
+      bottom: 2px;
+      right: 75px;
+      cursor: pointer;
+    }
+    .control .icon-search,
+    .control .icon-close {
+      transition: 0.2s ease-in-out;
+    }
+    .control:hover .btn {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    /* Button */
+    .btn {
+      box-sizing: border-box;
+      outline: 0;
+      transform-origin: 50%;
+      transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .icon-search {
+      position: absolute;
+      top: 18px;
+      left: 20px;
+      font-size: 28px;
+    }
+
+    .icon-close {
+      position: fixed;
+      top: 50px;
+      right: 30px;
+      color: #FFF;
+      font-size: 80px;
+      opacity: 0;
+      transform: translate(10px, 0) rotate(90deg);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .form {
+      height: 80px;
+      top: 50%;
+      left: 50px;
+      margin-top: -40px;
+      pointer-events: none;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+    .form input {
+      color: #000;
+      font-size: 30px;
+      border: 0;
+      background: transparent;
+      -webkit-appearance: none;
+      box-sizing: border-box;
+      outline: 0;
+      font-weight: 200;
+    }
+    .form ::-webkit-input-placeholder {
+      color: #EEE;
+    }
+    .form :-moz-placeholder {
+      color: #EEE;
+      opacity: 1;
+    }
+    .form ::-moz-placeholder {
+      color: #EEE;
+      opacity: 1;
+    }
+    .form :-ms-input-placeholder {
+      color: #EEE;
     }
 }
 
