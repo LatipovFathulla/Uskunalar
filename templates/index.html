@@ -442,15 +442,24 @@
         <div class="gallery-carousel-content">
             <div class="container">
                 <div class="slider responsive">
-                    {% for category in categories2 %}
-                        <div>
-                            <div class="box">
-                                <p>{{ category.category }}</p>
-                                <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
-                                     style="width: 150px; height: 180px" alt="">
-                            </div>
-                        </div>
-                    {% endfor %}
+                  {% for category in categories %}
+                    {% if not forloop.counter|divisibleby:2 %}
+                    <div>
+                      <div class="box">
+                        <p>{{ category.category }}</p>
+                        <img class="img-fluid float-right mt-3"  src="{{ category.image.url }}" alt="">
+                      </div>
+                    {% else %}
+                      <h3></h3>
+                      <div class="box">
+                        <p>{{ category.category }}</p>
+                        <img class="img-fluid float-right mt-3"  src="{{ category.image.url }}" alt="">
+                      </div>
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+
+                </div>
                 </div>
                 <div class="text-center">
                     <ul>
@@ -464,44 +473,6 @@
                     </ul>
                     <br>
 <br>
-
-
-<section id="gallery-carousel">
-    <div class="gallery-carousel-content">
-        <div class="container">
-            <div class="slider responsive">
-                {% for category in categories2 %}
-                <div>
-                    <div class="box">
-                        <p>{{ category.category }}</p>
-                        <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
-                             style="width: 150px; height: 180px" alt="">
-                    </div>
-                    <div class="box">
-                        <p>{{ category.category }}</p>
-                        <img class="img-fluid float-right mt-3" src="{{ category.image.url }}"
-                             style="width: 150px; height: 180px" alt="">
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            <div class="text-center">
-                <ul>
-                    <li>
-                        <a href="{% url 'home:catalog' %}">
-                            <button class="button-center button-bottom mobile-button">
-                                <p style="font-size: 15px;">Смотреть все</p>
-                            </button>
-                        </a>
-                    </li>
-                </ul>
-                <br>
-            </div>
-        </div>
-    </div>
-
-</section>
-
 
 <div class="container">
     <div class="back_elements">
