@@ -1,13 +1,14 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
     <section class="banner">
         <div class="container">
             <div class="row">
 
             </div>
-            <h1 class="banner-text">Готовый бизнес</h1>
-            <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Готовый бизнес</a></span></p>
+            <h1 class="banner-text">{% trans 'Готовый бизнес' %}</h1>
+            <a href="/" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>  <span> > <a href="" class="banner-desc-title">{% trans 'Готовый бизнес' %}</a></span></p>
 
             <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
         </div>
@@ -29,7 +30,7 @@
                         <p class="desc-work">{{ biznes.long_descriptions|safe|slice:':500' }}....</p>
                         <div class="row">
                             <div class="col-md-12 col-6">
-                                <p class="aim_project">Сроки использования:</p>
+                                <p class="aim_project">{% trans 'Сроки использования' %}:</p>
                                 <p class="client_work">{{ biznes.created_at|date:'m.d.Y' }}</p>
                             </div>
                             <div class="col-md-12 col-6">
@@ -39,7 +40,7 @@
                                             <a href="{% url 'biznes:detail' pk=biznes.pk %}">
                                                 <button class="button-left button-bottom"
                                                         style="margin-top: 4%;right: 32%">
-                                                    <p style="font-size: 16px;">Смотреть еще</p>
+                                                    <p style="font-size: 16px;">{% trans 'Смотреть еще' %}</p>
                                                 </button>
                                             </a>
                                         </li>

@@ -123,21 +123,20 @@
             <div class="hamburger-menu">
                 <ul class="main-links">
                     <img src="{% static 'images/logo.png' %}" class="logo_image2" alt="">
-                    <li class="delay02"><a href="{% url 'home:catalog' %}">Каталог</a></li>
-                    <li class="delay03"><a href="{% url 'line:lines' %}">Линии</a></li>
-                    <li class="delay03"><a href="{% url 'work:works' %}">Наши работы</a></li>
-                    <li class="delay04"><a href="{% url 'video:videos' %}">Наши видео</a></li>
-                    <li class="delay05"><a href="{% url 'blog:blogs' %}">Наши статьи</a></li>
-                    <li class="delay06"><a href="{% url 'home:about' %}">О нас</a></li>
-                    <li class="delay07"><a href="{% url 'home:contacts' %}">Контакты</a></li>
+                    <li class="delay02"><a href="{% url 'home:catalog' %}">{% trans 'Каталог' %}</a></li>
+                    <li class="delay03"><a href="{% url 'line:lines' %}">{% trans 'Линии' %}</a></li>
+                    <li class="delay03"><a href="{% url 'work:works' %}">{% trans 'Наши работы' %}</a></li>
+                    <li class="delay04"><a href="{% url 'video:videos' %}">{% trans 'Наши видео' %}</a></li>
+                    <li class="delay05"><a href="{% url 'blog:blogs' %}">{% trans 'Наши статьи' %}</a></li>
+                    <li class="delay06"><a href="{% url 'home:about' %}">{% trans 'О нас' %}</a></li>
+                    <li class="delay07"><a href="{% url 'home:contacts' %}">{% trans 'Контакты' %}</a></li>
                     <li class="delay08"><a href="./not_found_product.html"><img
-                            src="{% static 'images/search_product.svg' %}" class="not-found" alt=""> Не нашли
-                        товар?</a></li>
+                            src="{% static 'images/search_product.svg' %}" class="not-found" alt="">{% trans 'Не нашли товар?' %}</a></li>
                     <li class="delay09"><a href="tel:+998 71 250 77 77">
                         <p style="color: #000;font-weight: bold;">+998 71 250 77 77</p>
                     </a></li>
                     <li class="delay08" style="margin-top: -7%"><a href="">
-                        <p style="color: #FF0007;">заказать звонок</p>
+                        <p style="color: #FF0007;">{% trans 'звонить сейчас' %}</p>
                     </a></li>
                 </ul>
             </div>
@@ -149,7 +148,7 @@
         </div>
         <nav class="sidebar">
             <div class="text">
-                Категории
+                {% trans 'Категории' %}
             </div>
         </nav>
     </ul>
@@ -182,7 +181,7 @@
                     <a class="nav-link" href="tel:+99871 250 77 77" style="color: #000;padding: 0px;margin: 0px;"><span
                             class="phone_link">+998 71 250 77 77</span></a>
                     <br>
-                    <span class="call">заказать звонок </span>
+                    <span class="call">{% trans 'звонить сейчас' %}</span>
                 </li>
             </ul>
         </form>
@@ -207,7 +206,7 @@
                         <a href="{% url 'products:product' %}">
                             <li class="menu-ite has-child1" style="">
                                 <img src="{% static 'images/squares_2.svg' %}" style="margin-top: 5%;" alt="">
-                                <span style="margin-top: 0%;position: absolute;font-size: 14px;margin-left:-2.9%;font-weight: 500;font-style: normal;">Все категории</span>
+                                <span style="margin-top: 0%;position: absolute;font-size: 14px;margin-left:-2.9%;font-weight: 500;font-style: normal;">{% trans 'Все категории' %}</span>
                             </li>
                         </a>
                     </ul>
@@ -259,16 +258,16 @@
                         <div class="slider__item slide-burger">
                             <div class="slider__content grid">
                                 <div class="column">
-                                    <p class="title">Все новогодние</p>
-                                    <h1 class="title">предложения</h1>
-                                    <p class="title2">Новогоднии скидки успейте купить<br> по выгодным ценам только
-                                        сейчас!</p>
-                                    <p class="title2_2">Новогоднии скидки успейте<br> купить по выгодным ценам<br>
-                                        только сейчас!</p>
+                                    <p class="title">{% trans 'Все новогодние' %}</p>
+                                    <h1 class="title">{% trans 'предложения' %}</h1>
+                                    <p class="title2">{% trans 'Новогоднии скидки успейте купить' %}<br> {% trans 'по выгодным ценам только сейчас!' %}</p>
+                                    <p class="title2_2">{% trans 'Новогоднии скидки успейте' %} <br> {% trans 'купить по выгодным ценам' %}
+                                        <br>
+                                        {% trans 'только сейчас!' %}</p>
                                     <ul>
                                         <li>
                                             <button class="button-left button-bottom-left">
-                                                <p class="carousel-button-text">Читать подробнее</p>
+                                                <p class="carousel-button-text">{% trans 'Читать подробнее' %}</p>
                                             </button>
                                         </li>
                                     </ul>
@@ -314,8 +313,7 @@
     </div>
     <img src="{% static 'images/settings.svg' %}" class="icon-right" alt="">
     <h1 class="text-center" style="font-weight: 600;font-size: 30px;padding: 20px;margin-top: 30px;">
-        Производственииые
-        линии</h1>
+        {% trans 'Производственииые линии' %}</h1>
     <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
         aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
         aliquid
@@ -342,7 +340,7 @@
                             <br>
                             <a href="{% url 'line:detail' pk=line.pk %}">
                                 <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">
-                                    Подробнее
+                                    {% trans 'Подробнее' %}
                                 </button>
                             </a>
                         </div>
@@ -369,7 +367,7 @@
                                 <a href="{% url 'line:detail' pk=line.pk %}">
                                     <button class="btn"
                                             style="margin: 12px auto;display: table;background:#FFE700">
-                                        Подробнее
+                                        {% trans 'Подробнее' %}
                                     </button>
                                 </a>
                             </div>
@@ -395,7 +393,7 @@
         <li>
             <a href="{% url 'line:lines' %}">
                 <button class="button-center button-bottom" style="margin-top:0px">
-                    <p style="font-size: 15px;">Смотреть все</p>
+                    <p style="font-size: 15px;">{% trans 'Смотреть все' %}</p>
                 </button>
             </a>
         </li>
@@ -408,7 +406,7 @@
     <br>
     <div class="dark-overlay">
         <div class="container p-5">
-            <h3 class="dark-text">О компании Uskunalar</h3>
+            <h3 class="dark-text">{% trans 'О компании Uskunalar' %}</h3>
             <p class="dark-desc">Идейные соображения высшего порядка, а также постоянное
                 информационно-пропагандистское
                 обеспечение нашей деятельности представляет собой интересный.</p>
@@ -417,22 +415,22 @@
                 <div class="col-md-3 col-6 number_icons">
                     <img src="{% static 'images/box_1.svg' %}" style="margin-top: -50%;" alt="">
                     <h3 class="dark-number">980+</h3>
-                    <p class="number-desc">Продано</p>
+                    <p class="number-desc">{% trans 'Продано' %}</p>
                 </div>
                 <div class="col-md-3 col-6 number_icons">
                     <img src="{% static 'images/man-user_1.svg' %}" style="margin-top: -50%;" alt="">
                     <h3 class="dark-number">650+</h3>
-                    <p class="number-desc">Постоянных клиентов</p>
+                    <p class="number-desc">{% trans 'Постоянных клиентов' %}</p>
                 </div>
                 <div class="col-md-3 col-6 number_icons">
                     <img src="{% static 'images/project_1.svg' %}" style="margin-top: -50%;" alt="">
                     <h3 class="dark-number">999+</h3>
-                    <p class="number-desc">Реализация проектов</p>
+                    <p class="number-desc">{% trans 'Реализация проектов' %}</p>
                 </div>
                 <div class="col-md-3 col-6 number_icons">
                     <img src="{% static 'images/group_1.svg' %}" style="margin-top: -50%;" alt="">
                     <h3 class="dark-number">599+</h3>
-                    <p class="number-desc">Сотрудников</p>
+                    <p class="number-desc">{% trans 'Сотрудников' %}</p>
                 </div>
             </div>
         </div>
@@ -448,7 +446,7 @@
     </div>
     <img src="{% static 'images/Group_418.svg' %}" class="icon-right-transform" style="position: absolute;" alt="">
     <h1 class="text-center catalog-uskuna">
-        Каталог Uskunalar</h1>
+        {% trans 'Каталог Uskunalar' %}</h1>
     <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
         aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
         aliquid
@@ -487,7 +485,7 @@
                         <li>
                             <a href="{% url 'home:catalog' %}">
                                 <button class="button-center button-bottom mobile-button">
-                                    <p style="font-size: 15px;">Смотреть все</p>
+                                    <p style="font-size: 15px;">{% trans 'Смотреть все' %}</p>
                                 </button>
                             </a>
                         </li>
@@ -502,7 +500,7 @@
     <img src="{% static 'images/Group_419.svg' %}" class="icon-left-transform " alt="">
     <h1 class="text-center"
         style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
-        Популярные товары</h1>
+        {% trans 'Популярные товары' %}</h1>
     <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
         aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
         aliquid
@@ -551,7 +549,7 @@
                                                 <div class="card-text"
                                                      style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
                                                     <h4 class="front-title">{{ product.title }}</h4>
-                                                    <p class="detail">Артикул: {{ product.sku }}</p>
+                                                    <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
                                                     <p class="desc">${{ product.dollar }} - {{ product.price }}
                                                         сум</p>
                                                     <div class="text-center">
@@ -560,7 +558,7 @@
                                                                 <a href="{% url 'products:single' pk=product.pk %}">
                                                                     <button class="button-center button-bottom2 mobile-button"
                                                                             style="width: 127px;height: 43px;">
-                                                                        <p style="font-size: 13px;">Заказать</p>
+                                                                        <p style="font-size: 13px;">{% trans 'Заказать' %}</p>
                                                                     </button>
                                                                 </a>
 
@@ -602,7 +600,7 @@
         <li>
             <a href="{% url 'products:product' %}">
                 <button class="button-center button-bottom" style="margin-top:0px">
-                    <p style="font-size: 15px;">Смотреть все</p>
+                    <p style="font-size: 15px;">{% trans 'Смотреть все' %}</p>
                 </button>
             </a>
         </li>
@@ -617,7 +615,7 @@
     <img src="{% static 'images/Group_417.svg' %}" class="icon-right-transform2" alt="">
     <h1 class="text-center"
         style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
-        Готовый бизнес</h1>
+        {% trans 'Готовый бизнес' %}</h1>
     <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
         aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
         aliquid
@@ -638,7 +636,7 @@
                     <p class="home-text">{{ work.title }}</p>
                     <p class="home-desc">{{ work.short_descriptions|slice:':320' }}...</p>
                     <br>
-                    <a href="" style="position: absolute;bottom: 10px;color: #132E6B;">Читать полностью</a>
+                    <a href="" style="position: absolute;bottom: 10px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
                 </div>
             </div>
         </div>
@@ -661,7 +659,7 @@
                                 <p class="home-desc" style="">{{ work.short_descriptions|slice:':200' }}...</p>
                                 <br>
                                 <a href="{% url 'work:single-work' pk=work.pk %}"
-                                   style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
+                                   style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
                             </div>
 
                         </div>
@@ -682,7 +680,7 @@
         <li>
             <a href="{% url 'work:works' %}">
                 <button class="button-center button-bottom">
-                    <p style="font-size: 16px;">Читать еще</p>
+                    <p style="font-size: 16px;">{% trans 'Читать еще' %}</p>
                 </button>
             </a>
         </li>
@@ -697,7 +695,7 @@
     <img src="{% static 'images/Group_418.svg' %}" class="icon-left-transform2" alt="">
     <h1 class="text-center"
         style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
-        Статьи и советы</h1>
+        {% trans 'Статьи и советы' %}</h1>
     <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
         информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
     <br>
@@ -721,7 +719,7 @@
                         <p class="article-text">{{ line.title }}</p>
                         <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
                         <a href="{% url 'line:detail' pk=line.pk %}"
-                           style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
+                           style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
                     </div>
                 </li>
                 {% endfor %}
@@ -743,7 +741,7 @@
                         <p class="article-text">{{ line.title }}</p>
                         <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
                         <a href="{% url 'line:detail' pk=line.pk %}"
-                           style="position: absolute;bottom: 11px;color: #132E6B;">Читать полностью</a>
+                           style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
                     </div>
                 </li>
                 {% endfor %}
@@ -754,7 +752,7 @@
                 <li>
                     <a href="{% url 'line:lines' %}">
                         <button class="button-center button-bottom">
-                            <p style="font-size: 16px;">Смотреть еще</p>
+                            <p style="font-size: 16px;">{% trans 'Смотреть еще' %}</p>
                         </button>
                     </a>
                 </li>
@@ -769,7 +767,7 @@
     </div>
     <img src="{% static 'images/settings.svg' %}" class="icon-right-transform3" alt="">
     <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;">
-        Наши работы</h1>
+        {% trans 'Наши работы' %}</h1>
     <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также
         постоянное информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.
     </p>
@@ -795,7 +793,7 @@
             <li>
                 <a href="{% url 'work:works' %}">
                     <button class="button-center button-bottom">
-                        <p style="font-size: 16px;">Смотреть еще</p>
+                        <p style="font-size: 16px;">{% trans 'Смотреть еще' %}</p>
                     </button>
                 </a>
             </li>
@@ -812,7 +810,7 @@
     <img src="{% static 'images/Group_418.svg' %}" class="icon-right-transform2" alt="">
     <h1 class="text-center"
         style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
-        Наши партнеры</h1>
+        {% trans 'Наши партнеры' %}</h1>
     <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
         информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
     <br>
@@ -854,11 +852,9 @@
 
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="widget subscribe no-box">
-                        <h5 class="widget-title">Uskunalar<span></span></h5>
-                        <p class="widget-desc">Команда USKUNALAR.UZ экономит ваше время и деньги, поставляя
-                            Производственииые
-                            оборудования.</p>
-                        <h5 class="widget-title">Будь в курсе<span></span></h5>
+                        <h5 class="widget-title">{% trans 'Uskunalar' %}<span></span></h5>
+                        <p class="widget-desc">{% trans 'Команда USKUNALAR.UZ экономит ваше время и деньги, поставляя производственииые оборудования.' %}</p>
+                        <h5 class="widget-title">{% trans 'Будь в курсе' %}<span></span></h5>
                         <div class="row">
                             <div class="col-md-9">
                                 <input class="form-control" type="text"
@@ -876,33 +872,31 @@
 
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="widget no-box">
-                        <h5 class="widget-title ml-2">Меню<span></span></h5>
+                        <h5 class="widget-title ml-2">{% trans 'Меню' %}<span></span></h5>
                         <ul class="thumbnail-widget">
                             <li>
                                 <div class="thumb-content"><a href="./catelog.html"
-                                                              class="thumb-content">Каталог</a>
+                                                              class="thumb-content">{% trans 'Каталог' %}</a>
                                 </div>
                             </li>
                             <li>
-                                <div class="thumb-content"><a href="./our_works.html" class="thumb-content">Наши
-                                    работа</a></div>
+                                <div class="thumb-content"><a href="./our_works.html" class="thumb-content">{% trans 'Наши работа' %}</a></div>
                             </li>
                             <li>
-                                <div class="thumb-content"><a href="./videos.html" class="thumb-content">Наши
-                                    видео</a>
+                                <div class="thumb-content"><a href="./videos.html" class="thumb-content">{% trans 'Наши видео' %}</a>
                                 </div>
                             </li>
                             <li>
-                                <div class="thumb-content"><a href="./blog.html" class="thumb-content">Статьи</a>
+                                <div class="thumb-content"><a href="./blog.html" class="thumb-content">{% trans 'Статьи' %}</a>
                                 </div>
                             </li>
                             <li>
-                                <div class="thumb-content"><a href="./about.html" class="thumb-content">О нас</a>
+                                <div class="thumb-content"><a href="./about.html" class="thumb-content">{% trans 'О нас' %}</a>
                                 </div>
                             </li>
                             <li>
                                 <div class="thumb-content"><a href="./contacts.html"
-                                                              class="thumb-content">Контакты</a>
+                                                              class="thumb-content">{% trans 'Контакты' %}</a>
                                 </div>
                             </li>
                         </ul>
@@ -911,7 +905,7 @@
 
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="widget no-box">
-                        <h5 class="widget-title">Контакты<span></span></h5>
+                        <h5 class="widget-title">{% trans 'Контакты' %}<span></span></h5>
                         <p class="widget-number"><img src="{% static 'images/map_footer.svg' %}"
                                                       alt=""> Тошкент
                             шаҳри, Сирғали тумани, Катта олмос 1-тор кўчаси 9а-уй.</p>
@@ -925,7 +919,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-3">
 
                     <div class="widget no-box">
-                        <h5 class="widget-title">Соц.сети<span></span></h5>
+                        <h5 class="widget-title">{% trans 'Соц.сети' %}<span></span></h5>
                         <a href=""><p class="widget-number"><img src="{% static 'images/facebook.svg' %}"
                                                                  style="width: 25px;" alt=""> <span
                                 style="margin-left: 2%;position: absolute;">Facebook</span></p></a>
@@ -946,7 +940,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p>Copyright Uskunalar.uz © <span id="year"></span> . All rights reserved. LF</p>
+                    <p>{% trans 'Copyright Uskunalar.uz' %} © <span id="year"></span> . {% trans 'All rights reserved.' %} LF</p>
                 </div>
             </div>
         </div>

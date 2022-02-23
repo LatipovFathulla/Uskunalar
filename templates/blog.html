@@ -1,5 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
     <section class="banner2">
@@ -7,8 +8,8 @@
             <div class="row">
 
             </div>
-            <h1 class="banner-text">Наши статьи</h1>
-            <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Наши статьи</a></span></p>
+            <h1 class="banner-text">{% trans 'Наши статьи' %}</h1>
+            <a href="/" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>   <span> > <a href="" class="banner-desc-title">{% trans 'Наши статьи' %}</a></span></p>
 
             <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
         </div>
@@ -41,11 +42,10 @@
                                         <p class="date-number">{{ blog.created_at|date:'d' }}<span>
                                         <p class="date-date">{{ blog.created_at|date:'F' }}</p></span></p>
                                     </div>
-                                    <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 50px;position: absolute;">Просмотрено
-                                        457 человек</small>
+<!--                                    <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 50px;position: absolute;">Просмотрено 457 человек</small>-->
                                     <p class="blog-title">{{ blog.title }}</p>
                                     <p class="blog-desc" style="padding: 10px;">{{ blog.smart_description }}</p>
-                                    <a href="{% url 'blog:single-blog' pk=blog.pk %}">Читать дальше <img
+                                    <a href="{% url 'blog:single-blog' pk=blog.pk %}">{% trans 'Читать дальше' %} <img
                                             src="{% static './images/right.svg' %}"
                                             style="position: absolute;margin-left: 2%;"
                                             alt=""></a>
@@ -70,14 +70,14 @@
                             <img src="{{ blog.image.url }}" style="width: 100%;height: auto;" alt="">
                             <br>
                             <br>
-                            <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;">
-                                Просмотрено 457 человек</small>
+<!--                            <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;">-->
+<!--                                Просмотрено 457 человек</small>-->
                             <br>
                             <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">{{ blog.title }}</p>
                             <br>
                             <p>{{ blog.description }}</p>
                             <br>
-                            <a href="{% url 'blog:single-blog' pk=blog.pk %}">Читать дальше <img src="{% static './images/right.svg' %}"
+                            <a href="{% url 'blog:single-blog' pk=blog.pk %}">{% trans 'Читать дальше' %} <img src="{% static './images/right.svg' %}"
                                                                             style="position: absolute;margin-left: 2%;"
                                                                             alt=""></a>
                         </div>
@@ -99,7 +99,7 @@ justify-content: center;">
             <ul style="display: flex;justify-content: center;">
                 {% for page in page_obj.paginator.page_range %}
                     <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"
-                        onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;"><a
+                        onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position:relative;padding-top:15px"><a
                             href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
                 {% endfor %}
             </ul>
@@ -119,7 +119,7 @@ justify-content: center;">
             <ul style="display: flex;justify-content: center;">
                 {% for page in page_obj.paginator.page_range %}
                     <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"
-                        onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;"><a
+                        onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position:relative;padding-top:15px"><a
                             href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
                 {% endfor %}
             </ul>

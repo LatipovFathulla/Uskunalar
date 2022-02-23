@@ -1,5 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <section class="banner">
@@ -7,8 +8,8 @@
         <div class="row">
 
         </div>
-        <h1 class="banner-text">Контакты</h1>
-        <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Контакты</a></span></p>
+        <h1 class="banner-text">{% trans 'Контакты' %}</h1>
+        <a href="/" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %} </a>   <span> > <a href="" class="banner-desc-title">{% trans 'Контакты' %}</a></span></p>
 
         <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
@@ -24,25 +25,25 @@
     <div class="contacts">
         <div class="row">
             <div class="col-md-4" style="padding: 50px 35px;background-color: #fff;">
-                <p style="font-size: 24px;">Главный офис</p>
+                <p style="font-size: 24px;">{% trans 'Главный офис' %}</p>
                 <div class="phone" style="padding: 20px;">
                     <i class="fas fa-phone" style="color: #FFE700;font-size: 18px;"> <span
-                            style="color: #000;padding: 10px;font-family: sans-serif;font-size: 16px;">Телефон</span>
+                            style="color: #000;padding: 10px;font-family: sans-serif;font-size: 16px;">{% trans 'Телефон' %}</span>
                     </i>
                     <p style="margin-left: 10%;color: #000;font-weight: 500;">+998 71-250-77-77</p>
                 </div>
                 <div class="map" style="padding: 20px;">
                     <i class="fas fa-map-marker-alt" style="color: #FFE700;font-size: 18px;"> <span
-                            style="color: #000;padding: 10px;font-family: sans-serif;font-size: 16px;">Локация</span>
+                            style="color: #000;padding: 10px;font-family: sans-serif;font-size: 16px;">{% trans 'Локация' %}</span>
                     </i>
                     <p style="margin-left: 12%;color: #000;font-weight: 500;">Республика Узбекистан г.Ташкент,
                         Сергилийский район,ул.Катта Олмос 1-тор,9А</p>
                 </div>
                 <div class="dates" style="padding: 20px;">
                     <i class="fas fa-clock" style="color: #FFE700;font-size: 18px;"> <span
-                            style="color: #000;padding: 10px;font-family: sans-serif;font-size: 16px;">Рабочее время</span>
+                            style="color: #000;padding: 10px;font-family: sans-serif;font-size: 16px;">{% trans 'Рабочее время' %}</span>
                     </i>
-                    <p style="margin-left: 12%;color: #000;font-weight: 500;">Ежедневно с 9:00 до 18:00</p>
+                    <p style="margin-left: 12%;color: #000;font-weight: 500;">{% trans 'Ежедневно' %} {% trans 'с' %} 9:00 {% trans 'до' %} 18:00</p>
                 </div>
             </div>
             <div class="col-md-8">
@@ -67,16 +68,16 @@
                 </div>
             </div>
             <div class="col-md-4" style="padding: 50px 35px;background-color: #fff;">
-                <p style="font-size: 24px;">Наш филиал в Хорезме</p>
+                <p style="font-size: 24px;">{% trans 'Наш филиал в Хорезме' %}</p>
                 <div class="phone" style="padding:20px">
                     <i class="fas fa-phone" style="color: #FFE700;font-size: 18px;"> <span
-                            style="color: #000;padding: 10px;font-family: sans-serif;font-size: 16px;">Телефон</span>
+                            style="color: #000;padding: 10px;font-family: sans-serif;font-size: 16px;">{% trans 'Телефон' %}</span>
                     </i>
                     <p style="margin-left: 10%;color: #000;font-weight: 500;">+998 71-250-77-77</p>
                 </div>
                 <div class="map" style="padding:20px">
                     <i class="fas fa-map-marker-alt" style="color: #FFE700;font-size: 18px;"> <span
-                            style="color: #000;padding: 10px;font-family: sans-serif;font-size: 16px;">Локация</span>
+                            style="color: #000;padding: 10px;font-family: sans-serif;font-size: 16px;">{% trans 'Локация' %}</span>
                     </i>
                     <p style="margin-left: 12%;color: #000;font-weight: 500;">Республика Узбекистан г.Ташкент,
                         Сергилийский
@@ -84,9 +85,9 @@
                 </div>
                 <div class="dates" style="padding:20px">
                     <i class="fas fa-clock" style="color: #FFE700;font-size: 18px;"> <span
-                            style="color: #000;padding: 10px;font-family: sans-serif;font-size: 16px;">Рабочее время</span>
+                            style="color: #000;padding: 10px;font-family: sans-serif;font-size: 16px;">{% trans 'Рабочее время' %}</span>
                     </i>
-                    <p style="margin-left: 12%;color: #000;font-weight: 500;">Ежедневно с 9:00 до 18:00</p>
+                    <p style="margin-left: 12%;color: #000;font-weight: 500;">{% trans 'Ежедневно' %} {% trans 'с' %} 9:00 {% trans 'до' %} 18:00</p>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
     <section class="banner">
@@ -7,8 +8,8 @@
             <div class="row">
 
             </div>
-            <h1 class="banner-text">Наши работы</h1>
-            <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Наши работы</a></span></p>
+            <h1 class="banner-text">{% trans 'Наши работы' %}</h1>
+            <a href="/" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>   <span> > <a href="" class="banner-desc-title">{% trans 'Наши работы' %}</a></span></p>
 
             <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
         </div>
@@ -24,7 +25,7 @@
     <br>
     <div class="container" style="position: relative;z-index: 1;">
         <div class="tab2">
-            <a class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Все работы</a>
+            <a class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">{% trans 'Все работы' %}</a>
             {#            <a class="tablinks" onclick="openCity(event, 'Paris')">Пищевая промышленность</a>#}
             {#            <a class="tablinks" onclick="openCity(event, 'Tokyo')">Строительная промышленность</a>#}
         </div>
@@ -59,7 +60,7 @@
                                             <a href="{% url 'work:single-work' pk=work.pk %}">
                                                 <button class="button-left button-bottom"
                                                         style="margin-top: 4%;right: 32%">
-                                                    <p style="font-size: 16px;">Смотреть еще</p>
+                                                    <p style="font-size: 16px;">{% trans 'Смотреть еще' %}</p>
                                                 </button>
                                             </a>
                                         </li>
@@ -88,7 +89,7 @@
                                             </div>
                                             <a href="{% url 'work:single-work' pk=work.pk %}"> <input type="button"
                                                                                                       class="button1 ig-btn"
-                                                                                                      value="Смотреть"/></a>
+                                                                                                      value="{% trans 'Смотреть' %}"/></a>
                                         </div>
                                         <div class="info">
                                             <div class="row">
@@ -136,7 +137,7 @@ justify-content: center;">
         <br>
         <div class="dark-overlay">
             <div class="container p-5">
-                <h3 class="dark-text">О компании Uskunalar</h3>
+                <h3 class="dark-text">{% trans 'О компании Uskunalar' %}</h3>
                 <p class="dark-desc">Идейные соображения высшего порядка, а также постоянное
                     информационно-пропагандистское
                     обеспечение нашей деятельности представляет собой интересный.</p>
@@ -145,22 +146,22 @@ justify-content: center;">
                     <div class="col-md-3 col-6 number_icons">
                         <img src="{% static './images/box_1.svg' %}" style="margin-top: -50%;" alt="">
                         <h3 class="dark-number">980+</h3>
-                        <p class="number-desc">Продано</p>
+                        <p class="number-desc">{% trans 'Продано' %}</p>
                     </div>
                     <div class="col-md-3 col-6 number_icons">
                         <img src="{% static './images/man-user_1.svg' %}" style="margin-top: -50%;" alt="">
                         <h3 class="dark-number">650+</h3>
-                        <p class="number-desc">Постоянных клиентов</p>
+                        <p class="number-desc">{% trans 'Постоянных клиентов' %}</p>
                     </div>
                     <div class="col-md-3 col-6 number_icons">
                         <img src="{% static './images/project_1.svg' %}" style="margin-top: -50%;" alt="">
                         <h3 class="dark-number">999+</h3>
-                        <p class="number-desc">Реализация проектов</p>
+                        <p class="number-desc">{% trans 'Реализация проектов' %}</p>
                     </div>
                     <div class="col-md-3 col-6 number_icons">
                         <img src="{% static './images/group_1.svg' %}" style="margin-top: -50%;" alt="">
                         <h3 class="dark-number">599+</h3>
-                        <p class="number-desc">Сотрудников</p>
+                        <p class="number-desc">{% trans 'Сотрудников' %}</p>
                     </div>
                 </div>
             </div>
