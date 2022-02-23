@@ -1,11 +1,16 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.conf.urls.i18n import i18n_patterns
 from django.urls import path, include
 
 from about.views import AboutModelListView
 
 urlpatterns = [
+
+]
+
+urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include('about.urls', namespace='home')),
     path('blogs/', include('blog.urls', namespace='blog')),
@@ -14,7 +19,7 @@ urlpatterns = [
     path('lines/', include('lines.urls', namespace='line')),
     path('biznes/', include('biznes.urls', namespace='biznes')),
     path('products/', include('home.urls', namespace='products'))
-]
+)
 
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

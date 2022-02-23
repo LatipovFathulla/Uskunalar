@@ -1,7 +1,7 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% block content %}
-    
+
 <style>
     a.active:after {
         transform: rotate(45deg);
@@ -9,421 +9,129 @@
         -moz-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
         }
+
+
+
 </style>
 
-  <section class="banner">
+<section class="banner">
     <div class="container">
-      <div class="row">
+        <div class="row">
 
-      </div>
-      <h1 class="banner-text"> Категории</h1>
-      <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title"> Категории</a></span></p>
+        </div>
+        <h1 class="banner-text"> Категории</h1>
+        <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title"> Категории</a></span></p>
 
-      <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
+        <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
 
-  </section>
-  <br>
+</section>
+<br>
 
-  <div class="container">
+<div class="container">
     <div class="row">
         <div class="col-12">
-          <ul id="accordion" class="accordion">
-  
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya.svg' %}" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="./products.html">Прокатное производства</a></li>
-                  <li><a href="./products.html">Холодильники</a></li>
-                  <li>
-                    <ul class="accordion5_1">
-                        <li>
-                            <a>Lorem ipsum</a>
-                            <p>Lorem ipsum dolor1 </p>
-                            <p>lasdfasd fasdfasdf sadff</p>
+            <ul id="accordion" class="accordion">
+                {% for category in categories %}
+                    <li>
+                    <div class="link"><img src="{{ category.image.url }}" style="width:40px;height:40px" alt=""> <span
+                            style="position: absolute;margin-top: 3%;margin-left: 3%;font-family: revert;font-size: 16px;font-weight: 400;">{{ category.category }}</span><i class="fa fa-chevron-down"></i>
+                        <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
+                    </div>
+                    <ul class="submenu">
+                        {% for subcategory in subcategories %}
+                            <li style="height: auto;
+    margin: 10px;
+    font-size: 19px;
+    margin-left: 8%;">
+                                {% if subcategory.subcategory %}
+                                    {{ subcategory.subcategory }}
+                                {% else %}
+                                    {% for second_subcategory in second_subcategories %}
+                                        <li>
+                                            <ul class="accordion5_1">
+                                                <li>
+                                                    <a> {{ second_subcategory.second_subcategories }}</a>
+                                                    <p>Lorem ipsum dolor1 </p>
+                                                    <p>lasdfasd fasdfasdf sadff</p>
+                                                </li>
+                                                <li>
+                                                    <a>Repellat Odit Aliquid</a>
+                                                    <p>Lorem ipsum dolor1 </p>
+                                                </li>
+                                                <li>
+                                                    <a>Dolor sit Amet</a>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, ipsum,
+                                                        fuga, in, obcaecati magni ullam nobis voluptas fugiat tenetur voluptatum quas
+                                                        tempora maxime rerum neque deserunt suscipit provident cumque et mollitia ex
+                                                        aspernatur porro minus sapiente voluptatibus eos at perferendis repellat odit
+                                                        aliquid harum molestias ratione pariatur adipisci. Aliquid, iure.</p>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                            </li>
+                        {% endfor %}
                         </li>
-                        <li>
-                            <a>Repellat Odit Aliquid</a>
-                            <p>Lorem ipsum dolor1 </p>
-                        </li>
-                        <li>
-                            <a>Dolor sit Amet</a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, ipsum, fuga, in, obcaecati magni ullam nobis voluptas fugiat tenetur voluptatum quas tempora maxime rerum neque deserunt suscipit provident cumque et mollitia ex aspernatur porro minus sapiente voluptatibus eos at perferendis repellat odit aliquid harum molestias ratione pariatur adipisci. Aliquid, iure.</p>
-                        </li>
-                    </ul> 
-                  </li>
-                  <li><a href="./products.html">Мебель для кухни</a></li>
-                  <li><a href="./products.html">Мельница</a></li>
-                  <li><a href="./products.html">Переработка молока</a></li>
-                </ul>
-              </li>
-  
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya2.svg' %}" alt=""> <span
-                    style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Производство мебели и <br>
-                    обработка древесины </span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="./products.html">Прокатное производства</a></li>
-                  <li><a href="./products.html">Холодильники</a></li>
-                  <li><a href="./products.html">Растительные масла</a></li>
-                  <li><a href="./products.html">Мебель для кухни</a></li>
-                  <li><a href="./products.html">Мельница</a></li>
-                  <li><a href="./products.html">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya3.svg' %}" alt=""> <span
-                    style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Полиэтиленовая <br>
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="./products.html">Прокатное производства</a></li>
-                  <li><a href="./products.html">Холодильники</a></li>
-                  <li><a href="./products.html">Растительные масла</a></li>
-                  <li><a href="./products.html">Мебель для кухни</a></li>
-                  <li><a href="./products.html">Мельница</a></li>
-                  <li><a href="./products.html">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya4.svg' %}" alt=""> <span
-                    style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Пластиковая<br>
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="./products.html">Прокатное производства</a></li>
-                  <li><a href="./products.html">Холодильники</a></li>
-                  <li><a href="./products.html">Растительные масла</a></li>
-                  <li><a href="./products.html">Мебель для кухни</a></li>
-                  <li><a href="./products.html">Мельница</a></li>
-                  <li><a href="./products.html">Переработка молока</a></li>
-                </ul>
-              </li>
-              <img src="{% static './images/Group_417.svg' %}" class="icon-left" style="left: -24%;" alt="">
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya6.svg' %}" style="margin-left: 7px;" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Упаковочное
-                    оборудования</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="./products.html">Прокатное производства</a></li>
-                  <li><a href="./products.html">Холодильники</a></li>
-                  <li><a href="./products.html">Растительные масла</a></li>
-                  <li><a href="./products.html">Мебель для кухни</a></li>
-                  <li><a href="./products.html">Мельница</a></li>
-                  <li><a href="./products.html">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya7.svg' %}" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Memak</span><i
-                    class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="./products.html">Прокатное производства</a></li>
-                  <li><a href="./products.html">Холодильники</a></li>
-                  <li><a href="./products.html">Растительные масла</a></li>
-                  <li><a href="./products.html">Мебель для кухни</a></li>
-                  <li><a href="./products.html">Мельница</a></li>
-                  <li><a href="./products.html">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya.svg' %}" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="./products.html">Прокатное производства</a></li>
-                  <li><a href="./products.html">Холодильники</a></li>
-                  <li><a href="./products.html">Растительные масла</a></li>
-                  <li><a href="./products.html">Мебель для кухни</a></li>
-                  <li><a href="./products.html">Мельница</a></li>
-                  <li><a href="./products.html">Переработка молока</a></li>
-                </ul>
-              </li>
-              <!-- logotip product, дочерние компании, homiylar...., bayroqlar va davlat -->
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya2.svg' %}" alt=""> <span
-                    style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Производство мебели и <br>
-                    обработка древесины </span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya3.svg' %}" alt=""> <span
-                    style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Полиэтиленовая <br>
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya4.svg' %}" alt=""> <span
-                    style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Пластиковая<br>
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya6.svg' %}" style="margin-left: 7px;" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Упаковочное
-                    оборудования</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya7.svg' %}" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Memak</span><i
-                    class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya5.png' %}" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 1%;font-family: revert;font-weight: 100;">Строительная
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya_2.svg' %}" style="margin-left:3px" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya.svg' %}" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-  
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya2.svg' %}" alt=""> <span
-                    style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Производство мебели <br> и
-                    обработка древесины </span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya3.svg' %}" alt=""> <span
-                    style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Полиэтиленовая <br>
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya4.svg' %}" alt=""> <span
-                    style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 100;">Пластиковая<br>
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya6.svg' %}" style="margin-left: 7px;" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Упаковочное
-                    оборудования</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya7.svg' %}" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Memak</span><i
-                    class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya5.png' %}" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 1%;font-family: revert;font-weight: 100;">Строительная
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"> <img src="{% static './images/pishevaya_2.svg' %}" style="margin-left:3px" alt=""> <span
-                    style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
-                    промышленность</span><i class="fa fa-chevron-down"></i>
-                  <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                </div>
-                <ul class="submenu">
-                  <li><a href="#">Прокатное производства</a></li>
-                  <li><a href="#">Холодильники</a></li>
-                  <li><a href="#">Растительные масла</a></li>
-                  <li><a href="#">Мебель для кухни</a></li>
-                  <li><a href="#">Мельница</a></li>
-                  <li><a href="#">Переработка молока</a></li>
-                </ul>
-              </li>
+                    </ul>
+                </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
-  </div>
+</div>
 
 
-  <br>
-  <br>
+<br>
+<br>
 
 <script>
   console.clear();
+
+
+
 </script>
+
+<!--  Code by Fathulla Latipov LF -->
+
+{% endblock %}
+{% block extra_js %}
 <script>
     $(function () {
       var Accordion = function (el, multiple) {
         this.el = el || {};
         this.multiple = multiple || false;
-  
+
         // Variables privadas
         var links = this.el.find('.link');
         // Evento
         links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
       }
-  
+
       Accordion.prototype.dropdown = function (e) {
         var $el = e.data.el;
         $this = $(this),
           $next = $this.next();
-  
+
         $next.slideToggle();
         $this.parent().toggleClass('open');
-  
+
         if (!e.data.multiple) {
           $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
         };
       }
-  
+
       var accordion = new Accordion($('#accordion'), false);
     });
-  
-  
-  </script>
 
-  <script>
+
+
+
+
+</script>
+
+<script>
       (function($) {
         $('.accordion5_1 > a').addClass('active').next().slideDown();
 
@@ -444,7 +152,8 @@
             j.preventDefault();
         });
     })(jQuery);
-  </script>
-<!--  Code by Fathulla Latipov LF -->
 
+
+
+</script>
 {% endblock %}

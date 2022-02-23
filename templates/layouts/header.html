@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 {% load tags %}
 <style>
 
@@ -19,11 +20,11 @@
 <nav class="container navbar navbar-expand-lg navbar-light bg-white">
     <ul id="accordion4" class="accordion4">
         <li>
-            <div class="link"><a href="" style="color:#000">Русский</a> <i class="fa fa-chevron-down"></i></div>
+            <div class="link"><a href="" style="color:#000">{% trans 'Русский' %}</a> <i class="fa fa-chevron-down"></i></div>
             <ul class="submenu4">
-                <li><a href="#">Узбекский</a></li>
+                <li><a href="#">{% trans 'Узбекский' %}</a></li>
                 <hr class="mb-0 mt-0">
-                <li><a href="#">Английский</a></li>
+                <li><a href="#">{% trans 'Английский' %}</a></li>
             </ul>
         </li>
     </ul>
@@ -33,31 +34,29 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <li class="nav-item">
-                <a class="nav-link-2" href="{% url 'products:product' %}"> <img
-                        src="{% static './images/search_product.svg' %}" class="not-found" alt=""> Не нашли
-                    товар?</a>
+                <a class="nav-link-2" href="{% url 'products:product' %}">{% trans 'Продукты' %}</a>
             </li>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item{% if request.path == '/lines/' %}-active{% endif %}">
-                    <a class="nav-link" href="{% url 'line:lines' %}">Линии</a>
+                    <a class="nav-link" href="{% url 'line:lines' %}">{% trans 'Линии' %}</a>
                 </li>
                 <li class="nav-item{% if request.path == '/biznes/' %}-active{% endif %}">
-                    <a class="nav-link" href="{% url 'biznes:biznes' %}">Готовый бизнес</a>
+                    <a class="nav-link" href="{% url 'biznes:biznes' %}">{% trans 'Готовый бизнес' %}</a>
                 </li>
                 <li class="nav-item{% if request.path == '/works/' %}-active{% endif %}">
-                    <a class="nav-link" href="{% url 'work:works' %}">Наши работы</a>
+                    <a class="nav-link" href="{% url 'work:works' %}">{% trans 'Наши работы' %}</a>
                 </li>
                 <li class="nav-item{% if request.path == '/blogs/' %}-active{% endif %}">
-                    <a class="nav-link" href="{% url 'blog:blogs' %}">Статьи</a>
+                    <a class="nav-link" href="{% url 'blog:blogs' %}">{% trans 'Статьи' %}</a>
                 </li>
                 <li class="nav-item{% if request.path == '/videos/' %}-active{% endif %}">
-                    <a class="nav-link" href="/videos/">Наши видео</a>
+                    <a class="nav-link" href="/videos/">{% trans 'Наши видео' %}</a>
                 </li>
                 <li class="nav-item{% if request.path == '/about/' %}-active{% endif %}">
-                    <a class="nav-link" href="{% url 'home:about' %}">О нас</a>
+                    <a class="nav-link" href="{% url 'home:about' %}">{% trans 'О нас' %}</a>
                 </li>
                 <li class="nav-item{% if request.path == '/contacts/' %}-active{% endif %}">
-                    <a class="nav-link" href="{% url 'home:contacts' %}">Контакты</a>
+                    <a class="nav-link" href="{% url 'home:contacts' %}">{% trans 'Контакты' %}</a>
                 </li>
             </ul>
         </form>
@@ -97,20 +96,19 @@
             <div class="hamburger-menu">
                 <ul class="main-links">
                     <img src="{% static './images/logo.png' %}" class="logo_image2" alt="">
-                    <li class="delay02"><a href="{% url 'home:catalog' %}">Каталог</a></li>
-                    <li class="delay03"><a href="{% url 'work:works' %}">Наши работы</a></li>
-                    <li class="delay04"><a href="{% url 'video:videos' %}">Наши видео</a></li>
-                    <li class="delay05"><a href="{% url 'blog:blogs' %}">Наши статьи</a></li>
-                    <li class="delay06"><a href="{% url 'home:about' %}">О нас</a></li>
-                    <li class="delay07"><a href="{% url 'home:contacts' %}">Контакты</a></li>
+                    <li class="delay02"><a href="{% url 'home:catalog' %}">{% trans 'Каталог' %}</a></li>
+                    <li class="delay03"><a href="{% url 'work:works' %}">{% trans 'Наши работы' %}</a></li>
+                    <li class="delay04"><a href="{% url 'video:videos' %}">{% trans 'Наши видео' %}</a></li>
+                    <li class="delay05"><a href="{% url 'blog:blogs' %}">{% trans 'Наши статьи' %}</a></li>
+                    <li class="delay06"><a href="{% url 'home:about' %}">{% trans 'О нас' %}</a></li>
+                    <li class="delay07"><a href="{% url 'home:contacts' %}">{% trans 'Контакты' %}</a></li>
                     <li class="delay08"><a href="./not_found_product.html"><img
-                            src="{% static './images/search_product.svg' %}" class="not-found" alt=""> Не нашли
-                        товар?</a></li>
+                            src="{% static './images/search_product.svg' %}" class="not-found" alt="">{% trans 'Не нашли товар?' %}</a></li>
                     <li class="delay09"><a href="tel:+998 71 250 77 77">
                         <p style="color: #000;font-weight: bold;">+998 71 250 77 77</p>
                     </a></li>
                     <li class="delay08" style="margin-top: -7%"><a href="">
-                        <p style="color: #FF0007;">заказать звонок</p>
+                        <p style="color: #FF0007;">{% trans 'звонить сейчас' %}</p>
                     </a></li>
                 </ul>
             </div>
@@ -120,25 +118,24 @@
             <div class="elemet-menu">
           <span class="fas fa-th-large1" style="width:146px;height: 53px;background-color: #FFE700;line-height: 39px;">
             <img src="{% static './images/squares_2.svg' %}" alt=""> <b
-                  style="color: #132E6B;padding: 0px;font-size: 18px;font-weight: 500;font-style: normal;font-family: 'TT Norms';text-align: center;margin-left:3%;">Каталог</b>
+                  style="color: #132E6B;padding: 0px;font-size: 18px;font-weight: 500;font-style: normal;font-family: 'TT Norms';text-align: center;margin-left:3%;">{% trans 'Каталог' %}</b>
           </span>
             </div>
         </div>
         <nav class="sidebar">
             <div class="text">
-                Категории
+                {% trans 'Категории' %}
             </div>
             <!-- menu in categories -->
             <div class="minimalist-tab-menu2">
                 <ul class="list-group2">
                     <li class="menu-item2 has-child3">
                         <img src="{% static './images/pishevaya.svg' %}" style="margin-top: 0%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size: 13px;font-weight: normal;font-style: normal;">Пищеваяпромышленностьяяя</span>
+                            style="margin-top: 0%;position: absolute;font-size: 13px;font-weight: normal;font-style: normal;">{% trans 'Пищеваяпромышленностьяяя' %}</span>
                     </li>
                     <li class="menu-item2 has-child2">
                         <img src="{% static './images/squares_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2.9%;font-weight: normal;font-style: normal;">Все
-                категории</span>
+                            style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2.9%;font-weight: normal;font-style: normal;">{% trans 'Все категории' %}</span>
                     </li>
                 </ul>
 
@@ -173,10 +170,9 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="tel:+99871 250 77 77" style="color: #000;padding: 0px;margin: 0px;"><span
-                            class="phone_link">+998 71
-                250 77 77</span></a>
+                            class="phone_link">+998 71 250 77 77</span></a>
                     <br>
-                    <span class="call">заказать звонок </span>
+                    <span class="call">{% trans 'звонить сейчас' %}</span>
                 </li>
             </ul>
         </form>
@@ -200,8 +196,7 @@
                                     <div class="box" style="width: 160px;height: 160px;">
                                         <img src="{% static './images/catalog_image_1.png' %}"
                                              style="margin: auto;display: table;margin-top: -10px;" alt="">
-                                        <p style="text-align: center;font-family: sans-serif;font-weight: 500;margin-top: 3px;">
-                                            Блок гишт</p>
+                                        <p style="text-align: center;font-family: sans-serif;font-weight: 500;margin-top: 3px;">Блок гишт</p>
                                     </div>
                                 </div>
                                 <div class="col-md-3">

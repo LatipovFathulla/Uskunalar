@@ -6,7 +6,7 @@ from django.contrib import messages
 from about.forms import ContactModelForm
 from about.models import AboutModel
 from blog.models import BlogModel
-from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
+from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, SecondSubCategoryModel
 from lines.models import LineModel
 from works.models import WorkModel
 
@@ -78,4 +78,12 @@ class NavbarView(TemplateView):
 
 class CatalogView(TemplateView):
     template_name = 'catalog.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = CategoryModel.objects.order_by('-pk')
+        context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
+        context['second_subcategories'] = SecondSubCategoryModel.objects.order_by('-pk')
+
+        return context
 

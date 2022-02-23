@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-25 11:17+0500\n"
+"POT-Creation-Date: 2022-02-23 18:23+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,150 +18,343 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: home/models.py:7 home/models.py:19 home/models.py:32 home/models.py:49
-msgid "category"
-msgstr ""
-
-#: home/models.py:8 home/models.py:60 home/models.py:103
-msgid "created_at"
-msgstr ""
-
-#: home/models.py:20 home/models.py:27 home/models.py:33 home/models.py:50
-msgid "subcategory"
-msgstr ""
-
-#: home/models.py:21 home/models.py:35
-msgid "crated_at"
-msgstr ""
-
-#: home/models.py:28
-msgid "subcategories"
-msgstr ""
-
-#: home/models.py:34 home/models.py:41 home/models.py:52
-msgid "second_subcategory"
-msgstr ""
-
-#: home/models.py:42
-msgid "second_subcategories"
-msgstr ""
-
-#: home/models.py:46
+#: about/models.py:6 biznes/models.py:6 blog/models.py:6 home/models.py:51
+#: lines/models.py:6 videos/models.py:7 works/models.py:6
 msgid "title"
 msgstr ""
 
-#: home/models.py:47
-msgid "sku"
-msgstr ""
-
-#: home/models.py:48
+#: about/models.py:7 blog/models.py:7 home/models.py:53 home/models.py:106
+#: lines/models.py:7 lines/models.py:29
 msgid "image"
 msgstr ""
 
-#: home/models.py:53
-msgid "price"
+#: about/models.py:8 blog/models.py:8 lines/models.py:9 videos/models.py:8
+msgid "description"
+msgstr ""
+
+#: about/models.py:9 about/models.py:23 biznes/models.py:9 home/models.py:12
+#: home/models.py:66 lines/models.py:11 videos/models.py:10
+msgid "created_at"
+msgstr ""
+
+#: about/models.py:20
+msgid "name"
+msgstr ""
+
+#: about/models.py:21
+msgid "phone"
+msgstr ""
+
+#: about/models.py:22
+msgid "message"
+msgstr ""
+
+#: about/models.py:29
+msgid "Request"
+msgstr ""
+
+#: about/models.py:30
+msgid "Requests"
+msgstr ""
+
+#: biznes/models.py:7 biznes/models.py:26 biznes/models.py:27
+#: biznes/models.py:30 biznes/models.py:31
+msgid "biznes_image"
+msgstr ""
+
+#: biznes/models.py:8
+msgid "long_descriptions"
+msgstr ""
+
+#: biznes/models.py:21 biznes/models.py:22
+msgid "biznes"
+msgstr ""
+
+#: blog/models.py:9
+msgid "smart_description"
+msgstr ""
+
+#: blog/models.py:10
+msgid "smart_text"
+msgstr ""
+
+#: home/models.py:10 home/models.py:23 home/models.py:37 home/models.py:55
+msgid "category"
+msgstr ""
+
+#: home/models.py:11
+msgid "category_image"
+msgstr ""
+
+#: home/models.py:24
+msgid "sub_image"
+msgstr ""
+
+#: home/models.py:25 home/models.py:32 home/models.py:38 home/models.py:56
+msgid "subcategory"
+msgstr ""
+
+#: home/models.py:26 home/models.py:40
+msgid "crated_at"
+msgstr ""
+
+#: home/models.py:33
+msgid "subcategories"
+msgstr ""
+
+#: home/models.py:39 home/models.py:46 home/models.py:58
+msgid "second_subcategory"
+msgstr ""
+
+#: home/models.py:47
+msgid "second_subcategories"
 msgstr ""
 
 #: home/models.py:54
-msgid "price_dollar"
-msgstr ""
-
-#: home/models.py:55
-msgid "discount"
+msgid "pdf"
 msgstr ""
 
 #: home/models.py:57
-msgid "inbox"
-msgstr ""
-
-#: home/models.py:58
-msgid "delivery"
+msgid "city"
 msgstr ""
 
 #: home/models.py:59
+msgid "price"
+msgstr ""
+
+#: home/models.py:60
+msgid "dollar"
+msgstr ""
+
+#: home/models.py:61
+msgid "discount"
+msgstr ""
+
+#: home/models.py:62
+msgid "inbox"
+msgstr ""
+
+#: home/models.py:63
+msgid "delivery"
+msgstr ""
+
+#: home/models.py:64
 msgid "short_description"
 msgstr ""
 
-#: home/models.py:84
-msgid "banner_title"
+#: home/models.py:65 lines/models.py:10
+msgid "long_description"
 msgstr ""
 
-#: home/models.py:85
-msgid "banner_sku"
+#: home/models.py:105
+msgid "product"
 msgstr ""
 
-#: home/models.py:86
-msgid "banner_image"
+#: home/models.py:109
+msgid "product image"
 msgstr ""
 
-#: home/models.py:88
-msgid "banner_price"
-msgstr ""
-
-#: home/models.py:89
-msgid "banner_price_dollar"
-msgstr ""
-
-#: home/models.py:90
-msgid "banner_description"
-msgstr ""
-
-#: home/models.py:92
-msgid "first_specifications"
-msgstr ""
-
-#: home/models.py:93
-msgid "second_specifications"
-msgstr ""
-
-#: home/models.py:94
-msgid "third_specifications"
-msgstr ""
-
-#: home/models.py:95
-msgid "four_specifications"
-msgstr ""
-
-#: home/models.py:96
-msgid "five_specifications"
-msgstr ""
-
-#: home/models.py:97
-msgid "six_specifications"
-msgstr ""
-
-#: home/models.py:98
-msgid "seven_specifications"
-msgstr ""
-
-#: home/models.py:99
-msgid "eight_specifications"
-msgstr ""
-
-#: home/models.py:100
-msgid "nine_specifications"
-msgstr ""
-
-#: home/models.py:101
-msgid "ten_specifications"
-msgstr ""
-
-#: home/models.py:102
-msgid "eleven_specifications"
+#: home/models.py:110
+msgid "product images"
 msgstr ""
 
 #: home/models.py:114
-msgid "error"
+msgid "products"
 msgstr ""
 
-#: uskunalar/settings.py:100
+#: home/models.py:115
+msgid "product_customer"
+msgstr ""
+
+#: home/models.py:116
+msgid "product_numbers"
+msgstr ""
+
+#: home/models.py:117
+msgid "product_image"
+msgstr ""
+
+#: home/models.py:120
+msgid "product specification"
+msgstr ""
+
+#: home/models.py:121
+msgid "product specifications"
+msgstr ""
+
+#: lines/models.py:8
+msgid "line_pdf"
+msgstr ""
+
+#: lines/models.py:23
+msgid "line"
+msgstr ""
+
+#: lines/models.py:24
+msgid "lines"
+msgstr ""
+
+#: lines/models.py:28
+msgid "line_image"
+msgstr ""
+
+#: lines/models.py:32
+msgid "line specification"
+msgstr ""
+
+#: lines/models.py:33
+msgid "line specifications"
+msgstr ""
+
+#: templates/index.html:49 templates/layouts/header.html:23
+msgid "Русский"
+msgstr ""
+
+#: templates/index.html:51 templates/layouts/header.html:25
+msgid "Узбекский"
+msgstr ""
+
+#: templates/index.html:53 templates/layouts/header.html:27
+msgid "Английский"
+msgstr ""
+
+#: templates/index.html:64 templates/layouts/header.html:106
+msgid "Не нашли товар?"
+msgstr ""
+
+#: templates/index.html:68 templates/layouts/header.html:41
+msgid "Линии"
+msgstr ""
+
+#: templates/index.html:71 templates/layouts/header.html:44
+msgid "Готовый бизнес"
+msgstr ""
+
+#: templates/index.html:74 templates/layouts/header.html:47
+#: templates/layouts/header.html:100
+msgid "Наши работы"
+msgstr ""
+
+#: templates/index.html:77 templates/layouts/header.html:50
+msgid "Статьи"
+msgstr ""
+
+#: templates/index.html:80 templates/layouts/header.html:53
+#: templates/layouts/header.html:101
+msgid "Наши видео"
+msgstr ""
+
+#: templates/index.html:83 templates/layouts/header.html:56
+#: templates/layouts/header.html:103
+msgid "О нас"
+msgstr ""
+
+#: templates/index.html:86 templates/layouts/header.html:59
+#: templates/layouts/header.html:104
+msgid "Контакты"
+msgstr ""
+
+#: templates/layouts/header.html:37
+msgid "Продукты"
+msgstr ""
+
+#: templates/layouts/header.html:99 templates/layouts/header.html:121
+msgid "Каталог"
+msgstr ""
+
+#: templates/layouts/header.html:102
+msgid "Наши статьи"
+msgstr ""
+
+#: templates/layouts/header.html:111 templates/layouts/header.html:175
+msgid "звонить сейчас"
+msgstr ""
+
+#: templates/layouts/header.html:127
+msgid "Категории"
+msgstr ""
+
+#: templates/layouts/header.html:134
+msgid "Пищеваяпромышленностьяяя"
+msgstr ""
+
+#: templates/layouts/header.html:138
+msgid "Все категории"
+msgstr ""
+
+#: templates/products.html:252
+msgid "Showing"
+msgstr ""
+
+#: templates/products.html:252
+msgid "of"
+msgstr ""
+
+#: templates/products.html:284
+msgid "Default"
+msgstr ""
+
+#: templates/products.html:285
+msgid "Low to high"
+msgstr ""
+
+#: templates/products.html:286
+msgid "High to low"
+msgstr ""
+
+#: uskunalar/settings.py:109
 msgid "English"
 msgstr ""
 
-#: uskunalar/settings.py:101
+#: uskunalar/settings.py:110
 msgid "Russian"
 msgstr ""
 
-#: uskunalar/settings.py:102
+#: uskunalar/settings.py:111
 msgid "Uzbek"
+msgstr ""
+
+#: videos/models.py:16
+msgid "video"
+msgstr ""
+
+#: videos/models.py:17
+msgid "videos"
+msgstr ""
+
+#: works/models.py:7
+msgid "works"
+msgstr ""
+
+#: works/models.py:8
+msgid "short_descriptions"
+msgstr ""
+
+#: works/models.py:9
+msgid "descriptions"
+msgstr ""
+
+#: works/models.py:27 works/models.py:28 works/models.py:31 works/models.py:32
+#: works/models.py:39
+msgid "work_image"
+msgstr ""
+
+#: works/models.py:36
+msgid "work"
+msgstr ""
+
+#: works/models.py:37
+msgid "work_customer"
+msgstr ""
+
+#: works/models.py:38
+msgid "work_numbers"
+msgstr ""
+
+#: works/models.py:42
+msgid "work specification"
+msgstr ""
+
+#: works/models.py:43
+msgid "work specifications"
 msgstr ""

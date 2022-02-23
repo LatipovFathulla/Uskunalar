@@ -459,7 +459,7 @@
                                     {% if product.is_discount %}
                                         <a href="#" class="card-link1"><button class="btn"
                                             style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">Sale</p>
+                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
                                           </button></a>
                                     {% elif product.is_new %}
                                             <a href="#" class="card-link1">

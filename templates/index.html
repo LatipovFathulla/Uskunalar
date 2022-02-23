@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 {% load tags %}
 <!DOCTYPE html>
 <html lang="en">
@@ -45,11 +46,11 @@
 <nav class="container navbar navbar-expand-lg navbar-light bg-white">
     <ul id="accordion4" class="accordion4">
         <li>
-            <div class="link">Русский<i class="fa fa-chevron-down"></i></div>
+            <div class="link">{% trans 'Русский' %}<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu4">
-                <li><a href="#">Узбекский</a></li>
+                <li><a href="#">{% trans 'Узбекский' %}</a></li>
                 <hr class="mb-0 mt-0">
-                <li><a href="#">Английский</a></li>
+                <li><a href="#">{% trans 'Английский' %}</a></li>
             </ul>
         </li>
     </ul>
@@ -60,30 +61,29 @@
         <form class="form-inline my-2 my-lg-0">
             <li class="nav-item">
                 <a class="nav-link-2" href="{% url 'products:product' %}"> <img
-                        src="{% static './images/search_product.svg' %}" class="not-found" alt=""> Не нашли
-                    товар?</a>
+                        src="{% static './images/search_product.svg' %}" class="not-found" alt=""> {% trans 'Не нашли товар?' %}</a>
             </li>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'line:lines' %}" style="color: #202634;">Линии</a>
+                    <a class="nav-link" href="{% url 'line:lines' %}" style="color: #202634;">{% trans 'Линии' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'biznes:biznes' %}" style="color: #202634;">Готовый бизнес</a>
+                    <a class="nav-link" href="{% url 'biznes:biznes' %}" style="color: #202634;">{% trans 'Готовый бизнес' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'work:works' %}" style="color: #202634;">Наши работы</a>
+                    <a class="nav-link" href="{% url 'work:works' %}" style="color: #202634;">{% trans 'Наши работы' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:blogs' %}">Статьи</a>
+                    <a class="nav-link" href="{% url 'blog:blogs' %}">{% trans 'Статьи' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'video:videos' %}">Наши видео</a>
+                    <a class="nav-link" href="{% url 'video:videos' %}">{% trans 'Наши видео' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home:about' %}">О нас</a>
+                    <a class="nav-link" href="{% url 'home:about' %}">{% trans 'О нас' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home:contacts' %}">Контакты</a>
+                    <a class="nav-link" href="{% url 'home:contacts' %}">{% trans 'Контакты' %}</a>
                 </li>
             </ul>
         </form>
@@ -217,7 +217,7 @@
                     {% for subcategory in subcategories %}
                     <div class="minimalist-tab-content2">
                         <div class="container" style="height: 605px;">
-                            <h3 class="mt-4">{{ subcategory.category|slice:':1' }}</h3>
+                            <h3 class="mt-4">{{ subcategory.category }}</h3>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="menu-dropdown2">
