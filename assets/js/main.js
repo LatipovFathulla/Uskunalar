@@ -58,10 +58,6 @@ var splide = new Splide('.splide_3_2', {
   });
 
 splide.mount();
-
-
-
-
 // $(document).ready(function() {
 
 // $('h3').magnificPopup({

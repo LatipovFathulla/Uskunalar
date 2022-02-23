@@ -1,8 +1,10 @@
 {% load static %}
 {% load tags %}
 <style>
+
+
   @media (min-width:1200px) {
-      .form {
+      .form-mobile-2 {
         display:none
       }
       .control {
@@ -74,6 +76,7 @@
           <p class="like_count">{% get_wishlist_count request %}</p>
         </span>
         </a>
+        <li class="form-mobile-2">
             <div class='control' tabindex='1'>
                 <div class='btn' style="padding: 20px;"></div>
                 <i class='icon-search ion-search'></i>
@@ -84,6 +87,7 @@
                 <input class='input-search' name="q" value="{{ request.GET.q }}"  placeholder='Start Typing' type='text'>
                 <button class="btn" type="submit" style="width: 16%;height: 62px;position: absolute;right: 10px;top: 10px;background:#FFE700"><i class='icon-search ion-search' style="top:12px"></i></button>
             </form>
+        </li>
         <div class="hamburger-wrapper">
             <div class="hamburger">
                 <div class="my_menu">
@@ -129,41 +133,7 @@
                 <ul class="list-group2">
                     <li class="menu-item2 has-child3">
                         <img src="{% static './images/pishevaya.svg' %}" style="margin-top: 0%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size: 13px;font-weight: normal;font-style: normal;">Пищевая
-                промышленностьяяя</span>
-                    </li>
-                    <li class="menu-item2 has-child2">
-                        <img src="{% static './images/pishevaya_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size: 13px;margin-left: -2.5%;font-weight: normal;font-style: normal;">Пищевая
-                промышленность</span>
-                    </li>
-                    <li class="menu-item2 has-child2">
-                        <img src="{% static './images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: normal;font-style: normal;">Мемас</span>
-                    </li>
-                    <li class="menu-item2 has-child2">
-                        <img src="{% static './images/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Строительная
-                промышленность</span>
-                    </li>
-                    <li class="menu-item2 has-child2">
-                        <img src="{% static './images/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
-                промышленность</span>
-                    </li>
-                    <li class="menu-item2 has-child2">
-                        <img src="{% static './images/memak_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2%;font-weight: normal;font-style: normal;">Мемас</span>
-                    </li>
-                    <li class="menu-item2 has-child2">
-                        <img src="{% static './images/pishevaya5.png' %}" style="margin-top: 3%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size:12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Строительная
-                промышленность</span>
-                    </li>
-                    <li class="menu-item2 has-child2">
-                        <img src="{% static './images/pishevaya4.svg' %}" style="margin-top: 5%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size: 12px;margin-left:-2.5%;font-weight: normal;font-style: normal;">Пластиковая
-                промышленность</span>
+                            style="margin-top: 0%;position: absolute;font-size: 13px;font-weight: normal;font-style: normal;">Пищеваяпромышленностьяяя</span>
                     </li>
                     <li class="menu-item2 has-child2">
                         <img src="{% static './images/squares_2.svg' %}" style="margin-top: 5%;" alt=""><span

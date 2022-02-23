@@ -16,7 +16,7 @@ class AboutModel(models.Model):
         verbose_name_plural = 'abouts'
 
 
-class ContactModel(models.Model):
+class RequestsModel(models.Model):
     name = models.CharField(max_length=90, verbose_name=_('name'))
     phone = models.CharField(max_length=20, verbose_name=_('phone'))
     message = models.TextField(verbose_name=_('message'))
@@ -26,7 +26,7 @@ class ContactModel(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'contact'
-        verbose_name_plural = 'contacts'
+        verbose_name = _('Request')
+        verbose_name_plural = _('Requests')
 
 

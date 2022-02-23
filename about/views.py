@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import ListView, TemplateView, CreateView, DetailView
+from django.contrib import messages
 
 from about.forms import ContactModelForm
 from about.models import AboutModel
@@ -30,10 +31,23 @@ class AboutModelDetailView(DetailView):
         return context
 
 
-class ContactModelCreateView(CreateView):
+class ContactModelTemplateView(TemplateView):
     template_name = 'contacts.html'
+
+
+class RequestCreateView(CreateView):
+    template_name = 'requests.html'
     form_class = ContactModelForm
-    success_url = '/'
+
+    def form_valid(self, form):
+        form.save()
+
+        messages.add_message(self.request, messages.INFO, 'Успешно!')
+        return super().form_valid(form)
+
+    def get_success_url(self):
+
+        return reverse('home:contacts')
 
 
 class HomeView(TemplateView):
@@ -48,6 +62,16 @@ class HomeView(TemplateView):
         context['works'] = WorkModel.objects.order_by('-pk')[:4]
         context['blogs'] = BlogModel.objects.order_by('-pk')
         context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
+
+        return context
+
+
+class NavbarView(TemplateView):
+    template_name = 'header.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = CategoryModel.objects.order_by('-pk')[:13]
 
         return context
 
