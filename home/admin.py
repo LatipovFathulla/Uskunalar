@@ -18,21 +18,21 @@ class MyTranslationAdmin(TranslationAdmin):
 
 
 @admin.register(CategoryModel)
-class CategoryModelAdmin(admin.ModelAdmin):
+class CategoryModelAdmin(MyTranslationAdmin):
     list_display = ['category', 'created_at']
     search_fields = ['category']
     list_filter = ['category']
 
 
 @admin.register(SubCategoryModel)
-class SubCategoryModelAdmin(admin.ModelAdmin):
+class SubCategoryModelAdmin(MyTranslationAdmin):
     list_display = ['category', 'subcategory', 'created_at']
     search_fields = ['category', 'subcategory']
     list_filter = ['category', 'subcategory']
 
 
 @admin.register(SecondSubCategoryModel)
-class SecondSubCategoryModelAdmin(admin.ModelAdmin):
+class SecondSubCategoryModelAdmin(MyTranslationAdmin):
     list_display = ['category', 'subcategory', 'secondsubcategory', 'created_at']
     search_fields = ['category', 'subcategory', 'secondsubcategory', ]
     list_filter = ['category', 'subcategory', 'secondsubcategory', ]
@@ -47,7 +47,7 @@ class ProductSpecificationsModelAdmin(admin.TabularInline):
 
 
 @admin.register(BannerInfoModel)
-class BannerInfoModelAdmin(admin.ModelAdmin):
+class BannerInfoModelAdmin(MyTranslationAdmin):
     list_display = ['title', 'sku', 'price', 'pdf', 'city', 'created_at', 'category', 'subcategory', 'secondsubcategory', ]
     search_fields = ['title', 'sku']
     list_filter = ['created_at']

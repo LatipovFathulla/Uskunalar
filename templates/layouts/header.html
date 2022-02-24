@@ -25,12 +25,17 @@
 <nav class="container navbar navbar-expand-lg navbar-light bg-white">
     <ul id="accordion4" class="accordion4">
         <li>
-            <div class="link"><a href="" style="color:#000">{% trans 'Русский' %}</a> <i class="fa fa-chevron-down"></i>
+             {% get_current_language as lang %}
+             {% get_available_languages as langs %}
+            <div class="link"><a href="" style="color:#000">{{ lang }}</a> <i class="fa fa-chevron-down"></i>
             </div>
             <ul class="submenu4">
-                <li><a href="#">{% trans 'Узбекский' %}</a></li>
+                  {% for l in langs %}
+                 {% if l.0 != lang %}
                 <hr class="mb-0 mt-0">
-                <li><a href="#">{% trans 'Английский' %}</a></li>
+                <li><a href="{% get_url_lang request l.0 %}">{{ l.0 }}</a></li>
+                  {% endif %}
+                {% endfor %}
             </ul>
         </li>
     </ul>
