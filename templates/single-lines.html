@@ -1,14 +1,15 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
     <section class="banner">
         <div class="container">
             <div class="row">
 
             </div>
-            <h1 class="banner-text">Линии</h1>
-            <a href="/" style="color: #132E6B"><p class="banner-desc">Главная <span></a> > <a
-                href="{% url 'work:works' %}" class="banner-desc-title">Линии</a></span> > <a href=""
+            <h1 class="banner-text">{% trans 'Линии' %}</h1>
+            <a href="/" style="color: #132E6B"><p class="banner-desc">{% trans 'Главная' %} <span></a> > <a
+                href="{% url 'work:works' %}" class="banner-desc-title">{% trans 'Линии' %}</a></span> > <a href=""
                                                                                               class="banner-desc-title">{{ object.title }}</a></span></p>
 
             <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">

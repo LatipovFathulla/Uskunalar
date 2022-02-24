@@ -1,5 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <section class="banner">
@@ -7,8 +8,8 @@
         <div class="row">
 
         </div>
-        <h1 class="banner-text">Карточка товара</h1>
-        <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Карточка товара</a></span> > <a
+        <h1 class="banner-text">{% trans 'Карточка товара' %}</h1>
+        <a href="/" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a> <span> > <a href="" class="banner-desc-title">{% trans 'Карточка товара' %}</a></span> > <a
                 href="" class="banner-desc-title">{{ object.title }}</a></span></p>
 
         <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
@@ -52,17 +53,17 @@
                     <p class="in_box"><img src="{% static './images/radius.svg' %}" alt="">{{ object.inbox }}</p>
                 </div>
                 <div class="col-md-6 mt-3">
-                    <p class="in_article">Артикул:{{ object.sku }}</p>
+                    <p class="in_article">{% trans 'Артикул' %}:{{ object.sku }}</p>
                 </div>
             </div>
             <p class="desc_prod mt-4">{{ object.short_description }}</p>
             <div class="row">
                 <div class="col-md-6 mt-4">
-                    <p class="price_prod">Цена в долорах:</p>
+                    <p class="price_prod">{% trans 'Цена в долорах' %}:</p>
                     <h3 class="count_prod">${{ object.dollar }}</h3>
                 </div>
                 <div class="col-md-6 mt-4">
-                    <p class="price_prod">Цена в суммах:</p>
+                    <p class="price_prod">{% trans 'Цена в суммах' %}:</p>
                     <h3 class="count_prod">{{ object.price }} сум</h3>
                 </div>
             </div>
@@ -88,8 +89,7 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">Заполните форму и наши
-                                        операторы с вами свяжутся</h5>
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">{% trans 'Заполните форму и наши операторы с вами свяжутся' %}</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -124,14 +124,14 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" style="height: 55px;margin-top: 5%;"
-                                            data-dismiss="modal">Закрыть
+                                            data-dismiss="modal">{% trans 'Закрыть' %}
                                     </button>
                                     <ul>
                                         <li>
                                             <button class="button-left button-bottom-left" type="submit"
                                                     data-toggle="modal" data-target="#exampleModalCenter"
                                                     style="width: 113px;height: 55px;position: relative;left: 5%;">
-                                                <p class="carousel-button-text">Купить</p>
+                                                <p class="carousel-button-text">{% trans 'Купить' %}</p>
                                             </button>
                                         </li>
                                     </ul>
@@ -145,7 +145,7 @@
                                 <button id="single-buttom" class="button-left button-bottom-left" type="button"
                                         data-toggle="modal" data-target="#exampleModalCenter"
                                         style="width: 113px;height: 57px;">
-                                    <p class="carousel-button-text">Купить</p>
+                                    <p class="carousel-button-text">{% trans 'Купить' %}</p>
                                 </button>
                             </li>
                         </ul>
@@ -154,13 +154,12 @@
                 <div class="col-md-4 mt-4">
                     <div class="numbers_prod">
                         <p class="mas"><a href="https://qishloqqurilishbank.uz/ru" target="_blank"
-                                          style="border-bottom: 1px dashed #132E6B;color: #132E6B;list-style-type: none;">Купить
-                            через банк</a></p>
+                                          style="border-bottom: 1px dashed #132E6B;color: #132E6B;list-style-type: none;">{% trans 'Купить через банк' %}</a></p>
                     </div>
                 </div>
             </div>
             <a href="{{ object.pdf.url }}"> <img src="{% static './images/pdf' %} 1.svg" alt=""><span
-                    class="download_pdf">Скачать Pdf</span></a>
+                    class="download_pdf">{% trans 'Скачать Pdf' %}</span></a>
         </div>
         <img src="{% static './images/settings.svg' %}" class="icon-right" style="transform: rotate(-25deg);" alt="">
         <img src="{% static './images/Group_419.svg' %}" class="icon-right-2"
@@ -170,7 +169,7 @@
 <br>
 <div data-aos="fade-right">
     <div class="container">
-        <p class="description_prod">Характеристики и описания оборудования</p>
+        <p class="description_prod">{% trans 'Характеристики и описания оборудования' %}</p>
     </div>
     <div class="container" style="border: 1px solid #C9C8D3;border-radius: 4px;padding: 20px;">
         <table class="table table-striped">
@@ -201,7 +200,7 @@
     </div>
     <img src="{% static './images/Group_417.svg' %}" class="icon-right-transform" style="position: absolute;" alt="">
     <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
-        Популярные товары</h1>
+        {% trans 'Популярные товары' %}</h1>
     <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
         информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
     <br>
@@ -446,8 +445,8 @@
                                 <img src="{{ product.image.url }}" class="product-image-url" alt="">
                                 <div class="card-text">
                                     <h4 class="front-title">{{ object.title }}</h4>
-                                    <p class="detail">Артикул: {{ object.sku }}</p>
-                                    <p class="detail">Город: {{ object.city }}</p>
+                                    <p class="detail">{% trans 'Артикул' %}: {{ object.sku }}</p>
+                                    <p class="detail">{% trans 'Город' %}: {{ object.city }}</p>
                                     <p class="desc">${{ object.dollar }} - {{ object.price }} сум</p>
                                 </div>
                             </div>
@@ -478,7 +477,7 @@
                                     <ul>
                                         <li>
                                             <button class="button-product button-bottom-product">
-                                                <p style="font-size: 16px;">Заказать</p>
+                                                <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
                                             </button>
                                         </li>
                                     </ul>

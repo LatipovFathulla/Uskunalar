@@ -1,5 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
 <section class="banner">
@@ -7,9 +8,9 @@
         <div class="row">
 
         </div>
-        <h1 class="banner-text">Наши работы</h1>
-        <a href="/" style="color: #132E6B"><p class="banner-desc">Главная <span></a> > <a
-            href="{% url 'work:works' %}" class="banner-desc-title">Наши работы</a></span> > <a href=""
+        <h1 class="banner-text">{% trans 'Наши работы' %}</h1>
+        <a href="/" style="color: #132E6B"><p class="banner-desc">{% trans 'Главная' %} <span></a> > <a
+            href="{% url 'work:works' %}" class="banner-desc-title">{% trans 'Наши работы' %}</a></span> > <a href=""
                                                                                                 class="banner-desc-title">{{ object.title }}</a></span></p>
 
         <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
@@ -70,14 +71,14 @@
         <a href="{% url 'work:single-work' pk=object.get_prev.pk %}">
             <button class="btn btn-prev">
             <img src="{% static './images/left.svg' %}" style="position: absolute;padding: 2px;margin-left: -9px;" alt="">
-            <span style="font-size: 20px;line-height: 24px;position: relative;left: 9px;">Перейти к предыдущей</span>
+            <span style="font-size: 20px;line-height: 24px;position: relative;left: 9px;">{% trans 'Перейти к предыдущей' %}</span>
             </button>
         </a>
     {% endif %}
 
     {% if object.get_next %}
     <a href="{% url 'work:single-work' pk=object.get_next.pk %}">
-            <button class="btn btn-next float-right"><span style="font-size: 17px;line-height: 24px;position: relative;left: -8px;">Перейти к следующей</span>
+            <button class="btn btn-next float-right"><span style="font-size: 17px;line-height: 24px;position: relative;left: -8px;">{% trans 'Перейти к следующей' %}</span>
         <img src="{% static './images/right.svg' %}" style="position: absolute;padding: 2px;margin-left: -3px;" alt=""></button>
     </a>
     {% endif %}
@@ -85,9 +86,9 @@
 <!--mobile-->
     <button class="btn btn-prev-mobile"><img src="{% static './images/left.svg' %}"
                                              style="position: absolute;padding: 2px;margin-left: -9px;" alt=""><span
-            style="font-size: 19px;line-height: 24px;position: relative;left: 9px;">Назад</span></button>
+            style="font-size: 19px;line-height: 24px;position: relative;left: 9px;">{% trans 'Назад' %}</span></button>
     <button class="btn btn-next-mobile float-right"><span
-            style="font-size: 19px;line-height: 24px;position: absolute;margin-left: -3%;"></span>Далее <b></b><img
+            style="font-size: 19px;line-height: 24px;position: absolute;margin-left: -3%;"></span>{% trans 'Далее' %} <b></b><img
             src="{% static './images/right.svg' %}" style="position: absolute;padding: 2px;margin-left: -3px;"
             alt=""></button>
 </div>

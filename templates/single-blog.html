@@ -1,5 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
   <section class="banner">
@@ -8,8 +9,8 @@
 
       </div>
       <h1 class="banner-text2">{{ object.title }}</h1>
-        <a href="/" style="color: #132E6B"><p class="banner-desc">Главная <span></a> > <a
-                href="{% url 'blog:blogs' %}" class="banner-desc-title">Наши статьи</a></span> > <a href=""
+        <a href="/" style="color: #132E6B"><p class="banner-desc">{% trans 'Главная' %} <span></a> > <a
+                href="{% url 'blog:blogs' %}" class="banner-desc-title">{% trans 'Наши статьи' %}</a></span> > <a href=""
                                                                                                     class="banner-desc-title">{{ object.title }}</a></span></p>
 
       <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
@@ -45,7 +46,7 @@
 
     <p style="float: left;margin-top: 1%;">{{ object.created_at|date:'d.F' }}</p>
 
-    <p style="float: right;margin-top: 1%;">See 459 peoples</p>
+<!--    <p style="float: right;margin-top: 1%;">See 459 peoples</p>-->
     <br>
     <div class="row mt-3">
       <div class="col-md-6">
@@ -55,7 +56,7 @@
           <h3 style="font-size: 19px;padding: 10px;">{{ object.get_prev.title }}</h3>
           <p style="padding: 10px;margin-top: 0px;padding-top: 0px;">{{ object.get_prev.smart_description }}</p>
              {% if object.get_prev %}
-                     <a href="{% url 'blog:single-blog' pk=object.get_prev.pk %}" style="font-size: 18px;font-weight: 500;margin-left: 3%;">Читать дальше <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
+                     <a href="{% url 'blog:single-blog' pk=object.get_prev.pk %}" style="font-size: 18px;font-weight: 500;margin-left: 3%;">{% trans 'Читать дальше' %} <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
              {% endif %}
 
         </div>
@@ -66,7 +67,7 @@
           <h3 style="font-size: 19px;padding: 10px;">{{ object.get_next.title }}</h3>
           <p style="padding: 10px;margin-top: 0px;padding-top: 0px;">{{ object.get_next.smart_description }}</p>
             {% if object.get_next %}
-              <a href="{% url 'blog:single-blog' pk=object.get_next.pk %}" style="font-size: 18px;font-weight: 500;margin-left: 3%;">Читать дальше <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
+              <a href="{% url 'blog:single-blog' pk=object.get_next.pk %}" style="font-size: 18px;font-weight: 500;margin-left: 3%;">{% trans 'Читать дальше' %} <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
             {% endif %}
         </div>
         <img src="{% static './images/Group_417.svg' %}" class="icon-right" style="bottom: 0px;right: -3%;transform: rotate(23.85deg);" alt="">

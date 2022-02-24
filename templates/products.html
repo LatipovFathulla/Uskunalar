@@ -25,8 +25,8 @@
         <div class="row">
 
         </div>
-        <h1 class="banner-text">Каталог</h1>
-        <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title">Каталог</a></span></p>
+        <h1 class="banner-text">{% trans 'Каталог' %}</h1>
+        <a href="/" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>  <span> > <a href="" class="banner-desc-title">{% trans 'Каталог' %}</a></span></p>
 
         <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
@@ -42,8 +42,8 @@
 <div class="container ">
     <ul id="accordion2" class="accordion" style="position:relative">
         <div class="filter">
-            <h4>Фильтр</h4>
-            <a href="{% url 'products:product' %}"><p style="float: right;margin-top: -2.5%;">Сбросить</p></a>
+            <h4>{% trans 'Фильтр' %}</h4>
+            <a href="{% url 'products:product' %}"><p style="float: right;margin-top: -2.5%;">{% trans 'Сбросить' %}</p></a>
             <div class="row">
                 <div class="col-md-3">
                       <!-- Custom select structure -->
@@ -141,7 +141,7 @@
     <div class="row">
         <div class="col-12">
             <br>
-            <p class="categories_block mt-2">Категории</p>
+            <p class="categories_block mt-2">{% trans 'Категории' %}</p>
             <ul id="accordion4_2" class="accordion" style="border-radius: 6px;">
 
                 <li>
@@ -199,7 +199,7 @@
             <ul class="accordion">
                 <h3 class="categories_none"
                     style="margin-bottom: -20px;padding: 15px;color: #132E6B;text-align: left;">
-                    Категории</h3>
+                    {% trans 'Категории' %}</h3>
                 <!-- <hr class="hr-menu" style="position: absolute;"> -->
             </ul>
             <div class="sidebar-categories">
@@ -251,7 +251,7 @@
 
                     <!-- <option value="1">{% trans 'Showing' %} {{ page_obj.start_index }}-{{ page_obj.end_index }} {% trans 'of' %} {{ page_obj.paginator.count }}</option> -->
                     <button class="btn btn-mobile" data-toggle="modal" data-target="#exampleModal1"
-                            style="width: 108px;height: 48px;background-color: #f4f5f7;border-radius: 6px;">Фильтр
+                            style="width: 108px;height: 48px;background-color: #f4f5f7;border-radius: 6px;">{% trans 'Фильтр' %}
                     </button>
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
@@ -261,7 +261,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel"
-                                        style="position: absolute;left: 40%;">Фильтр</h5>
+                                        style="position: absolute;left: 40%;">{% trans 'Фильтр' %}</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -269,8 +269,8 @@
                                 <div class="modal-body">
                                     <ul id="accordion7_2" class="accordion" style="position:relative">
                                         <div class="filter" style="margin-bottom: 0px;">
-                                            <h4>Фильтр</h4>
-                                            <p style="float: right;margin-top: -6.5%;">Сбросить</p>
+                                            <h4>{% trans 'Фильтр' %}</h4>
+                                            <p style="float: right;margin-top: -6.5%;">{% trans '' %}</p>
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
@@ -285,7 +285,7 @@
                                                                 <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price">{% trans 'Low to high' %}</option>
                                                                 <option {% if request.GET.sort == '-price' %}selected{% endif %}  value="-price">{% trans 'High to low' %}</option>
                                                             </select>
-                                                            <li><a href="#">Барчаси</a></li>
+                                                            <li><a href="#">{% trans 'Сбросить' %}</a></li>
                                                         </ul>
                                                     </li>
                                                 </div>
@@ -363,7 +363,7 @@
                                     <ul>
                                         <li>
                                             <button class="button-center button-bottom">
-                                                <p style="font-size: 16px;">Применить</p>
+                                                <p style="font-size: 16px;">{% trans 'Барчаси' %}</p>
                                             </button>
                                         </li>
                                     </ul>
@@ -411,7 +411,7 @@
                                     {% if product.is_discount %}
                                         <a href="#" class="card-link1"><button class="btn"
                                             style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">Sale</p>
+                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
                                           </button></a>
                                         {% elif product.is_new %}
                                             <a href="#" class="card-link1">
@@ -432,7 +432,7 @@
                                     <h4 class="front-title-paris">
                                         {{ product.title }}</h4>
                                     <p class="detail-paris">
-                                        Артикул: {{ product.sku }}</p>
+                                        {% trans 'Артикул' %}: {{ product.sku }}</p>
                                     <p class="desc-paris">$ {{ product.dollar }} - {{ product.price }} сум</p>
                                     <p class="mob-price" style="margin-left: 2%;">${{ product.dollar }}</p>
                                     <p class="mob-price mt-2" style="margin-left: 2%;">{{ product.price }} cум</p>
@@ -442,7 +442,7 @@
                                                 <button class="button-left button-bottom-left ds-none2"
                                                         type="button"
                                                         style="width: 127px;height: 52px;">
-                                                    <p class="carousel-button-text" style="font-size: 16px;">Заказать</p>
+                                                    <p class="carousel-button-text" style="font-size: 16px;">{% trans 'Заказать' %}</p>
                                                 </button>
                                             </a>
                                         </li>
@@ -501,7 +501,7 @@
                                             <li>
                                                 <button class="button-product button-bottom-single-product"
                                                         style="right: 0%;margin: auto;display: table;">
-                                                    <p style="font-size: 16px;">Заказать</p>
+                                                    <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
                                                 </button>
                                             </li>
                                         </ul>
@@ -544,7 +544,7 @@ justify-content: center;">
              alt="">
         <h1 class="text-center"
             style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
-            Популярные товары</h1>
+            {% trans 'Популярные товары' %}</h1>
         <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
             информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
         <br>
