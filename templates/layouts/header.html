@@ -208,17 +208,16 @@
 
                                 {% for subcategory in category.subcategories.all %}
                                 <div class="col-md-3">
-
+                                     <a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}">
                                     <div class="box" style="width: 160px;height: 160px;">
                                         <img src="{{ subcategory.image.url }}"
-                                             style="margin: auto;display: table;margin-top: -10px;" alt="">
+                                             style="margin: auto;display: table;margin-top: -10px;width: 160px;height: 130px;" alt="">
 
-                                        <p style="text-align: center;font-family: sans-serif;font-weight: 500;margin-top: 3px;">
-                                            <a href="/?subcategory={{ subcategory.pk }}">{{ subcategory }}</a></p>
+                                        <p style="text-align: center;position:relative;color:#011F27;font-family: sans-serif;font-weight: normal;margin-top: 3px;font-size:16px">{{ subcategory }}</p>
 
 
                                     </div>
-
+                                </a>
                                 </div>
                                 {% endfor %}
 
