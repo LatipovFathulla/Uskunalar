@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: templates/products.html:273
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-24 11:44+0500\n"
+"POT-Creation-Date: 2022-02-24 12:02+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,6 +35,14 @@ msgstr ""
 #: about/models.py:9 about/models.py:23 biznes/models.py:9 home/models.py:12
 #: home/models.py:66 lines/models.py:11 videos/models.py:10
 msgid "created_at"
+msgstr ""
+
+#: about/models.py:15
+msgid "about"
+msgstr ""
+
+#: about/models.py:16
+msgid "abouts"
 msgstr ""
 
 #: about/models.py:20
@@ -79,12 +86,25 @@ msgstr ""
 msgid "smart_text"
 msgstr ""
 
-#: home/models.py:10 home/models.py:23 home/models.py:37 home/models.py:55
+#: blog/models.py:23
+msgid "blog"
+msgstr ""
+
+#: blog/models.py:24
+msgid "blogs"
+msgstr ""
+
+#: home/models.py:10 home/models.py:18 home/models.py:23 home/models.py:37
+#: home/models.py:55
 msgid "category"
 msgstr ""
 
 #: home/models.py:11
 msgid "category_image"
+msgstr ""
+
+#: home/models.py:19
+msgid "categories"
 msgstr ""
 
 #: home/models.py:24
@@ -147,6 +167,10 @@ msgstr ""
 msgid "long_description"
 msgstr ""
 
+#: home/models.py:99 home/models.py:100 home/models.py:114
+msgid "products"
+msgstr ""
+
 #: home/models.py:105
 msgid "product"
 msgstr ""
@@ -157,10 +181,6 @@ msgstr ""
 
 #: home/models.py:110
 msgid "product images"
-msgstr ""
-
-#: home/models.py:114
-msgid "products"
 msgstr ""
 
 #: home/models.py:115
@@ -639,7 +659,7 @@ msgstr ""
 msgid "videos"
 msgstr ""
 
-#: works/models.py:7
+#: works/models.py:7 works/models.py:23
 msgid "works"
 msgstr ""
 
@@ -651,13 +671,13 @@ msgstr ""
 msgid "descriptions"
 msgstr ""
 
+#: works/models.py:22 works/models.py:36
+msgid "work"
+msgstr ""
+
 #: works/models.py:27 works/models.py:28 works/models.py:31 works/models.py:32
 #: works/models.py:39
 msgid "work_image"
-msgstr ""
-
-#: works/models.py:36
-msgid "work"
 msgstr ""
 
 #: works/models.py:37

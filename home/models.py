@@ -15,8 +15,8 @@ class CategoryModel(models.Model):
         return self.category
 
     class Meta:
-        verbose_name = 'category'
-        verbose_name_plural = 'categories'
+        verbose_name = _('category')
+        verbose_name_plural = _('categories')
 
 
 class SubCategoryModel(models.Model):
@@ -96,8 +96,8 @@ class BannerInfoModel(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'products'
-        verbose_name_plural = 'products'
+        verbose_name = _('products')
+        verbose_name_plural = _('products')
 
 
 class BannerImageModel(models.Model):

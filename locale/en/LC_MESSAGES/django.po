@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: templates/products.html:273
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-24 11:44+0500\n"
+"POT-Creation-Date: 2022-02-24 12:02+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,94 +21,117 @@ msgstr ""
 #: about/models.py:6 biznes/models.py:6 blog/models.py:6 home/models.py:51
 #: lines/models.py:6 videos/models.py:7 works/models.py:6
 msgid "title"
-msgstr ""
+msgstr "название"
 
 #: about/models.py:7 blog/models.py:7 home/models.py:53 home/models.py:106
 #: lines/models.py:7 lines/models.py:29
 msgid "image"
-msgstr ""
+msgstr "изображения"
 
 #: about/models.py:8 blog/models.py:8 lines/models.py:9 videos/models.py:8
 msgid "description"
-msgstr ""
+msgstr "описание"
 
 #: about/models.py:9 about/models.py:23 biznes/models.py:9 home/models.py:12
 #: home/models.py:66 lines/models.py:11 videos/models.py:10
 msgid "created_at"
-msgstr ""
+msgstr "время создания"
+
+#: about/models.py:15
+msgid "about"
+msgstr "о нас"
+
+#: about/models.py:16
+msgid "abouts"
+msgstr "о нас"
 
 #: about/models.py:20
 msgid "name"
-msgstr ""
+msgstr "имя"
 
 #: about/models.py:21
 msgid "phone"
-msgstr ""
+msgstr "телефон"
 
 #: about/models.py:22
 msgid "message"
-msgstr ""
+msgstr "сообщения"
 
 #: about/models.py:29
 msgid "Request"
-msgstr ""
+msgstr "запрос"
 
 #: about/models.py:30
 msgid "Requests"
-msgstr ""
+msgstr "запросы"
 
 #: biznes/models.py:7 biznes/models.py:26 biznes/models.py:27
 #: biznes/models.py:30 biznes/models.py:31
 msgid "biznes_image"
-msgstr ""
+msgstr "изображения_бизнеса"
 
 #: biznes/models.py:8
 msgid "long_descriptions"
-msgstr ""
+msgstr "короткое описания"
 
 #: biznes/models.py:21 biznes/models.py:22
 msgid "biznes"
-msgstr ""
+msgstr "бизнес"
 
 #: blog/models.py:9
 msgid "smart_description"
-msgstr ""
+msgstr "умное описания"
 
 #: blog/models.py:10
 msgid "smart_text"
-msgstr ""
+msgstr "унмный текст"
 
-#: home/models.py:10 home/models.py:23 home/models.py:37 home/models.py:55
+#: blog/models.py:23
+msgid "blog"
+msgstr "статья"
+
+#: blog/models.py:24
+msgid "blogs"
+msgstr "статьи"
+
+#: home/models.py:10 home/models.py:18 home/models.py:23 home/models.py:37
+#: home/models.py:55
 msgid "category"
-msgstr ""
+msgstr "категория"
 
 #: home/models.py:11
 msgid "category_image"
-msgstr ""
+msgstr "изображения категории"
+
+#: home/models.py:19
+#, fuzzy
+#| msgid "subcategories"
+msgid "categories"
+msgstr "подкатегории"
 
 #: home/models.py:24
 msgid "sub_image"
-msgstr ""
+msgstr "изображения подкатегории"
 
 #: home/models.py:25 home/models.py:32 home/models.py:38 home/models.py:56
 msgid "subcategory"
-msgstr ""
+msgstr "подкатегория"
 
 #: home/models.py:26 home/models.py:40
 msgid "crated_at"
-msgstr ""
+msgstr "время создания"
 
 #: home/models.py:33
 msgid "subcategories"
-msgstr ""
+msgstr "подкатегории"
 
 #: home/models.py:39 home/models.py:46 home/models.py:58
 msgid "second_subcategory"
-msgstr ""
+msgstr "вторая подкатегория"
 
 #: home/models.py:47
 msgid "second_subcategories"
-msgstr ""
+msgstr "вторая подкатегории"
 
 #: home/models.py:54
 msgid "pdf"
@@ -117,95 +139,95 @@ msgstr ""
 
 #: home/models.py:57
 msgid "city"
-msgstr ""
+msgstr "город"
 
 #: home/models.py:59
 msgid "price"
-msgstr ""
+msgstr "цена"
 
 #: home/models.py:60
 msgid "dollar"
-msgstr ""
+msgstr "доллар"
 
 #: home/models.py:61
 msgid "discount"
-msgstr ""
+msgstr "скидка"
 
 #: home/models.py:62
 msgid "inbox"
-msgstr ""
+msgstr "в складе"
 
 #: home/models.py:63
 msgid "delivery"
-msgstr ""
+msgstr "в достакве"
 
 #: home/models.py:64
 msgid "short_description"
-msgstr ""
+msgstr "короткая описания"
 
 #: home/models.py:65 lines/models.py:10
 msgid "long_description"
-msgstr ""
+msgstr "длинная описания"
+
+#: home/models.py:99 home/models.py:100 home/models.py:114
+msgid "products"
+msgstr "продукты"
 
 #: home/models.py:105
 msgid "product"
-msgstr ""
+msgstr "продукт"
 
 #: home/models.py:109
 msgid "product image"
-msgstr ""
+msgstr "изображения продукта"
 
 #: home/models.py:110
 msgid "product images"
-msgstr ""
-
-#: home/models.py:114
-msgid "products"
-msgstr ""
+msgstr "изображения продуктов"
 
 #: home/models.py:115
 msgid "product_customer"
-msgstr ""
+msgstr "характеристика продуктов"
 
 #: home/models.py:116
 msgid "product_numbers"
-msgstr ""
+msgstr "характеристика продуктов в цифрах"
 
 #: home/models.py:117
 msgid "product_image"
-msgstr ""
+msgstr "изображения продукта"
 
 #: home/models.py:120
 msgid "product specification"
-msgstr ""
+msgstr "характеристика продукта"
 
 #: home/models.py:121
 msgid "product specifications"
-msgstr ""
+msgstr "характеристика продуктов"
 
 #: lines/models.py:8
 msgid "line_pdf"
-msgstr ""
+msgstr "линия для pdf"
 
 #: lines/models.py:23
 msgid "line"
-msgstr ""
+msgstr "линия"
 
 #: lines/models.py:24
 msgid "lines"
-msgstr ""
+msgstr "линии"
 
 #: lines/models.py:28
 msgid "line_image"
-msgstr ""
+msgstr "изображения линии"
 
 #: lines/models.py:32
 msgid "line specification"
-msgstr ""
+msgstr "характеристика линии"
 
 #: lines/models.py:33
 msgid "line specifications"
-msgstr ""
+msgstr "характеристика линии"
 
 #: templates/biznes.html:10 templates/biznes.html:11 templates/index.html:71
 #: templates/index.html:618 templates/layouts/header.html:44
@@ -621,57 +643,57 @@ msgstr ""
 
 #: uskunalar/settings.py:109
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
 #: uskunalar/settings.py:110
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
 #: uskunalar/settings.py:111
 msgid "Uzbek"
-msgstr ""
+msgstr "Узбекский"
 
 #: videos/models.py:16
 msgid "video"
-msgstr ""
+msgstr "видео"
 
 #: videos/models.py:17
 msgid "videos"
-msgstr ""
+msgstr "видео"
 
-#: works/models.py:7
+#: works/models.py:7 works/models.py:23
 msgid "works"
-msgstr ""
+msgstr "работы"
 
 #: works/models.py:8
 msgid "short_descriptions"
-msgstr ""
+msgstr "короткая описания"
 
 #: works/models.py:9
 msgid "descriptions"
-msgstr ""
+msgstr "описания"
+
+#: works/models.py:22 works/models.py:36
+msgid "work"
+msgstr "работа"
 
 #: works/models.py:27 works/models.py:28 works/models.py:31 works/models.py:32
 #: works/models.py:39
 msgid "work_image"
-msgstr ""
-
-#: works/models.py:36
-msgid "work"
-msgstr ""
+msgstr "изображения работ"
 
 #: works/models.py:37
 msgid "work_customer"
-msgstr ""
+msgstr "характеристика работ"
 
 #: works/models.py:38
 msgid "work_numbers"
-msgstr ""
+msgstr "характеристика работ в цифрах"
 
 #: works/models.py:42
 msgid "work specification"
-msgstr ""
+msgstr "характеристика работ"
 
 #: works/models.py:43
 msgid "work specifications"
-msgstr ""
+msgstr "характеристика работ"

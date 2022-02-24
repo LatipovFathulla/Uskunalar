@@ -19,8 +19,8 @@ class WorkModel(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'work'
-        verbose_name_plural = 'works'
+        verbose_name = _('work')
+        verbose_name_plural = _('works')
 
 
 class WorkImageModel(models.Model):

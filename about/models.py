@@ -12,8 +12,8 @@ class AboutModel(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'about'
-        verbose_name_plural = 'abouts'
+        verbose_name = _('about')
+        verbose_name_plural = _('abouts')
 
 
 class RequestsModel(models.Model):
