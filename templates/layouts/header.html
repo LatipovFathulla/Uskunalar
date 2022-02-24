@@ -15,12 +15,18 @@
         display:none
       }
   }
+
+
+
+
+
 </style>
 <!-- start navbar -->
 <nav class="container navbar navbar-expand-lg navbar-light bg-white">
     <ul id="accordion4" class="accordion4">
         <li>
-            <div class="link"><a href="" style="color:#000">{% trans 'Русский' %}</a> <i class="fa fa-chevron-down"></i></div>
+            <div class="link"><a href="" style="color:#000">{% trans 'Русский' %}</a> <i class="fa fa-chevron-down"></i>
+            </div>
             <ul class="submenu4">
                 <li><a href="#">{% trans 'Узбекский' %}</a></li>
                 <hr class="mb-0 mt-0">
@@ -83,8 +89,10 @@
 
             <i class='icon-close ion-ios-close-empty'></i>
             <form action="{% url 'products:product' %}" class='form' style="width: 96%;position: fixed;left: 1%;">
-                <input class='input-search' name="q" value="{{ request.GET.q }}"  placeholder='Start Typing' type='text'>
-                <button class="btn" type="submit" style="width: 16%;height: 62px;position: absolute;right: 10px;top: 10px;background:#FFE700"><i class='icon-search ion-search' style="top:12px"></i></button>
+                <input class='input-search' name="q" value="{{ request.GET.q }}" placeholder='Start Typing' type='text'>
+                <button class="btn" type="submit"
+                        style="width: 16%;height: 62px;position: absolute;right: 10px;top: 10px;background:#FFE700"><i
+                        class='icon-search ion-search' style="top:12px"></i></button>
             </form>
         </li>
         <div class="hamburger-wrapper">
@@ -103,7 +111,8 @@
                     <li class="delay06"><a href="{% url 'home:about' %}">{% trans 'О нас' %}</a></li>
                     <li class="delay07"><a href="{% url 'home:contacts' %}">{% trans 'Контакты' %}</a></li>
                     <li class="delay08"><a href="./not_found_product.html"><img
-                            src="{% static './images/search_product.svg' %}" class="not-found" alt="">{% trans 'Не нашли товар?' %}</a></li>
+                            src="{% static './images/search_product.svg' %}" class="not-found" alt="">{% trans 'Не нашли
+                        товар?' %}</a></li>
                     <li class="delay09"><a href="tel:+998 71 250 77 77">
                         <p style="color: #000;font-weight: bold;">+998 71 250 77 77</p>
                     </a></li>
@@ -129,10 +138,12 @@
             <!-- menu in categories -->
             <div class="minimalist-tab-menu2">
                 <ul class="list-group2">
+                    {% for home in categories %}
                     <li class="menu-item2 has-child3">
-                        <img src="{% static './images/pishevaya.svg' %}" style="margin-top: 0%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size: 13px;font-weight: normal;font-style: normal;">{% trans 'Пищеваяпромышленностьяяя' %}</span>
+                        <img src="{{ home.image.url }}" style="margin-top: 0%;" alt=""><span
+                            style="margin-top: 0%;position: absolute;font-size: 13px;font-weight: normal;font-style: normal;">{{ home.category }}</span>
                     </li>
+                    {% endfor %}
                     <li class="menu-item2 has-child2">
                         <img src="{% static './images/squares_2.svg' %}" style="margin-top: 5%;" alt=""><span
                             style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2.9%;font-weight: normal;font-style: normal;">{% trans 'Все категории' %}</span>
@@ -188,161 +199,37 @@
                 <div class="minimalist-tab-menu2">
 
                 </div>
+
                 <div class="minimalist-tab2">
+                    {% for category in categories %}
                     <div class="minimalist-tab-content2">
                         <div class="container" style="background-color: #fff;">
                             <div class="row">
+
+                                {% for subcategory in category.subcategories.all %}
                                 <div class="col-md-3">
+
                                     <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog_image_1.png' %}"
+                                        <img src="{{ subcategory.image.url }}"
                                              style="margin: auto;display: table;margin-top: -10px;" alt="">
-                                        <p style="text-align: center;font-family: sans-serif;font-weight: 500;margin-top: 3px;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product2.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
+
                                         <p style="text-align: center;font-family: sans-serif;font-weight: 500;margin-top: 3px;">
-                                            Пеноблок</p>
+                                            <a href="/?subcategory={{ subcategory.pk }}">{{ subcategory }}</a></p>
+
+
                                     </div>
+
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product3.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;font-family: sans-serif;font-weight: 500;margin-top: 3px;">
-                                            Мих ишлаб чикарыш</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product4.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;font-family: sans-serif;font-weight: 500;margin-top: 3px;">
-                                            Асфальт islab chigarish</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product5.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;font-family: sans-serif;font-weight: 500;margin-top: 3px;">
-                                            Саморез ишлаб чикариш</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog_image_1.png' %}"
-                                             style="margin: auto;display: table;margin-top: -10px;" alt="">
-                                        <p style="text-align: center;font-family: sans-serif;font-weight: 500;margin-top: 3px;">
-                                            Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product2.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product3.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product4.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product5.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product2.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product5.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product4.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product5.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product2.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product5.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product4.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product5.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product2.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="box" style="width: 160px;height: 160px;">
-                                        <img src="{% static './images/catalog-product5.png' %}"
-                                             style="margin: auto;display: table;margin-top: 10px;" alt="">
-                                        <p style="text-align: center;">Блок гишт</p>
-                                    </div>
-                                </div>
+                                {% endfor %}
+
                             </div>
                         </div>
 
 
                     </div>
+                    {% endfor %}
                 </div>
+
             </nav>
         </div>
     </div>

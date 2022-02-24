@@ -21,12 +21,12 @@ msgstr ""
 #: about/models.py:6 biznes/models.py:6 blog/models.py:6 home/models.py:51
 #: lines/models.py:6 videos/models.py:7 works/models.py:6
 msgid "title"
-msgstr ""
+msgstr "nomi"
 
 #: about/models.py:7 blog/models.py:7 home/models.py:53 home/models.py:106
 #: lines/models.py:7 lines/models.py:29
 msgid "image"
-msgstr ""
+msgstr "rasimi"
 
 #: about/models.py:8 blog/models.py:8 lines/models.py:9 videos/models.py:8
 msgid "description"
