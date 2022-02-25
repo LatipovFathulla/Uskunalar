@@ -1,3 +1,6 @@
+from datetime import datetime
+
+import pytz
 from django.db.models import Q, Min, Max
 from django.http import JsonResponse
 from django.views.generic import ListView, TemplateView, DetailView
@@ -22,10 +25,11 @@ class BannerInfoModelView(ListView):
         price = self.request.GET.get('price')
         sort = self.request.GET.get('sort')
         som = self.request.GET.get('price')
-        dollar = self.request.GET.get('dollar')
+        created_at = self.request.GET.get('created_at')
 
         if q:
             qs = qs.filter(title__icontains=q)
+
 
         if category:
             qs = qs.filter(category_id=category)
@@ -45,6 +49,9 @@ class BannerInfoModelView(ListView):
                 qs = sorted(qs, key=lambda i: i.get_price())
             elif sort == '-price':
                 qs = sorted(qs, key=lambda i: i.get_price(), reverse=True)
+            elif created_at == 'created_at':
+                diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
+                return diff.days <= 3
 
         if som:
             if som == 'som':

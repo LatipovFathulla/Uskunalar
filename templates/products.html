@@ -53,8 +53,7 @@
                             <option>Все товары</option>
                             <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price">  От А до Я</option>
                             <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price">  От Я до А</option>
-
-
+                            <option {% if request.GET.sort == 'created_at' %}selected{% endif %} value="created_at">Новые</option>
                         </select>
                           <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                               <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
@@ -284,6 +283,7 @@
                                                             <option>Все товары</option>
                                                             <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price" >От А до Я</option>
                                                             <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price"  >От Я до А</option>
+                                                            <option {% if request.GET.sort == 'created_at' %}selected{% endif %} value="created_at">Новые</option>
 
 
                                                         </select>
