@@ -38,7 +38,7 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <a href="#" class="card-link">
+                <a onclick="add_to_wishlist(this, {{ object.pk }})" class="card-link">
                     <button class="btn"
                             style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 16.3%;top: 25px;">
                         <img
@@ -56,7 +56,7 @@
                     <p class="in_article">{% trans 'Артикул' %}:{{ object.sku }}</p>
                 </div>
             </div>
-            <p class="desc_prod mt-4">{{ object.short_description }}</p>
+            <p class="desc_prod mt-4">{{ object.short_description|safe }}</p>
             <div class="row">
                 <div class="col-md-6 mt-4">
                     <p class="price_prod">{% trans 'Цена в долорах' %}:</p>
@@ -95,46 +95,13 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="">
-                                        <div class="row mt-3">
-                                            <div class="col-md-6">
-                                                <input class="form-control"
-                                                       style="height: 50px;background-color: #F4F5F7;border: none;"
-                                                       type="text"
-                                                       placeholder="ФИО">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <select class="form-control city12"
-                                                        style="height: 50px;background-color: #F4F5F7;border: none;padding: 5px;"
-                                                        id="exampleFormControlSelect1">
-                                                    <option value="tash" class="options">Ташкент</option>
-                                                    <option value="tash" class="options">Самарканд</option>
-                                                    <option value="tash" class="options">Андижан</option>
-                                                    <option value="tash" class="options">Фаргона</option>
-                                                    <option value="tash" class="options">Хорезм</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-12 mt-4">
-                                                <input class="form-control"
-                                                       style="height: 50px;background-color: #F4F5F7;border: none;"
-                                                       type="text" placeholder="Ваш номер">
-                                            </div>
-                                        </div>
-                                    </form>
+                                  {% include 'requests.html' %}
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" style="height: 55px;margin-top: 5%;"
                                             data-dismiss="modal">{% trans 'Закрыть' %}
                                     </button>
-                                    <ul>
-                                        <li>
-                                            <button class="button-left button-bottom-left" type="submit"
-                                                    data-toggle="modal" data-target="#exampleModalCenter"
-                                                    style="width: 113px;height: 55px;position: relative;left: 5%;">
-                                                <p class="carousel-button-text">{% trans 'Купить' %}</p>
-                                            </button>
-                                        </li>
-                                    </ul>
+
                                 </div>
                             </div>
                         </div>
@@ -176,8 +143,8 @@
             <tbody>
             {% for z in object.specifications.all %}
             <tr>
-                <td style="font-weight: 500;">{{ z.product_customer }}</td>
-                <td style="text-align:center">{{ z.product_number }}</td>
+                <td style="font-weight: 500;">{{ z.product_customer|safe }}</td>
+                <td style="text-align:center">{{ z.product_number|safe }}</td>
                 <td style="text-align:center"><img src="{% if z.product_image %} {{ z.product_image.url }} {% endif %}"
                                                    style="width:44px" alt=""></td>
             </tr>
@@ -186,7 +153,7 @@
         </table>
         <p style=" border-bottom: 3px silver dashed;"></p>
         <br>
-        <p class="description_long">{{ object.long_description }} </p>
+        <p class="description_long">{{ object.long_description|safe }} </p>
         <br>
     </div>
 </div>
@@ -624,6 +591,37 @@
   navItem.addEventListener('click', toggleNavigation);
 
 
+</script>
+<script>
+    function add_to_wishlist(element, pk) {
+        $.getJSON('/products/' + "wishlist/" + pk, function (data) {
+            if (!data.status) {
+               $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            Error
+                        </div>
+                    </div>`);
+            } else {
+                if (data.added) {
+                    $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            Added to wishlist
+                        </div>
+                    </div>`);
+                } else {
+                    $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-success">
+                            <button type="button" onclick="MyFunction()" class="close" data-dismiss="alert">&times;</button>
+                            Removed from wishlist
+                        </div>
+                    </div>`);
+                }
+                  $('#wishlist_length2').html(data.wishlist_len);
+            }
+        });
+    }
 </script>
 <script>
   var splide = new Splide('.splide_3_2', {
