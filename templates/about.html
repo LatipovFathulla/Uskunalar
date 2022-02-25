@@ -45,7 +45,7 @@
                 <div class="tab">
                     {% for about in abouts %}
                         <hr class="hr-menu">
-                        <button class="tablinks" onclick="openCity(event, {{ about.pk }} )">{{ about.title }}</button>
+                        <button class="tablinks" onclick="openCity(event, '{{ about.pk }}' )">{{ about.title }}</button>
                         <hr class="hr-menu">
                     {% endfor %}
                     <img src="{% static './images/Group_417.svg' %}" class="icon-right" style="left: -7%;margin: 10px;transform: rotate(-29deg)" alt="">
@@ -57,7 +57,7 @@
 
             <div class="col-md-9">
                 {% for about in abouts %}
-                <div id="{{ about.pk }}" class="tabcontent">
+                <div id="{{ about.pk }}" class="tabcontent" >
                     <h1 style="font-size: 25px;">{{ about.title }}</h1>
                     <br>
                     <p style="line-height: 22px;">
@@ -71,11 +71,11 @@
                     </div>
 
                     <p style="line-height: 22px;"> {{ about.long_description }}</p>
-                </div>
-                 <section class="video">
+                    <section class="video">
                     <h3>Видео о нас</h3>
                        <span>{% video about.url '100%x400' %}</span>
                 </section>
+                </div>
         {% endfor %}
             </div>
 
@@ -215,7 +215,7 @@ select_optiones[indx].selected = true;
 }
 </script>
     <script>
-        function openCity(evt, {{ about.pk }} ) {
+        function openCity(evt, cityName ) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
@@ -225,7 +225,7 @@ select_optiones[indx].selected = true;
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            document.getElementById({{ about.pk }}).style.display = "block";
+            document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " active";
         }
 
