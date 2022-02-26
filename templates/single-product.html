@@ -184,206 +184,69 @@
         <div class="splide_3_2">
             <div class="splide__track" style="height: 520px;">
                 <ul class="splide__list">
-                    <li class="splide__slide">
-                        <div class="col-md-3">
-                            <div class="produdcs-section2">
-                                <div class="flex-itm">
-                                    <div class="flex-iem-inner">
-                                        <!-- card -->
-                                        <a href="#">
-                                            <div class="card-front bg-violet">
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                                                        <img
-                                                                src="{% static './images/like.svg' %}"
-                                                                style="margin-top: 7px;" alt=""></button>
-                                                </a>
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
-                                                            -30%</p>
-                                                    </button>
-                                                </a>
-                                                <img src="{% static './images/stanok.png' %}"
-                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
-                                                     alt="">
-                                                <div class="card-text"
-                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                    <h4 class="front-title">Буровая установка БР 73212С</h4>
-                                                    <p class="detail">Артикул: US</p>
-                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
-                                                    <div class="text-center">
-                                                        <ul>
-                                                            <li>
-                                                                <button class="button-center button-bottom2 mobile-button"
-                                                                        style="width: 127px;height: 43px;">
-                                                                    <p style="font-size: 13px;">Заказать</p>
-                                                                </button>
-                                                            </li>
-                                                        </ul>
-                                                        <br>
+                      {% for product in related %}
+                        <li class="splide__slide">
+                                <div class="col-md-3">
+                                <div class="produdcs-section2">
+                                    <div class="flex-itm">
+                                        <div class="flex-iem-inner">
+                                            <!-- card -->
+                                            <a onclick="add_to_wishlist(this, {{ product.pk }})">
+                                                <div class="card-front bg-violet">
+                                                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
+                                                        <button class="btn" type="submit" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
+                                                            <img
+                                                                    src="{% static './images/like.svg' %}"
+                                                                    style="margin-top: 7px;" alt=""></button>
+                                                    </a>
+                                                     {% if product.is_discount %}
+                                                        <a href="#" class="card-link">
+                                                        <button class="btn"
+                                                                style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
+                                                            <p style="margin-left:-10%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
+                                                        </button>
+                                                        </a>
+                                                        {% elif product.is_new %}
+                                                            <a href="#" class="card-link1">
+                                                            <button class="btn new-mobile-1">
+                                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
+                                                            </button>
+                                                        </a>
+                                                     {% endif %}
+                                                    <a href="{% url 'products:single' pk=product.pk %}">
+                                                         <img src="{{ product.image.url }}"
+                                                         style="width: 100%;height: 300px;display: table;margin: auto;"
+                                                         alt="">
+                                                    </a>
+
+                                                    <div class="card-text"
+                                                         style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
+                                                        <h4 class="front-title">{{ product.title }}</h4>
+                                                        <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
+                                                        <p class="desc">${{ product.get_price_dollar }} - {{ product.get_price }} сум</p>
+                                                        <div class="text-center">
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="{% url 'products:single' pk=product.pk %}">
+                                                                        <button class="button-center button-bottom2 mobile-button"
+                                                                            style="width: 127px;height: 43px;">
+                                                                        <p style="font-size: 13px;">Заказать</p>
+                                                                    </button>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                            <br>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                        <!-- /card -->
+                                            </a>
+                                            <!-- /card -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <div class="col-md-3">
-                            <div class="produdcs-section2">
-                                <div class="flex-item">
-                                    <div class="flex-item-inner">
-                                        <!-- card -->
-                                        <a href="#">
-                                            <div class="card-front bg-violet">
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                                                        <img
-                                                                src="{% static './images/like.svg' %}"
-                                                                style="margin-top: 7px;" alt=""></button>
-                                                </a>
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
-                                                            -30%</p>
-                                                    </button>
-                                                </a>
-                                                <img src="{% static './images/stanok.png' %}"
-                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
-                                                     alt="">
-                                                <div class="card-text"
-                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                    <h4 class="front-title">Буровая установка БР 73212С</h4>
-                                                    <p class="detail">Артикул: US</p>
-                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
-                                                    <div class="text-center">
-                                                        <ul>
-                                                            <li>
-                                                                <button class="button-center button-bottom2 mobile-button"
-                                                                        style="width: 127px;height: 43px;">
-                                                                    <p style="font-size: 13px;">Заказать</p>
-                                                                </button>
-                                                            </li>
-                                                        </ul>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!-- /card -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <div class="col-md-3">
-                            <div class="produdcs-section2">
-                                <div class="flex-item">
-                                    <div class="flex-item-inner">
-                                        <!-- card -->
-                                        <a href="#">
-                                            <div class="card-front bg-violet">
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                                                        <img
-                                                                src="{% static './images/like.svg' %}"
-                                                                style="margin-top: 7px;" alt=""></button>
-                                                </a>
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
-                                                            -30%</p>
-                                                    </button>
-                                                </a>
-                                                <img src="{% static './images/stanok.png' %}"
-                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
-                                                     alt="">
-                                                <div class="card-text"
-                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                    <h4 class="front-title">Буровая установка БР 73212С</h4>
-                                                    <p class="detail">Артикул: US</p>
-                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
-                                                    <div class="text-center">
-                                                        <ul>
-                                                            <li>
-                                                                <button class="button-center button-bottom2 mobile-button"
-                                                                        style="width: 127px;height: 43px;">
-                                                                    <p style="font-size: 13px;">Заказать</p>
-                                                                </button>
-                                                            </li>
-                                                        </ul>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!-- /card -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <div class="col-md-3">
-                            <div class="produdcs-section2">
-                                <div class="flex-item">
-                                    <div class="flex-item-inner">
-                                        <!-- card -->
-                                        <a href="#">
-                                            <div class="card-front bg-violet">
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                                                        <img
-                                                                src="{% static './images/like.svg' %}"
-                                                                style="margin-top: 7px;" alt=""></button>
-                                                </a>
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
-                                                            -30%</p>
-                                                    </button>
-                                                </a>
-                                                <img src="{% static './images/stanok.png' %}"
-                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
-                                                     alt="">
-                                                <div class="card-text"
-                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                    <h4 class="front-title">Буровая установка БР 73212С</h4>
-                                                    <p class="detail">Артикул: US</p>
-                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
-                                                    <div class="text-center">
-                                                        <ul>
-                                                            <li>
-                                                                <button class="button-center button-bottom2 mobile-button"
-                                                                        style="width: 127px;height: 43px;">
-                                                                    <p style="font-size: 13px;">Заказать</p>
-                                                                </button>
-                                                            </li>
-                                                        </ul>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!-- /card -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                     {% endfor %}
                 </ul>
             </div>
         </div>
