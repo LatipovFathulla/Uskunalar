@@ -59,7 +59,7 @@ class BannerInfoModel(models.Model):
     price = models.DecimalField(max_digits=12, decimal_places=0, verbose_name=_('price'))
     dollar = models.IntegerField(verbose_name=_('dollar'), null=True)
     discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'))
-    inbox = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('inbox'))
+    inbox = models.CharField(max_length=50,  blank=True, verbose_name=_('inbox'))
     delivery = models.CharField(max_length=50, blank=True, verbose_name=_('delivery'))
     short_description = models.TextField(verbose_name=_('short_description'), null=True)
     long_description = models.TextField(verbose_name=_('long_description'), null=True)

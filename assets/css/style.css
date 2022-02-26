@@ -100,7 +100,7 @@ p {
 .select_mate {
   position: relative;
   float: left;
-  width: 240px;
+  width: 100%;
   min-height: 47px;
   color: #777;
   font-weight: 500;
@@ -116,7 +116,9 @@ p {
   height: 0px;
   opacity: 0;
   z-index: -1;
+  background:red
 }
+
 
 .cont_list_select_mate {
   position: relative;
@@ -158,7 +160,8 @@ p {
   border-bottom: 0px;
 }
 .cont_select_int li:hover {
-  background-color: #fff;
+  background-color: #FFE700;
+  color:#fff
 }
 .cont_select_int .active {
   background-color: #fff;
@@ -3511,6 +3514,7 @@ body.mode-search {
         font-size: 15px;
         line-height: 19px;
         font-weight: 500;
+        margin-top:-10px
     }
 
     .mob-price {
@@ -4355,7 +4359,6 @@ body.mode-search {
 .card-front h4 {
     font-size: 18px;
     font-weight: normal;
-    margin: 10px 0;
     color: #000;
 }
 
@@ -4364,6 +4367,7 @@ body.mode-search {
     font-weight: normal;
     line-height: 17px;
     color: #656565;
+    margin:3px 0px;
 }
 
 

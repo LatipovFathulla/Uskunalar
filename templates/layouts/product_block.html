@@ -31,6 +31,10 @@
                         <p class="detail">Артикул: {{ product.sku }}</p>
                         <p class="detail" style="margin-top:2px">
                             Город: {{ product.city }}</p>
+                           <p class="detail" style="margin-top:2px">
+                            <img src="{% static './images/radius.svg' %}" sty alt="">
+                        {{ product.inbox }}
+                        {{ product.delivery }}</p>
                         <p class="desc-price">{{ product.get_price_dollar }} $
                             - {{ product.get_price|intcomma }} сум</p>
                         <p class="mob-price">{{ product.get_price_dollar }} $</p>

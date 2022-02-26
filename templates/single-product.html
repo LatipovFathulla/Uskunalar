@@ -52,11 +52,8 @@
             <div class="row">
                 <div class="col-md-6 mt-3">
                     <p class="in_box"><img src="{% static './images/radius.svg' %}" alt="">
-                       {% if object.inbox == object.pk %}
-                        {{ object.inbox }}aaa
-                       {% elif object.delivery == object.pk %}
+                        {{ object.inbox }}
                         {{ object.delivery }}
-                       {% endif %}
                     </p>
                 </div>
                 <div class="col-md-6 mt-3">

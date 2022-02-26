@@ -45,7 +45,7 @@
                 <div class="tab">
                     {% for about in abouts %}
                         <hr class="hr-menu">
-                        <button class="tablinks" onclick="openCity(event, '{{ about.pk }}' )">{{ about.title }}</button>
+                        <button class="tablinks" onclick="openCity(event, '{{ about.pk }}')" id="defaultOpen">{{ about.title }}</button>
                         <hr class="hr-menu">
                     {% endfor %}
                     <img src="{% static './images/Group_417.svg' %}" class="icon-right" style="left: -7%;margin: 10px;transform: rotate(-29deg)" alt="">
