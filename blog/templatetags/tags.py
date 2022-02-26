@@ -16,3 +16,11 @@ def get_wishlist_count(request):
     if wishlist:
         return len(wishlist)
     return 0
+
+
+@register.simple_tag
+def get_price(request, x):
+    price = request.GET.get('price')
+    if price:
+        return price.split(';')[x]
+    return 'null'

@@ -1,5 +1,6 @@
 {% load tags %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 <div class="produdcs-section">
     <div class="flex-item">
@@ -31,9 +32,9 @@
                         <p class="detail" style="margin-top:2px">
                             Город: {{ product.city }}</p>
                         <p class="desc-price">{{ product.get_price_dollar }} $
-                            - {{ product.get_price }} сум</p>
+                            - {{ product.get_price|intcomma }} сум</p>
                         <p class="mob-price">{{ product.get_price_dollar }} $</p>
-                        <p class="mob-price">{{ product.get_price }} сум</p>
+                        <p class="mob-price">{{ product.get_price|intcomma }} сум</p>
                     </div>
                     <ul>
                         <li>
@@ -50,7 +51,7 @@
                 </div>
                 <div class="card-back bg-violet">
                     <p class="back-title">{{ product.title }}</p>
-                    <p class="desc">{{ product.get_price_dollar }} $ - {{ product.get_price }}
+                    <p class="desc">{{ product.get_price_dollar }} $ - {{ product.get_price|intcomma }}
                         сум</p>
 
                     <div class="container">

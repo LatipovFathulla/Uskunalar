@@ -45,9 +45,11 @@ p {
 
 .nav-link-2 {
     display: block;
-    padding: 0.5rem 1rem;
     color: #132E6B;
     font-size: 16px;
+    font-weight: 500;
+    margin: 7px;
+    padding: 10px;
 }
 
 .nav-item-active a {
@@ -3922,7 +3924,19 @@ body.mode-search {
         padding: 9px;
     }
     /*  end tablinks in product sorted */
-
+    /* nav */
+    .nav-desk-1{
+        overflow: hidden;
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 9999;
+        margin: 0 auto;
+    }
 
 }
 
@@ -5834,12 +5848,35 @@ h3 {
 
 .irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single {
     color: white;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1.333;
     text-shadow: none;
     padding: 1px 5px;
     background-color: #FFE700;
     border-radius: 4px;
+}
+
+.irs--flat .irs-min, .irs--flat .irs-max {
+    top: 0;
+    padding: 1px 3px;
+    color: #999;
+    font-size: 11px;
+    line-height: 1.333;
+    text-shadow: none;
+    background-color: #e1e4e9;
+    border-radius: 4px;
+}
+
+.irs-grid-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 11px;
+    line-height: 9px;
+    padding: 0 3px;
+    color: #000;
 }
 
 .irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before {

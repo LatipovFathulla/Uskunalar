@@ -10,6 +10,19 @@ from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 from home.utils import get_wishlist_data
 
 
+#
+# def get_queryset2(self, ):
+#     qs = BannerInfoModel.objects.order_by('pk')
+#
+#     q = self.request.GET.get('q', '')
+#
+#     if q:
+#         qs = qs.filter(Q(title__icontains=q) |
+#                        Q(sku__icontains=q) |
+#                        Q(city__icontains=q)
+#                        )
+#     return qs
+
 class BannerInfoModelView(ListView):
     template_name = 'products.html'
     context_object_name = 'products'
@@ -26,10 +39,11 @@ class BannerInfoModelView(ListView):
         sort = self.request.GET.get('sort')
         som = self.request.GET.get('price')
         created_at = self.request.GET.get('created_at')
+        inbox = self.request.GET.get('inbox')
+        delivery = self.request.GET.get('delivery')
 
         if q:
             qs = qs.filter(title__icontains=q)
-
 
         if category:
             qs = qs.filter(category_id=category)
@@ -42,7 +56,14 @@ class BannerInfoModelView(ListView):
 
         if price:
             price_from, price_to = price.split(';')
-            qs = qs.filter(price__gte=price_from, price__lte=price_to)
+            qs = qs.filter(dollar__gte=price_from, dollar__lte=price_to)
+
+        if inbox:
+            if inbox == 'inbox':
+                qs = sorted(qs, key=lambda i: i.inbox())
+        if delivery:
+            if delivery == 'delivery':
+                qs = sorted(qs, key=lambda i: i.delivery())
 
         if sort:
             if sort == 'price':
@@ -61,30 +82,27 @@ class BannerInfoModelView(ListView):
 
         return qs
 
-    #
-    # def get_queryset2(self, ):
-    #     qs = BannerInfoModel.objects.order_by('pk')
-    #
-    #     q = self.request.GET.get('q', '')
-    #
-    #     if q:
-    #         qs = qs.filter(Q(title__icontains=q) |
-    #                        Q(sku__icontains=q) |
-    #                        Q(city__icontains=q)
-    #                        )
-    #     return qs
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = CategoryModel.objects.order_by('-pk')
         context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
 
         context['min_price'], context['max_price'] = BannerInfoModel.objects.aggregate(
-            Min('price'),
-            Max("dollar")
+            Min('dollar'),
+            Max('dollar')
         ).values()
 
         return context
+
+    # def get_search(self, ):
+    #     qs = BannerInfoModel.objects.order_by('pk')
+    #
+    #     q = self.request.GET.get('q', '')
+    #
+    #     if q:
+    #         qs = qs.filter(Q(title__icontains=q) |
+    #                        Q(sku__id=q))
+    #     return qs
 
 
 class SingleModelDetailView(DetailView):

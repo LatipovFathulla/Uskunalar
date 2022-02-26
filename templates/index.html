@@ -43,14 +43,21 @@
 </style>
 <body>
 <!-- start navbar -->
-<nav class="container navbar navbar-expand-lg navbar-light bg-white">
+<div class="nav-desk-1">
+    <nav class="container navbar navbar-expand-lg navbar-light bg-white">
     <ul id="accordion4" class="accordion4">
-        <li>
-            <div class="link">{% trans 'Русский' %}<i class="fa fa-chevron-down"></i></div>
+       <li>
+             {% get_current_language as lang %}
+             {% get_available_languages as langs %}
+            <div class="link"><a href="" style="color:#000">{{ lang|upper }}</a> <i class="fa fa-chevron-down"></i>
+            </div>
             <ul class="submenu4">
-                <li><a href="#">{% trans 'Узбекский' %}</a></li>
+                  {% for l in langs %}
+                 {% if l.0 != lang %}
                 <hr class="mb-0 mt-0">
-                <li><a href="#">{% trans 'Английский' %}</a></li>
+                <li><a href="{% get_url_lang request l.0 %}">{{ l.0|upper }}</a></li>
+                  {% endif %}
+                {% endfor %}
             </ul>
         </li>
     </ul>
@@ -60,8 +67,7 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <li class="nav-item">
-                <a class="nav-link-2" href="{% url 'products:product' %}"> <img
-                        src="{% static './images/search_product.svg' %}" class="not-found" alt=""> {% trans 'Не нашли товар?' %}</a>
+                <a class="nav-link-2" href="{% url 'products:product' %}"> {% trans 'Продукты' %}</a>
             </li>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -95,7 +101,7 @@
 <!-- mobile menu -->
 <nav class="container navbar navbar-expand-lg navbar-light bg-white" style="width: 100%;background-color: red;">
     <ul class="navbar-nav">
-        <a href="./index.html"><img src="{% static './images/logo.png' %}" class="logo_image" alt=""></a>
+        <a href="/"><img src="{% static './images/logo.png' %}" class="logo_image" alt=""></a>
         <a href="{% url 'products:wishlist' %}">
             <img src="{% static 'images/like.svg' %}" class="like-mobile" alt="">
             <span class="like_radius_mobile">
@@ -130,8 +136,8 @@
                     <li class="delay05"><a href="{% url 'blog:blogs' %}">{% trans 'Наши статьи' %}</a></li>
                     <li class="delay06"><a href="{% url 'home:about' %}">{% trans 'О нас' %}</a></li>
                     <li class="delay07"><a href="{% url 'home:contacts' %}">{% trans 'Контакты' %}</a></li>
-                    <li class="delay08"><a href="./not_found_product.html"><img
-                            src="{% static 'images/search_product.svg' %}" class="not-found" alt="">{% trans 'Не нашли товар?' %}</a></li>
+                    <li class="delay08"><a href="{% url 'products:product' %}"><img
+                            src="{% static 'images/search_product.svg' %}" class="not-found" alt="">{% trans 'Продукты' %}</a></li>
                     <li class="delay09"><a href="tel:+998 71 250 77 77">
                         <p style="color: #000;font-weight: bold;">+998 71 250 77 77</p>
                     </a></li>
@@ -188,6 +194,8 @@
     </div>
     <!-- end navbar -->
 </nav>
+</div>
+
 <!-- end mobile menu -->
 {% block content %}
 <!-- start carousel -->
@@ -931,7 +939,7 @@
                                 style="margin-left: 2%;position: absolute;">Telegram</span></p></a>
                     </div>
                 </div>
-
+            </div>
             </div>
         </div>
     </div>
@@ -1072,6 +1080,21 @@
 
     $('.icon-close').click( function(){
       $('body').removeClass('mode-search');
+    });
+</script>
+ <script>
+      $(".js-range-slider").ionRangeSlider({
+        type: "double",
+        grid: true,
+        prefix: "$",
+        min: {{ min_price }},
+        max: {{ max_price }},
+        from: 2,
+        to: 1,
+        onFinish(data) {
+            let result = data.from.toString() + ';' + data.to.toString()
+            addUrlParameter('price', result);
+        }
     });
 </script>
 

@@ -25,6 +25,7 @@ INSTALLED_APPS = [
 
     'widget_tweaks',
     'embed_video',
+    'django.contrib.humanize',
 
     'home',
     'about',

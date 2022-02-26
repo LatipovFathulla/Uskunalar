@@ -1,6 +1,7 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load humanize %}
 {% block content %}
 
 <section class="banner">
@@ -50,7 +51,13 @@
             <p class="single-product-title" style="font-size: 24px;">{{ object.title }}</p>
             <div class="row">
                 <div class="col-md-6 mt-3">
-                    <p class="in_box"><img src="{% static './images/radius.svg' %}" alt="">{{ object.inbox }}</p>
+                    <p class="in_box"><img src="{% static './images/radius.svg' %}" alt="">
+                       {% if object.inbox == object.pk %}
+                        {{ object.inbox }}aaa
+                       {% elif object.delivery == object.pk %}
+                        {{ object.delivery }}
+                       {% endif %}
+                    </p>
                 </div>
                 <div class="col-md-6 mt-3">
                     <p class="in_article">{% trans 'Артикул' %}:{{ object.sku }}</p>
@@ -64,7 +71,7 @@
                 </div>
                 <div class="col-md-6 mt-4">
                     <p class="price_prod">{% trans 'Цена в суммах' %}:</p>
-                    <h3 class="count_prod">{{ object.price }} сум</h3>
+                    <h3 class="count_prod">{{ object.price|intcomma }} сум</h3>
                 </div>
             </div>
             <div class="row">
