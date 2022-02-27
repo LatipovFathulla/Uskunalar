@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     $('.responsive').slick({
         // dots: false,
         infinite: true,
@@ -55,7 +54,7 @@ $(document).ready(function () {
 var splide = new Splide('.splide_3_2', {
     perPage: 1,
     rewind: true,
-  });
+});
 
 splide.mount();
 // $(document).ready(function() {
@@ -186,24 +185,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // splide
 
-    var splide = new Splide('.splide_2', {
-      perPage: 1,
-      rewind: true,
-    });
+var splide = new Splide('.splide_2', {
+    perPage: 1,
+    rewind: true,
+});
 
-    splide.mount();
+splide.mount();
 
 
 //splide 3
-   var splide = new Splide('.splide_4', {
-      perPage: 1,
-      rewind: true,
-    });
+var splide = new Splide('.splide_4', {
+    perPage: 1,
+    rewind: true,
+});
 
-    splide.mount();
+splide.mount();
 
 //splide 4
-
 
 
 //  end
@@ -211,12 +209,12 @@ document.addEventListener('DOMContentLoaded', function () {
 // menu
 
 //splide 2
-  var splide = new Splide('.splide_3', {
+var splide = new Splide('.splide_3', {
     perPage: 1,
     rewind: true,
-  });
+});
 
-  splide.mount();
+splide.mount();
 
 
 // submenu
@@ -242,8 +240,6 @@ document.getElementById("defaultOpen").click();
 //  asd
 
 
-
-
 (function ($) {
     $('.accordion5_1 > a').addClass('active').next().slideDown();
 
@@ -264,6 +260,7 @@ document.getElementById("defaultOpen").click();
         j.preventDefault();
     });
 })(jQuery);
+
 
 
 
