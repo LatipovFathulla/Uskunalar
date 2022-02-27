@@ -191,7 +191,7 @@
                                 class="fa fa-chevron-down"></i>
                             <hr class="hr-menu" style="position: absolute;bottom: -1px;">
                         </div>
-                        <ul class="submenu">
+                        <ul class="submenu" selected>
                                 {% for subcategory in category.subcategories.all %}
                                     <li><a href="?subcategory={{ subcategory.pk }}">{{ subcategory }}</a></li>
                                 {% endfor %}
@@ -297,20 +297,6 @@
                                                 <div class="col-md-3">
                                                     <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
                                                         <div class="link" style="padding: 20px 20px 20px 35px;"><i
-                                                                class="fa fa-check"></i>В наличии<i class="fa fa-chevron-down"></i></div>
-                                                        <ul class="submenu"
-                                                            style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                                                            <img src="{% static './images/triangle.svg' %}"
-                                                                 style="overflow: hidden;" alt="">
-                                                            <li><a href="#">В наличии</a></li>
-                                                            <li><a href="#">В складе</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </div>
-                                                <br>
-                                                <div class="col-md-3">
-                                                    <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                                                        <div class="link" style="padding: 20px 20px 20px 35px;"><i
                                                                 class="fas fa-search-dollar"></i>Цена<br><i
                                                                 class="fa fa-chevron-down"></i></div>
                                                         <ul class="submenu"
@@ -318,26 +304,8 @@
                                                             <img src="{% static './images/triangle.svg' %}"
                                                                  style="overflow: hidden;" alt="">
                                                             <li>
-                                                                <div class="container p-3">
-                                                                    <div class="row">
-                                                                        <div class="col-md-6">
-                                                                            <div class="price-filter">
-                                                                                <p class="price-filter-title">От
-                                                                                    500</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="price-filter">
-                                                                                <p class="price-filter-title">ДоФФ
-                                                                                    3500000</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li>
                                                                 <form action="">
-                                                                    <input type="range" class="js-range-slider" name="js-range-slider" />
+                                                                    <input class="js-range-slider" name="js-range-slider" />
                                                                 </form>
                                                             </li>
 
@@ -353,11 +321,14 @@
                                 <div class="modal-footer" style="justify-content: center;border-top: none;">
                                     <ul>
                                         <li>
-                                            <button class="button-center button-bottom">
-                                                <p style="font-size: 16px;">{% trans 'Барчаси' %}</p>
-                                            </button>
+                                            <a href="{% url 'products:product' %}">
+                                                <button class="button-center button-bottom" type="button">
+                                                <p style="font-size: 16px;">{% trans 'Сбросить' %}</p>
+                                                </button>
+                                            </a>
                                         </li>
                                     </ul>
+
                                 </div>
                             </div>
                         </div>
@@ -440,7 +411,7 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-3 m-like">
-                                    <a href="#" class="card-link">
+                                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
                                         <button class="btn"
                                                 style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 15px;">
                                             <img

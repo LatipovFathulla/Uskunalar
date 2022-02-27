@@ -4,7 +4,7 @@ import pytz
 from django.db.models import Q, Min, Max
 from django.http import JsonResponse
 from django.views.generic import ListView, TemplateView, DetailView
-from requests import Response
+from rest_framework.response import Response
 
 from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 from home.utils import get_wishlist_data
@@ -43,7 +43,7 @@ class BannerInfoModelView(ListView):
         delivery = self.request.GET.get('delivery')
 
         if q:
-            qs = qs.filter(title__icontains=q)
+            qs = qs.filter(Q(title__icontains=q))
 
         if category:
             qs = qs.filter(category_id=category)
@@ -115,6 +115,14 @@ class SingleModelDetailView(DetailView):
         return context
 
 
+class WishlistModelListView(ListView):
+    template_name = 'wishlist.html'
+    paginate_by = 7
+
+    def get_queryset(self):
+        return BannerInfoModel.get_from_wishlist(self.request)
+
+
 def add_to_wishlist(request, pk):
     try:
         product = BannerInfoModel.objects.get(pk=pk)
@@ -133,11 +141,3 @@ def add_to_wishlist(request, pk):
 
     data['wishlist_len'] = get_wishlist_data(wishlist)
     return JsonResponse(data)
-
-
-class WishlistModelListView(ListView):
-    template_name = 'wishlist.html'
-    paginate_by = 7
-
-    def get_queryset(self):
-        return BannerInfoModel.get_from_wishlist(self.request)

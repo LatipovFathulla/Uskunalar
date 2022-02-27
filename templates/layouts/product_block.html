@@ -93,9 +93,7 @@
                             </a></li>
                         </ul>
                         <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                            <button class="btn-like2" type="submit"><img
-                                    src="{% static './images/like.svg' %}"
-                                    alt=""></button>
+                                <button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}"alt=""></button>
                         </a>
                     </div>
                 </div>
@@ -123,6 +121,7 @@
                             Added to wishlist
                         </div>
                     </div>`);
+                   element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}"alt="">add</button>'
                 } else {
                     $('#message').append(`<div style="padding:5px">
                         <div id="inner-message" class="alert alert-success">
@@ -130,8 +129,9 @@
                             Removed from wishlist
                         </div>
                     </div>`);
+                    element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}" alt="">rem</button>'
                 }
-                  $('#wishlist_length2').html(data.wishlist_len);
+                  $('#like_count').html(data.wishlist_len);
             }
         });
     }

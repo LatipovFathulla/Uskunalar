@@ -48,8 +48,8 @@ class SecondSubCategoryModel(models.Model):
 
 
 class BannerInfoModel(models.Model):
-    title = models.CharField(max_length=99, verbose_name=_('title'))
-    sku = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
+    sku = models.AutoField(primary_key=True, db_index=True)
     image = models.ImageField(upload_to='banner', verbose_name=_('image'))
     pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True)
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), null=True)
