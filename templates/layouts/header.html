@@ -83,7 +83,7 @@
         <a href="{% url 'products:wishlist' %}">
             <img src="{% static './images/like.svg' %}" class="like-mobile" alt="">
             <span class="like_radius_mobile">
-          <p class="like_count">{% get_wishlist_count request %}</p>
+          <p class="like_count" id="like_count">{% get_wishlist_count request %}</p>
         </span>
         </a>
         <li class="form-mobile-2">
