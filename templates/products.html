@@ -615,37 +615,6 @@ justify-content: center;">
 
 {% block extra_js %}
 <script>
-      function add_to_wishlist(element, pk) {
-        $.getJSON('/products/' + "wishlist/" + pk, function (data) {
-            if (!data.status) {
-               $('#message').append(`<div style="padding:5px">
-                        <div id="inner-message" class="alert alert-error">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            Error
-                        </div>
-                    </div>`);
-            } else {
-                if (data.added) {
-                    $('#message').append(`<div style="padding:5px">
-                        <div id="inner-message" class="alert alert-success">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            Added to wishlist
-                        </div>
-                    </div>`);
-                } else {
-                    $('#message').append(`<div style="padding:5px">
-                        <div id="inner-message" class="alert alert-success">
-                            <button type="button" onclick="MyFunction()" class="close" data-dismiss="alert">&times;</button>
-                            Removed from wishlist
-                        </div>
-                    </div>`);
-                }
-                  $('#like_count').html(data.wishlist_len);
-            }
-        });
-    }
-</script>
-<script>
       $('.btn1').click(function () {
             $(this).toggleClass("click");
             $('.sidebar').toggleClass("show");

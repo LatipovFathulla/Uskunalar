@@ -127,7 +127,7 @@
         <a href="{% url 'products:wishlist' %}">
             <img src="{% static 'images/like.svg' %}" class="like-mobile" alt="">
             <span class="like_radius_mobile">
-          <p class="like_count">{% get_wishlist_count request %}</p>
+          <p class="like_count" id="like_count">{% get_wishlist_count request %}</p>
         </span>
         </a>
         <li class="form-mobile-2">
@@ -200,7 +200,7 @@
                     </a>
                     <a href="{% url 'products:wishlist' %}">
                 <span class="like_radius">
-                  <p class="like_count">{% get_wishlist_count request %}</p>
+                  <p class="like_count" id="like_count">{% get_wishlist_count request %}</p>
                 </span>
                     </a>
                 </li>
@@ -1011,6 +1011,7 @@
 <script src='https://kenwheeler.github.io/slick/slick/slick.js'></script>
 <script src='https://s3.amazonaws.com/dimsemenov-static/dist/jquery.magnific-popup.min.js'></script>
 <script src="{% static 'js/main.js' %}"></script>
+
 <script>
     var splide = new Splide('.splide_4_5', {
         type: 'loop',
