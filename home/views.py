@@ -33,6 +33,7 @@ class BannerInfoModelView(ListView):
 
         q = self.request.GET.get('q', '')
         category = self.request.GET.get('category')
+        category2 = self.request.GET.get('category')
         subcategory = self.request.GET.get('subcategory')
         sku = self.request.GET.get('sku')
         price = self.request.GET.get('price')
@@ -79,6 +80,10 @@ class BannerInfoModelView(ListView):
                 qs = sorted(qs, key=lambda i: i.get_price())
             elif som == '-som':
                 qs = sorted(qs, key=lambda i: i.get_price(), reverse=True)
+
+        if category2:
+            if category2 == 'category':
+                qs = sorted(qs, key=lambda i: i.category())
 
         return qs
 

@@ -26,6 +26,9 @@ p {
     color: #000;
 }
 
+.select_mate[data-selec-open] {
+    background:#FFE700;
+}
 
 /* navbar */
 .navbar-nav .nav-item .nav-link {
@@ -2978,7 +2981,7 @@ nav .nav-ul li a span.rotate {
     .button-left.button-bottom-left.ds-none2 {
         position: absolute;
         left: 9%;
-        top: 50%;
+        top: 76%;
         background: #FFE700;
         border: none;
         z-index: 1;
@@ -3470,7 +3473,7 @@ body.mode-search {
     }
 
     .new-mobile-text {
-        margin-left: -52%;
+        margin-left: -40%;
         color: #fff;
         font-weight: normal;
         font-size: 16px;

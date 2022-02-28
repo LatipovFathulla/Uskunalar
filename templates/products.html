@@ -20,7 +20,26 @@
             }
         }
 
+        .modal-content {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 93%;
+        pointer-events: auto;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: 0.3rem;
+        outline: 0;
+        }
 
+       @media (min-width:1199px) {
+             .category-ds-1 {
+                display:none
+            }
+       }
 </style>
 <section class="banner">
     <div class="container">
@@ -90,7 +109,7 @@
                 </div>
                 <div class="col-md-4">
                     <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                        <div class="link" style="padding: 20px 20px 20px 35px;"><i class="fas fa-search-dollar"></i>Цена<br><i
+                        <div class="link" style="padding: 20px 20px 20px 35px;background:#FFE700"><i class="fas fa-search-dollar"></i>Цена<br><i
                                 class="fa fa-chevron-down"></i></div>
                         <ul class="submenu"
                             style="position: absolute;z-index: 99;width: 88%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
@@ -119,52 +138,35 @@
         <div class="col-12">
             <br>
             <p class="categories_block mt-2">{% trans 'Категории' %}</p>
-            <ul id="accordion4_2" class="accordion" style="border-radius: 6px;">
+            <br>
+<!--               <select onchange="addUrlParameter('sort', this.value)">
+                                                            <option>Все товары</option>
+                                                            <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price" >От А до Я</option>
+                                                            <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price"  >От Я до А</option>
+                                                            <option {% if request.GET.sort == 'created_at' %}selected{% endif %} value="created_at">Новые</option>
 
-                <li>
-                    <div class="link" style="background-color: #FFE700;border-radius: 6px;"><img
-                            src="{% static './images/pishevaya.svg' %}"
-                            alt=""> <span
-                            style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
-                промышленность</span><i class="fa fa-chevron-down"></i>
-                        <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                    </div>
-                    <ul class="submenu">
-                        <li><a href="#">Прокатное производства</a></li>
-                        <li><a href="#">Холодильники</a></li>
-                        <li>
-                            <ul class="accordion5_1">
-                                <li>
-                                    <a>Lorem ipsum</a>
-                                    <p>Lorem ipsum dolor1 </p>
-                                    <p>lasdfasd fasdfasdf sadff</p>
-                                </li>
-                                <li>
-                                    <a>Repellat Odit Aliquid</a>
-                                    <p>Lorem ipsum dolor1 </p>
-                                </li>
-                                <li>
-                                    <a>Dolor sit Amet</a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit,
-                                        ipsum,
-                                        fuga, in,
-                                        obcaecati magni ullam nobis voluptas fugiat tenetur voluptatum quas tempora
-                                        maxime rerum neque
-                                        deserunt suscipit provident cumque et mollitia ex aspernatur porro minus
-                                        sapiente voluptatibus eos
-                                        at perferendis repellat odit aliquid harum molestias ratione pariatur
-                                        adipisci.
-                                        Aliquid, iure.</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Мебель для кухни</a></li>
-                        <li><a href="#">Мельница</a></li>
-                        <li><a href="#">Переработка молока</a></li>
-                    </ul>
-                </li>
 
-            </ul>
+                                                        </select>-->
+            <div class="category-ds-1">
+                <div class="select_mate" data-mate-select="active" >
+                <select name="category2" onchange="location = this.value;" onclick="return false;"  id="">
+                     {% for category in categories %}
+
+                        <option {% if request.GET.category == category.pk|stringformat:'i' %}selected{% endif %} value="?category={{ category.pk }}">
+                            {{ category.category }}
+                        </option>
+                    {% endfor %}
+                </select>
+                  <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                      <path d="M0-.75h24v24H0z" fill="none"/>
+                  </svg></span>
+                  <div class="cont_list_select_mate">
+                    <ul class="cont_select_int">  </ul>
+                  </div>
+              </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -191,7 +193,7 @@
                                 class="fa fa-chevron-down"></i>
                             <hr class="hr-menu" style="position: absolute;bottom: -1px;">
                         </div>
-                        <ul class="submenu" selected>
+                        <ul class="submenu">
                                 {% for subcategory in category.subcategories.all %}
                                     <li><a href="?subcategory={{ subcategory.pk }}">{{ subcategory }}</a></li>
                                 {% endfor %}
@@ -365,7 +367,7 @@
                             <div class="sort-menu-products">
                             <div class="row">
                                 <div class="col-md-3 col-6 d-like" style="position: absolute;z-index: 8;">
-                                    <a href="#" class="card-link">
+                                    <a onclick="add_to_wishlist(this, {{ product.pk }})"  class="card-link">
                                         <button class="btn like-mobile-1"><img
                                                 src="{% static './images/like.svg' %}"
                                                 style="margin-top: 7px;" alt=""></button>
@@ -395,12 +397,16 @@
                                         {{ product.title }}</h4>
                                     <p class="detail-paris">
                                         {% trans 'Артикул' %}: {{ product.sku }}</p>
+                                            <p class="detail" style="margin-top:2px;margin-left:2%">
+                                        <img src="{% static './images/radius.svg' %}" sty alt="">
+                                        {{ product.inbox }}
+                                        {{ product.delivery }}</p>
                                     <p class="desc-paris">$ {{ product.dollar }} - {{ product.price }} сум</p>
                                     <p class="mob-price" style="margin-left: 2%;">${{ product.dollar }}</p>
                                     <p class="mob-price mt-2" style="margin-left: 2%;">{{ product.price }} cум</p>
                                     <ul>
                                         <li>
-                                            <a href="./single-product.html">
+                                            <a href="{% url 'products:single'  pk=product.pk %}">
                                                 <button class="button-left button-bottom-left ds-none2"
                                                         type="button"
                                                         style="width: 127px;height: 52px;">
@@ -528,15 +534,13 @@ justify-content: center;">
                                     <div class="flex-itm">
                                         <div class="flex-iem-inner">
                                             <!-- card -->
-                                            <a href="#">
                                                 <div class="card-front bg-violet">
-                                                    <a href="#" class="card-link">
+                                                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
                                                         <button class="btn"
                                                                 style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
                                                             <img
                                                                     src="{% static './images/like.svg' %}"
                                                                     style="margin-top: 7px;" alt=""></button>
-                                                    </a>
                                                      {% if product.is_discount %}
                                                         <a href="#" class="card-link">
                                                         <button class="btn"
@@ -611,6 +615,37 @@ justify-content: center;">
 
 {% block extra_js %}
 <script>
+      function add_to_wishlist(element, pk) {
+        $.getJSON('/products/' + "wishlist/" + pk, function (data) {
+            if (!data.status) {
+               $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            Error
+                        </div>
+                    </div>`);
+            } else {
+                if (data.added) {
+                    $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            Added to wishlist
+                        </div>
+                    </div>`);
+                } else {
+                    $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-success">
+                            <button type="button" onclick="MyFunction()" class="close" data-dismiss="alert">&times;</button>
+                            Removed from wishlist
+                        </div>
+                    </div>`);
+                }
+                  $('#like_count').html(data.wishlist_len);
+            }
+        });
+    }
+</script>
+<script>
       $('.btn1').click(function () {
             $(this).toggleClass("click");
             $('.sidebar').toggleClass("show");
@@ -682,7 +717,7 @@ justify-content: center;">
                 $this.parent().toggleClass('open');
 
                 if (!e.data.multiple) {
-                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                    $el.find('.submenu').not($next).slideUp().parent().selected('true');
                 }
                 ;
             }

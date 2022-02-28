@@ -1,5 +1,6 @@
 {% load tags %}
 {% load static %}
+{% load i18n %}
 {% load humanize %}
 {% block content %}
 <div class="produdcs-section">
@@ -8,7 +9,7 @@
             <!-- card -->
             <a href="#">
                 <div class="card-front bg-vioet">
-                    <a href="" class="card-link">
+                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
                         <button class="btn like-mobile-1"><img
                                 src="{% static './images/like.svg' %}"
                                 class="like-img-mobile" alt=""></button>
@@ -28,9 +29,9 @@
                     <img src="{{ product.image.url }}" class="product-image-url" alt="">
                     <div class="card-text">
                         <h4 class="front-title">{{ product.title }}</h4>
-                        <p class="detail">Артикул: {{ product.sku }}</p>
+                        <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
                         <p class="detail" style="margin-top:2px">
-                            Город: {{ product.city }}</p>
+                            {% trans 'Город' %}: {{ product.city }}</p>
                            <p class="detail" style="margin-top:2px">
                             <img src="{% static './images/radius.svg' %}" sty alt="">
                         {{ product.inbox }}
@@ -121,7 +122,6 @@
                             Added to wishlist
                         </div>
                     </div>`);
-                   element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}"alt="">add</button>'
                 } else {
                     $('#message').append(`<div style="padding:5px">
                         <div id="inner-message" class="alert alert-success">
@@ -129,7 +129,6 @@
                             Removed from wishlist
                         </div>
                     </div>`);
-                    element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}" alt="">rem</button>'
                 }
                   $('#like_count').html(data.wishlist_len);
             }
