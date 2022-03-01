@@ -558,9 +558,9 @@
                                     <div class="flex-itm">
                                         <div class="flex-iem-inner">
                                             <!-- card -->
-                                            <a href="#">
+                                            <a href="{% url 'products:single' pk=product.pk %}">
                                                 <div class="card-front bg-violet">
-                                                    <a href="#" class="card-link">
+                                                    <a onclick="add_to_wishlist(this, {{ product.pk }})"  class="card-link">
                                                         <button class="btn"
                                                                 style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
                                                             <img
@@ -598,7 +598,7 @@
                                                                     <a href="{% url 'products:single' pk=product.pk %}">
                                                                         <button class="button-center button-bottom2 mobile-button"
                                                                             style="width: 127px;height: 43px;">
-                                                                        <p style="font-size: 13px;">Заказать</p>
+                                                                        <p style="font-size: 13px;">{% trans 'Заказать' %}</p>
                                                                     </button>
                                                                     </a>
                                                                 </li>

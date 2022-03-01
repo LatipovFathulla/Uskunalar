@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-01 12:24+0500\n"
+"POT-Creation-Date: 2022-03-01 13:12+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -453,6 +453,12 @@ msgstr ""
 msgid "Артикул"
 msgstr ""
 
+#: templates/index.html:601 templates/layouts/product_block.html:51
+#: templates/layouts/product_block.html:92 templates/products.html:413
+#: templates/products.html:472 templates/single-product.html:310
+msgid "Заказать"
+msgstr ""
+
 #: templates/index.html:675 templates/index.html:698 templates/index.html:758
 #: templates/index.html:780
 msgid "Читать полностью"
@@ -535,11 +541,6 @@ msgstr ""
 
 #: templates/products.html:231
 msgid "of"
-msgstr ""
-
-#: templates/products.html:413 templates/products.html:472
-#: templates/single-product.html:310
-msgid "Заказать"
 msgstr ""
 
 #: templates/requests.html:37
