@@ -30,7 +30,7 @@
 </style>
 
 <div class="container mt-5">
-    <form method="post" role="form" class="form2" action="{% url 'home:request' %}" style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);padding: 20px 32px;
+    <form method="post" role="form" class="form2" action="{% url 'home:request' %}?next={{ request.path }}" style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);padding: 20px 32px;
     width: 100%;
     margin-top: 20px;">
         {% csrf_token %}

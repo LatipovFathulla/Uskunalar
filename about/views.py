@@ -46,8 +46,7 @@ class RequestCreateView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-
-        return reverse('home:contacts')
+        return self.request.GET.get('next', '/')
 
 
 class HomeView(TemplateView):
