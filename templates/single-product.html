@@ -72,21 +72,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-5 col-6">
-                    <div class="numbers_prod">
-                        <p class="count_num">Количество</p>
-                        <div class='ctrl mt-2'>
-                            <div class='ctrl-button ctrl-button-decrement'>-</div>
-                            <div class='ctrl-counter'>
-                                <input class='ctrl-counter-input' maxlength='10' type='text' value='1'>
-                                <div class='ctrl-counter-num'>1</div>
-                            </div>
-                            <div class='ctrl-button ctrl-button-increment'>+</div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-3 col-6">
+                <div class="col-md-6 col-6">
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -110,7 +96,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="numbers_prod" style="margin-left: 20%;margin-top: 35px;">
+                    <div class="numbers_prod" style="margin-left: 26%;margin-top: 3px;">
                         <ul>
                             <li>
                                 <button id="single-buttom" class="button-left button-bottom-left" type="button"
@@ -122,13 +108,14 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4 mt-4">
+                <div class="col-md-6 mt-4">
                     <div class="numbers_prod">
                         <p class="mas"><a href="https://qishloqqurilishbank.uz/ru/credits/dlya-fizicheskikh-lic" target="_blank"
                                           style="border-bottom: 1px dashed #132E6B;color: #132E6B;list-style-type: none;">{% trans 'Купить через банк' %}</a></p>
                     </div>
                 </div>
             </div>
+            <br>
             <a href="{{ object.pdf.url }}"> <img src="{% static './images/pdf' %} 1.svg" alt=""><span
                     class="download_pdf">{% trans 'Скачать Pdf' %}</span></a>
         </div>
@@ -261,21 +248,29 @@
                 <div class="flex-item">
                     <div class="flex-item-inner">
                         <!-- card -->
-                        <a href="#">
+                        <a href="{% url 'products:single' pk=product.pk %}">
                             <div class="card-front bg-violet">
-                                <a href="#" class="card-link">
+                                <a onclick="add_to_wishlist(this, {{ product.pk }})"  class="card-link">
                                     <button class="btn"
                                             style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
                                         <img
                                                 src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt="">
                                     </button>
                                 </a>
-                                <a href="#" class="card-link">
-                                    <button class="btn"
-                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
-                                    </button>
-                                </a>
+                                {% if product.is_discount %}
+                                        <a href="#" class="card-link">
+                                            <button class="btn"
+                                                    style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
+                                                <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
+                                            </button>
+                                        </a>
+                                {% elif product.is_new %}
+                                 <a href="#" class="card-link1">
+                                                            <button class="btn new-mobile-1">
+                                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
+                                                            </button>
+                                                        </a>
+                                  {% endif %}
                                 <img src="{{ product.image.url }}" class="product-image-url" alt="">
                                 <div class="card-text">
                                     <h4 class="front-title">{{ object.title }}</h4>
@@ -310,12 +305,14 @@
                                 <div class="buttons" style="text-align: center;padding: 10px;">
                                     <ul>
                                         <li>
-                                            <button class="button-product button-bottom-product">
-                                                <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
-                                            </button>
+                                            <a href="{% url 'products:single' pk=product.pk %}">
+                                                <button class="button-product button-bottom-product">
+                                                    <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
+                                                 </button>
+                                            </a>
                                         </li>
                                     </ul>
-                                    <a href="#" class="card-link">
+                                    <a onclick="add_to_wishlist(this, {{ product.pk }})"  class="card-link">
                                         <button class="btn-like2"><img src="{% static './images/like.svg' %}"
                                                                        alt=""></button>
                                     </a>

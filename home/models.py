@@ -121,6 +121,20 @@ class ProductSpecificationsModel(models.Model):
         verbose_name_plural = _('product specifications')
 
 
+class CarouselModel(models.Model):
+    title = models.CharField(max_length=60, verbose_name=_('title'))
+    descriptions = models.TextField(verbose_name=_('descriptions'))
+    image = models.FileField(upload_to='Banner_home1', verbose_name=_('image'))
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('carousel')
+        verbose_name_plural = _('carousels')
+
+
 # translate
 # Header and footer
 # 1.Create models to blog:(for)-see more

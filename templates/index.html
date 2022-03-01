@@ -153,17 +153,16 @@
                     <img src="{% static 'images/logo.png' %}" class="logo_image2" alt="">
                     <li class="delay02"><a href="{% url 'home:catalog' %}">{% trans 'Каталог' %}</a></li>
                     <li class="delay03"><a href="{% url 'line:lines' %}">{% trans 'Линии' %}</a></li>
+                    <li class="delay08"><a href="{% url 'products:product' %}">{% trans 'Продукты' %}</a></li>
                     <li class="delay03"><a href="{% url 'work:works' %}">{% trans 'Наши работы' %}</a></li>
                     <li class="delay04"><a href="{% url 'video:videos' %}">{% trans 'Наши видео' %}</a></li>
                     <li class="delay05"><a href="{% url 'blog:blogs' %}">{% trans 'Наши статьи' %}</a></li>
                     <li class="delay06"><a href="{% url 'home:about' %}">{% trans 'О нас' %}</a></li>
                     <li class="delay07"><a href="{% url 'home:contacts' %}">{% trans 'Контакты' %}</a></li>
-                    <li class="delay08"><a href="{% url 'products:product' %}"><img
-                            src="{% static 'images/search_product.svg' %}" class="not-found" alt="">{% trans 'Продукты' %}</a></li>
                     <li class="delay09"><a href="tel:+998 71 250 77 77">
                         <p style="color: #000;font-weight: bold;">+998 71 250 77 77</p>
                     </a></li>
-                    <li class="delay08" style="margin-top: -7%"><a href="">
+                    <li class="delay08" style="margin-top: -7%"><a href="tel:+998 71 250 77 77">
                         <p style="color: #FF0007;">{% trans 'звонить сейчас' %}</p>
                     </a></li>
                 </ul>
@@ -209,7 +208,7 @@
                     <a class="nav-link" href="tel:+99871 250 77 77" style="color: #000;padding: 0px;margin: 0px;"><span
                             class="phone_link">+998 71 250 77 77</span></a>
                     <br>
-                    <span class="call">{% trans 'звонить сейчас' %}</span>
+                    <span class="call"><a href="tel:+998 71 250 77 77" style="color:red">{% trans 'звонить сейчас' %}</a></span>
                 </li>
             </ul>
         </form>
