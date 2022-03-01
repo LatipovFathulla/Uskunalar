@@ -108,9 +108,10 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'uz'
 
 LANGUAGES = (
+    ('uz', _('Uzbek')),
     ('en', _('English')),
     ('ru', _('Russian')),
-    ('uz', _('Uzbek')),
+
 )
 
 LOCALE_PATHS = BASE_DIR / 'locale',
