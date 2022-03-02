@@ -2186,9 +2186,6 @@ nav .nav-ul li a span.rotate {
         font-weight: 600
     }
 
-    .navbar .accordion4 {
-        display: none;
-    }
 
     .hr-top {
         display: none;
@@ -2413,8 +2410,8 @@ nav .nav-ul li a span.rotate {
 
     .carousel-button-text {
         font-size: 13.5px;
-        font-weight: bold;
-        line-height: 10px;
+        font-weight: normal;
+        line-height: 13px;
     }
 
     .splide_2 .splide__arrow {
@@ -3136,7 +3133,7 @@ nav .nav-ul li a span.rotate {
 
       /* search in mobile */
 
-body.mode-search {
+    body.mode-search {
       overflow: hidden;
     }
     body.mode-search .form,

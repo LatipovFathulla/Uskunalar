@@ -333,6 +333,16 @@
 
 
 <br>
+{% block extra_js %}
+<script>
+(function () {
+
+    $(".hamburger").on("click", function () {
+        $(this).parent(".hamburger-wrapper").toggleClass("hamburger-active")
+    });
+
+}());
+</script>
 <script>
   (function () {
     'use strict';
@@ -497,10 +507,13 @@
 
 
 </script>
+
 <script>
   AOS.init();
 
 
 </script>
+
+{% endblock %}
 
 {% endblock %}
