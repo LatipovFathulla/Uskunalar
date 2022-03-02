@@ -286,8 +286,9 @@ p {
     padding-right: 0;
     padding-left: 0;
     padding-bottom: 0;
-    width: 260px;
-    background-color: #fff;
+    width: 250px;
+    background-color: #32414a;
+    color:#fff;
     box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);
 }
 
@@ -372,10 +373,11 @@ p {
 
 .minimalist-tab-menu2 .list-group2 > .has-child2:after {
     content: " ";
-    padding-left: 1em;
+    padding-left: 16em;
+    position: absolute;
     font-family: "FontAwesome";
     font-size: 12px;
-    color: #A9A9AA;
+    color: #fff;
     float: right;
 }
 
@@ -408,6 +410,7 @@ p {
     visibility: visible;
     position: absolute;
     z-index: 999;
+    margin-top:10px;
 }
 
 .has-promotion2 {
@@ -1370,7 +1373,7 @@ nav-drop-menu {
     left: -4000px;
     background: #fff;
     transition: left 0.4s ease;
-    box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);
+    box-shadow: 3px 3px 3px 2px #888;
 }
 
 .sidebar.show {
@@ -1379,12 +1382,13 @@ nav-drop-menu {
 }
 
 .sidebar .text {
-    color: #132E6B;
+    color: #fff;
     font-size: 16px;
     font-weight: 500;
     line-height: 19px;
     text-align: left;
-    background: #fff;
+    background: #32414a;
+    border-bottom:2px solid #fff;
     letter-spacing: 1px;
     padding: 14px;
 }

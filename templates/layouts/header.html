@@ -135,7 +135,7 @@
           </span>
             </div>
         </div>
-        <nav class="sidebar">
+        <nav class="sidebar" style="background-color:#32414a">
             <div class="text">
                 {% trans 'Категории' %}
             </div>
@@ -145,12 +145,12 @@
                     {% for home in categories %}
                     <li class="menu-item2 has-child3">
                         <img src="{{ home.image.url }}" style="margin-top: 0%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size: 13px;font-weight: normal;font-style: normal;">{{ home.category }}</span>
+                            style="margin-top: 0%;position: absolute;font-size: 18px;font-weight: normal;font-style: normal;color:#fff">{{ home.category }}</span>
                     </li>
                     {% endfor %}
                     <li class="menu-item2 has-child2">
                         <img src="{% static './images/squares_2.svg' %}" style="margin-top: 5%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size: 13px;margin-left:-2.9%;font-weight: normal;font-style: normal;">{% trans 'Все категории' %}</span>
+                            style="margin-top: 0%;position: absolute;font-size: 18px;margin-left:-2.9%;font-weight: normal;font-style: normal;color:#fff">{% trans 'Все категории' %}</span>
                     </li>
                 </ul>
 
