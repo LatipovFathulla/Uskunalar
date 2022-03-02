@@ -4238,7 +4238,9 @@ nav .nav-ul li a span.rotate {
     font-weight: normal;
     font-style: normal;
     text-align: right;
-    margin: -6px;
+    position:absolute;
+    margin-top: 7px;
+    margin-left: 5px;
 }
 
 .blog-yellow {
