@@ -9,7 +9,7 @@
 
             </div>
             <h1 class="banner-text">{% trans 'Наши работы' %}</h1>
-            <a href="/" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>   <span> > <a href="" class="banner-desc-title">{% trans 'Наши работы' %}</a></span></p>
+            <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>   <span> > <a href="" class="banner-desc-title">{% trans 'Наши работы' %}</a></span></p>
 
             <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
         </div>
