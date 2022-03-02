@@ -5,6 +5,7 @@ from django.contrib import messages
 
 from about.forms import ContactModelForm
 from about.models import AboutModel
+from biznes.models import BiznesModel
 from blog.models import BlogModel
 from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, SecondSubCategoryModel
 from lines.models import LineModel
@@ -61,6 +62,7 @@ class HomeView(TemplateView):
         context['works'] = WorkModel.objects.order_by('-pk')[:4]
         context['blogs'] = BlogModel.objects.order_by('-pk')
         context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
+        context['biznes'] = BiznesModel.objects.order_by('-pk')
 
         return context
 

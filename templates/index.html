@@ -234,28 +234,33 @@
                         {% endfor %}
                         <a href="{% url 'products:product' %}">
                             <li class="menu-ite has-child1" style="">
-                                <img src="{% static 'images/squares_2.svg' %}" style="margin-top: 5%;" alt="">
-                                <span style="margin-top: 0%;position: absolute;font-size: 14px;margin-left:-2.9%;font-weight: 500;font-style: normal;">{% trans 'Все категории' %}</span>
+                                <img src="{% static 'images/squares_2.svg' %}" style="padding: 11px;" alt="">
+                                <span style="margin-top: 5%;position: absolute;font-size: 14px;margin-left:1%;font-weight: 500;font-style: normal;color:#000">{% trans 'Все категории' %}</span>
                             </li>
                         </a>
                     </ul>
 
                 </div>
                 <div class="minimalist-tab2">
-                    {% for subcategory in subcategories %}
+                    {% for category in categories %}
                     <div class="minimalist-tab-content2">
                         <div class="container" style="height: 605px;">
-                            <h3 class="mt-4">{{ subcategory.category }}</h3>
+                            {% for subcategory in category.subcategories.all|slice:":1" %}
+                                <h3 class="mt-4">{{ subcategory.category }}</h3>
+                            {% endfor %}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="menu-dropdown2">
-                                        <div class="dropdown-item2">
-                                            <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;height: 30px;margin-top: 20px;margin-left: 10px;">
-                                                {{ subcategory.subcategory }}
-                                            </div>
-                                            <hr class="hr-menu">
+                                           {% for subcategory in category.subcategories.all %}
+                                            <a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}">
+                                                <div class="dropdown-item2">
+                                                        <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;height: 30px;margin-top: 20px;margin-left: 10px;">
+                                                            {{ subcategory }}
+                                                        </div>
+                                                    <hr class="hr-menu">
+                                                </div>
                                             </a>
-                                        </div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -263,9 +268,11 @@
                                         <div class="blog-yellow-2">
 
                                         </div>
-                                        <img src="{{ subcategory.image.url }}"
-                                             style="width: 427px;height: 477px;position: relative;z-index: 2;"
-                                             alt="">
+                                        {% for subcategory in category.subcategories.all|slice:':1' %}
+                                            <img src="{{ subcategory.image.url }}"
+                                                 style="width: 427px;height: 477px;position: relative;z-index: 2;"
+                                                 alt="">
+                                        {% endfor %}
                                         </a>
                                         <div class="blog-yellow-3">
 
@@ -365,13 +372,14 @@
                         <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
                             <span style="position:absolute;margin:3px">{{ line.title }}</span>
                             <br>
-                            <span style="margin-top: 2%;position: absolute;margin-left: 35%;">{{ line.created_at|date:'m.d.Y' }}</span>
+                            <span style="margin-top: 2%;position: absolute;margin-left: 30%;">{{ line.created_at|date:'m.d.Y' }}</span>
                             <br>
                             <a href="{% url 'line:detail' pk=line.pk %}">
                                 <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">
                                     {% trans 'Подробнее' %}
                                 </button>
                             </a>
+                            <br>
                         </div>
 
                     </li>
@@ -399,6 +407,7 @@
                                         {% trans 'Подробнее' %}
                                     </button>
                                 </a>
+                                <br>
                             </div>
 
                         </div>
@@ -664,15 +673,15 @@
 </div>
 <div class="container">
     <div class="row">
-        {% for work in works|slice:':1' %}
+        {% for biznes in biznes|slice:':1' %}
         <div class="col-md-6">
             <div class="ded">
-                <img src="{{ work.image.url }}" style="width: 580px;height: 670px;" alt="">
+                <img src="{{ biznes.image.url }}" style="width: 580px;height: 670px;" alt="">
                 <div class="home-blog2">
-                    <p class="home-text">{{ work.title }}</p>
-                    <p class="home-desc">{{ work.short_descriptions|slice:':320' }}...</p>
+                    <p class="home-text">{{ biznes.title }}</p>
+                    <p class="home-desc">{{ biznes.long_descriptions|slice:':320' }}...</p>
                     <br>
-                    <a href="" style="position: absolute;bottom: 10px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
+                    <a href="{% url 'biznes:detail' pk=biznes.pk %}" style="position: absolute;bottom: 10px;color: #132E6B;margin: auto;display: contents;">{% trans 'Читать полностью' %}</a>
                 </div>
             </div>
         </div>
@@ -681,21 +690,21 @@
             <div class="container">
                 <div class="blog1">
                     <div class="row">
-                        {% for work in works %}
+                        {% for biznes in biznes %}
                         <div class="col-md-3">
                             <div class="all">
-                                <img src="{{ work.image.url }}" style="height:210px;width:100%" alt="">
+                                <img src="{{ biznes.image.url }}" style="height:210px;width:100%" alt="">
                             </div>
 
                         </div>
                         <div class="col-md-9">
 
                             <div class="home-blog">
-                                <p class="home-text">{{ work.title }}</p>
-                                <p class="home-desc" style="">{{ work.short_descriptions|slice:':200' }}...</p>
+                                <p class="home-text">{{ biznes.title }}</p>
+                                <p class="home-desc" style="">{{ biznes.long_descriptions|slice:':200' }}...</p>
                                 <br>
-                                <a href="{% url 'work:single-work' pk=work.pk %}"
-                                   style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
+                                <a href="{% url 'biznes:detail' pk=biznes.pk %}"
+                                   style="position: absolute;bottom: 11px;color: #132E6B;margin: auto;display: contents;">{% trans 'Читать полностью' %}</a>
                             </div>
 
                         </div>
@@ -747,14 +756,14 @@
     height: 281px;
     margin: 19px;">
             <ul class="splide__list">
-                {% for line in lines %}
+                {% for blog in blogs %}
                 <li class="splide__slide">
-                    <img src="{{ line.image.url }}"
+                    <img src="{{ blog.image.url }}"
                          style="width: 99%;border-radius: 6px;" alt="">
                     <div class="article2">
-                        <p class="article-text">{{ line.title }}</p>
-                        <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
-                        <a href="{% url 'line:detail' pk=line.pk %}"
+                        <p class="article-text">{{ blog.title }}</p>
+                        <p class="article-date">{{ blog.created_at|date:'m.d.Y' }}</p>
+                        <a href="{% url 'blog:single-blog' pk=blog.pk %}"
                            style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
                     </div>
                 </li>
@@ -769,14 +778,14 @@
     <div class="splide">
         <div class="splide__track">
             <ul class="splide__list">
-                {% for line in lines %}
+                {% for blog in blogs %}
                 <li class="splide__slide" style="height:500px">
-                    <img src="{{ line.image.url }}"
+                    <img src="{{ blog.image.url }}"
                          style="width: 350px;border-radius: 6px;height:400px" alt="">
                     <div class="article">
-                        <p class="article-text">{{ line.title }}</p>
-                        <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
-                        <a href="{% url 'line:detail' pk=line.pk %}"
+                        <p class="article-text">{{ blog.title }}</p>
+                        <p class="article-date">{{ blog.created_at|date:'m.d.Y' }}</p>
+                        <a href="{% url 'blog:single-blog' pk=blog.pk %}"
                            style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
                     </div>
                 </li>
@@ -786,7 +795,7 @@
         <div class="text-center">
             <ul>
                 <li>
-                    <a href="{% url 'line:lines' %}">
+                    <a href="{% url 'blog:blogs' %}">
                         <button class="button-center button-bottom">
                             <p style="font-size: 16px;">{% trans 'Смотреть еще' %}</p>
                         </button>
@@ -819,6 +828,12 @@
             <a href="{% url 'work:single-work' pk=work.pk %}">
                 <img src="{{ work.image.url }}" style="margin-top: 20px;" alt="">
             </a>
+            <div class="work-info" style="padding:10px;background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);">
+                <h3 style="padding:3px">{{ work.title }}</h3>
+                <p style="padding:3px">{{ work.descriptions }}</p>
+                <br>
+                <a href="{% url 'work:single-work' pk=work.pk %}" style="padding:3px;color:#132E6B">Читать дальше</a>
+            </div>
         </div>
         {% endfor %}
 
