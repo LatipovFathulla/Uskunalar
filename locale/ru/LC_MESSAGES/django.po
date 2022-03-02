@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-01 13:12+0500\n"
+"POT-Creation-Date: 2022-03-02 12:15+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -247,7 +247,7 @@ msgstr "О нашей компании"
 
 #: templates/about.html:12 templates/biznes.html:11 templates/blog.html:12
 #: templates/contacts.html:12 templates/lines.html:12
-#: templates/our_works.html:12 templates/products.html:50
+#: templates/our_works.html:12 templates/products.html:61
 #: templates/single-biznes.html:11 templates/single-blog.html:12
 #: templates/single-lines.html:11 templates/single-product.html:13
 #: templates/single-work.html:12 templates/videos.html:13
@@ -357,7 +357,7 @@ msgstr "Наши видео"
 
 #: templates/index.html:154 templates/index.html:915
 #: templates/layouts/header.html:112 templates/layouts/header.html:134
-#: templates/products.html:49 templates/products.html:50
+#: templates/products.html:60 templates/products.html:61
 msgid "Каталог"
 msgstr "Каталог"
 
@@ -367,7 +367,7 @@ msgid "звонить сейчас"
 msgstr "звонить сейчас"
 
 #: templates/index.html:178 templates/layouts/header.html:140
-#: templates/products.html:140 templates/products.html:181
+#: templates/products.html:151 templates/products.html:192
 msgid "Категории"
 msgstr "Категории"
 
@@ -443,21 +443,21 @@ msgstr "Сотрудников"
 msgid "Каталог Uskunalar"
 msgstr "Каталог Uskunalar"
 
-#: templates/index.html:536 templates/products.html:515
+#: templates/index.html:536 templates/products.html:526
 #: templates/single-product.html:161
 msgid "Популярные товары"
 msgstr "Популярные товары"
 
 #: templates/index.html:593 templates/layouts/product_block.html:32
-#: templates/products.html:399 templates/products.html:564
+#: templates/products.html:410 templates/products.html:575
 #: templates/single-product.html:60 templates/single-product.html:212
 #: templates/single-product.html:277 templates/wishlist.html:68
 msgid "Артикул"
 msgstr "Артикул"
 
 #: templates/index.html:601 templates/layouts/product_block.html:51
-#: templates/layouts/product_block.html:92 templates/products.html:413
-#: templates/products.html:472 templates/single-product.html:310
+#: templates/layouts/product_block.html:92 templates/products.html:424
+#: templates/products.html:483 templates/single-product.html:310
 msgid "Заказать"
 msgstr "Заказать"
 
@@ -516,6 +516,14 @@ msgstr ""
 msgid "Город"
 msgstr "Город"
 
+#: templates/layouts/product_block.html:122
+msgid "Added to wishlist"
+msgstr "Добавлено в избранное"
+
+#: templates/layouts/product_block.html:129
+msgid "Removed from wishlist"
+msgstr "Удаленно из избранных"
+
 #: templates/lines.html:50
 msgid "Читать дальше.."
 msgstr "Читать дальше.."
@@ -528,20 +536,20 @@ msgstr "Все работы"
 msgid "Смотреть"
 msgstr "Смотреть"
 
-#: templates/products.html:66 templates/products.html:233
-#: templates/products.html:243 templates/products.html:251
+#: templates/products.html:77 templates/products.html:244
+#: templates/products.html:254 templates/products.html:262
 msgid "Фильтр"
 msgstr "Фильтр"
 
-#: templates/products.html:67 templates/products.html:328
+#: templates/products.html:78 templates/products.html:339
 msgid "Сбросить"
 msgstr "Сбросить"
 
-#: templates/products.html:231
+#: templates/products.html:242
 msgid "Showing"
 msgstr "Показано"
 
-#: templates/products.html:231
+#: templates/products.html:242
 msgid "of"
 msgstr "из"
 
@@ -627,15 +635,15 @@ msgstr "Характеристики и описания оборудовани�
 msgid "Избранное"
 msgstr "Избранное"
 
-#: uskunalar/settings.py:111
+#: uskunalar/settings.py:118
 msgid "Uzbek"
 msgstr ""
 
-#: uskunalar/settings.py:112
+#: uskunalar/settings.py:119
 msgid "English"
 msgstr ""
 
-#: uskunalar/settings.py:113
+#: uskunalar/settings.py:120
 msgid "Russian"
 msgstr ""
 

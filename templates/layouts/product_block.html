@@ -10,9 +10,9 @@
             <a href="{% url 'products:single' pk=product.pk %}">
                 <div class="card-front bg-vioet">
                     <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                        <button class="btn like-mobile-1"><img
-                                src="{% static './images/like.svg' %}"
-                                class="like-img-mobile" alt=""></button>
+                      <button class="btn" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
+                            <img src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt="">
+                      </button>
                     </a>
                     {% if product.is_discount %}
                     <a href="#" class="card-link1"><button class="btn"
@@ -119,14 +119,14 @@
                     $('#message').append(`<div style="padding:5px">
                         <div id="inner-message" class="alert alert-success">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            Added to wishlist
+                            {% trans 'Added to wishlist' %}
                         </div>
                     </div>`);
                 } else {
                     $('#message').append(`<div style="padding:5px">
                         <div id="inner-message" class="alert alert-success">
                             <button type="button" onclick="MyFunction()" class="close" data-dismiss="alert">&times;</button>
-                            Removed from wishlist
+                            {% trans 'Removed from wishlist' %}
                         </div>
                     </div>`);
                 }

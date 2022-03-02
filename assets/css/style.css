@@ -3036,8 +3036,9 @@ nav .nav-ul li a span.rotate {
     }
 
     .produdcs-section {
-        width: 100%;
+        width: 115%;
         margin-top: 20px;
+        margin-left: -7%;
         border-left: none;
         height: 440px;
         border-radius: 15px;
