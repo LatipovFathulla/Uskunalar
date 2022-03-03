@@ -43,7 +43,7 @@
                                         <p class="date-date">{{ blog.created_at|date:'F' }}</p></span></p>
                                     </div>
 <!--                                    <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 50px;position: absolute;">Просмотрено 457 человек</small>-->
-                                    <p class="blog-title">{{ blog.title }}</p>
+                                    <p class="blog-title" style="font-family:RobotoCondensed,Arial,sans-serif;">{{ blog.title }}</p>
                                     <p class="blog-desc" style="padding: 10px;">{{ blog.smart_description }}</p>
                                     <a href="{% url 'blog:single-blog' pk=blog.pk %}">{% trans 'Читать дальше' %} <img
                                             src="{% static './images/right.svg' %}"

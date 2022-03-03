@@ -29,6 +29,7 @@
         <div class="splide_3_2">
             <div class="splide__track" style="height: 520px;">
                 <ul class="splide__list">
+                    {% if product in object_list %}
                       {% for product in object_list %}
                         <li class="splide__slide">
                                 <div class="col-md-3">
@@ -90,6 +91,9 @@
                             </div>
                         </li>
                       {% endfor %}
+                    {% else %}
+                        <p>lorem90</p>
+                    {% endif %}
                 </ul>
             </div>
         </div>

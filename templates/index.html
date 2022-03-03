@@ -102,16 +102,16 @@
                     <a class="nav-link" href="{% url 'work:works' %}" style="color: #202634;">{% trans 'Наши работы' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:blogs' %}">{% trans 'Статьи' %}</a>
+                    <a class="nav-link" href="{% url 'blog:blogs' %}" style="color: #202634;">{% trans 'Статьи' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'video:videos' %}">{% trans 'Наши видео' %}</a>
+                    <a class="nav-link" href="{% url 'video:videos' %}" style="color: #202634;">{% trans 'Наши видео' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home:about' %}">{% trans 'О нас' %}</a>
+                    <a class="nav-link" href="{% url 'home:about' %}" style="color: #202634;">{% trans 'О нас' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home:contacts' %}">{% trans 'Контакты' %}</a>
+                    <a class="nav-link" href="{% url 'home:contacts' %}" style="color: #202634;">{% trans 'Контакты' %}</a>
                 </li>
             </ul>
         </form>
@@ -233,8 +233,8 @@
                         </li>
                         {% endfor %}
                         <a href="{% url 'products:product' %}">
-                            <li class="menu-ite has-child1" style="">
-                                <img src="{% static 'images/squares_2.svg' %}" style="padding: 11px;" alt="">
+                            <li class="menu-ite has-child1" style="background:#fff">
+                                <img src="{% static 'images/squares_2.svg' %}" style="padding: 11px;color:#fff" alt="">
                                 <span style="margin-top: 5%;position: absolute;font-size: 14px;margin-left:1%;font-weight: 500;font-style: normal;color:#000">{% trans 'Все категории' %}</span>
                             </li>
                         </a>
@@ -348,13 +348,16 @@
 
     </div>
     <img src="{% static 'images/settings.svg' %}" class="icon-right" alt="">
+
     <h1 class="text-center" style="font-weight: 600;font-size: 30px;padding: 20px;margin-top: 30px;">
-        {% trans 'Производственииые линии' %}</h1>
+              <img src="{% static './images/title-icon.png' %}" style="float:left" alt="">{% trans 'Производственииые линии' %}</h1>
+
     <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
         aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
         aliquid
         ex
         repudiandae nobis</p>
+
     <br>
     <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
     <br>
@@ -425,7 +428,6 @@
          style="position: absolute;right: 4%;transform: rotate(-23.65deg);width: 70px;" alt="">
 </div>
 
-
 <div class="text-center">
     <ul>
         <li>
@@ -492,7 +494,7 @@
         repudiandae nobis</p>
     <br>
 
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+    <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
     <br>
 </div>
     <section id="gallery-carousel">
@@ -550,7 +552,7 @@
         repudiandae nobis</p>
     <br>
     <br>
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+      <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
 </div>
 <br>
 
@@ -667,7 +669,7 @@
         ex
         repudiandae nobis</p>
     <br>
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+    <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
     <br>
     <br>
 </div>
@@ -745,7 +747,7 @@
         информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
     <br>
     <br>
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+    <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
     <br>
 
 </div>
@@ -818,7 +820,7 @@
     </p>
     <br>
     <br>
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+     <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
     <br>
 </div>
 <div class="container">
@@ -830,7 +832,7 @@
             </a>
             <div class="work-info" style="padding:10px;background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);">
                 <h3 style="padding:3px">{{ work.title }}</h3>
-                <p style="padding:3px">{{ work.descriptions }}</p>
+                <p style="padding:3px">{{ work.descriptions|slice:':200' }}...</p>
                 <br>
                 <a href="{% url 'work:single-work' pk=work.pk %}" style="padding:3px;color:#132E6B">Читать дальше</a>
             </div>
@@ -866,7 +868,7 @@
         информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
     <br>
     <br>
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+        <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
     <br>
 
 </div>
@@ -986,6 +988,10 @@
                       <a href="https://www.youtube.com/c/uskunalaruz">
                         <p class="widget-number"> <img src="https://img.icons8.com/color/29/000000/youtube-play.png"/>
                           <span style="margin-left: 2%;position: absolute;margin-top:1%">YouTube</span> </p>
+                      </a>
+                        <a href="https://www.youtube.com/c/uskunalaruz">
+                        <p class="widget-number"> <img src="{% static './images/olx.png' %}" style="width:30px"/>
+                          <span style="margin-left: 2%;position: absolute;margin-top:1%">Olx</span> </p>
                       </a>
                     </div>
                 </div>

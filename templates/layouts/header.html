@@ -2,7 +2,11 @@
 {% load i18n %}
 {% load tags %}
 <style>
-
+    @media (max-width:900px) {
+        .nav-desk-1 {
+            display:none;
+        }
+    }
 
   @media (min-width:1200px) {
       .form-mobile-2 {
@@ -16,18 +20,35 @@
       }
   }
 
+    @media (min-width: 1000px) {
+        .nav-desk-1 {
+            overflow: hidden;
+            background-color: #fff;
+            position: fixed;
+            top: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 9999;
+            margin: 0 auto;
+            box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+        }
+    }
 
 
 
 
 </style>
+<div class="nav-desk-1">
 <!-- start navbar -->
-<nav class="container navbar navbar-expand-lg navbar-light bg-white">
-    <ul id="accordion4" class="accordion4">
+<nav class="navbar navbar-expand-lg" style="background-color:#32414a;color:#fff">
+    <div class="container">
+            <ul id="accordion4" class="accordion4">
         <li>
              {% get_current_language as lang %}
              {% get_available_languages as langs %}
-            <div class="link"><a href="" style="color:#000">{{ lang|upper }}</a> <i class="fa fa-chevron-down"></i>
+            <div class="link"><a href="" style="color:#fff">{{ lang|upper }}</a> <i class="fa fa-chevron-down"></i>
             </div>
             <ul class="submenu4">
                   {% for l in langs %}
@@ -45,7 +66,7 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <li class="nav-item">
-                <a class="nav-link-2" href="{% url 'products:product' %}">{% trans 'Продукты' %}</a>
+                <a class="nav-link-2" style="color:#fff" href="{% url 'products:product' %}">{% trans 'Продукты' %}</a>
             </li>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item{% if request.path == '/lines/' %}-active{% endif %}">
@@ -72,14 +93,18 @@
             </ul>
         </form>
     </div>
+    </div>
+
 </nav>
 <div class="container">
     <hr class="hr-top" style="margin-top: 0px;">
 </div>
+
+
 <!-- mobile menu -->
-<nav class="container navbar navbar-expand-lg navbar-light bg-white" style="width: 100%;background-color: red;">
+<nav class="container navbar navbar-expand-lg"  style="width: 100%;background-color: #FFF;">
     <ul class="navbar-nav">
-        <a href="{% url 'home:home' %}"><img src="{% static './images/logo.png' %}" class="logo_image" alt=""></a>
+        <a href="{% url 'home:home' %}"><img src="{% static './images/Uskunalar_logo.svg' %}" class="logo_image" alt=""></a>
         <a href="{% url 'products:wishlist' %}">
             <img src="{% static './images/like.svg' %}" class="like-mobile" alt="">
             <span class="like_radius_mobile">
@@ -110,7 +135,7 @@
                 <ul class="main-links">
                     <img src="{% static './images/logo.png' %}" class="logo_image2" alt="">
                     <li class="delay02"><a href="{% url 'home:catalog' %}">{% trans 'Каталог' %}</a></li>
-                     <li class="delay08"><a href="{% url 'products:product' %}">{% trans 'Продукты' %}</a></li>
+                     <li class="delay08" style="color:#fff"><a href="{% url 'products:product' %}">{% trans 'Продукты' %}</a></li>
                      <li class="delay08"><a href="{% url 'line:lines' %}">{% trans 'Линии' %}</a></li>
                     <li class="delay03"><a href="{% url 'work:works' %}">{% trans 'Наши работы' %}</a></li>
                     <li class="delay04"><a href="{% url 'video:videos' %}">{% trans 'Наши видео' %}</a></li>
@@ -195,6 +220,7 @@
     <!-- end navbar -->
 </nav>
 <!-- end mobile menu -->
+    </div>
 <!-- start carousel -->
 <div class="container">
     <div class="row">

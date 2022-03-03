@@ -75,11 +75,12 @@
     <ul id="accordion2" class="accordion" style="position:relative">
         <div class="filter">
             <h4>{% trans 'Фильтр' %}</h4>
-            <a href="{% url 'products:product' %}"><p style="float: right;margin-top: -2.5%;">{% trans 'Сбросить' %}</p></a>
+            <br>
+            <a href="{% url 'products:product' %}"><p style="float: right;margin-top: -3%;">{% trans 'Сбросить' %}</p></a>
             <div class="row">
                 <div class="col-md-4">
                       <!-- Custom select structure -->
-                    <div class="select_mate" data-mate-select="active" >
+                    <div class="select_mate" data-mate-select="active" style="font-family:RobotoCondensed,Arial,sans-serif;">
 
                         <select onchange="addUrlParameter('sort', this.value)">
                             <option>Все товары</option>
@@ -99,7 +100,7 @@
                 </div>
                 <div class="col-md-4">
                        <!-- Custom select structure -->
-                    <div class="select_mate" data-mate-select="active" >
+                    <div class="select_mate" data-mate-select="active" style="font-family:RobotoCondensed,Arial,sans-serif;">
 
                         <select onchange="addUrlParameter('sort', this.value)">
                             <option>Валюта</option>
@@ -120,7 +121,8 @@
                 </div>
                 <div class="col-md-4">
                     <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                        <div class="link" style="padding: 20px 20px 20px 35px;background:#FFE700"><i class="fas fa-search-dollar"></i>Цена<br><i
+                        <div class="link" style="padding: 20px ;background:#FFE700;border-radius: 3px;">
+                           <p style="font-family:RobotoCondensed,Arial,sans-serif;position: absolute;left: 8px;">Цена</p> <br><i
                                 class="fa fa-chevron-down"></i></div>
                         <ul class="submenu"
                             style="position: absolute;z-index: 99;width: 88%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
@@ -130,7 +132,7 @@
                                      <input class="js-range-slider" name="js-range-slider" />
                                  </form>
                             </li>
-                            <li><a href="#">подтвердить</a></li>
+
                         </ul>
                     </li>
                 </div>

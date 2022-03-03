@@ -35,7 +35,7 @@ p {
     font-weight: 500;
     margin: 7px;
     padding: 10px;
-    color: #000;
+    color: #fff;
 }
 
 .navbar-nav .nav-item-active .nav-link {
@@ -83,7 +83,7 @@ p {
 .like_count {
     position: absolute;
     z-index: 999;
-    font-weight: 100;
+    font-weight: 400;
     margin-top: -20%;
     margin-left:7%;
     color: #fff;
@@ -177,6 +177,9 @@ p {
   display: block;
   margin: 0px;
   cursor: pointer;
+  font-family:RobotoCondensed,Arial,sans-serif;
+  font-weight:500;
+  font-size:17px;
 }
 
 /* end my drop */
@@ -1308,8 +1311,8 @@ p {
 /* logo image */
 
 .logo_image {
-    width: 215px;
-    height: 49px;
+    width: 235px;
+    height: 62px;
 }
 
 /* logo image end */
@@ -1365,7 +1368,7 @@ nav-drop-menu {
   content: '\f00d';
 } */
 .sidebar {
-    position: absolute;
+    position: fixed;
     z-index: 9999;
     width: 260px;
     margin-top: 4.6%;
@@ -1377,8 +1380,8 @@ nav-drop-menu {
 }
 
 .sidebar.show {
-    left: 25px;
-    top: 39px;
+    left: 27%;
+    top: 16.7%;
 }
 
 .sidebar .text {
@@ -3762,6 +3765,7 @@ nav .nav-ul li a span.rotate {
         background-position: center;
         width: 100%;
         height: 250px;
+        margin-top:9%;
     }
 
     .banner-text {
@@ -3940,6 +3944,7 @@ nav .nav-ul li a span.rotate {
         width: 100%;
         z-index: 9999;
         margin: 0 auto;
+        box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
     }
 
 }
@@ -4928,8 +4933,9 @@ ul.social-footer2 li a {
     display: block;
     padding: 15px 15px 11px 15px;
     color: #4D4D4D;
-    font-size: 13px;
-    font-weight: 600;
+    font-family:RobotoCondensed,Arial,sans-serif;
+    font-size: 17px;
+    font-weight: 500;
     position: relative;
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
@@ -5837,7 +5843,7 @@ h3 {
 .irs--flat .irs-bar {
     top: 25px;
     height: 5px;
-    background-color: #FFE700;
+    background-color: #48AE9F;
 }
 
 .irs--flat .irs-handle > i:first-child {
@@ -5849,16 +5855,16 @@ h3 {
     height: 9px;
     border-radius: 50px;
     margin-left: -1px;
-    background-color: #FFE700;
+    background-color: #48AE9F;
 }
 
 .irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single {
     color: white;
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1.333;
     text-shadow: none;
     padding: 1px 5px;
-    background-color: #FFE700;
+    background-color: #48AE9F;
     border-radius: 4px;
 }
 
@@ -5896,7 +5902,7 @@ h3 {
     margin-left: -3px;
     overflow: hidden;
     border: 3px solid transparent;
-    border-top-color: #FFE700;
+    border-top-color: #48AE9F;
 }
 
 .irs--flat .irs-handle.state_hover > i:first-child, .irs--flat .irs-handle:hover > i:first-child {

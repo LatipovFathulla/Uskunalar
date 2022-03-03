@@ -45,7 +45,7 @@
                 <div class="tab">
                     {% for about in abouts %}
                         <hr class="hr-menu">
-                        <button class="tablinks" onclick="openCity(event, '{{ about.pk }}')" id="defaultOpen">{{ about.title }}</button>
+                        <button class="tablinks" onclick="openCity(event, '{{ about.pk }}')" id="defaultOpen" style="font-family:RobotoCondensed,Arial,sans-serif;font-size:17px">{{ about.title }}</button>
                         <hr class="hr-menu">
                     {% endfor %}
                     <img src="{% static './images/Group_417.svg' %}" class="icon-right" style="left: -7%;margin: 10px;transform: rotate(-29deg)" alt="">
@@ -58,9 +58,9 @@
             <div class="col-md-9">
                 {% for about in abouts %}
                 <div id="{{ about.pk }}" class="tabcontent" >
-                    <h1 style="font-size: 25px;">{{ about.title }}</h1>
+                    <h1 style="font-size: 25px;font-family:RobotoCondensed,Arial,sans-serif;">{{ about.title }}</h1>
                     <br>
-                    <p style="line-height: 22px;">
+                    <p style="line-height: 22px;font-family:RobotoCondensed,Arial,sans-serif;">
                         {{ about.descriptions }}
                      </p>
 
@@ -70,7 +70,7 @@
                         </div>
                     </div>
 
-                    <p style="line-height: 22px;"> {{ about.long_description }}</p>
+                    <p style="line-height: 22px;font-family:RobotoCondensed,Arial,sans-serif;"> {{ about.long_description }}</p>
                     <section class="video">
                     <h3>Видео о нас</h3>
                        <span>{% video about.url '100%x400' %}</span>
