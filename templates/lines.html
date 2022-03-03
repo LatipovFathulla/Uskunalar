@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% block content %}
-
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <section class="banner">
         <div class="container">
             <div class="row">
@@ -20,9 +20,12 @@
     <img src="{% static './images/settings.svg' %}" class="icon-right" alt="">
     <br>
     <br>
+
     <div class="container">
+           <img src="{% static './images/Group_417.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);left:9%" alt="">
         <div class="row">
             <img src="{% static './images/Group_417.svg' %}" class="icon-left-works" alt="">
+
             {% for line in lines %}
                 <div class="col-md-4">
                     <div class="card">
@@ -79,4 +82,8 @@ justify-content: center;">
 
     <br>
 {% include 'requests.html' %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 {% endblock %}

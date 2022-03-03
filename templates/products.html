@@ -149,6 +149,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+               <img src="{% static './images/Group_419.svg' %}" class="icon-right m-3" style="transform: rotate(2.33deg);left:-12%" alt="">
             <br>
             <p class="categories_block mt-2">{% trans 'Категории' %}</p>
             <br>
@@ -365,11 +366,13 @@
                 <div id="London" class="tabcontent3">
                     <div class="container-fluid">
                         <div class="row">
+                               <img src="{% static './images/Group_418.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);right:-15%" alt="">
                             {% for product in object_list %}
                                 <div class="col-md-4 col-6">
                                     {% include 'layouts/product_block.html' %}
                                 </div>
                             {% endfor %}
+                             <img src="{% static './images/Group_418.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);right:-15%" alt="">
                         </div>
                     </div>
                 </div>

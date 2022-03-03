@@ -25,9 +25,9 @@
     <div class="desc-blog">
         <div class="container">
             <div class="row">
+                    <img src="{% static './images/Group_417.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);left:7%" alt="">
                 {% for blog in blogs %}
                     <div class="col-md-12">
-
                         <div class="blog-yellow">
 
                         </div>
@@ -43,7 +43,7 @@
                                         <p class="date-date">{{ blog.created_at|date:'F' }}</p></span></p>
                                     </div>
 <!--                                    <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 50px;position: absolute;">Просмотрено 457 человек</small>-->
-                                    <p class="blog-title" style="font-family:RobotoCondensed,Arial,sans-serif;">{{ blog.title }}</p>
+                                    <p class="blog-title" >{{ blog.title }}</p>
                                     <p class="blog-desc" style="padding: 10px;">{{ blog.smart_description }}</p>
                                     <a href="{% url 'blog:single-blog' pk=blog.pk %}">{% trans 'Читать дальше' %} <img
                                             src="{% static './images/right.svg' %}"
