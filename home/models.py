@@ -2,6 +2,7 @@ from datetime import datetime
 
 import pytz as pytz
 from django.db import models
+from PIL import Image
 from django.db.models import FloatField
 from django.utils.translation import gettext_lazy as _
 
@@ -50,7 +51,7 @@ class SecondSubCategoryModel(models.Model):
 class BannerInfoModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
     sku = models.AutoField(primary_key=True, db_index=True)
-    image = models.ImageField(upload_to='banner', verbose_name=_('image'))
+    image = models.ImageField(upload_to='banner', verbose_name=_('image'), null=True)
     pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True)
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), null=True)
     subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'), null=True, blank=True)
