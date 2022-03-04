@@ -255,7 +255,7 @@
                       <ul class="dropdown arrow-top" style="background: #32414a;">
                            {% for category in categories %}
                             <li class="has-children">
-                                    <a href="#">{{ category.category }}</a>
+                                    <a href="{% url 'products:product' %}?category={{ category.pk }}">{{ category.category }}</a>
                                 <hr style="border-bottom: 1px solid #b5bdcc;margin-top:0px;margin-bottom:0px">
                               <ul class="dropdown" style="background:#d6effb">
                                   {% for subcategory in category.subcategories.all %}
