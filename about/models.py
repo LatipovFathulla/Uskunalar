@@ -29,7 +29,7 @@ class RequestsModel(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = _('Request')
-        verbose_name_plural = _('Requests')
+        verbose_name = _('call center')
+        verbose_name_plural = _('call center')
 
 

@@ -2,10 +2,11 @@ from django.contrib import admin
 
 
 from about.models import AboutModel, RequestsModel
+from home.admin import MyTranslationAdmin
 
 
 @admin.register(AboutModel)
-class AboutModelAdmin(admin.ModelAdmin):
+class AboutModelAdmin(MyTranslationAdmin):
     list_display = ['title', 'created_at']
     search_fields = ['title']
     list_filter = ['title', 'created_at']
