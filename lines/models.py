@@ -2,8 +2,21 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
+class LineCategoryModel(models.Model):
+    category = models.CharField(max_length=100, verbose_name=_('category'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
+
+    def __str__(self):
+        return self.category
+
+    class Meta:
+        verbose_name = _('line category')
+        verbose_name_plural = _('line categories')
+
+
 class LineModel(models.Model):
     title = models.CharField(max_length=200, verbose_name=_('title'))
+    category = models.ForeignKey(LineCategoryModel, on_delete=models.CASCADE, verbose_name=_('category'), null=True)
     image = models.FileField(upload_to='line_image', verbose_name=_('image'))
     pdf = models.FileField(upload_to='line_pdf', verbose_name=_('line_pdf'))
     description = models.TextField(verbose_name=_('description'))

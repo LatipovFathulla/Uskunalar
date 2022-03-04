@@ -1371,7 +1371,7 @@ nav-drop-menu {
     position: fixed;
     z-index: 9999;
     width: 260px;
-    margin-top: 4.6%;
+    margin-top: 0.6%;
     top: 39px;
     left: -4000px;
     background: #fff;
