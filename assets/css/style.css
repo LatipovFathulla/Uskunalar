@@ -2830,7 +2830,7 @@ nav .nav-ul li a span.rotate {
     }
 
     .about-desktop-drop {
-        display: none;
+        display: block;
     }
 
     .tabcontent {
@@ -4628,20 +4628,6 @@ ul.social-footer2 li a {
     text-align: center;
 }
 
-.btn:hover, .btn:focus, .btn.active {
-    -webkit-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    -o-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    -webkit-transition: all 250ms ease-in-out 0s;
-    -moz-transition: all 250ms ease-in-out 0s;
-    -ms-transition: all 250ms ease-in-out 0s;
-    -o-transition: all 250ms ease-in-out 0s;
-    transition: all 250ms ease-in-out 0s;
-
-}
-
 .thumb-content {
     padding: 6px;
     font-size: 16px;
@@ -5465,8 +5451,6 @@ ul.social-footer2 li a {
     box-shadow: 0 0px 4px 0px rgb(0 0 0 / 25%);
     padding: 0px 0;
     margin-top: 20px;
-    margin-left: 254px;
-    background: #fff;
     -webkit-transition: 0.2s 0s;
     -o-transition: 0.2s 0s;
     transition: 0.2s 0s;
@@ -5474,7 +5458,8 @@ ul.social-footer2 li a {
 }
 
 .has-children .dropdown.arrow-top {
-    position: absolute;
+    position: fixed;
+    top:15.8%
 }
 
 .has-children .dropdown.arrow-top:before {
@@ -5535,11 +5520,16 @@ ul.social-footer2 li a {
 .has-children .dropdown > li > a {
     padding: 9px 20px;
     display: block;
+    color:#fff;
+    font-size:17px;
+    font-weight:500
 }
 
 .has-children .dropdown > li > a:hover {
     background-color: #FFE700;
-    color: #212529;
+    color: #000;
+    font-size:17px;
+    font-weight:500
 }
 
 .has-children .dropdown > li.has-children > a:before {
@@ -5553,7 +5543,7 @@ ul.social-footer2 li a {
 }
 
 .has-children .dropdown > li.has-children:hover > a, .has-children .dropdown > li.has-children:active > a, .has-children .dropdown > li.has-children:focus > a {
-    background: #ebeef0;
+    background: #FFE700;
     color: #212529;
 }
 

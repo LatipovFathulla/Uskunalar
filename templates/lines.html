@@ -35,8 +35,9 @@
                  alt="">
 
             <div class="col-md-9">
+                {% for category in line_categories %}
                     <div class="row">
-                          {% for line in lines %}
+                          {% for line in category.lines.all %}
                             <div class="col-md-3">
                                 <div class="card">
                                     <div class="tabcontent" id="{% if request.GET.line.pk == category.pk %}{{ line.pk }}{% endif %}">
@@ -73,7 +74,9 @@
                          </div>
                           {% endfor %}
                     </div>
-                </div>
+                {% endfor %}
+            </div>
+
             </div>
 
         </div>
