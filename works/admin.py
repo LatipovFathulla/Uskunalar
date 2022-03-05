@@ -26,7 +26,7 @@ class WorkImageModelAdmin(admin.TabularInline):
 
 @admin.register(WorkModel)
 class WorkModelAdmin(MyTranslationAdmin):
-    list_display = ['title', 'image', 'short_descriptions', 'created_at']
+    list_display = ['pk', 'title', 'image', 'short_descriptions', 'created_at']
     search_fields = ['title']
     list_filter = ['title', 'created_at']
 

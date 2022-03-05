@@ -18,6 +18,6 @@ class MyTranslationAdmin(TranslationAdmin):
 
 @admin.register(VideoModel)
 class VideoModelAdmin(MyTranslationAdmin):
-    list_display = ['title', 'url', 'created_at']
+    list_display = ['pk', 'title', 'url', 'created_at']
     search_fields = ['title']
     list_filter = ['title', 'created_at']

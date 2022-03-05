@@ -7,7 +7,7 @@ from home.admin import MyTranslationAdmin
 
 @admin.register(AboutModel)
 class AboutModelAdmin(MyTranslationAdmin):
-    list_display = ['title', 'created_at']
+    list_display = ['pk', 'title', 'created_at']
     search_fields = ['title']
     list_filter = ['title', 'created_at']
 
