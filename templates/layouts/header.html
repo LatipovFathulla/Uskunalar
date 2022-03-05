@@ -152,7 +152,7 @@
                     </ul>
                 </li>
             </ul>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
         </ul>
@@ -225,7 +225,7 @@
             </div>
             <div class="hamburger-menu">
                 <ul class="main-links">
-                    <img src="{% static './images/logo.png' %}" class="logo_image2" alt="">
+                    <a href="{% url 'home:home' %}"> <img src="{% static './images/Uskunalar_logo.svg' %}" class="logo_image2" alt=""></a>
                     <li class="delay02"><a href="{% url 'home:catalog' %}">{% trans 'Каталог' %}</a></li>
                      <li class="delay08" style="color:#fff"><a href="{% url 'products:product' %}">{% trans 'Продукты' %}</a></li>
                      <li class="delay08"><a href="{% url 'line:lines' %}">{% trans 'Линии' %}</a></li>
@@ -240,6 +240,24 @@
                     <li class="delay08" style="margin-top: -7%"><a href="tel:+998 71 250 77 77">
                         <p style="color: #FF0007;font-weight:500">{% trans 'звонить сейчас' %}</p>
                     </a></li>
+                 <div class="container">
+                    <ul id="accordion9_1" class="accordion9_1">
+                       <li>
+                             {% get_current_language as lang %}
+                             {% get_available_languages as langs %}
+                            <div class="link"><a href="" style="color:red">{{ lang|upper }}</a> <i class="fa fa-chevron-down" style="position: absolute;left: 25%;top: 39%;"></i>
+                            </div>
+                            <ul class="submenu4">
+                                  {% for l in langs %}
+                                 {% if l.0 != lang %}
+                                <hr class="mb-0 mt-0">
+                                <li><a href="{% get_url_lang request l.0 %}">{{ l.0|upper }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                    </div>
                 </ul>
             </div>
         </div>

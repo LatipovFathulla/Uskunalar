@@ -66,12 +66,13 @@
 <body>
 <!-- start navbar -->
 <div class="nav-desk-1">
-    <nav class="container navbar navbar-expand-lg navbar-light bg-white">
-    <ul id="accordion4" class="accordion4">
+    <nav class="navbar navbar-expand-lg lg-1" style="background-color:#32414a;color:#fff">
+        <div class="container">
+                <ul id="accordion4" class="accordion4">
        <li>
              {% get_current_language as lang %}
              {% get_available_languages as langs %}
-            <div class="link"><a href="" style="color:#000">{{ lang|upper }}</a> <i class="fa fa-chevron-down"></i>
+            <div class="link"><a href="" style="color:#fff">{{ lang|upper }}</a> <i class="fa fa-chevron-down"></i>
             </div>
             <ul class="submenu4">
                   {% for l in langs %}
@@ -83,39 +84,40 @@
             </ul>
         </li>
     </ul>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <li class="nav-item">
-                <a class="nav-link-2" href="{% url 'products:product' %}"> {% trans 'Продукты' %}</a>
+                <a class="nav-link-2" href="{% url 'products:product' %}" style="color:#fff"> {% trans 'Продукты' %}</a>
             </li>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'line:lines' %}" style="color: #202634;">{% trans 'Линии' %}</a>
+                    <a class="nav-link" href="{% url 'line:lines' %}" style="color: #fff;">{% trans 'Линии' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'biznes:biznes' %}" style="color: #202634;">{% trans 'Готовый бизнес' %}</a>
+                    <a class="nav-link" href="{% url 'biznes:biznes' %}" style="color: #fff;">{% trans 'Готовый бизнес' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'work:works' %}" style="color: #202634;">{% trans 'Наши работы' %}</a>
+                    <a class="nav-link" href="{% url 'work:works' %}" style="color: #fff;">{% trans 'Наши работы' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:blogs' %}" style="color: #202634;">{% trans 'Статьи' %}</a>
+                    <a class="nav-link" href="{% url 'blog:blogs' %}" style="color: #fff;">{% trans 'Статьи' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'video:videos' %}" style="color: #202634;">{% trans 'Наши видео' %}</a>
+                    <a class="nav-link" href="{% url 'video:videos' %}" style="color: #fff;">{% trans 'Наши видео' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home:about' %}" style="color: #202634;">{% trans 'О нас' %}</a>
+                    <a class="nav-link" href="{% url 'home:about' %}" style="color: #fff;">{% trans 'О нас' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home:contacts' %}" style="color: #202634;">{% trans 'Контакты' %}</a>
+                    <a class="nav-link" href="{% url 'home:contacts' %}" style="color: #fff;">{% trans 'Контакты' %}</a>
                 </li>
             </ul>
         </form>
     </div>
+        </div>
 </nav>
 <div class="container">
     <hr class="hr-top" style="margin-top: 0px;">
@@ -137,8 +139,8 @@
             </div>
 
             <i class='icon-close ion-ios-close-empty'></i>
-            <form action="{% url 'products:product' %}" class='form' style="width: 96%;position: fixed;left: 1%;">
-                <input class='input-search' name="q" value="{{ request.GET.q }}"  placeholder='Start Typing' type='text'>
+            <form action="{% url 'products:product' %}" class='form' style="width: 96%;position: fixed;z-index:999;left: 1%;">
+                <input class='input-search' name="q" value="{{ request.GET.q }}"  placeholder='{% trans "Search" %}' type='text'>
                 <button class="btn" type="submit" style="width: 16%;height: 62px;position: absolute;right: 10px;top: 10px;background:#FFE700"><i class='icon-search ion-search' style="top:12px"></i></button>
             </form>
         </li>
@@ -150,7 +152,7 @@
             </div>
             <div class="hamburger-menu">
                 <ul class="main-links">
-                    <img src="{% static 'images/logo.png' %}" class="logo_image2" alt="">
+                    <img src="{% static './images/Uskunalar_logo.svg' %}" class="logo_image2" alt="">
                     <li class="delay02"><a href="{% url 'home:catalog' %}">{% trans 'Каталог' %}</a></li>
                     <li class="delay03"><a href="{% url 'line:lines' %}">{% trans 'Линии' %}</a></li>
                     <li class="delay08"><a href="{% url 'products:product' %}">{% trans 'Продукты' %}</a></li>
@@ -164,7 +166,60 @@
                     </a></li>
                     <li class="delay08" style="margin-top: -7%"><a href="tel:+998 71 250 77 77">
                         <p style="color: #FF0007;">{% trans 'звонить сейчас' %}</p>
+
                     </a></li>
+                    <div class="container">
+                    <ul id="accordion9_1" class="accordion9_1">
+                       <li>
+                             {% get_current_language as lang %}
+                             {% get_available_languages as langs %}
+                            <div class="link"><a href="" style="color:red">{{ lang|upper }}</a> <i class="fa fa-chevron-down" style="position: absolute;left: 25%;top: 39%;"></i>
+                            </div>
+                            <ul class="submenu4">
+                                  {% for l in langs %}
+                                 {% if l.0 != lang %}
+                                <hr class="mb-0 mt-0">
+                                <li><a href="{% get_url_lang request l.0 %}">{{ l.0|upper }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                    </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <li class="nav-item">
+                <a class="nav-link-2" href="{% url 'products:product' %}" style="color:#fff"> {% trans 'Продукты' %}</a>
+            </li>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'line:lines' %}" style="color: #fff;">{% trans 'Линии' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'biznes:biznes' %}" style="color: #fff;">{% trans 'Готовый бизнес' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'work:works' %}" style="color: #fff;">{% trans 'Наши работы' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog:blogs' %}" style="color: #fff;">{% trans 'Статьи' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'video:videos' %}" style="color: #fff;">{% trans 'Наши видео' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home:about' %}" style="color: #fff;">{% trans 'О нас' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home:contacts' %}" style="color: #fff;">{% trans 'Контакты' %}</a>
+                </li>
+            </ul>
+        </form>
+    </div>
+        </div>
                 </ul>
             </div>
         </div>
@@ -1112,6 +1167,38 @@
         }
 
         var accordion = new Accordion($('#accordion4'), false);
+    });
+
+
+</script>
+
+<script>
+    $(function () {
+        var Accordion = function (el, multiple) {
+            this.el = el || {};
+            this.multiple = multiple || false;
+
+            // Variables privadas
+            var links = this.el.find('.link');
+            // Evento
+            links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+        }
+
+        Accordion.prototype.dropdown = function (e) {
+            var $el = e.data.el;
+            $this = $(this),
+                $next = $this.next();
+
+            $next.slideToggle();
+            $this.parent().toggleClass('open');
+
+            if (!e.data.multiple) {
+                $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+            }
+            ;
+        }
+
+        var accordion = new Accordion($('#accordion9_1'), false);
     });
 
 
