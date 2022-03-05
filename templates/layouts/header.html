@@ -134,7 +134,7 @@
 </style>
 <div class="nav-desk-1">
 <!-- start navbar -->
-<nav class="navbar navbar-expand-lg" style="background-color:#32414a;color:#fff">
+<nav class="navbar navbar-expand-lg lg-1" style="background-color:#32414a;color:#fff">
     <div class="container">
             <ul id="accordion4" class="accordion4">
         <li>
@@ -210,7 +210,7 @@
             </div>
 
             <i class='icon-close ion-ios-close-empty'></i>
-            <form action="{% url 'products:product' %}" class='form' style="width: 96%;position: fixed;left: 1%;">
+            <form action="{% url 'products:product' %}" class='form' style="width: 96%;position: fixed;left: 1%;z-index:3;">
                 <input class='input-search' name="q" value="{{ request.GET.q }}" placeholder='Start Typing' type='text'>
                 <button class="btn" type="submit"
                         style="width: 16%;height: 62px;position: absolute;right: 10px;top: 10px;background:#FFE700"><i

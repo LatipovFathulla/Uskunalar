@@ -3154,7 +3154,9 @@ nav .nav-ul li a span.rotate {
     }
     body.mode-search .control .btn {
       transform: scale(70);
-      background:#888
+      background:#888;
+      position:fixed;
+      z-index:2;
     }
 
 
@@ -3191,6 +3193,7 @@ nav .nav-ul li a span.rotate {
 
     .icon-close {
       position: fixed;
+      z-index:3;
       top: 50px;
       right: 30px;
       color: #FFF;
@@ -3232,6 +3235,10 @@ nav .nav-ul li a span.rotate {
     }
     .form :-ms-input-placeholder {
       color: #EEE;
+    }
+
+    .navbar.navbar-expand-lg.lg-1 {
+        display:none;
     }
 }
 
