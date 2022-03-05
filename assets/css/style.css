@@ -130,7 +130,7 @@ p {
 }
 
 .cont_select_int {
-  position: absolute;
+  position: relative;
   left: 0px;
   top: 0px;
   z-index: 999;
@@ -2367,7 +2367,7 @@ nav .nav-ul li a span.rotate {
 
     .button-left {
         position: absolute;
-        left: 9%;
+        left: 13%;
         /* right: 0%; */
         margin-top: 25px;
         /* bottom: -1px; */
@@ -2736,6 +2736,15 @@ nav .nav-ul li a span.rotate {
     .tab2 {
         display: flex;
         flex-direction: column;
+    }
+
+    .accordion .link {
+        margin-top:15px;
+        background:#FFE700;
+    }
+
+    .select_mate {
+        margin-top:15px;
     }
 
     /* banner */
@@ -3166,6 +3175,7 @@ nav .nav-ul li a span.rotate {
       position: absolute;
       bottom: 2px;
       right: 75px;
+      top:2px;
       cursor: pointer;
     }
     .control .icon-search,
@@ -3239,6 +3249,13 @@ nav .nav-ul li a span.rotate {
 
     .navbar.navbar-expand-lg.lg-1 {
         display:none;
+    }
+
+    .container.navbar.navbar-expand-lg{
+        box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+        height:70px;
+        position: fixed;
+        z-index: 999;
     }
 }
 
@@ -4955,11 +4972,11 @@ ul.social-footer2 li a {
 }
 
 .accordion li i.fa-chevron-down {
-    right: 12px;
+    right: 11px;
     left: auto;
     font-size: 16px;
     top: 19px;
-    transform: rotate(-90deg);
+    transform: rotate(0deg);
 }
 
 .accordion li.open .link {
@@ -5466,7 +5483,7 @@ ul.social-footer2 li a {
 
 .has-children .dropdown.arrow-top {
     position: fixed;
-    top:15.8%
+    top:17%
 }
 
 .has-children .dropdown.arrow-top:before {

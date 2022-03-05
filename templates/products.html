@@ -312,8 +312,7 @@
                                                 <br>
                                                 <div class="col-md-3">
                                                     <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                                                        <div class="link" style="padding: 20px 20px 20px 35px;"><i
-                                                                class="fas fa-search-dollar"></i>Цена<br><i
+                                                        <div class="link" style="padding: 20px 20px 20px 35px;"><p style="font-family: RobotoCondensed,Arial,sans-serif;position: absolute;left: 8px;font-size:17px">Цена</p><br><i
                                                                 class="fa fa-chevron-down"></i></div>
                                                         <ul class="submenu"
                                                             style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
@@ -411,12 +410,14 @@
                                 <div class="col-md-6 col-6 mt-3">
                                     <h4 class="front-title-paris">
                                         {{ product.title }}</h4>
+                                      <p class="detail-paris">{% trans 'Город' %}:{{ product.city }}</p>
                                     <p class="detail-paris">
                                         {% trans 'Артикул' %}: {{ product.sku }}</p>
                                             <p class="detail" style="margin-top:2px;margin-left:2%">
                                         <img src="{% static './images/radius.svg' %}" sty alt="">
                                         {{ product.inbox }}
                                         {{ product.delivery }}</p>
+
                                     <p class="desc-paris">$ {{ product.dollar }} - {{ product.price }} сум</p>
                                     <p class="mob-price" style="margin-left: 2%;">${{ product.dollar }}</p>
                                     <p class="mob-price mt-2" style="margin-left: 2%;">{{ product.price }} cум</p>
@@ -424,9 +425,8 @@
                                         <li>
                                             <a href="{% url 'products:single'  pk=product.pk %}">
                                                 <button class="button-left button-bottom-left ds-none2"
-                                                        type="button"
                                                         style="width: 127px;height: 52px;">
-                                                    <p class="carousel-button-text" style="font-size: 16px;">{% trans 'Заказать' %}</p>
+                                                    <p class="carousel-button-text" style="font-size: 16px;">{% trans 'Заказать' %}</p>as
                                                 </button>
                                             </a>
                                         </li>
@@ -483,10 +483,12 @@
                                     <div class="text-center">
                                         <ul>
                                             <li>
-                                                <button class="button-product button-bottom-single-product"
+                                                <a href="{% url 'products:single'  pk=product.pk %}">
+                                                    <button class="button-product button-bottom-single-product"
                                                         style="right: 0%;margin: auto;display: table;">
                                                     <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
                                                 </button>
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>
