@@ -95,8 +95,12 @@
                             </a></li>
                         </ul>
                         <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                                <button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}"alt=""></button>
-                        </a>
+                                        {% if product|in_wishlist:request %}
+                                            <button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"alt=""></button>
+                                        {% else %}
+                                             <button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}"alt=""></button>
+                                        {% endif %}
+                                            </a>
                     </div>
                 </div>
             </a>
@@ -123,6 +127,7 @@
                             {% trans 'Added to wishlist' %}
                         </div>
                     </div>`);
+                    element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"alt=""></button></a>'
                 } else {
                     $('#message').append(`<div style="padding:5px">
                         <div id="inner-message" class="alert alert-success">
@@ -130,6 +135,7 @@
                             {% trans 'Removed from wishlist' %}
                         </div>
                     </div>`);
+                     element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}"alt=""></button>'
                 }
                   $('.like_count').html(data.wishlist_len);
             }

@@ -1165,6 +1165,18 @@ p {
     border-radius: 4px;
 }
 
+.btn-like3 {
+     position: absolute;
+    /* bottom: -0.2%; */
+    top: 8px;
+    right: 5%;
+    width: 48px;
+    height: 48px;
+    background-color: #FFF5F5;
+    border: none;
+    border-radius: 4px;
+}
+
 
 .ig-btn {
     opacity: 0;
@@ -2271,10 +2283,10 @@ nav .nav-ul li a span.rotate {
 
     .container.navbar.navbar-expand-lg.navbar-light.bg-white {
         position: fixed;
-        z-index: 9;
+        z-index: 10;
         top: 0px;
         height: 70px;
-        width: 100%;
+        min-width: 100%;
         box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
     }
 
@@ -2282,6 +2294,13 @@ nav .nav-ul li a span.rotate {
         margin-top: 5%;
     }
 
+    .slick-slide {
+        display: block;
+        float: left;
+        width: 339px;
+        height: 100%;
+        min-height: 1px;
+    }
     .title {
         font-size: 18px;
         text-align: left;
@@ -2297,16 +2316,19 @@ nav .nav-ul li a span.rotate {
         display: none;
     }
 
-    .title2_2 {
-        position: absolute;
-        font-size: 13px;
-        text-align: left;
-        font-style: normal;
-        font-weight: normal;
-        margin-left: 3.5%;
-        padding: 20px;
-        line-height: 17px;
-        color: #131311;
+
+
+   .title2_2 {
+    position: absolute;
+    font-size: 13px;
+    text-align: left;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 6.5%;
+    padding: 20px;
+    margin-top: 2%;
+    line-height: 18px;
+    color: #131311;
     }
 
     #image-carousel {
@@ -2391,7 +2413,7 @@ nav .nav-ul li a span.rotate {
         width: 100%;
         margin-top: 20px;
         border-left: none;
-        height: 230px;
+        height: 290px;
         background-color: #fff;
         box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);
         border-radius: 6px;
@@ -2597,7 +2619,6 @@ nav .nav-ul li a span.rotate {
     }
 
     .ded {
-        background-image: url(/static/images/ded.png);
         background-position: center;
         width: 100%;
         height: auto;
@@ -2606,10 +2627,9 @@ nav .nav-ul li a span.rotate {
     }
 
     .all {
-        background-image: url(/static/images/alls.png);
         background-position: center;
         width: 100%;
-        height: 355px;
+        height: auto;
         background-repeat: no-repeat;
         background-size: cover;
         border-radius: 6px;
@@ -2618,7 +2638,6 @@ nav .nav-ul li a span.rotate {
     }
 
     .boys {
-        background-image: url(/static/images/boy.png);
         background-position: center;
         width: 100%;
         height: 355px;
@@ -2630,7 +2649,6 @@ nav .nav-ul li a span.rotate {
     }
 
     .girls {
-        background-image: url(/static/images/girl.png);
         background-position: center;
         width: 100%;
         height: 355px;
@@ -2755,7 +2773,7 @@ nav .nav-ul li a span.rotate {
         background-position: center;
         width: 100%;
         height: 186px;
-        margin-top: 16%;
+        margin-top: 8%;
     }
 
     .banner2 {
@@ -3168,6 +3186,22 @@ nav .nav-ul li a span.rotate {
       z-index:2;
     }
 
+    .ipad-menu {
+        display:none;
+    }
+
+    .navbar.navbar-expand-lg.navbar-light.bg-white {
+        background-color:#fff;
+        height:70px;
+        position:fixed;
+        width:100%;
+        z-index:9;
+        top:0px;
+    }
+
+    .delay08 {
+        display:none;
+    }
 
     .control {
       width: 64px;
@@ -3280,6 +3314,10 @@ nav .nav-ul li a span.rotate {
     .btn.btn-next-mobile {
         display: none;
     }
+
+    .button-left.button-bottom-left.ds-none2 {
+        display:none
+    }
 }
 
 @media (min-width: 1400px) and (max-width: 2000px) {
@@ -3301,6 +3339,11 @@ nav .nav-ul li a span.rotate {
 
     .btn.btn-next-mobile {
         display: none;
+    }
+
+
+    .button-center.button-bottom-left.ds-none2 {
+        display:none
     }
 
 }
@@ -3435,7 +3478,6 @@ nav .nav-ul li a span.rotate {
         box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);
         border-radius: 6px;
     }
-
     .button-left.button-bottom-left.ds-none {
         display: none;
     }
@@ -3479,6 +3521,8 @@ nav .nav-ul li a span.rotate {
     .btn.btn-mobile {
         display: none;
     }
+
+
 
     .like-mobile-1 {
         width: 48px;
