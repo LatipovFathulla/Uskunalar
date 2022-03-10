@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+    <form method="post" role="form" class="form2" action="{% url 'home:form' %}?next={{ request.path }}" style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);padding: 20px 32px;
+    width: 100%;
+    margin-top: 20px;">
+        {% csrf_token %}
+        <h3 class="text-center form-us">{% trans 'Обратная связь с нами' %}</h3>
+        <p class="text-center">Идейные высшего порядка, а также постоянное информационно-<br>пропагандистское
+            обеспечение нашей деятельности представляет собой интересный.</p>
+        <br>
+       <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
+        <div class="row mt-3">
+            <div class="col-md-6 col-12 p-3">
+                <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" name="name"
+                       type="text"
+                       placeholder="{% trans 'ФИО' %}" required>
+            </div>
 
-</body>
-</html>
+            <div class="col-md-6 col-12 p-3">
+                <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;" type="tel"
+                       name="phone" placeholder="{% trans 'Ваш номер' %}" required>
+            </div>
+            <div class="text-center" style="margin: auto;">
+                <ul>
+                    <li>
+                        <button class="button-center button-bottom" type="submit">
+                            <p style="font-size: 16px;">{% trans 'Отправить' %}</p>
+                        </button>
+                    </li>
+                </ul>
+                <br>
+            </div>
+        </div>
+
+    </form>

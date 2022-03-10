@@ -5,5 +5,5 @@ from orders.models import OrderModel
 
 @admin.register(OrderModel)
 class OrderModelAdmin(admin.ModelAdmin):
-    list_display = ['name', 'phone',]
+    list_display = ['name', 'phone', 'created_at']
     search_fields = ['name', 'phone', 'products']

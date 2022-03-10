@@ -8,7 +8,7 @@ class OrderModel(models.Model):
     name = models.CharField(max_length=200, null=True, verbose_name=_('name'))
     phone = models.CharField(max_length=30, null=True, verbose_name=_('phone'))
     products = models.ManyToManyField(BannerInfoModel, related_name='orders', verbose_name=_('products'))
-    price = models.FloatField()
+    price = models.FloatField(null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
