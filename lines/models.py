@@ -15,8 +15,9 @@ class LineCategoryModel(models.Model):
 
 
 class LineModel(models.Model):
+    category = models.ForeignKey(LineCategoryModel, on_delete=models.CASCADE, verbose_name=_('category'), null=True,
+                                 related_name='line_categories')
     title = models.CharField(max_length=200, verbose_name=_('title'))
-    category = models.ForeignKey(LineCategoryModel, on_delete=models.CASCADE, verbose_name=_('category'), null=True)
     image = models.FileField(upload_to='line_image', verbose_name=_('image'))
     pdf = models.FileField(upload_to='line_pdf', verbose_name=_('line_pdf'))
     description = models.TextField(verbose_name=_('description'))

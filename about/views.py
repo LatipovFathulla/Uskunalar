@@ -62,6 +62,7 @@ class HomeView(TemplateView):
         context['works'] = WorkModel.objects.order_by('-pk')[:4]
         context['blogs'] = BlogModel.objects.order_by('-pk')
         context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
+        context['second_subcategories'] = SecondSubCategoryModel.objects.order_by('-pk')
         context['biznes'] = BiznesModel.objects.order_by('-pk')
 
         return context

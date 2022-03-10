@@ -39,22 +39,18 @@
              alt="">
 
         <div class="col-md-9">
-            {% for category in line_categories %}
             <div class="row">
                 {% for line in lines %}
                 <div class="col-md-3">
-
                     <div class="card">
-
-                        <div class="tabcontent" id="{{ category.pk }}">
-
+                        <div class="tabcontent" id="{% for category in line.line_categories.pk %}{{ category.pk }}{% endfor %}">
                             <div data-aos="fade-right">
                                 <div class="imagewrap">
                                     <div class="thumbnail">
                                         <img src="{{ line.image.url }}"
                                              style="width:90%;margin:auto;display:table;height:250px">
                                     </div>
-                                    <a href="{% url  'line:detail' pk=line.pk %}"> <input type="button"
+                                    <a href="#"> <input type="button"
                                                                                           class="button1 ig-btn"
                                                                                           value="Смотреть"/></a>
                                 </div>
@@ -69,7 +65,7 @@
                                             <p style="color: #132E6B;font-weight: 500;width: 100%;position:relative;top:7px">
                                                 {{ line.created_at|date:'m.d.Y' }}</p>
                                             <br>
-                                            <a href="{% url  'line:detail' pk=line.pk %}"
+                                            <a href="#"
                                                style="position:relative;bottom:5px">{% trans 'Читать дальше..' %}</a>
                                             <br>
                                             <p></p>
@@ -85,7 +81,6 @@
                 </div>
                 {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
 

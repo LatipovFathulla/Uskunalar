@@ -35,7 +35,7 @@ class SubCategoryModel(models.Model):
 
 
 class SecondSubCategoryModel(models.Model):
-    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'))
+    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), related_name='second_subcategories')
     subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'))
     secondsubcategory = models.CharField(max_length=90, verbose_name=_('second_subcategory'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))

@@ -57,10 +57,34 @@
             margin: 0 20px 20px;
             display: inline-flex;
             margin-top:60%;
+            padding-left:20%;
         }
 
   }
 
+.has-children {
+    top: 0%;
+    padding: 0px 0;
+    -webkit-transition: 0.2s 0s;
+    -o-transition: 0.2s 0s;
+    transition: 0.2s 0s;
+    border-radius: 4px;
+    min-width: 200px;
+}
+
+.second-dropdown {
+    background:#f4fbfe;
+    position: absolute;
+    left: 100%;
+    top: 0%;
+    padding: 0px 0;
+    margin-top: 10px;
+    -webkit-transition: 0.2s 0s;
+    -o-transition: 0.2s 0s;
+    transition: 0.2s 0s;
+    border-radius: 4px;
+    min-width: 200px;
+}
 
 </style>
 <body>
@@ -278,23 +302,26 @@
     <div class="row">
         <div class="col-md-3 ipad-menu">
             <nav class="minimalist-vertical-menu2">
-                <div class="minimalist-tab-menu2">
-                    <ul class="list-group2">
-                        {% for category in categories %}
-                        <li class="menu-item2 has-child2">
-                            <img src="{{ category.image.url }}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 15px;margin-left: -2.5%;font-weight: 500;font-style: normal;color:#fff">{{ category.category }}</span>
-                        </li>
-                        {% endfor %}
-                        <a href="{% url 'products:product' %}">
-                            <li class="menu-ite has-child1" style="background:#fff">
-                                <img src="{% static 'images/squares_2.svg' %}" style="padding: 11px;color:#fff" alt="">
-                                <span style="margin-top: 5%;position: absolute;font-size: 14px;margin-left:1%;font-weight: 500;font-style: normal;color:#000">{% trans 'Все категории' %}</span>
+                      <ul class="has-children dropdown arrow-top" style="background: #32414a;border-radius:6px">
+                           {% for category in categories %}
+                            <li class="has-children">
+                                    <a href="{% url 'products:product' %}?category={{ category.pk }}" style="color:#fff;font-size: 17px;font-weight: 500;margin:5%;display:table">{{ category.category }}</a>
+                                <hr style="border-bottom: 1px solid #b5bdcc;margin-top:0px;margin-bottom:0px">
+                              <ul class="dropdown" style="background:#d6effb;left: 100%;z-index: 9;">
+                                 {% for subcategory in category.subcategories.all %}
+                                      <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;">{{ subcategory }}</a></li>
+                                  {% endfor %}
+                               <ul class="second-dropdown">
+                                    {% for secondsubcategory in category.second_subcategories.all %}
+                                    <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;font-size: 17px;font-weight: 500;display:table;min-width:200px;height:35px;border-radius:6px"><p style="    margin-top: 10px;
+    margin-left: 10%;">{{ secondsubcategory }}</p></a></li>
+                                    {% endfor %}
+                               </ul>
+                              </ul>
                             </li>
-                        </a>
-                    </ul>
-
-                </div>
+                           {% endfor %}
+                      </ul>
+                  </ul>
                 <div class="minimalist-tab2">
                     {% for category in categories %}
                     <div class="minimalist-tab-content2">
