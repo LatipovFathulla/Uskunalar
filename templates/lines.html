@@ -23,13 +23,15 @@
     <div class="row">
         <div class="col-md-3 about-desktop-drop">
             <div class="tab">
-                {% for category in line_categories %}
+             {% for category in categories %}
+                 {% for line in category.lines.all %}
                 <hr class="hr-menu">
-                <button class="tablinks" onclick="openCity(event, '{{ category.pk }}')" id="defaultOpen"
-                        style="font-family:RobotoCondensed,Arial,sans-serif;font-size:17px">{{ category.category }}
-                </button>
+                        <button class="tablinks" onclick="openCity(event, '{{ category.pk }}')" id="defaultOpen"
+                                style="font-family:RobotoCondensed,Arial,sans-serif;font-size:17px">{{ line.category }}
+                        </button>
                 <hr class="hr-menu">
                 {% endfor %}
+              {% endfor %}
                 <img src="{% static './images/Group_417.svg' %}" class="icon-right"
                      style="left: -7%;margin: 10px;transform: rotate(-29deg)" alt="">
             </div>
@@ -43,7 +45,7 @@
                 {% for line in lines %}
                 <div class="col-md-3">
                     <div class="card">
-                        <div class="tabcontent" id="{% for category in line.line_categories.pk %}{{ category.pk }}{% endfor %}">
+                        <div class="tabcontent" id="{{ category.pk }}">
                             <div data-aos="fade-right">
                                 <div class="imagewrap">
                                     <div class="thumbnail">
