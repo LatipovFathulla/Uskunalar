@@ -6,4 +6,4 @@ from orders.models import OrderModel
 class OrderModelForm(forms.ModelForm):
     class Meta:
         model = OrderModel
-        exclude = ['created_at', 'products', 'price']
+        exclude = ['created_at',]

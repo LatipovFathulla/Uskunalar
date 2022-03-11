@@ -1,17 +1,42 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load tags %}
 {% load humanize %}
 {% block content %}
+<style>
+    @media(max-width:900px) {
+      .btn.btn-min {
+            width: 48px;
+            height: 48px;
+            background-color: #FFF5F5;
+            position: absolute;
+            right: 6.3%;
+            top: 25px;
+        }
+    }
 
+      @media(min-width:1000px) {
+      .btn.btn-min {
+            width: 48px;
+            height: 48px;
+            background-color: #FFF5F5;
+            position: absolute;
+            right: 16.3%;
+            top: 25px;
+        }
+    }
+
+</style>
 <section class="banner">
     <div class="container">
         <div class="row">
 
         </div>
         <h1 class="banner-text">{% trans 'Карточка товара' %}</h1>
-        <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a> <span> > <a href="" class="banner-desc-title">{% trans 'Карточка товара' %}</a></span> > <a
-                href="" class="banner-desc-title">{{ object.title }}</a></span></p>
+        <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a> <span> > <a
+            href="" class="banner-desc-title">{% trans 'Карточка товара' %}</a></span> > <a
+            href="" class="banner-desc-title">{{ object.title }}</a></span></p>
 
         <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
@@ -39,10 +64,17 @@
                     </ul>
                 </div>
                 <a onclick="add_to_wishlist(this, {{ object.pk }})" class="card-link">
-                    <button class="btn"
-                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 16.3%;top: 25px;">
+                    {% if object|in_wishlist:request %}
+                    <button class="btn btn-min"
+                            style="">
+                        <img
+                                src="{% static './images/red_active.svg' %}" style="margin-top: 7px;" alt=""></button>
+                    {% else %}
+                    <button class="btn btn-min"
+                            style="">
                         <img
                                 src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button>
+                    {% endif %}
                 </a>
             </div>
         </div>
@@ -78,13 +110,14 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">{% trans 'Заполните форму и наши операторы с вами свяжутся' %}</h5>
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">{% trans 'Заполните форму и
+                                        наши операторы с вами свяжутся' %}</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                  {% include 'form.html' %}
+                                    {% include 'form.html' %}
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" style="height: 55px;margin-top: 5%;"
@@ -109,9 +142,25 @@
                 </div>
                 <div class="col-md-6 col-6 mt-4">
                     <div class="numbers_prod">
-                        <p class="mas"><a href="https://qishloqqurilishbank.uz/ru/credits/dlya-fizicheskikh-lic" target="_blank"
-                                          style="border-bottom: 1px dashed #132E6B;color: #132E6B;list-style-type: none;">{% trans 'Купить через банк' %}</a></p>
+                        <ul id="accordion6_4" class="accordion6_4">
+                            <li>
+                                <div class="link">{% trans 'Купить через банк' %}<i class="fa fa-chevron-down"
+                                                                                    style="margin-left:10px"></i></div>
+                                <ul class="submenu" style="position:absolute;margin-top:5px">
+                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a
+                                            href="https://qishloqqurilishbank.uz/ru/credits/dlya-fizicheskikh-lic">Qishloq
+                                        qurilish banki</a></li>
+                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a
+                                            href="https://www.infinbank.com/ru/private/credits/">Infinbank</a></li>
+                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a
+                                            href="https://hamkorbank.uz/uz/physical/credits/">Hamkorbank</a></li>
+                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a href="#">Maquetacion
+                                        web</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
+
                 </div>
             </div>
             <br>
@@ -170,69 +219,82 @@
         <div class="splide_3_2">
             <div class="splide__track" style="height: 520px;">
                 <ul class="splide__list">
-                      {% for product in related %}
-                        <li class="splide__slide">
-                                <div class="col-md-3">
-                                <div class="produdcs-section2">
-                                    <div class="flex-itm">
-                                        <div class="flex-iem-inner">
-                                            <!-- card -->
-                                            <a onclick="add_to_wishlist(this, {{ product.pk }})">
-                                                <div class="card-front bg-violet">
-                                                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                                                        <button class="btn" type="submit" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                                                            <img
-                                                                    src="{% static './images/like.svg' %}"
-                                                                    style="margin-top: 7px;" alt=""></button>
-                                                    </a>
-                                                     {% if product.is_discount %}
-                                                        <a href="#" class="card-link">
-                                                        <button class="btn"
-                                                                style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                            <p style="margin-left:-10%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                                        </button>
-                                                        </a>
-                                                        {% elif product.is_new %}
-                                                            <a href="#" class="card-link1">
-                                                            <button class="btn new-mobile-1">
-                                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                                            </button>
-                                                        </a>
-                                                     {% endif %}
-                                                    <a href="{% url 'products:single' pk=product.pk %}">
-                                                         <img src="{{ product.image.url }}"
+                    {% for product in related %}
+                    <li class="splide__slide">
+                        <div class="col-md-3">
+                            <div class="produdcs-section2">
+                                <div class="flex-itm">
+                                    <div class="flex-iem-inner">
+                                        <!-- card -->
+                                        <a onclick="add_to_wishlist(this, {{ product.pk }})">
+                                            <div class="card-front bg-violet">
+                                                <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
+                                                    {% if product|in_wishlist:request %}
+                                                    <button class="btn" type="submit"
+                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;top:5%">
+                                                        <img
+                                                                src="{% static './images/red_active.svg' %}"
+                                                                style="margin-top: 7px;" alt=""></button>
+                                                    {% else %}
+                                                    <button class="btn" type="submit"
+                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;top:5%">
+                                                        <img
+                                                                src="{% static './images/like.svg' %}"
+                                                                style="margin-top: 7px;" alt=""></button>
+                                                    {% endif %}
+                                                </a>
+                                                {% if product.is_discount %}
+                                                <a href="#" class="card-link">
+                                                    <button class="btn"
+                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
+                                                        <p style="margin-left:-10%;color: #fff;font-weight: normal;">{{
+                                                            product.discount }}%</p>
+                                                    </button>
+                                                </a>
+                                                {% elif product.is_new %}
+                                                <a href="#" class="card-link1">
+                                                    <button class="btn new-mobile-1">
+                                                        <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">
+                                                            New!</p>
+                                                    </button>
+                                                </a>
+                                                {% endif %}
+                                                <a href="{% url 'products:single' pk=product.pk %}">
+                                                    <img src="{{ product.image.url }}"
                                                          style="width: 100%;height: 300px;display: table;margin: auto;"
                                                          alt="">
-                                                    </a>
+                                                </a>
 
-                                                    <div class="card-text"
-                                                         style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                        <h4 class="front-title">{{ product.title }}</h4>
-                                                        <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
-                                                        <p class="desc">${{ product.get_price_dollar }} - {{ product.get_price }} сум</p>
-                                                        <div class="text-center">
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="{% url 'products:single' pk=product.pk %}">
-                                                                        <button class="button-center button-bottom2 mobile-button"
+                                                <div class="card-text"
+                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
+                                                    <h4 class="front-title">{{ product.title }}</h4>
+                                                    <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
+                                                    <p class="desc">${{ product.get_price_dollar }} - {{
+                                                        product.get_price }} сум</p>
+                                                    <div class="text-center">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="{% url 'products:single' pk=product.pk %}">
+                                                                    <button class="button-center button-bottom2 mobile-button"
                                                                             style="width: 127px;height: 43px;">
-                                                                        <p style="font-size: 13px;">{% trans 'Заказать' %}</p>
+                                                                        <p style="font-size: 13px;">{% trans 'Заказать'
+                                                                            %}</p>
                                                                     </button>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <br>
-                                                        </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <br>
                                                     </div>
                                                 </div>
-                                            </a>
-                                            <!-- /card -->
-                                        </div>
+                                            </div>
+                                        </a>
+                                        <!-- /card -->
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                     {% endfor %}
+                        </div>
+                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -242,14 +304,14 @@
 <div class="container ">
     <div class="row desk-product">
         {% for product in related|slice:':4' %}
-            <div class="col-md-3">
+        <div class="col-md-3">
             <div class="produdcs-section">
                 <div class="flex-item">
                     <div class="flex-item-inner">
                         <!-- card -->
                         <a href="{% url 'products:single' pk=product.pk %}">
                             <div class="card-front bg-violet">
-                                <a onclick="add_to_wishlist(this, {{ product.pk }})"  class="card-link">
+                                <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
                                     <button class="btn"
                                             style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
                                         <img
@@ -257,19 +319,20 @@
                                     </button>
                                 </a>
                                 {% if product.is_discount %}
-                                        <a href="#" class="card-link">
-                                            <button class="btn"
-                                                    style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                            </button>
-                                        </a>
+                                <a href="#" class="card-link">
+                                    <button class="btn"
+                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
+                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount
+                                            }}%</p>
+                                    </button>
+                                </a>
                                 {% elif product.is_new %}
-                                 <a href="#" class="card-link1">
-                                                            <button class="btn new-mobile-1">
-                                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                                            </button>
-                                                        </a>
-                                  {% endif %}
+                                <a href="#" class="card-link1">
+                                    <button class="btn new-mobile-1">
+                                        <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
+                                    </button>
+                                </a>
+                                {% endif %}
                                 <img src="{{ product.image.url }}" class="product-image-url" alt="">
                                 <div class="card-text">
                                     <h4 class="front-title">{{ object.title }}</h4>
@@ -307,13 +370,17 @@
                                             <a href="{% url 'products:single' pk=product.pk %}">
                                                 <button class="button-product button-bottom-product">
                                                     <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
-                                                 </button>
+                                                </button>
                                             </a>
                                         </li>
                                     </ul>
-                                    <a onclick="add_to_wishlist(this, {{ product.pk }})"  class="card-link">
-                                        <button class="btn-like2"><img src="{% static './images/like.svg' %}"
-                                                                       alt=""></button>
+                                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
+                                         {% if object|in_wishlist:request %}
+                                            <button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}" alt=""></button>
+                                            {% else %}
+                                            <button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}" alt="">
+                                            </button>
+                                        {% endif %}
                                     </a>
                                 </div>
                             </div>
@@ -341,109 +408,6 @@
     });
 
 }());
-</script>
-<script>
-  (function () {
-    'use strict';
-
-    function ctrls() {
-      var _this = this;
-
-      this.counter = 1;
-      this.els = {
-        decrement: document.querySelector('.ctrl-button-decrement'),
-        counter: {
-          container: document.querySelector('.ctrl-counter'),
-          num: document.querySelector('.ctrl-counter-num'),
-          input: document.querySelector('.ctrl-counter-input')
-        },
-        increment: document.querySelector('.ctrl-button-increment')
-      };
-
-      this.decrement = function () {
-        var counter = _this.getCounter();
-        var nextCounter = (_this.counter > 0) ? --counter : counter;
-        _this.setCounter(nextCounter);
-      };
-
-      this.increment = function () {
-        var counter = _this.getCounter();
-        var nextCounter = (counter < 9999999999) ? ++counter : counter;
-        _this.setCounter(nextCounter);
-      };
-
-      this.getCounter = function () {
-        return _this.counter;
-      };
-
-      this.setCounter = function (nextCounter) {
-        _this.counter = nextCounter;
-      };
-
-      this.debounce = function (callback) {
-        setTimeout(callback, 100);
-      };
-
-      this.render = function (hideClassName, visibleClassName) {
-        _this.els.counter.num.classList.add(hideClassName);
-
-        setTimeout(function () {
-          _this.els.counter.num.innerText = _this.getCounter();
-          _this.els.counter.input.value = _this.getCounter();
-          _this.els.counter.num.classList.add(visibleClassName);
-        },
-          100);
-
-        setTimeout(function () {
-          _this.els.counter.num.classList.remove(hideClassName);
-          _this.els.counter.num.classList.remove(visibleClassName);
-        },
-          200);
-      };
-
-      this.ready = function () {
-        _this.els.decrement.addEventListener('click',
-          function () {
-            _this.debounce(function () {
-              _this.decrement();
-              _this.render('is-decrement-hide', 'is-decrement-visible');
-            });
-          });
-
-        _this.els.increment.addEventListener('click',
-          function () {
-            _this.debounce(function () {
-              _this.increment();
-              _this.render('is-increment-hide', 'is-increment-visible');
-            });
-          });
-
-        _this.els.counter.input.addEventListener('input',
-          function (e) {
-            var parseValue = parseInt(e.target.value);
-            if (!isNaN(parseValue) && parseValue >= 0) {
-              _this.setCounter(parseValue);
-              _this.render();
-            }
-          });
-
-        _this.els.counter.input.addEventListener('focus',
-          function (e) {
-            _this.els.counter.container.classList.add('is-input');
-          });
-
-        _this.els.counter.input.addEventListener('blur',
-          function (e) {
-            _this.els.counter.container.classList.remove('is-input');
-            _this.render();
-          });
-      };
-    };
-
-    // init
-    var controls = new ctrls();
-    document.addEventListener('DOMContentLoaded', controls.ready);
-  })();
 
 
 </script>
@@ -462,6 +426,8 @@
 
   productImages.forEach(image => image.addEventListener("click", changeImage));
   navItem.addEventListener('click', toggleNavigation);
+
+
 
 
 </script>
@@ -483,6 +449,7 @@
                             Added to wishlist
                         </div>
                     </div>`);
+                    element.innerHTML = '<button class="btn-like2"  type="submit"><img src="{% static './images/red_active.svg' %}"alt=""></button>'
                 } else {
                     $('#message').append(`<div style="padding:5px">
                         <div id="inner-message" class="alert alert-success">
@@ -490,11 +457,14 @@
                             Removed from wishlist
                         </div>
                     </div>`);
+                    element.innerHTML = '<button class="btn-like2"  type="submit"><img src="{% static './images/like.svg' %}"alt=""></button>'
                 }
                   $('#like_count').html(data.wishlist_len);
             }
         });
     }
+
+
 </script>
 <script>
   var splide = new Splide('.splide_3_2', {
@@ -506,9 +476,40 @@
 
 
 </script>
+<script>
+    $(function() {
+	var Accordion = function(el, multiple) {
+		this.el = el || {};
+		this.multiple = multiple || false;
 
+		// Variables privadas
+		var links = this.el.find('.link');
+		// Evento
+		links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+	}
+
+	Accordion.prototype.dropdown = function(e) {
+		var $el = e.data.el;
+			$this = $(this),
+			$next = $this.next();
+
+		$next.slideToggle();
+		$this.parent().toggleClass('open');
+
+		if (!e.data.multiple) {
+			$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+		};
+	}
+
+	var accordion = new Accordion($('#accordion6_4'), false);
+});
+
+
+</script>
 <script>
   AOS.init();
+
+
 
 
 </script>

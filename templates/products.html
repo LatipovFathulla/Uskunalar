@@ -554,9 +554,9 @@ justify-content: center;">
                                                 <div class="card-front bg-violet">
                                                     <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
                                                       {% if product|in_wishlist:request %}
-                                                        <button class="btn" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img src="{% static './images/red_active.svg' %}" style="margin-top: 7px;" alt=""></button>
+                                                        <button class="btn-like2" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img src="{% static './images/red_active.svg' %}" style="margin-top: 7px;" alt=""></button>
                                                       {% else %}
-                                                        <button class="btn" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button>
+                                                        <button class="btn-like2" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button>
                                                       {% endif %}
 
                                                      {% if product.is_discount %}
@@ -962,7 +962,40 @@ select_optiones[indx].selected = true;
 
 }());
 </script>
+<script>
+    function add_to_wishlist(element, pk) {
+        $.getJSON('/products/' + "wishlist/" + pk, function (data) {
+            if (!data.status) {
+               $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            Error
+                        </div>
+                    </div>`);
+            } else {
+                if (data.added) {
+                    $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {% trans 'Added to wishlist' %}
+                        </div>
+                    </div>`);
+                    element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"alt=""></button></a>'
+                } else {
+                    $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-success">
+                            <button type="button" onclick="MyFunction()" class="close" data-dismiss="alert">&times;</button>
+                            {% trans 'Removed from wishlist' %}
+                        </div>
+                    </div>`);
+                     element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}"alt=""></button>'
+                }
+                  $('.like_count').html(data.wishlist_len);
+            }
+        });
+    }
 
+</script>
 
 <!--asd-->
 

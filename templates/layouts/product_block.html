@@ -11,34 +11,38 @@
             <a href="{% url 'products:single' pk=product.pk %}">
                 <div class="card-front bg-vioet">
                     <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                      <button class="btn" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
+
+                        <button class="btn"
+                                style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
                             <img src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt="">
-                      </button>
+                        </button>
+
                     </a>
                     {% if product.is_discount %}
-                    <a href="#" class="card-link1"><button class="btn"
-                        style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                        <p style="margin-left:-20%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                      </button></a>
+                    <a href="#" class="card-link1">
+                        <button class="btn"
+                                style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
+                            <p style="margin-left:-20%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
+                        </button>
+                    </a>
                     {% elif product.is_new %}
-                        <a href="#" class="card-link1">
+                    <a href="#" class="card-link1">
                         <button class="btn new-mobile-1">
                             <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
                         </button>
                     </a>
                     {% endif %}
-                    <img src="{{ product.image.url }}" class="product-image-url" alt="">
+                 <img src="{{ product.image.url }}" class="product-image-url" alt="">
                     <div class="card-text">
                         <h4 class="front-title">{{ product.title }}</h4>
                         <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
                         <p class="detail" style="margin-top:2px">
                             {% trans 'Город' %}: {{ product.city }}</p>
-                           <p class="detail" style="margin-top:2px">
+                        <p class="detail" style="margin-top:2px">
                             <img src="{% static './images/radius.svg' %}" sty alt="">
-                        {{ product.inbox }}
-                        {{ product.delivery }}</p>
-                        <p class="desc-price">{{ product.get_price_dollar }} $
-                            - {{ product.get_price|intcomma }} сум</p>
+                            {{ product.inbox }}
+                            {{ product.delivery }}</p>
+                        <p class="desc-price">{{ product.get_price_dollar }} $ - {{ product.get_price|intcomma }} сум</p>
                         <p class="mob-price">{{ product.get_price_dollar }} $</p>
                         <p class="mob-price">{{ product.get_price|intcomma }} сум</p>
                     </div>
@@ -57,9 +61,7 @@
                 </div>
                 <div class="card-back bg-violet">
                     <p class="back-title">{{ product.title }}</p>
-                    <p class="desc">{{ product.get_price_dollar }} $ - {{ product.get_price|intcomma }}
-                        сум</p>
-
+                    <p class="desc">{{ product.get_price_dollar }} $ - {{ product.get_price|intcomma }} сум</p>
                     <div class="container">
                         <div class="spetifications"
                              style="margin-top: 15%;padding: 1px;">
@@ -95,12 +97,14 @@
                             </a></li>
                         </ul>
                         <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                                        {% if product|in_wishlist:request %}
-                                            <button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"alt=""></button>
-                                        {% else %}
-                                             <button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}"alt=""></button>
-                                        {% endif %}
-                                            </a>
+                            {% if product|in_wishlist:request %}
+                            <button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"
+                                                                         alt=""></button>
+                            {% else %}
+                            <button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}" alt="">
+                            </button>
+                            {% endif %}
+                        </a>
                     </div>
                 </div>
             </a>
@@ -127,7 +131,7 @@
                             {% trans 'Added to wishlist' %}
                         </div>
                     </div>`);
-                    element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"alt=""></button></a>'
+                    element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"alt=""></button>'
                 } else {
                     $('#message').append(`<div style="padding:5px">
                         <div id="inner-message" class="alert alert-success">
@@ -141,5 +145,6 @@
             }
         });
     }
+
 </script>
 {% endblock %}
