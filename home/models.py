@@ -88,11 +88,6 @@ class BannerInfoModel(models.Model):
         wishlist = request.session.get('wishlist', [])
         return BannerInfoModel.objects.filter(pk__in=wishlist)
 
-    @staticmethod
-    def get_from_cart(request):
-        cart = request.session.get('cart', [])
-        return BannerInfoModel.objects.filter(pk__in=cart)
-
     def __str__(self):
         return self.title
 

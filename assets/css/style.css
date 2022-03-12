@@ -1171,7 +1171,7 @@ p {
 .ig-btn {
     opacity: 0;
     background-color: #FFE700;
-    right: 34%;
+    right: 25%;
     border: none;
     border-radius: 10px;
     min-height: 45px;
@@ -2755,6 +2755,14 @@ nav .nav-ul li a span.rotate {
         margin-top:15px;
     }
 
+     .alert-warning {
+        color: #856404;
+        background-color: #fff3cd;
+        border-color: #ffeeba;
+        position: absolute;
+        top: 80%;
+    }
+
     /* banner */
     .banner {
         background-image: url(/static/images/phone_mobile.svg);
@@ -3706,7 +3714,6 @@ nav .nav-ul li a span.rotate {
     .tabcontent {
         float: right;
         margin-left: 1%;
-        padding: 20px 32px;
         width: 100%;
         border-left: none;
         height: auto;
@@ -4026,6 +4033,10 @@ nav .nav-ul li a span.rotate {
         z-index: 9999;
         margin: 0 auto;
         box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+    }
+
+    .btn.btn-prev-mobile{
+        display:none
     }
 
 }
@@ -4379,6 +4390,12 @@ nav .nav-ul li a span.rotate {
 
 /* end blog page */
 
+@media(min-width:2000px) {
+    .has-children .dropdown.arrow-top {
+        position: fixed;
+        top: 13%;
+    }
+}
 
 /* flip product */
 
@@ -5537,10 +5554,6 @@ ul.social-footer2 li a {
     border-radius: 4px;
 }
 
-.has-children .dropdown.arrow-top {
-    position: fixed;
-    top:17%
-}
 
 .has-children .dropdown.arrow-top:before {
     bottom: 100%;

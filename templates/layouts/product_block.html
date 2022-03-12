@@ -39,7 +39,7 @@
                         <p class="detail" style="margin-top:2px">
                             {% trans 'Город' %}: {{ product.city }}</p>
                         <p class="detail" style="margin-top:2px">
-                            <img src="{% static './images/radius.svg' %}" sty alt="">
+                            <img src="{% static './images/radius.svg' %}"  alt="">
                             {{ product.inbox }}
                             {{ product.delivery }}</p>
                         <p class="desc-price">{{ product.get_price_dollar }} $ - {{ product.get_price|intcomma }} сум</p>
@@ -146,5 +146,19 @@
         });
     }
 
+</script>
+<script>
+  function addUrlParameter(name, value) {
+      let searchParams = new URLSearchParams(window.location.search)
+      if (['category'].includes(name)) {
+          searchParams.delete('?');
+      }
+      if (searchParams.has(name) && searchParams.get(name) === value) {
+          searchParams.delete(name);
+      } else {
+          searchParams.set(name, value)
+      }
+      window.location.search = searchParams.toString()
+  }
 </script>
 {% endblock %}
