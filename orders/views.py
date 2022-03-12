@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic import CreateView
 from django.contrib import messages
 
@@ -16,13 +16,21 @@ class OrderCreateView(CreateView):
         cart_product_form = OrderModelForm()
         return render(request, 'single-product.html', {'product': product, 'cart_product_form': cart_product_form})
 
-    def form_valid(self, form):
-        form.instance.user = self.request.GET.get('name', 'phone', 'products', 'price')
-        form.save()
-
-        messages.add_message(self.request, messages.INFO, 'Успешно!')
-
-        return super().form_valid(print(self.request.post))
-
     def get_success_url(self):
         return self.request.GET.get('next', '/')
+
+    def form_valid(self, form):
+        pk = self.request.POST.get('products')
+        product = BannerInfoModel.objects.get(pk=pk)
+        print(pk, product)
+        form.instance.user = self.request.POST.get('name')
+        form.instance.phone = self.request.POST.get('phone')
+        form.instance.category = self.request.POST.get('category')
+        form.instance.products = product
+        form.instance.price = self.request.POST.get('price')
+        messages.add_message(self.request, messages.INFO, 'Успешно!')
+        form.save()
+
+        return redirect(self.get_success_url())
+
+
