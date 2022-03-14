@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-11 20:46+0500\n"
+"POT-Creation-Date: 2022-03-14 14:44+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,12 +23,12 @@ msgid "about"
 msgstr "biz haqimizda"
 
 #: about/models.py:7 biznes/models.py:6 blog/models.py:6 home/models.py:52
-#: home/models.py:126 lines/models.py:20 videos/models.py:7 works/models.py:6
+#: home/models.py:121 lines/models.py:20 videos/models.py:7 works/models.py:6
 msgid "title"
 msgstr "nomi"
 
-#: about/models.py:8 blog/models.py:7 home/models.py:54 home/models.py:107
-#: home/models.py:128 lines/models.py:21 lines/models.py:43
+#: about/models.py:8 blog/models.py:7 home/models.py:54 home/models.py:102
+#: home/models.py:123 lines/models.py:21 lines/models.py:43
 msgid "image"
 msgstr "rasimi"
 
@@ -168,51 +168,51 @@ msgstr "zakaz ga"
 msgid "short_description"
 msgstr "qisqa tasvirlar"
 
-#: home/models.py:100 home/models.py:101 home/models.py:115 orders/models.py:10
+#: home/models.py:95 home/models.py:96 home/models.py:110 orders/models.py:10
 msgid "products"
 msgstr "mahsulotlar"
 
-#: home/models.py:106
+#: home/models.py:101
 msgid "product"
 msgstr "mahsulot"
 
-#: home/models.py:110
+#: home/models.py:105
 msgid "product image"
 msgstr "mahsulotning rasimi"
 
-#: home/models.py:111
+#: home/models.py:106
 msgid "product images"
 msgstr "mahsulotning rasimi"
 
-#: home/models.py:116
+#: home/models.py:111
 msgid "product_customer"
 msgstr "mahsulot xaraktiristikasi"
 
-#: home/models.py:117
+#: home/models.py:112
 msgid "product_numbers"
 msgstr "mahsulot nomeri"
 
-#: home/models.py:118
+#: home/models.py:113
 msgid "product_image"
 msgstr "mahsulot rasmi"
 
-#: home/models.py:121
+#: home/models.py:116
 msgid "product specification"
 msgstr "mahsulot informatsiyasi"
 
-#: home/models.py:122
+#: home/models.py:117
 msgid "product specifications"
 msgstr "mahsulot informatsiyasi"
 
-#: home/models.py:127 works/models.py:9
+#: home/models.py:122 works/models.py:9
 msgid "descriptions"
 msgstr "tavsifi"
 
-#: home/models.py:135
+#: home/models.py:130
 msgid "carousel"
 msgstr ""
 
-#: home/models.py:136
+#: home/models.py:131
 msgid "carousels"
 msgstr ""
 
@@ -265,7 +265,7 @@ msgid "О нашей компании"
 msgstr "Biz haqimizda"
 
 #: templates/about.html:12 templates/biznes.html:12 templates/blog.html:12
-#: templates/contacts.html:12 templates/lines.html:12
+#: templates/contacts.html:12 templates/lines.html:26
 #: templates/our_works.html:12 templates/products.html:61
 #: templates/single-biznes.html:11 templates/single-blog.html:12
 #: templates/single-lines.html:11 templates/single-product.html:37
@@ -274,35 +274,33 @@ msgstr "Biz haqimizda"
 msgid "Главная"
 msgstr "Bosh sahifa"
 
-#: templates/about.html:12 templates/index.html:136 templates/index.html:186
-#: templates/index.html:237 templates/index.html:1025
+#: templates/about.html:12 templates/index.html:133 templates/index.html:183
+#: templates/index.html:234 templates/index.html:1022
 #: templates/layouts/header.html:180 templates/layouts/header.html:235
 msgid "О нас"
 msgstr "Biz haqimizda"
 
 #: templates/about.html:74
 msgid "Видео о нас"
-msgstr ""
+msgstr "Biz haqimizda video"
 
-#: templates/biznes.html:11 templates/biznes.html:12 templates/index.html:124
-#: templates/index.html:225 templates/index.html:743
+#: templates/biznes.html:11 templates/biznes.html:12 templates/index.html:121
+#: templates/index.html:222 templates/index.html:740
 #: templates/layouts/header.html:168 templates/single-biznes.html:10
 #: templates/single-biznes.html:12
 msgid "Готовый бизнес"
 msgstr "Tayyor biznes"
 
 #: templates/biznes.html:34
-#, fuzzy
-#| msgid "предложения"
 msgid "Время добавления"
-msgstr "jumlalar"
+msgstr "Qoshilgan vaqti"
 
-#: templates/biznes.html:44 templates/index.html:879 templates/index.html:926
+#: templates/biznes.html:44 templates/index.html:876 templates/index.html:923
 #: templates/our_works.html:63
 msgid "Смотреть еще"
 msgstr "Koproq"
 
-#: templates/blog.html:11 templates/blog.html:12 templates/index.html:185
+#: templates/blog.html:11 templates/blog.html:12 templates/index.html:182
 #: templates/layouts/header.html:234 templates/single-blog.html:13
 msgid "Наши статьи"
 msgstr "Bizning maqolarimiz"
@@ -313,8 +311,8 @@ msgid "Читать дальше"
 msgstr "Koproq"
 
 #: templates/contacts.html:11 templates/contacts.html:12
-#: templates/index.html:139 templates/index.html:187 templates/index.html:240
-#: templates/index.html:1030 templates/index.html:1039
+#: templates/index.html:136 templates/index.html:184 templates/index.html:237
+#: templates/index.html:1027 templates/index.html:1036
 #: templates/layouts/header.html:183 templates/layouts/header.html:236
 msgid "Контакты"
 msgstr "Контакты"
@@ -363,189 +361,190 @@ msgstr "FIO"
 msgid "Ваш номер"
 msgstr "Nomeringiz"
 
-#: templates/form.html:28 templates/requests.html:63
+#: templates/form.html:31 templates/requests.html:63
 msgid "Отправить"
 msgstr "Jonatish"
 
-#: templates/index.html:117 templates/index.html:182 templates/index.html:218
+#: templates/index.html:114 templates/index.html:179 templates/index.html:215
 #: templates/layouts/header.html:161 templates/layouts/header.html:230
 msgid "Продукты"
 msgstr "Maxsulotlar"
 
-#: templates/index.html:121 templates/index.html:181 templates/index.html:222
+#: templates/index.html:118 templates/index.html:178 templates/index.html:219
 #: templates/layouts/header.html:165 templates/layouts/header.html:231
-#: templates/lines.html:11 templates/lines.html:13
+#: templates/lines.html:25 templates/lines.html:27
 #: templates/single-lines.html:10 templates/single-lines.html:12
 msgid "Линии"
 msgstr "Liniyalar"
 
-#: templates/index.html:127 templates/index.html:183 templates/index.html:228
-#: templates/index.html:894 templates/layouts/header.html:171
+#: templates/index.html:124 templates/index.html:180 templates/index.html:225
+#: templates/index.html:891 templates/layouts/header.html:171
 #: templates/layouts/header.html:232 templates/our_works.html:11
 #: templates/our_works.html:12 templates/single-work.html:11
 #: templates/single-work.html:13
 msgid "Наши работы"
 msgstr "Bizning ishlarimiz"
 
-#: templates/index.html:130 templates/index.html:231 templates/index.html:1021
+#: templates/index.html:127 templates/index.html:228 templates/index.html:1018
 #: templates/layouts/header.html:174
 msgid "Статьи"
 msgstr "Maqolalar"
 
-#: templates/index.html:133 templates/index.html:184 templates/index.html:234
-#: templates/index.html:1017 templates/layouts/header.html:177
+#: templates/index.html:130 templates/index.html:181 templates/index.html:231
+#: templates/index.html:1014 templates/layouts/header.html:177
 #: templates/layouts/header.html:233 templates/videos.html:12
 #: templates/videos.html:13
 msgid "Наши видео"
 msgstr "Bizning video"
 
-#: templates/index.html:167
+#: templates/index.html:164
 msgid "Search"
-msgstr ""
+msgstr "Qidirish"
 
-#: templates/index.html:180 templates/index.html:1010
+#: templates/index.html:177 templates/index.html:1007
 #: templates/layouts/header.html:229 templates/products.html:60
 #: templates/products.html:61
 msgid "Каталог"
 msgstr "Katalog"
 
-#: templates/index.html:192 templates/index.html:289
+#: templates/index.html:189 templates/index.html:286
 #: templates/layouts/header.html:241 templates/layouts/header.html:339
 msgid "звонить сейчас"
 msgstr "hozir qongiroq qlish"
 
-#: templates/index.html:256 templates/layouts/header.html:289
-#: templates/products.html:154 templates/products.html:195
+#: templates/index.html:253 templates/layouts/header.html:289
+#: templates/lines.html:40 templates/products.html:154
+#: templates/products.html:195
 msgid "Категории"
 msgstr "Toifalar"
 
-#: templates/index.html:378
+#: templates/index.html:375
 msgid "Все новогодние"
 msgstr "Yangi"
 
-#: templates/index.html:379
+#: templates/index.html:376
 msgid "предложения"
 msgstr "jumlalar"
 
-#: templates/index.html:380
+#: templates/index.html:377
 msgid "Новогоднии скидки успейте купить"
 msgstr "Skidkalar ulgirib qolinglar"
 
-#: templates/index.html:380
+#: templates/index.html:377
 msgid "по выгодным ценам только сейчас!"
 msgstr "arzon nraxlarda faqat hozir!"
 
-#: templates/index.html:381
+#: templates/index.html:378
 msgid "Новогоднии скидки успейте"
 msgstr "Skidakalar ulgurib qoling"
 
-#: templates/index.html:381
+#: templates/index.html:378
 msgid "купить по выгодным ценам"
 msgstr "arzon narx da olish"
 
-#: templates/index.html:383
+#: templates/index.html:380
 msgid "только сейчас!"
 msgstr "faqat hozir!"
 
-#: templates/index.html:387
+#: templates/index.html:384
 msgid "Читать подробнее"
 msgstr "Koproq"
 
-#: templates/index.html:433
+#: templates/index.html:430
 msgid "Производственииые линии"
 msgstr "Ishlab chiqarish liniyalari"
 
-#: templates/index.html:462 templates/index.html:490
+#: templates/index.html:459 templates/index.html:487
 msgid "Подробнее"
 msgstr "Koproq"
 
-#: templates/index.html:516 templates/index.html:610 templates/index.html:728
+#: templates/index.html:513 templates/index.html:607 templates/index.html:725
 msgid "Смотреть все"
 msgstr "Hammasini ko'rish"
 
-#: templates/index.html:529 templates/our_works.html:142
+#: templates/index.html:526 templates/our_works.html:142
 msgid "О компании Uskunalar"
 msgstr "Uskunalar haqida"
 
-#: templates/index.html:538 templates/our_works.html:151
+#: templates/index.html:535 templates/our_works.html:151
 msgid "Продано"
 msgstr "Sotilgan"
 
-#: templates/index.html:543 templates/our_works.html:156
+#: templates/index.html:540 templates/our_works.html:156
 msgid "Постоянных клиентов"
 msgstr "Klientlar"
 
-#: templates/index.html:548 templates/our_works.html:161
+#: templates/index.html:545 templates/our_works.html:161
 msgid "Реализация проектов"
 msgstr "Proektlar"
 
-#: templates/index.html:553 templates/our_works.html:166
+#: templates/index.html:550 templates/our_works.html:166
 msgid "Сотрудников"
 msgstr "Ishchilar"
 
-#: templates/index.html:569
+#: templates/index.html:566
 msgid "Каталог Uskunalar"
 msgstr "Uskunalar catalogi"
 
-#: templates/index.html:625 templates/products.html:532
-#: templates/single-product.html:209
+#: templates/index.html:622 templates/products.html:532
+#: templates/single-product.html:222
 msgid "Популярные товары"
 msgstr "Ommabop tovarlar"
 
-#: templates/index.html:682 templates/layouts/product_block.html:38
+#: templates/index.html:679 templates/layouts/product_block.html:38
 #: templates/products.html:415 templates/products.html:582
-#: templates/single-product.html:91 templates/single-product.html:271
-#: templates/single-product.html:339 templates/wishlist.html:69
+#: templates/single-product.html:91 templates/single-product.html:284
+#: templates/single-product.html:352 templates/wishlist.html:69
 msgid "Артикул"
 msgstr "Tovar kodi"
 
-#: templates/index.html:690 templates/layouts/product_block.html:56
+#: templates/index.html:687 templates/layouts/product_block.html:56
 #: templates/layouts/product_block.html:95 templates/products.html:429
 #: templates/products.html:488 templates/products.html:590
-#: templates/single-product.html:372
+#: templates/single-product.html:385
 msgid "Заказать"
 msgstr "Buyurtma berish"
 
-#: templates/index.html:763 templates/index.html:786 templates/index.html:846
-#: templates/index.html:868
+#: templates/index.html:760 templates/index.html:783 templates/index.html:843
+#: templates/index.html:865
 msgid "Читать полностью"
 msgstr "Koproq oqish"
 
-#: templates/index.html:807
+#: templates/index.html:804
 msgid "Читать еще"
 msgstr "Koproq oqish"
 
-#: templates/index.html:822
+#: templates/index.html:819
 msgid "Статьи и советы"
 msgstr "Maqolalar va maslahatlar"
 
-#: templates/index.html:943
+#: templates/index.html:940
 msgid "Наши партнеры"
 msgstr "Bizning hamkorlarimiz"
 
-#: templates/index.html:987
+#: templates/index.html:984
 msgid ""
 "Команда USKUNALAR.UZ экономит ваше время и деньги, поставляя "
 "производственииые оборудования."
 msgstr ""
 
-#: templates/index.html:988
+#: templates/index.html:985
 msgid "Будь в курсе"
 msgstr ""
 
-#: templates/index.html:1006
+#: templates/index.html:1003
 msgid "Меню"
-msgstr ""
+msgstr "Menu"
 
-#: templates/index.html:1014
+#: templates/index.html:1011
 msgid "Наши работа"
-msgstr ""
+msgstr "Bizning ishlarimiz"
 
-#: templates/index.html:1085
+#: templates/index.html:1082
 msgid "Copyright Uskunalar.uz"
 msgstr ""
 
-#: templates/index.html:1085
+#: templates/index.html:1082
 msgid "All rights reserved."
 msgstr ""
 
@@ -554,7 +553,7 @@ msgid "Все категории"
 msgstr "Barcha toifalar"
 
 #: templates/layouts/product_block.html:40 templates/products.html:413
-#: templates/single-product.html:340
+#: templates/single-product.html:353
 msgid "Город"
 msgstr "Shaxri"
 
@@ -566,7 +565,7 @@ msgstr "Sevimlilar ga qoshildi"
 msgid "Removed from wishlist"
 msgstr "Sevimlilardan olib tashlandi"
 
-#: templates/lines.html:67
+#: templates/lines.html:86
 msgid "Читать дальше.."
 msgstr "Koproq oqish..."
 
@@ -587,6 +586,38 @@ msgstr "Filtr"
 msgid "Сбросить"
 msgstr "Tashavorish"
 
+#: templates/products.html:86 templates/products.html:273
+msgid "Все товары"
+msgstr "Barcha ishlarimiz"
+
+#: templates/products.html:87 templates/products.html:274
+msgid "Сначала дешевые"
+msgstr "Arzondan boshlab"
+
+#: templates/products.html:88 templates/products.html:275
+msgid "Сначала дорогие"
+msgstr "Qimmatdan boshlab"
+
+#: templates/products.html:89 templates/products.html:276
+msgid "Новые"
+msgstr "Yangiliklar"
+
+#: templates/products.html:106 templates/products.html:296
+msgid "Валюта"
+msgstr "Valyuta"
+
+#: templates/products.html:107 templates/products.html:297
+msgid "Сум"
+msgstr "So'm"
+
+#: templates/products.html:108 templates/products.html:298
+msgid "Доллар"
+msgstr "Dollar"
+
+#: templates/products.html:125 templates/products.html:315
+msgid "Цена"
+msgstr "Narxi"
+
 #: templates/products.html:245
 msgid "Showing"
 msgstr "Korsatilgan"
@@ -599,7 +630,7 @@ msgstr ""
 msgid "Введите сообщения"
 msgstr "Habar jonatin"
 
-#: templates/requests.html:76
+#: templates/requests.html:76 templates/single-product.html:180
 msgid ""
 "Ваша сообщения успешно отправлено скоро наши операторы с вами свяжутся!!!"
 msgstr ""
@@ -616,11 +647,11 @@ msgstr "Keyingisiga o'tish"
 
 #: templates/single-biznes.html:87 templates/single-work.html:89
 msgid "Назад"
-msgstr ""
+msgstr "Oldinga"
 
 #: templates/single-biznes.html:91 templates/single-work.html:91
 msgid "Далее"
-msgstr ""
+msgstr "Keyngisi"
 
 #: templates/single-product.html:36 templates/single-product.html:38
 msgid "Карточка товара"
@@ -633,6 +664,10 @@ msgstr "Dollar dagi narxi"
 #: templates/single-product.html:101
 msgid "Цена в суммах"
 msgstr "Somdagi narxi"
+
+#: templates/single-product.html:113
+msgid "Заполните форму и наши операторы с вами свяжутся"
+msgstr "Shaklni to'ldiring va bizning operatorlarimiz siz bilan bog'lanadi"
 
 #: templates/single-product.html:124
 msgid "Закрыть"
@@ -650,7 +685,7 @@ msgstr "Bank dan olish"
 msgid "Скачать Pdf"
 msgstr "Pdf otqizish"
 
-#: templates/single-product.html:178
+#: templates/single-product.html:191
 msgid "Характеристики и описания оборудования"
 msgstr "Uskunalani tavsifi"
 
@@ -676,7 +711,7 @@ msgstr "videolar"
 
 #: videos/models.py:16
 msgid "video"
-msgstr ""
+msgstr "video"
 
 #: works/apps.py:8 works/models.py:7 works/models.py:23
 msgid "works"
@@ -710,6 +745,3 @@ msgstr "ishlar xarakteristikasi"
 #: works/models.py:43
 msgid "work specifications"
 msgstr "ishlar xarakteristikasi"
-
-#~ msgid "Заполните форму и наши операторы с вами свяжутся"
-#~ msgstr "Shaklni to'ldiring va bizning operatorlarimiz siz bilan bog'lanadi"
