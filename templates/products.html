@@ -50,6 +50,17 @@
                 position: absolute;
                 z-index: 999;
             }
+
+             #Paris.btn-like3 {
+                position: absolute;
+                bottom: 20%;
+                right: 13%;
+                width: 48px;
+                height: 48px;
+                background-color: #FFF5F5;
+                border: none;
+                border-radius: 4px;
+            }
        }
 </style>
 <section class="banner">
@@ -379,123 +390,7 @@
                 <div id="Paris" class="tabcontent3">
                     <div class="container-z">
                         {% for product in products %}
-                            <div class="sort-menu-products">
-                            <div class="row">
-                                <div class="col-md-3 col-6 d-like" style="position: absolute;z-index: 8;">
-                                    <a onclick="add_to_wishlist(this, {{ product.pk }})"  class="card-link">
-                                        <button class="btn like-mobile-1"><img
-                                                src="{% static './images/like.svg' %}"
-                                                style="margin-top: 7px;" alt=""></button>
-                                    </a>
-                                    {% if product.is_discount %}
-                                        <a href="#" class="card-link1"><button class="btn"
-                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                          </button></a>
-                                        {% elif product.is_new %}
-                                            <a href="#" class="card-link1">
-                                            <button class="btn new-mobile-1">
-                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                            </button>
-                                        </a>
-                                    {% endif %}
-
-
-                                </div>
-
-                                <div class="col-md-3 col-6">
-                                    <img src="{{ product.image.url }}" style="width: 100%;height: auto;"
-                                         alt="">
-                                </div>
-                                <div class="col-md-6 col-6 mt-3">
-                                    <h4 class="front-title-paris">
-                                        {{ product.title }}</h4>
-                                      <p class="detail-paris">{% trans 'Город' %}:{{ product.city }}</p>
-                                    <p class="detail-paris">
-                                        {% trans 'Артикул' %}: {{ product.sku }}</p>
-                                            <p class="detail" style="margin-top:2px;margin-left:2%">
-                                        <img src="{% static './images/radius.svg' %}" sty alt="">
-                                        {{ product.inbox }}
-                                        {{ product.delivery }}</p>
-
-                                    <p class="desc-paris">$ {{ product.dollar }} - {{ product.price }} сум</p>
-                                    <p class="mob-price" style="margin-left: 2%;">${{ product.dollar }}</p>
-                                    <p class="mob-price mt-2" style="margin-left: 2%;">{{ product.price }} cум</p>
-                                    <ul>
-                                        <li style="margin:auto;display:table">
-                                            <a href="{% url 'products:single'  pk=product.pk %}">
-                                                <button class="button-center button-bottom-left ds-none2"
-                                                        style="width: 127px;height: 52px;">
-                                                    <p class="carousel-button-text" style="font-size: 16px;">{% trans 'Заказать' %}</p>
-                                                </button>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-3 m-like">
-                                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                                        <button class="btn" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 15px;">
-                                            <img
-                                                    src="{% static './images/like.svg' %}" style="margin-top: 7px;"
-                                                    alt=""></button>
-                                    </a>
-                                    {% if product.is_discount %}
-                                        <a href="#" class="card-link1"><button class="btn"
-                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                          </button></a>
-                                    {% elif product.is_new %}
-                                            <a href="#" class="card-link1">
-                                            <button class="btn new-mobile-1">
-                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                            </button>
-                                        </a>
-                                    {% endif %}
-                                </div>
-
-                                <br>
-
-                            </div>
-                            <div class="sort-menu-info">
-                                <div class="container">
-                                    <div class="row">
-                                        {% for j in product.specifications.all %}
-                                        <div class="col-md-3">
-                                            <p class="info-back-product">{{ j.product_customer }}:</p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <p style="padding-top: 8%;">{{ j.product_number }}</p>
-                                        </div>
-                                        {% endfor %}
-<!--                                        <div class="col-md-3">-->
-<!--                                            <p class="info-back-product">Энергопотребление:</p>-->
-<!--                                            <p class="info-back-product">Материал:</p>-->
-<!--                                            <p class="info-back-product">Тип энергии:</p>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-md-3">-->
-<!--                                            <p style="padding-top: 3%;">25 кв / ч.</p>-->
-<!--                                            <p style="padding-top: 11%;">Зангламас металл S208:</p>-->
-<!--                                            <p style="padding-top: 11%;">Ток</p>-->
-<!--                                        </div>-->
-
-                                    </div>
-                                    <div class="text-center">
-                                        <ul>
-                                            <li>
-                                                <a href="{% url 'products:single'  pk=product.pk %}">
-                                                    <button class="button-product button-bottom-single-product"
-                                                        style="right: 0%;margin: auto;display: table;">
-                                                    <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
-                                                </button>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
+                            {% include 'layouts/products-sort.html' %}
                         {% endfor %}
                     </div>
                 </div>
@@ -961,40 +856,6 @@ select_optiones[indx].selected = true;
     });
 
 }());
-</script>
-<script>
-    function add_to_wishlist(element, pk) {
-        $.getJSON('/products/' + "wishlist/" + pk, function (data) {
-            if (!data.status) {
-               $('#message').append(`<div style="padding:5px">
-                        <div id="inner-message" class="alert alert-error">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            Error
-                        </div>
-                    </div>`);
-            } else {
-                if (data.added) {
-                    $('#message').append(`<div style="padding:5px">
-                        <div id="inner-message" class="alert alert-success">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            {% trans 'Added to wishlist' %}
-                        </div>
-                    </div>`);
-                    element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"alt=""></button></a>'
-                } else {
-                    $('#message').append(`<div style="padding:5px">
-                        <div id="inner-message" class="alert alert-success">
-                            <button type="button" onclick="MyFunction()" class="close" data-dismiss="alert">&times;</button>
-                            {% trans 'Removed from wishlist' %}
-                        </div>
-                    </div>`);
-                     element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}"alt=""></button>'
-                }
-                  $('.like_count').html(data.wishlist_len);
-            }
-        });
-    }
-
 </script>
 
 <!--asd-->
