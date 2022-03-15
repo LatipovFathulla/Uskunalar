@@ -3326,6 +3326,22 @@ nav .nav-ul li a span.rotate {
     .button-left.button-bottom-left.ds-none2 {
         display:none
     }
+
+    .banner {
+        background-image: url(/static/images/desk_back.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 250px;
+        margin-top:15%;
+    }
+
+    .dropdown.arrow-top {
+        position:fixed;
+        top:30%;
+    }
+
 }
 
 @media (min-width: 1400px) and (max-width: 2000px) {
@@ -3354,8 +3370,31 @@ nav .nav-ul li a span.rotate {
         display:none
     }
 
+    .banner {
+        background-image: url(/static/images/desk_back.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 250px;
+        margin-top:12%;
+    }
+
+
 }
 
+@media (min-width:2000px) {
+    .banner {
+        background-image: url(/static/images/desk_back.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 250px;
+        margin-top:7%;
+    }
+
+}
 
 @media (min-width: 1000px) {
     .hamburger {
@@ -3838,16 +3877,6 @@ nav .nav-ul li a span.rotate {
     }
 
     /* banner */
-    .banner {
-        background-image: url(/static/images/desk_back.svg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        width: 100%;
-        height: 250px;
-        margin-top:7%;
-    }
-
     .banner-text {
         font-size: 42px;
         font-weight: 500;
