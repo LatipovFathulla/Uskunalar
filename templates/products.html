@@ -63,116 +63,95 @@
             }
        }
 
-
-.panel {
-  border-width: 0 0 1px 0;
-  border-style: solid;
-  border-color: #fff;
-  background: none;
-  box-shadow: none;
+accordion {
+  font-size: 1rem;
+  width: 30vw;
+  margin: 0 auto;
+  border-radius: 5px;
 }
 
-.panel:last-child {
-  border-bottom: none;
+.accordion-header,
+.accordion-body {
+  background: white;
 }
 
-.panel-group > .panel:first-child .panel-heading {
-  border-radius: 4px 4px 0 0;
+.accordion-header {
+  color: white;
+  cursor: pointer;
+  font-size: .7em;
+  letter-spacing: .1em;
+  transition: all .3s;
+  text-transform: uppercase;
 }
 
-.panel-group .panel {
-  border-radius: 0;
+.accordion__item {
+    border-bottom: 1px solid #3a4ba4;
 }
 
-.panel-group .panel + .panel {
-  margin-top: 0;
+.accordion__item .accordion__item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.panel-heading {
-  background-color: #009688;
-  border-radius: 0;
-  border: none;
-  color: #fff;
-  padding: 0;
-}
-
-.panel-title a {
-  display: block;
-  color: #fff;
-  padding: 15px;
+.accordion-header:hover {
+  background: #2D3D99;
   position: relative;
-  font-size: 16px;
-  font-weight: 400;
+  z-index: 5;
 }
 
-.panel-body {
-  background: #fff;
+.accordion-body {
+  background: #fcfcfc;
+  color: #353535;
+  display: none;
 }
 
-.panel:last-child .panel-body {
-  border-radius: 0 0 4px 4px;
+.accordion-body__contents {
+  padding: 1.5em 1.5em;
+  font-size: .85em;
 }
 
-.panel:last-child .panel-heading {
-  border-radius: 0 0 4px 4px;
-  transition: border-radius 0.3s linear 0.2s;
+.accordion__item.active:last-child .accordion-header {
+  border-radius: none;
 }
 
-.panel:last-child .panel-heading.active {
-  border-radius: 0;
-  transition: border-radius linear 0s;
-}
-/* #bs-collapse icon scale option */
-
-.panel-heading a:before {
-  content: '\e146';
-  position: absolute;
-  font-family: 'Material Icons';
-  right: 5px;
-  top: 10px;
-  font-size: 24px;
-  transition: all 0.5s;
-  transform: scale(1);
+.accordion:first-child > .accordion__item > .accordion-header {
+  border-bottom: 1px solid transparent;
 }
 
-.panel-heading.active a:before {
-  content: ' ';
-  transition: all 0.5s;
-  transform: scale(0);
+
+.accordion__item > .accordion-header:after {
+    content: "\f3d0";
+    font-family: IonIcons;
+    font-size: 2.5em;
+    float: right;
+    position: relative;
+    color: #000;
+    top: -27px;
+    right: 8px;
+    transition: .3s all;
+    transform: rotate(0deg);
 }
 
-#bs-collapse .panel-heading a:after {
-  content: ' ';
-  font-size: 24px;
-  position: absolute;
-  font-family: 'Material Icons';
-  right: 5px;
-  top: 10px;
-  transform: scale(0);
-  transition: all 0.5s;
+.accordion__item.active > .accordion-header:after {
+  transform: rotate(-180deg);
 }
 
-#bs-collapse .panel-heading.active a:after {
-  content: '\e909';
-  transform: scale(1);
-  transition: all 0.5s;
-}
-/* #accordion rotate icon option */
-
-#accordion .panel-heading a:before {
-  content: '\e316';
-  font-size: 24px;
-  position: absolute;
-  font-family: 'Material Icons';
-  right: 5px;
-  top: 10px;
-  transform: rotate(180deg);
-  transition: all 0.5s;
+.accordion__item.active .accordion-header {
+  background: #FFE700;
 }
 
-#accordion .panel-heading.active a:before {
-  transform: rotate(0deg);
-  transition: all 0.5s;
+.accordion__item .accordion__item .accordion-header {
+  background: #f1f1f1;
+  color: #353535;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    padding: 1em;
+  }
+
+  .accordion {
+    width: 100%;
+  }
 }
 </style>
 <section class="banner">
@@ -288,7 +267,6 @@
                 <div class="select_mate" data-mate-select="active" >
                 <select name="category2" onchange="location = this.value;" onclick="return false;"  id="">
                      {% for category in categories %}
-
                         <option {% if request.GET.category == category.pk|stringformat:'i' %}selected{% endif %} value="?category={{ category.pk }}">
                             {{ category.category }}
                         </option>
@@ -332,7 +310,18 @@
                         </div>
                         <ul class="submenu">
                                 {% for subcategory in category.subcategories.all %}
-                                    <li><a href="?subcategory={{ subcategory.pk }}">{{ subcategory }}</a></li>
+                                     <div class="accordion js-accordion">
+                                      <div class="accordion__item js-accordion-item">
+                                        <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}">{{ subcategory }}</a> </div>
+                                      <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                        {% for secondsubcategory in category.second_subcategories.all %}
+                                            {{ secondsubcategory }}
+                                        {% endfor %}
+                                        </div>
+                                        </div><!-- end of accordion body -->
+                                      </div><!-- end of accordion item -->
+                                    </div><!-- end of accordion -->
                                 {% endfor %}
                         </ul>
                     </li>
@@ -545,30 +534,6 @@ justify-content: center;">
         <br>
     </div>
 
-<!--        <div class="row">-->
-<!--             <div class="col-md-6 col-sm-6">-->
-<!--    <h3>Accordion collapse with rotating icon</h3>-->
-<!--    <div class="panel-group wrap" id="accordion" role="tablist" aria-multiselectable="true">-->
-<!--      <div class="panel" style="width:500px">-->
-<!--        <div class="panel-heading" role="tab" id="headingOne">-->
-<!--          <h4 class="panel-title">-->
-<!--        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">-->
-<!--          Collapsible item #1-->
-<!--        </a>-->
-<!--      </h4>-->
-<!--        </div>-->
-<!--        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">-->
-<!--          <div class="panel-body">-->
-<!--            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      &lt;!&ndash; end of panel &ndash;&gt;-->
-<!--    </div>-->
-<!--    &lt;!&ndash; end of #accordion &ndash;&gt;-->
-
-<!--  </div>-->
-<!--        </div>-->
 
 
     <div class="container">
@@ -996,18 +961,59 @@ select_optiones[indx].selected = true;
 }());
 </script>
 <script>
-$(document).ready(function() {
-  $('.collapse.in').prev('.panel-heading').addClass('active');
-  $('#accordion, #bs-collapse')
-    .on('show.bs.collapse', function(a) {
-      $(a.target).prev('.panel-heading').addClass('active');
-    })
-    .on('hide.bs.collapse', function(a) {
-      $(a.target).prev('.panel-heading').removeClass('active');
-    });
+  var accordion = (function(){
+
+  var $accordion = $('.js-accordion');
+  var $accordion_header = $accordion.find('.js-accordion-header');
+  var $accordion_item = $('.js-accordion-item');
+
+  // default settings
+  var settings = {
+    // animation speed
+    speed: 400,
+
+    // close all other accordion items if true
+    oneOpen: false
+  };
+
+  return {
+    // pass configurable object literal
+    init: function($settings) {
+      $accordion_header.on('click', function() {
+        accordion.toggle($(this));
+      });
+
+      $.extend(settings, $settings);
+
+      // ensure only one accordion is active if oneOpen is true
+      if(settings.oneOpen && $('.js-accordion-item.active').length > 1) {
+        $('.js-accordion-item.active:not(:first)').removeClass('active');
+      }
+
+      // reveal the active accordion bodies
+      $('.js-accordion-item.active').find('> .js-accordion-body').show();
+    },
+    toggle: function($this) {
+
+      if(settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
+        $this.closest('.js-accordion')
+               .find('> .js-accordion-item')
+               .removeClass('active')
+               .find('.js-accordion-body')
+               .slideUp()
+      }
+
+      // show/hide the clicked accordion item
+      $this.closest('.js-accordion-item').toggleClass('active');
+      $this.next().stop().slideToggle(settings.speed);
+    }
+  }
+})();
+
+$(document).ready(function(){
+  accordion.init({ speed: 300, oneOpen: true });
 });
 </script>
-
 <!--asd-->
 
 {% endblock %}
