@@ -27,6 +27,16 @@
         }
     }
 
+    .btn-like2 {
+        position: absolute;
+        bottom: 9.8%;
+        right: 13%;
+        width: 48px;
+        height: 48px;
+        background-color: #FFF5F5;
+        border: none;
+        border-radius: 4px;
+    }
 </style>
 <section class="banner">
     <div class="container">
@@ -243,13 +253,13 @@
                                             <div class="card-front bg-violet">
                                                 <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
                                                     {% if product|in_wishlist:request %}
-                                                    <button class="btn" type="submit"
+                                                    <button class="btn-like2" type="submit"
                                                             style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;top:5%">
                                                         <img
                                                                 src="{% static './images/red_active.svg' %}"
                                                                 style="margin-top: 7px;" alt=""></button>
                                                     {% else %}
-                                                    <button class="btn" type="submit"
+                                                    <button class="btn-like2" type="submit"
                                                             style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;top:5%">
                                                         <img
                                                                 src="{% static './images/like.svg' %}"
@@ -260,15 +270,13 @@
                                                 <a href="#" class="card-link">
                                                     <button class="btn"
                                                             style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                        <p style="margin-left:-10%;color: #fff;font-weight: normal;">{{
-                                                            product.discount }}%</p>
+                                                        <p style="margin-left:-10%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
                                                     </button>
                                                 </a>
                                                 {% elif product.is_new %}
                                                 <a href="#" class="card-link1">
                                                     <button class="btn new-mobile-1">
-                                                        <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">
-                                                            New!</p>
+                                                        <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
                                                     </button>
                                                 </a>
                                                 {% endif %}
@@ -282,16 +290,14 @@
                                                      style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
                                                     <h4 class="front-title">{{ product.title }}</h4>
                                                     <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
-                                                    <p class="desc">${{ product.get_price_dollar }} - {{
-                                                        product.get_price }} сум</p>
+                                                    <p class="desc">${{ product.get_price_dollar }} - {{ product.get_price }} сум</p>
                                                     <div class="text-center">
                                                         <ul>
                                                             <li>
                                                                 <a href="{% url 'products:single' pk=product.pk %}">
                                                                     <button class="button-center button-bottom2 mobile-button"
                                                                             style="width: 127px;height: 43px;">
-                                                                        <p style="font-size: 13px;">{% trans 'Заказать'
-                                                                            %}</p>
+                                                                        <p style="font-size: 13px;">{% trans 'Заказать' %}</p>
                                                                     </button>
                                                                 </a>
                                                             </li>
@@ -335,8 +341,7 @@
                                 <a href="#" class="card-link">
                                     <button class="btn"
                                             style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount
-                                            }}%</p>
+                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
                                     </button>
                                 </a>
                                 {% elif product.is_new %}
@@ -388,11 +393,10 @@
                                         </li>
                                     </ul>
                                     <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                                         {% if object|in_wishlist:request %}
+                                         {% if product|in_wishlist:request %}
                                             <button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}" alt=""></button>
                                             {% else %}
-                                            <button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}" alt="">
-                                            </button>
+                                            <button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}" alt=""></button>
                                         {% endif %}
                                     </a>
                                 </div>
@@ -445,7 +449,7 @@
 
 </script>
 <script>
-    function add_to_wishlist(element, pk) {
+      function add_to_wishlist(element, pk) {
         $.getJSON('/products/' + "wishlist/" + pk, function (data) {
             if (!data.status) {
                $('#message').append(`<div style="padding:5px">
@@ -456,28 +460,16 @@
                     </div>`);
             } else {
                 if (data.added) {
-                    $('#message').append(`<div style="padding:5px">
-                        <div id="inner-message" class="alert alert-success">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            Added to wishlist
-                        </div>
-                    </div>`);
-                    element.innerHTML = '<button class="btn-like2"  type="submit"><img src="{% static './images/red_active.svg' %}"alt=""></button>'
+                    $('#message');
+                    element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"alt=""></button>'
                 } else {
-                    $('#message').append(`<div style="padding:5px">
-                        <div id="inner-message" class="alert alert-success">
-                            <button type="button" onclick="MyFunction()" class="close" data-dismiss="alert">&times;</button>
-                            Removed from wishlist
-                        </div>
-                    </div>`);
-                    element.innerHTML = '<button class="btn-like2"  type="submit"><img src="{% static './images/like.svg' %}"alt=""></button>'
+                    $('#message');
+                     element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}"alt=""></button>'
                 }
-                  $('#like_count').html(data.wishlist_len);
+                  $('.like_count').html(data.wishlist_len);
             }
         });
     }
-
-
 </script>
 <script>
   var splide = new Splide('.splide_3_2', {
