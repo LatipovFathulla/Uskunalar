@@ -293,6 +293,7 @@
                             class="phone_link">+998 71 250 77 77</span></a>
                     <br>
                     <span class="call"><a href="tel:+998 71 250 77 77" style="color:red">{% trans 'звонить сейчас' %}</a></span>
+
                 </li>
             </ul>
         </form>
@@ -319,10 +320,12 @@
                                       <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;">{{ subcategory }}</a></li>
                                   {% endfor %}
                                <ul class="second-dropdown">
-                                    {% for secondsubcategory in category.second_subcategories.all %}
-                                    <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;font-size: 17px;font-weight: 500;display:table;min-width:200px;height:35px;border-radius:6px"><p style="    margin-top: 10px;
-                                            margin-left: 10%;">{{ secondsubcategory }}</p></a></li>
-                                    {% endfor %}
+                                   {% if category.second_subcategories.pk == secondsubcategory.pk %}
+                                        {% for secondsubcategory in category.second_subcategories.all %}
+                                                    <li><a href="{% url 'products:product' %}?secondsubcategory={{ secondsubcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;font-size: 17px;font-weight: 500;display:table;min-width:200px;height:35px;border-radius:6px"><p style="    margin-top: 10px;
+                                                            margin-left: 10%;">{{ secondsubcategory }}</p></a></li>
+                                        {% endfor %}
+                                   {% endif %}
                                </ul>
                               </ul>
                             </li>
