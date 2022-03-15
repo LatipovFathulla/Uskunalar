@@ -117,8 +117,8 @@ LANGUAGE_CODE = 'uz'
 
 LANGUAGES = (
     ('uz', _('Uzbek')),
-    ('en', _('English')),
     ('ru', _('Russian')),
+    ('en', _('English')),
 
 )
 
