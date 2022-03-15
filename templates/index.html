@@ -304,7 +304,7 @@
                             <li class="has-children">
                                     <a href="{% url 'products:product' %}?category={{ category.pk }}" style="color:#fff;font-size: 17px;font-weight: 500;margin:5%;display:table">{{ category.category }}</a>
                                 <hr style="border-bottom: 1px solid #b5bdcc;margin-top:0px;margin-bottom:0px">
-                                <button class="btn btn-primary">All categories</button>
+
                               <ul class="dropdown" style="background:#d6effb;left: 100%;z-index: 9;">
                                  {% for subcategory in category.subcategories.all %}
                                       <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;">{{ subcategory }}</a></li>
@@ -319,6 +319,7 @@
                             </li>
                            {% endfor %}
                       </ul>
+                     <button class="btn btn-primary">All categories</button>
                   </ul>
                 <div class="minimalist-tab2">
                     {% for category in categories %}
