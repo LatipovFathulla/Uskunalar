@@ -4415,7 +4415,7 @@ nav .nav-ul li a span.rotate {
 @media(min-width:2000px) {
     .has-children .dropdown.arrow-top {
         position: fixed;
-        top: 13%;
+        top: 14%;
     }
 }
 
