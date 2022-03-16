@@ -59,7 +59,7 @@
                         </div>
                     </div>
 
-                    <p style="line-height: 22px;font-family:RobotoCondensed,Arial,sans-serif;"> {{ about.long_description }}</p>
+                    <p style="line-height: 22px;font-family:RobotoCondensed,Arial,sans-serif;"> {{ about.description|safe }}</p>
                     <section class="video">
                     <h3>{% trans 'Видео о нас' %}</h3>
                        <span>{% video about.url '100%x400' %}</span>
