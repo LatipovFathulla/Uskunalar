@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-16 16:52+0500\n"
+"POT-Creation-Date: 2022-03-16 18:53+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,51 +20,51 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: about/apps.py:8 about/models.py:18
+#: about/apps.py:8 about/models.py:19
 msgid "about"
 msgstr "о нас"
 
-#: about/models.py:7 biznes/models.py:6 blog/models.py:6 home/models.py:52
+#: about/models.py:8 biznes/models.py:6 blog/models.py:6 home/models.py:52
 #: home/models.py:121 lines/models.py:20 videos/models.py:7 works/models.py:6
 msgid "title"
 msgstr "заглавие"
 
-#: about/models.py:8 blog/models.py:7 home/models.py:54 home/models.py:102
+#: about/models.py:9 blog/models.py:7 home/models.py:54 home/models.py:102
 #: home/models.py:123 lines/models.py:21 lines/models.py:43
 msgid "image"
 msgstr "изображения"
 
-#: about/models.py:9 blog/models.py:8 lines/models.py:23 videos/models.py:8
+#: about/models.py:10 blog/models.py:8 lines/models.py:23 videos/models.py:8
 msgid "description"
 msgstr "описания"
 
-#: about/models.py:11 home/models.py:66 lines/models.py:24
+#: about/models.py:12 home/models.py:66 lines/models.py:24
 msgid "long_description"
 msgstr "короткая описания"
 
-#: about/models.py:12 about/models.py:26 biznes/models.py:9 home/models.py:13
+#: about/models.py:13 about/models.py:27 biznes/models.py:9 home/models.py:13
 #: home/models.py:67 lines/models.py:7 lines/models.py:25 orders/models.py:12
 #: videos/models.py:10
 msgid "created_at"
 msgstr "время создания"
 
-#: about/models.py:19
+#: about/models.py:20
 msgid "abouts"
 msgstr "о нас"
 
-#: about/models.py:23 orders/models.py:8
+#: about/models.py:24 orders/models.py:8
 msgid "name"
 msgstr "имя"
 
-#: about/models.py:24 orders/models.py:9
+#: about/models.py:25 orders/models.py:9
 msgid "phone"
 msgstr "номер"
 
-#: about/models.py:25
+#: about/models.py:26
 msgid "message"
 msgstr "сообщения"
 
-#: about/models.py:32 about/models.py:33
+#: about/models.py:33 about/models.py:34
 msgid "call center"
 msgstr ""
 
@@ -687,15 +687,15 @@ msgstr "Характеристики и описания оборудовани�
 msgid "Избранное"
 msgstr "Избранное"
 
-#: uskunalar/settings.py:119
+#: uskunalar/settings.py:121
 msgid "Uzbek"
 msgstr ""
 
-#: uskunalar/settings.py:120
+#: uskunalar/settings.py:122
 msgid "Russian"
 msgstr ""
 
-#: uskunalar/settings.py:121
+#: uskunalar/settings.py:123
 msgid "English"
 msgstr ""
 

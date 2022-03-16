@@ -7,7 +7,7 @@ from django.urls import path, include
 from about.views import AboutModelListView
 
 urlpatterns = [
-
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 urlpatterns += i18n_patterns(
