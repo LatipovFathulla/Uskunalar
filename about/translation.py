@@ -5,4 +5,4 @@ from about.models import AboutModel
 
 @register(AboutModel)
 class AboutTranslationOptions(TranslationOptions):
-    fields = ('title', 'description', 'long_description')
+    fields = ('title', 'description',)

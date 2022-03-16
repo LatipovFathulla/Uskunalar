@@ -144,10 +144,6 @@ STATICFILES_DIRS = BASE_DIR / 'assets',
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 CKEDITOR_CONFIGS = {
@@ -155,6 +151,8 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     },
 }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 try:
     from .settings_local import *
