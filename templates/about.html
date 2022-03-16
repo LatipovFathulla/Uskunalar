@@ -59,7 +59,7 @@
                         </div>
                     </div>
 
-                    <p > {{ about.description|safe }}</p>
+                    {{ about.description|safe }}
                     <section class="video">
                     <h3>{% trans 'Видео о нас' %}</h3>
                        <span>{% video about.url '100%x400' %}</span>
