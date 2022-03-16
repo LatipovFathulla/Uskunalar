@@ -5576,6 +5576,11 @@ ul.social-footer2 li a {
     border-radius: 4px;
 }
 
+.has-children .dropdown.arrow-top {
+    position:fixed;
+    top:20%;
+}
+
 
 .has-children .dropdown.arrow-top:before {
     bottom: 100%;
