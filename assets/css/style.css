@@ -2771,7 +2771,7 @@ nav .nav-ul li a span.rotate {
         background-position: center;
         width: 100%;
         height: 186px;
-        margin-top: 8%;
+        margin-top: 15%;
     }
 
     .banner2 {
@@ -2781,7 +2781,7 @@ nav .nav-ul li a span.rotate {
         background-position: center;
         width: 100%;
         height: 186px;
-        margin-top: 8%;
+        margin-top: 14%;
     }
 
     .banner-text {
@@ -3745,6 +3745,7 @@ nav .nav-ul li a span.rotate {
     .tabcontent {
         float: right;
         margin-left: 1%;
+        padding:20px;
         width: 100%;
         border-left: none;
         height: auto;
