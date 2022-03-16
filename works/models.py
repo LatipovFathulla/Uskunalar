@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -5,8 +6,8 @@ from django.utils.translation import gettext_lazy as _
 class WorkModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'))
     image = models.ImageField(upload_to='works', verbose_name=_('works'))
-    short_descriptions = models.TextField(verbose_name=_('short_descriptions'), max_length=520, null=True)
-    descriptions = models.TextField(verbose_name=_('descriptions'))
+    short_descriptions = RichTextUploadingField(verbose_name=_('short_descriptions'), max_length=520, null=True, blank=True)
+    descriptions = RichTextUploadingField(verbose_name=_('descriptions'), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def get_prev(self):

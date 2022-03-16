@@ -8,7 +8,7 @@ class AboutModel(models.Model):
     title = models.CharField(max_length=90, verbose_name=_('title'))
     image = models.ImageField(upload_to='about', verbose_name=_('image'))
     description = RichTextUploadingField(verbose_name=_('description'))
-    url = EmbedVideoField(null=True)
+    url = EmbedVideoField(null=True, blank=True)
     long_description = models.TextField(verbose_name=_('long_description'), null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 

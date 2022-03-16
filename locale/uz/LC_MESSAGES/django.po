@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-16 18:53+0500\n"
+"POT-Creation-Date: 2022-03-16 19:07+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,27 +22,27 @@ msgstr ""
 msgid "about"
 msgstr "biz haqimizda"
 
-#: about/models.py:8 biznes/models.py:6 blog/models.py:6 home/models.py:52
-#: home/models.py:121 lines/models.py:20 videos/models.py:7 works/models.py:6
+#: about/models.py:8 biznes/models.py:7 blog/models.py:7 home/models.py:53
+#: home/models.py:122 lines/models.py:21 videos/models.py:8 works/models.py:7
 msgid "title"
 msgstr "nomi"
 
-#: about/models.py:9 blog/models.py:7 home/models.py:54 home/models.py:102
-#: home/models.py:123 lines/models.py:21 lines/models.py:43
+#: about/models.py:9 blog/models.py:8 home/models.py:55 home/models.py:103
+#: home/models.py:124 lines/models.py:22 lines/models.py:44
 msgid "image"
 msgstr "rasimi"
 
-#: about/models.py:10 blog/models.py:8 lines/models.py:23 videos/models.py:8
+#: about/models.py:10 blog/models.py:9 lines/models.py:24 videos/models.py:9
 msgid "description"
 msgstr "tavsiflar"
 
-#: about/models.py:12 home/models.py:66 lines/models.py:24
+#: about/models.py:12 home/models.py:67 lines/models.py:25
 msgid "long_description"
 msgstr "kotta tavsiflar"
 
-#: about/models.py:13 about/models.py:27 biznes/models.py:9 home/models.py:13
-#: home/models.py:67 lines/models.py:7 lines/models.py:25 orders/models.py:12
-#: videos/models.py:10
+#: about/models.py:13 about/models.py:27 biznes/models.py:10 home/models.py:14
+#: home/models.py:68 lines/models.py:8 lines/models.py:26 orders/models.py:12
+#: videos/models.py:11
 msgid "created_at"
 msgstr "yaratilgan vaqti"
 
@@ -66,32 +66,32 @@ msgstr "habari"
 msgid "call center"
 msgstr ""
 
-#: biznes/apps.py:8 biznes/models.py:21 biznes/models.py:22
+#: biznes/apps.py:8 biznes/models.py:22 biznes/models.py:23
 msgid "biznes"
 msgstr "biznes"
 
-#: biznes/models.py:7 biznes/models.py:26 biznes/models.py:27
-#: biznes/models.py:30 biznes/models.py:31
+#: biznes/models.py:8 biznes/models.py:27 biznes/models.py:28
+#: biznes/models.py:31 biznes/models.py:32
 msgid "biznes_image"
 msgstr "biznes rasmi"
 
-#: biznes/models.py:8
+#: biznes/models.py:9
 msgid "long_descriptions"
 msgstr "kotta tavsiflar"
 
-#: blog/apps.py:8 blog/models.py:23
+#: blog/apps.py:8 blog/models.py:24
 msgid "blog"
 msgstr "maqolalar"
 
-#: blog/models.py:9
+#: blog/models.py:10
 msgid "smart_description"
 msgstr "chroyli tavsiflar"
 
-#: blog/models.py:10
+#: blog/models.py:11
 msgid "smart_text"
 msgstr "chroyli text"
 
-#: blog/models.py:24
+#: blog/models.py:25
 msgid "blogs"
 msgstr "maqolalar"
 
@@ -99,156 +99,156 @@ msgstr "maqolalar"
 msgid "home"
 msgstr "Mahsulotlar"
 
-#: home/models.py:11 home/models.py:19 home/models.py:24 home/models.py:38
-#: home/models.py:56 lines/models.py:6 lines/models.py:18
+#: home/models.py:12 home/models.py:20 home/models.py:25 home/models.py:39
+#: home/models.py:57 lines/models.py:7 lines/models.py:19
 msgid "category"
 msgstr "categoriya"
 
-#: home/models.py:12
+#: home/models.py:13
 msgid "category_image"
 msgstr "categoriyaning rasimi"
 
-#: home/models.py:20
+#: home/models.py:21
 msgid "categories"
 msgstr "categoriyalar"
 
-#: home/models.py:25
+#: home/models.py:26
 msgid "sub_image"
 msgstr "pastki categoriyani rasmi"
 
-#: home/models.py:26 home/models.py:33 home/models.py:39 home/models.py:57
+#: home/models.py:27 home/models.py:34 home/models.py:40 home/models.py:58
 msgid "subcategory"
 msgstr "pastki categoriya"
 
-#: home/models.py:27 home/models.py:41
+#: home/models.py:28 home/models.py:42
 msgid "crated_at"
 msgstr "yaratilgan vohti"
 
-#: home/models.py:34
+#: home/models.py:35
 msgid "subcategories"
 msgstr "pastki categoriyalar"
 
-#: home/models.py:40 home/models.py:47 home/models.py:59
+#: home/models.py:41 home/models.py:48 home/models.py:60
 msgid "second_subcategory"
 msgstr "ikkinchi kichik categoriyalar"
 
-#: home/models.py:48
+#: home/models.py:49
 msgid "second_subcategories"
 msgstr "ikkinchi kichik categoriyalar"
 
-#: home/models.py:55
+#: home/models.py:56
 msgid "pdf"
 msgstr ""
 
-#: home/models.py:58
+#: home/models.py:59
 msgid "city"
 msgstr "shaxar"
 
-#: home/models.py:60
+#: home/models.py:61
 msgid "price"
 msgstr "narxi som"
 
-#: home/models.py:61
+#: home/models.py:62
 msgid "dollar"
 msgstr "narxi dollar"
 
-#: home/models.py:62
+#: home/models.py:63
 msgid "discount"
 msgstr "chegirma"
 
-#: home/models.py:63
+#: home/models.py:64
 msgid "inbox"
 msgstr "ombor"
 
-#: home/models.py:64
+#: home/models.py:65
 msgid "delivery"
 msgstr "zakaz ga"
 
-#: home/models.py:65
+#: home/models.py:66
 msgid "short_description"
 msgstr "qisqa tasvirlar"
 
-#: home/models.py:95 home/models.py:96 home/models.py:110 orders/models.py:10
+#: home/models.py:96 home/models.py:97 home/models.py:111 orders/models.py:10
 msgid "products"
 msgstr "mahsulotlar"
 
-#: home/models.py:101
+#: home/models.py:102
 msgid "product"
 msgstr "mahsulot"
 
-#: home/models.py:105
+#: home/models.py:106
 msgid "product image"
 msgstr "mahsulotning rasimi"
 
-#: home/models.py:106
+#: home/models.py:107
 msgid "product images"
 msgstr "mahsulotning rasimi"
 
-#: home/models.py:111
+#: home/models.py:112
 msgid "product_customer"
 msgstr "mahsulot xaraktiristikasi"
 
-#: home/models.py:112
+#: home/models.py:113
 msgid "product_numbers"
 msgstr "mahsulot nomeri"
 
-#: home/models.py:113
+#: home/models.py:114
 msgid "product_image"
 msgstr "mahsulot rasmi"
 
-#: home/models.py:116
+#: home/models.py:117
 msgid "product specification"
 msgstr "mahsulot informatsiyasi"
 
-#: home/models.py:117
+#: home/models.py:118
 msgid "product specifications"
 msgstr "mahsulot informatsiyasi"
 
-#: home/models.py:122 works/models.py:9
+#: home/models.py:123 works/models.py:10
 msgid "descriptions"
 msgstr "tavsifi"
 
-#: home/models.py:130
+#: home/models.py:131
 msgid "carousel"
 msgstr ""
 
-#: home/models.py:131
+#: home/models.py:132
 msgid "carousels"
 msgstr ""
 
-#: lines/apps.py:8 lines/models.py:38
+#: lines/apps.py:8 lines/models.py:39
 msgid "lines"
 msgstr "liniyalar"
 
-#: lines/models.py:13
+#: lines/models.py:14
 #, fuzzy
 #| msgid "category"
 msgid "line category"
 msgstr "categoriya"
 
-#: lines/models.py:14
+#: lines/models.py:15
 #, fuzzy
 #| msgid "categories"
 msgid "line categories"
 msgstr "categoriyalar"
 
-#: lines/models.py:22
+#: lines/models.py:23
 msgid "line_pdf"
 msgstr "pdf liniyasi"
 
-#: lines/models.py:37
+#: lines/models.py:38
 msgid "line"
 msgstr "liniya"
 
-#: lines/models.py:42
+#: lines/models.py:43
 msgid "line_image"
 msgstr "liniyaning rasmi"
 
-#: lines/models.py:46
+#: lines/models.py:47
 msgid "line specification"
 msgstr "liniyani xarakteristikasi"
 
-#: lines/models.py:47
+#: lines/models.py:48
 msgid "line specifications"
 msgstr "liniyani xarakteristikasi"
 
@@ -280,7 +280,7 @@ msgstr "Bosh sahifa"
 msgid "О нас"
 msgstr "Biz haqimizda"
 
-#: templates/about.html:68
+#: templates/about.html:64
 msgid "Видео о нас"
 msgstr "Biz haqimizda video"
 
@@ -698,44 +698,44 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: videos/apps.py:8 videos/models.py:17
+#: videos/apps.py:8 videos/models.py:18
 msgid "videos"
 msgstr "videolar"
 
-#: videos/models.py:16
+#: videos/models.py:17
 msgid "video"
 msgstr "video"
 
-#: works/apps.py:8 works/models.py:7 works/models.py:23
+#: works/apps.py:8 works/models.py:8 works/models.py:24
 msgid "works"
 msgstr "ishlar"
 
-#: works/models.py:8
+#: works/models.py:9
 msgid "short_descriptions"
 msgstr "qisqa_tavsiflar"
 
-#: works/models.py:22 works/models.py:36
+#: works/models.py:23 works/models.py:37
 msgid "work"
 msgstr "ishlar"
 
-#: works/models.py:27 works/models.py:28 works/models.py:31 works/models.py:32
-#: works/models.py:39
+#: works/models.py:28 works/models.py:29 works/models.py:32 works/models.py:33
+#: works/models.py:40
 msgid "work_image"
 msgstr "ishlar rasmi"
 
-#: works/models.py:37
+#: works/models.py:38
 msgid "work_customer"
 msgstr "ishlar xarakteristikasi"
 
-#: works/models.py:38
+#: works/models.py:39
 msgid "work_numbers"
 msgstr "ishlarni nomeri"
 
-#: works/models.py:42
+#: works/models.py:43
 msgid "work specification"
 msgstr "ishlar xarakteristikasi"
 
-#: works/models.py:43
+#: works/models.py:44
 msgid "work specifications"
 msgstr "ishlar xarakteristikasi"
 

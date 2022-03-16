@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -19,9 +20,9 @@ class LineModel(models.Model):
                                  related_name='lines')
     title = models.CharField(max_length=200, verbose_name=_('title'))
     image = models.FileField(upload_to='line_image', verbose_name=_('image'))
-    pdf = models.FileField(upload_to='line_pdf', verbose_name=_('line_pdf'))
-    description = models.TextField(verbose_name=_('description'))
-    long_description = models.TextField(verbose_name=_('long_description'), null=True)
+    pdf = models.FileField(upload_to='line_pdf', verbose_name=_('line_pdf'), null=True, blank=True)
+    description = RichTextUploadingField(verbose_name=_('description'))
+    long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def get_prev(self):
