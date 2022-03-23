@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-16 19:07+0500\n"
+"POT-Creation-Date: 2022-03-24 02:06+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: about/apps.py:8 about/models.py:19
+#: about/apps.py:8 about/models.py:18
 msgid "about"
 msgstr "biz haqimizda"
 
@@ -36,33 +36,29 @@ msgstr "rasimi"
 msgid "description"
 msgstr "tavsiflar"
 
-#: about/models.py:12 home/models.py:67 lines/models.py:25
-msgid "long_description"
-msgstr "kotta tavsiflar"
-
-#: about/models.py:13 about/models.py:27 biznes/models.py:10 home/models.py:14
+#: about/models.py:12 about/models.py:26 biznes/models.py:10 home/models.py:14
 #: home/models.py:68 lines/models.py:8 lines/models.py:26 orders/models.py:12
 #: videos/models.py:11
 msgid "created_at"
 msgstr "yaratilgan vaqti"
 
-#: about/models.py:20
+#: about/models.py:19
 msgid "abouts"
 msgstr "biz haqimizda"
 
-#: about/models.py:24 orders/models.py:8
+#: about/models.py:23 orders/models.py:8
 msgid "name"
 msgstr "ismi"
 
-#: about/models.py:25 orders/models.py:9
+#: about/models.py:24 orders/models.py:9
 msgid "phone"
 msgstr "nomeri"
 
-#: about/models.py:26
+#: about/models.py:25
 msgid "message"
 msgstr "habari"
 
-#: about/models.py:33 about/models.py:34
+#: about/models.py:32 about/models.py:33
 msgid "call center"
 msgstr ""
 
@@ -167,6 +163,10 @@ msgstr "zakaz ga"
 #: home/models.py:66
 msgid "short_description"
 msgstr "qisqa tasvirlar"
+
+#: home/models.py:67 lines/models.py:25
+msgid "long_description"
+msgstr "kotta tavsiflar"
 
 #: home/models.py:96 home/models.py:97 home/models.py:111 orders/models.py:10
 msgid "products"
@@ -280,7 +280,7 @@ msgstr "Bosh sahifa"
 msgid "О нас"
 msgstr "Biz haqimizda"
 
-#: templates/about.html:64
+#: templates/about.html:65
 msgid "Видео о нас"
 msgstr "Biz haqimizda video"
 
@@ -361,7 +361,7 @@ msgstr "FIO"
 msgid "Ваш номер"
 msgstr "Nomeringiz"
 
-#: templates/form.html:31 templates/requests.html:63
+#: templates/form.html:31 templates/requests.html:62
 msgid "Отправить"
 msgstr "Jonatish"
 
@@ -402,8 +402,8 @@ msgid "Search"
 msgstr "Qidirish"
 
 #: templates/index.html:186 templates/index.html:1024
-#: templates/layouts/header.html:229 templates/products.html:158
-#: templates/products.html:159
+#: templates/layouts/header.html:229 templates/layouts/header.html:270
+#: templates/products.html:158 templates/products.html:159
 msgid "Каталог"
 msgstr "Katalog"
 
@@ -623,7 +623,7 @@ msgstr ""
 msgid "Введите сообщения"
 msgstr "Habar jonatin"
 
-#: templates/requests.html:76 templates/single-product.html:204
+#: templates/requests.html:75 templates/single-product.html:204
 msgid ""
 "Ваша сообщения успешно отправлено скоро наши операторы с вами свяжутся!!!"
 msgstr ""

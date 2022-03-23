@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-16 19:07+0500\n"
+"POT-Creation-Date: 2022-03-24 02:06+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: about/apps.py:8 about/models.py:19
+#: about/apps.py:8 about/models.py:18
 msgid "about"
 msgstr "о нас"
 
@@ -36,33 +36,29 @@ msgstr "изображения"
 msgid "description"
 msgstr "описание"
 
-#: about/models.py:12 home/models.py:67 lines/models.py:25
-msgid "long_description"
-msgstr "длинная описания"
-
-#: about/models.py:13 about/models.py:27 biznes/models.py:10 home/models.py:14
+#: about/models.py:12 about/models.py:26 biznes/models.py:10 home/models.py:14
 #: home/models.py:68 lines/models.py:8 lines/models.py:26 orders/models.py:12
 #: videos/models.py:11
 msgid "created_at"
 msgstr "время создания"
 
-#: about/models.py:20
+#: about/models.py:19
 msgid "abouts"
 msgstr "о нас"
 
-#: about/models.py:24 orders/models.py:8
+#: about/models.py:23 orders/models.py:8
 msgid "name"
 msgstr "имя"
 
-#: about/models.py:25 orders/models.py:9
+#: about/models.py:24 orders/models.py:9
 msgid "phone"
 msgstr "телефон"
 
-#: about/models.py:26
+#: about/models.py:25
 msgid "message"
 msgstr "сообщения"
 
-#: about/models.py:33 about/models.py:34
+#: about/models.py:32 about/models.py:33
 msgid "call center"
 msgstr ""
 
@@ -167,6 +163,10 @@ msgstr "в достакве"
 #: home/models.py:66
 msgid "short_description"
 msgstr "короткая описания"
+
+#: home/models.py:67 lines/models.py:25
+msgid "long_description"
+msgstr "длинная описания"
 
 #: home/models.py:96 home/models.py:97 home/models.py:111 orders/models.py:10
 msgid "products"
@@ -280,7 +280,7 @@ msgstr ""
 msgid "О нас"
 msgstr ""
 
-#: templates/about.html:64
+#: templates/about.html:65
 msgid "Видео о нас"
 msgstr ""
 
@@ -361,7 +361,7 @@ msgstr ""
 msgid "Ваш номер"
 msgstr ""
 
-#: templates/form.html:31 templates/requests.html:63
+#: templates/form.html:31 templates/requests.html:62
 msgid "Отправить"
 msgstr ""
 
@@ -402,8 +402,8 @@ msgid "Search"
 msgstr ""
 
 #: templates/index.html:186 templates/index.html:1024
-#: templates/layouts/header.html:229 templates/products.html:158
-#: templates/products.html:159
+#: templates/layouts/header.html:229 templates/layouts/header.html:270
+#: templates/products.html:158 templates/products.html:159
 msgid "Каталог"
 msgstr ""
 
@@ -623,7 +623,7 @@ msgstr ""
 msgid "Введите сообщения"
 msgstr ""
 
-#: templates/requests.html:76 templates/single-product.html:204
+#: templates/requests.html:75 templates/single-product.html:204
 msgid ""
 "Ваша сообщения успешно отправлено скоро наши операторы с вами свяжутся!!!"
 msgstr ""

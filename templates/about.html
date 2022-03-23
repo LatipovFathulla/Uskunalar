@@ -25,7 +25,7 @@
             <div class="row">
                  {% for about in abouts %}
                         <div class="col-6">
-                            <button class="btn  tablinks" style="height:62px;width:100%;background:#FFE700;margin: 0px 0px 10px;"  onclick="openCity(event, '{{ about.pk }}')"  value="{{ about.pk }}" id="defaultOpen">{{ about.title }}</button>
+                            <button class="btn  tablinks" style="height:62px;width:100%;background:#FFE700;margin: 0px 0px 10px;font-size: 20px"  onclick="openCity(event, '{{ about.pk }}')"  value="{{ about.pk }}" id="defaultOpen">{{ about.title }}</button>
                         </div>
                  {% endfor %}
             </div>
