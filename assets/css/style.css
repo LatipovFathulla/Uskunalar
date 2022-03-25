@@ -193,11 +193,24 @@ p {
     position: absolute;
     right: 0%;
     font-style: normal;
+    top: 60px;
     font-size: 16px;
     padding-left: 25px;
     color: #000;
     margin: 0px;
 }
+
+.phone_link-2 {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    position: absolute;
+    top: 40px;
+    right: 2px;
+}
+
+
 
 .call {
     color: red;
@@ -5223,7 +5236,7 @@ ul.social-footer2 li a {
 }
 
 .accordion4 li i.fa-chevron-down {
-    right: 0px;
+    right: 40px;
     padding: 3px;
     top: 12px;
     left: auto;
@@ -5257,6 +5270,7 @@ ul.social-footer2 li a {
     background: #fff;
     position: absolute;
     z-index: 999;
+    top:100%;
     font-size: 14px;
     text-align: center;
     offset: 0px 4px;
