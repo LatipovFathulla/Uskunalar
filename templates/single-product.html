@@ -112,7 +112,7 @@
                     </p>
                 </div>
                 <div class="col-md-6 mt-3">
-                    <p class="in_article">{% trans 'Артикул' %}:{{ object.sku }}</p>
+                    <p class="in_article"><img src="{% static './images/radius.svg' %}" alt=""> {% trans 'Артикул' %}:{{ object.sku }}</p>
                 </div>
             </div>
             <p class="desc_prod mt-4">{{ object.short_description|safe }}</p>

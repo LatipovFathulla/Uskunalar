@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from django.views.generic import ListView, TemplateView, DetailView
 from rest_framework.response import Response
 
-from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
+from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, SecondSubCategoryModel
 from home.utils import get_wishlist_data
 
 
@@ -35,6 +35,7 @@ class BannerInfoModelView(ListView):
         category = self.request.GET.get('category')
         category2 = self.request.GET.get('category')
         subcategory = self.request.GET.get('subcategory')
+        secondsubcategory = self.request.GET.get('secondsubcategory')
         sku = self.request.GET.get('sku')
         price = self.request.GET.get('price')
         sort = self.request.GET.get('sort')
@@ -52,8 +53,11 @@ class BannerInfoModelView(ListView):
         if subcategory:
             qs = qs.filter(category_id=subcategory)
 
+        if secondsubcategory:
+            qs = qs.filter(secondsubcategory_id=secondsubcategory)
+
         if sku:
-            qs = qs.filter(sku_id=sku)
+            qs = qs.filter(sku__exact=sku)
 
         if price:
             price_from, price_to = price.split(';')
@@ -89,8 +93,9 @@ class BannerInfoModelView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = CategoryModel.objects.order_by('-pk')
-        context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
+        context['categories'] = CategoryModel.objects.order_by('pk')
+        context['subcategories'] = SubCategoryModel.objects.order_by('pk')
+        context['secondsubcategory'] = SecondSubCategoryModel.objects.order_by('pk')
 
         context['min_price'], context['max_price'] = BannerInfoModel.objects.aggregate(
             Min('dollar'),
