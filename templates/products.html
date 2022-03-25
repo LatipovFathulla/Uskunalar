@@ -84,16 +84,12 @@ accordion {
   text-transform: uppercase;
 }
 
-.accordion__item {
-    border-bottom: 1px solid #3a4ba4;
-}
 
 .accordion__item .accordion__item {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .accordion-header:hover {
-  background: #2D3D99;
   position: relative;
   z-index: 5;
 }
@@ -105,8 +101,9 @@ accordion {
 }
 
 .accordion-body__contents {
-  padding: 1.5em 1.5em;
-  font-size: .85em;
+  padding: 7px 1.5em;
+  font-size: 19px;
+  font-weight: 500;
 }
 
 .accordion__item.active:last-child .accordion-header {
@@ -306,13 +303,13 @@ accordion {
                         </div>
                         <ul class="submenu">
                                 {% for subcategory in category.subcategories.all %}
-                                     <div class="accordion js-accordion">
+                                     <div class="accordion js-accordion" style="margin-top: 0px;">
                                       <div class="accordion__item js-accordion-item">
                                         <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}">{{ subcategory }}</a> </div>
                                       <div class="accordion-body js-accordion-body">
                                         <div class="accordion-body__contents">
                                         {% for secondsubcategory in category.second_subcategories.all %}
-                                            {{ secondsubcategory }}
+                                            <a class="secondsub" href="">{{ secondsubcategory }}</a>
                                         {% endfor %}
                                         </div>
                                         </div><!-- end of accordion body -->

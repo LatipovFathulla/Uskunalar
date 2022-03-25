@@ -1759,6 +1759,11 @@ nav .nav-ul li a span.rotate {
     margin-top: 7px;
 }
 
+.secondsub:hover {
+    background-color: #fff;
+    font-style: 40px;
+}
+
 .client_work {
     color: #131311;
     font-weight: normal;
@@ -2393,9 +2398,7 @@ nav .nav-ul li a span.rotate {
     .button-left {
         position: absolute;
         left: 13%;
-        /* right: 0%; */
-        margin-top: 25px;
-        /* bottom: -1px; */
+        bottom: -32px;
         background: #FFE700;
         border: none;
         z-index: 1;
