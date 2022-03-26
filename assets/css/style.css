@@ -5593,6 +5593,7 @@ ul.social-footer2 li a {
     visibility: hidden;
     opacity: 0;
     position: absolute;
+    top: 0px;
     text-align: left;
     -webkit-box-shadow: 0 0px 4px 0px rgb(0 0 0 / 25%);
     box-shadow: 0 0px 4px 0px rgb(0 0 0 / 25%);

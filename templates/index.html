@@ -320,7 +320,6 @@
                                       <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;">{{ subcategory }}</a></li>
                                   {% endfor %}
                                <ul class="second-dropdown">
-
                                         {% for secondsubcategory in category.second_subcategories.all %}
                                             {% if request.GET.secondsubcategory.pk == second_subcategories.pk %}
                                                     <li><a href="{% url 'products:product' %}?secondsubcategory={{ secondsubcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;font-size: 17px;font-weight: 500;display:table;min-width:200px;height:35px;border-radius:6px"><p style="    margin-top: 10px;

@@ -57,7 +57,7 @@ class HomeView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['products'] = BannerInfoModel.objects.order_by('-pk')[:8]
         context['categories'] = CategoryModel.objects.order_by('pk')[:10]
-        context['categories2'] = CategoryModel.objects.order_by('-pk')
+        context['categories2'] = CategoryModel.objects.order_by('pk')
         context['lines'] = LineModel.objects.order_by('-pk')[:8]
         context['works'] = WorkModel.objects.order_by('-pk')[:4]
         context['blogs'] = BlogModel.objects.order_by('-pk')
