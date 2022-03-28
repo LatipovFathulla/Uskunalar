@@ -234,7 +234,10 @@
                     <li class="delay05"><a href="{% url 'blog:blogs' %}">{% trans 'Наши статьи' %}</a></li>
                     <li class="delay06"><a href="{% url 'home:about' %}">{% trans 'О нас' %}</a></li>
                     <li class="delay07"><a href="{% url 'home:contacts' %}">{% trans 'Контакты' %}</a></li>
-                    <li class="delay09"><a href="tel:+998 71 250 77 77">
+                    <li class="delay09"><a href="tel:+998 97 211 77 77">
+                        <p style="color: #000;font-weight: bold;">+998 97 211 77 77</p>
+                    </a></li>
+                    <li class="delay10"><a href="tel:+998 71 250 77 77">
                         <p style="color: #000;font-weight: bold;">+998 71 250 77 77</p>
                     </a></li>
                     <li class="delay08" style="margin-top: -7%"><a href="tel:+998 71 250 77 77">
@@ -245,7 +248,7 @@
                        <li>
                              {% get_current_language as lang %}
                              {% get_available_languages as langs %}
-                            <div class="link"><a href="" style="color:red">{{ lang|upper }}</a> <i class="fa fa-chevron-down" style="position: absolute;left: 25%;top: 34.6%;"></i>
+                            <div class="link"><a href="" style="color:red">{{ lang|upper }}</a> <i class="fa fa-chevron-down" style="position: absolute;left: 25%;top: 37.6%;"></i>
                             </div>
                             <ul class="submenu4">
                                   {% for l in langs %}
