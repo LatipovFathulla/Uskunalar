@@ -32,6 +32,37 @@
             box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
         }
     }
+.has-children {
+    top: 0%;
+    padding: 0px 0;
+    -webkit-transition: 0.2s 0s;
+    -o-transition: 0.2s 0s;
+    transition: 0.2s 0s;
+    border-radius: 4px;
+    min-width: 270px;
+}
+
+.second-dropdown {
+    background:#f4fbfe;
+    position: absolute;
+    left: 100%;
+    top: 0%;
+    padding: 0px 0;
+    margin-top: 10px;
+    -webkit-transition: 0.2s 0s;
+    -o-transition: 0.2s 0s;
+    transition: 0.2s 0s;
+    border-radius: 4px;
+    min-width: 200px;
+}
+
+.dropdown.menu-1 .second-dropdown {
+    display:none
+}
+
+.dropdown.menu-1:hover .second-dropdown {
+    display:block
+}
 
  .site-navbar .site-navigation .site-menu .has-children {
       position: relative; }
@@ -131,6 +162,7 @@
           opacity: 1; }
 
 
+
 </style>
 <div class="nav-desk-1">
 <!-- start navbar -->
@@ -142,7 +174,7 @@
                      {% get_available_languages as langs %}
                     <div class="link"><a href="" style="color:#fff">{{ lang|upper }}</a> <i class="fa fa-chevron-down"></i>
                     </div>
-                    <ul class="submenu4">
+                    <ul class="submenu4" style="margin-top:10px">
                           {% for l in langs %}
                          {% if l.0 != lang %}
                         <hr class="mb-0 mt-0">
@@ -269,7 +301,7 @@
     height: 53px;
     border-radius: 6px;
     margin: 13px;">
-                    <li class="has-children">
+                    <li class="has-children" style="min-width:70px">
                         <a href=""  style="background-color:transparent"><p class="nav-link" style="margin: 10px auto; display: table;color:#000"><img src="{% static './images/squares_2.svg' %}" alt=""><v style="margin-left: 4px;font-size: 20px;font-weight: 400;font-style: normal;">{% trans 'Каталог' %}</v></p></a>
 
                       <ul class="dropdown arrow-top" style="background: #32414a;">
@@ -277,10 +309,18 @@
                             <li class="has-children">
                                     <a href="{% url 'products:product' %}?category={{ category.pk }}">{{ category.category }}</a>
                                 <hr style="border-bottom: 1px solid #b5bdcc;margin-top:0px;margin-bottom:0px">
-                              <ul class="dropdown" style="background:#d6effb">
+                              <ul class="dropdown menu-1" style="background:#d6effb">
                                   {% for subcategory in category.subcategories.all %}
                                       <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;">{{ subcategory }}</a></li>
                                   {% endfor %}
+                                   <ul class="second-dropdown">
+                                        {% for secondsubcategory in category.second_subcategories.all %}
+                                            {% if request.GET.secondsubcategory.pk == second_subcategories.pk %}
+                                                    <li><a href="{% url 'products:product' %}?secondsubcategory={{ secondsubcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;font-size: 17px;font-weight: 500;display:table;min-width:200px;height:35px;border-radius:6px"><p style="margin-top: 10px;
+                                                            text-align:center">{{ secondsubcategory }}</p></a></li>
+                                            {% endif %}
+                                        {% endfor %}
+                               </ul>
                               </ul>
                             </li>
                            {% endfor %}
