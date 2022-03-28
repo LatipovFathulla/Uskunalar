@@ -81,7 +81,6 @@ accordion {
   font-size: .7em;
   letter-spacing: .1em;
   transition: all .3s;
-  text-transform: uppercase;
 }
 
 
@@ -296,6 +295,8 @@ accordion {
                         <div class="link">
                             {% if category.image %}
                             <img src="{{ category.image.url }}" style="width:20px" alt="">
+                             {% else %}
+                            <p></p>
                             {% endif %}
                             <a href="?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;margin-top: 3%;margin-left: 5%;font-family: revert;font-weight: 500;font-size: 14px">{{ category.category }}</span></a> <i
                                 class="fa fa-chevron-down"></i>
@@ -710,16 +711,6 @@ justify-content: center;">
 
 </script>
 <script>
-        $(function () {
-            $('#bootnavbar').bootnavbar({
-              //options
-
-              //animation: false
-
-            });
-        })
-</script>
-   <script>
   console.clear();
 
   function openCity(evt, cityName) {
@@ -767,9 +758,6 @@ justify-content: center;">
 
             var accordion = new Accordion($('#accordion4_2'), false);
         });
-
-
-
 </script>
 
 <script>
