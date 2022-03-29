@@ -697,7 +697,7 @@
         <div class="gallery-carousel-content">
             <div class="container">
                 <div class="slider responsive">
-                  {% for category in categories %}
+                  {% for category in categories2 %}
                     {% if not forloop.counter|divisibleby:2 %}
                     <div>
                         <a href="{% url 'products:product' %}?category={{ category.pk }}">
