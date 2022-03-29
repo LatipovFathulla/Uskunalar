@@ -3357,6 +3357,8 @@ nav .nav-ul li a span.rotate {
       .has-children .dropdown.arrow-top {
         top:27%;
         position: fixed;
+        overflow-y: auto;
+        max-height: 700px;
       }
 
 }
@@ -3400,6 +3402,8 @@ nav .nav-ul li a span.rotate {
        .has-children .dropdown.arrow-top {
         top:21.7%;
         position: fixed;
+        overflow-y: auto;
+        max-height: 700px;
       }
 
 
