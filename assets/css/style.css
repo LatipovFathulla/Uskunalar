@@ -163,11 +163,12 @@ p {
   border-bottom: 0px;
 }
 .cont_select_int li:hover {
-  background-color: #FFE700;
+  background-color: #32414a;
   color:#fff
 }
 .cont_select_int .active {
-  background-color: #FFE700;
+  background-color: #32414a;
+  color:#fff
 }
 
 /* etiqueta <p> con la opcion selecionada  */
