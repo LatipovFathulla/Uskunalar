@@ -5865,7 +5865,7 @@ h3 {
     display: block;
     width: 40px;
     height: 40px;
-    background-color: #fff;
+    background-color: #FFE700;
     box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);
     border-radius: 4px;
     cursor: pointer;
@@ -5889,9 +5889,12 @@ h3 {
 
 .slick-prev:before, .slick-next:before {
     font-family: "slick";
-    font-size: 20px;
+    font-size: 28px;
+    position: absolute;
+    top: 6px;
+    left:6px;
     line-height: 1;
-    color: #FFE700;
+    color: #FFF;
     opacity: 0.85;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
