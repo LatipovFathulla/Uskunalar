@@ -303,12 +303,12 @@
     border-radius: 6px;
     margin: 13px;">
                     <li class="has-children" style="min-width:70px">
-                        <a href=""  style="background-color:transparent"><p class="nav-link" style="margin: 10px auto; display: table;color:#000"><img src="{% static './images/squares_2.svg' %}" alt=""><v style="margin-left: 4px;font-size: 20px;font-weight: 400;font-style: normal;">{% trans 'Каталог' %}</v></p></a>
+                        <a href=""  style="background-color:transparent"><p class="nav-link" style="margin: 10px auto; display: table;color:#000;"><img src="{% static './images/squares_2.svg' %}" alt=""><v style="margin-left: 4px;font-size: 20px;font-weight: 400;font-style: normal;">{% trans 'Каталог' %}</v></p></a>
 
                       <ul class="dropdown arrow-top" style="background: #32414a;">
                            {% for category in categories %}
                             <li class="has-children">
-                                    <a href="{% url 'products:product' %}?category={{ category.pk }}">{{ category.category }}</a>
+                                    <a style="text-align: center" href="{% url 'products:product' %}?category={{ category.pk }}">{{ category.category }}</a>
                                 <hr style="border-bottom: 1px solid #b5bdcc;margin-top:0px;margin-bottom:0px">
                               <ul class="dropdown menu-1" style="background:#d6effb">
                                   {% for subcategory in category.subcategories.all %}
