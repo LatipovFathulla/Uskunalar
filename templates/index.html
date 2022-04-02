@@ -557,12 +557,11 @@
 
     <h1 class="text-center" style="font-weight: 600;font-size: 30px;padding: 20px;margin-top: 30px;">{% trans 'Производственииые линии' %}</h1>
 
+ {% for texts in lines %}
     <p class="text-center" style="color: silver;">
-        {% for text in texts %}
-            {{ text.text }}
-        {% endfor %}
-
+            {{ texts.text }}
     </p>
+{% endfor %}
 
     <br>
     <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
