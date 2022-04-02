@@ -3,6 +3,18 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
+class LineTextModel(models.Model):
+    text = models.TextField(max_length=200, verbose_name=_('text'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        verbose_name = _('line text')
+        verbose_name_plural = _('line texts')
+
+
 class LineCategoryModel(models.Model):
     category = models.CharField(max_length=100, verbose_name=_('category'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
@@ -40,7 +52,8 @@ class LineModel(models.Model):
 
 
 class LineSpecificationModel(models.Model):
-    line_image = models.ForeignKey(LineModel, on_delete=models.CASCADE, related_name='line_image', verbose_name=_('line_image'), null=True)
+    line_image = models.ForeignKey(LineModel, on_delete=models.CASCADE, related_name='line_image',
+                                   verbose_name=_('line_image'), null=True)
     image = models.FileField(upload_to='line_image', verbose_name=_('image'), null=True)
 
     class Meta:

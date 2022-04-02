@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CategoryModel(models.Model):
-    category = models.CharField(max_length=99, verbose_name=_('category'))
+    category = models.TextField(max_length=99, verbose_name=_('category'), null=True)
     image = models.FileField(upload_to='category_image', verbose_name=_('category_image'), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
@@ -51,7 +51,7 @@ class SecondSubCategoryModel(models.Model):
 
 class BannerInfoModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
-    sku = models.CharField(primary_key=True, max_length=99, db_index=True)
+    sku = models.AutoField(primary_key=True, db_index=True)
     image = models.ImageField(upload_to='banner', verbose_name=_('image'), null=True)
     pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True, blank=True)
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), null=True)

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
-from lines.models import LineModel, LineSpecificationModel, LineCategoryModel
+from lines.models import LineModel, LineSpecificationModel, LineCategoryModel, LineTextModel
 
 
 class MyTranslationAdmin(TranslationAdmin):
@@ -18,6 +18,13 @@ class MyTranslationAdmin(TranslationAdmin):
 
 class LineSpecificationModelAdmin(admin.TabularInline):
     model = LineSpecificationModel
+
+
+@admin.register(LineTextModel)
+class LineTextModel(MyTranslationAdmin):
+    list_display = ['text', 'created_at']
+    search_fields = ['text', 'created_at']
+    list_filter = ['text', 'created_at']
 
 
 @admin.register(LineCategoryModel)

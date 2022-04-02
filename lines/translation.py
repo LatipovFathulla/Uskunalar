@@ -1,6 +1,11 @@
 from modeltranslation.translator import register, TranslationOptions
 
-from lines.models import LineModel, LineCategoryModel
+from lines.models import LineModel, LineCategoryModel, LineTextModel
+
+
+@register(LineTextModel)
+class LineTextTranslationOptions(TranslationOptions):
+    fields = ('text',)
 
 
 @register(LineCategoryModel)

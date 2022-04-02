@@ -187,7 +187,14 @@
           margin-top: 0px;
           visibility: visible;
           opacity: 1; }
-
+        .splide__slide {
+            background: #fff;
+            color: #000;
+        }
+        .splide__slide:hover {
+            background: #FFE700;
+            color:#fff;
+        }
 
 </style>
 <body>
@@ -412,104 +419,104 @@
 <!-- start carousel -->
 <div class="container mt-3">
     <div class="row">
-        <div class="col-md-3 ipad-menu">
-            <nav class="minimalist-vertical-menu2">
-                      <ul class="has-children dropdown arrow-top" style="background: #32414a;border-radius:6px">
-                           {% for category in categories %}
-                            <li class="has-children">
-                                    <a href="{% url 'products:product' %}?category={{ category.pk }}" style="color:#fff;font-size: 17px;font-weight: 500;margin:5%;display:table">{{ category.category }}</a>
-                                <hr style="border-bottom: 1px solid #b5bdcc;margin-top:0px;margin-bottom:0px">
-
-                              <ul class="dropdown menu-1" style="background:#d6effb;left: 100%;z-index: 9;">
-                                 {% for subcategory in category.subcategories.all %}
-                                      <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;">{{ subcategory }}</a></li>
-                                  {% endfor %}
-                               <ul class="second-dropdown">
-                                        {% for secondsubcategory in category.second_subcategories.all %}
-                                            {% if request.GET.secondsubcategory.pk == second_subcategories.pk %}
-                                                    <li><a href="{% url 'products:product' %}?secondsubcategory={{ secondsubcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;font-size: 17px;font-weight: 500;display:table;min-width:200px;height:35px;border-radius:6px"><p style="margin-top: 10px;
-                                                            text-align:center">{{ secondsubcategory }}</p></a></li>
-                                            {% endif %}
-                                        {% endfor %}
-                               </ul>
-                              </ul>
-                            </li>
-                           {% endfor %}
-                      </ul>
-                </ul>
-                <div class="minimalist-tab2">
-                    {% for category in categories %}
-                    <div class="minimalist-tab-content2">
-
-                        <div class="container" style="height: 605px;">
-                            {% for subcategory in category.subcategories.all|slice:":1" %}
-                                <h3 class="mt-4">{{ subcategory.category }}</h3>
-                            {% endfor %}
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="menu-dropdown2">
-                                           {% for subcategory in category.subcategories.all %}
-                                            <a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}">
-                                                <div class="dropdown-item2">
-                                                        <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;height: 30px;margin-top: 20px;margin-left: 10px;">
-                                                            {{ subcategory }}
-                                                        </div>
-                                                    <hr class="hr-menu">
-                                                </div>
-                                            </a>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="menu-dropdown2">
-                                        <div class="blog-yellow-2">
-
-                                        </div>
-                                        {% for subcategory in category.subcategories.all|slice:':1' %}
-                                            <img src="{{ subcategory.image.url }}"
-                                                 style="width: 427px;height: 477px;position: relative;z-index: 2;"
-                                                 alt="">
-                                        {% endfor %}
-                                        </a>
-                                        <div class="blog-yellow-3">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    {% endfor %}
-
-                </div>
-            </nav>
-            <a href="{% url 'products:product' %}"><button class="btn btn-white" style="width:106%;box-shadow:0 0.5rem 1rem rgb(0 0 0 / 15%) !important">{% trans 'Все категории' %}</button></a>
-        </div>
-        <div class="col-md-9" style="padding-left: 0px;padding-right: 0px;">
+{#        <div class="col-md-3 ipad-menu">#}
+{#            <nav class="minimalist-vertical-menu2">#}
+{#                      <ul class="has-children dropdown arrow-top" style="background: #32414a;border-radius:6px">#}
+{#                           {% for category in categories %}#}
+{#                            <li class="has-children">#}
+{#                                    <a href="{% url 'products:product' %}?category={{ category.pk }}" style="color:#fff;font-size: 17px;font-weight: 500;margin:5%;display:table">{{ category.category }}</a>#}
+{#                                <hr style="border-bottom: 1px solid #b5bdcc;margin-top:0px;margin-bottom:0px">#}
+{##}
+{#                              <ul class="dropdown menu-1" style="background:#d6effb;left: 100%;z-index: 9;">#}
+{#                                 {% for subcategory in category.subcategories.all %}#}
+{#                                      <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;">{{ subcategory }}</a></li>#}
+{#                                  {% endfor %}#}
+{#                               <ul class="second-dropdown">#}
+{#                                        {% for secondsubcategory in category.second_subcategories.all %}#}
+{#                                            {% if request.GET.secondsubcategory.pk == second_subcategories.pk %}#}
+{#                                                    <li><a href="{% url 'products:product' %}?secondsubcategory={{ secondsubcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;font-size: 17px;font-weight: 500;display:table;min-width:200px;height:35px;border-radius:6px"><p style="margin-top: 10px;#}
+{#                                                            text-align:center">{{ secondsubcategory }}</p></a></li>#}
+{#                                            {% endif %}#}
+{#                                        {% endfor %}#}
+{#                               </ul>#}
+{#                              </ul>#}
+{#                            </li>#}
+{#                           {% endfor %}#}
+{#                      </ul>#}
+{#                </ul>#}
+{#                <div class="minimalist-tab2">#}
+{#                    {% for category in categories %}#}
+{#                    <div class="minimalist-tab-content2">#}
+{##}
+{#                        <div class="container" style="height: 605px;">#}
+{#                            {% for subcategory in category.subcategories.all|slice:":1" %}#}
+{#                                <h3 class="mt-4">{{ subcategory.category }}</h3>#}
+{#                            {% endfor %}#}
+{#                            <div class="row">#}
+{#                                <div class="col-md-6">#}
+{#                                    <div class="menu-dropdown2">#}
+{#                                           {% for subcategory in category.subcategories.all %}#}
+{#                                            <a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}">#}
+{#                                                <div class="dropdown-item2">#}
+{#                                                        <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;height: 30px;margin-top: 20px;margin-left: 10px;">#}
+{#                                                            {{ subcategory }}#}
+{#                                                        </div>#}
+{#                                                    <hr class="hr-menu">#}
+{#                                                </div>#}
+{#                                            </a>#}
+{#                                        {% endfor %}#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="col-md-6">#}
+{#                                    <div class="menu-dropdown2">#}
+{#                                        <div class="blog-yellow-2">#}
+{##}
+{#                                        </div>#}
+{#                                        {% for subcategory in category.subcategories.all|slice:':1' %}#}
+{#                                            <img src="{{ subcategory.image.url }}"#}
+{#                                                 style="width: 427px;height: 477px;position: relative;z-index: 2;"#}
+{#                                                 alt="">#}
+{#                                        {% endfor %}#}
+{#                                        </a>#}
+{#                                        <div class="blog-yellow-3">#}
+{##}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{#                    {% endfor %}#}
+{##}
+{#                </div>#}
+{#            </nav>#}
+{#            <a href="{% url 'products:product' %}"><button class="btn btn-white" style="width:106%;box-shadow:0 0.5rem 1rem rgb(0 0 0 / 15%) !important">{% trans 'Все категории' %}</button></a>#}
+{#        </div>#}
+        <div class="col-md-12" style="padding-left: 0px;padding-right: 0px;">
             <section id="slider" class="section">
                 <div class="slider">
                     <div class="slider__container">
                         <div class="slider__item slide-burger">
                             <div class="slider__content grid">
-                                <div class="column">
-                                    <p class="title">{% trans 'Все новогодние' %}</p>
-                                    <h1 class="title">{% trans 'предложения' %}</h1>
-                                    <p class="title2">{% trans 'Новогоднии скидки успейте купить' %}<br> {% trans 'по выгодным ценам только сейчас!' %}</p>
-                                    <p class="title2_2">{% trans 'Новогоднии скидки успейте' %} <br> {% trans 'купить по выгодным ценам' %}
-                                        <br>
-                                        {% trans 'только сейчас!' %}</p>
-                                    <ul>
-                                        <li>
-                                            <button class="button-left button-bottom-left">
-                                                <p class="carousel-button-text">{% trans 'Читать подробнее' %}</p>
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="column"><img src="{% static 'images/carousel1.svg' %}"
-                                                         id="image-carousel"
-                                                         class="image burger"></div>
+{#                                <div class="column">#}
+{#                                    <p class="title">{% trans 'Все новогодние' %}</p>#}
+{#                                    <h1 class="title">{% trans 'предложения' %}</h1>#}
+{#                                    <p class="title2">{% trans 'Новогоднии скидки успейте купить' %}<br> {% trans 'по выгодным ценам только сейчас!' %}</p>#}
+{#                                    <p class="title2_2">{% trans 'Новогоднии скидки успейте' %} <br> {% trans 'купить по выгодным ценам' %}#}
+{#                                        <br>#}
+{#                                        {% trans 'только сейчас!' %}</p>#}
+{#                                    <ul>#}
+{#                                        <li>#}
+{#                                            <button class="button-left button-bottom-left">#}
+{#                                                <p class="carousel-button-text">{% trans 'Читать подробнее' %}</p>#}
+{#                                            </button>#}
+{#                                        </li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+{#                                <div class="column"><img src="{% static 'images/carousel1.svg' %}"#}
+{#                                                         id="image-carousel"#}
+{#                                                         class="image burger"></div>#}
                             </div>
                         </div>
                         <div class="slider__item slide-astronaut">
@@ -550,11 +557,12 @@
 
     <h1 class="text-center" style="font-weight: 600;font-size: 30px;padding: 20px;margin-top: 30px;">{% trans 'Производственииые линии' %}</h1>
 
-    <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-        aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
-        aliquid
-        ex
-        repudiandae nobis</p>
+    <p class="text-center" style="color: silver;">
+        {% for text in texts %}
+            {{ text.text }}
+        {% endfor %}
+
+    </p>
 
     <br>
     <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
@@ -568,22 +576,14 @@
 
                 <ul class="splide__list">
                     {% for line in lines %}
-                    <li class="splide__slide"><img src="{{ line.image.url }}" style="width:250px;height:230px"
-                                                   alt="">
-                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
-                            <span style="position:absolute;margin:3px">{{ line.title }}</span>
-                            <br>
-                            <span style="margin-top: 2%;position: absolute;margin-left: 30%;">{{ line.created_at|date:'m.d.Y' }}</span>
-                            <br>
-                            <a href="{% url 'line:detail' pk=line.pk %}">
-                                <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">
-                                    {% trans 'Подробнее' %}
-                                </button>
-                            </a>
-                            <br>
-                        </div>
-
-                    </li>
+                        <a href="{% url 'line:detail' pk=line.pk %}">
+                           <li class="splide__slide" style="margin: 4px;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%)"><img src="{{ line.image.url }}" style="width:100%;height:230px"
+                                                       alt="">
+                                <div class="lines">
+                                    <p style="margin: 10px;font-size: 19px;font-weight: 500;padding: 0px 7px 12px;">{{ line.title }}</p>
+                                </div>
+                            </li>
+                        </a>
                     {% endfor %}
                 </ul>
 
@@ -710,7 +710,7 @@
                       <h3></h3>
                         <a href="{% url 'products:product' %}?category={{ category.pk }}">
                                <div class="box">
-                                <p>{{ category.category }}</p>
+                                <p style="font-weight: 500">{{ category.category }}</p>
                                 <img class="img-fluid float-right mt-3"  src="{{ category.image.url }}" style="height:170px"  alt="">
                               </div>
                         </a>
@@ -1084,7 +1084,7 @@
                  style="margin: auto;display:table" alt="">
         </div>
         <div class="col-md-3">
-            <img class="img-fluid" src="http://s019.radikal.ru/i643/1708/96/e23ed2965badt.jpg"
+            <img class="img-fluid" src=""
                  style="margin: auto;display:table" alt="">
         </div>
     </div>
@@ -1224,7 +1224,6 @@
 {% endblock %}
 <script src="{% static 'js/splide.min.js' %}"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
 <script src='https://mverissimo.github.io/tweenslideshow/dist/assets/javascript/script.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
