@@ -15,6 +15,11 @@
         font-family: inherit;
         font-weight: 600
     }
+    .line-slider {
+        display: flex;
+        overflow-x: scroll;
+        width: 100%;
+    }
 </style>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <section class="banner">
@@ -40,18 +45,20 @@
                 <h3 class="categories_none" style="margin-bottom: -20px;padding: 15px;color: #132E6B;text-align: left;">{% trans 'Категории' %}</h3>
                 <!-- <hr class="hr-menu" style="position: absolute;"> -->
             </ul>
-            <div class="sidebar-categories">
-                <ul id="accordion" class="accordion">
-                    {% for category in line_categories %}
-                    <li>
-                        <div class="link" style="padding: 12px 15px 36px 15px;">
+            <div class="sidebar-categories" style="margin-top: 40px">
+            <div class="row">
+                  <div class="line-slider">
+                  {% for category in line_categories %}
+                      <div class="col-8">
+                        <div class="link" style="padding: 12px 15px 36px 15px;background: #FFE700">
                             <a {% if request.GET.category == category.pk|stringformat:'i' %}class="b-active"{% else %}class="a-active"{% endif %} href="?category={{ category.pk }}"> <span style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: inherit;font-weight: 600;">{{ category.category }}</span></a>
-                            <hr class="hr-menu" style="position: absolute;bottom: -1px;">
                         </div>
-                    </li>
+                      </div>
                     {% endfor %}
+            </div>
+            </div>
+
                     <img src="{% static './images/Group_417.svg' %}" class="icon-left" style="left: -24%;" alt="">
-                </ul>
                 <br>
             </div>
         </div>

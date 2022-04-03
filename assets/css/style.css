@@ -100,6 +100,10 @@ p {
   transition: all 275ms;
 }
 
+.slick-dots {
+    display: none;
+}
+
 .select_mate {
   position: relative;
   float: left;
@@ -2770,6 +2774,8 @@ nav .nav-ul li a span.rotate {
 
     .select_mate {
         margin-top:15px;
+        overflow: auto;
+        overflow-x: hidden;
     }
 
      .alert-warning {

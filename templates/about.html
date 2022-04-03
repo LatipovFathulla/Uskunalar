@@ -3,6 +3,13 @@
 {% load embed_video_tags %}
 {% load i18n %}
 {% block content %}
+    <style>
+        .about-slide {
+            display: flex !important;
+            overflow-x: scroll;
+            width: 100%;
+        }
+    </style>
     <section class="banner">
         <div class="container">
             <div class="row">
@@ -21,15 +28,15 @@
     <br>
     <div class="container about-mobile-drop">
         <img src="{% static './images/settings.svg' %}" class="icon-right-11" style="position: absolute;margin-top: -15%;width: 60px;" alt="">
-        <div class="container">
             <div class="row">
-                 {% for about in abouts %}
-                        <div class="col-6">
+                <div class="about-slide">
+                    {% for about in abouts %}
+                        <div class="col-8">
                             <button class="btn  tablinks" style="height:62px;width:100%;background:#FFE700;margin: 0px 0px 10px;font-size: 20px"  onclick="openCity(event, '{{ about.pk }}')"  value="{{ about.pk }}" id="defaultOpen">{{ about.title }}</button>
                         </div>
-                 {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
-        </div>
     </div>
 
     <div class="container">
