@@ -59,7 +59,7 @@
                   {% for category in line_categories %}
                       <div class="col-8 col-md-12">
                         <div class="link" style="padding: 6px 8px 47px 15px;background: #FFE700;margin-top: 1px;height: auto">
-                            <a {% if request.GET.category == category.pk|stringformat:'i' %}class="b-active"{% else %}class="a-active"{% endif %} href="?category={{ category.pk }}"> <span style="position: absolute;font-family: inherit;font-weight: 500;font-size: 14px">{{ category.category }}</span></a>
+                            <a {% if request.GET.category == category.pk|stringformat:'i' %}class="b-active"{% else %}class="a-active"{% endif %} href="?category={{ category.pk }}"> <span style="position: absolute;font-family: inherit;font-weight: 500;font-size: 14px">{{ category.category|safe }}</span></a>
                         </div>
                       </div>
                     {% endfor %}
