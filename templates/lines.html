@@ -4,7 +4,14 @@
 {% block content %}
 <style>
     .b-active {
-        color:red;
+        color:#fff;
+        font-family: inherit;
+        font-weight: 600;
+        background:silver;
+    }
+
+     .b-active:hover {
+        color:#fff;
         font-family: inherit;
         font-weight: 600;
         background:silver;
@@ -15,10 +22,11 @@
         font-family: inherit;
         font-weight: 600
     }
-    .line-slider {
-        display: flex;
-        overflow-x: scroll;
-        width: 100%;
+
+     .a-active:hover {
+        color:#000;
+        font-family: inherit;
+        font-weight: 600
     }
 </style>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -45,12 +53,12 @@
                 <h3 class="categories_none" style="margin-bottom: -20px;padding: 15px;color: #132E6B;text-align: left;">{% trans 'Категории' %}</h3>
                 <!-- <hr class="hr-menu" style="position: absolute;"> -->
             </ul>
-            <div class="sidebar-categories" style="margin-top: 40px">
+            <div class="sidebar-categories" style="margin-top: 20px">
             <div class="row">
                   <div class="line-slider">
                   {% for category in line_categories %}
-                      <div class="col-8">
-                        <div class="link" style="padding: 12px 15px 36px 15px;background: #FFE700">
+                      <div class="col-8 col-md-12">
+                        <div class="link" style="padding: 12px 15px 36px 15px;background: #FFE700;margin-top: 1px">
                             <a {% if request.GET.category == category.pk|stringformat:'i' %}class="b-active"{% else %}class="a-active"{% endif %} href="?category={{ category.pk }}"> <span style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: inherit;font-weight: 600;">{{ category.category }}</span></a>
                         </div>
                       </div>

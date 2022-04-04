@@ -2344,6 +2344,13 @@ nav .nav-ul li a span.rotate {
     color: #131311;
     }
 
+    .line-slider {
+        display: flex;
+        overflow-x: scroll;
+        width: 100%;
+        margin-top: 20px;
+    }
+
     #image-carousel {
         width: 150px;
         height: 150px;
@@ -3350,6 +3357,10 @@ nav .nav-ul li a span.rotate {
         display:none
     }
 
+    .line-slider {
+        width: 100%;
+    }
+
     .banner {
         background-image: url(/static/images/desk_back.svg);
         background-repeat: no-repeat;
@@ -3388,6 +3399,10 @@ nav .nav-ul li a span.rotate {
 
     .btn.btn-next-mobile {
         display: none;
+    }
+
+    .line-slider {
+        width: 100%;
     }
 
 
@@ -3429,6 +3444,10 @@ nav .nav-ul li a span.rotate {
 
      .dropdown.arrow-top {
         top:10%;
+    }
+
+    .line-slider {
+        width: 100%;
     }
 
 
