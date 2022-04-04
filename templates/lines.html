@@ -58,8 +58,8 @@
                   <div class="line-slider">
                   {% for category in line_categories %}
                       <div class="col-8 col-md-12">
-                        <div class="link" style="padding: 12px 15px 31px 15px;background: #FFE700;margin-top: 1px;height: auto">
-                            <a {% if request.GET.category == category.pk|stringformat:'i' %}class="b-active"{% else %}class="a-active"{% endif %} href="?category={{ category.pk }}"> <span style="position: absolute;margin-top: 2%;font-family: inherit;font-weight: 600;font-size: 14px">{{ category.category }}</span></a>
+                        <div class="link" style="padding: 12px;background: #FFE700;margin-top: 1px;height: auto">
+                            <a {% if request.GET.category == category.pk|stringformat:'i' %}class="b-active"{% else %}class="a-active"{% endif %} href="?category={{ category.pk }}"> <span style="position: absolute;font-family: inherit;font-weight: 500;font-size: 14px">{{ category.category }}</span></a>
                         </div>
                       </div>
                     {% endfor %}
