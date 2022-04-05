@@ -26,7 +26,7 @@ class WorkModel(models.Model):
 
 class WorkImageModel(models.Model):
     work_image = models.ForeignKey(WorkModel, on_delete=models.CASCADE, related_name='work_image', verbose_name=_('work_image'))
-    image = models.FileField(upload_to='work_single', verbose_name=_('work_image'))
+    image = models.FileField(upload_to='work_single', verbose_name=_('work_image'), null=True, blank=True)
 
     class Meta:
         verbose_name = _('work_image')
