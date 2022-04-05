@@ -576,7 +576,7 @@
                 <ul class="splide__list">
                     {% for line in lines %}
                         <a href="{% url 'line:detail' pk=line.pk %}">
-                           <li class="splide__slide" style="margin: 4px;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%)"><img src="{{ line.image.url }}" style="width:100%;height:230px"
+                           <li class="splide__slide" style="margin: 4px;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%)"><img src="{{ line.image.url }}" style="width:270px;height:230px"
                                                        alt="">
                                 <div class="lines">
                                     <p style="margin: 10px;font-size: 19px;font-weight: 500;padding: 0px 7px 12px;">{{ line.title }}</p>
@@ -794,7 +794,6 @@
                                                     <div class="card-text"
                                                          style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
                                                         <h4 class="front-title">{{ product.title }}</h4>
-                                                        <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
                                                         <p class="desc">${{ product.get_price_dollar }} - {{ product.get_price }} сум</p>
                                                         <div class="text-center">
                                                             <ul>
@@ -870,7 +869,7 @@
         {% for biznes in biznes|slice:':1' %}
         <div class="col-md-6">
             <div class="ded">
-                <img src="{{ biznes.image.url }}" style="width: 580px;height: auto;" alt="">
+                <img src="{{ biznes.image.url }}" style="width: 580px;height: 100%;" alt="">
                 <div class="home-blog2">
                     <p class="home-text">{{ biznes.title }}</p>
                     <p class="home-desc">{{ biznes.long_descriptions|slice:':400' }}...</p>
