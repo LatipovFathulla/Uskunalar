@@ -954,7 +954,7 @@
                     <img src="{{ blog.image.url }}"
                          style="width: 99%;border-radius: 6px;" alt="">
                     <div class="article2">
-                        <p class="article-text">{{ blog.title }}</p>
+                        <p class="article-text">{{ blog.title|safe }}</p>
                         <p class="article-date">{{ blog.created_at|date:'m.d.Y' }}</p>
                         <a href="{% url 'blog:single-blog' pk=blog.pk %}"
                            style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
@@ -976,7 +976,7 @@
                     <img src="{{ blog.image.url }}"
                          style="width: 350px;border-radius: 6px;height:400px" alt="">
                     <div class="article">
-                        <p class="article-text">{{ blog.title }}</p>
+                        <p class="article-text">{{ blog.title|safe }}</p>
                         <p class="article-date">{{ blog.created_at|date:'m.d.Y' }}</p>
                         <a href="{% url 'blog:single-blog' pk=blog.pk %}"
                            style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
@@ -1023,7 +1023,7 @@
             </a>
             <div class="work-info" style="padding:10px;background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);">
                 <h3 style="padding:3px">{{ work.title }}</h3>
-                <p style="padding:3px">{{ work.descriptions|slice:':200' }}...</p>
+                <p style="padding:3px">{{ work.short_descriptions|slice:':200'|safe }}...</p>
                 <br>
                 <a href="{% url 'work:single-work' pk=work.pk %}" style="padding:3px;color:#132E6B">Читать дальше</a>
             </div>
