@@ -24,11 +24,11 @@ class BiznesModel(models.Model):
 
 
 class BiznesImageModel(models.Model):
-    biznes_image = models.ForeignKey(BiznesModel, on_delete=models.CASCADE, related_name='biznes_image', verbose_name=_('biznes_image'))
-    biznes_spec = models.CharField(max_length=200, verbose_name=_('biznes_spec'),)
-    biznes_num = models.CharField(max_length=200, verbose_name=_('biznes_num'),)
+    biznes_image = models.ForeignKey(BiznesModel, on_delete=models.CASCADE, related_name='biznes_image', verbose_name=_('biznes_image'), null=True)
+    biznes_spec = models.CharField(max_length=200, verbose_name=_('biznes_spec'), null=True)
+    biznes_num = models.CharField(max_length=200, verbose_name=_('biznes_num'), null=True)
     image = models.FileField(upload_to='biznes_single', verbose_name=_('biznes_image'), null=True)
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'), null=True)
 
     class Meta:
         verbose_name = _('biznes_image')
