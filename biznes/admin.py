@@ -4,8 +4,6 @@ from biznes.models import BiznesModel, BiznesImageModel
 from home.admin import MyTranslationAdmin
 
 
-class BiznesImageModelAdmin(admin.TabularInline):
-    model = BiznesImageModel
 
 
 @admin.register(BiznesModel)
@@ -14,4 +12,4 @@ class BiznesModelAdmin(MyTranslationAdmin):
     search_fields = ['title']
     list_filter = ['title', 'created_at']
 
-    inlines = [BiznesImageModelAdmin]
+
