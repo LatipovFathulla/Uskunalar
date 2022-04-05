@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CategoryModel(models.Model):
-    category = models.TextField(max_length=99, verbose_name=_('category'), null=True)
+    category = RichTextUploadingField(max_length=99, verbose_name=_('category'), null=True)
     image = models.FileField(upload_to='category_image', verbose_name=_('category_image'), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 

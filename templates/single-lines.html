@@ -2,6 +2,16 @@
 {% load static %}
 {% load i18n %}
 {% block content %}
+    <style>
+    tr:hover {
+        background: #FFE700;
+        color:#fff
+    }
+    td:hover {
+        background: #FFE700;
+        color:#fff
+    }
+    </style>
     <section class="banner">
         <div class="container">
             <div class="row">
@@ -26,7 +36,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="single-blog ">
-                    <p style="font-size: 32px;color: #131311;line-height: 38px;font-weight: 500;">{{ object.title }}</p>
+                    <p style="font-size: 24px;color: #131311;line-height: 38px;font-weight: 500;">{{ object.title }}</p>
                     {#          <p style="font-size: 16px;font-weight: 500;line-height: 20px;color: #132E6B;padding: 20px 0px;">ДЕРЕВООБРАБОТКА(ФРЕЗЕРОВАНИЕ)</p>#}
                     <p style="color: #131311;font-size: 16px;line-height: 24px;margin-top: 10px">{{ object.description|safe }} </p>
                     <img src="{% static './images/Group_417.svg' %}" class="icon-right-22" alt="">
@@ -72,9 +82,23 @@
                             {% for k in linemodel.line_image.all %}
                                 <div class="col-md-3">
                                     <img src="{{ k.image.url|default:'none' }}" class="img-fluid"
-                                         style="display: table;margin: 3px auto;" alt="">
+                                         style="display: table;margin: 3px auto;height: 150px" alt="">
                                 </div>
                             {% endfor %}
+                            <br>
+                        <div class="container">
+                               <table class="table table-striped">
+                                    <tbody>
+                                    <br>
+                                    {% for k in linemodel.line_image.all %}
+                                    <tr>
+                                        <td style="font-weight: 500;">{{ k.line_spec|safe }}</td>
+                                        <td style="text-align:center">{{ k.line_num|safe }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                            </table>
+                        </div>
                             <div class="container">
                                 <p style="margin-top: 20px;">{{ object.short_descriptions }}</p>
                             </div>

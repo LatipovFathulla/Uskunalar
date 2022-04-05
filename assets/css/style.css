@@ -26,6 +26,15 @@ p {
     color: #000;
 }
 
+tr:hover {
+    background: #FFE700;
+    color:#fff
+}
+td:hover {
+    background: #FFE700;
+    color:#fff
+}
+
 .select_mate[data-selec-open] {
     background:#FFE700;
 }
@@ -2394,8 +2403,9 @@ nav .nav-ul li a span.rotate {
 
 
     .slide-burger {
-        height: 50%;
-        top: -50%;
+         height: 50%;
+        top: -43%;
+        background-position: center;
     }
 
     .slider-controls > .previous {
@@ -2777,6 +2787,7 @@ nav .nav-ul li a span.rotate {
     .accordion .link {
         margin-top:15px;
         background:#FFE700;
+        padding: 8px 3px 38px 5px;
     }
 
     .select_mate {
