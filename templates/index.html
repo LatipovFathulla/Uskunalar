@@ -699,7 +699,7 @@
                     <div>
                         <a href="{% url 'products:product' %}?category={{ category.pk }}">
                              <div class="box">
-                            <p style="font-weight: 500">{{ category.category }}</p>
+                            <p style="font-weight: 500">{{ category.category|safe }}</p>
                             <img class="img-fluid float-right mt-3"  src="{{ category.image.url }}" style="height:170px" alt="">
                           </div>
                         </a>
@@ -707,7 +707,7 @@
                       <h3></h3>
                         <a href="{% url 'products:product' %}?category={{ category.pk }}">
                                <div class="box">
-                                <p style="font-weight: 500">{{ category.category }}</p>
+                                <p style="font-weight: 500">{{ category.category|safe }}</p>
                                 <img class="img-fluid float-right mt-3"  src="{{ category.image.url }}" style="height:170px"  alt="">
                               </div>
                         </a>
