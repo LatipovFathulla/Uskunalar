@@ -593,18 +593,24 @@
 
                 <ul class="splide__list">
                     {% for line in lines %}
-                          <a href="{% url 'line:detail' pk=line.pk %}">
-                            <li class="splide__slide"><img src="{{ line.image.url }}" style="width:100%;height:auto"
-                                                           alt="">
-                                <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:100%">
-                                    <span style="position:absolute;margin:10px">{{ line.title }}</span>
-                                    <br>
-                                    <div class="center_4_6">
-                                        <br>
-                                    </div>
-                                </div>
-                            </li>
-                           </a>
+                    <li class="splide__slide"><img src="{{ line.image.url }}" style="width:100%;height:auto"
+                                                   alt="">
+                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:100%">
+                            <span style="position:absolute;margin:10px">{{ line.title }}</span>
+                            <br>
+                            <div class="center_4_6">
+                                <a href="{% url 'line:detail' pk=line.pk %}">
+                                    <button class="btn"
+                                            style="margin: 12px auto;display: table;background:#FFE700">
+                                        {% trans 'Подробнее' %}
+                                    </button>
+                                </a>
+                                <br>
+                            </div>
+
+                        </div>
+
+                    </li>
                     {% endfor %}
                 </ul>
 
