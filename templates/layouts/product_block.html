@@ -46,7 +46,7 @@
                         </button>
                     </a>
                     {% endif %}
-                 <img src="{{ product.image.url }}" class="product-image-url" alt="">
+                 <img src="{{ product.image.url}}" class="product-image-url" alt="">
                     <div class="card-text">
                         <h4 class="front-title">{{ product.title }}</h4>
                         <p class="detail" style="margin-top:2px">
@@ -81,7 +81,7 @@
 
                             <div class="row">
 
-                                {% for j in product.specifications.all %}
+                                {% for j in product.specifications.all|slice:':4' %}
                                 <div class="col-md-6">
 
                                     <p style="font-size: 14px;margin-bottom: 8px;">

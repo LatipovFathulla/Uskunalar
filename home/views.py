@@ -103,7 +103,6 @@ class BannerInfoModelView(ListView):
         ).values()
 
         return context
-
     # def get_search(self, ):
     #     qs = BannerInfoModel.objects.order_by('pk')
     #
