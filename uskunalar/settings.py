@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     'embed_video',
     'ckeditor',
     'ckeditor_uploader',
-    'watermarker',
     'django.contrib.humanize',
 
     'home',
@@ -152,7 +151,6 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     },
 }
-WATERMARK_QUALITY = 85
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
