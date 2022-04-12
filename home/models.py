@@ -1,8 +1,10 @@
 from datetime import datetime
+from decimal import Decimal
 
 import pytz as pytz
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from home.scrapper import _main
 from PIL import Image
 from django.db.models import FloatField
 from django.utils.translation import gettext_lazy as _
@@ -79,6 +81,9 @@ class BannerInfoModel(models.Model):
         if self.is_discount():
             return self.dollar - self.dollar * self.discount / 100
         return self.dollar
+
+    def dollar_exchanges(self):
+        return self.price * Decimal(_main())
 
     def is_new(self):
         diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at

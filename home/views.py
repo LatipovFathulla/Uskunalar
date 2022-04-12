@@ -5,7 +5,7 @@ from django.db.models import Q, Min, Max
 from django.http import JsonResponse
 from django.views.generic import ListView, TemplateView, DetailView
 from rest_framework.response import Response
-
+from home.scrapper import _main
 from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, SecondSubCategoryModel
 from home.utils import get_wishlist_data
 
@@ -96,7 +96,6 @@ class BannerInfoModelView(ListView):
         context['categories'] = CategoryModel.objects.order_by('pk')
         context['subcategories'] = SubCategoryModel.objects.order_by('pk')
         context['secondsubcategory'] = SecondSubCategoryModel.objects.order_by('pk')
-
         context['min_price'], context['max_price'] = BannerInfoModel.objects.aggregate(
             Min('dollar'),
             Max('dollar')
