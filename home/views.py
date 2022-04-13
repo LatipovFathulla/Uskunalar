@@ -90,6 +90,7 @@ class BannerInfoModelView(ListView):
                 qs = sorted(qs, key=lambda i: i.category())
 
         return qs
+    # asdfadf
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
