@@ -56,7 +56,7 @@ class BannerInfoModel(models.Model):
     sku = models.AutoField(primary_key=True, db_index=True)
     image = models.ImageField(upload_to='banner', verbose_name=_('image'), null=True)
     pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True, blank=True)
-    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), null=True)
+    category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, verbose_name=_('category'), null=True)
     subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'), null=True, blank=True)
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True)
     secondsubcategory = models.ForeignKey(SecondSubCategoryModel, on_delete=models.PROTECT, verbose_name=_('second_subcategory'), null=True, blank=True)

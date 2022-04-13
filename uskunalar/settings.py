@@ -27,6 +27,7 @@ INSTALLED_APPS = [
 
     'widget_tweaks',
     'embed_video',
+    'bs4',
     'ckeditor',
     'ckeditor_uploader',
     'django.contrib.humanize',
