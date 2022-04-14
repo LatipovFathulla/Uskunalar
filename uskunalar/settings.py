@@ -13,7 +13,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -28,6 +27,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'embed_video',
     'bs4',
+    'watermarker',
     'ckeditor',
     'ckeditor_uploader',
     'django.contrib.humanize',
@@ -152,6 +152,10 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     },
 }
+
+WATERMARK_QUALITY = 95
+WATERMARK_OBSCURE_ORIGINAL = True
+WATERMARK_RANDOM_POSITION_ONCE = False
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

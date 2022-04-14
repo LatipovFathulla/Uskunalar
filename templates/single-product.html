@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% load tags %}
+{% load static watermark %}
 {% load humanize %}
 {% block content %}
 <style>
@@ -75,31 +76,34 @@
             <div class="single-image">
                 <div class="product-gallery">
                     <div class="img-magnifier-container">
-                        <img id="myimage"   src="{{ object.image.url }}"
-                             style="width: 100%;margin-top: 10px;height: 450px;">
+                      {% with object.image.url as url_path %}
+                        <img id="myimage" src="{{ object.image.url|watermark:"uskunalar,scale=R35%,position=br,opacity=100"  }}" style="width: 100%;margin-top: 10px;height: 450px;">
+                      {% endwith %}
                     </div>
                     <ul class="image-list" style="margin-left: 2%;">
-                        <li class="image-item"><img style="width: 80px;height: 79px;padding: 2px;"
-                                                    src="{{ object.image.url }}"></li>
+                        <li class="image-item">
+                            {% with object.image.url as url_path %}
+                                <img style="width: 80px;height: 79px;padding: 2px;" src="{{ object.image.url|watermark:"uskunalar,scale=R35%,position=br,opacity=100"  }}"></li>
+                            {% endwith %}
                         {% for i in object.images.all %}
                         <li class="image-item"><img style="width: 80px;height: 79px;padding: 2px;"
                                                     src="{{ i.image.url }}"></li>
                         {% endfor %}
                     </ul>
                 </div>
-                <a onclick="add_to_wishlist(this, {{ object.pk }})" class="card-link">
-                    {% if object|in_wishlist:request %}
-                    <button class="btn btn-min"
-                            style="">
-                        <img
-                                src="{% static './images/red_active.svg' %}" style="margin-top: 7px;" alt=""></button>
-                    {% else %}
-                    <button class="btn btn-min"
-                            style="">
-                        <img
-                                src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button>
-                    {% endif %}
-                </a>
+{#                <a onclick="add_to_wishlist(this, {{ object.pk }})" class="card-link">#}
+{#                    {% if object|in_wishlist:request %}#}
+{#                    <button class="btn btn-min"#}
+{#                            style="">#}
+{#                        <img#}
+{#                                src="{% static './images/red_active.svg' %}" style="margin-top: 7px;" alt=""></button>#}
+{#                    {% else %}#}
+{#                    <button class="btn btn-min"#}
+{#                            style="">#}
+{#                        <img#}
+{#                                src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button>#}
+{#                    {% endif %}#}
+{#                </a>#}
             </div>
         </div>
         <div class="col-md-6">
@@ -186,7 +190,7 @@
                 </div>
             </div>
             <br>
-            <a href="{{ object.pdf.url }}"> <img src="{% static './images/pdf' %} 1.svg" alt=""><span
+            <a href="{{ object.pdf.url|default:'' }}"> <img src="{% static './images/pdf' %} 1.svg" alt=""><span
                     class="download_pdf">{% trans 'Скачать Pdf' %}</span></a>
         </div>
         <img src="{% static './images/settings.svg' %}" class="icon-right" style="transform: rotate(-25deg);" alt="">
