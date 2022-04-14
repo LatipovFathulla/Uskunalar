@@ -700,7 +700,7 @@
                         <a href="{% url 'products:product' %}?category={{ category.pk }}">
                              <div class="box">
                             <p style="font-weight: 500">{{ category.category|safe }}</p>
-                            <img class="img-fluid float-right mt-3"  src="{{ category.image.url }}" style="height:170px" alt="">
+                            <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px" alt="">
                           </div>
                         </a>
                     {% else %}
@@ -708,7 +708,7 @@
                         <a href="{% url 'products:product' %}?category={{ category.pk }}">
                                <div class="box">
                                 <p style="font-weight: 500">{{ category.category|safe }}</p>
-                                <img class="img-fluid float-right mt-3"  src="{{ category.image.url }}" style="height:170px"  alt="">
+                                <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px"  alt="">
                               </div>
                         </a>
                     </div>
