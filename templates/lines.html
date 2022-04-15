@@ -93,7 +93,7 @@
                                 <div class="info">
                                     <div class="row"><span><hr class="hr-left" style="height:69px"></span>
                                         <div class="col-md-11 col-11">
-                                            <p style="color: #000;font-weight: 500;width: 100%;font-size: 14.5px;">{{ line.title }}</p>
+                                            <p style="color: #000;font-weight: 500;width: 100%;font-size: 14.5px;">{{ line.title|safe }}</p>
                                             <p style="color: #132E6B;font-weight: 500;width: 100%;position:relative;top:7px">
                                                 {{ line.created_at|date:'m.d.Y' }}</p>
                                             <br>

@@ -42,8 +42,8 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-12 col-6">
-                                <p class="title-work">{{ work.title }}</p>
-                                <p class="desc-work">{{ work.short_descriptions }}</p>
+                                <p class="title-work">{{ work.title|safe }}</p>
+                                <p class="desc-work">{{ work.short_descriptions|safe }}</p>
                                 {#                    <p class="aim_project">Цель проекта:</p>#}
                                 {#                    <p class="client_work">Представить новые услуги, увеличения клиентов</p>#}
                                 <p class="aim_project">Сроки использования:</p>

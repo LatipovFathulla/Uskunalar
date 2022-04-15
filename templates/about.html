@@ -58,7 +58,7 @@
             <div class="col-md-9">
                 {% for about in abouts %}
                 <div id="{{ about.pk }}" class="tabcontent" >
-                    <h1 style="font-size: 25px;font-family:RobotoCondensed,Arial,sans-serif;">{{ about.title }}</h1>
+                    <h1 style="font-size: 25px;font-family:RobotoCondensed,Arial,sans-serif;">{{ about.title|safe }}</h1>
                     <br>
                     <div class="row">
                         <div class="col-md-12">

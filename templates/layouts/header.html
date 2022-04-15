@@ -32,6 +32,7 @@
             box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
         }
     }
+
 .has-children {
     top: 0%;
     padding: 0px 0;
@@ -308,17 +309,17 @@
                       <ul class="dropdown arrow-top" style="background: #32414a;">
                            {% for category in categories %}
                             <li class="has-children">
-                                    <a style="text-align: center" href="{% url 'products:product' %}?category={{ category.pk }}">{{ category.category }}</a>
+                                    <a style="text-align: center" href="{% url 'products:product' %}?category={{ category.pk }}">{{ category.category|safe }}</a>
                                 <hr style="border-bottom: 1px solid #b5bdcc;margin-top:0px;margin-bottom:0px">
                               <ul class="dropdown menu-1" style="background:#d6effb">
                                   {% for subcategory in category.subcategories.all %}
-                                      <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;">{{ subcategory }}</a></li>
+                                      <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;">{{ subcategory|safe }}</a></li>
                                   {% endfor %}
                                    <ul class="second-dropdown">
                                         {% for secondsubcategory in category.second_subcategories.all %}
                                             {% if request.GET.secondsubcategory.pk == second_subcategories.pk %}
                                                     <li><a href="{% url 'products:product' %}?secondsubcategory={{ secondsubcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;font-size: 17px;font-weight: 500;display:table;min-width:200px;height:35px;border-radius:6px"><p style="margin-top: 10px;
-                                                            text-align:center">{{ secondsubcategory }}</p></a></li>
+                                                            text-align:center">{{ secondsubcategory|safe }}</p></a></li>
                                             {% endif %}
                                         {% endfor %}
                                </ul>
@@ -338,7 +339,7 @@
                     {% for home in categories %}
                     <li class="menu-item2 has-child3">
                         <img src="{{ home.image.url }}" style="margin-top: 0%;" alt=""><span
-                            style="margin-top: 0%;position: absolute;font-size: 18px;font-weight: normal;font-style: normal;color:#fff">{{ home.category }}</span>
+                            style="margin-top: 0%;position: absolute;font-size: 18px;font-weight: normal;font-style: normal;color:#fff">{{ home.category|safe }}</span>
                     </li>
                     {% endfor %}
                     <li class="menu-item2 has-child2">
@@ -418,7 +419,7 @@
                                         <img src="{{ subcategory.image.url }}"
                                              style="margin: auto;display: table;margin-top: -10px;width: 160px;height: 130px;" alt="">
 
-                                        <p style="text-align: center;position:relative;color:#011F27;font-family: sans-serif;font-weight: normal;margin-top: 3px;font-size:16px">{{ subcategory }}</p>
+                                        <p style="text-align: center;position:relative;color:#011F27;font-family: sans-serif;font-weight: normal;margin-top: 3px;font-size:16px">{{ subcategory|safe }}</p>
 
 
                                     </div>

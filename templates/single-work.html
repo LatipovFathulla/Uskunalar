@@ -11,7 +11,7 @@
         <h1 class="banner-text">{% trans 'Наши работы' %}</h1>
         <a href="{% url 'home:home' %}" style="color: #132E6B"><p class="banner-desc">{% trans 'Главная' %} <span></a> > <a
             href="{% url 'work:works' %}" class="banner-desc-title">{% trans 'Наши работы' %}</a></span> > <a href=""
-                                                                                                class="banner-desc-title" style="color: #132E6B;">{{ object.title }}</a></span></p>
+                                                                                                class="banner-desc-title" style="color: #132E6B;">{{ object.title|safe }}</a></span></p>
 
         <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
@@ -95,7 +95,6 @@
 
 <script>
         console.clear();
-
 </script>
 <!--  Code by Fathulla Latipov LF -->
 {% endblock %}

@@ -29,7 +29,7 @@
                  {% video video.url '320x230' %}
                <div>
                 <h3>{{ video.title }}</h3>
-                <p>{{ video.description }} </p>
+                <p>{{ video.description|safe }} </p>
                </div>
               </div>
           </div>

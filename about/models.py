@@ -5,7 +5,7 @@ from embed_video.fields import EmbedVideoField
 
 
 class AboutModel(models.Model):
-    title = models.CharField(max_length=90, verbose_name=_('title'))
+    title = RichTextUploadingField(max_length=90, verbose_name=_('title'))
     image = models.ImageField(upload_to='about', verbose_name=_('image'))
     description = RichTextUploadingField(verbose_name=_('description'))
     url = EmbedVideoField(null=True, blank=True)
