@@ -58,9 +58,9 @@
                             <img src="{% static './images/radius.svg' %}"  alt="">
                             {{ product.inbox }}
                             {{ product.delivery }}</p>
-                        <p class="desc-price">{{ product.get_price_dollar }} $ - {{ product.get_price|intcomma }} сум</p>
+                        <p class="desc-price">{{ product.get_price_dollar }} $ - {{ product.dollar_exchanges|intcomma }} сум</p>
                         <p class="mob-price">{{ product.get_price_dollar }} $</p>
-                        <p class="mob-price">{{ product.get_price|intcomma }} сум</p>
+                        <p class="mob-price">{{ product.dollar_exchanges|intcomma }} сум</p>
                     </div>
                     <ul>
                         <li>
