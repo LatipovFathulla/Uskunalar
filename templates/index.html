@@ -871,7 +871,7 @@
             <div class="ded">
                 <img src="{{ biznes.image.url }}" style="width: 580px;height: 100%;" alt="">
                 <div class="home-blog2">
-                    <p class="home-text">{{ biznes.title }}</p>
+                    <p class="home-text">{{ biznes.title|safe }}</p>
                     <p class="home-desc">{{ biznes.long_descriptions|slice:':400'|safe }}...</p>
                     <br>
                     <a href="{% url 'biznes:detail' pk=biznes.pk %}" style="position: absolute;bottom: 10px;color: #132E6B;margin: auto;display: contents;">{% trans 'Читать полностью' %}</a>
@@ -893,7 +893,7 @@
                         <div class="col-md-9">
 
                             <div class="home-blog">
-                                <p class="home-text">{{ biznes.title }}</p>
+                                <p class="home-text">{{ biznes.title|safe }}</p>
                                 <p class="home-desc" style="">{{ biznes.long_descriptions|slice:':100'|safe }}...</p>
                                 <br>
                                 <a href="{% url 'biznes:detail' pk=biznes.pk %}"

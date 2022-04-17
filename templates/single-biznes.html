@@ -8,9 +8,7 @@
 
         </div>
         <h1 class="banner-text">{% trans 'Готовый бизнес' %}</h1>
-        <a href="{% url 'home:home' %}" style="color: #132E6B"><p class="banner-desc">{% trans 'Главная' %} <span></a> > <a
-            href="{% url 'work:works' %}" class="banner-desc-title">{% trans 'Готовый бизнес' %}</a></span> > <a href=""
-                                                                                                class="banner-desc-title" style="color: #132E6B;">{{ object.title|safe }}</a></span></p>
+        <a href="{% url 'home:home' %}" style="color: #132E6B"><p class="banner-desc">{% trans 'Главная' %} <span></a> > <a href="" class="banner-desc-title" style="color: #132E6B;">{{ object.title|safe }}</a></span></p>
 
         <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
@@ -26,7 +24,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="single-blog ">
-                <p style="font-size: 32px;color: #131311;line-height: 38px;font-weight: 500;">{{ object.title }}</p>
+                <p style="font-size: 32px;color: #131311;line-height: 38px;font-weight: 500;">{{ object.title|safe }}</p>
                 <img src="{% static './images/Group_417.svg' %}" class="icon-right-22" alt="">
                 <img class="img-fluid" style="margin:15px auto;display: table;" width="100%" height="300px"
                      src="{{ object.image.url }}" alt="">

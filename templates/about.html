@@ -32,7 +32,7 @@
                 <div class="about-slide">
                     {% for about in abouts %}
                         <div class="col-8">
-                            <button class="btn  tablinks" style="height:62px;width:100%;background:#FFE700;margin: 0px 0px 10px;font-size: 20px"  onclick="openCity(event, '{{ about.pk }}')"  value="{{ about.pk }}" id="defaultOpen">{{ about.title }}</button>
+                            <button class="btn  tablinks" style="height:62px;width:100%;background:#FFE700;margin: 0px 0px 10px;font-size: 20px"  onclick="openCity(event, '{{ about.pk }}')"  value="{{ about.pk }}" id="defaultOpen">{{ about.title|safe }}</button>
                         </div>
                     {% endfor %}
                 </div>
@@ -45,7 +45,7 @@
                 <div class="tab">
                     {% for about in abouts %}
                         <hr class="hr-menu">
-                        <button class="tablinks" onclick="openCity(event, '{{ about.pk }}')" id="defaultOpen" style="font-family:RobotoCondensed,Arial,sans-serif;font-size:17px">{{ about.title }}</button>
+                        <button class="tablinks" onclick="openCity(event, '{{ about.pk }}')" id="defaultOpen" style="font-family:RobotoCondensed,Arial,sans-serif;font-size:17px">{{ about.title|safe }}</button>
                         <hr class="hr-menu">
                     {% endfor %}
                     <img src="{% static './images/Group_417.svg' %}" class="icon-right" style="left: -7%;margin: 10px;transform: rotate(-29deg)" alt="">
