@@ -367,21 +367,23 @@
                                     </button>
                                 </a>
                                 {% endif %}
-                                <img src="{{ product.image.url }}" class="product-image-url" alt="">
+                              {% with product.image.url as url_path %}
+                                <img src="{{ product.image.url|watermark:"uskunalar,scale=R35%,position=br,opacity=100"  }}" class="product-image-url" alt="">
+                              {% endwith %}
                                 <div class="card-text">
-                                    <h4 class="front-title">{{ object.title }}</h4>
-                                    <p class="detail">{% trans 'Артикул' %}: {{ object.sku }}</p>
-                                    <p class="detail">{% trans 'Город' %}: {{ object.city }}</p>
-                                    <p class="desc">${{ object.dollar }} - {{ object.price }} сум</p>
+                                    <h4 class="front-title">{{ product.title }}</h4>
+                                    <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
+                                    <p class="detail">{% trans 'Город' %}: {{ product.city }}</p>
+                                    <p class="desc">${{ product.dollar }} - {{ product.dollar_exchanges|intcomma  }} сум</p>
                                 </div>
                             </div>
                             <div class="card-back bg-violet">
-                                <p class="back-title">{{ object.title }}</p>
-                                <p class="desc">${{ object.dollar }} - {{ object.price }} сум</p>
+                                <p class="back-title">{{ product.title }}</p>
+                                <p class="desc">${{ product.dollar }} - {{ product.dollar_exchanges|intcomma  }} сум</p>
                                 <div class="container">
                                     <div class="spetifications" style="margin-top: 15%;padding: 1px;">
                                         <div class="row">
-                                            {% for j in object.specifications.all %}
+                                            {% for j in product.specifications.all %}
                                             <div class="col-md-6">
 
                                                 <p style="font-size: 14px;margin-bottom: 8px;">

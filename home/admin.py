@@ -49,7 +49,7 @@ class ProductSpecificationsModelAdmin(admin.TabularInline):
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(MyTranslationAdmin):
     list_display = ['pk', 'title', 'dollar', 'pdf', 'city', 'created_at', 'category', 'subcategory', 'secondsubcategory', ]
-    search_fields = ['title',]
+    search_fields = ['title', 'pk']
     list_filter = ['created_at']
     readonly_fields = ['get_price', 'get_price_dollar']
 

@@ -11,7 +11,7 @@ class BiznesImageModelAdmin(admin.TabularInline):
 @admin.register(BiznesModel)
 class BiznesModelAdmin(MyTranslationAdmin):
     list_display = ['pk', 'title', 'image', 'created_at']
-    search_fields = ['title']
+    search_fields = ['title', 'pk']
     list_filter = ['title', 'created_at']
 
     inlines = [BiznesImageModelAdmin]
