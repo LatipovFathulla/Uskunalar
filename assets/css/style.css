@@ -161,7 +161,7 @@ td:hover {
     box-shadow: 1px 4px 10px -2px rgb(0 0 0 / 20%);
     transition: all 375ms ease-in-out;
 }
-}
+
 .cont_select_int li {
   position: relative;
   float: left;
@@ -169,7 +169,7 @@ td:hover {
   color:#000;
   background-color: #fff;
   list-style-type: none;
-  padding: 10px 2%;
+  padding: 13px;
   margin: 0px;
   transition: all 275ms ease-in-out;
   display: block;
@@ -178,6 +178,7 @@ td:hover {
 .cont_select_int li:last-child {
   border-radius: 3px;
   border-bottom: 0px;
+  padding: 13px;
 }
 .cont_select_int li:hover {
   background-color: #32414a;
@@ -5110,11 +5111,12 @@ ul.social-footer2 li a {
 .accordion .link {
     cursor: pointer;
     display: block;
-    padding: 15px 15px 22px 15px;
+    padding: 23px 4px 2px 15px;
     color: #4D4D4D;
-    font-family:RobotoCondensed,Arial,sans-serif;
+    font-family: RobotoCondensed,Arial,sans-serif;
     font-size: 15px;
     font-weight: 500;
+    height: 70px;
     position: relative;
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;

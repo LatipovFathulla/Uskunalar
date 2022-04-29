@@ -278,7 +278,7 @@ accordion {
                 <div class="select_mate" data-mate-select="active" >
                 <select name="category2" onchange="location = this.value;" onclick="return false;"  id="">
                      {% for category in categories %}
-                        <option {% if request.GET.category == category.pk|stringformat:'i' %}selected{% endif %} value="?category={{ category.pk }}">
+                        <option {% if request.GET.category == category.pk|stringformat:'i' %}selected{% endif %} value="?category={{ category.pk }}" style="padding: 10px">
                             {{ category.category|safe }}
                         </option>
                     {% endfor %}
