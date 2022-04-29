@@ -1505,6 +1505,14 @@ nav ul li a span {
     color:#fff;
 }
 
+nav ul li a font p {
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.4s;
+    color:#fff;
+}
+
+
 strong {
     color: #fff;
 }
