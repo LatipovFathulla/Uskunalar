@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from modeltranslation.admin import TranslationAdmin
 
 from home.models import BannerInfoModel, CategoryModel, SecondSubCategoryModel, \
@@ -19,7 +20,7 @@ class MyTranslationAdmin(TranslationAdmin):
 
 @admin.register(CategoryModel)
 class CategoryModelAdmin(MyTranslationAdmin):
-    list_display = ['category', 'created_at']
+    list_display = ['category', 'created_at',]
     search_fields = ['category']
     list_filter = ['category']
 

@@ -11,7 +11,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CategoryModel(models.Model):
-    category = RichTextUploadingField(max_length=99, verbose_name=_('category'), null=True)
+    category = RichTextUploadingField(max_length=400, verbose_name=_('category'), null=True)
     image = models.FileField(upload_to='category_image', verbose_name=_('category_image'), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
@@ -26,7 +26,7 @@ class CategoryModel(models.Model):
 class SubCategoryModel(models.Model):
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), related_name='subcategories')
     image = models.FileField(upload_to='sub_image', verbose_name=_('sub_image'), null=True, blank=True)
-    subcategory = models.CharField(max_length=90, verbose_name=_('subcategory'),)
+    subcategory = models.CharField(max_length=300, verbose_name=_('subcategory'),)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
 
     def __str__(self):
@@ -40,7 +40,7 @@ class SubCategoryModel(models.Model):
 class SecondSubCategoryModel(models.Model):
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), related_name='second_subcategories')
     subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'))
-    secondsubcategory = models.CharField(max_length=90, verbose_name=_('second_subcategory'))
+    secondsubcategory = models.CharField(max_length=300, verbose_name=_('second_subcategory'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
 
     def __str__(self):

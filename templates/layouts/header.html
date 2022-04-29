@@ -309,7 +309,7 @@
                       <ul class="dropdown arrow-top" style="background: #32414a;">
                            {% for category in categories %}
                             <li class="has-children">
-                                    <a style="text-align: center" href="{% url 'products:product' %}?category={{ category.pk }}">{{ category.category|safe }}</a>
+                                    <a style="text-align: center;color:red" href="{% url 'products:product' %}?category={{ category.pk }}"><font color="red">{{ category.category|safe }}</font></a>
                                 <hr style="border-bottom: 1px solid #b5bdcc;margin-top:0px;margin-bottom:0px">
                               <ul class="dropdown menu-1" style="background:#d6effb">
                                   {% for subcategory in category.subcategories.all %}
@@ -439,3 +439,9 @@
         </div>
     </div>
 </div>
+<script>
+config.colorButton_foreStyle = {
+    element: 'a',
+    styles: { color: '#333' }
+};
+</script>
