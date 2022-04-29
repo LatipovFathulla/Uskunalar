@@ -1500,14 +1500,14 @@ nav ul ul li a:hover {
 
 nav ul li a span {
     transform: translateY(-50%);
-    font-size: 22px;
+    font-size: 18px;
     transition: transform 0.4s;
     color:#fff;
 }
 
 nav ul li a font p {
     transform: translateY(-50%);
-    font-size: 22px;
+    font-size: 18px;
     transition: transform 0.4s;
     color:#fff;
     margin-top: 5px;
