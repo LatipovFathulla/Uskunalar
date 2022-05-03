@@ -123,7 +123,7 @@ accordion {
                             {% else %}
                             <p></p>
                             {% endif %}
-                            <a href="/products/?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 500;font-size: 20px">{{ category.category }}</span></a> <i
+                            <a href="/products/?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;margin-left: 5%;font-family: revert;font-weight: 500;font-size: 20px">{{ category.category|safe }}</span></a> <i
                                 class="fa fa-chevron-down"></i>
                             <hr class="hr-menu" style="position: absolute;bottom: -1px;">
                         </div>
@@ -131,12 +131,12 @@ accordion {
                                 {% for subcategory in category.subcategories.all %}
                                      <div class="accordion js-accordion" style="margin-top: 0px;">
                                        <div class="accordion__item js-accordion-item">
-                                        <div class="accordion-header js-accordion-header"><a href="/products/?subcategory={{ subcategory.pk }}" style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory }}</a> </div>
+                                        <div class="accordion-header js-accordion-header"><a href="/products/?subcategory={{ subcategory.pk }}" style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory|safe }}</a> </div>
                                       <div class="accordion-body js-accordion-body">
                                         <div class="accordion-body__contents">
                                         {% for secondsubcategory in category.second_subcategories.all %}
                                                  {% if request.GET.secondsubcategory == category.second_subcategories.pk %}
-                                                    <a class="secondsub" href="/products/?secondsubcategory={{ secondsubcategory.pk }}">{{ secondsubcategory }}</a>
+                                                    <a class="secondsub" href="/products/?secondsubcategory={{ secondsubcategory.pk }}">{{ secondsubcategory|safe }}</a>
                                                  {% else %}
                                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto cupiditate dolore excepturi! Asperiores et molestiae, reiciendis repellat reprehenderit vitae! Ad dicta dolor est minima possimus. Aliquid dicta eos veritatis.</p>
                                                  {% endif %}
