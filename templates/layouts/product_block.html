@@ -47,9 +47,10 @@
                         </button>
                     </a>
                     {% endif %}
-                    {% with product.image.url as url_path %}
-                        <img src="{{ product.image.url|watermark:"uskunalar,scale=R35%,position=br,opacity=100" }}" class="product-image-url" alt="">
-                    {% endwith %}
+                    <img src="{{ product.image.url }}" class="product-image-url"  alt="">
+{#                    {% with product.image.url as url_path %}#}
+{#                        <img src="{{ product.image.url|watermark:"uskunalar,scale=R35%,position=br,opacity=100" }}" class="product-image-url" alt="">#}
+{#                    {% endwith %}#}
                     <div class="card-text">
                         <h4 class="front-title">{{ product.title }}</h4>
                         <p class="detail" style="margin-top:2px">
