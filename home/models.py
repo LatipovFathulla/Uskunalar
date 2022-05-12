@@ -1,5 +1,7 @@
 from datetime import datetime
 from decimal import Decimal
+import html
+from django.utils.safestring import mark_safe
 
 import pytz as pytz
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -16,7 +18,8 @@ class CategoryModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
-        return self.category
+        # new_str = html.escape(self.category)
+        return mark_safe(self.category)
 
     class Meta:
         verbose_name = _('category')
