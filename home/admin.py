@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from modeltranslation.admin import TranslationAdmin
 
@@ -18,16 +19,26 @@ class MyTranslationAdmin(TranslationAdmin):
         }
 
 
+@admin.display()
+def format_category(obj):
+    return mark_safe(obj.category)
+
+
 @admin.register(CategoryModel)
 class CategoryModelAdmin(MyTranslationAdmin):
-    list_display = ['category', 'created_at',]
+    list_display = (format_category, 'created_at',)
     search_fields = ['category']
     list_filter = ['category']
 
 
+@admin.display()
+def format_sub_category(obj):
+    return mark_safe(obj.subcategory)
+
+
 @admin.register(SubCategoryModel)
 class SubCategoryModelAdmin(MyTranslationAdmin):
-    list_display = ['category', 'subcategory', 'created_at']
+    list_display = ['category', format_sub_category, 'created_at']
     search_fields = ['category', 'subcategory']
     list_filter = ['category', 'subcategory']
 
@@ -49,7 +60,8 @@ class ProductSpecificationsModelAdmin(admin.TabularInline):
 
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(MyTranslationAdmin):
-    list_display = ['pk', 'title', 'dollar', 'pdf', 'city', 'created_at', 'category', 'subcategory', 'secondsubcategory', ]
+    list_display = ['pk', 'title', 'dollar', 'pdf', 'city', 'created_at', 'category', 'subcategory',
+                    'secondsubcategory', ]
     search_fields = ['title', 'pk']
     list_filter = ['created_at']
     readonly_fields = ['get_price', 'get_price_dollar']
@@ -62,4 +74,3 @@ class CarouselModelAdmin(MyTranslationAdmin):
     list_display = ['title', 'descriptions', 'image', 'created_at']
     search_fields = ['title', 'descriptions', 'created_at']
     list_filter = ['title', 'created_at']
-
