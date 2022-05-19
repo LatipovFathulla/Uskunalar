@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from modeltranslation.admin import TranslationAdmin
 
 from works.models import WorkModel, WorkSpecificationsModel, WorkImageModel
@@ -24,9 +25,14 @@ class WorkImageModelAdmin(admin.TabularInline):
     model = WorkImageModel
 
 
+@admin.display()
+def format_desc(obj):
+    return mark_safe(obj.short_descriptions)
+
+
 @admin.register(WorkModel)
 class WorkModelAdmin(MyTranslationAdmin):
-    list_display = ['pk', 'title', 'image', 'short_descriptions', 'created_at']
+    list_display = ['pk', 'title', 'image', format_desc, 'created_at']
     search_fields = ['title', 'pk']
     list_filter = ['title', 'created_at']
 

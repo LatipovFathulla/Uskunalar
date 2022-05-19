@@ -1,5 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from django.utils.html import strip_tags
 from django.utils.translation import gettext_lazy as _
 
 
@@ -16,7 +17,7 @@ class BiznesModel(models.Model):
         return self.get_next_by_created_at()
 
     def __str__(self):
-        return self.title
+        return strip_tags(self.title)
 
     class Meta:
         verbose_name = _('biznes')
