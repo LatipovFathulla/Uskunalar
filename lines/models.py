@@ -1,5 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from django.utils.html import strip_tags
 from django.utils.translation import gettext_lazy as _
 
 
@@ -20,7 +21,7 @@ class LineCategoryModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
-        return self.category
+        return strip_tags(self.category)
 
     class Meta:
         verbose_name = _('line category')

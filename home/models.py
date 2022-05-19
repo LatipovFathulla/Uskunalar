@@ -1,7 +1,5 @@
 from datetime import datetime
 from decimal import Decimal
-import html
-from django.utils.safestring import mark_safe
 from django.utils.html import strip_tags
 from django.contrib import admin
 
@@ -9,7 +7,6 @@ import pytz as pytz
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from home.scrapper import _main
-from PIL import Image
 from django.db.models import FloatField
 from django.utils.translation import gettext_lazy as _
 

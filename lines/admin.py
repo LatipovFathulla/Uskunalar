@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from modeltranslation.admin import TranslationAdmin
 
 from lines.models import LineModel, LineSpecificationModel, LineCategoryModel, LineTextModel
@@ -27,9 +28,14 @@ class LineTextModel(MyTranslationAdmin):
     list_filter = ['text', 'created_at']
 
 
+@admin.display()
+def format_category(obj):
+    return mark_safe(obj.category)
+
+
 @admin.register(LineCategoryModel)
 class LineCategoryModel(MyTranslationAdmin):
-    list_display = ['category', 'created_at']
+    list_display = [format_category, 'created_at']
     search_fields = ['category']
     list_filter = ['category', 'created_at']
 
