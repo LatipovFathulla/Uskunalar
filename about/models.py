@@ -1,5 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from django.utils.html import strip_tags
 from django.utils.translation import gettext_lazy as _
 from embed_video.fields import EmbedVideoField
 
@@ -12,7 +13,7 @@ class AboutModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
-        return self.title
+        return strip_tags(self.title)
 
     class Meta:
         verbose_name = _('about')
