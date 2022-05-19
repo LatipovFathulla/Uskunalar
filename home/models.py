@@ -3,6 +3,7 @@ from decimal import Decimal
 import html
 from django.utils.safestring import mark_safe
 from django.utils.html import strip_tags
+from django.contrib import admin
 
 import pytz as pytz
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -21,6 +22,11 @@ class CategoryModel(models.Model):
     def __str__(self):
         # return mark_safe(self.category)
         return strip_tags(self.category)
+
+    # @admin.display(description="Category name")
+    # def f_category(self):
+    #     return mark_safe(self.category)
+
     class Meta:
         verbose_name = _('category')
         verbose_name_plural = _('categories')

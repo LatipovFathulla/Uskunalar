@@ -27,8 +27,8 @@ def format_category(obj):
 @admin.register(CategoryModel)
 class CategoryModelAdmin(MyTranslationAdmin):
     list_display = (format_category, 'created_at',)
-    search_fields = ['category']
-    list_filter = ['category']
+    search_fields = ('category',)
+    list_filter = ('category',)
 
 
 @admin.display()

@@ -29,8 +29,6 @@ class BannerInfoModelView(ListView):
     paginate_by = 9
 
     def get_queryset(self, ):
-        qs = BannerInfoModel.objects.order_by('-pk')
-
         q = self.request.GET.get('q', '')
         category = self.request.GET.get('category')
         category2 = self.request.GET.get('category')
@@ -44,40 +42,53 @@ class BannerInfoModelView(ListView):
         inbox = self.request.GET.get('inbox')
         delivery = self.request.GET.get('delivery')
 
+        filters = {}
+
         if q:
-            qs = qs.filter(Q(title__icontains=q))
+            filters['title__icontains'] = q
 
         if category:
-            qs = qs.filter(category_id=category)
+            filters['category_id'] = category
 
         if subcategory:
-            qs = qs.filter(category_id=subcategory)
+            filters['category_id'] = subcategory
 
         if secondsubcategory:
-            qs = qs.filter(secondsubcategory_id=secondsubcategory)
+            filters['secondsubcategory_id'] = secondsubcategory
 
         if sku:
-            qs = qs.filter(sku__exact=sku)
+            filters['sku__exact'] = sku
 
         if price:
             price_from, price_to = price.split(';')
-            qs = qs.filter(dollar__gte=price_from, dollar__lte=price_to)
+            filters['dollar__gte'] = price_from
+            filters['dollar__lte'] = price_to
+
+        order_by = ['-pk']
 
         if inbox:
             if inbox == 'inbox':
-                qs = sorted(qs, key=lambda i: i.inbox())
+                order_by.append('inbox')
         if delivery:
             if delivery == 'delivery':
-                qs = sorted(qs, key=lambda i: i.delivery())
+                order_by.append('delivery')
+
+        if category2:
+            if category2 == 'category':
+                order_by.append('category')
+
+        if created_at == 'created_at':
+            order_by.append('created_at')
+            # diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
+            # return diff.days <= 3
+
+        qs = BannerInfoModel.objects.filter(**filters).order_by(*order_by)
 
         if sort:
             if sort == 'price':
                 qs = sorted(qs, key=lambda i: i.get_price())
             elif sort == '-price':
                 qs = sorted(qs, key=lambda i: i.get_price(), reverse=True)
-            elif created_at == 'created_at':
-                diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
-                return diff.days <= 3
 
         if som:
             if som == 'som':
@@ -85,12 +96,7 @@ class BannerInfoModelView(ListView):
             elif som == '-som':
                 qs = sorted(qs, key=lambda i: i.get_price(), reverse=True)
 
-        if category2:
-            if category2 == 'category':
-                qs = sorted(qs, key=lambda i: i.category())
-
         return qs
-    # asdfadf
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
