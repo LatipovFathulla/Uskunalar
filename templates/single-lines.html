@@ -79,14 +79,14 @@
                         <img src="{% static './images/Group_418.svg' %}" class="icon-right"
                              style="right:-7%;transform: rotate(-29.52deg);" alt="">
                         <div class="row">
+                          {% if k.image.url %}
                             {% for k in linemodel.line_image.all %}
                                 <div class="col-md-3">
-                                {% if k.image.url %}
                                      <img src="{{ k.image.url|default:'none' }}" class="img-fluid"
                                          style="display: table;margin: 3px auto;height: 150px" alt="">
-                                {% endif %}
                                 </div>
                             {% endfor %}
+                           {% endif %}
                             <br>
                         <div class="container">
                                <table class="table table-striped">
