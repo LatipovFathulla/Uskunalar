@@ -81,8 +81,10 @@
                         <div class="row">
                             {% for k in linemodel.line_image.all %}
                                 <div class="col-md-3">
-                                    <img src="{{ k.image.url|default:'none' }}" class="img-fluid"
+                                {% if k.image.url %}
+                                     <img src="{{ k.image.url|default:'none' }}" class="img-fluid"
                                          style="display: table;margin: 3px auto;height: 150px" alt="">
+                                {% endif %}
                                 </div>
                             {% endfor %}
                             <br>
