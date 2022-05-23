@@ -9,5 +9,6 @@ urlpatterns = [
     path('wishlist/', WishlistModelListView.as_view(), name='wishlist'),
     path('wishlist/<int:pk>/', add_to_wishlist, name='add-wishlist'),
     path('', cache_page(1800)(BannerInfoModelView.as_view()), name='product'),
+#
 ]
 
