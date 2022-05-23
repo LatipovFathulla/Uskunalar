@@ -92,11 +92,10 @@ DATABASES = {
     }
 }
 
-
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '134.209.239.110',
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': BASE_DIR / 'uskunalar_cache',
     }
 }
 

@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% load humanize %}
+{% load cache %}
 {% load tags %}
 {% block content %}
 
@@ -494,11 +495,13 @@ accordion {
                     <div class="container-fluid">
                         <div class="row">
                                <img src="{% static './images/Group_418.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);right:-15%" alt="">
+                           {% cache 60 products %}
                             {% for product in object_list %}
                                 <div class="col-md-4 col-6">
                                     {% include 'layouts/product_block.html' %}
                                 </div>
                             {% endfor %}
+                           {% endcache %}
                              <img src="{% static './images/Group_418.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);right:-15%" alt="">
                         </div>
                     </div>
@@ -506,9 +509,11 @@ accordion {
 
                 <div id="Paris" class="tabcontent3">
                     <div class="container-z">
+                      {% cache 60 products %}
                         {% for product in products %}
                             {% include 'layouts/products-sort.html' %}
                         {% endfor %}
+                      {% endcache %}
                     </div>
                 </div>
 

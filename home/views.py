@@ -100,9 +100,6 @@ class BannerInfoModelView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = CategoryModel.objects.order_by('pk')
-        context['subcategories'] = SubCategoryModel.objects.order_by('pk')
-        context['secondsubcategory'] = SecondSubCategoryModel.objects.order_by('pk')
         context['min_price'], context['max_price'] = BannerInfoModel.objects.aggregate(
             Min('dollar'),
             Max('dollar')
