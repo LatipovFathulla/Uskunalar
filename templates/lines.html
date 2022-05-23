@@ -4,7 +4,7 @@
 {% block content %}
 <style>
     .b-active {
-        color:#fff;
+        color:#000;
         font-family: inherit;
         font-weight: 600;
         background:silver;
@@ -20,7 +20,7 @@
     .a-active {
         color:#000;
         font-family: inherit;
-        font-weight: 600
+        font-weight: 600;
     }
 
      .a-active:hover {
@@ -28,6 +28,23 @@
         font-family: inherit;
         font-weight: 600
     }
+
+    .line-slider .link {
+        padding: 6px 8px 47px 15px;
+        background: #fff;
+        margin-top: 1px;
+        height: auto;
+        box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important
+    }
+
+    .line-slider .link:hover {
+        padding: 6px 8px 47px 15px;
+        background: #FFE700;
+        margin-top: 1px;
+        height: auto;
+        box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important
+    }
+
 </style>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <section class="banner">
@@ -58,8 +75,8 @@
                   <div class="line-slider">
                   {% for category in line_categories %}
                       <div class="col-8 col-md-12">
-                        <div class="link" style="padding: 6px 8px 47px 15px;background: #FFE700;margin-top: 1px;height: auto">
-                            <a {% if request.GET.category == category.pk|stringformat:'i' %}class="b-active"{% else %}class="a-active"{% endif %} href="?category={{ category.pk }}"> <span style="position: absolute;font-family: inherit;font-weight: 500;font-size: 14px">{{ category.category|safe }}</span></a>
+                        <div class="link">
+                            <a {% if request.GET.category == category.pk|stringformat:'i' %}class="b-active"{% else %}class="a-active"{% endif %} href="?category={{ category.pk }}"> <span style="position: absolute;font-family: inherit;font-weight: 500;">{{ category.category|safe }}</span></a>
                         </div>
                       </div>
                     {% endfor %}
