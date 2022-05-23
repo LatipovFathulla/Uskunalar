@@ -421,7 +421,7 @@ msgstr "Jonatish"
 #: templates/index.html:227 templates/index.html:292 templates/index.html:331
 #: templates/layouts/header.html:226 templates/layouts/header.html:295
 msgid "Продукты"
-msgstr "Maxsulotlar"
+msgstr "Mahsulotlar"
 
 #: templates/index.html:231 templates/index.html:291 templates/index.html:335
 #: templates/layouts/header.html:230 templates/layouts/header.html:296
