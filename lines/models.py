@@ -54,10 +54,9 @@ class LineModel(models.Model):
 
 
 class LineSpecificationModel(models.Model):
-    line_spec = models.CharField(max_length=99, verbose_name=_('line_spec'), null=True)
-    line_num = models.CharField(max_length=99, verbose_name=_('line_num'), null=True)
-    line_image = models.ForeignKey(LineModel, on_delete=models.CASCADE, related_name='line_image',
-                                   verbose_name=_('line_image'), null=True, blank=True)
+    line_spec = models.CharField(max_length=99, verbose_name=_('line_spec'), null=True, blank=True)
+    line_num = models.CharField(max_length=99, verbose_name=_('line_num'), null=True, blank=True)
+    line_image = models.ForeignKey(LineModel, on_delete=models.CASCADE, related_name='line_image', verbose_name=_('line_image'), null=True, blank=True)
     image = models.FileField(upload_to='line_image', verbose_name=_('image'), null=True, blank=True)
 
     class Meta:
