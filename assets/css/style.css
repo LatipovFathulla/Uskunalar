@@ -1293,7 +1293,7 @@ td:hover {
     }
 
     .image-list li {
-        flex-basis: 100%;
+        flex-basis: 20%;
     }
 
     .image-list li:nth-child(3) {
@@ -1301,8 +1301,8 @@ td:hover {
     }
 
     .image-list img {
-        height: 10rem;
-        width: 100%;
+        height: 80px;
+        width: 80px;
         transition: opacity 0.3s ease;
         cursor: pointer;
     }
@@ -4195,14 +4195,14 @@ nav .nav-ul li a span.rotate {
 }
 
 .in_box {
-    font-size: 15px;
+    font-size: 20px;
     line-height: 18px;
     font-style: normal;
     font-weight: normal;
 }
 
 .in_article {
-    font-size: 15px;
+    font-size: 20px;
     line-height: 18px;
     font-weight: normal;
     font-style: normal;

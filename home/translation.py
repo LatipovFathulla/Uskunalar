@@ -20,9 +20,12 @@ class SecondCategoryTranslationOptions(TranslationOptions):
 
 @register(BannerInfoModel)
 class BannerTranslationOptions(TranslationOptions):
-    fields = ('title', 'city', 'category', 'subcategory', 'secondsubcategory', 'short_description', 'long_description')
-#
+    fields = (
+        'title', 'city', 'category', 'subcategory', 'secondsubcategory', 'short_description', 'long_description',
+        'inbox',
+        'delivery')
+
 
 @register(CarouselModel)
 class CarouselTranslationOptions(TranslationOptions):
-    fields = ('title', 'descriptions', )
+    fields = ('title', 'descriptions',)
