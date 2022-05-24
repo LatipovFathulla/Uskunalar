@@ -519,17 +519,33 @@ accordion {
             </section>
             <br>
             <!-- pagination menu -->
-            <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
-justify-content: center;">
-                <a class="prew_icon" href=""></a>
-                <ul style="display: flex;justify-content: center;">
-                    {% for page in page_obj.paginator.page_range %}
-                    <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position:relative;padding-top:14px"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
-                    {% endfor %}
-                </ul>
-                <a href="?page={{ page }}"></a>
-            </nav>
+{#            <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">#}
+{#                <a class="prew_icon" href=""></a>#}
+{#                <ul style="display: flex;justify-content: center;">#}
+{#                    {% for page in page_obj.paginator.page_range|slice:":4" %}#}
+{#                    <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position:relative;padding-top:14px"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>#}
+{#                    {% endfor %}#}
+{#                </ul>#}
+{#                <a href="?page={{ page }}"></a>#}
+{#            </nav>#}
+<div class="pagination" style="justify-content: center">
+    <span class="step-links" style="display: flex;justify-content: center;align-items: center">
+        {% if page_obj.has_previous %}
+{#            <a href="?page=1">&laquo; first</a>#}
+            <a href="?page={{ page_obj.previous_page_number }}"><img src="{% static 'images/left.png' %}" style="margin: 10px" alt=""></a>
+        {% endif %}
 
+        <span class="current" style="display: flex;justify-content: center;align-items: center">
+          <a href="?page={{ page_obj.paginator.num_pages }}"><p class="page_numb-active" style="padding-top: 30%">{{ page_obj.number }}</p></a>
+         <p style="margin: 10px"> / </p> <a href="?page={{ page_obj.paginator.num_pages }}"> <p class="page_numb" style="display: flex;align-items: center;justify-content: center">{{ page_obj.paginator.num_pages }}</p></a>
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}"><img src="{% static 'images/right.png' %}" alt=""></a>
+{#            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>#}
+        {% endif %}
+    </span>
+</div>
             <!-- end pagination menu -->
             <!-- End Best Seller -->
             <!-- Start Filter Bar -->

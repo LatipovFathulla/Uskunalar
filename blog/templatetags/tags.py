@@ -29,3 +29,8 @@ def get_price(request, x):
     if price:
         return price.split(';')[x]
     return 'null'
+
+
+@register.simple_tag
+def my_range(n):
+    return range(n)
