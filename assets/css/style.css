@@ -2017,7 +2017,6 @@ nav .nav-ul li a span.rotate {
     background-color: #FFE700;
     border-radius: 6px;
     transition: 0.5s ease left;
-    z-index: 2;
     -webkit-user-select: none;
     /* Chrome all / Safari all */
     -moz-user-select: none;
@@ -2082,7 +2081,7 @@ nav .nav-ul li a span.rotate {
     position: absolute;
     left: -900px;
     top: -1rem;
-    width: 80%;
+    width: 100%;
     overflow: auto;
     transition: 0.5s ease left;
     z-index: 9999;
@@ -2096,7 +2095,7 @@ nav .nav-ul li a span.rotate {
 .hamburger-menu ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
 }
 
 .hamburger-menu .main-links li a {
@@ -2104,11 +2103,11 @@ nav .nav-ul li a span.rotate {
     color: #202634;
     text-decoration: none;
     font-family: 'TT Norms';
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
-    line-height: 19px;
-    text-align: left;
-    padding: 10px;
+    line-height: 16px;
+    text-align: center;
+    padding: 13px;
     height: 100%;
     transition: 0.5s ease all;
     transition-delay: inherit;
@@ -5315,6 +5314,8 @@ ul.social-footer2 li a {
 
 .submenu4 {
     display: none;
+    justify-content: center;
+    align-items: center;
     background: #fff;
     position: absolute;
     z-index: 999;

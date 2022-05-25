@@ -291,14 +291,24 @@
             <div class="hamburger-menu">
                 <ul class="main-links">
                     <a href="{% url 'home:home' %}"> <img src="{% static './images/Uskunalar_logo.svg' %}" class="logo_image2" alt=""></a>
-                    <li class="delay02"><a href="{% url 'home:catalog' %}">{% trans 'Каталог' %}</a></li>
+                    <li class="delay02"><a href="{% url 'home:catalog' %}">{% trans 'Каталог' %}</a>
+                            <hr style="border: 2px solid red">
+                    </li>
+
                      <li class="delay01"><a href="{% url 'products:product' %}">{% trans 'Продукты' %}</a></li>
+                    <hr style="border: 2px solid red">
                      <li class="delay04"><a href="{% url 'line:lines' %}">{% trans 'Линии' %}</a></li>
+                    <hr style="border: 2px solid red">
                     <li class="delay03"><a href="{% url 'work:works' %}">{% trans 'Наши работы' %}</a></li>
+                    <hr style="border: 2px solid red">
                     <li class="delay04"><a href="{% url 'video:videos' %}">{% trans 'Наши видео' %}</a></li>
+                    <hr style="border: 2px solid red">
                     <li class="delay05"><a href="{% url 'blog:blogs' %}">{% trans 'Наши статьи' %}</a></li>
+                    <hr style="border: 2px solid red">
                     <li class="delay06"><a href="{% url 'home:about' %}">{% trans 'О нас' %}</a></li>
+                    <hr style="border: 2px solid red">
                     <li class="delay07"><a href="{% url 'home:contacts' %}">{% trans 'Контакты' %}</a></li>
+                    <hr style="border: 2px solid red">
                     <li class="delay09"><a href="tel:+998 97 211 77 77">
                         <p style="color: #000;font-weight: bold;">+998 97 211 77 77</p>
                     </a></li>
@@ -309,7 +319,7 @@
                         <p style="color: #FF0007;font-weight:500">{% trans 'звонить сейчас' %}</p>
                     </a></li>
                  <div class="container">
-                    <ul id="accordion9_1" class="accordion9_1">
+                    <ul id="accordion9_" class="accordion91" style="margin: auto">
                        <li>
                              {% get_current_language as lang %}
                              {% get_available_languages as langs %}
