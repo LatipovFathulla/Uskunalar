@@ -1,5 +1,5 @@
 from django.urls import path
-
+from django.views.decorators.cache import cache_page
 from about.views import AboutModelListView, \
     HomeView, CatalogView, AboutModelDetailView, RequestCreateView, ContactModelTemplateView
 from orders.views import OrderCreateView
@@ -13,6 +13,6 @@ urlpatterns = [
     path('catalog/', CatalogView.as_view(), name='catalog'),
     path('request/', RequestCreateView.as_view(), name='request'),
     path('form/', OrderCreateView.as_view(), name='form'),
-    path('', HomeView.as_view(), name='home'),
+    path('', cache_page(1800)(HomeView.as_view()), name='home'),
 
 ]

@@ -1016,7 +1016,7 @@
 </div>
 <div class="container">
     <div class="row">
-        {% for work in works %}
+        {% for work in works|slice:"3" %}
         <div class="col-md-4">
             <a href="{% url 'work:single-work' pk=work.pk %}">
                 <img src="{{ work.image.url }}" style="margin-top: 20px;" alt="">
