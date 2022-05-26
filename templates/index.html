@@ -700,7 +700,9 @@
                         <a href="{% url 'products:product' %}?category={{ category.pk }}">
                              <div class="box">
                             <p style="font-weight: 500">{{ category.category|safe }}</p>
-                            <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px;width: 100%" alt="">
+                                           {% if category.image %}
+                                                <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px;width: 100%" alt="">
+                                            {% endif %}
                           </div>
                         </a>
                     {% else %}
@@ -708,7 +710,9 @@
                         <a href="{% url 'products:product' %}?category={{ category.pk }}">
                                <div class="box">
                                 <p style="font-weight: 500">{{ category.category|safe }}</p>
-                                <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px"  alt="">
+                                   {% if category.image %}
+                                        <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px"  alt="">
+                                   {% endif %}
                               </div>
                         </a>
                     </div>

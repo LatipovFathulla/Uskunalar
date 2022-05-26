@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-24 23:21+0500\n"
+"POT-Creation-Date: 2022-05-26 14:06+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -311,27 +311,27 @@ msgstr ""
 msgid "orders"
 msgstr ""
 
-#: templates/about.html:18
+#: templates/about.html:36
 msgid "О нашей компании"
 msgstr ""
 
-#: templates/about.html:19 templates/biznes.html:12 templates/blog.html:12
+#: templates/about.html:37 templates/biznes.html:12 templates/blog.html:12
 #: templates/catalog.html:113 templates/contacts.html:12
-#: templates/lines.html:60 templates/our_works.html:12
+#: templates/lines.html:72 templates/our_works.html:12
 #: templates/products.html:175 templates/single-biznes.html:11
-#: templates/single-blog.html:12 templates/single-lines.html:21
+#: templates/single-blog.html:12 templates/single-lines.html:36
 #: templates/single-product.html:62 templates/single-work.html:12
 #: templates/videos.html:13 templates/wishlist.html:13
 msgid "Главная"
 msgstr ""
 
-#: templates/about.html:19 templates/index.html:246 templates/index.html:296
+#: templates/about.html:37 templates/index.html:246 templates/index.html:296
 #: templates/index.html:350 templates/index.html:1144
-#: templates/layouts/header.html:245 templates/layouts/header.html:300
+#: templates/layouts/header.html:245 templates/layouts/header.html:308
 msgid "О нас"
 msgstr ""
 
-#: templates/about.html:72
+#: templates/about.html:90
 msgid "Видео о нас"
 msgstr ""
 
@@ -351,7 +351,7 @@ msgid "Смотреть еще"
 msgstr ""
 
 #: templates/blog.html:11 templates/blog.html:12 templates/index.html:295
-#: templates/layouts/header.html:299 templates/single-blog.html:13
+#: templates/layouts/header.html:306 templates/single-blog.html:13
 msgid "Наши статьи"
 msgstr ""
 
@@ -361,8 +361,8 @@ msgid "Читать дальше"
 msgstr ""
 
 #: templates/catalog.html:112 templates/catalog.html:114
-#: templates/index.html:369 templates/layouts/header.html:365
-#: templates/lines.html:74 templates/products.html:268
+#: templates/index.html:369 templates/layouts/header.html:375
+#: templates/lines.html:86 templates/products.html:268
 #: templates/products.html:308
 msgid "Категории"
 msgstr ""
@@ -370,7 +370,7 @@ msgstr ""
 #: templates/contacts.html:11 templates/contacts.html:12
 #: templates/index.html:249 templates/index.html:297 templates/index.html:353
 #: templates/index.html:1149 templates/index.html:1158
-#: templates/layouts/header.html:248 templates/layouts/header.html:301
+#: templates/layouts/header.html:248 templates/layouts/header.html:310
 msgid "Контакты"
 msgstr ""
 
@@ -423,20 +423,20 @@ msgid "Отправить"
 msgstr ""
 
 #: templates/index.html:227 templates/index.html:292 templates/index.html:331
-#: templates/layouts/header.html:226 templates/layouts/header.html:295
+#: templates/layouts/header.html:226 templates/layouts/header.html:298
 msgid "Продукты"
 msgstr ""
 
 #: templates/index.html:231 templates/index.html:291 templates/index.html:335
-#: templates/layouts/header.html:230 templates/layouts/header.html:296
-#: templates/lines.html:59 templates/lines.html:61
-#: templates/single-lines.html:20 templates/single-lines.html:22
+#: templates/layouts/header.html:230 templates/layouts/header.html:300
+#: templates/lines.html:71 templates/lines.html:73
+#: templates/single-lines.html:35 templates/single-lines.html:37
 msgid "Линии"
 msgstr ""
 
 #: templates/index.html:237 templates/index.html:293 templates/index.html:341
 #: templates/index.html:1008 templates/layouts/header.html:236
-#: templates/layouts/header.html:297 templates/our_works.html:11
+#: templates/layouts/header.html:302 templates/our_works.html:11
 #: templates/our_works.html:12 templates/single-work.html:11
 #: templates/single-work.html:13
 msgid "Наши работы"
@@ -449,7 +449,7 @@ msgstr ""
 
 #: templates/index.html:243 templates/index.html:294 templates/index.html:347
 #: templates/index.html:1136 templates/layouts/header.html:242
-#: templates/layouts/header.html:298 templates/videos.html:12
+#: templates/layouts/header.html:304 templates/videos.html:12
 #: templates/videos.html:13
 msgid "Наши видео"
 msgstr ""
@@ -459,12 +459,12 @@ msgid "Search"
 msgstr ""
 
 #: templates/index.html:290 templates/index.html:1129
-#: templates/layouts/header.html:294 templates/layouts/header.html:338
+#: templates/layouts/header.html:294 templates/layouts/header.html:348
 #: templates/products.html:174 templates/products.html:175
 msgid "Каталог"
 msgstr ""
 
-#: templates/index.html:305 templates/layouts/header.html:309
+#: templates/index.html:305 templates/layouts/header.html:319
 msgid "звонить сейчас"
 msgstr ""
 
@@ -564,7 +564,7 @@ msgstr ""
 msgid "All rights reserved."
 msgstr ""
 
-#: templates/layouts/header.html:378
+#: templates/layouts/header.html:388
 msgid "Все категории"
 msgstr ""
 
@@ -579,7 +579,7 @@ msgstr ""
 msgid "Артикул"
 msgstr ""
 
-#: templates/lines.html:122
+#: templates/lines.html:134
 msgid "Читать дальше.."
 msgstr ""
 
@@ -649,27 +649,27 @@ msgid ""
 "Ваша сообщения успешно отправлено скоро наши операторы с вами свяжутся!!!"
 msgstr ""
 
-#: templates/single-biznes.html:70 templates/single-lines.html:123
+#: templates/single-biznes.html:70 templates/single-lines.html:138
 #: templates/single-work.html:72
 msgid "Перейти к предыдущей"
 msgstr ""
 
-#: templates/single-biznes.html:77 templates/single-lines.html:131
+#: templates/single-biznes.html:77 templates/single-lines.html:146
 #: templates/single-work.html:79
 msgid "Перейти к следующей"
 msgstr ""
 
-#: templates/single-biznes.html:84 templates/single-lines.html:143
+#: templates/single-biznes.html:84 templates/single-lines.html:158
 #: templates/single-work.html:87
 msgid "Назад"
 msgstr ""
 
-#: templates/single-biznes.html:88 templates/single-lines.html:150
+#: templates/single-biznes.html:88 templates/single-lines.html:165
 #: templates/single-work.html:89
 msgid "Далее"
 msgstr ""
 
-#: templates/single-lines.html:51
+#: templates/single-lines.html:66
 msgid "Скачать PDF"
 msgstr ""
 
