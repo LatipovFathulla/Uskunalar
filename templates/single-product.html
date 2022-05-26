@@ -111,9 +111,13 @@
             <p class="single-product-title" style="font-size: 24px;">{{ object.title }}</p>
             <div class="row">
                 <div class="col-md-6 mt-3">
+                    {% if object.inbox %}
                     <p class="in_box"><img src="{% static './images/radius.svg' %}" alt="">
                         {{ object.inbox }}
+                    {% endif %}
+                    {% if object.delivery %}
                         {{ object.delivery }}
+                    {% endif %}
                     </p>
                 </div>
                 <div class="col-md-6 mt-3">
