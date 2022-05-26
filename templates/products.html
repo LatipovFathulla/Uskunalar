@@ -100,7 +100,7 @@ accordion {
   font-size: .7em;
   letter-spacing: .1em;
   transition: all .3s;
-  background-color: #32414a;
+  background-color: #CCCCCA;
 }
 
 
@@ -318,7 +318,7 @@ accordion {
                              {% else %}
                             <p></p>
                             {% endif %}
-                            <a href="?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;width:70%;top:7px">{{ category.category|safe }}</span></a> <i
+                            <a href="?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;width:70%;">{{ category.category|safe }}</span></a> <i
                                 class="fa fa-chevron-down"></i>
                             <hr class="hr-menu" style="position: absolute;bottom: -1px;">
                         </div>
@@ -326,7 +326,7 @@ accordion {
                                 {% for subcategory in category.subcategories.all %}
                                      <div class="accordion js-accordion" style="margin-top: 0px;">
                                        <div class="accordion__item js-accordion-item">
-                                        <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}" style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory }}</a>  <hr class="hr-menu" style="border: 1px solid #CCCCCA"> </div>
+                                        <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}" style="font-size: 16px;text-align: left;font-weight: 400;font-family: Sans-Serif;color:#132E6B;line-height:20px">{{ subcategory }}</a>  </div>
                                       <div class="accordion-body js-accordion-body">
                                         <div class="accordion-body__contents">
                                         {% for secondsubcategory in category.second_subcategories.all %}
