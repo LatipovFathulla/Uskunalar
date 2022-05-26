@@ -9,12 +9,12 @@
 
 nav ul li a span strong {
     color:#fff;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 strong {
     color: #000;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 ::-webkit-scrollbar {
@@ -302,14 +302,14 @@ accordion {
 <div class="container">
     <div class="row">
         <div class="col-xl-3 col-lg-4 col-md-5">
-            <ul class="accordion" style="width:114%">
+            <ul class="accordion" style="width:100%">
                 <h3 class="categories_none"
                     style="margin-bottom: -20px;padding: 15px;color: #132E6B;text-align: left;">
                     {% trans 'Категории' %}</h3>
                 <!-- <hr class="hr-menu" style="position: absolute;"> -->
             </ul>
             <div class="sidebar-categories">
-                <ul id="accordion" class="accordion" style="overflow-y:auto;max-height:700px;width:114%">
+                <ul id="accordion" class="accordion" style="overflow-y:auto;max-height:700px;width:100%">
                     {% for category in categories %}
                     <li>
                         <div class="link">
@@ -318,7 +318,7 @@ accordion {
                              {% else %}
                             <p></p>
                             {% endif %}
-                            <a href="?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;width:70%">{{ category.category|safe }}</span></a> <i
+                            <a href="?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;width:70%;top:12px">{{ category.category|safe }}</span></a> <i
                                 class="fa fa-chevron-down"></i>
                             <hr class="hr-menu" style="position: absolute;bottom: -1px;">
                         </div>
