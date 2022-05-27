@@ -205,13 +205,13 @@
                 <li>
                      {% get_current_language as lang %}
                      {% get_available_languages as langs %}
-                    <div class="link"><a href="" style="color:#fff">{{ lang|upper }}</a> <i class="fa fa-chevron-down"></i>
+                    <div class="link"><img src="/static/images/{{ lang }}.png" style="width:20px" alt=""><a href="" style="color:#fff">{{ lang|upper }}</a> <i class="fa fa-chevron-down"></i>
                     </div>
                     <ul class="submenu4" style="margin-top:10px">
                           {% for l in langs %}
-                         {% if l.0 != lang %}
-                        <hr class="mb-0 mt-0">
-                        <li><a href="{% get_url_lang request l.0 %}">{{ l.0|upper }}</a></li>
+                            {% if l.0 != lang %}
+                                <hr class="mb-0 mt-0">
+                                <li><a href="{% get_url_lang request l.0 %}"><img src="/static/images/{{ l.0 }}.png" style="width:20px" alt="">{{ l.0|upper }}</a></li>
                           {% endif %}
                         {% endfor %}
                     </ul>
