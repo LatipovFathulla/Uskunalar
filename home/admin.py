@@ -3,7 +3,7 @@ from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from modeltranslation.admin import TranslationAdmin
 
-from home.models import BannerInfoModel, CategoryModel, SecondSubCategoryModel, \
+from home.models import BannerInfoModel, CategoryModel, \
     SubCategoryModel, BannerImageModel, ProductSpecificationsModel, CarouselModel
 
 
@@ -43,12 +43,13 @@ class SubCategoryModelAdmin(MyTranslationAdmin):
     list_filter = ['category', 'subcategory']
 
 
-@admin.register(SecondSubCategoryModel)
-class SecondSubCategoryModelAdmin(MyTranslationAdmin):
-    list_display = ['category', 'subcategory', 'secondsubcategory', 'created_at']
-    search_fields = ['category', 'subcategory', 'secondsubcategory', ]
-    list_filter = ['category', 'subcategory', 'secondsubcategory', ]
-
+#
+# @admin.register(SecondSubCategoryModel)
+# class SecondSubCategoryModelAdmin(MyTranslationAdmin):
+#     list_display = ['category', 'subcategory', 'secondsubcategory', 'created_at']
+#     search_fields = ['category', 'subcategory', 'secondsubcategory', ]
+#     list_filter = ['category', 'subcategory', 'secondsubcategory', ]
+#
 
 class BannerImageModelAdmin(admin.TabularInline):
     model = BannerImageModel

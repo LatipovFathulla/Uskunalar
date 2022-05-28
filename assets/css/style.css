@@ -901,7 +901,7 @@ td:hover {
 .hr-menu {
     width: 230px;
     margin: auto;
-    border: 1px solid #CCCCCA;
+    border: 1px solid #F4F5F7;
     background-color: #CCCCCA;
 }
 
@@ -3430,7 +3430,7 @@ nav .nav-ul li a span.rotate {
         background-position: center;
         width: 100%;
         height: 250px;
-        margin-top:12%;
+        margin-top:9%;
     }
 
        .has-children .dropdown.arrow-top {
@@ -3452,6 +3452,7 @@ nav .nav-ul li a span.rotate {
         background-position: center;
         width: 100%;
         height: 250px;
+        margin-top:7%;
     }
 
      .dropdown.arrow-top {
@@ -5143,8 +5144,8 @@ ul.social-footer2 li a {
     right: 11px;
     left: auto;
     font-size: 16px;
-    top: 19px;
-    transform: rotate(0deg);
+    top: 24px;
+    transform: rotate(270deg);
 }
 
 .accordion li.open .link {
