@@ -33,8 +33,6 @@ class BannerInfoModelView(ListView):
         category = self.request.GET.get('category')
         category2 = self.request.GET.get('category')
         subcategory = self.request.GET.get('subcategory')
-        secondsubcategory = self.request.GET.get('secondsubcategory')
-        sku = self.request.GET.get('sku')
         price = self.request.GET.get('price')
         sort = self.request.GET.get('sort')
         som = self.request.GET.get('price')
@@ -52,12 +50,6 @@ class BannerInfoModelView(ListView):
 
         if subcategory:
             filters['category_id'] = subcategory
-
-        if secondsubcategory:
-            filters['secondsubcategory_id'] = secondsubcategory
-
-        if sku:
-            filters['sku__exact'] = sku
 
         if price:
             price_from, price_to = price.split(';')

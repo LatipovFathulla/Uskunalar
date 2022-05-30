@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'blog.context_processor.home_categories',
                 'home.context_processor.product_categories',
+                'about.context_processor.index_categories',
             ],
         },
     },
