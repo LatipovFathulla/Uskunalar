@@ -52,6 +52,154 @@
   width: 150px;
   height: 150px;
 }
+
+.nav-2 {
+  display: inline-block;
+  background: #FFFFFF;
+  border-radius: 3px;
+  border-top: 2px solid #FFE700;
+  height: 60px;
+}
+.nav-2 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-2 ul li {
+  position: relative;
+  display: inline-block;
+  height: 60px;
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  vertical-align: middle;
+  float: left;
+}
+.nav-2 ul li:first-child,
+.nav-2 ul li:nth-child(2),
+.nav-2 ul li:last-child {
+  border-left: 0;
+}
+.nav-2 ul li:nth-child(2) a:before,
+.nav-2 ul li:nth-last-child(2) a:before,
+.nav-2 ul li:nth-child(2) a:after,
+.nav-2 ul li:nth-last-child(2) a:after {
+  -webkit-transition: all 0.3s linear 0s;
+  -moz-transition: all 0.3s linear 0s;
+  -ms-transition: all 0.3s linear 0s;
+  -o-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+}
+.nav-2 ul li:nth-child(2) > a:before {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: -15px;
+  content: '';
+  width: 0;
+  height: 0;
+  display: block;
+  border-right: 15px solid #FFFFFF;
+  border-top: 60px solid transparent;
+}
+.nav-2 ul li:nth-last-child(2) a:after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: -15px;
+  content: '';
+  width: 0;
+  height: 0;
+  display: block;
+  border-left: 15px solid #FFFFFF;
+  border-bottom: 60px solid transparent;
+}
+.nav-2 ul li:last-child a {
+  padding: 0 25px 0 30px;
+  color: #000;
+}
+.nav-2 ul li:last-child a:hover {
+  background: #FFE700;
+}
+.nav-2 ul li a {
+  position: relative;
+  display: block;
+  padding: 0 25px;
+  color: #666666;
+  font-size: 14px;
+  line-height: 60px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s linear 0s;
+  -moz-transition: all 0.3s linear 0s;
+  -ms-transition: all 0.3s linear 0s;
+  -o-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+}
+.nav-2 ul li a:hover {
+  background: #FFE700;
+}
+.nav-2 ul li a:hover:before {
+  border-right: 15px solid #FFE700;
+}
+.nav-2 ul li a:hover:after {
+  border-left: 15px solid #FFE700;
+}
+.nav-2 ul li a.logo {
+  background: #FFE700;
+  width: 30px;
+  height: 30px;
+  padding: 15px 30px 15px 15px;
+  line-height: 1;
+  vertical-align: middle;
+}
+.nav-2 ul li a.logo:hover {
+  background: #FFE700;
+}
+.nav-2 ul li a.logo img {
+  width: 100%;
+}
+.nav-2 ul li a i {
+  margin: 0 0 0 6px;
+}
+.nav-2 ul li .menu {
+  display: none;
+  position: absolute;
+  background: #FFFFFF;
+  top: 100%;
+  max-width: 100%;
+  width: 193px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 3px solid #ffce54;
+  border-radius: 0 0 3px 3px;
+  overflow: hidden;
+}
+.nav-2 ul li .menu li {
+  display: block;
+  width: 100%;
+  height: 45px;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.nav-2 ul li .menu li:nth-child(2),
+.nav-2 ul li .menu li:nth-last-child(2) {
+  height: 45px;
+}
+.nav-2 ul li .menu li:nth-child(2) a:before,
+.nav-2 ul li .menu li:nth-last-child(2) a:before,
+.nav-2 ul li .menu li:nth-child(2) a:after,
+.nav-2 ul li .menu li:nth-last-child(2) a:after {
+  content: '';
+  display: none;
+}
+.nav-2 ul li .menu li a {
+  background: #FFFFFF;
+  padding: 0 15px 0 30px;
+  color: #666666;
+  line-height: 45px;
+  text-align: left;
+}
+.nav-2 ul li .menu li a:hover {
+  background: #FFE700;
+}
+
 </style>
 <section class="banner">
     <div class="container">
@@ -110,52 +258,58 @@
         <div class="col-md-6">
             <p class="single-product-title" style="font-size: 24px;">{{ object.title }}</p>
             <div class="row">
-                <div class="col-md-6 mt-3">
+                <div class="col-md-4 mt-3">
                     {% if object.inbox %}
-                        <p class="in_box"><img src="{% static './images/radius.svg' %}" alt="">
+                        <p class="in_box" style="width:172px"><img src="{% static './images/radius.svg' %}" alt="">
                         {{ object.inbox }}
                     {% endif %}
                     {% if object.delivery %}
-                          <p class="in_box"><img src="{% static './images/radius.svg' %}" alt="">
+                          <p class="in_box" style="width:172px"><img src="{% static './images/radius.svg' %}" alt="">
                         {{ object.delivery }}
                     {% endif %}
                     </p>
                 </div>
-                <div class="col-md-6 mt-3">
+                <div class="col-md-4 mt-3">
                     <p class="in_article"><img src="{% static './images/radius.svg' %}" alt=""> {% trans 'Артикул' %}:{{ object.sku }}</p>
+                </div>
+                <div class="col-md-4 mt-2">
+                    <div class="pdf">
+                         <a href="{{ object.pdf.url|default:'' }}"> <img src="{% static './images/pdf' %} 1.svg" alt=""><span
+                            class="download_pdf">{% trans 'Скачать Pdf' %}</span></a>
+                    </div>
                 </div>
             </div>
             <p style="line-height:28px;font-family:sans-serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab delectus incidunt magni nostrum officia pariatur, ullam. Ab accusamus consequuntur dignissimos error ipsum labore laudantium necessitatibus nesciunt non perferendis, possimus, recusandae rem temporibus. Accusamus accusantium aut dolore error et excepturi harum, provident sed sequi tenetur. Consequuntur dicta doloremque dolores magnam minus.</p>
             <div class="row">
                 <div class="col-md-7">
-                      <p class="desc_prod mt-3 mb-1">КОНВEРТАЦИЯ:</p>
-                        <p class="desc_prod mt-1"><img src="{% static './images/bank.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;">15% НДС</span></p>
-                        <p class="desc_prod mt-1"><img src="{% static './images/krip.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;">Конвертация хизмати учун 1%</span></p>
-                        <p class="desc_prod mt-1"><img src="{% static './images/procent.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;">Банк хизмати учун 0.5%</span></p>
-                        <p class="desc_prod mt-1"><img src="{% static './images/dollar.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;">Доллар без НДС</span></p>
+                      <p class="desc_prod mb-1" style="color:#132E6B;font-weight:bold;margin-top:20px">КОНВEРТАЦИЯ:</p>
+                        <p class="desc_prod mt-1"><img src="{% static './images/bank.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;color:#132E6B;font-family:sans-serif">15% НДС</span></p>
+                        <p class="desc_prod mt-1"><img src="{% static './images/krip.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;color:#132E6B;font-family:sans-serif">Конвертация хизмати учун 1%</span></p>
+                        <p class="desc_prod mt-1"><img src="{% static './images/procent.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;color:#132E6B;font-family:sans-serif">Банк хизмати учун 0.5%</span></p>
+                        <p class="desc_prod mt-1"><img src="{% static './images/dollar.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;color:#132E6B;font-family:sans-serif">Доллар без НДС</span></p>
                 </div>
                 <div class="col-md-5">
-                      <div class="numbers_prod">
-                        <ul id="accordion6_4" class="accordion6_4">
-                            <li>
-                                <div class="link">{% trans 'Купить через банк' %}<i class="fa fa-chevron-down"
-                                                                                    style="margin-left:10px"></i></div>
-                                <ul class="submenu" style="position:absolute;margin-top:5px">
-                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a
-                                            href="https://qishloqqurilishbank.uz/ru/credits/dlya-fizicheskikh-lic">Qishloq
-                                        qurilish banki</a></li>
-                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a
-                                            href="https://www.infinbank.com/ru/private/credits/">Infinbank</a></li>
-                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a
-                                            href="https://hamkorbank.uz/uz/physical/credits/">Hamkorbank</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <br>
-                                <a href="{{ object.pdf.url|default:'' }}"> <img src="{% static './images/pdf' %} 1.svg" alt=""><span
-                    class="download_pdf">{% trans 'Скачать Pdf' %}</span></a>
-
+                 <div class='nav-2 mt-4'>
+                  <ul>
+                    <li>
+                      <a href='#calendar'>
+                        Купить через банк
+                        <i class='fa fa-caret-down'></i>
+                      </a>
+                      <ul class='menu'>
+                        <li>
+                          <a href='#event_one'>infin bank</a>
+                        </li>
+                        <li>
+                          <a href='#event_two'>Hamkorbank</a>
+                        </li>
+                        <li>
+                          <a href='#event_three'>Qishloq qurilish banki</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
                 </div>
             </div>
 
@@ -517,6 +671,11 @@
   splide.mount();
 
 
+</script>
+<script>
+$(".nav-2 li").hover(function () {
+	$(this).children("ul").stop().delay(200).animate({height: "toggle", opacity: "toggle"}, 200);
+});
 </script>
 <script>
     $(function() {
