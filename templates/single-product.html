@@ -111,24 +111,73 @@
             <p class="single-product-title" style="font-size: 24px;">{{ object.title }}</p>
             <div class="row">
                 <div class="col-md-6 mt-3">
-                    <p class="in_box"><img src="{% static './images/radius.svg' %}" alt="">
+                    {% if object.inbox %}
+                        <p class="in_box"><img src="{% static './images/radius.svg' %}" alt="">
                         {{ object.inbox }}
+                    {% endif %}
+                    {% if object.delivery %}
+                          <p class="in_box"><img src="{% static './images/radius.svg' %}" alt="">
                         {{ object.delivery }}
+                    {% endif %}
                     </p>
                 </div>
                 <div class="col-md-6 mt-3">
                     <p class="in_article"><img src="{% static './images/radius.svg' %}" alt=""> {% trans 'Артикул' %}:{{ object.sku }}</p>
                 </div>
             </div>
-            <p class="desc_prod mt-4">{{ object.short_description|safe }}</p>
+            <p style="line-height:28px;font-family:sans-serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab delectus incidunt magni nostrum officia pariatur, ullam. Ab accusamus consequuntur dignissimos error ipsum labore laudantium necessitatibus nesciunt non perferendis, possimus, recusandae rem temporibus. Accusamus accusantium aut dolore error et excepturi harum, provident sed sequi tenetur. Consequuntur dicta doloremque dolores magnam minus.</p>
+            <div class="row">
+                <div class="col-md-7">
+                      <p class="desc_prod mt-3 mb-1">КОНВEРТАЦИЯ:</p>
+                        <p class="desc_prod mt-1"><img src="{% static './images/bank.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;">15% НДС</span></p>
+                        <p class="desc_prod mt-1"><img src="{% static './images/krip.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;">Конвертация хизмати учун 1%</span></p>
+                        <p class="desc_prod mt-1"><img src="{% static './images/procent.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;">Банк хизмати учун 0.5%</span></p>
+                        <p class="desc_prod mt-1"><img src="{% static './images/dollar.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;">Доллар без НДС</span></p>
+                </div>
+                <div class="col-md-5">
+                      <div class="numbers_prod">
+                        <ul id="accordion6_4" class="accordion6_4">
+                            <li>
+                                <div class="link">{% trans 'Купить через банк' %}<i class="fa fa-chevron-down"
+                                                                                    style="margin-left:10px"></i></div>
+                                <ul class="submenu" style="position:absolute;margin-top:5px">
+                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a
+                                            href="https://qishloqqurilishbank.uz/ru/credits/dlya-fizicheskikh-lic">Qishloq
+                                        qurilish banki</a></li>
+                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a
+                                            href="https://www.infinbank.com/ru/private/credits/">Infinbank</a></li>
+                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a
+                                            href="https://hamkorbank.uz/uz/physical/credits/">Hamkorbank</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <br>
+                                <a href="{{ object.pdf.url|default:'' }}"> <img src="{% static './images/pdf' %} 1.svg" alt=""><span
+                    class="download_pdf">{% trans 'Скачать Pdf' %}</span></a>
+
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-md-6 mt-4">
-                    <p class="price_prod">{% trans 'Цена в долорах' %}:</p>
-                    <h3 class="count_prod">${{ object.dollar }}</h3>
+                    <p class="price_prod" style="font-size: 20px;font-weight: bold;color: #000;">{% trans 'Цена' %}:</p>
+                    <h3 class="count_prod" style="color: #e3000f;font-size: 35px;font-weight: bold;">${{ object.dollar }}</h3>
+                    <h3 class="count_prod" style="margin-top: 5px;font-size:20px">{{ object.dollar_exchanges|intcomma }} сум</h3>
                 </div>
                 <div class="col-md-6 mt-4">
-                    <p class="price_prod">{% trans 'Цена в суммах' %}:</p>
-                    <h3 class="count_prod">{{ object.dollar_exchanges|intcomma }} сум</h3>
+                    <div class="numbers_prod" style="margin-top: 3px;">
+                        <ul>
+                            <li>
+                                <button id="single-buttom" class="button-left button-bottom-left" type="button"
+                                        data-toggle="modal" data-target="#exampleModalCenter"
+                                        style="width: 195px;height: 57px;margin-top:20px;right:0px">
+                                    <p class="carousel-button-text">{% trans 'Купить' %}</p>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
             <div class="row">
@@ -157,46 +206,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="numbers_prod" style="margin-left: 26%;margin-top: 3px;">
-                        <ul>
-                            <li>
-                                <button id="single-buttom" class="button-left button-bottom-left" type="button"
-                                        data-toggle="modal" data-target="#exampleModalCenter"
-                                        style="width: 113px;height: 57px;">
-                                    <p class="carousel-button-text">{% trans 'Купить' %}</p>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 col-6 mt-4">
-                    <div class="numbers_prod">
-                        <ul id="accordion6_4" class="accordion6_4">
-                            <li>
-                                <div class="link">{% trans 'Купить через банк' %}<i class="fa fa-chevron-down"
-                                                                                    style="margin-left:10px"></i></div>
-                                <ul class="submenu" style="position:absolute;margin-top:5px">
-                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a
-                                            href="https://qishloqqurilishbank.uz/ru/credits/dlya-fizicheskikh-lic">Qishloq
-                                        qurilish banki</a></li>
-                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a
-                                            href="https://www.infinbank.com/ru/private/credits/">Infinbank</a></li>
-                                    <li style="box-shadow:0 0rem 0.9rem rgb(0 0 0 / 5%) !important"><a
-                                            href="https://hamkorbank.uz/uz/physical/credits/">Hamkorbank</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
 
                 </div>
             </div>
             <br>
-            <a href="{{ object.pdf.url|default:'' }}"> <img src="{% static './images/pdf' %} 1.svg" alt=""><span
-                    class="download_pdf">{% trans 'Скачать Pdf' %}</span></a>
         </div>
         <img src="{% static './images/settings.svg' %}" class="icon-right" style="transform: rotate(-25deg);" alt="">
         <img src="{% static './images/Group_419.svg' %}" class="icon-right-2"
-             style="position: absolute;right: 30%;transform: rotate(-35deg);" alt="">
+             style="position: absolute;right: 24%;transform: rotate(-35deg);" alt="">
     </div>
 </div>
 <div class="container">

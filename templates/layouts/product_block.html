@@ -56,9 +56,14 @@
                         <p class="detail" style="margin-top:2px">
                             {% trans 'Город' %}: {{ product.city }}</p>
                         <p class="detail" style="margin-top:2px;font-family: RobotoCondensed,Arial,sans-serif">
-                            <img src="{% static './images/radius.svg' %}"  alt="">
-                            {{ product.inbox }}
-                            {{ product.delivery }}</p>
+                            {% if product.inbox %}
+                                <img src="{% static './images/radius.svg' %}"  alt="">
+                                {{ product.inbox }}
+                            {% endif %}
+                            {% if product.delivery %}
+                                <img src="{% static './images/radius.svg' %}"  alt="">
+                                 {{ product.delivery }}</p>
+                            {% endif %}
                         <p class="desc-price">{{ product.get_price_dollar }} $ - {{ product.dollar_exchanges|intcomma }} сум</p>
                         <p class="mob-price">{{ product.get_price_dollar }} $</p>
                         <p class="mob-price">{{ product.dollar_exchanges|intcomma }} сум</p>

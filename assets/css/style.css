@@ -4207,6 +4207,7 @@ nav .nav-ul li a span.rotate {
     line-height: 18px;
     font-weight: normal;
     font-style: normal;
+    margin-bottom:14px
 }
 
 .desc_prod {
@@ -4215,6 +4216,7 @@ nav .nav-ul li a span.rotate {
     font-style: normal;
     font-weight: normal;
     font-family: sans-serif;
+    margin-bottom:14px
 }
 
 .price_prod {
@@ -5285,9 +5287,9 @@ ul.social-footer2 li a {
 }
 
 .accordion4 li i.fa-chevron-down {
-    right: 40px;
+    right: 7px;
     padding: 3px;
-    top: 12px;
+    top: 15px;
     left: auto;
     font-size: 16px;
 
@@ -5335,14 +5337,14 @@ ul.social-footer2 li a {
     display: block;
     text-decoration: none;
     color: #000;
-    padding: 12px 42px 14px 27px;
+    padding: 8px 25px 14px 14px;
     text-align: center;
     -webkit-transition: all 0.25s ease;
     -o-transition: all 0.25s ease;
     transition: all 0.25s ease;
 }
 
-.submenu4 a:hover {
+.submenu4 li:hover {
     background: #FFE700;
     color: #FFF;
 }
