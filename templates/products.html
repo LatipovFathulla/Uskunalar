@@ -134,18 +134,7 @@ accordion {
 }
 
 
-.accordion__item > .accordion-header:after {
-    content: "\f3d0";
-    font-family: IonIcons;
-    font-size: 2.5em;
-    float: right;
-    position: relative;
-    color: #fff;
-    top: -27px;
-    right: 8px;
-    transition: .3s all;
-    transform: rotate(0deg);
-}
+
 
 .accordion__item.active > .accordion-header:after {
   transform: rotate(-180deg);
@@ -327,17 +316,6 @@ accordion {
                                      <div class="accordion js-accordion" style="margin-top: 0px;">
                                        <div class="accordion__item js-accordion-item">
                                         <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}" style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory }}</a>  <hr class="hr-menu" style="border: 1px solid #CCCCCA"> </div>
-                                      <div class="accordion-body js-accordion-body">
-                                        <div class="accordion-body__contents">
-                                        {% for secondsubcategory in category.second_subcategories.all %}
-                                                 {% if request.GET.secondsubcategory == category.second_subcategories.pk %}
-                                                    <a class="secondsub" href="?secondsubcategory={{ secondsubcategory.pk }}">{{ secondsubcategory }}</a>
-                                                 {% else %}
-                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto cupiditate dolore excepturi! Asperiores et molestiae, reiciendis repellat reprehenderit vitae! Ad dicta dolor est minima possimus. Aliquid dicta eos veritatis.</p>
-                                                 {% endif %}
-                                        {% endfor %}
-                                        </div>
-                                        </div><!-- end of accordion body -->
                                       </div><!-- end of accordion item -->
                                     </div><!-- end of accordion -->
                                 {% endfor %}
