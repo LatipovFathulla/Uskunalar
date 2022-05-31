@@ -501,13 +501,18 @@ accordion {
             <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
                 <a class="prew_icon" href=""></a>
                 <ul style="display: flex;justify-content: center;">
+                    {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}"><img src="{% static 'images/left.svg' %}" style="position:relative;top:17px;height:18px"  alt=""></a>
+                    {% endif %}
                     {% for page in page_obj.paginator.page_range %}
                         {% if page >= page_obj.number|add:-3 and page <= page_obj.number|add:3 %}
-                            <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position:relative;padding-top:14px"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
+                                <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position:relative;padding-top:14px"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
                         {% endif %}
                     {% endfor %}
+                    {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}"><img src="{% static 'images/right.svg' %}"  style="position:relative;top:17px;height:18px" alt=""></a>
+                    {% endif %}
                 </ul>
-                <a href="?page={{ page }}"></a>
             </nav>
 <!--<div class="pagination" style="justify-content: center">-->
 <!--    <span class="step-links" style="display: flex;justify-content: center;align-items: center">-->
