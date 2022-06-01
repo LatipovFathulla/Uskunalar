@@ -2418,9 +2418,10 @@ nav .nav-ul li a span.rotate {
     }
 
     .button-left {
-        position: absolute;
-        left: 13%;
+        margin: auto;
+        display: block;
         bottom: -32px;
+        right:0%;
         background: #FFE700;
         border: none;
         z-index: 1;
@@ -2432,7 +2433,7 @@ nav .nav-ul li a span.rotate {
 
     .product-image-url {
         width: 100%;
-        height: 190px
+        height: 215px
     }
 
     .sort-menu-products {
