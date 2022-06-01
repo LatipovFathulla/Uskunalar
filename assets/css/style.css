@@ -26,11 +26,11 @@ p {
 
 tr:hover {
     background: #FFE700;
-    color:#fff
+    color:#132E6B
 }
 td:hover {
     background: #FFE700;
-    color:#fff
+    color:#132E6B;
 }
 
 .select_mate[data-selec-open] {
@@ -2454,7 +2454,7 @@ nav .nav-ul li a span.rotate {
     }
 
     .back_elements {
-        background: url(/static/img/backgorund-shadow.svg);
+        background: url(/static/images/backgorund-shadow.svg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -5409,7 +5409,7 @@ ul.social-footer2 li a {
 
 .submenu a:hover {
     background: #FFE700;
-    color: #FFF;
+    color: #132E6B;
 }
 
 /* input number product */
