@@ -315,8 +315,10 @@ accordion {
                                 {% for subcategory in category.subcategories.all %}
                                      <div class="accordion js-accordion" style="margin-top: 0px;">
                                        <div class="accordion__item js-accordion-item">
-                                        <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}" style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory }}</a>  <hr class="hr-menu" style="border: 1px solid #CCCCCA"> </div>
-                                      </div><!-- end of accordion item -->
+                                           {% if category.pk == subcategory.pk %}
+                                                <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}" style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory|safe }}</a>  <hr class="hr-menu" style="border: 1px solid #CCCCCA"> </div>
+                                           {% endif %}
+                                       </div><!-- end of accordion item -->
                                     </div><!-- end of accordion -->
                                 {% endfor %}
                         </ul>
@@ -506,7 +508,9 @@ accordion {
                     {% endif %}
                     {% for page in page_obj.paginator.page_range %}
                         {% if page >= page_obj.number|add:-3 and page <= page_obj.number|add:3 %}
-                                <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position:relative;padding-top:14px"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
+                                <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position:relative;padding-top:14px">
+                                    <a href="{% if request.GET.category|stringformat:'i' == category.pk %}?category={{ category.pk }}/?page={{ page }}{% else %}?page={{ page }}{% endif %}" style="color: #132E6B;">{{ page }}</a>
+                                </li>
                         {% endif %}
                     {% endfor %}
                     {% if page_obj.has_next %}
@@ -815,7 +819,7 @@ accordion {
 <script>
   function addUrlParameter(name, value) {
       let searchParams = new URLSearchParams(window.location.search)
-      if (['category', 'secondsubcategory', 'sku', 'brand', 'tag', 'sort', 'som'].includes(name)) {
+      if (['category', 'subcategory', 'sku', 'brand', 'tag', 'sort', 'som'].includes(name)) {
           searchParams.delete('?');
       }
       if (searchParams.has(name) && searchParams.get(name) === value) {

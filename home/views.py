@@ -26,12 +26,11 @@ from home.utils import get_wishlist_data
 class BannerInfoModelView(ListView):
     template_name = 'products.html'
     context_object_name = 'products'
-    paginate_by = 9
+    paginate_by = 1
 
     def get_queryset(self, ):
         q = self.request.GET.get('q', '')
         category = self.request.GET.get('category')
-        category2 = self.request.GET.get('category')
         subcategory = self.request.GET.get('subcategory')
         price = self.request.GET.get('price')
         sort = self.request.GET.get('sort')
@@ -43,7 +42,7 @@ class BannerInfoModelView(ListView):
         filters = {}
 
         if q:
-            filters['title__icontains'] = q
+            filters[Q('title__icontains') and Q('subcategory__icontains')] = q
 
         if category:
             filters['category_id'] = category
@@ -64,10 +63,6 @@ class BannerInfoModelView(ListView):
         if delivery:
             if delivery == 'delivery':
                 order_by.append('delivery')
-
-        if category2:
-            if category2 == 'category':
-                order_by.append('category')
 
         if created_at == 'created_at':
             order_by.append('created_at')
