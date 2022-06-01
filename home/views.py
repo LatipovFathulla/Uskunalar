@@ -26,7 +26,7 @@ from home.utils import get_wishlist_data
 class BannerInfoModelView(ListView):
     template_name = 'products.html'
     context_object_name = 'products'
-    paginate_by = 1
+    paginate_by = 9
 
     def get_queryset(self, ):
         q = self.request.GET.get('q', '')
