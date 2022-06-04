@@ -53,20 +53,6 @@ class RequestCreateView(CreateView):
 class HomeView(TemplateView):
     template_name = 'index.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['products'] = BannerInfoModel.objects.order_by('-pk')[:8]
-        context['categories'] = CategoryModel.objects.order_by('pk')[:10]
-        context['categories2'] = CategoryModel.objects.order_by('pk')
-        context['lines'] = LineModel.objects.order_by('-pk')[:8]
-        context['works'] = WorkModel.objects.order_by('-pk')[:4]
-        context['blogs'] = BlogModel.objects.order_by('-pk')
-        context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
-        context['second_subcategories'] = SecondSubCategoryModel.objects.order_by('-pk')
-        context['biznes'] = BiznesModel.objects.order_by('-pk')
-
-        return context
-
 
 class NavbarView(TemplateView):
     template_name = 'header.html'

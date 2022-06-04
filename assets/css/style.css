@@ -26,11 +26,11 @@ p {
 
 tr:hover {
     background: #FFE700;
-    color:#fff
+    color:#132E6B
 }
 td:hover {
     background: #FFE700;
-    color:#fff
+    color:#132E6B;
 }
 
 .select_mate[data-selec-open] {
@@ -2418,9 +2418,10 @@ nav .nav-ul li a span.rotate {
     }
 
     .button-left {
-        position: absolute;
-        left: 13%;
+        margin: auto;
+        display: block;
         bottom: -32px;
+        right:0%;
         background: #FFE700;
         border: none;
         z-index: 1;
@@ -2431,8 +2432,10 @@ nav .nav-ul li a span.rotate {
     }
 
     .product-image-url {
-        width: 100%;
-        height: 190px
+        width: auto;
+        margin: auto;
+        height: 230px;
+        display: block;
     }
 
     .sort-menu-products {
@@ -2454,7 +2457,7 @@ nav .nav-ul li a span.rotate {
     }
 
     .back_elements {
-        background: url(/static/img/backgorund-shadow.svg);
+        background: url(/static/images/backgorund-shadow.svg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -5399,7 +5402,7 @@ ul.social-footer2 li a {
 .submenu a {
     display: block;
     text-decoration: none;
-    color: #fff;
+    color: #132E6B;
     padding: 12px 42px 14px 36px;
     padding-left: 18px;
     -webkit-transition: all 0.25s ease;
@@ -5409,7 +5412,7 @@ ul.social-footer2 li a {
 
 .submenu a:hover {
     background: #FFE700;
-    color: #FFF;
+    color: #132E6B;
 }
 
 /* input number product */
