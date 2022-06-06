@@ -47,7 +47,7 @@
 
 
         span {
-            line-height: 30px;
+            line-height: 20px;
             font-family: system-ui;
         }
 
@@ -92,7 +92,7 @@
                   {% for category in line_categories %}
                       <div class="col-8 col-md-12">
                         <div class="link">
-                            <a {% if request.GET.category == category.pk|stringformat:'i' %}class="b-active"{% else %}class="a-active"{% endif %} href="?category={{ category.pk }}"> <span style="position: absolute;font-family: inherit;font-weight: 500;">{{ category.category|safe }}</span></a>
+                            <a {% if request.GET.category == category.pk|stringformat:'i' %}class="b-active"{% else %}class="a-active"{% endif %} href="?category={{ category.pk }}"> <span style="position: absolute;font-family: inherit;font-weight: 500;width:200px">{{ category.category|safe }}</span></a>
                         </div>
                       </div>
                     {% endfor %}
