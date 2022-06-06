@@ -315,9 +315,7 @@ accordion {
                                 {% for subcategory in category.subcategories.all %}
                                      <div class="accordion js-accordion" style="margin-top: 0px;">
                                        <div class="accordion__item js-accordion-item">
-                                           {% if category.pk == subcategory.pk %}
                                                 <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}" style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory|safe }}</a>  <hr class="hr-menu" style="border: 1px solid #CCCCCA"> </div>
-                                           {% endif %}
                                        </div><!-- end of accordion item -->
                                     </div><!-- end of accordion -->
                                 {% endfor %}
@@ -475,13 +473,11 @@ accordion {
                     <div class="container-fluid">
                         <div class="row">
                                <img src="{% static './images/Group_418.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);right:-15%" alt="">
-{#                           {% cache 60 products %}#}
                             {% for product in object_list %}
                                 <div class="col-md-4 col-12">
                                     {% include 'layouts/product_block.html' %}
                                 </div>
                             {% endfor %}
-{#                           {% endcache %}#}
                              <img src="{% static './images/Group_418.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);right:-15%" alt="">
                         </div>
                     </div>
@@ -489,11 +485,9 @@ accordion {
 
                 <div id="Paris" class="tabcontent3">
                     <div class="container-z">
-{#                      {% cache 60 products %}#}
                         {% for product in products %}
                             {% include 'layouts/products-sort.html' %}
                         {% endfor %}
-{#                      {% endcache %}#}
                     </div>
                 </div>
 
