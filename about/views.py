@@ -7,7 +7,7 @@ from about.forms import ContactModelForm
 from about.models import AboutModel
 from biznes.models import BiznesModel
 from blog.models import BlogModel
-from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, SecondSubCategoryModel
+from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 from lines.models import LineModel
 from works.models import WorkModel
 
@@ -71,7 +71,6 @@ class CatalogView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['categories'] = CategoryModel.objects.order_by('-pk')
         context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
-        context['second_subcategories'] = SecondSubCategoryModel.objects.order_by('-pk')
 
         return context
 

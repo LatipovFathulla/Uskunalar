@@ -6,7 +6,7 @@ from django.http import JsonResponse
 from django.views.generic import ListView, TemplateView, DetailView
 from rest_framework.response import Response
 from home.scrapper import _main
-from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, SecondSubCategoryModel
+from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 from home.utils import get_wishlist_data
 
 
@@ -45,7 +45,7 @@ class BannerInfoModelView(ListView):
             filters[Q('title__icontains') and Q('subcategory__icontains')] = q
 
         if category:
-            filters['category_id'] = category
+            filters['category_id'] = category.prefetch_related('category')
 
         if subcategory:
             filters['category_id'] = subcategory
@@ -69,7 +69,7 @@ class BannerInfoModelView(ListView):
             # diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
             # return diff.days <= 3
 
-        qs = BannerInfoModel.objects.filter(**filters).order_by(*order_by)
+        qs = BannerInfoModel.objects.prefetch_related('category').filter(**filters).order_by(*order_by)
 
         if sort:
             if sort == 'price':

@@ -4,11 +4,10 @@ from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
 from django.urls import path, include
 
-from about.views import AboutModelListView
-
 urlpatterns = [
     # ckeditor
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 urlpatterns += i18n_patterns(

@@ -1,12 +1,12 @@
 from biznes.models import BiznesModel
 from blog.models import BlogModel
-from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, SecondSubCategoryModel
+from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 from lines.models import LineModel
 from works.models import WorkModel
 
 
 def index_categories(request):
-    products = BannerInfoModel.objects.order_by('-pk')[:8]
+    products = BannerInfoModel.objects.select_related('category').order_by('-pk')[:8]
     categories2 = CategoryModel.objects.order_by('pk')
     lines = LineModel.objects.order_by('-pk')[:8]
     works = WorkModel.objects.order_by('-pk')[:4]

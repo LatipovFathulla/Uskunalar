@@ -9,7 +9,7 @@ class WorkModelListView(ListView):
     paginate_by = 9
 
     def get_queryset(self):
-        qs = WorkModel.objects.order_by('-pk')
+        qs = WorkModel.objects.select_related('work_image').order_by('-pk')
 
         return qs
 

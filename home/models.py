@@ -43,20 +43,6 @@ class SubCategoryModel(models.Model):
         verbose_name_plural = _('subcategories')
 
 
-class SecondSubCategoryModel(models.Model):
-    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), related_name='second_subcategories')
-    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'))
-    secondsubcategory = models.CharField(max_length=300, verbose_name=_('second_subcategory'))
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
-
-    def __str__(self):
-        return self.secondsubcategory
-
-    class Meta:
-        verbose_name = _('second_subcategory')
-        verbose_name_plural = _('second_subcategories')
-
-
 class BannerInfoModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
     sku = models.AutoField(primary_key=True, db_index=True)
@@ -65,7 +51,6 @@ class BannerInfoModel(models.Model):
     category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, verbose_name=_('category'), null=True)
     subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'), null=True, blank=True)
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True)
-    secondsubcategory = models.ForeignKey(SecondSubCategoryModel, on_delete=models.PROTECT, verbose_name=_('second_subcategory'), null=True, blank=True)
     price = models.DecimalField(max_digits=12, decimal_places=0, verbose_name=_('price'))
     dollar = models.IntegerField(verbose_name=_('dollar'), null=True)
     discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'))

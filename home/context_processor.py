@@ -1,4 +1,4 @@
-from home.models import CategoryModel, SubCategoryModel, SecondSubCategoryModel
+from home.models import CategoryModel, SubCategoryModel
 from django.core.cache import cache
 
 
@@ -13,13 +13,7 @@ def product_categories(request):
         subcategories = SubCategoryModel.objects.order_by('pk')
         cache.set('subcategories', subcategories, 60)
 
-    secondsubcategory = cache.get('secondsubcategory')
-    if not secondsubcategory:
-        secondsubcategory = SecondSubCategoryModel.objects.order_by('pk')
-        cache.set('secondsubcategory', secondsubcategory, 60)
-
     return {
         'categories': categories,
         'subcategories': subcategories,
-        'secondsubcategory': secondsubcategory
     }

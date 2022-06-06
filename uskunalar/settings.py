@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'django.contrib.humanize',
+    'debug_toolbar',
 
     'home',
     'about',
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -167,6 +169,17 @@ WATERMARK_RANDOM_POSITION_ONCE = False
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+DEBUG_TOOLBAR_CONFIG = {
+    # Toolbar options
+    'RESULTS_CACHE_SIZE': 3,
+    'SHOW_COLLAPSED': True,
+    # Panel options
+    'SQL_WARNING_THRESHOLD': 100,   # milliseconds
+}
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
 try:
     from .settings_local import *
 except ImportError:

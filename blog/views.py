@@ -10,7 +10,7 @@ class BlogModelView(ListView):
     paginate_by = 7
 
     def get_queryset(self):
-        qs = BlogModel.objects.order_by('-pk')
+        qs = BlogModel.objects.prefetch_related('blogs')
 
         return qs
 
