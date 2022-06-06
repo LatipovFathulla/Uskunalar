@@ -45,7 +45,7 @@ class BannerInfoModelView(ListView):
             filters[Q('title__icontains') and Q('subcategory__icontains')] = q
 
         if category:
-            filters['category_id'] = category.prefetch_related('category')
+            filters['category_id'] = category
 
         if subcategory:
             filters['category_id'] = subcategory
