@@ -90,7 +90,7 @@
 
                             <div class="row">
 
-                                {% for j in product.specifications.prefetch_related.products|slice:':4' %}
+                                {% for j in product.specifications.all|slice:':4' %}
                                 <div class="col-md-6">
 
                                     <p style="font-size: 14px;margin-bottom: 8px;font-family: RobotoCondensed,Arial,sans-serif">
