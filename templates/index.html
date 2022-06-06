@@ -16,6 +16,7 @@
       <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.6/swiper-bundle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel='stylesheet'
           href='https://mverissimo.github.io/tweenslideshow/dist/assets/stylesheet/application.min.css'>
@@ -1025,7 +1026,6 @@ body.deactive {
 }
 
 .swiper-slide {
-    text-align: center;
     font-size: 18px;
     background: #fff;
     position: relative;
@@ -1766,80 +1766,113 @@ body.deactive {
     </div>
 <!-- end carousel -->
 
-<div class="container ">
-    <div class="back_elements">
+<!--<div class="container ">-->
+<!--    <div class="back_elements">-->
 
-    </div>
-    <img src="{% static 'images/settings.svg' %}" class="icon-right" alt="">
+<!--    </div>-->
+<!--    <img src="{% static 'images/settings.svg' %}" class="icon-right" alt="">-->
 
-    <h1 class="text-center" style="font-weight: 600;font-size: 30px;padding: 20px;margin-top: 30px;">{% trans 'Производственииые линии' %}</h1>
+<!--    <h1 class="text-center" style="font-weight: 600;font-size: 30px;padding: 20px;margin-top: 30px;">{% trans 'Производственииые линии' %}</h1>-->
 
- {% for texts in lines %}
-    <p class="text-center" style="color: silver;">
-            {{ texts.text }}
-    </p>
-{% endfor %}
+<!-- {% for texts in lines %}-->
+<!--    <p class="text-center" style="color: silver;">-->
+<!--            {{ texts.text }}-->
+<!--    </p>-->
+<!--{% endfor %}-->
 
-    <br>
-    <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
-    <br>
-    <div class="contaier">
-        <div class="splide_4_5">
-            <div class="splide__track" style="    padding-left: 0px;
-    padding-right: 0px;
-    height: 431px;
-    margin: 19px;">
+<!--    <br>-->
+<!--    <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">-->
+<!--    <br>-->
+<!--    <div class="contaier">-->
+<!--        <div class="splide_4_5">-->
+<!--            <div class="splide__track" style="    padding-left: 0px;-->
+<!--    padding-right: 0px;-->
+<!--    height: 431px;-->
+<!--    margin: 19px;">-->
 
-                <ul class="splide__list">
-                    {% for line in lines %}
-                        <a href="{% url 'line:detail' pk=line.pk %}">
-                           <li class="splide__slide" style="margin: 4px;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%)"><img src="{{ line.image.url }}" style="width:270px;height:230px"
-                                                       alt="">
-                                <div class="lines" style="width: 271px">
-                                    <p style="margin: 10px;font-size: 16px;font-weight: 500;padding: 0px 7px 12px;">{{ line.title|safe }}</p>
-                                </div>
-                            </li>
-                        </a>
-                    {% endfor %}
-                </ul>
+<!--                <ul class="splide__list">-->
+<!--                    {% for line in lines %}-->
+<!--                        <a href="{% url 'line:detail' pk=line.pk %}">-->
+<!--                           <li class="splide__slide" style="margin: 4px;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%)"><img src="{{ line.image.url }}" style="width:270px;height:230px"-->
+<!--                                                       alt="">-->
+<!--                                <div class="lines" style="width: 271px">-->
+<!--                                    <p style="margin: 10px;font-size: 16px;font-weight: 500;padding: 0px 7px 12px;">{{ line.title|safe }}</p>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                        </a>-->
+<!--                    {% endfor %}-->
+<!--                </ul>-->
 
-            </div>
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="splide_4_6">-->
+<!--            <div class="splide__track" style="padding-left: 0px;padding-right: 0px;height: 431px;margin: 19px;">-->
+
+<!--                <ul class="splide__list">-->
+<!--                    {% for line in lines %}-->
+<!--                    <li class="splide__slide"><img src="{{ line.image.url }}" style="width:100%;height:auto"-->
+<!--                                                   alt="">-->
+<!--                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:100%">-->
+<!--                            <span style="position:absolute;margin:10px">{{ line.title }}</span>-->
+<!--                            <br>-->
+<!--                            <div class="center_4_6">-->
+<!--                                <a href="{% url 'line:detail' pk=line.pk %}">-->
+<!--                                    <button class="btn"-->
+<!--                                            style="margin: 12px auto;display: none;background:#FFE700">-->
+<!--                                        {% trans 'Подробнее' %}-->
+<!--                                    </button>-->
+<!--                                </a>-->
+<!--                                <br>-->
+<!--                            </div>-->
+
+<!--                        </div>-->
+
+<!--                    </li>-->
+<!--                    {% endfor %}-->
+<!--                </ul>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <br>-->
+<!--    <img src="{% static 'images/Group_417.svg' %}" class="icon-left"-->
+<!--         style="position: absolute;right: 4%;transform: rotate(-23.65deg);width: 70px;" alt="">-->
+<!--</div>-->
+<div class="products-section">
+    <div class="products-section_container">
+        <!-- Here Goes Title and short description -->
+        <div class="products-section_content">
+            <h2 class="products-section_title">Bizning Liniyalar</h2>.swiper-slide
+            <h3 class="products-section_desc">Eng yaxshi sifat hamda Eng yaxshi xizmat ko'rsatish</h3>
         </div>
-        <div class="splide_4_6">
-            <div class="splide__track" style="padding-left: 0px;padding-right: 0px;height: 431px;margin: 19px;">
 
-                <ul class="splide__list">
-                    {% for line in lines %}
-                    <li class="splide__slide"><img src="{{ line.image.url }}" style="width:100%;height:auto"
-                                                   alt="">
-                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:100%">
-                            <span style="position:absolute;margin:10px">{{ line.title }}</span>
-                            <br>
-                            <div class="center_4_6">
-                                <a href="{% url 'line:detail' pk=line.pk %}">
-                                    <button class="btn"
-                                            style="margin: 12px auto;display: none;background:#FFE700">
-                                        {% trans 'Подробнее' %}
-                                    </button>
-                                </a>
-                                <br>
-                            </div>
-
-                        </div>
-
-                    </li>
-                    {% endfor %}
-                </ul>
-
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {% for line in lines %}
+                <div class="swiper-slide">
+                    <img src="{{ line.image.url }}" alt="" class="swiper-slide_img">
+                    <div class="swiper-slide-content">
+                        <h4 class="swiper-slide_title">{{ line.title }}</h4>
+                        <a href="{% url 'line:detail' pk=line.pk %}" class="swiper-slide_desc">{% trans 'Подробнее' %}</a>
+                    </div>
+                    <a href="{% url 'line:detail' pk=line.pk %}" class="swiper-slide_link"><span>{% trans 'Подробнее' %}</span></a>
+                </div>
+               {% endfor %}
             </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+                <img src="/static/images/left-arrow.svg" alt="" class="swiper-button_prev">
+                <img src="/static/images/right-arrow.svg" alt="" class="swiper-button_next">
+
         </div>
     </div>
-
-    <br>
-    <img src="{% static 'images/Group_417.svg' %}" class="icon-left"
-         style="position: absolute;right: 4%;transform: rotate(-23.65deg);width: 70px;" alt="">
 </div>
-
 <div class="text-center">
     <ul>
         <li>
@@ -2454,8 +2487,6 @@ body.deactive {
 <script src="//code-eu1.jivosite.com/widget/rmQE0QqY5D" async></script>
 <script src="{% static 'js/main.js' %}"></script>
 <script>
-//= include ../../../node_modules/jquery/dist/jquery.min.js
-console.log('work')
   var utils = {
     // From http://stackoverflow.com/questions/11197247/javascript-equivalent-of-jquerys-extend-method
     extend: function (defaults, options) {
@@ -2974,6 +3005,12 @@ function getSlideSize() {
   let windowSize = window.innerWidth;
 
   switch (true) {
+      case windowSize >= 4000:
+      return slideSize = 7;
+
+    case windowSize >= 3000:
+      return slideSize = 6;
+
     case windowSize <= 3000 && windowSize > 2000:
       return slideSize = 5;
 
