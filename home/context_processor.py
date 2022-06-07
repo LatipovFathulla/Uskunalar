@@ -23,3 +23,9 @@ def product_categories(request):
         'subcategories': subcategories,
         'secondsubcategory': secondsubcategory
     }
+
+
+def category_context_processor(request):
+    context = {}
+    context['categories'] = SubCategoryModel.objects.all()
+    return context

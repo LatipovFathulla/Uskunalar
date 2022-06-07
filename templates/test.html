@@ -1,0 +1,7 @@
+{% for subcategory in subcategories %}
+    {% ifchanged subcategory.category.pk %}
+         <span style="color: red">{{ subcategory.category.category|safe }}</span>
+    {% endifchanged %}
+        <p>{{ subcategory.subcategory|safe }}</p>
+{% endfor %}
+
