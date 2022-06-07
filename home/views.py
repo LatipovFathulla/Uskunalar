@@ -7,7 +7,7 @@ import json
 from django.views.generic import ListView, TemplateView, DetailView
 from rest_framework.response import Response
 from home.scrapper import _main
-from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, SecondSubCategoryModel
+from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 from home.utils import get_wishlist_data
 
 
@@ -27,7 +27,7 @@ from home.utils import get_wishlist_data
 class BannerInfoModelView(ListView):
     template_name = 'products.html'
     context_object_name = 'products'
-    paginate_by = 1
+    paginate_by = 9
 
     def get_queryset(self, ):
         q = self.request.GET.get('q', '')

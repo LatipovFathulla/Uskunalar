@@ -1,6 +1,6 @@
 from biznes.models import BiznesModel
 from blog.models import BlogModel
-from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, SecondSubCategoryModel
+from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 from lines.models import LineModel
 from works.models import WorkModel
 

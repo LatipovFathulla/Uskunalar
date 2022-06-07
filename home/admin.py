@@ -43,15 +43,6 @@ class SubCategoryModelAdmin(MyTranslationAdmin):
     search_fields = ['category', 'subcategory']
     list_filter = ['category', 'subcategory']
 
-
-#
-# @admin.register(SecondSubCategoryModel)
-# class SecondSubCategoryModelAdmin(MyTranslationAdmin):
-#     list_display = ['category', 'subcategory', 'secondsubcategory', 'created_at']
-#     search_fields = ['category', 'subcategory', 'secondsubcategory', ]
-#     list_filter = ['category', 'subcategory', 'secondsubcategory', ]
-#
-
 class BannerImageModelAdmin(admin.TabularInline):
     model = BannerImageModel
 
@@ -68,8 +59,7 @@ class BannerForm(forms.ModelForm):
 
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(MyTranslationAdmin):
-    list_display = ['pk', 'title', 'dollar', 'pdf', 'city', 'created_at', 'category', 'subcategory',
-                    'secondsubcategory', ]
+    list_display = ['pk', 'title', 'dollar', 'pdf', 'city', 'created_at', 'category', 'subcategory']
     search_fields = ['title', 'pk']
     list_filter = ['created_at']
     readonly_fields = ['get_price', 'get_price_dollar']

@@ -3,7 +3,10 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
 from django.urls import path, include
+<<<<<<< HEAD
 from home.views import CategoryTest, get_subcategory
+=======
+>>>>>>> 871bf0193b5253f5d27967432f11ab02d33c05a8
 
 urlpatterns = [
     # ckeditor
