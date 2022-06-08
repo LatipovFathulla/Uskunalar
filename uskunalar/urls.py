@@ -3,10 +3,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
 from django.urls import path, include
-<<<<<<< HEAD
 from home.views import CategoryTest, get_subcategory
-=======
->>>>>>> 871bf0193b5253f5d27967432f11ab02d33c05a8
 
 urlpatterns = [
     # ckeditor
@@ -24,7 +21,7 @@ urlpatterns += i18n_patterns(
     path('biznes/', include('biznes.urls', namespace='biznes')),
     path('products/', include('home.urls', namespace='products')),
     path('test/', CategoryTest.as_view()),
-    path('bannerinfomodel/', get_subcategory, name='sub')
+    path('getSubcategory/', get_subcategory, name='sub')
 )
 
 
