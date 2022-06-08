@@ -194,7 +194,161 @@
           opacity: 1; }
 
 
+.catalog-container {
+    display: flex;
+    align-items: flex-start;
+    visibility: hidden;
+    justify-content:center;
+    position:absolute;
+    z-index:9999;
+    top:17%;
+}
+.catalog-container.active {
+    visibility: visible;
+}
 
+/* Main Menu */
+
+.catalog-menu-container {
+    max-width: 100%;
+    width: 291px;
+    min-height: 557px;
+    height: 100%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    transition: .1s ease;
+    background-color:#fff;
+}
+.catalog-menu-container.active {
+    visibility: visible;
+    display: block;
+    opacity: 1;
+}
+
+.catalog-menu_title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.catalog-menu-title_block {
+    border-bottom: 1px solid gray;
+    padding: 0 20px;
+}
+
+.catalog-menu_list-item {
+    padding: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .5s ease;
+}
+
+.catalog-menu_list-item:hover {
+    background-color: #ffe700;
+}
+
+.catalog-menu_list-item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.catalog-menu_list-item-content-icon {
+    color: #131311;
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.catalog-menu_list-item-content_title {
+    color: #131311;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Sub Menu */
+.catalog-submenu-container {
+    max-width: 100%;
+    width: 900px;
+    min-height: 557px;
+    height: 100%;
+    margin-left: 10px;
+    background-color: #ffffff;
+    border: 1px solid gray;
+    border-radius: 10px;
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    transform: translateX(-1%);
+    transition: .5s ease-out;
+}
+
+.catalog-submenu-container.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+    display: initial;
+}
+
+.catalog-submenu-backend {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+}
+
+.catalog-submenu-backend.active {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+.catalog-submenu-subcategories_list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    padding: 17px;
+}
+
+.catalog-submenu-subcategories_list-item {
+    max-width: 100%;
+    width: 250px;
+    min-height: 100%;
+    height: 250px;
+}
+
+.catalog-submenu-subcategories_list-item a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 22px 47px;
+    background-color: white;
+    transition: .5s ease;
+    /* border: 1px solid gray; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.catalog-submenu-subcategories_list-item a:hover {
+    background-color: yellow;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.subcategory-img {
+    max-width: 100%;
+    width: 110px;
+}
+
+.subcategroy-title {
+    margin-top: 16px;
+    font-size: 16px;
+    color: black;
+}
 </style>
 <div class="nav-desk-1">
 <!-- start navbar -->
@@ -348,31 +502,32 @@
     border-radius: 6px;
     margin: 13px;">
                     <li class="has-children" style="min-width:70px">
-                        <a href=""  style="background-color:transparent"><p class="nav-link" style="margin: 10px auto; display: table;color:#000;"><img src="{% static './images/squares_2.svg' %}" alt=""><v style="margin-left: 4px;font-size: 20px;font-weight: 400;font-style: normal;">{% trans 'Каталог' %}</v></p></a>
-
-                      <ul class="dropdown arrow-top" style="background: #32414a;">
-                           {% for category in categories %}
-                            <li class="has-children">
-                                    <a style="text-align: center;color:red" href="{% url 'products:product' %}?category={{ category.pk }}"><font color="#fff">{{ category.category|safe }}</font></a>
-                                <hr style="border-bottom: 1px solid #b5bdcc;margin-top:0px;margin-bottom:0px">
-                              <ul class="dropdown menu-1" style="background:#d6effb">
-                                  {% for subcategory in category.subcategories.all %}
-                                      <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;">{{ subcategory|safe }}</a></li>
-                                  {% endfor %}
-                                   <ul class="second-dropdown">
-                                        {% for secondsubcategory in category.second_subcategories.all %}
-                                            {% if request.GET.secondsubcategory.pk == second_subcategories.pk %}
-                                                    <li><a href="{% url 'products:product' %}?secondsubcategory={{ secondsubcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;font-size: 17px;font-weight: 500;display:table;min-width:200px;height:35px;border-radius:6px"><p style="margin-top: 10px;
-                                                            text-align:center">{{ secondsubcategory|safe }}</p></a></li>
-                                            {% endif %}
-                                        {% endfor %}
-                               </ul>
-                              </ul>
-                            </li>
-                           {% endfor %}
-                      </ul>
+<!--                        asdasd-->
+                        <a style="background-color:transparent" class="catalog-button"><p class="nav-link" style="margin: 10px auto; display: table;color:#000;"><img src="{% static './images/squares_2.svg' %}" class="catalog-image" alt=""><v style="margin-left: 4px;font-size: 20px;font-weight: 400;font-style: normal;">{% trans 'Каталог' %}</v></p></a>
+<!--                      <ul class="dropdown arrow-top" style="background: #32414a;">-->
+<!--                           {% for category in categories %}-->
+<!--                            <li class="has-children">-->
+<!--                                    <a style="text-align: center;color:red" href="{% url 'products:product' %}?category={{ category.pk }}"><font color="#fff">{{ category.category|safe }}</font></a>-->
+<!--                                <hr style="border-bottom: 1px solid #b5bdcc;margin-top:0px;margin-bottom:0px">-->
+<!--                              <ul class="dropdown menu-1" style="background:#d6effb">-->
+<!--                                  {% for subcategory in category.subcategories.all %}-->
+<!--                                      <li><a href="{% url 'products:product' %}?subcategory={{ subcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;">{{ subcategory|safe }}</a></li>-->
+<!--                                  {% endfor %}-->
+<!--                                   <ul class="second-dropdown">-->
+<!--                                        {% for secondsubcategory in category.second_subcategories.all %}-->
+<!--                                            {% if request.GET.secondsubcategory.pk == second_subcategories.pk %}-->
+<!--                                                    <li><a href="{% url 'products:product' %}?secondsubcategory={{ secondsubcategory.pk }}" style="text-decoration: none;color:#000;border-bottom: 1px solid #b5bdcc;font-size: 17px;font-weight: 500;display:table;min-width:200px;height:35px;border-radius:6px"><p style="margin-top: 10px;-->
+<!--                                                            text-align:center">{{ secondsubcategory|safe }}</p></a></li>-->
+<!--                                            {% endif %}-->
+<!--                                        {% endfor %}-->
+<!--                               </ul>-->
+<!--                              </ul>-->
+<!--                            </li>-->
+<!--                           {% endfor %}-->
+<!--                      </ul>-->
                     </li>
                   </ul>
+
         <nav class="sidebar" style="background-color:#32414a">
             <div class="text">
                 {% trans 'Категории' %}
@@ -483,3 +638,134 @@
         </div>
     </div>
 </div>
+<div class="container">
+     <div class="catalog-container">
+        <!-- Catalog Menu -->
+        <div class="catalog-menu-container">
+            <!-- Catalog Title -->
+            <div class="catalog-menu-title_block">
+                <h2 class="catalog-menu_title bottom_line p-3">Catalog</h2>
+            </div>
+            <!-- Catalog List -->
+            <ul class="catalog-menu_list">
+                {% for category in categories %}
+                <li id="us-{{ category.pk }}" class="catalog-menu_list-item">
+                    <a href="" class="catalog-menu_list-item-content">
+                        <i class="catalog-menu_list-item-content-icon fa-brands fa-monero"></i>
+                        <span class="catalog-menu_list-item-content_title">{{ category.category|safe }}</span>
+                    </a>
+                    <i class="catalog-menu_list-rightIcon fa-solid fa-chevron-right"></i>
+                </li>
+               {% endfor %}
+            </ul>
+        </div>
+        <!-- Catalog Sub Menu -->
+        <div class="catalog-submenu-container">
+            {% for category in categories %}
+            <div id="us-{{ category.pk }}" class="catalog-submenu-backend">
+                <ul class="catalog-submenu-subcategories_list">
+                    {% for subcategory in category.subcategories.all %}
+                        <li class="catalog-submenu-subcategories_list-item">
+                            <a href="?subcategory={{ subcategory.pk }}">
+                                <img src="/static/images/Rectangle 590.png" alt="" class="subcategory-img">
+                                <span class="subcategroy-title">{{ subcategory|safe }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+           {% endfor %}
+        </div>
+    </div>
+</div>
+<script>
+"use strict";
+
+const cycling_catalog = Array.from(
+  document.querySelectorAll(".catalog-submenu-backend")
+);
+const button = document.querySelector(".catalog-button");
+const catalog_container = document.querySelector(".catalog-container");
+const catalogMenu_container = document.querySelector(".catalog-menu-container");
+const menu_item = document.querySelectorAll(".catalog-menu_list-item");
+const submenu_block = document.querySelector(".catalog-submenu-container");
+const menu_title = document.querySelectorAll(
+  ".catalog-menu_list-item-content_title"
+);
+
+button.addEventListener("click", () => {
+  catalog_container.classList.toggle("active");
+  catalogMenu_container.classList.toggle("active");
+
+  if (submenu_block.classList.contains('active')) {
+    submenu_block.classList.remove('active')
+  }
+});
+
+menu_item.forEach((item) => {
+  item.addEventListener("mouseover", () => {
+    let theID = item.id;
+    submenu_block.classList.add("active");
+    cycling_catalog.map((item) => {
+      if (item.id === theID) {
+        item.classList.add("active");
+        item.addEventListener('mouseover', () => {
+          item.classList.add("active");
+        })
+      }
+      else {
+        item.classList.remove("active");
+      }
+    });
+  });
+  item.addEventListener("mouseout", () => {
+    let theID = item.id;
+    cycling_catalog.map((item) => {
+      if (item.id === theID) {
+        item.classList.add("active");
+      }
+      else {
+        item.classList.remove("active");
+      }
+    });
+    submenu_block.classList.remove('active')
+  });
+});
+
+submenu_block.addEventListener('mouseover', () => {
+  submenu_block.classList.add("active");
+})
+submenu_block.addEventListener('mouseout', () => {
+  submenu_block.classList.remove("active");
+})
+
+menu_title.forEach((element) => {
+  let title = element.innerHTML;
+  let splitedTitle = title.split(" ");
+  let newArray = [];
+  if (splitedTitle.length >= 5) {
+    for (let i = 0; i < splitedTitle.length / 2; i++) {
+      newArray.push(splitedTitle[i]);
+    }
+    newArray.push("...");
+    element.innerHTML = newArray.join(" ");
+  }
+});
+
+// catalog image
+let catalog_image = document.querySelector(".catalog-image");
+let close_image = false;
+function changeImage(){
+
+    if (close_image){
+         catalog_image.src = '/static/images/close.svg'
+    } else {
+         catalog_image.src = '/static/images/squares_2.svg'
+    }
+}
+button.addEventListener('click', () => {
+    close_image = !close_image
+   changeImage();
+})
+</script>
+
