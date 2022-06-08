@@ -16,4 +16,14 @@ def product_categories(request):
     return {
         'categories': categories,
         'subcategories': subcategories,
+<<<<<<< HEAD
     }
+=======
+    }
+
+
+def category_context_processor(request):
+    context = {}
+    context['categories'] = SubCategoryModel.objects.all()
+    return context
+>>>>>>> 0cba3678754df37435d3d75841c69eac91f8ed09

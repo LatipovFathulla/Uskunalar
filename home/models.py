@@ -20,10 +20,6 @@ class CategoryModel(models.Model):
         # return mark_safe(self.category)
         return strip_tags(self.category)
 
-    # @admin.display(description="Category name")
-    # def f_category(self):
-    #     return mark_safe(self.category)
-
     class Meta:
         verbose_name = _('category')
         verbose_name_plural = _('categories')
@@ -91,6 +87,7 @@ class BannerInfoModel(models.Model):
     class Meta:
         verbose_name = _('products')
         verbose_name_plural = _('products')
+        ordering = ['title']
 
 
 class BannerImageModel(models.Model):

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.utils.html import format_html
+from django import forms
 from django.utils.safestring import mark_safe
 from modeltranslation.admin import TranslationAdmin
 
@@ -50,14 +51,24 @@ class ProductSpecificationsModelAdmin(admin.TabularInline):
     model = ProductSpecificationsModel
 
 
+class BannerForm(forms.ModelForm):
+    class Meta:
+        model = BannerInfoModel
+        fields = '__all__'
+
+
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(MyTranslationAdmin):
     list_display = ['pk', 'title', 'dollar', 'pdf', 'city', 'created_at', 'category', 'subcategory']
     search_fields = ['title', 'pk']
     list_filter = ['created_at']
     readonly_fields = ['get_price', 'get_price_dollar']
-
+    form = BannerForm
     inlines = [ProductSpecificationsModelAdmin, BannerImageModelAdmin]
+
+    # @admin.display
+    # def get_subcategories(self):
+    #     return
 
 
 @admin.register(CarouselModel)

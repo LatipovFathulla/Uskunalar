@@ -2,7 +2,8 @@ from datetime import datetime
 
 import pytz
 from django.db.models import Q, Min, Max
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+import json
 from django.views.generic import ListView, TemplateView, DetailView
 from rest_framework.response import Response
 from home.scrapper import _main
@@ -93,15 +94,12 @@ class BannerInfoModelView(ListView):
         ).values()
 
         return context
-    # def get_search(self, ):
-    #     qs = BannerInfoModel.objects.order_by('pk')
-    #
-    #     q = self.request.GET.get('q', '')
-    #
-    #     if q:
-    #         qs = qs.filter(Q(title__icontains=q) |
-    #                        Q(sku__id=q))
-    #     return qs
+
+
+def get_subcategory(request):
+    id = request.GET.get('id','')
+    result = list(SubCategoryModel.objects.filter(category_id=int(id)).values('id', 'name'))
+    return HttpResponse(json.dumps(result), content_type="application/json")
 
 
 class SingleModelDetailView(DetailView):
@@ -140,3 +138,7 @@ def add_to_wishlist(request, pk):
 
     data['wishlist_len'] = get_wishlist_data(wishlist)
     return JsonResponse(data)
+
+
+class CategoryTest(TemplateView):
+    template_name = 'test.html'
