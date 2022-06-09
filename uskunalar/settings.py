@@ -72,7 +72,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'blog.context_processor.home_categories',
                 'home.context_processor.product_categories',
-                'home.context_processor.category_context_processor',
                 'about.context_processor.index_categories',
             ],
         },
@@ -172,10 +171,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DEBUG_TOOLBAR_CONFIG = {
     # Toolbar options
-    'RESULTS_CACHE_SIZE': 3,
+    'RESULTS_CACHE_SIZE': 100,
     'SHOW_COLLAPSED': True,
     # Panel options
-    'SQL_WARNING_THRESHOLD': 100,   # milliseconds
+    'SQL_WARNING_THRESHOLD': 2000,   # milliseconds
 }
 
 INTERNAL_IPS = [

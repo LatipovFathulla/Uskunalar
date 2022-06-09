@@ -194,11 +194,20 @@
           opacity: 1; }
 
 
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #132E6B;
+}
+
 .catalog-container {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
     visibility: hidden;
-    justify-content:center;
+    grid-auto-flow:row;
+    grid-template-rows:auto auto;
+    grid-template-columns:auto auto;
     position:absolute;
     z-index:9999;
     top:17%;
@@ -238,6 +247,11 @@
     padding: 0 20px;
 }
 
+.catalog-menu_list {
+    overflow-y: scroll;
+    height: 501px;
+}
+
 .catalog-menu_list-item {
     padding: 17px;
     display: flex;
@@ -273,16 +287,16 @@
 /* Sub Menu */
 .catalog-submenu-container {
     max-width: 100%;
-    width: 900px;
-    min-height: 557px;
-    height: 100%;
-    margin-left: 10px;
+    width: 700px;
+    height: 557px;
+    margin-left: 3px;
     background-color: #ffffff;
     border: 1px solid gray;
     border-radius: 10px;
     visibility: hidden;
     display: none;
     opacity: 0;
+    overflow-y: scroll;
     transform: translateX(-1%);
     transition: .5s ease-out;
 }
@@ -292,6 +306,7 @@
     opacity: 1;
     transform: translateX(0);
     display: initial;
+    width:100%;
 }
 
 .catalog-submenu-backend {
@@ -335,13 +350,13 @@
 }
 
 .catalog-submenu-subcategories_list-item a:hover {
-    background-color: yellow;
+    background-color: #FFE700;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .subcategory-img {
     max-width: 100%;
-    width: 110px;
+    width: 150px;
 }
 
 .subcategroy-title {
@@ -667,7 +682,9 @@
                     {% for subcategory in category.subcategories.all %}
                         <li class="catalog-submenu-subcategories_list-item">
                             <a href="?subcategory={{ subcategory.pk }}">
-                                <img src="/static/images/Rectangle 590.png" alt="" class="subcategory-img">
+                                {% if subcategory.image %}
+                                    <img src="{{ subcategory.image.url }}" alt="" class="subcategory-img">
+                                {% endif %}
                                 <span class="subcategroy-title">{{ subcategory|safe }}</span>
                             </a>
                         </li>
@@ -691,6 +708,10 @@ const menu_item = document.querySelectorAll(".catalog-menu_list-item");
 const submenu_block = document.querySelector(".catalog-submenu-container");
 const menu_title = document.querySelectorAll(
   ".catalog-menu_list-item-content_title"
+);
+
+const subcategory_title = document.querySelectorAll(
+  ".subcategroy-title"
 );
 
 button.addEventListener("click", () => {
@@ -751,6 +772,20 @@ menu_title.forEach((element) => {
     element.innerHTML = newArray.join(" ");
   }
 });
+
+subcategory_title.forEach((element) => {
+  let title = element.innerHTML;
+  let splitedTitle = title.split(" ");
+  let newArray = [];
+  if (splitedTitle.length >= 5) {
+    for (let i = 0; i < splitedTitle.length / 2; i++) {
+      newArray.push(splitedTitle[i]);
+    }
+    newArray.push("...");
+    element.innerHTML = newArray.join(" ");
+  }
+});
+
 
 // catalog image
 let catalog_image = document.querySelector(".catalog-image");
