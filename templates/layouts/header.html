@@ -208,8 +208,8 @@
     grid-auto-flow:row;
     grid-template-rows:auto auto;
     grid-template-columns:auto auto;
-    position:absolute;
-    z-index:9999;
+    position:fixed;
+    z-index:9988;
     top:17%;
 }
 .catalog-container.active {
@@ -223,13 +223,12 @@
     width: 291px;
     min-height: 557px;
     height: 100%;
-    border: 1px solid gray;
-    border-radius: 10px;
     visibility: hidden;
     display: none;
     opacity: 0;
     transition: .1s ease;
     background-color:#fff;
+    box-shadow:0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
 }
 .catalog-menu-container.active {
     visibility: visible;
@@ -676,22 +675,27 @@
         </div>
         <!-- Catalog Sub Menu -->
         <div class="catalog-submenu-container">
-            {% for category in categories %}
-            <div id="us-{{ category.pk }}" class="catalog-submenu-backend">
-                <ul class="catalog-submenu-subcategories_list">
-                    {% for subcategory in category.subcategories.all %}
-                        <li class="catalog-submenu-subcategories_list-item">
-                            <a href="?subcategory={{ subcategory.pk }}">
-                                {% if subcategory.image %}
-                                    <img src="{{ subcategory.image.url }}" alt="" class="subcategory-img">
-                                {% endif %}
-                                <span class="subcategroy-title">{{ subcategory|safe }}</span>
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-           {% endfor %}
+                {% for category in categories %}
+                <div id="us-{{ category.pk }}" class="catalog-submenu-backend">
+                    <ul class="catalog-submenu-subcategories_list">
+                        {% if category.subcategories.all %}
+                             {% for subcategory in category.subcategories.all %}
+                                <li class="catalog-submenu-subcategories_list-item">
+                                    <a href="?subcategory={{ subcategory.pk }}">
+                                        {% if subcategory.image %}
+                                            <img src="{{ subcategory.image.url }}" alt="" class="subcategory-img">
+                                        {% endif %}
+                                        <span class="subcategroy-title">{{ subcategory|safe }}</span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                        <h1>Подкатегории не существует!</h1>
+                        {% endif %}
+                    </ul>
+                </div>
+               {% endfor %}
+
         </div>
     </div>
 </div>
