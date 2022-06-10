@@ -1062,13 +1062,16 @@ body.deactive {
 .swiper-slide-content {
     position: absolute;
     color: white;
-    left: 5%;
-    bottom: 5%;
+    /* left: 5%; */
+    bottom: 0%;
+    width: 100%;
     z-index: 7;
+    padding: 10px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-direction: column
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,2.8));
+    flex-direction: column;
 }
 
 .swiper-slide_title {
@@ -2405,7 +2408,6 @@ body.deactive {
                     <img src="{{ line.image.url }}" alt="" class="swiper-slide_img">
                     <div class="swiper-slide-content">
                         <h4 class="swiper-slide_title">{{ line.title }}</h4>
-                        <a href="{% url 'line:detail' pk=line.pk %}" class="swiper-slide_desc">{% trans 'Подробнее' %}</a>
                     </div>
                     <a href="{% url 'line:detail' pk=line.pk %}" class="swiper-slide_link"><span>{% trans 'Подробнее' %}</span></a>
                 </div>
