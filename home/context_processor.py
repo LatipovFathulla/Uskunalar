@@ -3,15 +3,8 @@ from django.core.cache import cache
 
 
 def product_categories(request):
-    categories = cache.get('categories')
-    if not categories:
-        categories = CategoryModel.objects.order_by('pk')
-        cache.set('categories', categories, 10)
-
-    subcategories = cache.get('subcategories')
-    if not subcategories:
-        subcategories = SubCategoryModel.objects.order_by('pk')
-        cache.set('subcategories', subcategories, 10)
+    categories = CategoryModel.objects.order_by('pk')
+    subcategories = SubCategoryModel.objects.order_by('pk')
 
     return {
         'categories': categories,

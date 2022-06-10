@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import ListView, TemplateView, CreateView, DetailView
 from django.contrib import messages
-
+from django.core.cache import cache
 from about.forms import ContactModelForm
 from about.models import AboutModel
 from biznes.models import BiznesModel
@@ -53,7 +53,6 @@ class RequestCreateView(CreateView):
 class HomeView(TemplateView):
     template_name = 'index.html'
 
-
 class NavbarView(TemplateView):
     template_name = 'header.html'
 
@@ -73,4 +72,3 @@ class CatalogView(TemplateView):
         context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
 
         return context
-
