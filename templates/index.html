@@ -2408,6 +2408,7 @@ body.deactive {
                     <img src="{{ line.image.url }}" alt="" class="swiper-slide_img">
                     <div class="swiper-slide-content">
                         <h4 class="swiper-slide_title">{{ line.title }}</h4>
+                        <a href="{% url 'line:detail' pk=line.pk %}" class="swiper-slide_desc">{% trans 'Подробнее' %}</a>
                     </div>
                     <a href="{% url 'line:detail' pk=line.pk %}" class="swiper-slide_link"><span>{% trans 'Подробнее' %}</span></a>
                 </div>
