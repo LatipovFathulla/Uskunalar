@@ -21,6 +21,7 @@
     <link rel='stylesheet'
           href='https://mverissimo.github.io/tweenslideshow/dist/assets/stylesheet/application.min.css'>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
 </head>
 <style>
     .splide__arrows {
@@ -556,7 +557,6 @@ body.deactive {
     outline-color: #FFE700;
     padding: 2%;
     font-size: 1.1rem;
-    font-family: 'Montserrat-Regular'
 }
 
 .header-logo {
@@ -962,7 +962,6 @@ body.deactive {
     width: 100%;
     border: none;
     box-sizing: border-box;
-    font-family: Helvetica;
     font-size: 15px;
     background: transparent;
     color: var(--searchinput-color);
@@ -1527,9 +1526,10 @@ body.deactive {
 }
 
 .about-title {
-    font-size: 44px;
+    font-size: 47px;
     text-transform: uppercase;
-    color: #132e6b
+    color: #132e6b;
+    font-weight:600;
 }
 
 .about-mantra {
@@ -2533,7 +2533,7 @@ body.deactive {
         {% endfor %}
     </div>
 </div>
-<div class="text-center mt-3">
+<div class="text-center mt-5">
     <ul>
         <li>
             <a href="{% url 'products:product' %}">
@@ -2585,7 +2585,7 @@ body.deactive {
 
 <!--new about-->
 <!-- About Company -->
-<div class="about">
+<div class="about mt-4">
   <div class="about-video_block">
     <div class="about-video_side">
       <!-- Your Video -->

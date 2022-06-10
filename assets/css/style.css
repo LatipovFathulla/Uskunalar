@@ -2,12 +2,11 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: 'TT Norms';
+    font-family:"Poppins";
 }
 
 body {
     background-color: #fff;
-    font-family: 'TT Norms';
     box-sizing: border-box;
     width: 100%;
 }
@@ -188,7 +187,6 @@ td:hover {
   display: block;
   margin: 0px;
   cursor: pointer;
-  font-family:RobotoCondensed,Arial,sans-serif;
   font-weight:500;
   font-size:17px;
 }
@@ -236,7 +234,6 @@ td:hover {
     font-size: 18px;
     font-weight: 500;
     font-style: normal;
-    font-family: 'TT Norms';
     text-align: center;
     margin-left: 3%;
 }
@@ -2094,7 +2091,6 @@ nav .nav-ul li a span.rotate {
     display: block;
     color: #202634;
     text-decoration: none;
-    font-family: 'TT Norms';
     font-size: 20px;
     font-weight: 500;
     line-height: 16px;
@@ -2970,7 +2966,6 @@ nav .nav-ul li a span.rotate {
         font-style: 14px;
         line-height: 17px;
         color: #656565;
-        font-family: 'system-ui';
         margin-left: -3%;
     }
 
@@ -3967,7 +3962,6 @@ nav .nav-ul li a span.rotate {
         font-style: 14px;
         line-height: 17px;
         color: #656565;
-        font-family: 'system-ui';
     }
 
     .desc-paris {
@@ -4020,7 +4014,6 @@ nav .nav-ul li a span.rotate {
 
     .info-back-product {
         font-size: 14px;
-        font-family: 'system-ui';
         color: #a9a9a9;
         line-height: 17px;
         padding: 9px;
@@ -4128,13 +4121,11 @@ nav .nav-ul li a span.rotate {
     line-height: 22px;
     font-style: normal;
     font-weight: normal;
-    font-family: sans-serif;
 }
 
 .price_prod {
     font-size: 14px;
     font-weight: 500;
-    font-family: sans-serif;
     line-height: 18px;
     color: #a9a9a9;
 }
@@ -4187,7 +4178,6 @@ nav .nav-ul li a span.rotate {
     line-height: 20px;
     font-weight: normal;
     font-style: normal;
-    font-family: sans-serif;
 }
 
 
@@ -4304,7 +4294,6 @@ nav .nav-ul li a span.rotate {
     line-height: 25px;
     margin-top: 10px;
     margin-left: -1%;
-    font-family:RobotoCondensed,Arial,sans-serif;
 }
 
 .blog-right {
@@ -4692,7 +4681,6 @@ footer.light .footer-copyright {
     font-weight: 600;
     font-style: normal;
     line-height: 150%;
-    font-family: sans-serif;
     color: #fff;
 }
 
@@ -4702,7 +4690,6 @@ footer.light .footer-copyright {
     line-height: 150%;
     font-style: normal;
     font-weight: 600;
-    font-family: sans-serif;
     padding: 10px;
 }
 
@@ -4741,7 +4728,6 @@ ul.social-footer2 li a {
     font-weight: 600;
     font-style: normal;
     color: #fff;
-    font-family: sans-serif;
 }
 
 
@@ -5027,7 +5013,6 @@ ul.social-footer2 li a {
     display: block;
     padding: 23px 4px 2px 15px;
     color: #4D4D4D;
-    font-family: RobotoCondensed,Arial,sans-serif;
     font-size: 15px;
     font-weight: 500;
     height: 70px;
@@ -6025,7 +6010,6 @@ h3 {
     padding-top: 10px;
     font-size: 13px;
     font-weight: 100;
-    font-family: 'system-ui';
 }
 
 /* end js slider */
