@@ -210,7 +210,7 @@
     grid-template-columns:auto auto;
     position:fixed;
     z-index:9988;
-    top:17%;
+    top:22%;
 }
 .catalog-container.active {
     visibility: visible;
@@ -805,6 +805,11 @@ function changeImage(){
 button.addEventListener('click', () => {
     close_image = !close_image
    changeImage();
+})
+
+const body = document.querySelector("body")
+body.addEventListener("click", () => {
+   catalog_container.classList.remove("active")
 })
 </script>
 
