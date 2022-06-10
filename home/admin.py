@@ -43,6 +43,7 @@ class SubCategoryModelAdmin(MyTranslationAdmin):
     search_fields = ['category', 'subcategory']
     list_filter = ['category', 'subcategory']
 
+
 class BannerImageModelAdmin(admin.TabularInline):
     model = BannerImageModel
 
@@ -59,12 +60,19 @@ class BannerForm(forms.ModelForm):
 
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(MyTranslationAdmin):
-    list_display = ['pk', 'title', 'dollar', 'pdf', 'city', 'created_at', 'category', 'subcategory']
+    list_display = ['pk', 'title', 'dollar', 'get_html_photo', 'city', 'created_at', 'category', 'subcategory']
     search_fields = ['title', 'pk']
     list_filter = ['created_at']
     readonly_fields = ['get_price', 'get_price_dollar']
     form = BannerForm
     inlines = [ProductSpecificationsModelAdmin, BannerImageModelAdmin]
+    save_on_top = True
+
+    def get_html_photo(self, object):
+        if object.image:
+            return mark_safe(f"<img src='{object.image.url}', width=50, height=50>")
+
+    get_html_photo.short_description = "Картинки"
 
     # @admin.display
     # def get_subcategories(self):

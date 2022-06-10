@@ -97,8 +97,8 @@ class BannerInfoModelView(ListView):
 
 
 def get_subcategory(request):
-    id = request.GET.get('id','')
-    result = list(SubCategoryModel.objects.filter(category_id=int(id)).values('id', 'name'))
+    pk = request.GET.get('pk','')
+    result = list(str(SubCategoryModel.objects.filter(category_id=int(pk))).values('pk', 'subcategory'))
     return HttpResponse(json.dumps(result), content_type="application/json")
 
 
