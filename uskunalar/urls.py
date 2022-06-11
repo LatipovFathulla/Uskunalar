@@ -21,7 +21,7 @@ urlpatterns += i18n_patterns(
     path('biznes/', include('biznes.urls', namespace='biznes')),
     path('products/', include('home.urls', namespace='products')),
     path('test/', CategoryTest.as_view()),
-    path('getSubcategory/', get_subcategory, name='sub')
+    path('getSubcategory/', get_subcategory, name='subcategory')
 )
 
 

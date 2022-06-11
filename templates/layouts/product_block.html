@@ -55,6 +55,7 @@
                         <h4 class="front-title">{{ product.title }}</h4>
                         <p class="detail" style="margin-top:2px">
                             {% trans 'Город' %}: {{ product.city }}</p>
+                        <p>{{ product.subcategory }}</p>
                         <p class="detail" style="margin-top:2px;font-family: RobotoCondensed,Arial,sans-serif">
                             {% if product.inbox %}
                                 <img src="{% static './images/radius.svg' %}"  alt="">
