@@ -8,7 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
+"POT-Creation-Date: 2022-02-27 20:08+0500\n"
+=======
 "POT-Creation-Date: 2022-05-26 14:06+0500\n"
+>>>>>>> d915eaadc9ffe46a4b9990633e6c54e022f91471
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +22,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+<<<<<<< HEAD
+#: about/models.py:7 biznes/models.py:6 blog/models.py:6 home/models.py:51
+#: lines/models.py:6 videos/models.py:7 works/models.py:6
+msgid "title"
+msgstr "название"
+
+#: about/models.py:8 blog/models.py:7 home/models.py:53 home/models.py:106
+#: lines/models.py:7 lines/models.py:29
+msgid "image"
+msgstr "изображения"
+
+#: about/models.py:9 blog/models.py:8 lines/models.py:9 videos/models.py:8
+msgid "description"
+msgstr "описание"
+
+#: about/models.py:11 home/models.py:65 lines/models.py:10
+msgid "long_description"
+msgstr "длинная описания"
+
+#: about/models.py:12 about/models.py:26 biznes/models.py:9 home/models.py:12
+#: home/models.py:66 lines/models.py:11 videos/models.py:10
+msgid "created_at"
+msgstr "время создания"
+
+#: about/models.py:18
+msgid "about"
+msgstr "о нас"
+
+#: about/models.py:19
+msgid "abouts"
+msgstr "о нас"
+
+#: about/models.py:23
+msgid "name"
+msgstr "имя"
+
+#: about/models.py:24
+msgid "phone"
+msgstr "телефон"
+
+#: about/models.py:25
+msgid "message"
+msgstr "сообщения"
+
+#: about/models.py:32
+msgid "Request"
+msgstr "запрос"
+
+#: about/models.py:33
+msgid "Requests"
+msgstr "запросы"
+=======
 #: about/apps.py:8 about/models.py:19
 msgid "about"
 msgstr "о нас"
@@ -66,6 +122,7 @@ msgstr ""
 #: biznes/apps.py:8 biznes/models.py:23 biznes/models.py:24
 msgid "biznes"
 msgstr "бизнес"
+>>>>>>> d915eaadc9ffe46a4b9990633e6c54e022f91471
 
 #: biznes/models.py:9 biznes/models.py:28 biznes/models.py:31
 #: biznes/models.py:35 biznes/models.py:36
@@ -177,11 +234,15 @@ msgstr "в достакве"
 msgid "short_description"
 msgstr "короткая описания"
 
+<<<<<<< HEAD
+#: home/models.py:99 home/models.py:100 home/models.py:114
+=======
 #: home/models.py:75 lines/models.py:39
 msgid "long_description"
 msgstr "длинная описания"
 
 #: home/models.py:107 home/models.py:108 home/models.py:122 orders/models.py:10
+>>>>>>> d915eaadc9ffe46a4b9990633e6c54e022f91471
 msgid "products"
 msgstr "продукты"
 
@@ -303,6 +364,36 @@ msgstr "характеристика линии"
 msgid "line specifications"
 msgstr "характеристика линии"
 
+<<<<<<< HEAD
+#: templates/about.html:11
+msgid "О нашей компании"
+msgstr ""
+
+#: templates/about.html:12 templates/biznes.html:11 templates/blog.html:12
+#: templates/contacts.html:12 templates/lines.html:12
+#: templates/our_works.html:12 templates/products.html:29
+#: templates/single-biznes.html:11 templates/single-blog.html:12
+#: templates/single-lines.html:11 templates/single-product.html:12
+#: templates/single-work.html:12 templates/videos.html:13
+#: templates/wishlist.html:13
+msgid "Главная"
+msgstr ""
+
+#: templates/about.html:12 templates/index.html:83 templates/index.html:131
+#: templates/index.html:894 templates/layouts/header.html:67
+#: templates/layouts/header.html:116
+msgid "О нас"
+msgstr ""
+
+#: templates/biznes.html:10 templates/biznes.html:11 templates/index.html:71
+#: templates/index.html:618 templates/layouts/header.html:55
+#: templates/single-biznes.html:10 templates/single-biznes.html:12
+msgid "Готовый бизнес"
+msgstr ""
+
+#: templates/biznes.html:33
+msgid "Сроки использования"
+=======
 #: orders/models.py:18
 msgid "order"
 msgstr ""
@@ -343,6 +434,7 @@ msgstr ""
 
 #: templates/biznes.html:34
 msgid "Время добавления"
+>>>>>>> d915eaadc9ffe46a4b9990633e6c54e022f91471
 msgstr ""
 
 #: templates/biznes.html:44 templates/index.html:993 templates/index.html:1040
@@ -350,8 +442,13 @@ msgstr ""
 msgid "Смотреть еще"
 msgstr ""
 
+<<<<<<< HEAD
+#: templates/blog.html:11 templates/blog.html:12 templates/index.html:130
+#: templates/layouts/header.html:115 templates/single-blog.html:13
+=======
 #: templates/blog.html:11 templates/blog.html:12 templates/index.html:295
 #: templates/layouts/header.html:306 templates/single-blog.html:13
+>>>>>>> d915eaadc9ffe46a4b9990633e6c54e022f91471
 msgid "Наши статьи"
 msgstr ""
 
@@ -368,9 +465,15 @@ msgid "Категории"
 msgstr ""
 
 #: templates/contacts.html:11 templates/contacts.html:12
+<<<<<<< HEAD
+#: templates/index.html:86 templates/index.html:132 templates/index.html:899
+#: templates/index.html:908 templates/layouts/header.html:70
+#: templates/layouts/header.html:117
+=======
 #: templates/index.html:249 templates/index.html:297 templates/index.html:353
 #: templates/index.html:1149 templates/index.html:1158
 #: templates/layouts/header.html:248 templates/layouts/header.html:310
+>>>>>>> d915eaadc9ffe46a4b9990633e6c54e022f91471
 msgid "Контакты"
 msgstr ""
 
@@ -406,6 +509,84 @@ msgstr ""
 msgid "Наш филиал в Хорезме"
 msgstr ""
 
+<<<<<<< HEAD
+#: templates/index.html:49
+msgid "Русский"
+msgstr ""
+
+#: templates/index.html:51
+msgid "Узбекский"
+msgstr ""
+
+#: templates/index.html:53
+msgid "Английский"
+msgstr ""
+
+#: templates/index.html:64 templates/index.html:134
+#: templates/layouts/header.html:119
+msgid "Не нашли товар?"
+msgstr ""
+
+#: templates/index.html:68 templates/index.html:127
+#: templates/layouts/header.html:52 templates/lines.html:11
+#: templates/lines.html:12 templates/single-lines.html:10
+#: templates/single-lines.html:12
+msgid "Линии"
+msgstr ""
+
+#: templates/index.html:74 templates/index.html:128 templates/index.html:770
+#: templates/layouts/header.html:58 templates/layouts/header.html:113
+#: templates/our_works.html:11 templates/our_works.html:12
+#: templates/single-work.html:11 templates/single-work.html:13
+msgid "Наши работы"
+msgstr ""
+
+#: templates/index.html:77 templates/index.html:890
+#: templates/layouts/header.html:61
+msgid "Статьи"
+msgstr ""
+
+#: templates/index.html:80 templates/index.html:129 templates/index.html:886
+#: templates/layouts/header.html:64 templates/layouts/header.html:114
+#: templates/videos.html:12 templates/videos.html:13
+msgid "Наши видео"
+msgstr ""
+
+#: templates/index.html:126 templates/index.html:879
+#: templates/layouts/header.html:112 templates/layouts/header.html:134
+#: templates/products.html:28 templates/products.html:29
+msgid "Каталог"
+msgstr ""
+
+#: templates/index.html:139 templates/index.html:184
+#: templates/layouts/header.html:124 templates/layouts/header.html:190
+msgid "звонить сейчас"
+msgstr ""
+
+#: templates/index.html:151 templates/layouts/header.html:140
+#: templates/products.html:147 templates/products.html:205
+msgid "Категории"
+msgstr ""
+
+#: templates/index.html:209 templates/layouts/header.html:153
+msgid "Все категории"
+msgstr ""
+
+#: templates/index.html:261
+msgid "Все новогодние"
+msgstr ""
+
+#: templates/index.html:262
+msgid "предложения"
+msgstr ""
+
+#: templates/index.html:263
+msgid "Новогоднии скидки успейте купить"
+msgstr ""
+
+#: templates/index.html:263
+msgid "по выгодным ценам только сейчас!"
+=======
 #: templates/form.html:8 templates/requests.html:39
 msgid "Обратная связь с нами"
 msgstr ""
@@ -470,6 +651,7 @@ msgstr ""
 
 #: templates/index.html:378
 msgid "Поиск"
+>>>>>>> d915eaadc9ffe46a4b9990633e6c54e022f91471
 msgstr ""
 
 #: templates/index.html:558
@@ -508,6 +690,21 @@ msgstr ""
 msgid "Каталог Uskunalar"
 msgstr ""
 
+<<<<<<< HEAD
+#: templates/index.html:503 templates/products.html:564
+#: templates/single-product.html:170
+msgid "Популярные товары"
+msgstr ""
+
+#: templates/index.html:557 templates/products.html:452
+#: templates/products.html:615 templates/single-product.html:56
+#: templates/single-product.html:415 templates/wishlist.html:68
+msgid "Артикул"
+msgstr ""
+
+#: templates/index.html:639 templates/index.html:662 templates/index.html:722
+#: templates/index.html:744
+=======
 #: templates/index.html:740 templates/products.html:565
 #: templates/single-product.html:249
 msgid "Популярные товары"
@@ -523,6 +720,7 @@ msgstr ""
 
 #: templates/index.html:877 templates/index.html:900 templates/index.html:960
 #: templates/index.html:982
+>>>>>>> d915eaadc9ffe46a4b9990633e6c54e022f91471
 msgid "Читать полностью"
 msgstr ""
 
@@ -564,6 +762,13 @@ msgstr ""
 msgid "All rights reserved."
 msgstr ""
 
+<<<<<<< HEAD
+#: templates/layouts/header.html:48
+msgid "Продукты"
+msgstr ""
+
+#: templates/lines.html:50
+=======
 #: templates/layouts/header.html:388
 msgid "Все категории"
 msgstr ""
@@ -580,6 +785,7 @@ msgid "Артикул"
 msgstr ""
 
 #: templates/lines.html:134
+>>>>>>> d915eaadc9ffe46a4b9990633e6c54e022f91471
 msgid "Читать дальше.."
 msgstr ""
 
@@ -591,6 +797,32 @@ msgstr ""
 msgid "Смотреть"
 msgstr ""
 
+<<<<<<< HEAD
+#: templates/products.html:45 templates/products.html:257
+#: templates/products.html:267 templates/products.html:275
+msgid "Фильтр"
+msgstr ""
+
+#: templates/products.html:46
+msgid "Сбросить"
+msgstr ""
+
+#: templates/products.html:255
+msgid "Showing"
+msgstr ""
+
+#: templates/products.html:255
+msgid "of"
+msgstr ""
+
+#: templates/products.html:383
+msgid "Барчаси"
+msgstr ""
+
+#: templates/products.html:462 templates/products.html:521
+#: templates/single-product.html:447
+msgid "Заказать"
+=======
 #: templates/products.html:191 templates/products.html:376
 #: templates/products.html:386 templates/products.html:394
 msgid "Фильтр"
@@ -622,6 +854,7 @@ msgstr ""
 
 #: templates/products.html:221 templates/products.html:426
 msgid "Сум"
+>>>>>>> d915eaadc9ffe46a4b9990633e6c54e022f91471
 msgstr ""
 
 #: templates/products.html:222 templates/products.html:427
@@ -689,6 +922,32 @@ msgstr ""
 msgid "Заполните форму и наши операторы с вами свяжутся"
 msgstr ""
 
+<<<<<<< HEAD
+#: templates/single-product.html:102
+msgid "Закрыть"
+msgstr ""
+
+#: templates/single-product.html:115
+msgid "Купить"
+msgstr ""
+
+#: templates/single-product.html:124
+msgid "Купить через банк"
+msgstr ""
+
+#: templates/single-product.html:129
+msgid "Скачать Pdf"
+msgstr ""
+
+#: templates/single-product.html:139
+msgid "Характеристики и описания оборудования"
+msgstr ""
+
+#: templates/single-product.html:416
+msgid "Город"
+msgstr ""
+
+=======
 #: templates/single-product.html:153
 msgid "Закрыть"
 msgstr ""
@@ -709,10 +968,24 @@ msgstr ""
 msgid "Характеристики и описания оборудования"
 msgstr ""
 
+>>>>>>> d915eaadc9ffe46a4b9990633e6c54e022f91471
 #: templates/wishlist.html:12 templates/wishlist.html:13
 msgid "Избранное"
 msgstr ""
 
+<<<<<<< HEAD
+#: uskunalar/settings.py:110
+msgid "English"
+msgstr "Английский"
+
+#: uskunalar/settings.py:111
+msgid "Russian"
+msgstr "Русский"
+
+#: uskunalar/settings.py:112
+msgid "Uzbek"
+msgstr "Узбекский"
+=======
 #: uskunalar/settings.py:128
 msgid "Uzbek"
 msgstr "Узбекский"
@@ -724,6 +997,7 @@ msgstr "Русский"
 #: uskunalar/settings.py:130
 msgid "English"
 msgstr "Английский"
+>>>>>>> d915eaadc9ffe46a4b9990633e6c54e022f91471
 
 #: videos/apps.py:8 videos/models.py:18
 msgid "videos"
