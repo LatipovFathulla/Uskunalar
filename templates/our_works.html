@@ -2,14 +2,14 @@
 {% load static %}
 {% load i18n %}
 {% block content %}
-
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <section class="banner">
         <div class="container">
             <div class="row">
 
             </div>
             <h1 class="banner-text">{% trans 'Наши работы' %}</h1>
-            <a href="/" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>   <span> > <a href="" class="banner-desc-title">{% trans 'Наши работы' %}</a></span></p>
+            <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>   <span> > <a href="" class="banner-desc-title" style="color: #132E6B;">{% trans 'Наши работы' %}</a></span></p>
 
             <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
         </div>
@@ -29,7 +29,7 @@
             {#            <a class="tablinks" onclick="openCity(event, 'Paris')">Пищевая промышленность</a>#}
             {#            <a class="tablinks" onclick="openCity(event, 'Tokyo')">Строительная промышленность</a>#}
         </div>
-
+     <img src="{% static './images/Group_417.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);left:-12%" alt="">
         <br>
         <div id="London" class="tabcontent2">
             <div class="row" style="padding: 20px;">
@@ -42,8 +42,8 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-12 col-6">
-                                <p class="title-work">{{ work.title }}</p>
-                                <p class="desc-work">{{ work.short_descriptions }}</p>
+                                <p class="title-work">{{ work.title|safe }}</p>
+                                <p class="desc-work">{{ work.short_descriptions|safe }}</p>
                                 {#                    <p class="aim_project">Цель проекта:</p>#}
                                 {#                    <p class="client_work">Представить новые услуги, увеличения клиентов</p>#}
                                 <p class="aim_project">Сроки использования:</p>
@@ -74,6 +74,8 @@
 
             </div>
             <div class="elements">
+                 <img src="{% static './images/Group_418.svg' %}" class="icon-right m-3" style="transform: rotate(2.33deg);left:-12%" alt="">
+                    <img src="{% static './images/Group_419.svg' %}" class="icon-right m-3" style="transform: rotate(-22.33deg);right:-9%" alt="">
                 <br>
                 <br>
 
@@ -171,7 +173,6 @@ justify-content: center;">
     <!-- end parallax -->
     <br>
     <!-- form -->
-    <img src="{% static './images/Group_417.svg' %}" class="icon-right-transform2" style="right:20%" alt="">
 {% include 'requests.html' %}
     <img src="{% static './images/settings.svg' %}" class="icon-left-absolute"
          style="margin-top: -3%;margin-left: 3%;z-index: 0;position: absolute;" alt="">
@@ -183,6 +184,7 @@ justify-content: center;">
 {% endblock %}
 
 {% block extra_js %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         function openCity(evt, cityName) {
             var i, tabcontent, tablinks;
@@ -201,4 +203,7 @@ justify-content: center;">
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
+<script>
+  AOS.init();
+</script>
 {% endblock %}

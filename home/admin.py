@@ -1,8 +1,11 @@
 from django.contrib import admin
+from django.utils.html import format_html
+from django import forms
+from django.utils.safestring import mark_safe
 from modeltranslation.admin import TranslationAdmin
 
-from home.models import BannerInfoModel, CategoryModel, SecondSubCategoryModel, \
-    SubCategoryModel, BannerImageModel, ProductSpecificationsModel
+from home.models import BannerInfoModel, CategoryModel, \
+    SubCategoryModel, BannerImageModel, ProductSpecificationsModel, CarouselModel
 
 
 class MyTranslationAdmin(TranslationAdmin):
@@ -17,25 +20,28 @@ class MyTranslationAdmin(TranslationAdmin):
         }
 
 
+@admin.display()
+def format_category(obj):
+    return mark_safe(obj.category)
+
+
 @admin.register(CategoryModel)
 class CategoryModelAdmin(MyTranslationAdmin):
-    list_display = ['category', 'created_at']
-    search_fields = ['category']
-    list_filter = ['category']
+    list_display = (format_category, 'created_at',)
+    search_fields = ('category',)
+    list_filter = ('category',)
+
+
+@admin.display()
+def format_sub_category(obj):
+    return mark_safe(obj.subcategory)
 
 
 @admin.register(SubCategoryModel)
 class SubCategoryModelAdmin(MyTranslationAdmin):
-    list_display = ['category', 'subcategory', 'created_at']
+    list_display = ['category', format_sub_category, 'created_at']
     search_fields = ['category', 'subcategory']
     list_filter = ['category', 'subcategory']
-
-
-@admin.register(SecondSubCategoryModel)
-class SecondSubCategoryModelAdmin(MyTranslationAdmin):
-    list_display = ['category', 'subcategory', 'secondsubcategory', 'created_at']
-    search_fields = ['category', 'subcategory', 'secondsubcategory', ]
-    list_filter = ['category', 'subcategory', 'secondsubcategory', ]
 
 
 class BannerImageModelAdmin(admin.TabularInline):
@@ -46,12 +52,35 @@ class ProductSpecificationsModelAdmin(admin.TabularInline):
     model = ProductSpecificationsModel
 
 
+class BannerForm(forms.ModelForm):
+    class Meta:
+        model = BannerInfoModel
+        fields = '__all__'
+
+
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(MyTranslationAdmin):
-    list_display = ['title', 'sku', 'price', 'pdf', 'city', 'created_at', 'category', 'subcategory', 'secondsubcategory', ]
-    search_fields = ['title', 'sku']
+    list_display = ['pk', 'title', 'dollar', 'get_html_photo', 'city', 'created_at', 'category', 'subcategory']
+    search_fields = ['title', 'pk']
     list_filter = ['created_at']
     readonly_fields = ['get_price', 'get_price_dollar']
-
+    form = BannerForm
     inlines = [ProductSpecificationsModelAdmin, BannerImageModelAdmin]
+    save_on_top = True
 
+    def get_html_photo(self, object):
+        if object.image:
+            return mark_safe(f"<img src='{object.image.url}', width=50, height=50>")
+
+    get_html_photo.short_description = "Картинки"
+
+    # @admin.display
+    # def get_subcategories(self):
+    #     return
+
+
+@admin.register(CarouselModel)
+class CarouselModelAdmin(MyTranslationAdmin):
+    list_display = ['title', 'descriptions', 'image', 'created_at']
+    search_fields = ['title', 'descriptions', 'created_at']
+    list_filter = ['title', 'created_at']

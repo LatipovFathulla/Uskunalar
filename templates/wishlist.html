@@ -10,7 +10,7 @@
 
         </div>
         <h1 class="banner-text">{% trans 'Избранное' %}</h1>
-        <a href="/" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>  <span> > <a href="" class="banner-desc-title">{% trans 'Избранное' %}</a></span></p>
+        <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>  <span> > <a href="" class="banner-desc-title" style="color: #132E6B;">{% trans 'Избранное' %}</a></span></p>
 
         <img src="./images/backgorund-shadow.svg" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
@@ -29,6 +29,7 @@
         <div class="splide_3_2">
             <div class="splide__track" style="height: 520px;">
                 <ul class="splide__list">
+                    {% if product in object_list %}
                       {% for product in object_list %}
                         <li class="splide__slide">
                                 <div class="col-md-3">
@@ -90,6 +91,9 @@
                             </div>
                         </li>
                       {% endfor %}
+                    {% else %}
+                        <p>lorem90</p>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -119,6 +123,7 @@
     splide.mount();
 
 </script>
+
 <!-- Code by Fathulla Latipov LF -->
 
 {% endblock %}

@@ -16,16 +16,40 @@
       <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.6/swiper-bundle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel='stylesheet'
           href='https://mverissimo.github.io/tweenslideshow/dist/assets/stylesheet/application.min.css'>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
 </head>
 <style>
+*{
+    font-family:'Poppins', sans-serif;
+}
     .splide__arrows {
         position: relative;
         top: 159px;
     }
+
+ .slick-dots li button {
+    display: none;
+}
+
+  @media (max-width:900px) {
+     .button-left {
+            position: absolute;
+            left: 9%;
+            bottom: 13px;
+            background: #FFE700;
+            border: none;
+            z-index: 1;
+            border-radius: 6px;
+            width: 147px;
+            height: 57px;
+            overflow: hidden;
+        }
+  }
 
   @media (min-width:1200px) {
       .form-mobile-2 {
@@ -37,69 +61,2084 @@
       .icon-close {
         display:none
       }
+        .minimalist-vertical-menu2 {
+            border-top: 0;
+            display: inline-flex;
+            margin-top: 60%;
+        }
   }
 
+.has-children {
+    top: 0%;
+    padding: 0px 0;
+    -webkit-transition: 0.2s 0s;
+    -o-transition: 0.2s 0s;
+    transition: 0.2s 0s;
+    border-radius: 4px;
+    min-width: 270px;
+}
 
+.second-dropdown {
+    background:#f4fbfe;
+    position: absolute;
+    left: 100%;
+    top: 0%;
+    padding: 0px 0;
+    margin-top: 10px;
+    -webkit-transition: 0.2s 0s;
+    -o-transition: 0.2s 0s;
+    transition: 0.2s 0s;
+    border-radius: 4px;
+    min-width: 200px;
+}
+
+.dropdown.menu-1 .second-dropdown {
+    display:none
+}
+
+.dropdown.menu-1:hover .second-dropdown {
+    display:block
+}
+
+ .site-navbar .site-navigation .site-menu .has-children {
+      position: relative; }
+      .site-navbar .site-navigation .site-menu .has-children > a {
+        position: relative;
+        padding-right: 20px; }
+        .site-navbar .site-navigation .site-menu .has-children > a:before {
+          position: absolute;
+          content: "\e313";
+          font-size: 16px;
+          top: 50%;
+          right: 0;
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+          font-family: 'icomoon'; }
+      .site-navbar .site-navigation .site-menu .has-children .dropdown {
+        visibility: hidden;
+        opacity: 0;
+        top: 100%;
+        position: absolute;
+        text-align: left;
+        -webkit-box-shadow: 0 0px 4px 0px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 0px 4px 0px rgba(0, 0, 0, 0.25);
+        padding: 0px 0;
+        margin-top: 20px;
+        margin-left: 0px;
+        background: #fff;
+        -webkit-transition: 0.2s 0s;
+        -o-transition: 0.2s 0s;
+        transition: 0.2s 0s;
+        border-radius: 4px; }
+        .site-navbar .site-navigation .site-menu .has-children .dropdown.arrow-top {
+          position: absolute; }
+          .site-navbar .site-navigation .site-menu .has-children .dropdown.arrow-top:before {
+            bottom: 100%;
+            left: 20%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none; }
+          .site-navbar .site-navigation .site-menu .has-children .dropdown.arrow-top:before {
+            border-color: rgba(136, 183, 213, 0);
+            border-bottom-color: #fff;
+            border-width: 10px;
+            margin-left: -10px; }
+        .site-navbar .site-navigation .site-menu .has-children .dropdown a {
+          font-size: 14px;
+          text-transform: none;
+          letter-spacing: normal;
+          -webkit-transition: 0s all;
+          -o-transition: 0s all;
+          transition: 0s all;
+          color: #343a40; }
+          .site-navbar .site-navigation .site-menu .has-children .dropdown a.active {
+            color: #007bff; }
+        .site-navbar .site-navigation .site-menu .has-children .dropdown .active > a {
+          color: #fff !important; }
+        .site-navbar .site-navigation .site-menu .has-children .dropdown > li {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          min-width: 200px; }
+          .site-navbar .site-navigation .site-menu .has-children .dropdown > li:first-child > a {
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px; }
+          .site-navbar .site-navigation .site-menu .has-children .dropdown > li:last-child > a {
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px; }
+          .site-navbar .site-navigation .site-menu .has-children .dropdown > li > a {
+            padding: 9px 20px;
+            display: block; }
+            .site-navbar .site-navigation .site-menu .has-children .dropdown > li > a:hover {
+              background: #ebeef0;
+              color: #212529; }
+          .site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children > a:before {
+            content: "\e315";
+            right: 20px; }
+          .site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children > .dropdown, .site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children > ul {
+            left: 100%;
+            top: 0; }
+          .site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children:hover > a, .site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children:active > a, .site-navbar .site-navigation .site-menu .has-children .dropdown > li.has-children:focus > a {
+            background: #ebeef0;
+            color: #212529; }
+      .site-navbar .site-navigation .site-menu .has-children:hover > a, .site-navbar .site-navigation .site-menu .has-children:focus > a, .site-navbar .site-navigation .site-menu .has-children:active > a {
+        color: #fff; }
+      .site-navbar .site-navigation .site-menu .has-children:hover, .site-navbar .site-navigation .site-menu .has-children:focus, .site-navbar .site-navigation .site-menu .has-children:active {
+        cursor: pointer; }
+        .site-navbar .site-navigation .site-menu .has-children:hover > .dropdown, .site-navbar .site-navigation .site-menu .has-children:focus > .dropdown, .site-navbar .site-navigation .site-menu .has-children:active > .dropdown {
+          -webkit-transition-delay: 0s;
+          -o-transition-delay: 0s;
+          transition-delay: 0s;
+          margin-top: 0px;
+          visibility: visible;
+          opacity: 1; }
+        .splide__slide {
+            background: #fff;
+            color: #000;
+        }
+.slider {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.slider__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    list-style: none;
+    white-space: nowrap
+}
+
+.slider__content {
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    visibility: hidden
+}
+
+.slider__item {
+    height: 100%;
+    width: 100%;
+    display: inline-block
+}
+
+.slider img {
+    max-width: 100%;
+    width: 600px;
+    margin-top: 5%;
+    margin-left: 5%;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none
+}
+
+.slider-controls {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0px, -50%, 0px);
+    z-index: 10
+}
+
+.slider-controls>.previous,
+.slider-controls>.next {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    display: block;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-size: 64px;
+    background-color: transparent;
+    background-repeat: no-repeat
+}
+
+.slider-controls>.next {
+    right: 20px;
+    background-image: url("/static/images/right-arrow.svg")
+}
+
+.slider-controls>.previous {
+    left: 20px;
+    padding: 1%;
+    background-image: url("/static/images/left-arrow.svg")
+}
+
+.slider-controls>button {
+    filter: opacity(30%);
+    cursor: pointer
+}
+
+.slider-controls>button:hover {
+    filter: opacity(120%)
+}
+
+.slider-navigation {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 32px;
+    cursor: initial;
+    text-align: center
+}
+
+.slider-navigation>li {
+    position: relative;
+    display: inline-block;
+    margin-right: 12px
+}
+
+.slider-navigation>li>a {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #FFF;
+    border-radius: 50%;
+    background: transparent;
+    transition: all 0.4s ease
+}
+
+.slider-navigation>li>a.is-active {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0)
+}
+
+.section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box
+}
+
+.grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:5%;
+}
+
+.grid>.column {
+    width: 50%;
+    display: table-cell;
+    vertical-align: middle
+}
+
+.grid>.column:first-child {
+    text-align: right
+}
+
+.slide-coffee {
+    background: #836C54
+}
+
+.title {
+    font-weight: 300;
+    max-width: 100%;
+    width: 400px;
+    font-size: 44px !important;
+    margin: 25px auto;
+    text-align: start;
+    color: #FFF;
+    text-transform: uppercase
+}
+
+body.deactive {
+    overflow: hidden
+}
+
+.header-black_screen {
+    display: none
+}
+
+.header-navbar_container {
+    position: absolute;
+    width: 100%;
+    z-index: 11;
+    transition: 0.5s ease
+}
+
+.header .menu_active {
+    visibility: visible;
+    position: fixed;
+    background-color: #fffffff8;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    color: black
+}
+
+.header-navbar {
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50px
+}
+
+.header-navbar_item {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.header-navbar_item p {
+    font-weight: 500;
+    color: white
+}
+
+.header-lang_icon {
+    max-width: 100%;
+    width: 50%
+}
+
+.header-lang_block {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start
+}
+
+.header-border_right {
+    border-right: 1px solid #ffffffb4
+}
+
+.header-menu_list {
+    max-width: 100%;
+    width: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.header-menu_item {
+    margin-right: 10px;
+    position: relative
+}
+
+.header_small-logo {
+    display: none
+}
+
+.header-menu_link {
+    font-size: 18px;
+    font-weight: 500;
+    color: white
+}
+
+.header-menu_link::after {
+    content: '';
+    text-align: center;
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: #FFE700;
+    transition: width 0.3s
+}
+
+.header-menu_link:hover::after {
+    width: 100%
+}
+
+.header-menu_link.active_link {
+    color: black
+}
+
+.header .mobile_container {
+    display: none
+}
+
+.header-search_smallForm {
+    display: none
+}
+
+.header-menu-search_item {
+    width: 100%
+}
+
+.header-menu_linkItem {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translateY(0);
+    padding: 15px 25px 0 25px;
+    background-color: #fffffff8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 0 0 8px 0 white;
+    transition: 0.5s ease
+}
+
+.header-menu_linkItem li {
+    font-size: 18px;
+    margin-bottom: 20px
+}
+
+.header-menu_linkItem li a::after {
+    content: '';
+    text-align: center;
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: #FFE700;
+    transition: width 0.3s
+}
+
+.header-menu_linkItem li a:hover::after {
+    width: 100%
+}
+
+.header .menu_linkItem_active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(15px)
+}
+
+.header-main_menu {
+    width: 100%;
+    opacity: 0;
+    transition: 1s ease;
+    display: none
+}
+
+.header-menuContainer {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center
+}
+
+.header_nav-likes {
+    position: relative;
+    font-size: 1.8rem
+}
+
+.header-like_counter {
+    position: absolute;
+    color: #fff;
+    background-color: #FF0007;
+    border-radius: 50%;
+    padding: 0.1rem 0.5rem;
+    top: -20%;
+    left: 60%;
+    font-size: 1.2rem
+}
+
+.header_nav-search-input {
+    max-width: 100%;
+    width: 500px;
+    min-height: 100%;
+    height: 10px;
+    background-color: transparent;
+    border: 1px solid black;
+    outline-color: #FFE700;
+    padding: 2%;
+    font-size: 1.1rem;
+}
+
+.header-logo {
+    max-width: 100%;
+    width: 250px;
+    transition: .5s ease
+}
+
+.header_logo-link {
+    margin-left: 30px
+}
+
+.header_nav-call {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+}
+
+.header_nav-call i {
+    font-size: 2.3rem
+}
+
+.header .call_numbers {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transform: translate(-25%, 100%);
+    opacity: 0;
+    transition: all 0.5s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1
+}
+
+.header .call_numbers a {
+    margin-bottom: 3px
+}
+
+.header_nav-call:hover .call_numbers {
+    transform: translate(-25%, 110%);
+    opacity: 1
+}
+
+.header-main_container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center
+}
+
+
+.header-category_menu {
+    position: absolute;
+    max-width: 100%;
+    width: 300px;
+    min-height: 540px;
+    height: 100%;
+    padding: 20px 0;
+    margin-right: 5px;
+    visibility: visible;
+    box-shadow: 0 0 6px 1px #beafafc7;
+    z-index: 15
+}
+
+.header-category_title {
+    font-size: 16px;
+    padding: 14px 14px 0 14px;
+    margin-bottom: 15px;
+    color: #132e6b
+}
+
+.header-title_hr {
+    width: 90%;
+    margin: auto;
+    display: block;
+    color: none;
+    border: 1px solid #f4f5f7;
+    margin-top: 12px
+}
+
+.header .width-100 {
+    width: 100% !important
+}
+
+.header-category-menu_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start
+}
+
+.header .menu-block_title {
+    color: #000;
+    font-size: 14px
+}
+
+.header-category-menu_list {
+    width: 100%;
+    transition: 0.3s ease-out;
+    cursor: pointer
+}
+
+.header-category-menu-block_item {
+    margin: auto;
+    padding: 14px 12px 5px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer
+}
+
+.header-category-menu_list:hover {
+    background-color: #FFE700
+}
+
+.header-category-menu_list:hover .header-title_hr {
+    border: 1px solid transparent
+}
+
+.header-category-menu_list:hover i {
+    color: #fff
+}
+
+.header-subcategory_submenu {
+    position: absolute;
+    left: 34.3%;
+    background-color: #fff;
+    max-width: 100%;
+    width: 875px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 15px;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(0);
+    box-shadow: 0 0 8px 0 #9e9898c7;
+    transition: 0.3s ease-in-out;
+    z-index: 9
+}
+
+.header .submenu-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0)
+}
+
+.header-subcategory-content_block {
+    padding: 25px;
+    width: 100%
+}
+
+.header-subcategory_title {
+    margin-bottom: 21px;
+    font-size: 24px;
+    color: #132e6b
+}
+
+.header-subcategory-submenu-block_item {
+    padding: 0 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: 0.3s ease-out;
+    cursor: pointer
+}
+
+.header-subcategory-submenu-block_item i {
+    font-size: 14px;
+    margin-right: 10px
+}
+
+.header-subcategory-submenu-block_item .submenu-block_title {
+    max-width: 100%;
+    width: 240px;
+    font-size: 16px;
+    font-weight: 400;
+    border-bottom: 1px solid #c4c3c3;
+    padding: 10px 20px 20px 5px
+}
+
+.header-subcategory-submenu-block_item:hover {
+    background-color: #FFE700
+}
+
+.header-subcategory-submenu-block_item:hover .submenu-block_title {
+    border-bottom: 1px solid transparent
+}
+
+.header-subcategory-img_box {
+    max-width: 100%;
+    width: 500px;
+    min-height: 510px;
+    height: 100%;
+    position: relative
+}
+
+.header-subcategory-img {
+    z-index: 9;
+    position: absolute;
+    top: 0
+}
+
+.header-subcategory-img_box::before {
+    content: '';
+    position: absolute;
+    bottom: 12%;
+    left: -12%;
+    display: block;
+    height: 59px;
+    width: 189px;
+    border-radius: 6px;
+    transform: rotate(90deg);
+    background-color: #FFE700;
+    z-index: 1
+}
+
+.header-subcategory-img_box::after {
+    content: '';
+    position: absolute;
+    top: 12%;
+    right: -6%;
+    display: block;
+    height: 59px;
+    width: 189px;
+    border-radius: 6px;
+    transform: rotate(90deg);
+    background-color: #FFE700;
+    z-index: 1
+}
+
+.header-main_carousel {
+    width: 100%;
+    height: 100vh
+}
+
+.header-burgerMenu {
+    background: transparent;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    display: none
+}
+
+.header-burgerMenu_btn {
+    font-size: 40px;
+    color: white;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all 300ms ease
+}
+
+.header-burgerMenu_btn.active_btn {
+    color: black
+}
+
+.float {
+    -webkit-animation-name: float;
+    animation-name: float;
+    -webkit-animation-duration: 5s;
+    animation-duration: 5s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-delay: initial;
+    animation-delay: initial;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: initial;
+    animation-direction: initial;
+    -webkit-animation-fill-mode: initial;
+    animation-fill-mode: initial;
+    -webkit-animation-play-state: initial;
+    animation-play-state: initial
+}
+
+@-webkit-keyframes float {
+    0% {
+        transform: translateY(0px)
+    }
+
+    50% {
+        transform: translateY(-20px)
+    }
+
+    100% {
+        transform: translateY(0px)
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px)
+    }
+
+    50% {
+        transform: translateY(-20px)
+    }
+
+    100% {
+        transform: translateY(0px)
+    }
+}
+
+@-webkit-keyframes smallMenuShow {
+    0% {
+        height: 50%
+    }
+
+    50% {
+        height: 70%
+    }
+
+    100% {
+        height: 100%
+    }
+}
+
+@keyframes smallMenuShow {
+    0% {
+        height: 50%
+    }
+
+    50% {
+        height: 70%
+    }
+
+    100% {
+        height: 100%
+    }
+}
+
+:root {
+    --searchinput-backgorund: #FFFFFF;
+    --searchinput-color: #FFFFFF;
+    --searchinput-border: #ffff
+}
+
+.header-search_form {
+    max-width: 100%;
+    width: 100px;
+    transform: translateX(10%)
+}
+
+.cntr {
+    display: table;
+    width: 100%;
+    height: 100%
+}
+
+.cntr .cntr-innr {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle
+}
+
+.search {
+    display: inline-block;
+    position: relative;
+    height: 35px;
+    width: 35px;
+    box-sizing: border-box;
+    margin: 0px 8px 7px 0px;
+    padding: 7px 9px 0px 9px;
+    border: 3px solid #FFFFFF;
+    border-radius: 25px;
+    transition: all 300ms ease;
+    cursor: text
+}
+
+.search.active_2 {
+    border-color: #FFE700
+}
+
+.search::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 15px;
+    right: -5px;
+    top: 21px;
+    background: var(--searchinput-backgorund);
+    border-radius: 3px;
+    transform: rotate(-45deg);
+    transition: all 300ms ease
+}
+
+.search.active,
+.search:hover {
+    width: 250px;
+    margin-right: 0px;
+    transform: translateX(-70%)
+}
+
+.search.active::after,
+.search:hover::after {
+    height: 0px
+}
+
+.search input {
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+    font-size: 15px;
+    background: transparent;
+    color: var(--searchinput-color);
+    outline-width: 0px
+}
+
+.products-section {
+    width: 100%;
+    margin-top: 60px
+}
+
+.products-section_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start
+}
+
+.products-section_content {
+    max-width: 100%;
+    width: 1260px;
+    margin: auto;
+    margin-bottom: 40px
+}
+
+.products-section_title {
+    font-size: 36px;
+    color: #1e1e1e;
+    font-weight: 600;
+    text-transform: capitalize
+}
+
+.products-section_desc {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 20px;
+    display: flex;
+    align-items: center
+}
+
+.products-section_desc::before {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 60px;
+    margin-right: 20px;
+    background-color: #1e1e1e
+}
+
+.swiper {
+    width: 100%;
+    height: 400px;
+    margin-top: 10px;
+    margin-bottom: 60px
+}
+
+.swiper-wrapper {
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box
+}
+
+.swiper-slide {
+    font-size: 18px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: -webkit-grab;
+    cursor: grab
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover
+}
+
+.swiper-slide_img {
+    transition: transform .5s ease
+}
+
+.swiper-slide:hover>.swiper-slide_img {
+    transform: scale(1.3)
+}
+
+.swiper-slide-content {
+    position: absolute;
+    color: white;
+    /* left: 5%; */
+    bottom: 0%;
+    width: 100%;
+    z-index: 7;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,2.8));
+    flex-direction: column;
+}
+
+.swiper-slide_title {
+    color: white;
+    font-size: 18px
+}
+
+.swiper-slide_desc {
+    font-size: 16px;
+    color: white;
+    display: flex;
+    align-items: center
+}
+
+.swiper-slide_desc::before {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 40px;
+    margin-right: 15px;
+    background-color: white
+}
+
+.swiper-pagination-progressbar {
+    margin-bottom: 10px
+}
+
+.swiper-pagination-progressbar-fill {
+    background-color: #FFE700 !important
+}
+
+.swiper-slide_link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    color: #fff;
+    top: 0;
+    z-index: 6;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.9s ease
+}
+
+.swiper-slide_link span {
+    border: 3px solid white;
+    padding: 20px 50px;
+    color: white;
+    z-index: 7
+}
+
+.swiper-slide:hover>.swiper-slide_link,
+.swiper-slide_link::after {
+    visibility: visible;
+    display: flex;
+    opacity: 1;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px)
+}
+
+.swiper-button_prev {
+    position: absolute;
+    top: 45%;
+    left: 1.5%;
+    z-index: 5;
+    max-width: 100%;
+    width: 65px;
+    cursor: pointer;
+    filter: opacity(30%)
+}
+
+.swiper-button_prev:hover {
+    filter: opacity(120%)
+}
+
+.swiper-button_next {
+    position: absolute;
+    top: 45%;
+    right: 1.5%;
+    z-index: 5;
+    max-width: 100%;
+    width: 65px;
+    cursor: pointer;
+    filter: opacity(30%)
+}
+
+.swiper-button_next:hover {
+    filter: opacity(120%)
+}
+
+@media only screen and (min-width: 768px) {
+    .title {
+        font-size: 7em
+    }
+}
+
+@media (max-width: 1500px) {
+    .slider img {
+        max-width: 100%;
+        width: 450px
+    }
+
+    .title {
+        font-size: 44px !important
+    }
+
+    .header-main_carousel {
+        height: 100vh
+    }
+}
+
+@media (max-width: 1300px) {
+    .slider img {
+        max-width: 100%;
+        width: 400px
+    }
+
+    .title {
+        font-size: 42px !important
+    }
+
+    .header-black_screen.active {
+        position: absolute;
+        content: '';
+        display: block;
+        z-index: 12;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #0c0c0cb0;
+        -webkit-backdrop-filter: blur(7px);
+        backdrop-filter: blur(7px)
+    }
+
+    .header-menu_list {
+        position: absolute;
+        display: block;
+        width: 30%;
+        height: 100vh;
+        padding: 20px 0 20px 20px;
+        top: 0;
+        z-index: 13;
+        left: 0;
+        transform: translateX(-100%);
+        background: white;
+        transition: transform .5s ease
+    }
+
+    .header-menu_list.active {
+        transform: translateX(0)
+    }
+
+    .header-menu_item {
+        margin-top: 30px;
+        text-align: center
+    }
+
+    .header_small-logo {
+        display: initial
+    }
+
+    .header-menu_link {
+        color: black;
+        font-weight: 500
+    }
+
+    .header-menu_link:hover::after {
+        width: 80%;
+        margin-left: auto
+    }
+
+    .header-menu_link:hover::after {
+        width: 0
+    }
+
+    .header .mobile_container {
+        display: flex
+    }
+
+    .header-search_form {
+        display: none
+    }
+
+    .header-search_smallForm {
+        display: block
+    }
+
+    .header-menu_linkItem li {
+        color: black
+    }
+
+    .header-menu_linkItem {
+        position: initial;
+        padding: 0;
+        width: auto;
+        height: 0;
+        margin-top: 0
+    }
+
+    .header .menu_linkItem_active {
+        width: auto;
+        margin-top: 25px;
+        height: 100%;
+        position: initial;
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+        transform: translateX(0);
+        -webkit-animation: smallMenuShow .5s ease;
+        animation: smallMenuShow .5s ease
+    }
+
+    .header-main_carousel {
+        height: 80vh
+    }
+
+    .header-burgerMenu {
+        margin-top: 10px;
+        display: block
+    }
+
+    .search {
+        border: 3px solid var(--searchinput-border)
+    }
+
+    .search::after {
+        background: var(--searchinput-border)
+    }
+
+    .search.active,
+    .search:hover {
+        transform: translateY(10px)
+    }
+
+    .search input {
+        color: var(--searchinput-color)
+    }
+
+    .products-section_content {
+        width: 1100px
+    }
+
+    .swiper {
+        height: 345px
+    }
+}
+
+@media (max-width: 1200px) {
+    .title {
+        width: 280px;
+        font-size: 35px !important
+    }
+
+    .header-main_carousel {
+        height: 70vh
+    }
+
+    .products-section_content {
+        width: 950px;
+        margin-bottom: 15px
+    }
+}
+
+@media (max-width: 992px) {
+    .slider img {
+        max-width: 100%;
+        width: 340px
+    }
+
+    .slider-controls>button {
+        filter: opacity(120%)
+    }
+
+    .title {
+        width: 260px;
+        font-size: 28px !important
+    }
+
+    .header-main_carousel {
+        height: 50vh
+    }
+
+    .header-burgerMenu_btn {
+        font-size: 25px
+    }
+
+    .search {
+        width: 25px;
+        height: 25px;
+        margin-top: 15px
+    }
+
+    .search::after {
+        height: 13px;
+        top: 15px
+    }
+
+    .search.active,
+    .search:hover {
+        height: 65%
+    }
+
+    .products-section_content {
+        width: 750px
+    }
+
+    .products-section_title {
+        font-size: 28px
+    }
+
+    .products-section_desc {
+        margin-top: 15px;
+        font-size: 14px
+    }
+
+    .products-section {
+        margin-top: 35px
+    }
+
+    .swiper-button_prev {
+        filter: none
+    }
+
+    .swiper-button_next {
+        filter: none
+    }
+}
+
+@media (max-width: 768px) {
+    .slider img {
+        width: 250px;
+        margin-top: 22%
+    }
+
+    .slider-controls {
+        display: none
+    }
+
+    .title {
+        font-size: 20px !important;
+        width: 200px;
+        margin: 10px auto
+    }
+
+    .title {
+        font-size: 20px !important;
+        width: 200px
+    }
+
+    .header-search_smallForm {
+        display: none
+    }
+
+    .header-main_carousel {
+        height: 45vh
+    }
+
+    .products-section_content {
+        width: 600px
+    }
+
+    .products-section_desc::before {
+        width: 28px;
+        margin-right: 15px
+    }
+}
+
+@media (max-width: 576px) {
+    .slider img {
+        width: 175px;
+        margin-top: 40%
+    }
+
+    .slider-navigation {
+        bottom: 15px
+    }
+
+    .title {
+        font-size: 18px !important;
+        width: 175px
+    }
+
+    .header-navbar {
+        margin-right: 0
+    }
+
+    .header-menu_list {
+        width: 60%
+    }
+
+    .header .mobile_container {
+        margin-left: 40px
+    }
+
+    .header-logo {
+        width: 175px
+    }
+
+    .header_logo-link {
+        margin-left: 0
+    }
+
+    .header-main_carousel {
+        height: 35vh
+    }
+
+    .header-burgerMenu_btn {
+        font-size: 20px
+    }
+
+    .products-section_content {
+        width: 370px;
+        margin-bottom: 30px
+    }
+
+    .products-section_desc {
+        margin-top: 25px;
+        font-size: 14px
+    }
+
+    .products-section {
+        margin-top: 45px
+    }
+
+    .swiper {
+        height: 270.5px
+    }
+}
+
+
+.about {
+    width: 100%
+}
+
+.about-video_block {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: relative
+}
+
+.about-video-preview {
+    max-width: 100%;
+    width: 900px;
+    max-height: 575px;
+    height: 100%
+}
+
+.about-video-player {
+    position: absolute;
+    top: 40%;
+    left: 35%
+}
+
+.about-title {
+    font-size: 47px;
+    text-transform: uppercase;
+    color: #132e6b;
+    font-weight:600;
+}
+
+.about-mantra {
+    font-size: 16px;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #132e6b
+}
+
+.about-mantra::before {
+    content: '';
+    display: block;
+    width: 45px;
+    height: 2px;
+    background-color: black;
+    margin-right: 20px
+}
+
+.about-content-par {
+    position: relative;
+    transition: .5s ease;
+    grid-area: contentBlock
+}
+
+.about-content_block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-shadow: 0 0 10px #e8eef2;
+    position: absolute;
+    max-width: 790px;
+    width: 100%;
+    background-color: white;
+    top: 0;
+    left: 0;
+    transform: translate(-20%, 44%);
+    padding: 38px 25px;
+    z-index: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s ease
+}
+
+.about-content_block.active {
+    opacity: 1;
+    visibility: visible
+}
+
+.about-paragraph {
+    font-size: 18px;
+    color: #999;
+    line-height: 150%
+}
+
+.about-services {
+    margin-top: 3%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: flex-start;
+    grid-gap: 5px
+}
+
+.about-services_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between
+}
+
+.service-icon {
+    font-size: 45px;
+    color: #132e6b
+}
+
+.service-title {
+    max-width: 200px;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #132e6b;
+    font-weight: 600;
+    display: block
+}
+
+.video-title_side {
+    margin-top: 5%;
+    margin-left: 5%;
+    position: relative
+}
+
+.youtube-player {
+    position: relative;
+    max-width: 900px;
+    max-height: 500px;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    cursor: pointer
+}
+
+.youtube-player img {
+    width: 100%
+}
+
+.youtube-player.pristine::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -25px;
+    height: 0;
+    width: 0;
+    border-left: 50px solid #fff;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    transition: opacity 0.2s ease
+}
+
+.youtube-player.pristine:hover::before {
+    opacity: 1
+}
+
+@media only screen and (min-width: 768px) {
+    .title {
+        font-size: 7em
+    }
+}
+
+@media (max-width: 1500px) {
+    .slider img {
+        max-width: 100%;
+        width: 450px
+    }
+
+    .title {
+        font-size: 44px !important
+    }
+
+    .header-main_carousel {
+        height: 100vh
+    }
+
+    .about-paragraph {
+        font-size: 16px
+    }
+}
+
+@media (max-width: 1300px) {
+    .slider img {
+        max-width: 100%;
+        width: 400px
+    }
+
+    .title {
+        font-size: 42px !important
+    }
+
+    .header-black_screen.active {
+        position: absolute;
+        content: '';
+        display: block;
+        z-index: 12;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #0c0c0cb0;
+        -webkit-backdrop-filter: blur(7px);
+        backdrop-filter: blur(7px)
+    }
+
+    .header-menu_list {
+        position: absolute;
+        display: block;
+        width: 30%;
+        height: 100vh;
+        padding: 20px 0 20px 20px;
+        top: 0;
+        z-index: 13;
+        left: 0;
+        transform: translateX(-100%);
+        background: white;
+        transition: transform .5s ease
+    }
+
+    .header-menu_list.active {
+        transform: translateX(0)
+    }
+
+    .header-menu_item {
+        margin-top: 30px;
+        text-align: center
+    }
+
+    .header_small-logo {
+        display: initial
+    }
+
+    .header-menu_link {
+        color: black;
+        font-weight: 500
+    }
+
+    .header-menu_link:hover::after {
+        width: 80%;
+        margin-left: auto
+    }
+
+    .header-menu_link:hover::after {
+        width: 0
+    }
+
+    .header .mobile_container {
+        display: flex
+    }
+
+    .header-search_form {
+        display: none
+    }
+
+    .header-search_smallForm {
+        display: block
+    }
+
+    .header-menu_linkItem li {
+        color: black
+    }
+
+    .header-menu_linkItem {
+        position: initial;
+        padding: 0;
+        width: auto;
+        height: 0;
+        margin-top: 0
+    }
+
+    .header .menu_linkItem_active {
+        width: auto;
+        margin-top: 25px;
+        height: 100%;
+        position: initial;
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+        transform: translateX(0);
+        -webkit-animation: smallMenuShow .5s ease;
+        animation: smallMenuShow .5s ease
+    }
+
+    .header-main_carousel {
+        height: 80vh
+    }
+
+    .header-burgerMenu {
+        margin-top: 10px;
+        display: block
+    }
+
+    .search {
+        border: 3px solid var(--searchinput-border)
+    }
+
+    .search::after {
+        background: var(--searchinput-border)
+    }
+
+    .search.active, .search:hover {
+        transform: translateY(10px)
+    }
+
+    .search input {
+        color: var(--searchinput-color)
+    }
+
+    .products-section_content {
+        width: 1100px
+    }
+
+    .swiper {
+        height: 345px
+    }
+}
+
+@media (max-width: 1200px) {
+    .title {
+        width: 280px;
+        font-size: 35px !important
+    }
+
+    .header-main_carousel {
+        height: 70vh
+    }
+
+    .products-section_content {
+        width: 950px;
+        margin-bottom: 15px
+    }
+
+    .about-content_block {
+        padding: 20px 25px
+    }
+
+    .service-title {
+        margin-top: 12px;
+        font-size: 12px
+    }
+}
+
+@media (max-width: 992px) {
+    .slider img {
+        max-width: 100%;
+        width: 340px
+    }
+
+    .slider-controls>button {
+        filter: opacity(120%)
+    }
+
+    .title {
+        width: 260px;
+        font-size: 28px !important
+    }
+
+    .header-main_carousel {
+        height: 50vh
+    }
+
+    .header-burgerMenu_btn {
+        font-size: 25px
+    }
+
+    .search {
+        width: 25px;
+        height: 25px;
+        margin-top: 15px
+    }
+
+    .search::after {
+        height: 13px;
+        top: 15px
+    }
+
+    .search.active, .search:hover {
+        height: 65%
+    }
+
+    .products-section_content {
+        width: 750px
+    }
+
+    .products-section_title {
+        font-size: 28px
+    }
+
+    .products-section_desc {
+        margin-top: 15px;
+        font-size: 14px
+    }
+
+    .products-section {
+        margin-top: 35px
+    }
+
+    .swiper-button_prev {
+        filter: none
+    }
+
+    .swiper-button_next {
+        filter: none
+    }
+
+    .about-video_block {
+        grid-template-columns: none;
+        grid-auto-flow: dense
+    }
+
+    .about-title {
+        text-align: center
+    }
+
+    .about-content_block {
+        margin-top: 5%;
+        position: initial;
+        transform: translate(0);
+        max-width: none;
+        width: auto;
+        visibility: visible;
+        opacity: 1
+    }
+
+    .video-title_side {
+        margin-left: 0;
+        padding: 10px
+    }
+}
+
+@media (max-width: 768px) {
+    .slider img {
+        width: 250px;
+        margin-top: 22%
+    }
+
+    .slider-controls {
+        display: none
+    }
+
+    .title {
+        font-size: 20px !important;
+        width: 200px;
+        margin: 10px auto
+    }
+
+    .title {
+        font-size: 20px !important;
+        width: 200px
+    }
+
+    .header-search_smallForm {
+        display: none
+    }
+
+    .header-main_carousel {
+        height: 45vh
+    }
+
+    .products-section_content {
+        width: 600px
+    }
+
+    .products-section_desc::before {
+        width: 28px;
+        margin-right: 15px
+    }
+
+    .about-title {
+        font-size: 34px;
+        text-align: center
+    }
+
+    .about-mantra {
+        padding-top: 18px
+    }
+
+    .video-title_side {
+        margin-top: 2%
+    }
+}
+
+@media (max-width: 576px) {
+    .slider img {
+        width: 175px;
+        margin-top: 40%
+    }
+
+    .slider-navigation {
+        bottom: 15px
+    }
+
+    .title {
+        font-size: 18px !important;
+        width: 175px
+    }
+
+    .header-navbar {
+        margin-right: 0
+    }
+
+    .header-menu_list {
+        width: 60%
+    }
+
+    .header .mobile_container {
+        margin-left: 40px
+    }
+
+    .header-logo {
+        width: 175px
+    }
+
+    .header_logo-link {
+        margin-left: 0
+    }
+
+    .header-main_carousel {
+        height: 35vh
+    }
+
+    .header-burgerMenu_btn {
+        font-size: 20px
+    }
+
+    .products-section_content {
+        width: 370px;
+        margin-bottom: 30px
+    }
+
+    .products-section_desc {
+        margin-top: 25px;
+        font-size: 14px
+    }
+
+    .products-section {
+        margin-top: 45px
+    }
+
+    .swiper {
+        height: 270.5px
+    }
+
+    .about-title {
+        font-size: 25px;
+        text-align: center
+    }
+
+    .about-content_block {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px
+    }
+
+    .about-paragraph {
+        font-size: 14px;
+        line-height: 144%
+    }
+
+    .about-services {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px
+    }
+}
 </style>
+
 <body>
+
 <!-- start navbar -->
-<nav class="container navbar navbar-expand-lg navbar-light bg-white">
-    <ul id="accordion4" class="accordion4">
-        <li>
-            <div class="link">{% trans 'Русский' %}<i class="fa fa-chevron-down"></i></div>
-            <ul class="submenu4">
-                <li><a href="#">{% trans 'Узбекский' %}</a></li>
+<div class="nav-desk-1">
+    <nav class="navbar navbar-expand-lg lg-1" style="background-color:#32414a;color:#fff">
+        <div class="container">
+                <ul id="accordion4" class="accordion4">
+       <li>
+             {% get_current_language as lang %}
+             {% get_available_languages as langs %}
+            <div class="link"><a href="" style="color:#fff">{{ lang|upper }}</a> <i class="fa fa-chevron-down"></i>
+            </div>
+            <ul class="submenu4" style="margin-top:10px">
+                  {% for l in langs %}
+                 {% if l.0 != lang %}
                 <hr class="mb-0 mt-0">
-                <li><a href="#">{% trans 'Английский' %}</a></li>
+                <li><a href="{% get_url_lang request l.0 %}">{{ l.0|upper }}</a></li>
+                  {% endif %}
+                {% endfor %}
             </ul>
         </li>
     </ul>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <li class="nav-item">
-                <a class="nav-link-2" href="{% url 'products:product' %}"> <img
-                        src="{% static './images/search_product.svg' %}" class="not-found" alt=""> {% trans 'Не нашли товар?' %}</a>
+                <a class="nav-link-2" href="{% url 'products:product' %}" style="color:#fff"> {% trans 'Продукты' %}</a>
             </li>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'line:lines' %}" style="color: #202634;">{% trans 'Линии' %}</a>
+                    <a class="nav-link" href="{% url 'line:lines' %}" style="color: #fff;">{% trans 'Линии' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'biznes:biznes' %}" style="color: #202634;">{% trans 'Готовый бизнес' %}</a>
+                    <a class="nav-link" href="{% url 'biznes:biznes' %}" style="color: #fff;">{% trans 'Готовый бизнес' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'work:works' %}" style="color: #202634;">{% trans 'Наши работы' %}</a>
+                    <a class="nav-link" href="{% url 'work:works' %}" style="color: #fff;">{% trans 'Наши работы' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog:blogs' %}">{% trans 'Статьи' %}</a>
+                    <a class="nav-link" href="{% url 'blog:blogs' %}" style="color: #fff;">{% trans 'Статьи' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'video:videos' %}">{% trans 'Наши видео' %}</a>
+                    <a class="nav-link" href="{% url 'video:videos' %}" style="color: #fff;">{% trans 'Наши видео' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home:about' %}">{% trans 'О нас' %}</a>
+                    <a class="nav-link" href="{% url 'home:about' %}" style="color: #fff;">{% trans 'О нас' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home:contacts' %}">{% trans 'Контакты' %}</a>
+                    <a class="nav-link" href="{% url 'home:contacts' %}" style="color: #fff;">{% trans 'Контакты' %}</a>
                 </li>
             </ul>
         </form>
     </div>
+        </div>
 </nav>
 <div class="container">
     <hr class="hr-top" style="margin-top: 0px;">
 </div>
 <!-- mobile menu -->
-<nav class="container navbar navbar-expand-lg navbar-light bg-white" style="width: 100%;background-color: red;">
+<nav class="container navbar navbar-expand-lg navbar-light bg-white">
     <ul class="navbar-nav">
-        <a href="./index.html"><img src="{% static './images/logo.png' %}" class="logo_image" alt=""></a>
+        <a href="{% url 'home:home' %}"><img src="{% static './images/Uskunalar_logo.svg' %}" class="logo_image" alt=""></a>
         <a href="{% url 'products:wishlist' %}">
             <img src="{% static 'images/like.svg' %}" class="like-mobile" alt="">
             <span class="like_radius_mobile">
-          <p class="like_count">{% get_wishlist_count request %}</p>
+          <p class="like_count" id="like_count">{% get_wishlist_count request %}</p>
         </span>
         </a>
         <li class="form-mobile-2">
@@ -109,8 +2148,8 @@
             </div>
 
             <i class='icon-close ion-ios-close-empty'></i>
-            <form action="{% url 'products:product' %}" class='form' style="width: 96%;position: fixed;left: 1%;">
-                <input class='input-search' name="q" value="{{ request.GET.q }}"  placeholder='Start Typing' type='text'>
+            <form action="{% url 'products:product' %}" class='form' style="width: 96%;position: fixed;z-index:999;left: 1%;">
+                <input class='input-search' name="q" value="{{ request.GET.q }}"  placeholder='{% trans "Search" %}' type='text'>
                 <button class="btn" type="submit" style="width: 16%;height: 62px;position: absolute;right: 10px;top: 10px;background:#FFE700"><i class='icon-search ion-search' style="top:12px"></i></button>
             </form>
         </li>
@@ -122,22 +2161,76 @@
             </div>
             <div class="hamburger-menu">
                 <ul class="main-links">
-                    <img src="{% static 'images/logo.png' %}" class="logo_image2" alt="">
+                    <img src="{% static './images/Uskunalar_logo.svg' %}" class="logo_image2" alt="">
                     <li class="delay02"><a href="{% url 'home:catalog' %}">{% trans 'Каталог' %}</a></li>
                     <li class="delay03"><a href="{% url 'line:lines' %}">{% trans 'Линии' %}</a></li>
+                    <li class="delay08"><a href="{% url 'products:product' %}">{% trans 'Продукты' %}</a></li>
                     <li class="delay03"><a href="{% url 'work:works' %}">{% trans 'Наши работы' %}</a></li>
                     <li class="delay04"><a href="{% url 'video:videos' %}">{% trans 'Наши видео' %}</a></li>
                     <li class="delay05"><a href="{% url 'blog:blogs' %}">{% trans 'Наши статьи' %}</a></li>
                     <li class="delay06"><a href="{% url 'home:about' %}">{% trans 'О нас' %}</a></li>
                     <li class="delay07"><a href="{% url 'home:contacts' %}">{% trans 'Контакты' %}</a></li>
-                    <li class="delay08"><a href="./not_found_product.html"><img
-                            src="{% static 'images/search_product.svg' %}" class="not-found" alt="">{% trans 'Не нашли товар?' %}</a></li>
-                    <li class="delay09"><a href="tel:+998 71 250 77 77">
+                    <li class="delay09"><a href="tel:+998 97 211 77 77">
+                        <p style="color: #000;font-weight: bold;">+998 97 211 77 77</p>
+                    </a></li>
+                    <li class="delay10"><a href="tel:+998 71 250 77 77">
                         <p style="color: #000;font-weight: bold;">+998 71 250 77 77</p>
                     </a></li>
-                    <li class="delay08" style="margin-top: -7%"><a href="">
+                    <li class="delay08" style="margin-top: -7%"><a href="tel:+998 71 250 77 77">
                         <p style="color: #FF0007;">{% trans 'звонить сейчас' %}</p>
+
                     </a></li>
+                    <div class="container">
+                    <ul id="accordion9_1" class="accordion9_1">
+                       <li>
+                             {% get_current_language as lang %}
+                             {% get_available_languages as langs %}
+                            <div class="link"><a href="" style="color:red">{{ lang|upper }}</a> <i class="fa fa-chevron-down" style="position: absolute;left: 25%;top: 37.5%;"></i>
+                            </div>
+                            <ul class="submenu4 mt-0">
+                                  {% for l in langs %}
+                                 {% if l.0 != lang %}
+                                <hr class="mb-0 mt-0">
+                                <li><a href="{% get_url_lang request l.0 %}">{{ l.0|upper }}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <li class="nav-item">
+                <a class="nav-link-2" href="{% url 'products:product' %}" style="color:#fff"> {% trans 'Продукты' %}</a>
+            </li>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'line:lines' %}" style="color: #fff;">{% trans 'Линии' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'biznes:biznes' %}" style="color: #fff;">{% trans 'Готовый бизнес' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'work:works' %}" style="color: #fff;">{% trans 'Наши работы' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog:blogs' %}" style="color: #fff;">{% trans 'Статьи' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'video:videos' %}" style="color: #fff;">{% trans 'Наши видео' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home:about' %}" style="color: #fff;">{% trans 'О нас' %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home:contacts' %}" style="color: #fff;">{% trans 'Контакты' %}</a>
+                </li>
+            </ul>
+        </form>
+    </div>
+        </div>
                 </ul>
             </div>
         </div>
@@ -157,8 +2250,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent2">
         <ul class="navbar-nav mr-auto">
             <form action="{% url 'products:product' %}">
-                <input class="form-control" name="q" value="{{ request.GET.q }}" placeholder="Поиск"
-                       style="width: 656px;height: 53px;margin-top: 3px;" type="name">
+                <input class="form-control" name="q" value="{{ request.GET.q }}" placeholder="{% trans 'Поиск' %}"
+                       style="width: 656px;height: 53px;margin-top: 3px;border: 2px solid #FFE700;border-radius: 11px;" type="name">
                 <a href="" type="sumbit">
                     <img src="{% static './images/search.svg' %}" class="search_icon" alt="">
                 </a>
@@ -172,129 +2265,65 @@
                     </a>
                     <a href="{% url 'products:wishlist' %}">
                 <span class="like_radius">
-                  <p class="like_count">{% get_wishlist_count request %}</p>
+                  <p class="like_count" id="like_count">{% get_wishlist_count request %}</p>
                 </span>
                     </a>
                 </li>
 
+                 <li class="nav-item">
+                 <a class="nav-link-4" href="tel:+99897 211 77 77" style=""><span
+                            class="phone_link-2">+998 97 211 77 77</span></a>
+            </li>
                 <li class="nav-item">
+                      <a class="nav-link" href="tel:+99871 250 77 77" style="color: #000;padding: 0px;margin: 0px;"><span
+                            class="phone_link">+998 71 250 77 77</span></a>
                     <a class="nav-link" href="tel:+99871 250 77 77" style="color: #000;padding: 0px;margin: 0px;"><span
                             class="phone_link">+998 71 250 77 77</span></a>
                     <br>
-                    <span class="call">{% trans 'звонить сейчас' %}</span>
+{#                    <span class="call"><a href="tel:+998 71 250 77 77" style="color:red;font-weight:500">{% trans 'звонить сейчас' %}</a></span>#}
                 </li>
             </ul>
         </form>
     </div>
     <!-- end navbar -->
 </nav>
+</div>
+
 <!-- end mobile menu -->
 {% block content %}
 <!-- start carousel -->
-<div class="container mt-3">
-    <div class="row">
-        <div class="col-md-3">
-            <nav class="minimalist-vertical-menu2">
-                <div class="minimalist-tab-menu2">
-                    <ul class="list-group2">
-                        {% for category in categories %}
-                        <li class="menu-item2 has-child2">
-                            <img src="{{ category.image.url }}" style="margin-top: 5%;" alt=""><span
-                                style="margin-top: 0%;position: absolute;font-size: 14px;margin-left: -2.5%;font-weight: 500;font-style: normal;">{{ category.category }}</span>
-                        </li>
-                        {% endfor %}
-                        <a href="{% url 'products:product' %}">
-                            <li class="menu-ite has-child1" style="">
-                                <img src="{% static 'images/squares_2.svg' %}" style="margin-top: 5%;" alt="">
-                                <span style="margin-top: 0%;position: absolute;font-size: 14px;margin-left:-2.9%;font-weight: 500;font-style: normal;">{% trans 'Все категории' %}</span>
-                            </li>
-                        </a>
-                    </ul>
-
-                </div>
-                <div class="minimalist-tab2">
-                    {% for subcategory in subcategories %}
-                    <div class="minimalist-tab-content2">
-                        <div class="container" style="height: 605px;">
-                            <h3 class="mt-4">{{ subcategory.category }}</h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="menu-dropdown2">
-                                        <div class="dropdown-item2">
-                                            <div style="overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;height: 30px;margin-top: 20px;margin-left: 10px;">
-                                                {{ subcategory.subcategory }}
-                                            </div>
-                                            <hr class="hr-menu">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="menu-dropdown2">
-                                        <div class="blog-yellow-2">
-
-                                        </div>
-                                        <img src="{{ subcategory.image.url }}"
-                                             style="width: 427px;height: 477px;position: relative;z-index: 2;"
-                                             alt="">
-                                        </a>
-                                        <div class="blog-yellow-3">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    {% endfor %}
-                </div>
-            </nav>
-        </div>
-        <div class="col-md-9" style="padding-left: 0px;padding-right: 0px;">
-            <section id="slider" class="section">
+<div class="header-main_container">
+        <div class="header-main_carousel">
+            <section class="section" id="slider">
                 <div class="slider">
                     <div class="slider__container">
-                        <div class="slider__item slide-burger">
+                        <div style="background: url('/static/images/backmemak.jpg') no-repeat center center / cover;" class="slider__item slide-burger">
                             <div class="slider__content grid">
                                 <div class="column">
-                                    <p class="title">{% trans 'Все новогодние' %}</p>
-                                    <h1 class="title">{% trans 'предложения' %}</h1>
-                                    <p class="title2">{% trans 'Новогоднии скидки успейте купить' %}<br> {% trans 'по выгодным ценам только сейчас!' %}</p>
-                                    <p class="title2_2">{% trans 'Новогоднии скидки успейте' %} <br> {% trans 'купить по выгодным ценам' %}
-                                        <br>
-                                        {% trans 'только сейчас!' %}</p>
-                                    <ul>
-                                        <li>
-                                            <button class="button-left button-bottom-left">
-                                                <p class="carousel-button-text">{% trans 'Читать подробнее' %}</p>
-                                            </button>
-                                        </li>
-                                    </ul>
+                                    <h1 class="title">Memak</h1>
+                                    <h1 class="title">Professional Machine</h1>
                                 </div>
-                                <div class="column"><img src="{% static 'images/carousel1.svg' %}"
-                                                         id="image-carousel"
-                                                         class="image burger"></div>
+                                <div class="column"><img class="float image slide_img" src="/static/images/memakk.png" />
+                                </div>
                             </div>
                         </div>
-                        <div class="slider__item slide-astronaut">
+                        <div style="background: url('/static/images/backzicar.jpg') no-repeat center center / cover;" class="slider__item slide-burger">
                             <div class="slider__content grid">
                                 <div class="column">
-                                    <h1 class="title" style="color: #fff;">lost</h1>
-                                    <h1 class="title" style="color: #fff;">in space</h1>
+                                    <h1 class="title">Memak</h1>
+                                    <h1 class="title">Professional Machine</h1>
                                 </div>
-                                <div class="column"><img src="{% static 'images/carousel1.svg' %}"
-                                                         class="image astronaut"></div>
+                                <div class="column"><img class="float image slide_img" src="/static/images/memakk.png" />
+                                </div>
                             </div>
                         </div>
-                        <div class="slider__item slide-coffee">
+                        <div style="background: url('/static/images/backmemak.jpg') no-repeat center center / cover;" class="slider__item slide-burger">
                             <div class="slider__content grid">
                                 <div class="column">
-                                    <h1 class="title" style="color: #fff;">I Love</h1>
-                                    <h1 class="title" style="color: #fff;">Coffee</h1>
+                                    <h1 class="title">Memak</h1>
+                                    <h1 class="title">Professional Machine</h1>
                                 </div>
-                                <div class="column"><img src="{% static 'images/carousel1.svg' %}"
-                                                         class="image cup">
+                                <div class="column"><img class="float image slide_img" src="/static/images/memakk.png" />
                                 </div>
                             </div>
                         </div>
@@ -303,177 +2332,40 @@
             </section>
         </div>
     </div>
-</div>
-
-<!-- end carousel -->
-
-<div class="container ">
-    <div class="back_elements">
-
-    </div>
-    <img src="{% static 'images/settings.svg' %}" class="icon-right" alt="">
-    <h1 class="text-center" style="font-weight: 600;font-size: 30px;padding: 20px;margin-top: 30px;">
-        {% trans 'Производственииые линии' %}</h1>
-    <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-        aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
-        aliquid
-        ex
-        repudiandae nobis</p>
-    <br>
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
-    <br>
-    <div class="contaier">
-        <div class="splide_4_5">
-            <div class="splide__track" style="    padding-left: 0px;
-    padding-right: 0px;
-    height: 431px;
-    margin: 19px;">
-
-                <ul class="splide__list">
-                    {% for line in lines %}
-                    <li class="splide__slide"><img src="{{ line.image.url }}" style="width:250px;height:230px"
-                                                   alt="">
-                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:250px">
-                            <span style="position:absolute;margin:3px">{{ line.title }}</span>
-                            <br>
-                            <span style="margin-top: 2%;position: absolute;margin-left: 35%;">{{ line.created_at|date:'m.d.Y' }}</span>
-                            <br>
-                            <a href="{% url 'line:detail' pk=line.pk %}">
-                                <button class="btn" style="margin: 10px;margin-left: 32%;background:#FFE700">
-                                    {% trans 'Подробнее' %}
-                                </button>
-                            </a>
-                        </div>
-
-                    </li>
-                    {% endfor %}
-                </ul>
-
-            </div>
-        </div>
-        <div class="splide_4_6">
-            <div class="splide__track" style="padding-left: 0px;padding-right: 0px;height: 431px;margin: 19px;">
-
-                <ul class="splide__list">
-                    {% for line in lines %}
-                    <li class="splide__slide"><img src="{{ line.image.url }}" style="width:100%;height:230px"
-                                                   alt="">
-                        <div style="background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);width:100%">
-                            <span style="position:absolute;margin:3px">{{ line.title }}</span>
-                            <br>
-                            <span style="margin-top: 2%;position: absolute;">{{ line.created_at|date:'m.d.Y' }}</span>
-                            <br>
-                            <div class="center_4_6">
-                                <a href="{% url 'line:detail' pk=line.pk %}">
-                                    <button class="btn"
-                                            style="margin: 12px auto;display: table;background:#FFE700">
-                                        {% trans 'Подробнее' %}
-                                    </button>
-                                </a>
-                            </div>
-
-                        </div>
-
-                    </li>
-                    {% endfor %}
-                </ul>
-
-            </div>
-        </div>
-    </div>
-
-    <br>
-    <img src="{% static 'images/Group_417.svg' %}" class="icon-left"
-         style="position: absolute;right: 4%;transform: rotate(-23.65deg);width: 70px;" alt="">
-</div>
-
-
-<div class="text-center">
-    <ul>
-        <li>
-            <a href="{% url 'line:lines' %}">
-                <button class="button-center button-bottom" style="margin-top:0px">
-                    <p style="font-size: 15px;">{% trans 'Смотреть все' %}</p>
-                </button>
-            </a>
-        </li>
-    </ul>
-    <br>
-</div>
-<br>
-<!-- parallax -->
-<div class="parallax">
-    <br>
-    <div class="dark-overlay">
-        <div class="container p-5">
-            <h3 class="dark-text">{% trans 'О компании Uskunalar' %}</h3>
-            <p class="dark-desc">Идейные соображения высшего порядка, а также постоянное
-                информационно-пропагандистское
-                обеспечение нашей деятельности представляет собой интересный.</p>
-            <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
-            <div class="row" style="margin-top: 6%;text-align: center;">
-                <div class="col-md-3 col-6 number_icons">
-                    <img src="{% static 'images/box_1.svg' %}" style="margin-top: -50%;" alt="">
-                    <h3 class="dark-number">980+</h3>
-                    <p class="number-desc">{% trans 'Продано' %}</p>
-                </div>
-                <div class="col-md-3 col-6 number_icons">
-                    <img src="{% static 'images/man-user_1.svg' %}" style="margin-top: -50%;" alt="">
-                    <h3 class="dark-number">650+</h3>
-                    <p class="number-desc">{% trans 'Постоянных клиентов' %}</p>
-                </div>
-                <div class="col-md-3 col-6 number_icons">
-                    <img src="{% static 'images/project_1.svg' %}" style="margin-top: -50%;" alt="">
-                    <h3 class="dark-number">999+</h3>
-                    <p class="number-desc">{% trans 'Реализация проектов' %}</p>
-                </div>
-                <div class="col-md-3 col-6 number_icons">
-                    <img src="{% static 'images/group_1.svg' %}" style="margin-top: -50%;" alt="">
-                    <h3 class="dark-number">599+</h3>
-                    <p class="number-desc">{% trans 'Сотрудников' %}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-<!-- end parallax -->
-
 
 <div class="container">
-    <div class="back_elements">
-
-    </div>
     <img src="{% static 'images/Group_418.svg' %}" class="icon-right-transform" style="position: absolute;" alt="">
     <h1 class="text-center catalog-uskuna">
         {% trans 'Каталог Uskunalar' %}</h1>
     <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
         aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
-        aliquid
-        ex
-        repudiandae nobis</p>
+        aliquid ex repudiandae nobis</p>
     <br>
 
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+    <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
     <br>
 </div>
     <section id="gallery-carousel">
         <div class="gallery-carousel-content">
             <div class="container">
                 <div class="slider responsive">
-                  {% for category in categories %}
+                  {% for category in categories2 %}
                     {% if not forloop.counter|divisibleby:2 %}
                     <div>
-                      <div class="box">
-                        <p>{{ category.category }}</p>
-                        <img class="img-fluid float-right mt-3"  src="{{ category.image.url }}" alt="">
-                      </div>
+                        <a href="{% url 'products:product' %}?category={{ category.pk }}">
+                             <div class="box">
+                            <p style="font-weight: 500">{{ category.category|safe }}</p>
+                            <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px;width: 100%" alt="">
+                          </div>
+                        </a>
                     {% else %}
                       <h3></h3>
-                      <div class="box">
-                        <p>{{ category.category }}</p>
-                        <img class="img-fluid float-right mt-3"  src="{{ category.image.url }}" alt="">
-                      </div>
+                        <a href="{% url 'products:product' %}?category={{ category.pk }}">
+                               <div class="box">
+                                <p style="font-weight: 500">{{ category.category|safe }}</p>
+                                <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px;width:100%"  alt="">
+                              </div>
+                        </a>
                     </div>
                     {% endif %}
                   {% endfor %}
@@ -491,12 +2383,62 @@
                         </li>
                     </ul>
                     <br>
+                </div>
+        </div>
+    </section>
+
+
+
+<!-- end carousel -->
+<div class="products-section">
+    <div class="products-section_container">
+        <!-- Here Goes Title and short description -->
+        <div class="products-section_content">
+            <h2 class="products-section_title">Bizning Liniyalar</h2>
+            <h3 class="products-section_desc">Eng yaxshi sifat hamda Eng yaxshi xizmat ko'rsatish</h3>
+        </div>
+
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {% for line in lines %}
+                <div class="swiper-slide">
+                    <img src="{{ line.image.url }}" alt="" class="swiper-slide_img">
+                    <div class="swiper-slide-content">
+                        <h4 class="swiper-slide_title">{{ line.title }}</h4>
+                        <a href="{% url 'line:detail' pk=line.pk %}" class="swiper-slide_desc">{% trans 'Подробнее' %}</a>
+                    </div>
+                    <a href="{% url 'line:detail' pk=line.pk %}" class="swiper-slide_link"><span>{% trans 'Подробнее' %}</span></a>
+                </div>
+               {% endfor %}
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+                <img src="/static/images/left-arrow.svg" alt="" class="swiper-button_prev">
+                <img src="/static/images/right-arrow.svg" alt="" class="swiper-button_next">
+
+        </div>
+    </div>
+</div>
+<div class="text-center">
+    <ul>
+        <li>
+            <a href="{% url 'line:lines' %}">
+                <button class="button-center button-bottom" style="margin-top:0px">
+                    <p style="font-size: 15px;">{% trans 'Смотреть все' %}</p>
+                </button>
+            </a>
+        </li>
+    </ul>
+    <br>
+</div>
 <br>
 
 <div class="container">
-    <div class="back_elements">
-
-    </div>
     <img src="{% static 'images/Group_419.svg' %}" class="icon-left-transform " alt="">
     <h1 class="text-center"
         style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
@@ -508,7 +2450,7 @@
         repudiandae nobis</p>
     <br>
     <br>
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+      <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
 </div>
 <br>
 
@@ -516,18 +2458,18 @@
     <div class="row-1">
         <br>
         <div class="splide_3_2">
-                          <div class="splide__track" style="height: 520px;">
+            <div class="splide__track" style="height: 520px;">
                     <ul class="splide__list">
                      {% for product in products %}
                         <li class="splide__slide">
-                                <div class="col-md-3">
+                                <div class="col-md-12">
                                 <div class="produdcs-section2">
                                     <div class="flex-itm">
                                         <div class="flex-iem-inner">
                                             <!-- card -->
-                                            <a href="#">
+                                            <a href="{% url 'products:single' pk=product.pk %}">
                                                 <div class="card-front bg-violet">
-                                                    <a href="#" class="card-link">
+                                                    <a onclick="add_to_wishlist(this, {{ product.pk }})"  class="card-link">
                                                         <button class="btn"
                                                                 style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
                                                             <img
@@ -548,13 +2490,15 @@
                                                             </button>
                                                         </a>
                                                      {% endif %}
-                                                    <img src="{{ product.image.url }}"
+                                                    <a href="{% url 'products:single' pk=product.pk %}">
+                                                         <img src="{{ product.image.url }}"
                                                          style="width: 100%;height: 300px;display: table;margin: auto;"
                                                          alt="">
+                                                    </a>
+
                                                     <div class="card-text"
                                                          style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
                                                         <h4 class="front-title">{{ product.title }}</h4>
-                                                        <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
                                                         <p class="desc">${{ product.get_price_dollar }} - {{ product.get_price }} сум</p>
                                                         <div class="text-center">
                                                             <ul>
@@ -562,7 +2506,7 @@
                                                                     <a href="{% url 'products:single' pk=product.pk %}">
                                                                         <button class="button-center button-bottom2 mobile-button"
                                                                             style="width: 127px;height: 43px;">
-                                                                        <p style="font-size: 13px;">Заказать</p>
+                                                                        <p style="font-size: 13px;">{% trans 'Заказать' %}</p>
                                                                     </button>
                                                                     </a>
                                                                 </li>
@@ -595,7 +2539,7 @@
         {% endfor %}
     </div>
 </div>
-<div class="text-center mt-3">
+<div class="text-center mt-5">
     <ul>
         <li>
             <a href="{% url 'products:product' %}">
@@ -607,36 +2551,120 @@
     </ul>
     <br>
 </div>
+<!-- parallax -->
+<!--<div class="parallax">-->
+<!--    <br>-->
+<!--    <div class="dark-overlay">-->
+<!--        <div class="container p-5">-->
+<!--            <h3 class="dark-text">{% trans 'О компании Uskunalar' %}</h3>-->
+<!--            <p class="dark-desc">Идейные соображения высшего порядка, а также постоянное-->
+<!--                информационно-пропагандистское-->
+<!--                обеспечение нашей деятельности представляет собой интересный.</p>-->
+<!--            <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">-->
+<!--            <div class="row" style="margin-top: 6%;text-align: center;">-->
+<!--                <div class="col-md-3 col-6 number_icons">-->
+<!--                    <img src="{% static 'images/box_1.svg' %}" style="margin-top: -50%;" alt="">-->
+<!--                    <h3 class="dark-number">980+</h3>-->
+<!--                    <p class="number-desc">{% trans 'Продано' %}</p>-->
+<!--                </div>-->
+<!--                <div class="col-md-3 col-6 number_icons">-->
+<!--                    <img src="{% static 'images/man-user_1.svg' %}" style="margin-top: -50%;" alt="">-->
+<!--                    <h3 class="dark-number">650+</h3>-->
+<!--                    <p class="number-desc">{% trans 'Постоянных клиентов' %}</p>-->
+<!--                </div>-->
+<!--                <div class="col-md-3 col-6 number_icons">-->
+<!--                    <img src="{% static 'images/project_1.svg' %}" style="margin-top: -50%;" alt="">-->
+<!--                    <h3 class="dark-number">999+</h3>-->
+<!--                    <p class="number-desc">{% trans 'Реализация проектов' %}</p>-->
+<!--                </div>-->
+<!--                <div class="col-md-3 col-6 number_icons">-->
+<!--                    <img src="{% static 'images/group_1.svg' %}" style="margin-top: -50%;" alt="">-->
+<!--                    <h3 class="dark-number">599+</h3>-->
+<!--                    <p class="number-desc">{% trans 'Сотрудников' %}</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
-<div class="container">
-    <div class="back_elements">
+<!--</div>-->
+<!-- end parallax -->
 
+<!--new about-->
+<!-- About Company -->
+<div class="about mt-4">
+  <div class="about-video_block">
+    <div class="about-video_side">
+      <!-- Your Video -->
+      <div class="youtube-player pristine" data-video-id="bMq6nKN7OIQ">
+        <img src="/static/images/zicar.jpg" alt="custom-preview" />
+      </div>
     </div>
+    <div class="video-title_side">
+      <div class="about_content-holder">
+        <h2 class="about-title">Uskunalar International</h2>
+        <p class="about-mantra">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+      </div>
+      <div class="about-content_block active">
+        <p class="about-paragraph">
+          Hurmatli tadbirkorlar Xonimlar va Janoblar USKUNALAR.UZ sayti
+          kuzatuvchilari bu maʼlumotlarni taqdim qilishimizdan maqsad biz olib
+          keladigan uskunalar va taklif qiladigan texnikalar yoki ishlab
+          chiqarishda zaruriy xomashyolarni Xitoy davlatining ko'plab
+          shaharlarida bo'lib, zavodlarda tekshiruvlar o'tkazib sifati bo'yicha
+          ishonch hosil qilib zavodlar bilan ishlaymiz. Bu albatta USKUNALAR.UZ
+          kompaniyasining ertanggi kuni mijozlarimizning bizga boʼlgan
+          ishonchlarini ortishiga zamin yaratadi.
+        </p>
+        <ul class="about-services">
+          <li class="about-services_item">
+            <i class="service-icon fa-regular fa-thumbs-up"></i>
+            <span class="service-title">Eng Yaxshi Sifat</span>
+          </li>
+          <li class="about-services_item">
+            <i class="service-icon fa-regular fa-plane-circle-check"></i>
+            <span class="service-title">Tez hamda Ishonchli Yetkazib Berish</span>
+          </li>
+          <li class="about-services_item">
+            <i class="service-icon fa-regular fa-users-gear"></i>
+            <span class="service-title">Professional Texnik Xizmat Ko'rsatish</span>
+          </li>
+          <li class="about-services_item">
+            <i class="service-icon fa-regular fa-hand-holding-dollar"></i>
+            <span class="service-title">Hamyonbop Narxlar</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--new about-->
+<div class="container" style="margin-top:5%">
     <img src="{% static 'images/Group_417.svg' %}" class="icon-right-transform2" alt="">
     <h1 class="text-center"
         style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
         {% trans 'Готовый бизнес' %}</h1>
     <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
         aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
-        aliquid
-        ex
+        aliquid ex
         repudiandae nobis</p>
     <br>
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+    <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
     <br>
     <br>
 </div>
 <div class="container">
     <div class="row">
-        {% for work in works|slice:':1' %}
+        {% for biznes in biznes|slice:':1' %}
         <div class="col-md-6">
             <div class="ded">
-                <img src="{{ work.image.url }}" style="width: 580px;height: 670px;" alt="">
+                <img src="{{ biznes.image.url }}" style="width: 580px;height: 100%;" alt="">
                 <div class="home-blog2">
-                    <p class="home-text">{{ work.title }}</p>
-                    <p class="home-desc">{{ work.short_descriptions|slice:':320' }}...</p>
+                    <p class="home-text">{{ biznes.title|safe }}</p>
+                    <p class="home-desc">{{ biznes.long_descriptions|slice:':400'|safe }}...</p>
                     <br>
-                    <a href="" style="position: absolute;bottom: 10px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
+                    <a href="{% url 'biznes:detail' pk=biznes.pk %}" style="position: absolute;bottom: 10px;color: #132E6B;margin: auto;display: contents;">{% trans 'Читать полностью' %}</a>
                 </div>
             </div>
         </div>
@@ -645,21 +2673,21 @@
             <div class="container">
                 <div class="blog1">
                     <div class="row">
-                        {% for work in works %}
+                        {% for biznes in biznes %}
                         <div class="col-md-3">
                             <div class="all">
-                                <img src="{{ work.image.url }}" style="height:210px;width:100%" alt="">
+                                <img src="{{ biznes.image.url }}" style="height:210px;width:100%" alt="">
                             </div>
 
                         </div>
                         <div class="col-md-9">
 
                             <div class="home-blog">
-                                <p class="home-text">{{ work.title }}</p>
-                                <p class="home-desc" style="">{{ work.short_descriptions|slice:':200' }}...</p>
+                                <p class="home-text">{{ biznes.title|safe }}</p>
+                                <p class="home-desc" style="">{{ biznes.long_descriptions|slice:':100'|safe }}...</p>
                                 <br>
-                                <a href="{% url 'work:single-work' pk=work.pk %}"
-                                   style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
+                                <a href="{% url 'biznes:detail' pk=biznes.pk %}"
+                                   style="position: absolute;bottom: 11px;color: #132E6B;margin: auto;display: contents;">{% trans 'Читать полностью' %}</a>
                             </div>
 
                         </div>
@@ -689,9 +2717,6 @@
 <br>
 <br>
 <div class="container">
-    <div class="back_elements">
-
-    </div>
     <img src="{% static 'images/Group_418.svg' %}" class="icon-left-transform2" alt="">
     <h1 class="text-center"
         style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
@@ -700,7 +2725,7 @@
         информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
     <br>
     <br>
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+    <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
     <br>
 
 </div>
@@ -711,14 +2736,14 @@
     height: 281px;
     margin: 19px;">
             <ul class="splide__list">
-                {% for line in lines %}
+                {% for blog in blogs %}
                 <li class="splide__slide">
-                    <img src="{{ line.image.url }}"
+                    <img src="{{ blog.image.url }}"
                          style="width: 99%;border-radius: 6px;" alt="">
                     <div class="article2">
-                        <p class="article-text">{{ line.title }}</p>
-                        <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
-                        <a href="{% url 'line:detail' pk=line.pk %}"
+                        <p class="article-text">{{ blog.title|safe }}</p>
+                        <p class="article-date">{{ blog.created_at|date:'m.d.Y' }}</p>
+                        <a href="{% url 'blog:single-blog' pk=blog.pk %}"
                            style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
                     </div>
                 </li>
@@ -733,14 +2758,14 @@
     <div class="splide">
         <div class="splide__track">
             <ul class="splide__list">
-                {% for line in lines %}
+                {% for blog in blogs %}
                 <li class="splide__slide" style="height:500px">
-                    <img src="{{ line.image.url }}"
+                    <img src="{{ blog.image.url }}"
                          style="width: 350px;border-radius: 6px;height:400px" alt="">
                     <div class="article">
-                        <p class="article-text">{{ line.title }}</p>
-                        <p class="article-date">{{ line.created_at|date:'m.d.Y' }}</p>
-                        <a href="{% url 'line:detail' pk=line.pk %}"
+                        <p class="article-text">{{ blog.title|safe }}</p>
+                        <p class="article-date">{{ blog.created_at|date:'m.d.Y' }}</p>
+                        <a href="{% url 'blog:single-blog' pk=blog.pk %}"
                            style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
                     </div>
                 </li>
@@ -750,7 +2775,7 @@
         <div class="text-center">
             <ul>
                 <li>
-                    <a href="{% url 'line:lines' %}">
+                    <a href="{% url 'blog:blogs' %}">
                         <button class="button-center button-bottom">
                             <p style="font-size: 16px;">{% trans 'Смотреть еще' %}</p>
                         </button>
@@ -762,9 +2787,6 @@
 </div>
 
 <div class="container">
-    <div class="back_elements">
-
-    </div>
     <img src="{% static 'images/settings.svg' %}" class="icon-right-transform3" alt="">
     <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;">
         {% trans 'Наши работы' %}</h1>
@@ -773,16 +2795,22 @@
     </p>
     <br>
     <br>
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+     <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
     <br>
 </div>
 <div class="container">
     <div class="row">
-        {% for work in works %}
+        {% for work in works|slice:"3" %}
         <div class="col-md-4">
             <a href="{% url 'work:single-work' pk=work.pk %}">
                 <img src="{{ work.image.url }}" style="margin-top: 20px;" alt="">
             </a>
+            <div class="work-info" style="padding:10px;background:#fff;box-shadow: 0px 6px 20px rgb(169 169 170 / 10%);">
+                <h3 style="padding:3px">{{ work.title }}</h3>
+                <p style="padding:3px">{{ work.short_descriptions|slice:':200'|safe }}...</p>
+                <br>
+                <a href="{% url 'work:single-work' pk=work.pk %}" style="padding:3px;color:#132E6B">Читать дальше</a>
+            </div>
         </div>
         {% endfor %}
 
@@ -804,9 +2832,6 @@
 
 
 <div class="container">
-    <div class="back_elements">
-
-    </div>
     <img src="{% static 'images/Group_418.svg' %}" class="icon-right-transform2" alt="">
     <h1 class="text-center"
         style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
@@ -815,7 +2840,7 @@
         информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
     <br>
     <br>
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+        <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
     <br>
 
 </div>
@@ -836,7 +2861,7 @@
                  style="margin: auto;display:table" alt="">
         </div>
         <div class="col-md-3">
-            <img class="img-fluid" src="http://s019.radikal.ru/i643/1708/96/e23ed2965badt.jpg"
+            <img class="img-fluid" src=""
                  style="margin: auto;display:table" alt="">
         </div>
     </div>
@@ -844,15 +2869,21 @@
 
 <br>
 <br>
-
+{% include 'requests.html' %}
+        <br>
 <footer id="footer" class="footer-1">
+    <style>
+      a:hover {
+        color:#FFE700
+      }
+    </style>
     <div class="main-footer widgets-dark typo-light">
         <div class="container">
             <div class="row">
 
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="widget subscribe no-box">
-                        <h5 class="widget-title">{% trans 'Uskunalar' %}<span></span></h5>
+                          <h5 class="widget-title"><img src="{% static './images/Uskunalar_logo_white.svg' %}" alt=""><span></span></h5>
                         <p class="widget-desc">{% trans 'Команда USKUNALAR.UZ экономит ваше время и деньги, поставляя производственииые оборудования.' %}</p>
                         <h5 class="widget-title">{% trans 'Будь в курсе' %}<span></span></h5>
                         <div class="row">
@@ -919,19 +2950,30 @@
                 <div class="col-xs-12 col-sm-6 col-md-3">
 
                     <div class="widget no-box">
-                        <h5 class="widget-title">{% trans 'Соц.сети' %}<span></span></h5>
-                        <a href=""><p class="widget-number"><img src="{% static 'images/facebook.svg' %}"
-                                                                 style="width: 25px;" alt=""> <span
-                                style="margin-left: 2%;position: absolute;">Facebook</span></p></a>
-                        <a href=""><p class="widget-number"><img src="{% static 'images/instagram.svg' %}"
-                                                                 style="width: 25px;" alt=""> <span
-                                style="margin-left: 2%;position: absolute;">Instasgram</span></p></a>
-                        <a href=""><p class="widget-number"><img
-                                src="https://img.icons8.com/color/29/000000/telegram-app--v1.png"/> <span
-                                style="margin-left: 2%;position: absolute;">Telegram</span></p></a>
+                      <h5 class="widget-title">Соц.сети<span></span></h5>
+                      <a href="https://www.facebook.com/uskunalaruz/">
+                        <p class="widget-number"> <img src="{% static './images/facebook.svg' %}" style="width: 25px;" alt=""> <span
+                            style="margin-left: 2%;position: absolute;">Facebook</span> </p>
+                      </a>
+                      <a href="https://instagram.com/uskunalaruz?utm_medium=copy_link">
+                        <p class="widget-number"> <img src="{% static './images/instagram.svg' %}" style="width: 25px;" alt=""> <span
+                            style="margin-left: 2%;position: absolute;">Instagram</span> </p>
+                      </a>
+                      <a href="https://t.me/uskunalaruz">
+                        <p class="widget-number"> <img src="https://img.icons8.com/color/29/000000/telegram-app--v1.png" />
+                          <span style="margin-left: 2%;position: absolute;">Telegram</span> </p>
+                      </a>
+                      <a href="https://www.youtube.com/c/uskunalaruz">
+                        <p class="widget-number"> <img src="https://img.icons8.com/color/29/000000/youtube-play.png"/>
+                          <span style="margin-left: 2%;position: absolute;margin-top:1%">YouTube</span> </p>
+                      </a>
+                        <a href="https://www.youtube.com/c/uskunalaruz">
+                        <p class="widget-number"> <img src="{% static './images/olx.png' %}" style="width:30px"/>
+                          <span style="margin-left: 2%;position: absolute;margin-top:1%">Olx</span> </p>
+                      </a>
                     </div>
                 </div>
-
+            </div>
             </div>
         </div>
     </div>
@@ -946,7 +2988,6 @@
         </div>
     </div>
 </footer>
-
 <script>
         document.getElementById("year").innerHTML = new Date().getFullYear();
 
@@ -959,7 +3000,6 @@
 {% endblock %}
 <script src="{% static 'js/splide.min.js' %}"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
 <script src='https://mverissimo.github.io/tweenslideshow/dist/assets/javascript/script.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
@@ -972,8 +3012,585 @@
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
 <script src='https://kenwheeler.github.io/slick/slick/slick.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.6/swiper-bundle.min.js"></script>
 <script src='https://s3.amazonaws.com/dimsemenov-static/dist/jquery.magnific-popup.min.js'></script>
+<script src="//code-eu1.jivosite.com/widget/rmQE0QqY5D" async></script>
 <script src="{% static 'js/main.js' %}"></script>
+<script>
+  var utils = {
+    // From http://stackoverflow.com/questions/11197247/javascript-equivalent-of-jquerys-extend-method
+    extend: function (defaults, options) {
+      if (typeof options !== "object") {
+        options = {};
+      }
+
+      for (var key in options) {
+        if (defaults.hasOwnProperty(key)) {
+          defaults[key] = options[key];
+        }
+      }
+
+      return defaults;
+    },
+    // From https://davidwalsh.name/javascript-debounce-function.
+    debounce: function (func, wait, immediate) {
+      var timeout;
+      return function () {
+        var context = this,
+            args = arguments;
+
+        var later = function () {
+          timeout = null;
+          if (!immediate) func.apply(context, args);
+        };
+
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+      };
+    },
+    setStyle: function (el, property, value) {
+      el.style[property.charAt(0).toLowerCase() + property.slice(1)] = value;
+    },
+    setVendor: function (el, property, value) {
+      el.style[property.charAt(0).toLowerCase() + property.slice(1)] = value;
+      el.style["webkit" + property] = value;
+      el.style["moz" + property] = value;
+      el.style["ms" + property] = value;
+      el.style["o" + property] = value;
+    },
+    // From http://jaketrent.com/post/addremove-classes-raw-javascript/
+    hasClass: function (el, className) {
+      if (el.classList) {
+        return el.classList.contains(className);
+      } else {
+        return !!el.className.match(new RegExp("(\\s|^)" + className + "(\\s|$)"));
+      }
+    },
+    addClass: function (el, className) {
+      if (el.classList) {
+        el.classList.add(className);
+      } else if (!utils.hasClass(el, className)) {
+        el.className += " " + className;
+      }
+    },
+    removeClass: function (el, className) {
+      if (el.classList) {
+        el.classList.remove(className);
+      } else if (utils.hasClass(el, className)) {
+        var reg = new RegExp("(\\s|^)" + className + "(\\s|$)");
+        el.className = el.className.replace(reg, " ");
+      }
+    }
+  };
+
+  function TuinSlider(element, options) {
+    var defaults = {
+      selector: ".slider",
+      // Greensock options
+      ease: "SlowMo",
+      easeType: "easeOut",
+      duration: 1,
+      nextHtml: "",
+      prevHtml: "",
+      paginationHtml: "",
+      arrows: true,
+      keyboard: true,
+      pagination: true,
+      onLeave: null,
+      afterLoad: null
+    }; // Element
+
+    this.el = document.querySelector(element); // Settings
+
+    this.settings = utils.extend(defaults, options); // body
+
+    this.body = document.querySelector("body"); //El container
+
+    this.container = this.el.querySelector(this.settings.selector + "__container"); // Sliders
+
+    this.items = this.el.querySelectorAll(this.settings.selector + "__item"); //init
+
+    this.init();
+    return this;
+  }
+
+  TuinSlider.prototype.init = function () {
+    this.index = 0;
+    this.slideWidth = parseInt(getComputedStyle(this.container).width);
+    this.build();
+    this.bindEvents();
+    this.makeActive(this.index);
+
+    if (typeof this.settings.afterLoad === "function") {
+      this.settings.afterLoad(this.index);
+    }
+  };
+
+  TuinSlider.prototype.build = function () {
+    if (this.settings.arrows) {
+      this.appendArrows();
+    }
+
+    if (this.settings.pagination) {
+      this.appendPagination();
+    }
+  };
+
+  TuinSlider.prototype.bindEvents = function () {
+    var self = this;
+    let ix = 0;
+    console.log(self.items.length); // To Slide using Keys
+
+    if (this.settings.arrows) {
+      this.settings.nextHtml.addEventListener("click", this.moveToNext.bind(this));
+      this.settings.nextHtml.addEventListener("click", () => {
+        ix = self.index;
+      });
+      this.settings.prevHtml.addEventListener("click", this.moveToPrev.bind(this));
+      this.settings.prevHtml.addEventListener("click", () => {
+        ix = self.index;
+      });
+    }
+
+    if (this.settings.pagination) {
+      var paginationLinks = document.querySelectorAll(".slider-navigation li a");
+
+      for (var i = 0; i < paginationLinks.length; i++) {
+        (function (index) {
+          paginationLinks[i].addEventListener("click", function (event) {
+            self.move(index);
+            event.preventDefault();
+            ix = index;
+          });
+        })(i);
+      }
+    } // To Slide using Grabbing
+    // Slide by dragging
+
+
+    const slider = document.querySelector(".slider");
+    const slides = Array.from(document.querySelectorAll(".slider__item"));
+    const navigation_links = document.querySelectorAll(".slider-navigation li a"); // Touch Slider
+
+    let slideWidth = slides[0].offsetWidth;
+    let isDragging = false,
+        startPos = 0,
+        currentTranslate = 0,
+        prevTranslate = 0,
+        animationID = 0;
+    slides.forEach((slide, index) => {
+      // Mobile touch
+      slide.addEventListener("touchstart", touchStart(index));
+      slide.addEventListener("touchend", touchEnd);
+      slide.addEventListener("touchmove", touchMove); // PC Drag
+
+      slide.addEventListener("mousedown", touchStart(index));
+      slide.addEventListener("mouseup", touchEnd);
+      slide.addEventListener("mouseleave", touchEnd);
+      slide.addEventListener("mousemove", touchMove);
+    });
+    navigation_links.forEach(navigation_link => {
+      navigation_link.addEventListener("mouseup", () => {
+        isDragging = false;
+        touchEnd;
+        cancelAnimationFrame(animationID);
+      });
+    });
+
+    function touchStart(index) {
+      return function (event) {
+        ix = index;
+        startPos = getPositionX(event);
+        isDragging = true;
+        animationID = requestAnimationFrame(animation);
+        slider.style.cursor = "grabbing";
+      };
+    }
+
+    function touchEnd() {
+      isDragging = false;
+      cancelAnimationFrame(animationID);
+      slider.style.cursor = "grab";
+      const movedBy = currentTranslate - prevTranslate;
+
+      if (movedBy < -100 && ix < slides.length - 1) {
+        ix++;
+      }
+
+      if (movedBy > 100 && ix > 0) {
+        ix--;
+      }
+
+      setPositionByIndex();
+    }
+
+    function touchMove(event) {
+      if (isDragging) {
+        const currentPosition = getPositionX(event);
+        currentTranslate = prevTranslate + currentPosition - startPos;
+      }
+    }
+
+    function getPositionX(event) {
+      return event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
+    }
+
+    function animation() {
+      setSliderPosition();
+
+      if (isDragging) {
+        requestAnimationFrame(animation);
+      }
+    }
+
+    function setSliderPosition() {
+      self.move(ix);
+    }
+
+    function setPositionByIndex() {
+      currentTranslate = ix * -slideWidth;
+      prevTranslate = currentTranslate;
+      setSliderPosition();
+    }
+
+    window.addEventListener("resize", this.resize.bind(this), false);
+  };
+
+  TuinSlider.prototype.makeActive = function (index) {
+    var self = this;
+
+    if (this.settings.pagination) {
+      var paginationLinks = document.querySelectorAll(".slider-navigation li a");
+    }
+
+    for (var i = 0; i < this.items.length; i++) {
+      utils.removeClass(this.items[i], "is-active");
+
+      if (this.settings.pagination) {
+        utils.removeClass(paginationLinks[i], "is-active");
+      }
+    }
+
+    utils.addClass(this.items[index], "is-active");
+
+    if (this.settings.pagination) {
+      utils.addClass(paginationLinks[index], "is-active");
+    }
+  };
+
+  TuinSlider.prototype.move = function (index) {
+    var tl = new TimelineLite();
+    var self = this;
+
+    if (!utils.hasClass(this.items[index], "is-active")) {
+      tl.eventCallback("onStart", function () {
+        if (self.settings.arrows) {
+          utils.setStyle(self.settings.prevHtml, "pointerEvents", "none");
+          utils.setStyle(self.settings.nextHtml, "pointerEvents", "none");
+        }
+
+        if (self.settings.pagination) {
+          utils.setStyle(self.settings.paginationHtml, "pointerEvents", "none");
+        }
+      });
+
+      if (typeof self.settings.onLeave === "function") {
+        tl.add(self.settings.onLeave(self.index));
+      }
+
+      tl.to(this.container, this.settings.duration, {
+        x: -index * this.slideWidth,
+        ease: this.settings.ease + "." + this.settings.easeType
+      }, "-=0.5");
+
+      if (typeof self.settings.afterLoad === "function") {
+        tl.add(self.settings.afterLoad(index));
+      }
+
+      tl.eventCallback("onComplete", function () {
+        if (self.settings.arrows) {
+          utils.setStyle(self.settings.prevHtml, "pointerEvents", "auto");
+          utils.setStyle(self.settings.nextHtml, "pointerEvents", "auto");
+        }
+
+        if (self.settings.pagination) {
+          utils.setStyle(self.settings.paginationHtml, "pointerEvents", "auto");
+        }
+      });
+    }
+
+    this.index = index;
+    this.makeActive(this.index);
+    return tl;
+  };
+
+  TuinSlider.prototype.moveToNext = function (index) {
+    if (this.index + 1 < this.items.length) {
+      this.move(this.index + 1);
+    } else {
+      this.move(0);
+    }
+  };
+
+  TuinSlider.prototype.moveToPrev = function () {
+    if (this.index > 0) {
+      this.move(this.index - 1);
+    }
+  };
+
+  TuinSlider.prototype.keyboard = function (event) {
+    if (event.keyCode === 37) {
+      this.moveToPrev();
+    }
+
+    if (event.keyCode === 39) {
+      this.moveToNext();
+    }
+  };
+
+  TuinSlider.prototype.appendArrows = function () {
+    var arrows = document.createElement("div");
+    arrows.setAttribute("class", "slider-controls");
+    var next = document.createElement("button");
+    next.setAttribute("type", "button");
+    next.setAttribute("class", "next");
+    var prev = document.createElement("button");
+    prev.setAttribute("type", "button");
+    prev.setAttribute("class", "previous");
+    console.log(prev)
+    this.el.appendChild(arrows);
+    var controlsElement = this.el.querySelector(".slider-controls");
+    controlsElement.appendChild(next);
+    controlsElement.appendChild(prev);
+    this.settings.nextHtml = next;
+    this.settings.prevHtml = prev;
+  };
+
+  TuinSlider.prototype.appendPagination = function () {
+    var paginationList = "";
+    var slider_block = document.getElementById("slider");
+
+    for (var i = 0; i < this.items.length; i++) {
+      paginationList += '<li><a data-index="' + i + '" href="#' + i + '"></a></li>';
+    }
+
+    this.settings.paginationHtml = document.createElement("ul");
+    this.settings.paginationHtml.setAttribute("class", "slider-navigation");
+    this.settings.paginationHtml.innerHTML = paginationList;
+    slider_block.appendChild(this.settings.paginationHtml);
+    console.log(this.settings.paginationHtml)
+  };
+
+  TuinSlider.prototype.resize = utils.debounce(function () {
+    var self = this;
+    self.slideWidth = parseInt(getComputedStyle(this.container).width);
+    var sliderOffset = self.slideWidth * self.index + 1;
+    utils.setVendor(self.container, "Transform", "matrix(1, 0, 0, 1, -" + sliderOffset + ", 0)");
+  }, 10);
+  window.TuinSlider = TuinSlider;
+
+var slider = new TuinSlider("#slider", {
+  onLeave: function (index) {
+    // Tween timeline object
+    var tl = new TimelineLite(); // Select elements in current slide,
+    // if not the animation triggers for all elements
+
+    var items = document.querySelectorAll(".slider__item");
+    var item = items[index]; // Animate title
+
+    var title = item.querySelectorAll(".title");
+    var slide_img = item.querySelector(".slide_img"); // Exit animations
+
+    if (index === 0) {
+      tl.staggerTo(title, 0.8, {
+        y: -100,
+        opacity: 0,
+        ease: Power4.easeOut
+      }, 0.5).to(slide_img, 0.5, {
+        x: 100,
+        opacity: 0,
+        ease: Power4.easeOut
+      });
+    } else if (index === 1) {
+      tl.staggerTo(title, 0.8, {
+        y: 100,
+        opacity: 0,
+        ease: Power4.easeOut
+      }, 0.5).to(slide_img, 0.5, {
+        y: -100,
+        opacity: 0
+      }, "=-1");
+    } else if (index === 2) {
+      tl.staggerTo(title, 0.8, {
+        y: -100,
+        opacity: 0,
+        ease: Power4.easeOut
+      }, 0.5).to(slide_img, 0.5, {
+        x: 100,
+        opacity: 0
+      });
+    } else {
+      tl.staggerTo(title, 0.8, {
+        y: -100,
+        opacity: 0,
+        ease: Power4.easeOut
+      }, 0.5).to(slide_img, 0.5, {
+        x: 100,
+        opacity: 0
+      }, "=-1");
+    }
+
+    return tl;
+  },
+  afterLoad: function (index) {
+    // Tween timeline object
+    var tl = new TimelineLite(); // Select elements in current slide,
+    // if not the animation triggers for all elements
+
+    var items = document.querySelectorAll(".slider__item");
+    var item = items[index]; // Animate title every slide item
+
+    var title = item.querySelectorAll(".title"); // Hide the content case click in between values dots
+    // By example you are slide one and click slide third
+    // this make hide the content in slide two
+
+    var content = item.querySelector(".slider__content");
+    TweenLite.set(content, {
+      visibility: "visible"
+    });
+    var slide_img = item.querySelectorAll(".slide_img"); // Enter animations
+
+    if (index === 0) {
+      tl.staggerFromTo(title, 0.5, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        ease: Power3.easeOut
+      }, 0.6).fromTo(slide_img, 0.8, {
+        x: 100,
+        opacity: 0
+      }, {
+        x: 0,
+        opacity: 1,
+        ease: Power3.easeOut
+      });
+    } else if (index === 1) {
+      tl.staggerFromTo(title, 0.5, {
+        y: -100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        ease: Power3.easeOut
+      }, 0.6).fromTo(slide_img, 0.8, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1
+      }, "=-1");
+    } else if (index === 2) {
+      tl.staggerFromTo(title, 0.5, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        ease: Power3.easeOut
+      }, 0.6).fromTo(slide_img, 0.8, {
+        x: 100,
+        opacity: 0
+      }, {
+        x: 0,
+        opacity: 1,
+        ease: Power3.easeOut
+      }, "=-1");
+    } else {
+      tl.staggerFromTo(title, 0.8, {
+        y: 100,
+        opacity: 0
+      }, {
+        y: 0,
+        opacity: 1,
+        ease: Power3.easeOut
+      }, 0.5).fromTo(slide_img, 1, {
+        x: 100,
+        opacity: 0
+      }, {
+        x: 0,
+        opacity: 1,
+        ease: Power3.easeOut
+      }, 0.5);
+    }
+
+    return tl;
+  }
+});
+
+function getSlideSize() {
+  let windowSize = window.innerWidth;
+
+  switch (true) {
+      case windowSize >= 4000:
+      return slideSize = 7;
+
+    case windowSize >= 3000:
+      return slideSize = 6;
+
+    case windowSize <= 3000 && windowSize > 2000:
+      return slideSize = 5;
+
+    case windowSize <= 2000 && windowSize > 1500:
+      return slideSize = 4.5;
+
+    case windowSize <= 1500 && windowSize > 1100:
+      return slideSize = 3.5;
+
+    case windowSize <= 1100 && windowSize > 900:
+      return slideSize = 3;
+
+    case windowSize <= 900 && windowSize > 800:
+      return slideSize = 2.5;
+
+    case windowSize <= 800 && windowSize > 500:
+      return slideSize = 2;
+
+    case windowSize <= 500:
+      return slideSize = 1.5;
+
+    default:
+      return slideSize = 1.5;
+  }
+}
+
+const swiper = new Swiper(".swiper", {
+  // Optional parameters
+  slidesPerView: getSlideSize(),
+  spaceBetween: 30,
+  centeredSlides: true,
+  direction: "horizontal",
+  loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false
+  },
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+    type: "progressbar"
+  },
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button_next",
+    prevEl: ".swiper-button_prev"
+  }
+});
+</script>
 <script>
     var splide = new Splide('.splide_4_5', {
         type: 'loop',
@@ -1054,6 +3671,38 @@
 </script>
 
 <script>
+    $(function () {
+        var Accordion = function (el, multiple) {
+            this.el = el || {};
+            this.multiple = multiple || false;
+
+            // Variables privadas
+            var links = this.el.find('.link');
+            // Evento
+            links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+        }
+
+        Accordion.prototype.dropdown = function (e) {
+            var $el = e.data.el;
+            $this = $(this),
+                $next = $this.next();
+
+            $next.slideToggle();
+            $this.parent().toggleClass('open');
+
+            if (!e.data.multiple) {
+                $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+            }
+            ;
+        }
+
+        var accordion = new Accordion($('#accordion9_1'), false);
+    });
+
+
+</script>
+
+<script>
     var splide = new Splide('.splide_3_2', {
         perPage: 1,
         rewind: true,
@@ -1073,6 +3722,570 @@
     $('.icon-close').click( function(){
       $('body').removeClass('mode-search');
     });
+</script>
+ <script>
+      $(".js-range-slider").ionRangeSlider({
+        type: "double",
+        grid: true,
+        prefix: "$",
+        min: {{ min_price }},
+        max: {{ max_price }},
+        from: 2,
+        to: 1,
+        onFinish(data) {
+            let result = data.from.toString() + ';' + data.to.toString()
+            addUrlParameter('price', result);
+        }
+    });
+</script>
+<script>
+var players = document.querySelectorAll('.youtube-player');
+var content = document.querySelector('.about-content_block');
+
+var loadPlayer = function (event) {
+  var target = event.currentTarget;
+  var iframe = document.createElement('iframe');
+  iframe.height = target.clientHeight;
+  iframe.width = target.clientWidth;
+  iframe.src = 'https://www.youtube.com/embed/' + target.dataset.videoId + '?autoplay=1';
+  console.log(iframe.src);
+  iframe.setAttribute('frameborder', 0);
+  iframe.setAttribute('controls', 1);
+  iframe.setAttribute('autoplay', '');
+  iframe.setAttribute('allow', 'autoplay; picture-in-picture');
+  iframe.setAttribute('allowFullScreen', 'allowFullScreen');
+  target.classList.remove('pristine');
+
+  if (target.children.length) {
+    target.replaceChild(iframe, target.firstElementChild);
+  } else {
+    target.appendChild(iframe);
+  }
+};
+
+var config = {
+  once: true
+};
+Array.from(players).forEach(function (player) {
+  player.addEventListener('click', loadPlayer, config);
+}); // User Window Size
+
+const userWindowSize = screen.width;
+players.forEach(element => {
+  if (userWindowSize < 2210) {
+    element.addEventListener('mouseover', () => {
+      content.classList.remove('active');
+    });
+    element.addEventListener('mouseout', () => {
+      content.classList.add('active');
+    });
+  }
+});
+window.FontAwesomeKitConfig = {
+  asyncLoading: {
+    enabled: false
+  },
+  autoA11y: {
+    enabled: true
+  },
+  baseUrl: "https://ka-f.fontawesome.com",
+  baseUrlKit: "https://kit.fontawesome.com",
+  detectConflictsUntil: null,
+  iconUploads: {},
+  id: 104562792,
+  license: "pro",
+  method: "css",
+  minify: {
+    enabled: true
+  },
+  token: "704f56d977",
+  v4FontFaceShim: {
+    enabled: true
+  },
+  v4shim: {
+    enabled: true
+  },
+  v5FontFaceShim: {
+    enabled: true
+  },
+  version: "6.1.1"
+};
+!function (t) {
+  "function" == typeof define && define.amd ? define("kit-loader", t) : t();
+}(function () {
+  "use strict";
+
+  function t(e) {
+    return (t = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (t) {
+      return typeof t;
+    } : function (t) {
+      return t && "function" == typeof Symbol && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
+    })(e);
+  }
+
+  function e(t, e, n) {
+    return e in t ? Object.defineProperty(t, e, {
+      value: n,
+      enumerable: !0,
+      configurable: !0,
+      writable: !0
+    }) : t[e] = n, t;
+  }
+
+  function n(t, e) {
+    var n = Object.keys(t);
+
+    if (Object.getOwnPropertySymbols) {
+      var o = Object.getOwnPropertySymbols(t);
+      e && (o = o.filter(function (e) {
+        return Object.getOwnPropertyDescriptor(t, e).enumerable;
+      })), n.push.apply(n, o);
+    }
+
+    return n;
+  }
+
+  function o(t) {
+    for (var o = 1; o < arguments.length; o++) {
+      var r = null != arguments[o] ? arguments[o] : {};
+      o % 2 ? n(Object(r), !0).forEach(function (n) {
+        e(t, n, r[n]);
+      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(r)) : n(Object(r)).forEach(function (e) {
+        Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(r, e));
+      });
+    }
+
+    return t;
+  }
+
+  function r(t, e) {
+    return function (t) {
+      if (Array.isArray(t)) return t;
+    }(t) || function (t, e) {
+      if ("undefined" == typeof Symbol || !(Symbol.iterator in Object(t))) return;
+      var n = [],
+          o = !0,
+          r = !1,
+          i = void 0;
+
+      try {
+        for (var c, a = t[Symbol.iterator](); !(o = (c = a.next()).done) && (n.push(c.value), !e || n.length !== e); o = !0);
+      } catch (t) {
+        r = !0, i = t;
+      } finally {
+        try {
+          o || null == a.return || a.return();
+        } finally {
+          if (r) throw i;
+        }
+      }
+
+      return n;
+    }(t, e) || function (t, e) {
+      if (!t) return;
+      if ("string" == typeof t) return i(t, e);
+      var n = Object.prototype.toString.call(t).slice(8, -1);
+      "Object" === n && t.constructor && (n = t.constructor.name);
+      if ("Map" === n || "Set" === n) return Array.from(t);
+      if ("Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return i(t, e);
+    }(t, e) || function () {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }();
+  }
+
+  function i(t, e) {
+    (null == e || e > t.length) && (e = t.length);
+
+    for (var n = 0, o = new Array(e); n < e; n++) o[n] = t[n];
+
+    return o;
+  }
+
+  function c(t, e) {
+    var n = e && e.addOn || "",
+        o = e && e.baseFilename || t.license + n,
+        r = e && e.minify ? ".min" : "",
+        i = e && e.fileSuffix || t.method,
+        c = e && e.subdir || t.method;
+    return t.baseUrl + "/releases/" + ("latest" === t.version ? "latest" : "v".concat(t.version)) + "/" + c + "/" + o + r + "." + i;
+  }
+
+  function a(t) {
+    return t.baseUrlKit + "/" + t.token + "/" + t.id + "/kit-upload.css";
+  }
+
+  function u(t, e) {
+    var n = e || ["fa"],
+        o = "." + Array.prototype.join.call(n, ",."),
+        r = t.querySelectorAll(o);
+    Array.prototype.forEach.call(r, function (e) {
+      var n = e.getAttribute("title");
+      e.setAttribute("aria-hidden", "true");
+      var o = !e.nextElementSibling || !e.nextElementSibling.classList.contains("sr-only");
+
+      if (n && o) {
+        var r = t.createElement("span");
+        r.innerHTML = n, r.classList.add("sr-only"), e.parentNode.insertBefore(r, e.nextSibling);
+      }
+    });
+  }
+
+  var f,
+      s = function () {},
+      d = "undefined" != typeof global && void 0 !== global.process && "function" == typeof global.process.emit,
+      l = "undefined" == typeof setImmediate ? setTimeout : setImmediate,
+      h = [];
+
+  function m() {
+    for (var t = 0; t < h.length; t++) h[t][0](h[t][1]);
+
+    h = [], f = !1;
+  }
+
+  function p(t, e) {
+    h.push([t, e]), f || (f = !0, l(m, 0));
+  }
+
+  function v(t) {
+    var e = t.owner,
+        n = e._state,
+        o = e._data,
+        r = t[n],
+        i = t.then;
+
+    if ("function" == typeof r) {
+      n = "fulfilled";
+
+      try {
+        o = r(o);
+      } catch (t) {
+        w(i, t);
+      }
+    }
+
+    y(i, o) || ("fulfilled" === n && b(i, o), "rejected" === n && w(i, o));
+  }
+
+  function y(e, n) {
+    var o;
+
+    try {
+      if (e === n) throw new TypeError("A promises callback cannot return that same promise.");
+
+      if (n && ("function" == typeof n || "object" === t(n))) {
+        var r = n.then;
+        if ("function" == typeof r) return r.call(n, function (t) {
+          o || (o = !0, n === t ? g(e, t) : b(e, t));
+        }, function (t) {
+          o || (o = !0, w(e, t));
+        }), !0;
+      }
+    } catch (t) {
+      return o || w(e, t), !0;
+    }
+
+    return !1;
+  }
+
+  function b(t, e) {
+    t !== e && y(t, e) || g(t, e);
+  }
+
+  function g(t, e) {
+    "pending" === t._state && (t._state = "settled", t._data = e, p(S, t));
+  }
+
+  function w(t, e) {
+    "pending" === t._state && (t._state = "settled", t._data = e, p(O, t));
+  }
+
+  function A(t) {
+    t._then = t._then.forEach(v);
+  }
+
+  function S(t) {
+    t._state = "fulfilled", A(t);
+  }
+
+  function O(t) {
+    t._state = "rejected", A(t), !t._handled && d && global.process.emit("unhandledRejection", t._data, t);
+  }
+
+  function j(t) {
+    global.process.emit("rejectionHandled", t);
+  }
+
+  function E(t) {
+    if ("function" != typeof t) throw new TypeError("Promise resolver " + t + " is not a function");
+    if (this instanceof E == !1) throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");
+    this._then = [], function (t, e) {
+      function n(t) {
+        w(e, t);
+      }
+
+      try {
+        t(function (t) {
+          b(e, t);
+        }, n);
+      } catch (t) {
+        n(t);
+      }
+    }(t, this);
+  }
+
+  E.prototype = {
+    constructor: E,
+    _state: "pending",
+    _then: null,
+    _data: void 0,
+    _handled: !1,
+    then: function (t, e) {
+      var n = {
+        owner: this,
+        then: new this.constructor(s),
+        fulfilled: t,
+        rejected: e
+      };
+      return !e && !t || this._handled || (this._handled = !0, "rejected" === this._state && d && p(j, this)), "fulfilled" === this._state || "rejected" === this._state ? p(v, n) : this._then.push(n), n.then;
+    },
+    catch: function (t) {
+      return this.then(null, t);
+    }
+  }, E.all = function (t) {
+    if (!Array.isArray(t)) throw new TypeError("You must pass an array to Promise.all().");
+    return new E(function (e, n) {
+      var o = [],
+          r = 0;
+
+      function i(t) {
+        return r++, function (n) {
+          o[t] = n, --r || e(o);
+        };
+      }
+
+      for (var c, a = 0; a < t.length; a++) (c = t[a]) && "function" == typeof c.then ? c.then(i(a), n) : o[a] = c;
+
+      r || e(o);
+    });
+  }, E.race = function (t) {
+    if (!Array.isArray(t)) throw new TypeError("You must pass an array to Promise.race().");
+    return new E(function (e, n) {
+      for (var o, r = 0; r < t.length; r++) (o = t[r]) && "function" == typeof o.then ? o.then(e, n) : e(o);
+    });
+  }, E.resolve = function (e) {
+    return e && "object" === t(e) && e.constructor === E ? e : new E(function (t) {
+      t(e);
+    });
+  }, E.reject = function (t) {
+    return new E(function (e, n) {
+      n(t);
+    });
+  };
+
+  var _ = "function" == typeof Promise ? Promise : E;
+
+  function F(t, e) {
+    var n = e.fetch,
+        o = e.XMLHttpRequest,
+        r = e.token,
+        i = t;
+    return "URLSearchParams" in window ? (i = new URL(t)).searchParams.set("token", r) : i = i + "?token=" + encodeURIComponent(r), i = i.toString(), new _(function (t, e) {
+      if ("function" == typeof n) n(i, {
+        mode: "cors",
+        cache: "default"
+      }).then(function (t) {
+        if (t.ok) return t.text();
+        throw new Error("");
+      }).then(function (e) {
+        t(e);
+      }).catch(e);else if ("function" == typeof o) {
+        var r = new o();
+        r.addEventListener("loadend", function () {
+          this.responseText ? t(this.responseText) : e(new Error(""));
+        });
+        ["abort", "error", "timeout"].map(function (t) {
+          r.addEventListener(t, function () {
+            e(new Error(""));
+          });
+        }), r.open("GET", i), r.send();
+      } else {
+        e(new Error(""));
+      }
+    });
+  }
+
+  function P(t, e, n) {
+    var o = t;
+    return [[/(url\("?)\.\.\/\.\.\/\.\./g, function (t, n) {
+      return "".concat(n).concat(e);
+    }], [/(url\("?)\.\.\/webfonts/g, function (t, o) {
+      return "".concat(o).concat(e, "/releases/v").concat(n, "/webfonts");
+    }], [/(url\("?)https:\/\/kit-free([^.])*\.fontawesome\.com/g, function (t, n) {
+      return "".concat(n).concat(e);
+    }]].forEach(function (t) {
+      var e = r(t, 2),
+          n = e[0],
+          i = e[1];
+      o = o.replace(n, i);
+    }), o;
+  }
+
+  function C(t, e) {
+    var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : function () {},
+        r = e.document || r,
+        i = u.bind(u, r, ["fa", "fab", "fas", "far", "fal", "fad", "fak"]),
+        f = Object.keys(t.iconUploads || {}).length > 0;
+    t.autoA11y.enabled && n(i);
+    var s = [{
+      id: "fa-main",
+      addOn: void 0
+    }];
+    t.v4shim && t.v4shim.enabled && s.push({
+      id: "fa-v4-shims",
+      addOn: "-v4-shims"
+    }), t.v5FontFaceShim && t.v5FontFaceShim.enabled && s.push({
+      id: "fa-v5-font-face",
+      addOn: "-v5-font-face"
+    }), t.v4FontFaceShim && t.v4FontFaceShim.enabled && s.push({
+      id: "fa-v4-font-face",
+      addOn: "-v4-font-face"
+    }), f && s.push({
+      id: "fa-kit-upload",
+      customCss: !0
+    });
+    var d = s.map(function (n) {
+      return new _(function (r, i) {
+        F(n.customCss ? a(t) : c(t, {
+          addOn: n.addOn,
+          minify: t.minify.enabled
+        }), e).then(function (i) {
+          r(U(i, o(o({}, e), {}, {
+            baseUrl: t.baseUrl,
+            version: t.version,
+            id: n.id,
+            contentFilter: function (t, e) {
+              return P(t, e.baseUrl, e.version);
+            }
+          })));
+        }).catch(i);
+      });
+    });
+    return _.all(d);
+  }
+
+  function U(t, e) {
+    var n = e.contentFilter || function (t, e) {
+      return t;
+    },
+        o = document.createElement("style"),
+        r = document.createTextNode(n(t, e));
+
+    return o.appendChild(r), o.media = "all", e.id && o.setAttribute("id", e.id), e && e.detectingConflicts && e.detectionIgnoreAttr && o.setAttributeNode(document.createAttribute(e.detectionIgnoreAttr)), o;
+  }
+
+  function k(t, e) {
+    e.autoA11y = t.autoA11y.enabled, "pro" === t.license && (e.autoFetchSvg = !0, e.fetchSvgFrom = t.baseUrl + "/releases/" + ("latest" === t.version ? "latest" : "v".concat(t.version)) + "/svgs", e.fetchUploadedSvgFrom = t.uploadsUrl);
+    var n = [];
+    return t.v4shim.enabled && n.push(new _(function (n, r) {
+      F(c(t, {
+        addOn: "-v4-shims",
+        minify: t.minify.enabled
+      }), e).then(function (t) {
+        n(I(t, o(o({}, e), {}, {
+          id: "fa-v4-shims"
+        })));
+      }).catch(r);
+    })), n.push(new _(function (n, r) {
+      F(c(t, {
+        minify: t.minify.enabled
+      }), e).then(function (t) {
+        var r = I(t, o(o({}, e), {}, {
+          id: "fa-main"
+        }));
+        n(function (t, e) {
+          var n = e && void 0 !== e.autoFetchSvg ? e.autoFetchSvg : void 0,
+              o = e && void 0 !== e.autoA11y ? e.autoA11y : void 0;
+          void 0 !== o && t.setAttribute("data-auto-a11y", o ? "true" : "false");
+          n && (t.setAttributeNode(document.createAttribute("data-auto-fetch-svg")), t.setAttribute("data-fetch-svg-from", e.fetchSvgFrom), t.setAttribute("data-fetch-uploaded-svg-from", e.fetchUploadedSvgFrom));
+          return t;
+        }(r, e));
+      }).catch(r);
+    })), _.all(n);
+  }
+
+  function I(t, e) {
+    var n = document.createElement("SCRIPT"),
+        o = document.createTextNode(t);
+    return n.appendChild(o), n.referrerPolicy = "strict-origin", e.id && n.setAttribute("id", e.id), e && e.detectingConflicts && e.detectionIgnoreAttr && n.setAttributeNode(document.createAttribute(e.detectionIgnoreAttr)), n;
+  }
+
+  function L(t) {
+    var e,
+        n = [],
+        o = document,
+        r = o.documentElement.doScroll,
+        i = (r ? /^loaded|^c/ : /^loaded|^i|^c/).test(o.readyState);
+    i || o.addEventListener("DOMContentLoaded", e = function () {
+      for (o.removeEventListener("DOMContentLoaded", e), i = 1; e = n.shift();) e();
+    }), i ? setTimeout(t, 0) : n.push(t);
+  }
+
+  function T(t) {
+    "undefined" != typeof MutationObserver && new MutationObserver(t).observe(document, {
+      childList: !0,
+      subtree: !0
+    });
+  }
+
+  try {
+    if (window.FontAwesomeKitConfig) {
+      var x = window.FontAwesomeKitConfig,
+          M = {
+        detectingConflicts: x.detectConflictsUntil && new Date() <= new Date(x.detectConflictsUntil),
+        detectionIgnoreAttr: "data-fa-detection-ignore",
+        fetch: window.fetch,
+        token: x.token,
+        XMLHttpRequest: window.XMLHttpRequest,
+        document: document
+      },
+          D = document.currentScript,
+          N = D ? D.parentElement : document.head;
+      (function () {
+        var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
+            e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+        return "js" === t.method ? k(t, e) : "css" === t.method ? C(t, e, function (t) {
+          L(t), T(t);
+        }) : void 0;
+      })(x, M).then(function (t) {
+        t.map(function (t) {
+          try {
+            N.insertBefore(t, D ? D.nextSibling : null);
+          } catch (e) {
+            N.appendChild(t);
+          }
+        }), M.detectingConflicts && D && L(function () {
+          D.setAttributeNode(document.createAttribute(M.detectionIgnoreAttr));
+
+          var t = function (t, e) {
+            var n = document.createElement("script");
+            return e && e.detectionIgnoreAttr && n.setAttributeNode(document.createAttribute(e.detectionIgnoreAttr)), n.src = c(t, {
+              baseFilename: "conflict-detection",
+              fileSuffix: "js",
+              subdir: "js",
+              minify: t.minify.enabled
+            }), n;
+          }(x, M);
+
+          document.body.appendChild(t);
+        });
+      }).catch(function (t) {
+        console.error("".concat("Font Awesome Kit:", " ").concat(t));
+      });
+    }
+  } catch (t) {
+    console.error("".concat("Font Awesome Kit:", " ").concat(t));
+  }
+});
 </script>
 
 </body>

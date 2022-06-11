@@ -1,9 +1,30 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load humanize %}
+{% load tags %}
 {% block content %}
 
 <style>
+
+nav ul li a span strong {
+    color:#fff;
+    font-size: 15px;
+}
+
+strong {
+    color: #000;
+    font-size: 13px;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #132E6B;
+}
+
         @media (max-width: 950px) {
             #accordion2 {
                 display: none;
@@ -18,7 +39,121 @@
             }
         }
 
+        .modal-content {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        pointer-events: auto;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: 0.3rem;
+        outline: 0;
+        }
 
+       @media (min-width:1199px) {
+             .category-ds-1 {
+                display:none
+            }
+
+            .minimalist-tab-content2.active {
+                display: grid;
+                width: 800px;
+                height: auto;
+                left: 280px;
+                opacity: 1;
+                visibility: visible;
+                position: absolute;
+                z-index: 999;
+            }
+
+             #Paris.btn-like3 {
+                position: absolute;
+                bottom: 20%;
+                right: 13%;
+                width: 48px;
+                height: 48px;
+                background-color: #FFF5F5;
+                border: none;
+                border-radius: 4px;
+            }
+       }
+
+accordion {
+  font-size: 1rem;
+  width: 30vw;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+
+.accordion-body {
+  background: white;
+}
+
+.accordion-header {
+  color: #132E6B;
+  cursor: pointer;
+  font-size: .7em;
+  letter-spacing: .1em;
+  transition: all .3s;
+  background-color: #CCCCCA;
+}
+
+
+.accordion__item .accordion__item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.accordion-header:hover {
+  position: relative;
+  z-index: 5;
+}
+
+.accordion-body {
+  background: #fcfcfc;
+  color: #353535;
+  display: none;
+}
+
+.accordion-body__contents {
+  padding: 7px 1.5em;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.accordion__item.active:last-child .accordion-header {
+  border-radius: none;
+}
+
+.accordion:first-child > .accordion__item > .accordion-header {
+  border-bottom: 1px solid #CCCCCA;
+}
+
+
+
+
+.accordion__item.active > .accordion-header:after {
+  transform: rotate(-180deg);
+}
+
+.accordion__item.active .accordion-header {
+  background: #FFE700;
+}
+
+.accordion__item .accordion__item .accordion-header {
+  background: #f1f1f1;
+  color: #353535;
+}
+
+@media screen and (max-width: 1000px) {
+  .accordion {
+    width: 100%;
+  }
+}
 </style>
 <section class="banner">
     <div class="container">
@@ -26,7 +161,7 @@
 
         </div>
         <h1 class="banner-text">{% trans 'Каталог' %}</h1>
-        <a href="/" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>  <span> > <a href="" class="banner-desc-title">{% trans 'Каталог' %}</a></span></p>
+        <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc" >{% trans 'Главная' %}</a>  <span> > <a href="" class="banner-desc-title" style="color:#132E6B;">{% trans 'Каталог' %}</a></span></p>
 
         <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
@@ -43,17 +178,18 @@
     <ul id="accordion2" class="accordion" style="position:relative">
         <div class="filter">
             <h4>{% trans 'Фильтр' %}</h4>
-            <a href="{% url 'products:product' %}"><p style="float: right;margin-top: -2.5%;">{% trans 'Сбросить' %}</p></a>
+            <br>
+            <a href="{% url 'products:product' %}"><p style="float: right;margin-top: -3%;">{% trans 'Сбросить' %}</p></a>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-4">
                       <!-- Custom select structure -->
-                    <div class="select_mate" data-mate-select="active" >
+                    <div class="select_mate" data-mate-select="active" style="font-family:RobotoCondensed,Arial,sans-serif;">
 
                         <select onchange="addUrlParameter('sort', this.value)">
-                            <option>Все товары</option>
-                            <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price">  От А до Я</option>
-                            <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price">  От Я до А</option>
-                            <option {% if request.GET.sort == 'created_at' %}selected{% endif %} value="created_at">Новые</option>
+                            <option>{% trans 'Все товары' %}</option>
+                            <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price">{% trans 'Сначала дешевые' %}</option>
+                            <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price">{% trans 'Сначала дорогие' %}</option>
+                            <option {% if request.GET.sort == 'created_at' %}selected{% endif %} value="created_at">{% trans 'Новые' %}</option>
                         </select>
                           <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                               <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
@@ -65,14 +201,14 @@
                       </div>
                       <!-- Custom select structure -->
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                        <!-- Custom select structure -->
-                    <div class="select_mate" data-mate-select="active" >
+                    <div class="select_mate" data-mate-select="active" style="font-family:RobotoCondensed,Arial,sans-serif;">
 
                         <select onchange="addUrlParameter('sort', this.value)">
-                            <option>Валюта</option>
-                            <option {% if request.GET.sort == 'som' %}selected{% endif %} value="som">Сум</option>
-                            <option {% if request.GET.sort == '-som' %}selected{% endif %} value="-som">Доллар</option>
+                            <option>{% trans 'Валюта' %}</option>
+                            <option {% if request.GET.sort == 'som' %}selected{% endif %} value="som">{% trans 'Сум' %}</option>
+                            <option {% if request.GET.sort == '-som' %}selected{% endif %} value="-som">{% trans 'Доллар' %}</option>
 
 
                         </select>
@@ -86,47 +222,20 @@
                       </div>
                       <!-- Custom select structure -->
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                        <div class="link" style="padding: 20px 20px 20px 35px;"><i class="fa fa-check"></i>В наличии<i
+                        <div class="link" style="padding: 20px ;background:#FFE700;border-radius: 3px;height: 58px">
+                           <p style="font-family:RobotoCondensed,Arial,sans-serif;position: absolute;left: 8px;">{% trans 'Цена' %}</p> <br><i
                                 class="fa fa-chevron-down"></i></div>
                         <ul class="submenu"
-                            style="position: absolute;z-index: 99;width: 88%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
+                            style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
                             <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
-                            <li><a href="#">В наличии</a></li>
-                            <li><a href="#">В складе</a></li>
-                        </ul>
-                    </li>
-                </div>
-                <div class="col-md-3">
-                    <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                        <div class="link" style="padding: 20px 20px 20px 35px;"><i class="fas fa-search-dollar"></i>Цена<br><i
-                                class="fa fa-chevron-down"></i></div>
-                        <ul class="submenu"
-                            style="position: absolute;z-index: 99;width: 88%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                            <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
-                            <li>
-                                <div class="container p-3">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="price-filter">
-                                                <p class="price-filter-title">{{ max_price }}$</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="price-filter">
-                                                <p class="price-filter-title">{{ min_price }}$</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
+                            <li style="padding:10px">
                                 <form action="">
-                                     <input type="range" class="js-range-slider" name="js-range-slider" />
+                                     <input class="js-range-slider" name="js-range-slider" />
                                  </form>
                             </li>
-                            <li><a href="#"></a></li>
+
                         </ul>
                     </li>
                 </div>
@@ -143,54 +252,37 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
+               <img src="{% static './images/Group_419.svg' %}" class="icon-right m-3" style="transform: rotate(2.33deg);left:-12%" alt="">
             <br>
             <p class="categories_block mt-2">{% trans 'Категории' %}</p>
-            <ul id="accordion4_2" class="accordion" style="border-radius: 6px;">
+            <br>
+<!--               <select onchange="addUrlParameter('sort', this.value)">
+                                                            <option>Все товары</option>
+                                                            <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price" >От А до Я</option>
+                                                            <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price"  >От Я до А</option>
+                                                            <option {% if request.GET.sort == 'created_at' %}selected{% endif %} value="created_at">Новые</option>
 
-                <li>
-                    <div class="link" style="background-color: #FFE700;border-radius: 6px;"><img
-                            src="{% static './images/pishevaya.svg' %}"
-                            alt=""> <span
-                            style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 100;">Пищевая
-                промышленность</span><i class="fa fa-chevron-down"></i>
-                        <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                    </div>
-                    <ul class="submenu">
-                        <li><a href="#">Прокатное производства</a></li>
-                        <li><a href="#">Холодильники</a></li>
-                        <li>
-                            <ul class="accordion5_1">
-                                <li>
-                                    <a>Lorem ipsum</a>
-                                    <p>Lorem ipsum dolor1 </p>
-                                    <p>lasdfasd fasdfasdf sadff</p>
-                                </li>
-                                <li>
-                                    <a>Repellat Odit Aliquid</a>
-                                    <p>Lorem ipsum dolor1 </p>
-                                </li>
-                                <li>
-                                    <a>Dolor sit Amet</a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit,
-                                        ipsum,
-                                        fuga, in,
-                                        obcaecati magni ullam nobis voluptas fugiat tenetur voluptatum quas tempora
-                                        maxime rerum neque
-                                        deserunt suscipit provident cumque et mollitia ex aspernatur porro minus
-                                        sapiente voluptatibus eos
-                                        at perferendis repellat odit aliquid harum molestias ratione pariatur
-                                        adipisci.
-                                        Aliquid, iure.</p>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Мебель для кухни</a></li>
-                        <li><a href="#">Мельница</a></li>
-                        <li><a href="#">Переработка молока</a></li>
-                    </ul>
-                </li>
 
-            </ul>
+                                                        </select>-->
+            <div class="category-ds-1">
+                <div class="select_mate" data-mate-select="active" >
+                <select name="category2" onchange="location = this.value;" onclick="return false;"  id="">
+                     {% for category in categories %}
+                        <option {% if request.GET.category == category.pk|stringformat:'i' %}selected{% endif %} value="?category={{ category.pk }}" style="padding: 10px">
+                            {{ category.category|safe }}
+                        </option>
+                    {% endfor %}
+                </select>
+                  <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                      <path d="M0-.75h24v24H0z" fill="none"/>
+                  </svg></span>
+                  <div class="cont_list_select_mate">
+                    <ul class="cont_select_int">  </ul>
+                  </div>
+              </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -199,33 +291,38 @@
 <div class="container">
     <div class="row">
         <div class="col-xl-3 col-lg-4 col-md-5">
-            <ul class="accordion">
+            <ul class="accordion" style="width:114%">
                 <h3 class="categories_none"
                     style="margin-bottom: -20px;padding: 15px;color: #132E6B;text-align: left;">
                     {% trans 'Категории' %}</h3>
                 <!-- <hr class="hr-menu" style="position: absolute;"> -->
             </ul>
             <div class="sidebar-categories">
-                <ul id="accordion" class="accordion">
+                <ul id="accordion" class="accordion" style="overflow-y:auto;max-height:700px;width:114%">
                     {% for category in categories %}
                     <li>
                         <div class="link">
                             {% if category.image %}
-                            <img src="{{ category.image.url }}" style="width:20px" alt="">
+                            <img src="{{ category.image.url }}" style="width:20px;position: relative;left: -6px;" alt="">
+                             {% else %}
+                            <p></p>
                             {% endif %}
-                            <a href="?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;margin-top: 2%;margin-left: 5%;font-family: revert;font-weight: 500;">{{ category.category }}</span></a> <i
+                            <a href="?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;width:220px">{{ category.category|safe }}</span></a> <i
                                 class="fa fa-chevron-down"></i>
                             <hr class="hr-menu" style="position: absolute;bottom: -1px;">
                         </div>
                         <ul class="submenu">
                                 {% for subcategory in category.subcategories.all %}
-                                    <li><a href="?subcategory={{ subcategory.pk }}">{{ subcategory }}</a></li>
+                                     <div class="accordion js-accordion" style="margin-top: 0px;">
+                                       <div class="accordion__item js-accordion-item">
+                                                <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}" style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory|safe }}</a>  <hr class="hr-menu" style="border: 1px solid #CCCCCA"> </div>
+                                       </div><!-- end of accordion item -->
+                                    </div><!-- end of accordion -->
                                 {% endfor %}
                         </ul>
                     </li>
                     {% endfor %}
 
-                    <img src="{% static './images/Group_417.svg' %}" class="icon-left" style="left: -24%;" alt="">
 
                 </ul>
 
@@ -244,7 +341,7 @@
             </div>
         </div>
 
-        <div class="col-xl-9 col-lg-8 col-md-7">
+        <div class="col-xl-9 col-lg-8 col-md-12">
             <div id="message">
 
             </div>
@@ -280,10 +377,10 @@
                                                     <div class="select_mate" data-mate-select="active" style="width:100%">
 
                                                         <select onchange="addUrlParameter('sort', this.value)">
-                                                            <option>Все товары</option>
-                                                            <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price" >От А до Я</option>
-                                                            <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price"  >От Я до А</option>
-                                                            <option {% if request.GET.sort == 'created_at' %}selected{% endif %} value="created_at">Новые</option>
+                                                            <option>{% trans 'Все товары' %}</option>
+                                                            <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price">{% trans 'Сначала дешевые' %}</option>
+                                                            <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price">{% trans 'Сначала дорогие' %}</option>
+                                                            <option {% if request.GET.sort == 'created_at' %}selected{% endif %} value="created_at">{% trans 'Новые' %}</option>
 
 
                                                         </select>
@@ -303,9 +400,9 @@
                                                     <div class="select_mate" data-mate-select="active" style="width:100%" >
 
                                                         <select onchange="addUrlParameter('sort', this.value)">
-                                                            <option>Валюта</option>
-                                                            <option {% if request.GET.sort == 'som' %}selected{% endif %} value="som">Сум</option>
-                                                            <option {% if request.GET.sort == '-som' %}selected{% endif %} value="-som">Доллар</option>
+                                                            <option>{% trans 'Валюта' %}</option>
+                                                            <option {% if request.GET.sort == 'som' %}selected{% endif %} value="som">{% trans 'Сум' %}</option>
+                                                            <option {% if request.GET.sort == '-som' %}selected{% endif %} value="-som">{% trans 'Доллар' %}</option>
 
 
                                                         </select>
@@ -322,48 +419,15 @@
                                                 <br>
                                                 <div class="col-md-3">
                                                     <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                                                        <div class="link" style="padding: 20px 20px 20px 35px;"><i
-                                                                class="fa fa-check"></i>В наличии<i class="fa fa-chevron-down"></i></div>
-                                                        <ul class="submenu"
-                                                            style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                                                            <img src="{% static './images/triangle.svg' %}"
-                                                                 style="overflow: hidden;" alt="">
-                                                            <li><a href="#">В наличии</a></li>
-                                                            <li><a href="#">В складе</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </div>
-                                                <br>
-                                                <div class="col-md-3">
-                                                    <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                                                        <div class="link" style="padding: 20px 20px 20px 35px;"><i
-                                                                class="fas fa-search-dollar"></i>Цена<br><i
+                                                        <div class="link" style="padding: 20px 20px 20px 35px;"><p style="font-family: RobotoCondensed,Arial,sans-serif;position: absolute;left: 8px;font-size:17px">{% trans 'Цена' %}</p><br><i
                                                                 class="fa fa-chevron-down"></i></div>
                                                         <ul class="submenu"
                                                             style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
                                                             <img src="{% static './images/triangle.svg' %}"
                                                                  style="overflow: hidden;" alt="">
                                                             <li>
-                                                                <div class="container p-3">
-                                                                    <div class="row">
-                                                                        <div class="col-md-6">
-                                                                            <div class="price-filter">
-                                                                                <p class="price-filter-title">От
-                                                                                    500</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-6">
-                                                                            <div class="price-filter">
-                                                                                <p class="price-filter-title">ДоФФ
-                                                                                    3500000</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li>
                                                                 <form action="">
-                                                                    <input type="range" class="js-range-slider" name="js-range-slider" />
+                                                                    <input class="js-range-slider" name="js-range-slider" />
                                                                 </form>
                                                             </li>
 
@@ -379,11 +443,14 @@
                                 <div class="modal-footer" style="justify-content: center;border-top: none;">
                                     <ul>
                                         <li>
-                                            <button class="button-center button-bottom">
-                                                <p style="font-size: 16px;">{% trans 'Барчаси' %}</p>
-                                            </button>
+                                            <a href="{% url 'products:product' %}">
+                                                <button class="button-center button-bottom" type="button">
+                                                <p style="font-size: 16px;">{% trans 'Сбросить' %}</p>
+                                                </button>
+                                            </a>
                                         </li>
                                     </ul>
+
                                 </div>
                             </div>
                         </div>
@@ -405,11 +472,13 @@
                 <div id="London" class="tabcontent3">
                     <div class="container-fluid">
                         <div class="row">
+                               <img src="{% static './images/Group_418.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);right:-15%" alt="">
                             {% for product in object_list %}
-                                <div class="col-md-4 col-6">
+                                <div class="col-md-4 col-12">
                                     {% include 'layouts/product_block.html' %}
                                 </div>
                             {% endfor %}
+                             <img src="{% static './images/Group_418.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);right:-15%" alt="">
                         </div>
                     </div>
                 </div>
@@ -417,117 +486,7 @@
                 <div id="Paris" class="tabcontent3">
                     <div class="container-z">
                         {% for product in products %}
-                            <div class="sort-menu-products">
-                            <div class="row">
-                                <div class="col-md-3 col-6 d-like" style="position: absolute;z-index: 8;">
-                                    <a href="#" class="card-link">
-                                        <button class="btn like-mobile-1"><img
-                                                src="{% static './images/like.svg' %}"
-                                                style="margin-top: 7px;" alt=""></button>
-                                    </a>
-                                    {% if product.is_discount %}
-                                        <a href="#" class="card-link1"><button class="btn"
-                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                          </button></a>
-                                        {% elif product.is_new %}
-                                            <a href="#" class="card-link1">
-                                            <button class="btn new-mobile-1">
-                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                            </button>
-                                        </a>
-                                    {% endif %}
-
-
-                                </div>
-
-                                <div class="col-md-3 col-6">
-                                    <img src="{{ product.image.url }}" style="width: 100%;height: 163px;"
-                                         alt="">
-                                </div>
-                                <div class="col-md-6 col-6 mt-3">
-                                    <h4 class="front-title-paris">
-                                        {{ product.title }}</h4>
-                                    <p class="detail-paris">
-                                        {% trans 'Артикул' %}: {{ product.sku }}</p>
-                                    <p class="desc-paris">$ {{ product.dollar }} - {{ product.price }} сум</p>
-                                    <p class="mob-price" style="margin-left: 2%;">${{ product.dollar }}</p>
-                                    <p class="mob-price mt-2" style="margin-left: 2%;">{{ product.price }} cум</p>
-                                    <ul>
-                                        <li>
-                                            <a href="./single-product.html">
-                                                <button class="button-left button-bottom-left ds-none2"
-                                                        type="button"
-                                                        style="width: 127px;height: 52px;">
-                                                    <p class="carousel-button-text" style="font-size: 16px;">{% trans 'Заказать' %}</p>
-                                                </button>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-3 m-like">
-                                    <a href="#" class="card-link">
-                                        <button class="btn"
-                                                style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 15px;">
-                                            <img
-                                                    src="{% static './images/like.svg' %}" style="margin-top: 7px;"
-                                                    alt=""></button>
-                                    </a>
-                                    {% if product.is_discount %}
-                                        <a href="#" class="card-link1"><button class="btn"
-                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                          </button></a>
-                                    {% elif product.is_new %}
-                                            <a href="#" class="card-link1">
-                                            <button class="btn new-mobile-1">
-                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                            </button>
-                                        </a>
-                                    {% endif %}
-                                </div>
-
-                                <br>
-
-                            </div>
-                            <div class="sort-menu-info">
-                                <div class="container">
-                                    <div class="row">
-                                        {% for j in product.specifications.all %}
-                                        <div class="col-md-3">
-                                            <p class="info-back-product">{{ j.product_customer }}:</p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <p style="padding-top: 8%;">{{ j.product_number }}</p>
-                                        </div>
-                                        {% endfor %}
-<!--                                        <div class="col-md-3">-->
-<!--                                            <p class="info-back-product">Энергопотребление:</p>-->
-<!--                                            <p class="info-back-product">Материал:</p>-->
-<!--                                            <p class="info-back-product">Тип энергии:</p>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-md-3">-->
-<!--                                            <p style="padding-top: 3%;">25 кв / ч.</p>-->
-<!--                                            <p style="padding-top: 11%;">Зангламас металл S208:</p>-->
-<!--                                            <p style="padding-top: 11%;">Ток</p>-->
-<!--                                        </div>-->
-
-                                    </div>
-                                    <div class="text-center">
-                                        <ul>
-                                            <li>
-                                                <button class="button-product button-bottom-single-product"
-                                                        style="right: 0%;margin: auto;display: table;">
-                                                    <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
+                            {% include 'layouts/products-sort.html' %}
                         {% endfor %}
                     </div>
                 </div>
@@ -535,16 +494,42 @@
             </section>
             <br>
             <!-- pagination menu -->
-            <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;
-justify-content: center;">
+            <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
                 <a class="prew_icon" href=""></a>
                 <ul style="display: flex;justify-content: center;">
+                    {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}"><img src="{% static 'images/left.svg' %}" style="position:relative;top:17px;height:18px"  alt=""></a>
+                    {% endif %}
                     {% for page in page_obj.paginator.page_range %}
-                    <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position:relative;padding-top:14px"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
+                        {% if page >= page_obj.number|add:-3 and page <= page_obj.number|add:3 %}
+                                <li class="page_numb{% if page == page_obj.number %}-active {% endif %}"  onclick="addUrlParameter('page', '{{ page }}')" style="cursor:pointer;position:relative;padding-top:14px">
+                                    <a href="{% if request.GET.category|stringformat:'i' == category.pk %}?category={{ category.pk }}/?page={{ page }}{% else %}?page={{ page }}{% endif %}" style="color: #132E6B;">{{ page }}</a>
+                                </li>
+                        {% endif %}
                     {% endfor %}
+                    {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}"><img src="{% static 'images/right.svg' %}"  style="position:relative;top:17px;height:18px" alt=""></a>
+                    {% endif %}
                 </ul>
-                <a href="?page={{ page }}"></a>
             </nav>
+<!--<div class="pagination" style="justify-content: center">-->
+<!--    <span class="step-links" style="display: flex;justify-content: center;align-items: center">-->
+<!--        {% if page_obj.has_previous %}-->
+<!--{#            <a href="?page=1">&laquo; first</a>#}-->
+<!--            <a href="?page={{ page_obj.previous_page_number }}"><img src="{% static 'images/left.png' %}" style="margin: 10px" alt=""></a>-->
+<!--        {% endif %}-->
+
+<!--        <span class="current" style="display: flex;justify-content: center;align-items: center">-->
+<!--          <a href="?page={{ page_obj.paginator.num_pages }}"><p class="page_numb-active" style="padding-top: 30%">{{ page_obj.number }}</p></a>-->
+<!--         <p style="margin: 10px"> / </p> <a href="?page={{ page_obj.paginator.num_pages }}"> <p class="page_numb" style="display: flex;align-items: center;justify-content: center">{{ page_obj.paginator.num_pages }}</p></a>-->
+<!--        </span>-->
+
+<!--        {% if page_obj.has_next %}-->
+<!--            <a href="?page={{ page_obj.next_page_number }}"><img src="{% static 'images/right.png' %}" alt=""></a>-->
+<!--{#            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>#}-->
+<!--        {% endif %}-->
+<!--    </span>-->
+<!--</div>-->
 
             <!-- end pagination menu -->
             <!-- End Best Seller -->
@@ -570,6 +555,8 @@ justify-content: center;">
         <br>
     </div>
 
+
+
     <div class="container">
         <div class="row-1">
             <br>
@@ -583,15 +570,14 @@ justify-content: center;">
                                     <div class="flex-itm">
                                         <div class="flex-iem-inner">
                                             <!-- card -->
-                                            <a href="#">
                                                 <div class="card-front bg-violet">
-                                                    <a href="#" class="card-link">
-                                                        <button class="btn"
-                                                                style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                                                            <img
-                                                                    src="{% static './images/like.svg' %}"
-                                                                    style="margin-top: 7px;" alt=""></button>
-                                                    </a>
+                                                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
+                                                      {% if product|in_wishlist:request %}
+                                                        <button class="btn-like2" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img src="{% static './images/red_active.svg' %}" style="margin-top: 7px;" alt=""></button>
+                                                      {% else %}
+                                                        <button class="btn-like2" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button>
+                                                      {% endif %}
+
                                                      {% if product.is_discount %}
                                                         <a href="#" class="card-link">
                                                         <button class="btn"
@@ -620,7 +606,7 @@ justify-content: center;">
                                                                     <a href="{% url 'products:single' pk=product.pk %}">
                                                                         <button class="button-center button-bottom2 mobile-button"
                                                                             style="width: 127px;height: 43px;">
-                                                                        <p style="font-size: 13px;">Заказать</p>
+                                                                        <p style="font-size: 13px;">{% trans 'Заказать' %}</p>
                                                                     </button>
                                                                     </a>
                                                                 </li>
@@ -658,13 +644,29 @@ justify-content: center;">
 
 <br>
 <script>
-    console.clear();
 </script>
 {% endblock %}
 <!-- Articul id ++++++-->
 <!-- 4,5 -->
 
 {% block extra_js %}
+<script>
+      $('.btn1').click(function () {
+            $(this).toggleClass("click");
+            $('.sidebar').toggleClass("show");
+        });
+        $('.feat-btn').click(function () {
+            $('nav ul .feat-show').toggleClass("show");
+            $('nav ul .first').toggleClass("rotate");
+        });
+        $('.serv-btn').click(function () {
+            $('nav ul .serv-show').toggleClass("show1");
+            $('nav ul .second').toggleClass("rotate");
+        });
+        $('nav ul li').click(function () {
+            $(this).addClass("active").siblings().removeClass("active");
+        });
+</script>
 <script>
         $(function () {
             var Accordion = function (el, multiple) {
@@ -720,7 +722,7 @@ justify-content: center;">
                 $this.parent().toggleClass('open');
 
                 if (!e.data.multiple) {
-                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                    $el.find('.submenu').not($next).slideUp().parent().selected('true');
                 }
                 ;
             }
@@ -730,9 +732,7 @@ justify-content: center;">
 
 
 </script>
-   <script>
-  console.clear();
-
+<script>
   function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent3");
@@ -778,20 +778,17 @@ justify-content: center;">
 
             var accordion = new Accordion($('#accordion4_2'), false);
         });
-
-
-
 </script>
 
 <script>
-      $(".js-range-slider").ionRangeSlider({
+  $(".js-range-slider").ionRangeSlider({
         type: "double",
         grid: true,
-        prefix: "$",
         min: {{ min_price }},
         max: {{ max_price }},
-        from: 2,
-        to: 1,
+        from: {% get_price request 0 %},
+        to: {% get_price request 1 %},
+        prefix: '$',
         onFinish(data) {
             let result = data.from.toString() + ';' + data.to.toString()
             addUrlParameter('price', result);
@@ -813,7 +810,7 @@ justify-content: center;">
 <script>
   function addUrlParameter(name, value) {
       let searchParams = new URLSearchParams(window.location.search)
-      if (['category', 'brand', 'tag', 'sort', 'som'].includes(name)) {
+      if (['category', 'subcategory', 'sku', 'brand', 'tag', 'sort', 'som'].includes(name)) {
           searchParams.delete('?');
       }
       if (searchParams.has(name) && searchParams.get(name) === value) {
@@ -969,7 +966,69 @@ select_optiones[indx].selected = true;
 });
 
 </script>
+<script>
+(function () {
 
+    $(".hamburger").on("click", function () {
+        $(this).parent(".hamburger-wrapper").toggleClass("hamburger-active")
+    });
+
+}());
+</script>
+<script>
+  var accordion = (function(){
+
+  var $accordion = $('.js-accordion');
+  var $accordion_header = $accordion.find('.js-accordion-header');
+  var $accordion_item = $('.js-accordion-item');
+
+  // default settings
+  var settings = {
+    // animation speed
+    speed: 400,
+
+    // close all other accordion items if true
+    oneOpen: false
+  };
+
+  return {
+    // pass configurable object literal
+    init: function($settings) {
+      $accordion_header.on('click', function() {
+        accordion.toggle($(this));
+      });
+
+      $.extend(settings, $settings);
+
+      // ensure only one accordion is active if oneOpen is true
+      if(settings.oneOpen && $('.js-accordion-item.active').length > 1) {
+        $('.js-accordion-item.active:not(:first)').removeClass('active');
+      }
+
+      // reveal the active accordion bodies
+      $('.js-accordion-item.active').find('> .js-accordion-body').show();
+    },
+    toggle: function($this) {
+
+      if(settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
+        $this.closest('.js-accordion')
+               .find('> .js-accordion-item')
+               .removeClass('active')
+               .find('.js-accordion-body')
+               .slideUp()
+      }
+
+      // show/hide the clicked accordion item
+      $this.closest('.js-accordion-item').toggleClass('active');
+      $this.next().stop().slideToggle(settings.speed);
+    }
+  }
+})();
+
+$(document).ready(function(){
+  accordion.init({ speed: 300, oneOpen: true });
+});
+</script>
 <!--asd-->
 
 {% endblock %}

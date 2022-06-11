@@ -9,7 +9,7 @@
 
             </div>
             <h1 class="banner-text">{% trans 'Наши статьи' %}</h1>
-            <a href="/" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>   <span> > <a href="" class="banner-desc-title">{% trans 'Наши статьи' %}</a></span></p>
+            <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>   <span> > <a href="" class="banner-desc-title" style="color: #132E6B;">{% trans 'Наши статьи' %}</a></span></p>
 
             <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
         </div>
@@ -25,16 +25,16 @@
     <div class="desc-blog">
         <div class="container">
             <div class="row">
+                    <img src="{% static './images/Group_417.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);left:7%" alt="">
                 {% for blog in blogs %}
                     <div class="col-md-12">
-
                         <div class="blog-yellow">
 
                         </div>
                         <div class="blog-box" style="position: relative;z-index: 9;">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <img src="{{ blog.image.url }}" style="padding: 45px;margin-left: 8%;"
+                                    <img src="{{ blog.image.url }}" style="padding: 45px;margin-left: 8%;height:320px"
                                          alt="">
                                 </div>
                                 <div class="col-md-9">
@@ -43,8 +43,8 @@
                                         <p class="date-date">{{ blog.created_at|date:'F' }}</p></span></p>
                                     </div>
 <!--                                    <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 50px;position: absolute;">Просмотрено 457 человек</small>-->
-                                    <p class="blog-title">{{ blog.title }}</p>
-                                    <p class="blog-desc" style="padding: 10px;">{{ blog.smart_description }}</p>
+                                    <p class="blog-title" >{{ blog.title|safe }}</p>
+                                    <p class="blog-desc" style="padding: 10px;">{{ blog.smart_description|safe }}</p>
                                     <a href="{% url 'blog:single-blog' pk=blog.pk %}">{% trans 'Читать дальше' %} <img
                                             src="{% static './images/right.svg' %}"
                                             style="position: absolute;margin-left: 2%;"
@@ -73,9 +73,9 @@
 <!--                            <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;">-->
 <!--                                Просмотрено 457 человек</small>-->
                             <br>
-                            <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">{{ blog.title }}</p>
+                            <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">{{ blog.title|safe }}</p>
                             <br>
-                            <p>{{ blog.description }}</p>
+                            <p>{{ blog.description|safe }}</p>
                             <br>
                             <a href="{% url 'blog:single-blog' pk=blog.pk %}">{% trans 'Читать дальше' %} <img src="{% static './images/right.svg' %}"
                                                                             style="position: absolute;margin-left: 2%;"

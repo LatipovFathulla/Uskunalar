@@ -1,6 +1,6 @@
 from modeltranslation.translator import register, TranslationOptions
 
-from home.models import CategoryModel, SubCategoryModel, SecondSubCategoryModel, BannerInfoModel
+from home.models import CategoryModel, SubCategoryModel, BannerInfoModel, CarouselModel
 
 
 @register(CategoryModel)
@@ -13,13 +13,14 @@ class SubCategoryTranslationOptions(TranslationOptions):
     fields = ('category', 'subcategory')
 
 
-@register(SecondSubCategoryModel)
-class SecondCategoryTranslationOptions(TranslationOptions):
-    fields = ('category', 'subcategory', 'secondsubcategory')
-
-
 @register(BannerInfoModel)
 class BannerTranslationOptions(TranslationOptions):
-    fields = ('title', 'city', 'category', 'subcategory', 'secondsubcategory')
+    fields = (
+        'title', 'city', 'category', 'subcategory', 'short_description', 'long_description',
+        'inbox',
+        'delivery')
 
 
+@register(CarouselModel)
+class CarouselTranslationOptions(TranslationOptions):
+    fields = ('title', 'descriptions',)

@@ -1,16 +1,218 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load tags %}
+{% load static watermark %}
+{% load humanize %}
 {% block content %}
+<style>
+    @media(max-width:900px) {
+      .btn.btn-min {
+            width: 48px;
+            height: 48px;
+            background-color: #FFF5F5;
+            position: absolute;
+            right: 6.3%;
+            top: 25px;
+        }
+    }
 
+      @media(min-width:1000px) {
+      .btn.btn-min {
+            width: 48px;
+            height: 48px;
+            background-color: #FFF5F5;
+            position: absolute;
+            right: 16.3%;
+            top: 25px;
+        }
+    }
+
+    .btn-like2 {
+        position: absolute;
+        bottom: 9.8%;
+        right: 13%;
+        width: 48px;
+        height: 48px;
+        background-color: #FFF5F5;
+        border: none;
+        border-radius: 4px;
+    }
+
+.img-magnifier-container {
+  position:relative;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 150px;
+  height: 150px;
+}
+strong {
+    color:#000;
+}
+
+.nav-2 {
+  display: inline-block;
+  background: #FFFFFF;
+  border-radius: 3px;
+  border-top: 2px solid #FFE700;
+  height: 60px;
+}
+.nav-2 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-2 ul li {
+  position: relative;
+  display: inline-block;
+  height: 60px;
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  vertical-align: middle;
+  float: left;
+}
+.nav-2 ul li:first-child,
+.nav-2 ul li:nth-child(2),
+.nav-2 ul li:last-child {
+  border-left: 0;
+}
+.nav-2 ul li:nth-child(2) a:before,
+.nav-2 ul li:nth-last-child(2) a:before,
+.nav-2 ul li:nth-child(2) a:after,
+.nav-2 ul li:nth-last-child(2) a:after {
+  -webkit-transition: all 0.3s linear 0s;
+  -moz-transition: all 0.3s linear 0s;
+  -ms-transition: all 0.3s linear 0s;
+  -o-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+}
+.nav-2 ul li:nth-child(2) > a:before {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: -15px;
+  content: '';
+  width: 0;
+  height: 0;
+  display: block;
+  border-right: 15px solid #FFFFFF;
+  border-top: 60px solid transparent;
+}
+.nav-2 ul li:nth-last-child(2) a:after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: -15px;
+  content: '';
+  width: 0;
+  height: 0;
+  display: block;
+  border-left: 15px solid #FFFFFF;
+  border-bottom: 60px solid transparent;
+}
+.nav-2 ul li:last-child a {
+  padding: 0 25px 0 30px;
+  color: #000;
+}
+.nav-2 ul li:last-child a:hover {
+  background: #FFE700;
+}
+.nav-2 ul li a {
+  position: relative;
+  display: block;
+  padding: 0 25px;
+  color: #666666;
+  font-size: 14px;
+  line-height: 60px;
+  text-decoration: none;
+  -webkit-transition: all 0.3s linear 0s;
+  -moz-transition: all 0.3s linear 0s;
+  -ms-transition: all 0.3s linear 0s;
+  -o-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+}
+.nav-2 ul li a:hover {
+  background: #FFE700;
+}
+.nav-2 ul li a:hover:before {
+  border-right: 15px solid #FFE700;
+}
+.nav-2 ul li a:hover:after {
+  border-left: 15px solid #FFE700;
+}
+.nav-2 ul li a.logo {
+  background: #FFE700;
+  width: 30px;
+  height: 30px;
+  padding: 15px 30px 15px 15px;
+  line-height: 1;
+  vertical-align: middle;
+}
+.nav-2 ul li a.logo:hover {
+  background: #FFE700;
+}
+.nav-2 ul li a.logo img {
+  width: 100%;
+}
+.nav-2 ul li a i {
+  margin: 0 0 0 6px;
+}
+.nav-2 ul li .menu {
+  display: none;
+  position: absolute;
+  background: #FFFFFF;
+  top: 100%;
+  max-width: 100%;
+  width: 193px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 3px solid #ffce54;
+  border-radius: 0 0 3px 3px;
+  overflow: hidden;
+}
+.nav-2 ul li .menu li {
+  display: block;
+  width: 100%;
+  height: 45px;
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.nav-2 ul li .menu li:nth-child(2),
+.nav-2 ul li .menu li:nth-last-child(2) {
+  height: 45px;
+}
+.nav-2 ul li .menu li:nth-child(2) a:before,
+.nav-2 ul li .menu li:nth-last-child(2) a:before,
+.nav-2 ul li .menu li:nth-child(2) a:after,
+.nav-2 ul li .menu li:nth-last-child(2) a:after {
+  content: '';
+  display: none;
+}
+.nav-2 ul li .menu li a {
+  background: #FFFFFF;
+  padding: 0 15px 0 30px;
+  color: #666666;
+  line-height: 45px;
+  text-align: left;
+}
+.nav-2 ul li .menu li a:hover {
+  background: #FFE700;
+}
+
+</style>
 <section class="banner">
     <div class="container">
         <div class="row">
 
         </div>
         <h1 class="banner-text">{% trans 'Карточка товара' %}</h1>
-        <a href="/" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a> <span> > <a href="" class="banner-desc-title">{% trans 'Карточка товара' %}</a></span> > <a
-                href="" class="banner-desc-title">{{ object.title }}</a></span></p>
+        <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a> <span> > <a
+            href="" class="banner-desc-title">{% trans 'Карточка товара' %}</a></span> > <a
+            href="" class="banner-desc-title" style="#132E6B;">{{ object.title }}</a></span></p>
 
         <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
@@ -19,70 +221,124 @@
 
 <br>
 <br>
-
 <div class="container">
     <div class="row">
         <div class="col-md-6">
             <div class="single-image">
                 <div class="product-gallery">
-                    <div class="product-image">
-                        <img class="active" src="{{ object.image.url }}"
-                             style="width: 100%;margin-top: 10px;height: 450px;">
+                    <div class="img-magnifier-container">
+                      {% with object.image.url as url_path %}
+                        <img id="myimage" src="{{ object.image.url|watermark:"uskunalar,scale=R35%,position=br,opacity=100"  }}" style="width: 100%;margin-top: 10px;height: 450px;">
+                      {% endwith %}
                     </div>
                     <ul class="image-list" style="margin-left: 2%;">
-                        <li class="image-item"><img style="width: 80px;height: 79px;padding: 2px;"
-                                                    src="{{ object.image.url }}"></li>
+                        <li class="image-item">
+                            <img src="{{ object.image.url }}" alt="">
+{#                            {% with object.image.url as url_path %}#}
+{#                                <img style="width: 80px;height: 79px;padding: 2px;" src="{{ object.image.url|watermark:"uskunalar,scale=R35%,position=br,opacity=100"  }}"></li>#}
+{#                            {% endwith %}#}
                         {% for i in object.images.all %}
                         <li class="image-item"><img style="width: 80px;height: 79px;padding: 2px;"
                                                     src="{{ i.image.url }}"></li>
                         {% endfor %}
                     </ul>
                 </div>
-                <a onclick="add_to_wishlist(this, {{ object.pk }})" class="card-link">
-                    <button class="btn"
-                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 16.3%;top: 25px;">
-                        <img
-                                src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button>
-                </a>
+{#                <a onclick="add_to_wishlist(this, {{ object.pk }})" class="card-link">#}
+{#                    {% if object|in_wishlist:request %}#}
+{#                    <button class="btn btn-min"#}
+{#                            style="">#}
+{#                        <img#}
+{#                                src="{% static './images/red_active.svg' %}" style="margin-top: 7px;" alt=""></button>#}
+{#                    {% else %}#}
+{#                    <button class="btn btn-min"#}
+{#                            style="">#}
+{#                        <img#}
+{#                                src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button>#}
+{#                    {% endif %}#}
+{#                </a>#}
             </div>
         </div>
         <div class="col-md-6">
             <p class="single-product-title" style="font-size: 24px;">{{ object.title }}</p>
             <div class="row">
-                <div class="col-md-6 mt-3">
-                    <p class="in_box"><img src="{% static './images/radius.svg' %}" alt="">{{ object.inbox }}</p>
+                <div class="col-md-4 mt-3">
+                    {% if object.inbox %}
+                        <p class="in_box" style="width:172px"><img src="{% static './images/radius.svg' %}" alt="">
+                        {{ object.inbox }}
+                    {% endif %}
+                    {% if object.delivery %}
+                          <p class="in_box" style="width:172px"><img src="{% static './images/radius.svg' %}" alt="">
+                        {{ object.delivery }}
+                    {% endif %}
+                    </p>
                 </div>
-                <div class="col-md-6 mt-3">
-                    <p class="in_article">{% trans 'Артикул' %}:{{ object.sku }}</p>
+                <div class="col-md-4 mt-3">
+                    <p class="in_article"><img src="{% static './images/radius.svg' %}" alt=""> {% trans 'Артикул' %}:{{ object.sku }}</p>
+                </div>
+                <div class="col-md-4 mt-2">
+                    <div class="pdf">
+                         <a href="{{ object.pdf.url|default:'' }}"> <img src="{% static './images/pdf' %} 1.svg" alt=""><span
+                            class="download_pdf">{% trans 'Скачать Pdf' %}</span></a>
+                    </div>
                 </div>
             </div>
-            <p class="desc_prod mt-4">{{ object.short_description|safe }}</p>
+            <p style="line-height:28px;font-family:sans-serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab delectus incidunt magni nostrum officia pariatur, ullam. Ab accusamus consequuntur dignissimos error ipsum labore laudantium necessitatibus nesciunt non perferendis, possimus, recusandae rem temporibus. Accusamus accusantium aut dolore error et excepturi harum, provident sed sequi tenetur. Consequuntur dicta doloremque dolores magnam minus.</p>
             <div class="row">
-                <div class="col-md-6 mt-4">
-                    <p class="price_prod">{% trans 'Цена в долорах' %}:</p>
-                    <h3 class="count_prod">${{ object.dollar }}</h3>
+                <div class="col-md-7">
+                      <p class="desc_prod mb-1" style="color:#132E6B;font-weight:bold;margin-top:20px">КОНВEРТАЦИЯ:</p>
+                        <p class="desc_prod mt-1"><img src="{% static './images/bank.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;color:#132E6B;font-family:sans-serif">15% НДС</span></p>
+                        <p class="desc_prod mt-1"><img src="{% static './images/krip.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;color:#132E6B;font-family:sans-serif">Конвертация хизмати учун 1%</span></p>
+                        <p class="desc_prod mt-1"><img src="{% static './images/procent.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;color:#132E6B;font-family:sans-serif">Банк хизмати учун 0.5%</span></p>
+                        <p class="desc_prod mt-1"><img src="{% static './images/dollar.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;color:#132E6B;font-family:sans-serif">Доллар без НДС</span></p>
                 </div>
-                <div class="col-md-6 mt-4">
-                    <p class="price_prod">{% trans 'Цена в суммах' %}:</p>
-                    <h3 class="count_prod">{{ object.price }} сум</h3>
+                <div class="col-md-5">
+                 <div class='nav-2 mt-4'>
+                  <ul>
+                    <li>
+                      <a href='#calendar'>
+                        Купить через банк
+                        <i class='fa fa-caret-down'></i>
+                      </a>
+                      <ul class='menu'>
+                        <li>
+                          <a href='#event_one'>infin bank</a>
+                        </li>
+                        <li>
+                          <a href='#event_two'>Hamkorbank</a>
+                        </li>
+                        <li>
+                          <a href='#event_three'>Qishloq qurilish banki</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-md-5 col-6">
-                    <div class="numbers_prod">
-                        <p class="count_num">Количество</p>
-                        <div class='ctrl mt-2'>
-                            <div class='ctrl-button ctrl-button-decrement'>-</div>
-                            <div class='ctrl-counter'>
-                                <input class='ctrl-counter-input' maxlength='10' type='text' value='1'>
-                                <div class='ctrl-counter-num'>1</div>
-                            </div>
-                            <div class='ctrl-button ctrl-button-increment'>+</div>
-                        </div>
+                <div class="col-md-6 mt-4">
+                    <p class="price_prod" style="font-size: 20px;font-weight: bold;color: #000;">{% trans 'Цена' %}:</p>
+                    <h3 class="count_prod" style="color: #e3000f;font-size: 35px;font-weight: bold;">${{ object.dollar }}</h3>
+                    <h3 class="count_prod" style="margin-top: 5px;font-size:20px">{{ object.dollar_exchanges|intcomma }} сум</h3>
+                </div>
+                <div class="col-md-6 mt-4">
+                    <div class="numbers_prod" style="margin-top: 3px;">
+                        <ul>
+                            <li>
+                                <button id="single-buttom" class="button-left button-bottom-left" type="button"
+                                        data-toggle="modal" data-target="#exampleModalCenter"
+                                        style="width: 195px;height: 57px;margin-top:20px;right:0px">
+                                    <p class="carousel-button-text">{% trans 'Купить' %}</p>
+                                </button>
+                            </li>
+                        </ul>
                     </div>
 
                 </div>
-                <div class="col-md-3 col-6">
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-6">
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -95,7 +351,8 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                  {% include 'requests.html' %}
+
+                                    {% include 'form.html' %}
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" style="height: 55px;margin-top: 5%;"
@@ -106,32 +363,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="numbers_prod" style="margin-left: 20%;margin-top: 35px;">
-                        <ul>
-                            <li>
-                                <button id="single-buttom" class="button-left button-bottom-left" type="button"
-                                        data-toggle="modal" data-target="#exampleModalCenter"
-                                        style="width: 113px;height: 57px;">
-                                    <p class="carousel-button-text">{% trans 'Купить' %}</p>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4 mt-4">
-                    <div class="numbers_prod">
-                        <p class="mas"><a href="https://qishloqqurilishbank.uz/ru/credits/dlya-fizicheskikh-lic" target="_blank"
-                                          style="border-bottom: 1px dashed #132E6B;color: #132E6B;list-style-type: none;">{% trans 'Купить через банк' %}</a></p>
-                    </div>
+
                 </div>
             </div>
-            <a href="{{ object.pdf.url }}"> <img src="{% static './images/pdf' %} 1.svg" alt=""><span
-                    class="download_pdf">{% trans 'Скачать Pdf' %}</span></a>
+            <br>
         </div>
         <img src="{% static './images/settings.svg' %}" class="icon-right" style="transform: rotate(-25deg);" alt="">
         <img src="{% static './images/Group_419.svg' %}" class="icon-right-2"
-             style="position: absolute;right: 27%;transform: rotate(-35deg);" alt="">
+             style="position: absolute;right: 24%;transform: rotate(-35deg);" alt="">
     </div>
+</div>
+<div class="container">
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="text-align:center">
+            <h1 style="font-size:30px">{{ message }}</h1>
+            <p>{% trans 'Ваша сообщения успешно отправлено скоро наши операторы с вами свяжутся!!!' %}</p>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    {% endfor %}
+{% endif %}
 </div>
 <br>
 <div data-aos="fade-right">
@@ -180,43 +433,64 @@
         <div class="splide_3_2">
             <div class="splide__track" style="height: 520px;">
                 <ul class="splide__list">
+                    {% for product in related %}
                     <li class="splide__slide">
                         <div class="col-md-3">
                             <div class="produdcs-section2">
                                 <div class="flex-itm">
                                     <div class="flex-iem-inner">
                                         <!-- card -->
-                                        <a href="#">
+                                        <a onclick="add_to_wishlist(this, {{ product.pk }})">
                                             <div class="card-front bg-violet">
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
+                                                <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
+                                                    {% if product|in_wishlist:request %}
+                                                    <button class="btn-like2" type="submit"
+                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;top:5%">
+                                                        <img
+                                                                src="{% static './images/red_active.svg' %}"
+                                                                style="margin-top: 7px;" alt=""></button>
+                                                    {% else %}
+                                                    <button class="btn-like2" type="submit"
+                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;top:5%">
                                                         <img
                                                                 src="{% static './images/like.svg' %}"
                                                                 style="margin-top: 7px;" alt=""></button>
+                                                    {% endif %}
                                                 </a>
+                                                {% if product.is_discount %}
                                                 <a href="#" class="card-link">
                                                     <button class="btn"
                                                             style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
-                                                            -30%</p>
+                                                        <p style="margin-left:-10%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
                                                     </button>
                                                 </a>
-                                                <img src="{% static './images/stanok.png' %}"
-                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
-                                                     alt="">
+                                                {% elif product.is_new %}
+                                                <a href="#" class="card-link1">
+                                                    <button class="btn new-mobile-1">
+                                                        <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
+                                                    </button>
+                                                </a>
+                                                {% endif %}
+                                                <a href="{% url 'products:single' pk=product.pk %}">
+                                                    <img src="{{ product.image.url }}"
+                                                         style="width: 100%;height: 300px;display: table;margin: auto;"
+                                                         alt="">
+                                                </a>
+
                                                 <div class="card-text"
                                                      style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                    <h4 class="front-title">Буровая установка БР 73212С</h4>
-                                                    <p class="detail">Артикул: US</p>
-                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
+                                                    <h4 class="front-title">{{ product.title }}</h4>
+                                                    <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
+                                                    <p class="desc">${{ product.get_price_dollar }} - {{ product.get_price }} сум</p>
                                                     <div class="text-center">
                                                         <ul>
                                                             <li>
-                                                                <button class="button-center button-bottom2 mobile-button"
-                                                                        style="width: 127px;height: 43px;">
-                                                                    <p style="font-size: 13px;">Заказать</p>
-                                                                </button>
+                                                                <a href="{% url 'products:single' pk=product.pk %}">
+                                                                    <button class="button-center button-bottom2 mobile-button"
+                                                                            style="width: 127px;height: 43px;">
+                                                                        <p style="font-size: 13px;">{% trans 'Заказать' %}</p>
+                                                                    </button>
+                                                                </a>
                                                             </li>
                                                         </ul>
                                                         <br>
@@ -230,156 +504,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="splide__slide">
-                        <div class="col-md-3">
-                            <div class="produdcs-section2">
-                                <div class="flex-item">
-                                    <div class="flex-item-inner">
-                                        <!-- card -->
-                                        <a href="#">
-                                            <div class="card-front bg-violet">
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                                                        <img
-                                                                src="{% static './images/like.svg' %}"
-                                                                style="margin-top: 7px;" alt=""></button>
-                                                </a>
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
-                                                            -30%</p>
-                                                    </button>
-                                                </a>
-                                                <img src="{% static './images/stanok.png' %}"
-                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
-                                                     alt="">
-                                                <div class="card-text"
-                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                    <h4 class="front-title">Буровая установка БР 73212С</h4>
-                                                    <p class="detail">Артикул: US</p>
-                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
-                                                    <div class="text-center">
-                                                        <ul>
-                                                            <li>
-                                                                <button class="button-center button-bottom2 mobile-button"
-                                                                        style="width: 127px;height: 43px;">
-                                                                    <p style="font-size: 13px;">Заказать</p>
-                                                                </button>
-                                                            </li>
-                                                        </ul>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!-- /card -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <div class="col-md-3">
-                            <div class="produdcs-section2">
-                                <div class="flex-item">
-                                    <div class="flex-item-inner">
-                                        <!-- card -->
-                                        <a href="#">
-                                            <div class="card-front bg-violet">
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                                                        <img
-                                                                src="{% static './images/like.svg' %}"
-                                                                style="margin-top: 7px;" alt=""></button>
-                                                </a>
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
-                                                            -30%</p>
-                                                    </button>
-                                                </a>
-                                                <img src="{% static './images/stanok.png' %}"
-                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
-                                                     alt="">
-                                                <div class="card-text"
-                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                    <h4 class="front-title">Буровая установка БР 73212С</h4>
-                                                    <p class="detail">Артикул: US</p>
-                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
-                                                    <div class="text-center">
-                                                        <ul>
-                                                            <li>
-                                                                <button class="button-center button-bottom2 mobile-button"
-                                                                        style="width: 127px;height: 43px;">
-                                                                    <p style="font-size: 13px;">Заказать</p>
-                                                                </button>
-                                                            </li>
-                                                        </ul>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!-- /card -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <div class="col-md-3">
-                            <div class="produdcs-section2">
-                                <div class="flex-item">
-                                    <div class="flex-item-inner">
-                                        <!-- card -->
-                                        <a href="#">
-                                            <div class="card-front bg-violet">
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                                                        <img
-                                                                src="{% static './images/like.svg' %}"
-                                                                style="margin-top: 7px;" alt=""></button>
-                                                </a>
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">
-                                                            -30%</p>
-                                                    </button>
-                                                </a>
-                                                <img src="{% static './images/stanok.png' %}"
-                                                     style="width: 281px;height: 300px;display: table;margin: auto;"
-                                                     alt="">
-                                                <div class="card-text"
-                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                    <h4 class="front-title">Буровая установка БР 73212С</h4>
-                                                    <p class="detail">Артикул: US</p>
-                                                    <p class="desc">$3 800 - 24 731 675 сум</p>
-                                                    <div class="text-center">
-                                                        <ul>
-                                                            <li>
-                                                                <button class="button-center button-bottom2 mobile-button"
-                                                                        style="width: 127px;height: 43px;">
-                                                                    <p style="font-size: 13px;">Заказать</p>
-                                                                </button>
-                                                            </li>
-                                                        </ul>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!-- /card -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -389,41 +514,52 @@
 <div class="container ">
     <div class="row desk-product">
         {% for product in related|slice:':4' %}
-            <div class="col-md-3">
+        <div class="col-md-3">
             <div class="produdcs-section">
                 <div class="flex-item">
                     <div class="flex-item-inner">
                         <!-- card -->
-                        <a href="#">
+                        <a href="{% url 'products:single' pk=product.pk %}">
                             <div class="card-front bg-violet">
-                                <a href="#" class="card-link">
+                                <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
                                     <button class="btn"
                                             style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
                                         <img
                                                 src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt="">
                                     </button>
                                 </a>
+                                {% if product.is_discount %}
                                 <a href="#" class="card-link">
                                     <button class="btn"
                                             style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">-30%</p>
+                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
                                     </button>
                                 </a>
-                                <img src="{{ product.image.url }}" class="product-image-url" alt="">
+                                {% elif product.is_new %}
+                                <a href="#" class="card-link1">
+                                    <button class="btn new-mobile-1">
+                                        <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
+                                    </button>
+                                </a>
+                                {% endif %}
+                                <img src="{{ product.image.url }}" class="product-image-url"  alt="">
+{#                              {% with product.image.url as url_path %}#}
+{#                                <img src="{{ product.image.url|watermark:"uskunalar,scale=R35%,position=br,opacity=100"  }}" class="product-image-url" alt="">#}
+{#                              {% endwith %}#}
                                 <div class="card-text">
-                                    <h4 class="front-title">{{ object.title }}</h4>
-                                    <p class="detail">{% trans 'Артикул' %}: {{ object.sku }}</p>
-                                    <p class="detail">{% trans 'Город' %}: {{ object.city }}</p>
-                                    <p class="desc">${{ object.dollar }} - {{ object.price }} сум</p>
+                                    <h4 class="front-title">{{ product.title }}</h4>
+                                    <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
+                                    <p class="detail">{% trans 'Город' %}: {{ product.city }}</p>
+                                    <p class="desc">${{ product.dollar }} - {{ product.dollar_exchanges|intcomma  }} сум</p>
                                 </div>
                             </div>
                             <div class="card-back bg-violet">
-                                <p class="back-title">{{ object.title }}</p>
-                                <p class="desc">${{ object.dollar }} - {{ object.price }} сум</p>
+                                <p class="back-title">{{ product.title }}</p>
+                                <p class="desc">${{ product.dollar }} - {{ product.dollar_exchanges|intcomma  }} сум</p>
                                 <div class="container">
                                     <div class="spetifications" style="margin-top: 15%;padding: 1px;">
                                         <div class="row">
-                                            {% for j in object.specifications.all %}
+                                            {% for j in product.specifications.all %}
                                             <div class="col-md-6">
 
                                                 <p style="font-size: 14px;margin-bottom: 8px;">
@@ -443,14 +579,19 @@
                                 <div class="buttons" style="text-align: center;padding: 10px;">
                                     <ul>
                                         <li>
-                                            <button class="button-product button-bottom-product">
-                                                <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
-                                            </button>
+                                            <a href="{% url 'products:single' pk=product.pk %}">
+                                                <button class="button-product button-bottom-product">
+                                                    <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
+                                                </button>
+                                            </a>
                                         </li>
                                     </ul>
-                                    <a href="#" class="card-link">
-                                        <button class="btn-like2"><img src="{% static './images/like.svg' %}"
-                                                                       alt=""></button>
+                                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
+                                         {% if product|in_wishlist:request %}
+                                            <button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}" alt=""></button>
+                                            {% else %}
+                                            <button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}" alt=""></button>
+                                        {% endif %}
                                     </a>
                                 </div>
                             </div>
@@ -469,108 +610,15 @@
 
 
 <br>
+{% block extra_js %}
 <script>
-  (function () {
-    'use strict';
+(function () {
 
-    function ctrls() {
-      var _this = this;
+    $(".hamburger").on("click", function () {
+        $(this).parent(".hamburger-wrapper").toggleClass("hamburger-active")
+    });
 
-      this.counter = 1;
-      this.els = {
-        decrement: document.querySelector('.ctrl-button-decrement'),
-        counter: {
-          container: document.querySelector('.ctrl-counter'),
-          num: document.querySelector('.ctrl-counter-num'),
-          input: document.querySelector('.ctrl-counter-input')
-        },
-        increment: document.querySelector('.ctrl-button-increment')
-      };
-
-      this.decrement = function () {
-        var counter = _this.getCounter();
-        var nextCounter = (_this.counter > 0) ? --counter : counter;
-        _this.setCounter(nextCounter);
-      };
-
-      this.increment = function () {
-        var counter = _this.getCounter();
-        var nextCounter = (counter < 9999999999) ? ++counter : counter;
-        _this.setCounter(nextCounter);
-      };
-
-      this.getCounter = function () {
-        return _this.counter;
-      };
-
-      this.setCounter = function (nextCounter) {
-        _this.counter = nextCounter;
-      };
-
-      this.debounce = function (callback) {
-        setTimeout(callback, 100);
-      };
-
-      this.render = function (hideClassName, visibleClassName) {
-        _this.els.counter.num.classList.add(hideClassName);
-
-        setTimeout(function () {
-          _this.els.counter.num.innerText = _this.getCounter();
-          _this.els.counter.input.value = _this.getCounter();
-          _this.els.counter.num.classList.add(visibleClassName);
-        },
-          100);
-
-        setTimeout(function () {
-          _this.els.counter.num.classList.remove(hideClassName);
-          _this.els.counter.num.classList.remove(visibleClassName);
-        },
-          200);
-      };
-
-      this.ready = function () {
-        _this.els.decrement.addEventListener('click',
-          function () {
-            _this.debounce(function () {
-              _this.decrement();
-              _this.render('is-decrement-hide', 'is-decrement-visible');
-            });
-          });
-
-        _this.els.increment.addEventListener('click',
-          function () {
-            _this.debounce(function () {
-              _this.increment();
-              _this.render('is-increment-hide', 'is-increment-visible');
-            });
-          });
-
-        _this.els.counter.input.addEventListener('input',
-          function (e) {
-            var parseValue = parseInt(e.target.value);
-            if (!isNaN(parseValue) && parseValue >= 0) {
-              _this.setCounter(parseValue);
-              _this.render();
-            }
-          });
-
-        _this.els.counter.input.addEventListener('focus',
-          function (e) {
-            _this.els.counter.container.classList.add('is-input');
-          });
-
-        _this.els.counter.input.addEventListener('blur',
-          function (e) {
-            _this.els.counter.container.classList.remove('is-input');
-            _this.render();
-          });
-      };
-    };
-
-    // init
-    var controls = new ctrls();
-    document.addEventListener('DOMContentLoaded', controls.ready);
-  })();
+}());
 
 
 </script>
@@ -591,9 +639,11 @@
   navItem.addEventListener('click', toggleNavigation);
 
 
+
+
 </script>
 <script>
-    function add_to_wishlist(element, pk) {
+      function add_to_wishlist(element, pk) {
         $.getJSON('/products/' + "wishlist/" + pk, function (data) {
             if (!data.status) {
                $('#message').append(`<div style="padding:5px">
@@ -604,21 +654,13 @@
                     </div>`);
             } else {
                 if (data.added) {
-                    $('#message').append(`<div style="padding:5px">
-                        <div id="inner-message" class="alert alert-success">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            Added to wishlist
-                        </div>
-                    </div>`);
+                    $('#message');
+                    element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"alt=""></button>'
                 } else {
-                    $('#message').append(`<div style="padding:5px">
-                        <div id="inner-message" class="alert alert-success">
-                            <button type="button" onclick="MyFunction()" class="close" data-dismiss="alert">&times;</button>
-                            Removed from wishlist
-                        </div>
-                    </div>`);
+                    $('#message');
+                     element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}"alt=""></button>'
                 }
-                  $('#wishlist_length2').html(data.wishlist_len);
+                  $('.like_count').html(data.wishlist_len);
             }
         });
     }
@@ -634,9 +676,103 @@
 
 </script>
 <script>
-  AOS.init();
+$(".nav-2 li").hover(function () {
+	$(this).children("ul").stop().delay(200).animate({height: "toggle", opacity: "toggle"}, 200);
+});
+</script>
+<script>
+    $(function() {
+	var Accordion = function(el, multiple) {
+		this.el = el || {};
+		this.multiple = multiple || false;
+
+		// Variables privadas
+		var links = this.el.find('.link');
+		// Evento
+		links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+	}
+
+	Accordion.prototype.dropdown = function(e) {
+		var $el = e.data.el;
+			$this = $(this),
+			$next = $this.next();
+
+		$next.slideToggle();
+		$this.parent().toggleClass('open');
+
+		if (!e.data.multiple) {
+			$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+		};
+	}
+
+	var accordion = new Accordion($('#accordion6_4'), false);
+});
 
 
 </script>
+{#<script>#}
+{#function magnify(imgID, zoom) {#}
+{#  var img, glass, w, h, bw;#}
+{#  img = document.getElementById(imgID);#}
+{#  /*create magnifier glass:*/#}
+{#  glass = document.createElement("DIV");#}
+{#  glass.setAttribute("class", "img-magnifier-glass");#}
+{#  /*insert magnifier glass:*/#}
+{#  img.parentElement.insertBefore(glass, img);#}
+{#  /*set background properties for the magnifier glass:*/#}
+{#  glass.style.backgroundImage = "url('" + img.src + "')";#}
+{#  glass.style.backgroundRepeat = "no-repeat";#}
+{#  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";#}
+{#  bw = 3;#}
+{#  w = glass.offsetWidth / 2;#}
+{#  h = glass.offsetHeight / 2;#}
+{#  /*execute a function when someone moves the magnifier glass over the image:*/#}
+{#  glass.addEventListener("mousemove", moveMagnifier);#}
+{#  img.addEventListener("mousemove", moveMagnifier);#}
+{#  /*and also for touch screens:*/#}
+{#  glass.addEventListener("touchmove", moveMagnifier);#}
+{#  img.addEventListener("touchmove", moveMagnifier);#}
+{#  function moveMagnifier(e) {#}
+{#    var pos, x, y;#}
+{#    /*prevent any other actions that may occur when moving over the image*/#}
+{#    e.preventDefault();#}
+{#    /*get the cursor's x and y positions:*/#}
+{#    pos = getCursorPos(e);#}
+{#    x = pos.x;#}
+{#    y = pos.y;#}
+{#    /*prevent the magnifier glass from being positioned outside the image:*/#}
+{#    if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}#}
+{#    if (x < w / zoom) {x = w / zoom;}#}
+{#    if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}#}
+{#    if (y < h / zoom) {y = h / zoom;}#}
+{#    /*set the position of the magnifier glass:*/#}
+{#    glass.style.left = (x - w) + "px";#}
+{#    glass.style.top = (y - h) + "px";#}
+{#    /*display what the magnifier glass "sees":*/#}
+{#    glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";#}
+{#  }#}
+{#  function getCursorPos(e) {#}
+{#    var a, x = 0, y = 0;#}
+{#    e = e || window.event;#}
+{#    /*get the x and y positions of the image:*/#}
+{#    a = img.getBoundingClientRect();#}
+{#    /*calculate the cursor's x and y coordinates, relative to the image:*/#}
+{#    x = e.pageX - a.left;#}
+{#    y = e.pageY - a.top;#}
+{#    /*consider any page scrolling:*/#}
+{#    x = x - window.pageXOffset;#}
+{#    y = y - window.pageYOffset;#}
+{#    return {x : x, y : y};#}
+{#  }#}
+{#}#}
+{#</script>#}
+<script>
+magnify("myimage", 2);
+</script>
+<script>
+  AOS.init();
+</script>
+
+{% endblock %}
 
 {% endblock %}

@@ -1,159 +1,306 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block content %}
 
-<style>
-    a.active:after {
-        transform: rotate(45deg);
-        -webkit-transition: all 0.2s ease-in-out;
-        -moz-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
+    <style>
+        strong {
+            color: #132E6B;
+        }
+
+        span {
+            color: #132E6B;
+        }
+
+        a.active:after {
+            transform: rotate(45deg);
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
         }
 
 
+        accordion {
+            font-size: 1rem;
+            width: 30vw;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
 
-</style>
+        .accordion-header,
+        .accordion-body {
+            background: white;
+        }
 
-<section class="banner">
+        .accordion-header {
+            color: white;
+            cursor: pointer;
+            font-size: .7em;
+            letter-spacing: .1em;
+            transition: all .3s;
+        }
+
+
+        .accordion__item .accordion__item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .accordion-header:hover {
+            position: relative;
+            z-index: 5;
+        }
+
+        .accordion-body {
+            background: #fcfcfc;
+            color: #353535;
+            display: none;
+        }
+
+        .accordion-body__contents {
+            padding: 7px 1.5em;
+            font-size: 19px;
+            font-weight: 500;
+        }
+
+        .accordion__item.active:last-child .accordion-header {
+            border-radius: none;
+        }
+
+        .accordion:first-child > .accordion__item > .accordion-header {
+            border-bottom: 1px solid transparent;
+        }
+
+
+        .accordion__item > .accordion-header:after {
+            content: "\f3d0";
+            font-family: IonIcons;
+            font-size: 2.5em;
+            float: right;
+            position: relative;
+            color: #000;
+            top: -27px;
+            right: 8px;
+            transition: .3s all;
+            transform: rotate(0deg);
+        }
+
+        .accordion__item.active > .accordion-header:after {
+            transform: rotate(-180deg);
+        }
+
+        .accordion__item.active .accordion-header {
+            background: #FFE700;
+        }
+
+        .accordion__item .accordion__item .accordion-header {
+            background: #f1f1f1;
+            color: #353535;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .accordion {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <section class="banner">
+        <div class="container">
+            <div class="row">
+
+            </div>
+            <h1 class="banner-text">{% trans 'Категории' %}</h1>
+            <a href="{% url 'home:home' %}"><p class="banner-desc">{% trans 'Главная' %}</a> <span> > <a href=""
+                                                                                                         class="banner-desc-title"> {% trans 'Категории' %}</a></span></p>
+
+            <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
+        </div>
+
+    </section>
+    <br>
+
     <div class="container">
         <div class="row">
-
-        </div>
-        <h1 class="banner-text"> Категории</h1>
-        <p class="banner-desc">Главная <span> > <a href="" class="banner-desc-title"> Категории</a></span></p>
-
-        <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
-    </div>
-
-</section>
-<br>
-
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <ul id="accordion" class="accordion">
+            <div class="col-12">
                 {% for category in categories %}
-                    <li>
-                    <div class="link"><img src="{{ category.image.url }}" style="width:40px;height:40px" alt=""> <span
-                            style="position: absolute;margin-top: 3%;margin-left: 3%;font-family: revert;font-size: 16px;font-weight: 400;">{{ category.category }}</span><i class="fa fa-chevron-down"></i>
-                        <hr class="hr-menu-mobile" style="position: absolute;bottom: -1px;">
-                    </div>
-                    <ul class="submenu">
-                        {% for subcategory in subcategories %}
-                            <li style="height: auto;
-    margin: 10px;
-    font-size: 19px;
-    margin-left: 8%;">
-                                {% if subcategory.subcategory %}
-                                    {{ subcategory.subcategory }}
-                                {% else %}
-                                    {% for second_subcategory in second_subcategories %}
-                                        <li>
-                                            <ul class="accordion5_1">
-                                                <li>
-                                                    <a> {{ second_subcategory.second_subcategories }}</a>
-                                                    <p>Lorem ipsum dolor1 </p>
-                                                    <p>lasdfasd fasdfasdf sadff</p>
-                                                </li>
-                                                <li>
-                                                    <a>Repellat Odit Aliquid</a>
-                                                    <p>Lorem ipsum dolor1 </p>
-                                                </li>
-                                                <li>
-                                                    <a>Dolor sit Amet</a>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, ipsum,
-                                                        fuga, in, obcaecati magni ullam nobis voluptas fugiat tenetur voluptatum quas
-                                                        tempora maxime rerum neque deserunt suscipit provident cumque et mollitia ex
-                                                        aspernatur porro minus sapiente voluptatibus eos at perferendis repellat odit
-                                                        aliquid harum molestias ratione pariatur adipisci. Aliquid, iure.</p>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    {% endfor %}
-                                {% endif %}
-                            </li>
-                        {% endfor %}
-                        </li>
-                    </ul>
-                </li>
+
                 {% endfor %}
-            </ul>
+
+                <ul id="accordion" class="accordion">
+                    {% for category in categories %}
+                        <li>
+                        {% if category.image %}
+                        <img src="{{ category.image.url }}" style="width:100%;height: 200px;margin-top:10px;" alt="">
+                    {% else %}
+                        <p></p>
+                    {% endif %}
+                            <div class="link">
+                                <a href="/products/?category={{ category.pk }}"
+                                   style="color:#000;font-family: revert;font-weight: 500;"> <span
+                                        style="position: absolute;margin-left: 8px;font-family: revert;font-weight: 500;font-size: 20px">{{ category.category|safe }}</span></a>
+                                <i
+                                        class="fa fa-chevron-down"></i>
+                                <hr class="hr-menu" style="position: absolute;bottom: -1px;">
+                            </div>
+                            <ul class="submenu">
+                                {% for subcategory in category.subcategories.all %}
+                                    <div class="accordion js-accordion" style="margin-top: 0px;">
+                                        <div class="accordion__item js-accordion-item">
+                                            <div class="accordion-header js-accordion-header"><a
+                                                    href="/products/?subcategory={{ subcategory.pk }}"
+                                                    style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory|safe }}</a>
+                                            </div>
+                                            <div class="accordion-body js-accordion-body">
+                                                <div class="accordion-body__contents">
+                                                    {% for secondsubcategory in category.second_subcategories.all %}
+                                                        {% if request.GET.secondsubcategory == category.second_subcategories.pk %}
+                                                            <a class="secondsub"
+                                                               href="/products/?secondsubcategory={{ secondsubcategory.pk }}">{{ secondsubcategory|safe }}</a>
+                                                        {% else %}
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                                Animi architecto cupiditate dolore excepturi! Asperiores
+                                                                et molestiae, reiciendis repellat reprehenderit vitae!
+                                                                Ad dicta dolor est minima possimus. Aliquid dicta eos
+                                                                veritatis.</p>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </div>
+                                            </div><!-- end of accordion body -->
+                                        </div><!-- end of accordion item -->
+                                    </div><!-- end of accordion -->
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+
+                    <img src="{% static './images/Group_417.svg' %}" class="icon-left" style="left: -24%;" alt="">
+
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 
 
-<br>
-<br>
+    <br>
+    <br>
 
-<script>
-  console.clear();
-
-
-
-</script>
-
-<!--  Code by Fathulla Latipov LF -->
-
-{% endblock %}
-{% block extra_js %}
-<script>
-    $(function () {
-      var Accordion = function (el, multiple) {
-        this.el = el || {};
-        this.multiple = multiple || false;
-
-        // Variables privadas
-        var links = this.el.find('.link');
-        // Evento
-        links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
-      }
-
-      Accordion.prototype.dropdown = function (e) {
-        var $el = e.data.el;
-        $this = $(this),
-          $next = $this.next();
-
-        $next.slideToggle();
-        $this.parent().toggleClass('open');
-
-        if (!e.data.multiple) {
-          $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-        };
-      }
-
-      var accordion = new Accordion($('#accordion'), false);
-    });
+    <script>
+        console.clear();
 
 
+    </script>
+
+    <!--  Code by Fathulla Latipov LF -->
+    {% block extra_js %}
+        <script>
+            $(function () {
+                var Accordion = function (el, multiple) {
+                    this.el = el || {};
+                    this.multiple = multiple || false;
+
+                    // Variables privadas
+                    var links = this.el.find('.link');
+                    // Evento
+                    links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+                }
+
+                Accordion.prototype.dropdown = function (e) {
+                    var $el = e.data.el;
+                    $this = $(this),
+                        $next = $this.next();
+
+                    $next.slideToggle();
+                    $this.parent().toggleClass('open');
+
+                    if (!e.data.multiple) {
+                        $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                    }
+                    ;
+                }
+
+                var accordion = new Accordion($('#accordion'), false);
+            });
 
 
+        </script>
 
-</script>
+        <script>
+            (function ($) {
+                $('.accordion5_1 > a').addClass('active').next().slideDown();
 
-<script>
-      (function($) {
-        $('.accordion5_1 > a').addClass('active').next().slideDown();
+                $('.accordion5_1 a').click(function (j) {
+                    var dropDown = $(this).closest('li').find('p');
 
-        $('.accordion5_1 a').click(function(j) {
-            var dropDown = $(this).closest('li').find('p');
+                    $(this).closest('.accordion5_1').find('p').not(dropDown).slideUp();
 
-            $(this).closest('.accordion5_1').find('p').not(dropDown).slideUp();
+                    if ($(this).hasClass('active')) {
+                        $(this).removeClass('active');
+                    } else {
+                        $(this).closest('.accordion5_1').find('a.active').removeClass('active');
+                        $(this).addClass('active');
+                    }
 
-            if ($(this).hasClass('active')) {
-                $(this).removeClass('active');
-            } else {
-                $(this).closest('.accordion5_1').find('a.active').removeClass('active');
-                $(this).addClass('active');
-            }
+                    dropDown.stop(false, true).slideToggle();
 
-            dropDown.stop(false, true).slideToggle();
-
-            j.preventDefault();
-        });
-    })(jQuery);
-
+                    j.preventDefault();
+                });
+            })(jQuery);
 
 
-</script>
+        </script>
+        <script>
+            var accordion = (function () {
+
+                var $accordion = $('.js-accordion');
+                var $accordion_header = $accordion.find('.js-accordion-header');
+                var $accordion_item = $('.js-accordion-item');
+
+                // default settings
+                var settings = {
+                    // animation speed
+                    speed: 400,
+
+                    // close all other accordion items if true
+                    oneOpen: false
+                };
+
+                return {
+                    // pass configurable object literal
+                    init: function ($settings) {
+                        $accordion_header.on('click', function () {
+                            accordion.toggle($(this));
+                        });
+
+                        $.extend(settings, $settings);
+
+                        // ensure only one accordion is active if oneOpen is true
+                        if (settings.oneOpen && $('.js-accordion-item.active').length > 1) {
+                            $('.js-accordion-item.active:not(:first)').removeClass('active');
+                        }
+
+                        // reveal the active accordion bodies
+                        $('.js-accordion-item.active').find('> .js-accordion-body').show();
+                    },
+                    toggle: function ($this) {
+
+                        if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
+                            $this.closest('.js-accordion')
+                                .find('> .js-accordion-item')
+                                .removeClass('active')
+                                .find('.js-accordion-body')
+                                .slideUp()
+                        }
+
+                        // show/hide the clicked accordion item
+                        $this.closest('.js-accordion-item').toggleClass('active');
+                        $this.next().stop().slideToggle(settings.speed);
+                    }
+                }
+            })();
+
+            $(document).ready(function () {
+                accordion.init({speed: 300, oneOpen: true});
+            });
+        </script>
+    {% endblock %}
 {% endblock %}

@@ -1,18 +1,24 @@
 from datetime import datetime
+from decimal import Decimal
+from django.utils.html import strip_tags
+from django.contrib import admin
 
 import pytz as pytz
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from home.scrapper import _main
 from django.db.models import FloatField
 from django.utils.translation import gettext_lazy as _
 
 
 class CategoryModel(models.Model):
-    category = models.CharField(max_length=99, verbose_name=_('category'))
-    image = models.FileField(upload_to='category_image', verbose_name=_('category_image'), null=True)
+    category = RichTextUploadingField(max_length=400, verbose_name=_('category'), null=True)
+    image = models.FileField(upload_to='category_image', verbose_name=_('category_image'), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
-        return self.category
+        # return mark_safe(self.category)
+        return strip_tags(self.category)
 
     class Meta:
         verbose_name = _('category')
@@ -21,8 +27,8 @@ class CategoryModel(models.Model):
 
 class SubCategoryModel(models.Model):
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), related_name='subcategories')
-    image = models.FileField(upload_to='sub_image', verbose_name=_('sub_image'), null=True)
-    subcategory = models.CharField(max_length=90, verbose_name=_('subcategory'),)
+    image = models.FileField(upload_to='sub_image', verbose_name=_('sub_image'), null=True, blank=True)
+    subcategory = models.CharField(max_length=300, verbose_name=_('subcategory'),)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
 
     def __str__(self):
@@ -33,36 +39,21 @@ class SubCategoryModel(models.Model):
         verbose_name_plural = _('subcategories')
 
 
-class SecondSubCategoryModel(models.Model):
-    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'))
-    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'))
-    secondsubcategory = models.CharField(max_length=90, verbose_name=_('second_subcategory'))
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
-
-    def __str__(self):
-        return self.secondsubcategory
-
-    class Meta:
-        verbose_name = _('second_subcategory')
-        verbose_name_plural = _('second_subcategories')
-
-
 class BannerInfoModel(models.Model):
-    title = models.CharField(max_length=99, verbose_name=_('title'))
-    sku = models.AutoField(primary_key=True)
-    image = models.ImageField(upload_to='banner', verbose_name=_('image'))
-    pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True)
-    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), null=True)
-    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'), null=True)
+    title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
+    sku = models.AutoField(primary_key=True, db_index=True)
+    image = models.ImageField(upload_to='banner', verbose_name=_('image'), null=True)
+    pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True, blank=True)
+    category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, verbose_name=_('category'), null=True)
+    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'), null=True, blank=True)
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True)
-    secondsubcategory = models.ForeignKey(SecondSubCategoryModel, on_delete=models.PROTECT, verbose_name=_('second_subcategory'), null=True)
-    price = models.IntegerField(verbose_name=_('price'), null=True)
+    price = models.DecimalField(max_digits=12, decimal_places=0, verbose_name=_('price'))
     dollar = models.IntegerField(verbose_name=_('dollar'), null=True)
     discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'))
-    inbox = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('inbox'))
-    delivery = models.CharField(max_length=50, null=True, blank=True, verbose_name=_('delivery'))
-    short_description = models.TextField(verbose_name=_('short_description'), null=True)
-    long_description = models.TextField(verbose_name=_('long_description'), null=True)
+    inbox = models.CharField(max_length=50,  blank=True, verbose_name=_('inbox'))
+    delivery = models.CharField(max_length=50, blank=True, verbose_name=_('delivery'))
+    short_description = RichTextUploadingField(verbose_name=_('short_description'), null=True)
+    long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def is_discount(self):
@@ -78,6 +69,9 @@ class BannerInfoModel(models.Model):
             return self.dollar - self.dollar * self.discount / 100
         return self.dollar
 
+    def dollar_exchanges(self):
+        return self.price * Decimal(_main())
+
     def is_new(self):
         diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
         return diff.days <= 3
@@ -87,22 +81,18 @@ class BannerInfoModel(models.Model):
         wishlist = request.session.get('wishlist', [])
         return BannerInfoModel.objects.filter(pk__in=wishlist)
 
-    @staticmethod
-    def get_from_cart(request):
-        cart = request.session.get('cart', [])
-        return BannerInfoModel.objects.filter(pk__in=cart)
-
     def __str__(self):
         return self.title
 
     class Meta:
         verbose_name = _('products')
         verbose_name_plural = _('products')
+        ordering = ['title']
 
 
 class BannerImageModel(models.Model):
     product = models.ForeignKey(BannerInfoModel, on_delete=models.CASCADE, related_name='images',
-                                verbose_name=_('product'))
+                                verbose_name=_('product'), null=True, blank=True)
     image = models.ImageField(upload_to='products', verbose_name=_('image'), null=True, blank=True)
 
     class Meta:
@@ -111,14 +101,28 @@ class BannerImageModel(models.Model):
 
 
 class ProductSpecificationsModel(models.Model):
-    product = models.ForeignKey(BannerInfoModel, on_delete=models.CASCADE, related_name='specifications', verbose_name=_('products'))
-    product_customer = models.CharField(max_length=99, verbose_name=_('product_customer'))
-    product_number = models.CharField(max_length=99, verbose_name=_('product_numbers'))
+    product = models.ForeignKey(BannerInfoModel, on_delete=models.CASCADE, related_name='specifications', null=True,blank=True, verbose_name=_('products'))
+    product_customer = models.CharField(max_length=99, verbose_name=_('product_customer'), null=True, blank=True)
+    product_number = models.CharField(max_length=99, verbose_name=_('product_numbers'), null=True, blank=True)
     product_image = models.FileField(upload_to='pdf_image', verbose_name=_('product_image'), null=True, blank=True)
 
     class Meta:
         verbose_name = _('product specification')
         verbose_name_plural = _('product specifications')
+
+
+class CarouselModel(models.Model):
+    title = models.CharField(max_length=60, verbose_name=_('title'))
+    descriptions = models.TextField(verbose_name=_('descriptions'))
+    image = models.FileField(upload_to='Banner_home1', verbose_name=_('image'))
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('carousel')
+        verbose_name_plural = _('carousels')
 
 
 # translate

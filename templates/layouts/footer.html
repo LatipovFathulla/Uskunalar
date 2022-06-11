@@ -1,4 +1,11 @@
 {% load static %}
+{% load i18n %}
+{% load tags %}
+<style>
+  a:hover {
+    color:#FFE700
+  }
+</style>
   <br>
   <footer id="footer" class="footer-1">
     <div class="main-footer widgets-dark typo-light">
@@ -7,21 +14,9 @@
 
           <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="widget subscribe no-box">
-              <h5 class="widget-title">Uskunalar<span></span></h5>
+              <h5 class="widget-title"><img src="{% static './images/Uskunalar_logo_white.svg' %}" alt=""><span></span></h5>
               <p class="widget-desc">Команда USKUNALAR.UZ экономит ваше время и деньги, поставляя Производственииые
                 оборудования.</p>
-              <h5 class="widget-title">Будь в курсе<span></span></h5>
-              <div class="row">
-                <div class="col-md-9">
-                  <input class="form-control" type="text" style="border: none;width: 236px;height: 45px;"
-                    placeholder="Введите свой email">
-                </div>
-                <div class="col-md-3">
-                  <button class="btn send-email"><img src="{% static './images/send.svg' %}" style="position: absolute;
-    left: 12px;
-    top: 13px;" alt=""></button>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -30,22 +25,22 @@
               <h5 class="widget-title ml-2">Меню<span></span></h5>
               <ul class="thumbnail-widget">
                 <li>
-                  <div class="thumb-content"><a href="./catelog.html" class="thumb-content">Каталог</a></div>
+                  <div class="thumb-content"><a href="{% url 'home:catalog' %}" class="thumb-content">Каталог</a></div>
                 </li>
                 <li>
-                  <div class="thumb-content"><a href="./our_works.html" class="thumb-content">Наши работа</a></div>
+                  <div class="thumb-content"><a href="{% url 'work:works' %}" class="thumb-content">Наши работа</a></div>
                 </li>
                 <li>
-                  <div class="thumb-content"><a href="./videos.html" class="thumb-content">Наши видео</a></div>
+                  <div class="thumb-content"><a href="{% url 'video:videos' %}" class="thumb-content">Наши видео</a></div>
                 </li>
                 <li>
-                  <div class="thumb-content"><a href="./blog.html" class="thumb-content">Статьи</a></div>
+                  <div class="thumb-content"><a href="{% url 'blog:blogs' %}" class="thumb-content">Статьи</a></div>
                 </li>
                 <li>
-                  <div class="thumb-content"><a href="./about.html" class="thumb-content">О нас</a></div>
+                  <div class="thumb-content"><a href="{% url 'home:about' %}" class="thumb-content">О нас</a></div>
                 </li>
                 <li>
-                  <div class="thumb-content"><a href="./contacts.html" class="thumb-content">Контакты</a></div>
+                  <div class="thumb-content"><a href="{% url 'home:contacts' %}" class="thumb-content">Контакты</a></div>
                 </li>
               </ul>
             </div>
@@ -67,17 +62,25 @@
 
             <div class="widget no-box">
               <h5 class="widget-title">Соц.сети<span></span></h5>
-              <a href="">
+              <a href="https://www.facebook.com/uskunalaruz/">
                 <p class="widget-number"> <img src="{% static './images/facebook.svg' %}" style="width: 25px;" alt=""> <span
                     style="margin-left: 2%;position: absolute;">Facebook</span> </p>
               </a>
-              <a href="">
+              <a href="https://instagram.com/uskunalaruz?utm_medium=copy_link">
                 <p class="widget-number"> <img src="{% static './images/instagram.svg' %}" style="width: 25px;" alt=""> <span
-                    style="margin-left: 2%;position: absolute;">Instasgram</span> </p>
+                    style="margin-left: 2%;position: absolute;">Instagram</span> </p>
               </a>
-              <a href="">
+              <a href="https://t.me/uskunalaruz">
                 <p class="widget-number"> <img src="https://img.icons8.com/color/29/000000/telegram-app--v1.png" />
                   <span style="margin-left: 2%;position: absolute;">Telegram</span> </p>
+              </a>
+              <a href="https://www.youtube.com/c/uskunalaruz">
+                <p class="widget-number"> <img src="https://img.icons8.com/color/29/000000/youtube-play.png"/>
+                  <span style="margin-left: 2%;position: absolute;margin-top:1%">YouTube</span> </p>
+              </a>
+               <a href="https://www.youtube.com/c/uskunalaruz">
+                <p class="widget-number"> <img src="{% static './images/olx.png' %}" style="width:30px"/>
+                  <span style="margin-left: 2%;position: absolute;margin-top:1%">Olx</span> </p>
               </a>
             </div>
           </div>

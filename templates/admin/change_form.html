@@ -1,0 +1,51 @@
+{% extends "admin/change_form.html" %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(function(){
+            // inspect html to check id of category select dropdown.
+            $(document).on('change', "select#id_category_ru", function(){
+                $.getJSON("/ru/getSubcategory/",{pk: $(this).val()}, function(j){
+                    console.log(j);
+                     var options = '<option value="">---------</option>';
+                     for (var i = 0; i < j.length; i++) {
+                         options += '<option value="' + j[i].pk + '">' + j[i].subcategory + '</option>';
+                         console.log(j);
+                     }
+                     // inspect html to check id of subcategory select dropdown.
+                     $("select#id_subcategory_ru").html(options);
+                 });
+             });
+
+            $(document).on('change', "select#id_category_uz", function(){
+                $.getJSON("/ru/getSubcategory/",{pk: $(this).val()}, function(j){
+                    console.log(j);
+                     var options = '<option value="">---------</option>';
+                     for (var i = 0; i < j.length; i++) {
+                         options += '<option value="' + j[i].pk + '">' + j[i].subcategory + '</option>';
+                         console.log(j);
+                     }
+                     // inspect html to check id of subcategory select dropdown.
+                     $("select#id_subcategory_uz").html(options);
+                 });
+             });
+
+               $(document).on('change', "select#id_category_en", function(){
+                $.getJSON("/ru/getSubcategory/",{pk: $(this).val()}, function(j){
+                    console.log(j);
+                     var options = '<option value="">---------</option>';
+                     for (var i = 0; i < j.length; i++) {
+                         options += '<option value="' + j[i].pk + '">' + j[i].subcategory + '</option>';
+                         console.log(j);
+                     }
+                     // inspect html to check id of subcategory select dropdown.
+                     $("select#id_subcategory_en").html(options);
+                 });
+             });
+
+
+         });
+    </script>
+{% endblock %}

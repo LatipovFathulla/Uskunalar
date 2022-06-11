@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import ListView, TemplateView, CreateView, DetailView
 from django.contrib import messages
-
+from django.core.cache import cache
 from about.forms import ContactModelForm
 from about.models import AboutModel
+from biznes.models import BiznesModel
 from blog.models import BlogModel
-from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, SecondSubCategoryModel
+from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 from lines.models import LineModel
 from works.models import WorkModel
 
@@ -46,25 +47,11 @@ class RequestCreateView(CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-
-        return reverse('home:contacts')
+        return self.request.GET.get('next', '/')
 
 
 class HomeView(TemplateView):
     template_name = 'index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['products'] = BannerInfoModel.objects.order_by('-pk')[:8]
-        context['categories'] = CategoryModel.objects.order_by('-pk')[:13]
-        context['categories2'] = CategoryModel.objects.order_by('-pk')
-        context['lines'] = LineModel.objects.order_by('-pk')[:8]
-        context['works'] = WorkModel.objects.order_by('-pk')[:4]
-        context['blogs'] = BlogModel.objects.order_by('-pk')
-        context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
-
-        return context
-
 
 class NavbarView(TemplateView):
     template_name = 'header.html'
@@ -83,7 +70,5 @@ class CatalogView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['categories'] = CategoryModel.objects.order_by('-pk')
         context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
-        context['second_subcategories'] = SecondSubCategoryModel.objects.order_by('-pk')
 
         return context
-

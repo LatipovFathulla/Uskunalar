@@ -9,9 +9,9 @@
 
       </div>
       <h1 class="banner-text2">{{ object.title }}</h1>
-        <a href="/" style="color: #132E6B"><p class="banner-desc">{% trans 'Главная' %} <span></a> > <a
+        <a href="{% url 'home:home' %}" style="color: #132E6B"><p class="banner-desc">{% trans 'Главная' %} <span></a> > <a
                 href="{% url 'blog:blogs' %}" class="banner-desc-title">{% trans 'Наши статьи' %}</a></span> > <a href=""
-                                                                                                    class="banner-desc-title">{{ object.title }}</a></span></p>
+                                                                                                    class="banner-desc-title" style="color: #132E6B;">{{ object.title|safe }}</a></span></p>
 
       <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
@@ -27,7 +27,7 @@
     <img src="{{ object.image.url }}" style="filter: drop-shadow(0px 4px 6px rgba(105, 105, 105, 0.25));
     border-radius: 6px;width: 100%;height: 600px" alt="">
     <br>
-    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">{{ object.description }}.</p>
+    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">{{ object.description|safe }}.</p>
     <br>
     <img src="{% static './images/Group_417.svg' %}" class="icon-left" style="left: 5%;" alt="">
       <br>
@@ -35,14 +35,14 @@
     <div class="best-text">
       <img src="{% static './images/azx.svg' %}" alt="">
       <br>
-      <p class="best-info-text">{{ object.smart_description }}</p>
+      <p class="best-info-text">{{ object.smart_description|safe }}</p>
     </div>
     <br>
     <br>
     <img src="{{ object.image.url|slice:'2' }}" style="width: 100%;border-radius: 10px;" alt="">
     <img src="{% static './images/Group_418.svg' %}" class="icon-right" style="right: 5%;margin-top: 7%;transform: rotate(-29.52deg);" alt="">
     <br>
-    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">{{ object.smart_text }}</p>
+    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">{{ object.smart_text|safe }}</p>
 
     <p style="float: left;margin-top: 1%;">{{ object.created_at|date:'d.F' }}</p>
 
@@ -53,8 +53,8 @@
         <img src="{% static './images/Group_419.svg' %}" class="icon-left" style="left: -13%;" alt="">
         <div class="single-image p-3">
           <img src="{{ object.get_prev.image.url }}" class="img-fluid w-100" style="width:100%;height:350px" alt="">
-          <h3 style="font-size: 19px;padding: 10px;">{{ object.get_prev.title }}</h3>
-          <p style="padding: 10px;margin-top: 0px;padding-top: 0px;">{{ object.get_prev.smart_description }}</p>
+          <h3 style="font-size: 19px;padding: 10px;">{{ object.get_prev.title|safe }}</h3>
+          <p style="padding: 10px;margin-top: 0px;padding-top: 0px;">{{ object.get_prev.smart_description|safe }}</p>
              {% if object.get_prev %}
                      <a href="{% url 'blog:single-blog' pk=object.get_prev.pk %}" style="font-size: 18px;font-weight: 500;margin-left: 3%;">{% trans 'Читать дальше' %} <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
              {% endif %}
@@ -64,8 +64,8 @@
       <div class="col-md-6">
         <div class="single-image p-3">
           <img src="{{ object.get_next.image.url }}" class="img-fluid"  style="width:100%;height:350px" alt="">
-          <h3 style="font-size: 19px;padding: 10px;">{{ object.get_next.title }}</h3>
-          <p style="padding: 10px;margin-top: 0px;padding-top: 0px;">{{ object.get_next.smart_description }}</p>
+          <h3 style="font-size: 19px;padding: 10px;">{{ object.get_next.title|safe }}</h3>
+          <p style="padding: 10px;margin-top: 0px;padding-top: 0px;">{{ object.get_next.smart_description|safe }}</p>
             {% if object.get_next %}
               <a href="{% url 'blog:single-blog' pk=object.get_next.pk %}" style="font-size: 18px;font-weight: 500;margin-left: 3%;">{% trans 'Читать дальше' %} <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
             {% endif %}

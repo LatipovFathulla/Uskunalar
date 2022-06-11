@@ -2,13 +2,27 @@ from datetime import datetime
 
 import pytz
 from django.db.models import Q, Min, Max
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+import json
 from django.views.generic import ListView, TemplateView, DetailView
-from requests import Response
-
+from rest_framework.response import Response
+from home.scrapper import _main
 from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 from home.utils import get_wishlist_data
 
+
+#
+# def get_queryset2(self, ):
+#     qs = BannerInfoModel.objects.order_by('pk')
+#
+#     q = self.request.GET.get('q', '')
+#
+#     if q:
+#         qs = qs.filter(Q(title__icontains=q) |
+#                        Q(sku__icontains=q) |
+#                        Q(city__icontains=q)
+#                        )
+#     return qs
 
 class BannerInfoModelView(ListView):
     template_name = 'products.html'
@@ -16,42 +30,53 @@ class BannerInfoModelView(ListView):
     paginate_by = 9
 
     def get_queryset(self, ):
-        qs = BannerInfoModel.objects.order_by('-pk')
-
         q = self.request.GET.get('q', '')
         category = self.request.GET.get('category')
         subcategory = self.request.GET.get('subcategory')
-        sku = self.request.GET.get('sku')
         price = self.request.GET.get('price')
         sort = self.request.GET.get('sort')
         som = self.request.GET.get('price')
         created_at = self.request.GET.get('created_at')
+        inbox = self.request.GET.get('inbox')
+        delivery = self.request.GET.get('delivery')
+
+        filters = {}
 
         if q:
-            qs = qs.filter(title__icontains=q)
-
+            filters[Q('title__icontains') and Q('subcategory__icontains')] = q
 
         if category:
-            qs = qs.filter(category_id=category)
+            filters['category_id'] = category
 
         if subcategory:
-            qs = qs.filter(category_id=subcategory)
-
-        if sku:
-            qs = qs.filter(sku_id=sku)
+            filters['category_id'] = subcategory
 
         if price:
             price_from, price_to = price.split(';')
-            qs = qs.filter(price__gte=price_from, price__lte=price_to)
+            filters['dollar__gte'] = price_from
+            filters['dollar__lte'] = price_to
+
+        order_by = ['-pk']
+
+        if inbox:
+            if inbox == 'inbox':
+                order_by.append('inbox')
+        if delivery:
+            if delivery == 'delivery':
+                order_by.append('delivery')
+
+        if created_at == 'created_at':
+            order_by.append('created_at')
+            # diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
+            # return diff.days <= 3
+
+        qs = BannerInfoModel.objects.filter(**filters).order_by(*order_by)
 
         if sort:
             if sort == 'price':
                 qs = sorted(qs, key=lambda i: i.get_price())
             elif sort == '-price':
                 qs = sorted(qs, key=lambda i: i.get_price(), reverse=True)
-            elif created_at == 'created_at':
-                diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
-                return diff.days <= 3
 
         if som:
             if som == 'som':
@@ -61,30 +86,20 @@ class BannerInfoModelView(ListView):
 
         return qs
 
-    #
-    # def get_queryset2(self, ):
-    #     qs = BannerInfoModel.objects.order_by('pk')
-    #
-    #     q = self.request.GET.get('q', '')
-    #
-    #     if q:
-    #         qs = qs.filter(Q(title__icontains=q) |
-    #                        Q(sku__icontains=q) |
-    #                        Q(city__icontains=q)
-    #                        )
-    #     return qs
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = CategoryModel.objects.order_by('-pk')
-        context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
-
         context['min_price'], context['max_price'] = BannerInfoModel.objects.aggregate(
-            Min('price'),
-            Max("dollar")
+            Min('dollar'),
+            Max('dollar')
         ).values()
 
         return context
+
+
+def get_subcategory(request):
+    pk = request.GET.get('pk', '')
+    result = list(SubCategoryModel.objects.filter(category_id=pk).values('pk', 'subcategory'))
+    return HttpResponse(json.dumps(result), content_type="application/json")
 
 
 class SingleModelDetailView(DetailView):
@@ -95,6 +110,14 @@ class SingleModelDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['related'] = BannerInfoModel.objects.order_by('-pk')
         return context
+
+
+class WishlistModelListView(ListView):
+    template_name = 'wishlist.html'
+    paginate_by = 7
+
+    def get_queryset(self):
+        return BannerInfoModel.get_from_wishlist(self.request)
 
 
 def add_to_wishlist(request, pk):
@@ -117,9 +140,5 @@ def add_to_wishlist(request, pk):
     return JsonResponse(data)
 
 
-class WishlistModelListView(ListView):
-    template_name = 'wishlist.html'
-    paginate_by = 7
-
-    def get_queryset(self):
-        return BannerInfoModel.get_from_wishlist(self.request)
+class CategoryTest(TemplateView):
+    template_name = 'test.html'
