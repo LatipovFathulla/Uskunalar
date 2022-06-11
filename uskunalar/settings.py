@@ -102,6 +102,7 @@ CACHES = {
         'LOCATION': BASE_DIR / 'uskunalar_cache',
     }
 }
+
 # cache
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
