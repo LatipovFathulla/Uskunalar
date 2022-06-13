@@ -14,6 +14,7 @@
           integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
       <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.6/swiper-bundle.css">
@@ -3142,7 +3143,6 @@ body.deactive {
   TuinSlider.prototype.bindEvents = function () {
     var self = this;
     let ix = 0;
-    console.log(self.items.length); // To Slide using Keys
 
     if (this.settings.arrows) {
       this.settings.nextHtml.addEventListener("click", this.moveToNext.bind(this));
@@ -3360,7 +3360,6 @@ body.deactive {
     var prev = document.createElement("button");
     prev.setAttribute("type", "button");
     prev.setAttribute("class", "previous");
-    console.log(prev)
     this.el.appendChild(arrows);
     var controlsElement = this.el.querySelector(".slider-controls");
     controlsElement.appendChild(next);
@@ -3381,7 +3380,6 @@ body.deactive {
     this.settings.paginationHtml.setAttribute("class", "slider-navigation");
     this.settings.paginationHtml.innerHTML = paginationList;
     slider_block.appendChild(this.settings.paginationHtml);
-    console.log(this.settings.paginationHtml)
   };
 
   TuinSlider.prototype.resize = utils.debounce(function () {
@@ -3748,7 +3746,6 @@ var loadPlayer = function (event) {
   iframe.height = target.clientHeight;
   iframe.width = target.clientWidth;
   iframe.src = 'https://www.youtube.com/embed/' + target.dataset.videoId + '?autoplay=1';
-  console.log(iframe.src);
   iframe.setAttribute('frameborder', 0);
   iframe.setAttribute('controls', 1);
   iframe.setAttribute('autoplay', '');
