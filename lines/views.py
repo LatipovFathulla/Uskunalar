@@ -7,7 +7,7 @@ from lines.models import LineModel, LineCategoryModel, LineTextModel
 class LineModelView(ListView):
     template_name = 'lines.html'
     context_object_name = 'lines'
-    paginate_by = 7
+    paginate_by = 9
 
     def get_queryset(self):
         qs = LineModel.objects.order_by('-pk')
