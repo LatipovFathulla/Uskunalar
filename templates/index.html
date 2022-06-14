@@ -14,6 +14,7 @@
           integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
       <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+      <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
@@ -1015,20 +1016,20 @@ body.deactive {
     background-color: #1e1e1e
 }
 
-.swiper {
+.products-section .swiper {
     width: 100%;
     height: 400px;
     margin-top: 10px;
     margin-bottom: 60px
 }
 
-.swiper-wrapper {
+.products-section .swiper-wrapper {
     width: 100%;
     height: 100%;
     box-sizing: content-box
 }
 
-.swiper-slide {
+.products-section .swiper-slide {
     font-size: 18px;
     background: #fff;
     position: relative;
@@ -1044,7 +1045,7 @@ body.deactive {
     cursor: grab
 }
 
-.swiper-slide img {
+.products-section .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
@@ -1052,15 +1053,15 @@ body.deactive {
     object-fit: cover
 }
 
-.swiper-slide_img {
+.products-section .swiper-slide_img {
     transition: transform .5s ease
 }
 
-.swiper-slide:hover>.swiper-slide_img {
+.products-section .swiper-slide:hover>.swiper-slide_img {
     transform: scale(1.3)
 }
 
-.swiper-slide-content {
+.products-section .swiper-slide-content {
     position: absolute;
     color: white;
     /* left: 5%; */
@@ -1096,7 +1097,7 @@ body.deactive {
     background-color: white
 }
 
-.swiper-pagination-progressbar {
+.products-section .swiper-pagination-progressbar {
     margin-bottom: 10px
 }
 
@@ -2070,6 +2071,118 @@ body.deactive {
         grid-gap: 10px
     }
 }
+
+.categories-container {
+  max-width: 100%;
+  width: 1600px;
+  margin: 0 auto;
+  position: relative;
+  user-select: none;
+}
+
+.categories {
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.categories-icon {
+  /* background: #f7f7f7; */
+  border-radius: 6px;
+  padding: 20px;
+  width: 115px;
+  height: 105px;
+}
+
+.categories-link {
+  text-decoration: none;
+  width: 205px;
+  display: flex;
+  align-items: center;
+  background: #f7f7f7;
+  justify-content: flex-start;
+  min-height: 86px;
+  padding: 0 24px 0 24px;
+  border-radius: 6px;
+  margin: 0 20px 0 0;
+  transition: all .4s ease;
+}
+
+.categories-link:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.categories-title {
+  color: #333;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: 'Poppins', sans-serif;
+}
+
+.categories-swiper-button {
+  background: #fff;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 18px;
+  border: 1px solid #a1a1a1a2;
+  position: absolute;
+  z-index: 10;
+  top: 30%;
+  transition: .5s ease-in-out;
+  text-align: center;
+}
+
+.categories-swiper-button:hover {
+  background-color: #ffe600;
+}
+
+.categories-prev {
+  left: -3%;
+}
+
+.categories-next {
+  right: -3%;
+}
+
+/* Medias */
+@media (max-width:1800px) {
+  .categories-container {
+    width: 1400px;
+  }
+}
+@media (max-width:1500px) {
+  .categories-container {
+    width: 1200px;
+  }
+
+  .categories-prev {
+    left: 0%;
+  }
+
+  .categories-next {
+    right: 0%;
+  }
+}
+@media (max-width:1200px) {
+  .categories-title {
+    font-size: 15px;
+  }
+  .categories-container {
+    width: 1150px;
+  }
+}
+@media (max-width:1100px) {
+  .categories-title {
+    font-size: 14px;
+  }
+}
+@media (max-width:576px) {
+  .categories-title {
+    font-size: 14px;
+  }
+}
 </style>
 
 <body>
@@ -2334,59 +2447,66 @@ body.deactive {
         </div>
     </div>
 
-<div class="container">
-    <img src="{% static 'images/Group_418.svg' %}" class="icon-right-transform" style="position: absolute;" alt="">
-    <h1 class="text-center catalog-uskuna">
-        {% trans 'Каталог Uskunalar' %}</h1>
-    <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-        aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
-        aliquid ex repudiandae nobis</p>
-    <br>
 
-    <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
-    <br>
-</div>
-    <section id="gallery-carousel">
-        <div class="gallery-carousel-content">
-            <div class="container">
-                <div class="slider responsive">
-                  {% for category in categories2 %}
-                    {% if not forloop.counter|divisibleby:2 %}
-                    <div>
-                        <a href="{% url 'products:product' %}?category={{ category.pk }}">
-                             <div class="box">
-                            <p style="font-weight: 500">{{ category.category|safe }}</p>
-                            <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px;width: 100%" alt="">
-                          </div>
-                        </a>
-                    {% else %}
-                      <h3></h3>
-                        <a href="{% url 'products:product' %}?category={{ category.pk }}">
-                               <div class="box">
-                                <p style="font-weight: 500">{{ category.category|safe }}</p>
-                                <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px;width:100%"  alt="">
-                              </div>
-                        </a>
-                    </div>
-                    {% endif %}
-                  {% endfor %}
+  <div class="categories-container mt-5">
+    <!-- Slider main container -->
+    <div class="swiper categories">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+       {% for category in categories2 %}
+        <a href="{% url 'products:product' %}?category={{ category.pk }}" class="swiper-slide categories-link">
+          <img src="/static/images/xolodilnik.svg" alt="" class="categories-icon">
+          <h2 class="categories-title">{{ category.category|safe }}</h2>
+        </a>
+       {% endfor %}
+      </div>
+    </div>
+    <!-- If we need navigation buttons -->
+    <button class="categories-swiper-button categories-prev" id="categories-prev-1"><i class="fa-solid fa-angle-left"></i></button>
+    <button class="categories-swiper-button categories-next" id="categories-next-1"><i class="fa-solid fa-angle-right"></i></button>
+  </div>
+<!--    <section id="gallery-carousel">-->
+<!--        <div class="gallery-carousel-content">-->
+<!--            <div class="container">-->
+<!--                <div class="slider responsive">-->
+<!--                  {% for category in categories2 %}-->
+<!--                    {% if not forloop.counter|divisibleby:2 %}-->
+<!--                    <div>-->
+<!--                        <a href="{% url 'products:product' %}?category={{ category.pk }}">-->
+<!--                             <div class="box">-->
+<!--                            <p style="font-weight: 500">{{ category.category|safe }}</p>-->
+<!--                            <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px;width: 100%" alt="">-->
+<!--                          </div>-->
+<!--                        </a>-->
+<!--                    {% else %}-->
+<!--                      <h3></h3>-->
+<!--                        <a href="{% url 'products:product' %}?category={{ category.pk }}">-->
+<!--                               <div class="box">-->
+<!--                                <p style="font-weight: 500">{{ category.category|safe }}</p>-->
+<!--                                <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px;width:100%"  alt="">-->
+<!--                              </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                    {% endif %}-->
+<!--                  {% endfor %}-->
 
-                </div>
-                </div>
-                <div class="text-center">
-                    <ul>
-                        <li>
-                            <a href="{% url 'home:catalog' %}">
-                                <button class="button-center button-bottom mobile-button">
-                                    <p style="font-size: 15px;">{% trans 'Смотреть все' %}</p>
-                                </button>
-                            </a>
-                        </li>
-                    </ul>
-                    <br>
-                </div>
-        </div>
-    </section>
+<!--                </div>-->
+<!--                </div>-->
+<!--                <div class="text-center">-->
+<!--                    <ul>-->
+<!--                        <li>-->
+<!--                            <a href="{% url 'home:catalog' %}">-->
+<!--                                <button class="button-center button-bottom mobile-button">-->
+<!--                                    <p style="font-size: 15px;">{% trans 'Смотреть все' %}</p>-->
+<!--                                </button>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <br>-->
+<!--                </div>-->
+<!--        </div>-->
+<!--    </section>-->
 
 
 
@@ -2400,7 +2520,7 @@ body.deactive {
         </div>
 
         <!-- Slider main container -->
-        <div class="swiper">
+        <div class="swiper lines">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
@@ -3529,65 +3649,6 @@ var slider = new TuinSlider("#slider", {
     return tl;
   }
 });
-
-function getSlideSize() {
-  let windowSize = window.innerWidth;
-
-  switch (true) {
-      case windowSize >= 4000:
-      return slideSize = 7;
-
-    case windowSize >= 3000:
-      return slideSize = 6;
-
-    case windowSize <= 3000 && windowSize > 2000:
-      return slideSize = 5;
-
-    case windowSize <= 2000 && windowSize > 1500:
-      return slideSize = 4.5;
-
-    case windowSize <= 1500 && windowSize > 1100:
-      return slideSize = 3.5;
-
-    case windowSize <= 1100 && windowSize > 900:
-      return slideSize = 3;
-
-    case windowSize <= 900 && windowSize > 800:
-      return slideSize = 2.5;
-
-    case windowSize <= 800 && windowSize > 500:
-      return slideSize = 2;
-
-    case windowSize <= 500:
-      return slideSize = 1.5;
-
-    default:
-      return slideSize = 1.5;
-  }
-}
-
-const swiper = new Swiper(".swiper", {
-  // Optional parameters
-  slidesPerView: getSlideSize(),
-  spaceBetween: 30,
-  centeredSlides: true,
-  direction: "horizontal",
-  loop: true,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false
-  },
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-    type: "progressbar"
-  },
-  // Navigation arrows
-  navigation: {
-    nextEl: ".swiper-button_next",
-    prevEl: ".swiper-button_prev"
-  }
-});
 </script>
 <script>
     var splide = new Splide('.splide_4_5', {
@@ -3736,6 +3797,107 @@ const swiper = new Swiper(".swiper", {
         }
     });
 </script>
+<script>
+function getCategoriesNumber() {
+  let categoriesSlideCount;
+  switch (true) {
+    case ( window.innerWidth >= 2000):
+      return categoriesSlideCount = 5;
+    case (window.innerWidth < 2000 && window.innerWidth >= 1000):
+      return categoriesSlideCount = 4;
+    case (window.innerWidth < 1000 && window.innerWidth >= 900):
+      return categoriesSlideCount = 3.5;
+    case (window.innerWidth < 900 && window.innerWidth >= 700):
+      return categoriesSlideCount = 3;
+    case (window.innerWidth < 700 && window.innerWidth >= 500):
+      return categoriesSlideCount = 2;
+    case (window.innerWidth < 500 ):
+      return categoriesSlideCount = 1.5;
+
+    default:
+      return categoriesSlideCount = 4;
+  }
+ }
+
+const categories_swiper = new Swiper('.categories', {
+    // Optional parameters
+    centeredSlides: true,
+    loop: true,
+    loopFillGroupWithBlank:true,
+    slidesPerView: getCategoriesNumber(),
+    spaceBetween: 15,
+
+    // Navigation arrows
+    navigation: {
+      prevEl: '#categories-prev-1',
+      nextEl: '#categories-next-1',
+    },
+  });
+
+</script>
+<!--lines js-->
+<script>
+
+function getSlideSize() {
+  let windowSize = window.innerWidth;
+
+  switch (true) {
+      case windowSize >= 4000:
+      return slideSize = 7;
+
+    case windowSize >= 3000:
+      return slideSize = 6;
+
+    case windowSize <= 3000 && windowSize > 2000:
+      return slideSize = 5;
+
+    case windowSize <= 2000 && windowSize > 1500:
+      return slideSize = 4.5;
+
+    case windowSize <= 1500 && windowSize > 1100:
+      return slideSize = 3.5;
+
+    case windowSize <= 1100 && windowSize > 900:
+      return slideSize = 3;
+
+    case windowSize <= 900 && windowSize > 800:
+      return slideSize = 2.5;
+
+    case windowSize <= 800 && windowSize > 500:
+      return slideSize = 2;
+
+    case windowSize <= 500:
+      return slideSize = 1.5;
+
+    default:
+      return slideSize = 1.5;
+  }
+}
+
+const swiper1 = new Swiper(".lines", {
+  // Optional parameters
+  slidesPerView: getSlideSize(),
+  spaceBetween: 30,
+  centeredSlides: true,
+  direction: "horizontal",
+  loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false
+  },
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+    type: "progressbar"
+  },
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button_next",
+    prevEl: ".swiper-button_prev"
+  }
+});
+</script>
+<!-- end lines js-->
 <script>
 var players = document.querySelectorAll('.youtube-player');
 var content = document.querySelector('.about-content_block');
@@ -4284,6 +4446,5 @@ window.FontAwesomeKitConfig = {
   }
 });
 </script>
-
 </body>
 </html>
