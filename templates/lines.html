@@ -88,9 +88,9 @@
             </ul>
             <div class="sidebar-categories" style="margin-top: 20px">
             <div class="row">
-                  <div class="line-slider">
+                  <div class="line-slider" style="width:100%">
                   {% for category in line_categories %}
-                      <div class="col-8 col-md-12">
+                      <div class="col-12 col-md-12">
                         <div class="link">
                             <a {% if request.GET.category == category.pk|stringformat:'i' %}class="b-active"{% else %}class="a-active"{% endif %} href="?category={{ category.pk }}"> <span style="position: absolute;font-family: inherit;font-weight: 500;width:200px">{{ category.category|safe }}</span></a>
                         </div>
