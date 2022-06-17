@@ -678,7 +678,6 @@ body.deactive {
 
 .header-main_container {
     width: 100%;
-    margin-top:15%;
     display: flex;
     align-items: flex-start;
     justify-content: center
@@ -2410,6 +2409,10 @@ a {
 
     .catalog-submenu-container {
         display: none
+    }
+
+    .header-main_container {
+        margin-top:15%;
     }
 }
 
