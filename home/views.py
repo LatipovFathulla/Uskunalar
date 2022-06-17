@@ -43,7 +43,7 @@ class BannerInfoModelView(ListView):
         filters = {}
 
         if q:
-            filters[Q('title__icontains') and Q('subcategory__icontains')] = q
+            filters['title__icontains'] = q
 
         if category:
             filters['category_id'] = category
