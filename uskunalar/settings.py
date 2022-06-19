@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'embed_video',
     'bs4',
+    'active_link',
     'watermarker',
     'ckeditor',
     'ckeditor_uploader',
@@ -96,12 +97,12 @@ DATABASES = {
     }
 }
 #
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': BASE_DIR / 'uskunalar_cache',
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION': BASE_DIR / 'uskunalar_cache',
+#     }
+# }
 
 # cache
 # Password validation

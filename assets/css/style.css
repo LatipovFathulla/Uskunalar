@@ -2272,6 +2272,17 @@ a {
         margin-top: 0
     }
 
+    .wrap_c95d {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    bottom: 11%;
+    display: block;
+    opacity: 1;
+    position: fixed;
+    transition: opacity .1s;
+    visibility: visible;
+    z-index: 2147483647;
+}
+
     .mobile .menu_linkItem_active {
         width: auto;
         margin-top: 25px;

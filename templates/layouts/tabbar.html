@@ -1,0 +1,234 @@
+{% load static %}
+{% load i18n %}
+{% load tags %}
+<style>
+
+:root {
+    --translate-main-slider: 0;
+}
+
+body {
+    position: relative;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (min-width: 1200px) {
+    .menu_bar {
+        display: none;
+    }
+}
+
+.menu_bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 999999;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+
+.mobile-tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.filters-container {
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+}
+.filters-container.active {
+    max-height: 100%;
+    opacity: 1;
+}
+
+.filters-wrapper {
+    position: relative;
+    padding: 10px 10px 0 10px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.filter-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1rem;
+    padding: 0.3rem;
+    overflow-x: scroll;
+    background-color: #ffe600;
+}
+
+
+.filter-tabs-listItem {
+    min-width: 220px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    z-index: 1;
+    padding: 8px;
+    justify-content: center;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.filter-button {
+    max-width: 100%;
+    width: 50px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-grow: 1;
+    height: 3rem;
+    padding: 0 1.5rem;
+    color: #000;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    transition: all 1s ease;
+}
+
+.filter-tabs-listItem.filter-active {
+    transition: color 0.7s ease-in-out;
+    /* color: var(--grey-900); */
+    color: #000;
+    background-color: white;
+}
+
+
+.round-button {
+    height: 4.6rem;
+    width: 4.4rem;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--grey-900);
+    transition: color 0.2s ease-in-out;
+}
+
+.round-button:hover,
+.round-button.active {
+    color: inherit;
+}
+.round-button.active {
+    background-color: #ffe600;
+    border-radius: 10px;
+}
+
+.round-button svg {
+    pointer-events: none;
+    height: 35px;
+    width: 35px;
+    transform: translate(0, 0);
+}
+
+.button-title {
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+.menu_bar_circle-container {
+    pointer-events: none;
+    position: absolute;
+    top: -5%;
+    left: -1%;
+    padding: 11px;
+    z-index: 0;
+    transition: transform 0.4s ease-in-out;
+    transform: translateX(var(--translate-main-slider));
+}
+.menu_bar_cicle {
+    height: 62.8px;
+    width: 62.8px;
+    border-radius: 10px;
+    transition: background-color 0.4s ease-in-out;
+    background-color: #ffe600;
+}
+</style>
+    <div class="menu_bar">
+        <div class="menu_bar-filters">
+            <div class="filters-container">
+                <div class="filters-wrapper">
+                    <ul class="filter-tabs">
+                        {% for category in categories %}
+                            <li class="filter-tabs-listItem {% if request.GET.category %}filter-active{% endif %}">
+                                <a href="{% url 'products:product' %}?category={{ category.pk }}" class="filter-button" data-translate-value="100%">{{ category }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                        <!-- </ul>
+              <div class="filter-slider">
+                <div class="filter-slider-rect">&nbsp;</div>
+              </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="menu_bar-tabs">
+            <ul class="mobile-tabs">
+                <li class="mobile-tab">
+                    <a href="{% url 'home:home' %}" class="round-button {% load active_link_tags %}" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+                            <path d="M20 7.093v-5.093h-3v2.093l3 3zm4 5.907l-12-12-12 12h3v10h7v-5h4v5h7v-10h3zm-5 8h-3v-5h-8v5h-3v-10.26l7-6.912 7 6.99v10.182z" />
+                        </svg>
+                        <span class="button-title">Asosiy</span>
+                    </a>
+                </li>
+                <li class="mobile-tab">
+                    <a href="{% url 'products:product' %}" id="menuCatalog"  class="round-button {%  if '/products/' in request.path %}active{% endif %}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="4.8rem" height="4.8rem" viewBox="0 0 25 25">
+                            <path
+                                d="M25 3l-.743 2h-1.929l-3.474 12h-13.239l-4.615-11h16.812l-.564 2h-13.25l2.937 7h10.428l3.432-12h4.195zm-15.5 15c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.9-7-1.9 7c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5z" />
+                        </svg>
+                        <span class="button-title">Bo'limlar</span>
+                    </a>
+                </li>
+                <li class="mobile-tab">
+                    <a href="{% url 'products:wishlist' %}" class="round-button {%  if '/wishlist/' in request.path %}active{% endif %}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+                            <path
+                                d="M6.28 3c3.236.001 4.973 3.491 5.72 5.031.75-1.547 2.469-5.021 5.726-5.021 2.058 0 4.274 1.309 4.274 4.182 0 3.442-4.744 7.851-10 13-5.258-5.151-10-9.559-10-13 0-2.676 1.965-4.193 4.28-4.192zm.001-2c-3.183 0-6.281 2.187-6.281 6.192 0 4.661 5.57 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-4.011-3.097-6.182-6.274-6.182-2.204 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.258-5.719-3.258z" />
+                        </svg>
+                        <span class="button-title">Sevimlilar</span>
+                    </a>
+                </li>
+                <li class="mobile-tab">
+                    <a href="{% url 'blog:blogs' %}" class="round-button {%  if '/blogs/' in request.path %}active{% endif %}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+                            <path
+                                d="M7 16h13v1h-13v-1zm13-3h-13v1h13v-1zm0-6h-5v1h5v-1zm0 3h-5v1h5v-1zm-17-8v17.199c0 .771-1 .771-1 0v-15.199h-2v15.98c0 1.115.905 2.02 2.02 2.02h19.958c1.117 0 2.022-.904 2.022-2.02v-17.98h-21zm19 17h-17v-15h17v15zm-9-12h-6v4h6v-4z" />
+                        </svg>
+                        <span class="button-title">Maqolalar</span>
+                    </a>
+                </li>
+                <li class="mobile-tab">
+                    <a href="{% url 'home:contacts' %}" class="round-button {%  if '/contacts/' in request.path %}active{% endif %}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+                            <path
+                                d="M6.176 1.322l2.844-1.322 4.041 7.89-2.725 1.341c-.538 1.259 2.159 6.289 3.297 6.372.09-.058 2.671-1.328 2.671-1.328l4.11 7.932s-2.764 1.354-2.854 1.396c-7.862 3.591-19.103-18.258-11.385-22.281zm1.929 1.274l-1.023.504c-5.294 2.762 4.177 21.185 9.648 18.686l.971-.474-2.271-4.383-1.026.5c-3.163 1.547-8.262-8.219-5.055-9.938l1.007-.497-2.251-4.398z" />
+                        </svg>
+                        <span class="button-title">Aloqa</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<script>
+const mainTabs = document.querySelector(".mobile-tabs");
+const menu_MobileCatalog = document.querySelector('#menuCatalog');
+const mobileFilterContainer = document.querySelector('.filters-container')
+
+console.log(menu_MobileCatalog);
+
+if (menu_MobileCatalog.classList.contains('active')) {
+    mobileFilterContainer.classList.add('active')
+}
+</script>
