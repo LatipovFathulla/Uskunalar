@@ -6,137 +6,465 @@
 {% block content %}
 {% block extra-css %}
 <style>
-    .btn-like2 {
-        position: absolute;
-        bottom: 9.8%;
-        right: 13%;
-        width: 48px;
-        height: 48px;
-        background-color: #FFF5F5;
-        border: none;
-        border-radius: 4px;
+
+.us-products {
+    max-width: 1290px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    /* background: chartreuse; */
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.us-products-card {
+    user-select: none;
+    margin: auto;
+    background: #fff;
+    max-width: 100%;
+    width: 330px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition: box-shadow .3s ease-in-out;
+}
+
+.us-products-card:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.us-products-card_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Buttons */
+
+.us-products-card_buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.us-products-card_ibutton {
+    background: transparent;
+    border: none;
+    font-size: 26px;
+    text-decoration: none;
+}
+
+.product-share {
+    transition: all .4s ease-out;
+}
+
+.product-share:hover {
+    color: #132b60;
+    transform: translateY(-10%);
+}
+
+.product-heart {
+    transition: all .4s ease-out;
+}
+.product-heart.active {
+    color: #ff0000;
+}
+
+.product-heart:hover {
+    color: red;
+    transform: translateY(-10%);
+}
+
+/* Img */
+
+.us-products-card_img-holder {
+    width: 100%;
+    height: 100%;
+}
+
+.us-products-card_img_back {
+    max-width: 300px;
+    width: 100%;
+    text-align: center;
+}
+.us-products-card_img_back.red {
+    background: url('./images/product card-red.png') no-repeat center center / contain;
+}
+.us-products-card_img_back.blue {
+    background: url('./images/product card-blue.png') no-repeat center center / contain;
+}
+.us-products-card_img_back.orange {
+    background: url('./images/product card-orange.png') no-repeat center center / contain;
+}
+.us-products-card_img_back.yellow {
+    background: url('./images/product card.png') no-repeat center center / contain;
+}
+
+.us-products-card_img {
+    transform: translateY(-15%);
+    max-width: 100%;
+    width: 200px;
+    vertical-align: middle;
+}
+
+/* .us-products-card-details {
+
+} */
+
+.us-products-card-title {
+    text-transform: capitalize;
+    font-size: 24px;
+    font-weight: 500;
+    color: #132E6B;
+    line-height: 100%;
+}
+
+.us-products-card-details_list {
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    line-height: 145%;
+}
+
+.us-products-card-details_item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.us-products-card-detailname {
+    font-size: 18px;
+    color: #666666;
+    font-weight: 500;
+}
+
+.us-products-card-detail {
+    text-align: end;
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+/* Country Flag */
+.us-products-card-country_container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.us-products-card-countryName {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.us-products-car-countryImg {
+    max-width: 100%;
+    width: 45px;
+}
+
+/* Product Status */
+.us-products-card-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 150%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.us-products-card-productPrice_dollar {
+    font-size: 26px;
+    color: #FF0000;
+    font-weight: 600;
+}
+
+.us-products-card-productPrice_som {
+    font-size: 17px;
+    color: #000;
+    font-weight: normal;
+}
+
+.us-products-card-product_id {
+    font-size: 25px;
+    text-align: end;
+    color: #132E6B;
+    font-weight: 500;
+}
+
+.us-products-card-product_status {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #1fb141;
+    text-align: start;
+}
+
+.us-products-card-product_status.not-exists {
+    color: #FF0000;
+}
+
+
+.us-products-card_buttonMore {
+    padding: 8px 5px;
+    max-width: 180px;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    background: rgb(255, 230, 0);
+    background: linear-gradient(90deg, rgba(255, 230, 0, 1) 0%, rgba(255, 174, 0, 1) 100%);
+    border: none;
+    font-size: 18px;
+    color: #132E6B;
+    text-align: center;
+    cursor: pointer;
+    transition: hover .5s ease-in-out;
+}
+
+.us-products-card_buttonMore:hover {
+    background: linear-gradient(270deg, #ff0000, #ffae00, #ffe600);
+    background-size: 600% 600%;
+    color: white;
+
+    -webkit-animation: us-button 11s ease infinite;
+    -moz-animation: us-button 11s ease infinite;
+    -o-animation: us-button 11s ease infinite;
+    animation: us-button 5s ease infinite;
+}
+
+/* Media */
+@media (max-width:1020px) {
+    .us-products-card {
+        width: 320px;
     }
+    .us-products-card-country_container {
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+    .us-products-card-country_container {
+        margin-bottom: 0;
+    }
+    .us-products-card-product_status {
+        margin-top: 8px;
+    }
+}
+
+/* Animation */
+
+@-webkit-keyframes us-button {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes us-button {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes us-button {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes us-button {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+    {#.btn-like2 {#}
+    {#    position: absolute;#}
+    {#    bottom: 9.8%;#}
+    {#    right: 13%;#}
+    {#    width: 48px;#}
+    {#    height: 48px;#}
+    {#    background-color: #FFF5F5;#}
+    {#    border: none;#}
+    {#    border-radius: 4px;#}
+    {#}#}
 </style>
 {% endblock %}
+{#    new product#}
+{# <div class="us-products">#}
+{#        <!-- Product Card -->#}
+{#        <div class="us-products-card">#}
+{#            <div class="us-products-card_container">#}
+{#                <!-- Buttons -->#}
+{#                <div class="us-products-card_buttons">#}
+{#                    <button href="" class="us-products-card_ibutton product-heart"><i class="fa-light fa-heart"></i></button>#}
+{#                    <a class="us-products-card_ibutton"><i class="fa-light fa-share-from-square product-share"></i></a>#}
+{#                </div>#}
+{##}
+{#                <!-- Img -->#}
+{#                <div class="us-products-card_img-holder">#}
+{#                    <div class="us-products-card_img_back yellow">#}
+{#                        <img src="{{ product.image.url }}" alt="" class="us-products-card_img">#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <!-- Details Section -->#}
+{#                <div class="us-products-card-details">#}
+{#                    <h2 class="us-products-card-title">{{ product.title }}</h2>#}
+{#                    <!-- omborda mavjud -->#}
+{#                    <!-- <p class="us-products-card-product_status"><i class="fa-solid fa-circle"></i> omborda mavjud</p> -->#}
+{#                    <!-- buyurtmaga -->#}
+{#                    <p class="us-products-card-product_status not-exists"><i class="fa-solid fa-circle"></i>{{ product.delivery }}</p>#}
+{#                    <ul class="us-products-card-details_list">#}
+{#                      {% for j in product.specifications.all|slice:':4' %}#}
+{#                        <li class="us-products-card-details_item">#}
+{#                            <h4 class="us-products-card-detailname">{{ j.product_customer|safe }}:</h4>#}
+{#                            <p class="us-products-card-detail">{{ j.product_number|safe }}</p>#}
+{#                        </li>#}
+{#                      {% endfor %}#}
+{#                    </ul>#}
+{#                </div>#}
+{##}
+{#                <!-- Country -->#}
+{#                <div class="us-products-card-country_container">#}
+{#                    <p class="us-products-card-countryName">Country:</p>#}
+{#                    <img src="./images/icons8-turkey-48.png" alt="" class="us-products-car-countryImg">#}
+{#                </div>#}
+{##}
+{#                <!-- Price & Inventory Info -->#}
+{#                <div class="us-products-card-status">#}
+{#                    <div class="us-products-card-priceInfo">#}
+{#                        <h3 class="us-products-card-productPrice_dollar">${{ product.get_price_dollar }}</h3>#}
+{#                        <p class="us-products-card-productPrice_som">{{ product.dollar_exchanges|intcomma }} сум</p>#}
+{#                    </div>#}
+{#                    <div class="us-products-card-statusinfo">#}
+{#                        <h3 class="us-products-card-product_id">ID:{{ product.pk }}</h3>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <!-- More Details Button -->#}
+{#                <a href="{% url 'products:single' pk=product.pk %}" class="us-products-card_buttonMore">More Details</a>#}
+{#            </div>#}
+{#        </div>#}
+{#        <!-- Product Card -->#}
+{#    </div>#}
+{#    end new product #}
 
-<div class="produdcs-section">
-    <div class="flex-item">
-        <div class="flex-item-inner">
-            <!-- card -->
-            <a href="{% url 'products:single' pk=product.pk %}">
-                <div class="card-front bg-vioet">
-                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-
-                        <button class="btn"
-                                style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                            <img src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt="">
-                        </button>
-
-                    </a>
-                    {% if product.is_discount %}
-                    <a href="#" class="card-link1">
-                        <button class="btn"
-                                style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                            <p style="margin-left:-20%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                        </button>
-                    </a>
-                    {% elif product.is_new %}
-                    <a href="#" class="card-link1">
-                        <button class="btn new-mobile-1">
-                            <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                        </button>
-                    </a>
-
-
-                    {% endif %}
-                    <img src="{{ product.image.url }}" class="product-image-url"  alt="product image">
-
+{#<div class="produdcs-section">#}
+{#    <div class="flex-item">#}
+{#        <div class="flex-item-inner">#}
+{#            <!-- card -->#}
+{#            <a href="{% url 'products:single' pk=product.pk %}">#}
+{#                <div class="card-front bg-vioet">#}
+{#                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">#}
+{##}
+{#                        <button class="btn"#}
+{#                                style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">#}
+{#                            <img src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt="">#}
+{#                        </button>#}
+{##}
+{#                    </a>#}
+{#                    {% if product.is_discount %}#}
+{#                    <a href="#" class="card-link1">#}
+{#                        <button class="btn"#}
+{#                                style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">#}
+{#                            <p style="margin-left:-20%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>#}
+{#                        </button>#}
+{#                    </a>#}
+{#                    {% elif product.is_new %}#}
+{#                    <a href="#" class="card-link1">#}
+{#                        <button class="btn new-mobile-1">#}
+{#                            <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>#}
+{#                        </button>#}
+{#                    </a>#}
+{##}
+{##}
+{#                    {% endif %}#}
+{#                    <img src="{{ product.image.url }}" class="product-image-url"  alt="product image">#}
+{##}
 {#                    {% with product.image.url as url_path %}#}
 {#                        <img src="{{ product.image.url|watermark:"uskunalar,scale=R35%,position=br,opacity=100" }}" class="product-image-url" alt="">#}
 {#                    {% endwith %}#}
-                    <div class="card-text">
-                        <h4 class="front-title">{{ product.title }}</h4>
-                        <p class="detail" style="margin-top:2px">
-                            {% trans 'Город' %}: {{ product.city }}</p>
-                        <p class="detail" style="margin-top:2px;font-family: RobotoCondensed,Arial,sans-serif">
-                            {% if product.inbox %}
-                                <img src="{% static './images/radius.svg' %}"  alt="">
-                                {{ product.inbox }}
-                            {% endif %}
-                            {% if product.delivery %}
-                                <img src="{% static './images/radius.svg' %}"  alt="">
-                                 {{ product.delivery }}</p>
-                            {% endif %}
-                        <p class="desc-price">{{ product.get_price_dollar }} $ - {{ product.dollar_exchanges|intcomma }} сум</p>
-                        <p class="mob-price">{{ product.get_price_dollar }} $</p>
-                        <p class="mob-price">{{ product.dollar_exchanges|intcomma }} сум</p>
-                    </div>
-                    <ul>
-                        <li>
-                            <a href="{% url 'products:single' pk=product.pk %}">
-                                <button class="button-left button-bottom-left ds-none"
-                                        type="button"
-                                        style="width: 127px;height: 52px;">
-                                    <p class="carousel-button-text"
-                                       style="font-size: 16px;">{% trans 'Заказать' %}</p>
-                                </button>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card-back bg-violet">
-                    <p class="back-title">{{ product.title }}</p>
-                    <p class="desc">{{ product.get_price_dollar }} $ - {{ product.dollar_exchanges|intcomma }} сум</p>
-                    <div class="container">
-                        <div class="spetifications"
-                             style="margin-top: 15%;padding: 1px;">
-
-                            <div class="row">
-
-                                {% for j in product.specifications.all|slice:':4' %}
-                                <div class="col-md-6">
-
-                                    <p style="font-size: 14px;margin-bottom: 8px;font-family: RobotoCondensed,Arial,sans-serif">
-                                        {{ j.product_customer|safe }}:</p>
-                                </div>
-                                <br>
-                                <div class="col-md-6">
-                                    <p style="font-size: 14px;margin-bottom: 8px;font-family: RobotoCondensed,Arial,sans-serif">
-                                        {{ j.product_number|safe }}</p>
-                                </div>
-                                <br>
-                                <br>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="buttons"
-                         style="text-align: center;padding: 10px;">
-
-                        <ul>
-
-                            <li><a href="{% url 'products:single' pk=product.pk %}">
-                                <button class="button-product button-bottom-product">
-                                    <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
-                                </button>
-                            </a></li>
-                        </ul>
-                        <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                            {% if product|in_wishlist:request %}
-                            <button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"
-                                                                         alt=""></button>
-                            {% else %}
-                            <button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}" alt="">
-                            </button>
-                            {% endif %}
-                        </a>
-                    </div>
-                </div>
-            </a>
-            <!-- /card -->
-        </div>
-    </div>
-</div>
+{#                    <div class="card-text">#}
+{#                        <h4 class="front-title">{{ product.title }}</h4>#}
+{#                        <p class="detail" style="margin-top:2px">#}
+{#                            {% trans 'Город' %}: {{ product.city }}</p>#}
+{#                        <p class="detail" style="margin-top:2px;font-family: RobotoCondensed,Arial,sans-serif">#}
+{#                            {% if product.inbox %}#}
+{#                                <img src="{% static './images/radius.svg' %}"  alt="">#}
+{#                                {{ product.inbox }}#}
+{#                            {% endif %}#}
+{#                            {% if product.delivery %}#}
+{#                                <img src="{% static './images/radius.svg' %}"  alt="">#}
+{#                                 {{ product.delivery }}</p>#}
+{#                            {% endif %}#}
+{#                        <p class="desc-price">{{ product.get_price_dollar }} $ - {{ product.dollar_exchanges|intcomma }} сум</p>#}
+{#                        <p class="mob-price">{{ product.get_price_dollar }} $</p>#}
+{#                        <p class="mob-price">{{ product.dollar_exchanges|intcomma }} сум</p>#}
+{#                    </div>#}
+{#                    <ul>#}
+{#                        <li>#}
+{#                            <a href="{% url 'products:single' pk=product.pk %}">#}
+{#                                <button class="button-left button-bottom-left ds-none"#}
+{#                                        type="button"#}
+{#                                        style="width: 127px;height: 52px;">#}
+{#                                    <p class="carousel-button-text"#}
+{#                                       style="font-size: 16px;">{% trans 'Заказать' %}</p>#}
+{#                                </button>#}
+{#                            </a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#                <div class="card-back bg-violet">#}
+{#                    <p class="back-title">{{ product.title }}</p>#}
+{#                    <p class="desc">{{ product.get_price_dollar }} $ - {{ product.dollar_exchanges|intcomma }} сум</p>#}
+{#                    <div class="container">#}
+{#                        <div class="spetifications"#}
+{#                             style="margin-top: 15%;padding: 1px;">#}
+{##}
+{#                            <div class="row">#}
+{##}
+{#                                {% for j in product.specifications.all|slice:':4' %}#}
+{#                                <div class="col-md-6">#}
+{##}
+{#                                    <p style="font-size: 14px;margin-bottom: 8px;font-family: RobotoCondensed,Arial,sans-serif">#}
+{#                                        {{ j.product_customer|safe }}:</p>#}
+{#                                </div>#}
+{#                                <br>#}
+{#                                <div class="col-md-6">#}
+{#                                    <p style="font-size: 14px;margin-bottom: 8px;font-family: RobotoCondensed,Arial,sans-serif">#}
+{#                                        {{ j.product_number|safe }}</p>#}
+{#                                </div>#}
+{#                                <br>#}
+{#                                <br>#}
+{#                                {% endfor %}#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="buttons"#}
+{#                         style="text-align: center;padding: 10px;">#}
+{##}
+{#                        <ul>#}
+{##}
+{#                            <li><a href="{% url 'products:single' pk=product.pk %}">#}
+{#                                <button class="button-product button-bottom-product">#}
+{#                                    <p style="font-size: 16px;">{% trans 'Заказать' %}</p>#}
+{#                                </button>#}
+{#                            </a></li>#}
+{#                        </ul>#}
+{#                        <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">#}
+{#                            {% if product|in_wishlist:request %}#}
+{#                            <button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"#}
+{#                                                                         alt=""></button>#}
+{#                            {% else %}#}
+{#                            <button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}" alt="">#}
+{#                            </button>#}
+{#                            {% endif %}#}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </a>#}
+{#            <!-- /card -->#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
 {% block extra_js %}
 <script>
     function add_to_wishlist(element, pk) {
@@ -176,5 +504,26 @@
       window.location.search = searchParams.toString()
   }
 </script>
+<script>
+const likeButton = document.querySelectorAll('.product-heart');
+const likeButtonElement = document.querySelectorAll('.product-heart i');
+
+likeButton.forEach(element => {
+    let likeButtonActive = false;
+    element.addEventListener('click', (e) => {
+        e.preventDefault;
+        console.log(likeButtonActive);
+        likeButtonActive = !likeButtonActive;
+        element.classList.toggle('active');
+        if (!likeButtonActive) {
+            element.firstChild.classList.replace( 'fa-solid','fa-light');
+            likeButtonActive = false;
+        }
+        else {
+            element.firstChild.classList.replace('fa-light', 'fa-solid');
+        }
+    })
+})
+ </script>
 {% endblock %}
 {% endblock %}
