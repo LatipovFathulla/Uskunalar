@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 from modeltranslation.admin import TranslationAdmin
 
 from home.models import BannerInfoModel, CategoryModel, \
-    SubCategoryModel, BannerImageModel, ProductSpecificationsModel, CarouselModel
+    SubCategoryModel, BannerImageModel, ProductSpecificationsModel, CarouselModel, BannerBackModel, BannerCountryModel
 
 
 class MyTranslationAdmin(TranslationAdmin):
@@ -56,6 +56,28 @@ class BannerForm(forms.ModelForm):
     class Meta:
         model = BannerInfoModel
         fields = '__all__'
+
+
+@admin.register(BannerCountryModel)
+class BannerCountryModelAdmin(admin.ModelAdmin):
+    list_display = ['country', 'get_html_photo']
+
+    def get_html_photo(self, object):
+        if object.image:
+            return mark_safe(f"<img src='{object.image.url}', width=200, height=100>")
+
+    get_html_photo.short_description = "город"
+
+
+@admin.register(BannerBackModel)
+class BannerBackModelAdmin(admin.ModelAdmin):
+    list_display = ['color', 'get_html_photo']
+
+    def get_html_photo(self, object):
+        if object.image:
+            return mark_safe(f"<img src='{object.image.url}', width=200, height=100>")
+
+    get_html_photo.short_description = "цвета"
 
 
 @admin.register(BannerInfoModel)

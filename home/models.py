@@ -26,9 +26,10 @@ class CategoryModel(models.Model):
 
 
 class SubCategoryModel(models.Model):
-    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'), related_name='subcategories')
+    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'),
+                                 related_name='subcategories')
     image = models.FileField(upload_to='sub_image', verbose_name=_('sub_image'), null=True, blank=True)
-    subcategory = models.CharField(max_length=300, verbose_name=_('subcategory'),)
+    subcategory = models.CharField(max_length=300, verbose_name=_('subcategory'), )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
 
     def __str__(self):
@@ -39,18 +40,46 @@ class SubCategoryModel(models.Model):
         verbose_name_plural = _('subcategories')
 
 
+class BannerCountryModel(models.Model):
+    country = models.CharField(max_length=99, verbose_name=_('country'), db_index=True, null=True)
+    image = models.FileField(upload_to='banner_country', verbose_name=_('image'))
+
+    def __str__(self):
+        return self.country
+
+    class Meta:
+        verbose_name = _('Banner_country')
+        verbose_name_plural = _('Banner_country')
+
+
+class BannerBackModel(models.Model):
+    color = models.CharField(max_length=99, verbose_name=_('color'), db_index=True, null=True, blank=True)
+    image = models.FileField(upload_to='banner_back', verbose_name=_('image'))
+
+    def __str__(self):
+        return self.color
+
+    class Meta:
+        verbose_name = _('Banner_back')
+        verbose_name_plural = _('Banner_backs')
+
+
 class BannerInfoModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
     sku = models.AutoField(primary_key=True, db_index=True)
     image = models.ImageField(upload_to='banner', verbose_name=_('image'), null=True)
+    background = models.ForeignKey(BannerBackModel, on_delete=models.SET_NULL, verbose_name=_('background'), null=True,
+                                   blank=True)
+    country = models.ForeignKey(BannerCountryModel, on_delete=models.SET_NULL, verbose_name=_('country'), null=True, blank=True)
     pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True, blank=True)
     category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, verbose_name=_('category'), null=True)
-    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'), null=True, blank=True)
+    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'),
+                                    null=True, blank=True)
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True)
     price = models.DecimalField(max_digits=12, decimal_places=0, verbose_name=_('price'))
     dollar = models.IntegerField(verbose_name=_('dollar'), null=True)
     discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'))
-    inbox = models.CharField(max_length=50,  blank=True, verbose_name=_('inbox'))
+    inbox = models.CharField(max_length=50, blank=True, verbose_name=_('inbox'))
     delivery = models.CharField(max_length=50, blank=True, verbose_name=_('delivery'))
     short_description = RichTextUploadingField(verbose_name=_('short_description'), null=True)
     long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True)
@@ -101,7 +130,8 @@ class BannerImageModel(models.Model):
 
 
 class ProductSpecificationsModel(models.Model):
-    product = models.ForeignKey(BannerInfoModel, on_delete=models.CASCADE, related_name='specifications', null=True,blank=True, verbose_name=_('products'))
+    product = models.ForeignKey(BannerInfoModel, on_delete=models.CASCADE, related_name='specifications', null=True,
+                                blank=True, verbose_name=_('products'))
     product_customer = models.CharField(max_length=99, verbose_name=_('product_customer'), null=True, blank=True)
     product_number = models.CharField(max_length=99, verbose_name=_('product_numbers'), null=True, blank=True)
     product_image = models.FileField(upload_to='pdf_image', verbose_name=_('product_image'), null=True, blank=True)
@@ -123,7 +153,6 @@ class CarouselModel(models.Model):
     class Meta:
         verbose_name = _('carousel')
         verbose_name_plural = _('carousels')
-
 
 # translate
 # Header and footer

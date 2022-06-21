@@ -9,7 +9,6 @@
 .us-products {
     max-width: 1290px;
     width: 100%;
-    height: 100%;
     margin: auto;
     /* background: chartreuse; */
     padding: 10px;
@@ -292,7 +291,7 @@
 
                 <!-- Img -->
                 <div class="us-products-card_img-holder">
-                    <div class="us-products-card_img_back my_product_red">
+                    <div class="us-products-card_img_back" style="background: url('{{ product.background.image.url }}') no-repeat center center / contain;">
                         <img src="{{ product.image.url }}" alt="" class="us-products-card_img">
                     </div>
                 </div>
@@ -316,8 +315,8 @@
 
                 <!-- Country -->
                 <div class="us-products-card-country_container">
-                    <p class="us-products-card-countryName">Country:</p>
-                    <img src="/static/images/icons8-turkey-48.png" alt="" class="us-products-car-countryImg">
+                    <p class="us-products-card-countryName">Mamlakat:</p>
+                    <img src="{{ product.country.image.url }}" alt="" class="us-products-car-countryImg">
                 </div>
 
                 <!-- Price & Inventory Info -->
@@ -377,27 +376,5 @@
       window.location.search = searchParams.toString()
   }
 </script>
-<script>
-const likeButton = document.querySelectorAll('.product-heart');
-const likeButtonElement = document.querySelectorAll('.product-heart i');
-
-likeButton.forEach(element => {
-    let likeButtonActive = false;
-    element.addEventListener('click', (e) => {
-        e.preventDefault;
-        console.log(likeButtonActive);
-        likeButtonActive = !likeButtonActive;
-        element.classList.toggle('active');
-        if (!likeButtonActive) {
-            element.firstChild.classList.replace( 'fa-solid','fa-light');
-            likeButtonActive = false;
-        }
-        else {
-            element.firstChild.classList.replace('fa-light', 'fa-solid');
-        }
-    })
-})
- </script>
-
 {% endblock %}
 {% endblock %}
