@@ -17,7 +17,7 @@ strong {
     font-size: 13px;
 }
 
-        @media (max-width: 950px) {
+        @media screen and (max-width: 950px) {
             #accordion2 {
                 display: none;
             }
@@ -29,6 +29,29 @@ strong {
             .categories_none {
                 display: none;
             }
+
+            .product-new-us {
+                max-width: 1370px;
+                width: 100%;
+                margin: auto;
+                /* background: chartreuse; */
+                padding: 10px;
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+                grid-gap: 10px;
+            }
+
+             .products-flex {
+                    display: initial;
+                    max-width: 1370px;
+                    width: 100%;
+                    margin: auto;
+             }
+
+             .category-none {
+                 display: none;
+             }
         }
 
         .modal-content {
@@ -73,6 +96,28 @@ strong {
                 border-radius: 4px;
             }
        }
+
+@media (min-width: 1200px)  {
+     .product-new-us {
+            max-width: 1370px;
+            width: 100%;
+            margin: auto;
+            /* background: chartreuse; */
+            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+            grid-gap: 10px;
+      }
+
+     .products-flex {
+        display:flex;
+        max-width:1370px;
+        width:100%;
+        margin:auto;
+    }
+
+}
 
 accordion {
   font-size: 1rem;
@@ -147,12 +192,7 @@ accordion {
   }
 }
 
-.products-flex {
-    display:flex;
-    max-width:1500px;
-    width:100%;
-    margin:auto;
-}
+
 </style>
 <section class="banner">
     <div class="container">
@@ -413,7 +453,7 @@ accordion {
 </div>
 <!-- end filter mobile -->
 <div class="products-flex">
-        <div class="col-xl-3 col-lg-4 col-md-5">
+    <div class="col-xl-3 col-lg-4 col-md-5 category-none">
             <ul class="accordion" >
                 <h3 class="categories_none"
                     style="margin-bottom: -20px;padding: 15px;color: #132E6B;text-align: left;">
@@ -468,7 +508,7 @@ accordion {
             <!-- Start Best Seller -->
             <section class="lattest-product-area  category-list">
                 <div id="London" class="tabcontent3">
-                    <div class="us-products" style="grid-template-columns:repeat(3,1fr)">
+                    <div class="product-new-us">
                                     {% for product in object_list %}
                                             {% include 'layouts/product_block.html' %}
                                     {% endfor %}
