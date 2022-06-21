@@ -67,7 +67,7 @@ class BannerBackModel(models.Model):
 class BannerInfoModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
     sku = models.AutoField(primary_key=True, db_index=True)
-    image = models.ImageField(upload_to='banner', verbose_name=_('image'), null=True)
+    image = models.FileField(upload_to='banner', verbose_name=_('image'), null=True)
     background = models.ForeignKey(BannerBackModel, on_delete=models.SET_NULL, verbose_name=_('background'), null=True,
                                    blank=True)
     country = models.ForeignKey(BannerCountryModel, on_delete=models.SET_NULL, verbose_name=_('country'), null=True, blank=True)
