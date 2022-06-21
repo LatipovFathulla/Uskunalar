@@ -92,9 +92,6 @@
     width: 100%;
     text-align: center;
 }
-.us-products-card_img_back.red {
-    background: url('/static/images/product card-red.png') no-repeat center center / contain;
-}
 .us-products-card_img_back.blue {
     background: url('/static/images/product card-blue.png') no-repeat center center / contain;
 }
@@ -103,6 +100,9 @@
 }
 .us-products-card_img_back.yellow {
     background: url('/static/images/product card.png') no-repeat center center / contain;
+}
+.us-products-card_img_back.my_product_red {
+    background: url('/static/images/product card-red.png') no-repeat center center / contain;
 }
 
 .us-products-card_img {
@@ -289,7 +289,7 @@
 
                 <!-- Img -->
                 <div class="us-products-card_img-holder">
-                    <div class="us-products-card_img_back yellow">
+                    <div class="us-products-card_img_back my_product_red">
                         <img src="{{ product.image.url }}" alt="" class="us-products-card_img">
                     </div>
                 </div>
