@@ -211,8 +211,7 @@
     color: #FF0000;
 }
 
-
-.us-products-card_buttonMore {
+.us_products_button_div {
     padding: 8px 5px;
     max-width: 180px;
     width: 100%;
@@ -228,7 +227,7 @@
     transition: hover .5s ease-in-out;
 }
 
-.us-products-card_buttonMore:hover {
+.us_products_button_div:hover {
     background: linear-gradient(270deg, #ff0000, #ffae00, #ffe600);
     background-size: 600% 600%;
     color: white;
@@ -237,6 +236,20 @@
     -moz-animation: us-button 11s ease infinite;
     -o-animation: us-button 11s ease infinite;
     animation: us-button 5s ease infinite;
+}
+
+.us-products-card_buttonMore {
+    border: none;
+    font-size: 18px;
+    color: #132E6B;
+    text-align: center;
+    cursor: pointer;
+    transition: hover .5s ease-in-out;
+}
+
+
+.us_products_button_div:hover a {
+    color: white;
 }
 
 /* Media */
@@ -253,6 +266,20 @@
     }
     .us-products-card-product_status {
         margin-top: 8px;
+    }
+}
+
+@media (max-width:800px) {
+    .us-products {
+        grid-gap:0px;
+    }
+
+    .splide__slide {
+        flex-shrink:inherit;
+    }
+
+    .products-none {
+        display:none
     }
 }
 
@@ -331,8 +358,12 @@
                 </div>
 
                 <!-- More Details Button -->
+
+            </div>
+            <div class="us_products_button_div">
                 <a href="{% url 'products:single' pk=product.pk %}" class="us-products-card_buttonMore">More Details</a>
             </div>
+
         </div>
         <!-- end product card -->
 

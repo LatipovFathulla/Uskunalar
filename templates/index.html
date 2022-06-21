@@ -1908,69 +1908,13 @@ body.deactive {
     <div class="row-1">
         <br>
         <div class="splide_3_2">
-            <div class="splide__track" style="height: 520px;">
-                    <ul class="splide__list">
+            <div class="splide__track">
+                    <ul class="splide__list" style="height:700px">
                      {% for product in products %}
                         <li class="splide__slide">
-                                <div class="col-md-12">
-                                <div class="produdcs-section2">
-                                    <div class="flex-itm">
-                                        <div class="flex-iem-inner">
-                                            <!-- card -->
-                                            <a href="{% url 'products:single' pk=product.pk %}">
-                                                <div class="card-front bg-violet">
-                                                    <a onclick="add_to_wishlist(this, {{ product.pk }})"  class="card-link">
-                                                        <button class="btn"
-                                                                style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                                                            <img
-                                                                    src="{% static './images/like.svg' %}"
-                                                                    style="margin-top: 7px;" alt=""></button>
-                                                    </a>
-                                                     {% if product.is_discount %}
-                                                        <a href="#" class="card-link">
-                                                        <button class="btn"
-                                                                style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                                        </button>
-                                                        </a>
-                                                        {% elif product.is_new %}
-                                                            <a href="#" class="card-link1">
-                                                            <button class="btn new-mobile-1">
-                                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                                            </button>
-                                                        </a>
-                                                     {% endif %}
-                                                    <a href="{% url 'products:single' pk=product.pk %}">
-                                                         <img src="{{ product.image.url }}"
-                                                         style="width: 100%;height: 300px;display: table;margin: auto;"
-                                                         alt="">
-                                                    </a>
-
-                                                    <div class="card-text"
-                                                         style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                        <h4 class="front-title">{{ product.title }}</h4>
-                                                        <p class="desc">${{ product.get_price_dollar }} - {{ product.get_price }} сум</p>
-                                                        <div class="text-center">
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="{% url 'products:single' pk=product.pk %}">
-                                                                        <button class="button-center button-bottom2 mobile-button"
-                                                                            style="width: 127px;height: 43px;">
-                                                                        <p style="font-size: 13px;">{% trans 'Заказать' %}</p>
-                                                                    </button>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <br>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <!-- /card -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                             <div class="us-products">
+                                  {% include 'layouts/product_block.html' %}
+                              </div>
                         </li>
                       {% endfor %}
                     </ul>
@@ -1980,13 +1924,16 @@ body.deactive {
 </div>
 
 <br>
- <div class="us-products">
-        {% for product in products %}
-            {% include 'layouts/product_block.html' %}
-        {% endfor %}
- </div>
+<div class="products-none">
+      <div class="us-products">
+            {% for product in products %}
+                {% include 'layouts/product_block.html' %}
+            {% endfor %}
+     </div>
+</div>
 
-<div class="text-center mt-5">
+
+<div class="text-center mt-1">
     <ul>
         <li>
             <a href="{% url 'products:product' %}">
