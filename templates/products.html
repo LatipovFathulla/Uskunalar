@@ -146,6 +146,13 @@ accordion {
     width: 100%;
   }
 }
+
+.products-flex {
+    display:flex;
+    max-width:1500px;
+    width:100%;
+    margin:auto;
+}
 </style>
 <section class="banner">
     <div class="container">
@@ -278,63 +285,8 @@ accordion {
         </div>
     </div>
 </div>
-
-<!-- end filter mobile -->
 <div class="container">
-    <div class="row">
-        <div class="col-xl-3 col-lg-4 col-md-5">
-            <ul class="accordion" style="width:114%">
-                <h3 class="categories_none"
-                    style="margin-bottom: -20px;padding: 15px;color: #132E6B;text-align: left;">
-                    {% trans 'Категории' %}</h3>
-                <!-- <hr class="hr-menu" style="position: absolute;"> -->
-            </ul>
-            <div class="sidebar-categories">
-                <ul id="accordion" class="accordion" style="overflow-y:auto;max-height:700px;width:114%">
-                    {% for category in categories %}
-                    <li>
-                        <div class="link">
-                            {% if category.image %}
-                            <img src="{{ category.image.url }}" style="width:20px;position: relative;left: -6px;" alt="">
-                             {% else %}
-                            <p></p>
-                            {% endif %}
-                            <a href="?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;width:220px">{{ category.category|safe }}</span></a> <i
-                                class="fa fa-chevron-down"></i>
-                            <hr class="hr-menu" style="position: absolute;bottom: -1px;">
-                        </div>
-                        <ul class="submenu">
-                                {% for subcategory in category.subcategories.all %}
-                                     <div class="accordion js-accordion" style="margin-top: 0px;">
-                                       <div class="accordion__item js-accordion-item">
-                                                <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}" style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory|safe }}</a>  <hr class="hr-menu" style="border: 1px solid #CCCCCA"> </div>
-                                       </div><!-- end of accordion item -->
-                                    </div><!-- end of accordion -->
-                                {% endfor %}
-                        </ul>
-                    </li>
-                    {% endfor %}
-
-
-                </ul>
-
-
-                <!-- <ul class="main-categories">
-                        <li class="main-nav-list">
-                            {% for categories in category %}
-                             <a {% if request.GET.category == categories.pk|stringformat:'i' %}class="a-active"
-                {% endif %} onclick="addUrlParameter('category', '{{ categories.pk }}')" style="cursor:pointer">
-                                <span class="lnr lnr-arrow-right"></span>{{ categories.title }}<span
-                                    class="number"></span></a>
-                            {% endfor %}
-                        </li>
-                    </ul> -->
-                <br>
-            </div>
-        </div>
-
-        <div class="col-xl-9 col-lg-8 col-md-12">
-            <div id="message">
+                <div id="message">
 
             </div>
             <!-- Start Filter Bar -->
@@ -458,20 +410,68 @@ accordion {
                 </div>
 
             </div>
+</div>
+<!-- end filter mobile -->
+<div class="products-flex">
+        <div class="col-xl-3 col-lg-4 col-md-5">
+            <ul class="accordion" >
+                <h3 class="categories_none"
+                    style="margin-bottom: -20px;padding: 15px;color: #132E6B;text-align: left;">
+                    {% trans 'Категории' %}</h3>
+                <!-- <hr class="hr-menu" style="position: absolute;"> -->
+            </ul>
+            <div class="sidebar-categories">
+                <ul id="accordion" class="accordion" style="overflow-y:auto;max-height:700px;">
+                    {% for category in categories %}
+                    <li>
+                        <div class="link">
+                            {% if category.image %}
+                            <img src="{{ category.image.url }}" style="width:20px;position: relative;left: -6px;" alt="">
+                             {% else %}
+                            <p></p>
+                            {% endif %}
+                            <a href="?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;width:220px">{{ category.category|safe }}</span></a> <i
+                                class="fa fa-chevron-down"></i>
+                            <hr class="hr-menu" style="position: absolute;bottom: -1px;">
+                        </div>
+                        <ul class="submenu">
+                                {% for subcategory in category.subcategories.all %}
+                                     <div class="accordion js-accordion" style="margin-top: 0px;">
+                                       <div class="accordion__item js-accordion-item">
+                                                <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}" style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory|safe }}</a>  <hr class="hr-menu" style="border: 1px solid #CCCCCA"> </div>
+                                       </div><!-- end of accordion item -->
+                                    </div><!-- end of accordion -->
+                                {% endfor %}
+                        </ul>
+                    </li>
+                    {% endfor %}
+
+
+                </ul>
+
+
+                <!-- <ul class="main-categories">
+                        <li class="main-nav-list">
+                            {% for categories in category %}
+                             <a {% if request.GET.category == categories.pk|stringformat:'i' %}class="a-active"
+                {% endif %} onclick="addUrlParameter('category', '{{ categories.pk }}')" style="cursor:pointer">
+                                <span class="lnr lnr-arrow-right"></span>{{ categories.title }}<span
+                                    class="number"></span></a>
+                            {% endfor %}
+                        </li>
+                    </ul> -->
+                <br>
+            </div>
+        </div>
+
             <!-- End Filter Bar -->
             <!-- Start Best Seller -->
             <section class="lattest-product-area  category-list">
                 <div id="London" class="tabcontent3">
-                    <div class="container-fluid">
-                        <div class="row">
-                               <img src="{% static './images/Group_418.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);right:-15%" alt="">
-                            {% for product in object_list %}
-                                <div class="col-md-4 col-12">
-                                    {% include 'layouts/product_block.html' %}
-                                </div>
-                            {% endfor %}
-                             <img src="{% static './images/Group_418.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);right:-15%" alt="">
-                        </div>
+                    <div class="us-products" style="grid-template-columns:repeat(3,1fr)">
+                                    {% for product in object_list %}
+                                            {% include 'layouts/product_block.html' %}
+                                    {% endfor %}
                     </div>
                 </div>
 
@@ -486,7 +486,15 @@ accordion {
             </section>
             <br>
             <!-- pagination menu -->
-     <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
+
+
+            <!-- end pagination menu -->
+            <!-- End Best Seller -->
+            <!-- Start Filter Bar -->
+            <div class="filter-bar d-flex flex-wrap align-items-center">
+    </div>
+</div>
+  <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
          {% if page_obj.has_previous %}
             <li><a href="?page={{ page_obj.previous_page_number }}"><img src="/static/images/left.svg" alt=""></a></li>
         {% else %}
@@ -518,14 +526,6 @@ accordion {
             <li class="disabled"><span><img src="/static/images/right.svg" style="display:none" alt=""></span></li>
         {% endif %}
         </nav>
-
-            <!-- end pagination menu -->
-            <!-- End Best Seller -->
-            <!-- Start Filter Bar -->
-            <div class="filter-bar d-flex flex-wrap align-items-center">
-        </div>
-
-    </div>
     <div class="container">
         <div class="back_elements" style="margin-top: 1%;">
 
@@ -541,7 +541,7 @@ accordion {
         <br>
         <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
         <br>
-    </div>
+
 
 
 

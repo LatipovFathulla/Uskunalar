@@ -99,16 +99,11 @@
         </div>
     </div>
 </div>
-
-<div class="container ">
-    <div class="row desk-product">
+    <div class="us-products">
         {% for product in object_list %}
-        <div class="col-md-3 ">
             {% include 'layouts/product_block.html' %}
-        </div>
         {% endfor %}
     </div>
-</div>
 <br>
 <script>
     console.clear();

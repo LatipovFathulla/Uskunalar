@@ -6221,7 +6221,7 @@ nav .nav-ul li a span.rotate {
         background-position: center;
         width: 100%;
         height: 250px;
-        margin-top:7%;
+        margin-top:6%;
     }
 
     .banner-text {
@@ -7317,7 +7317,7 @@ ul.social-footer2 li a {
 .accordion {
     margin: auto;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
     border-left: none;
     height: auto;
     border-radius: 1px;

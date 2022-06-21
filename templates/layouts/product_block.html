@@ -14,7 +14,7 @@
     padding: 10px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     grid-gap: 10px;
 }
 
@@ -305,6 +305,10 @@
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
+
+.red-heart {
+    color:red;
+}
 </style>
 {% endblock %}
 
@@ -313,7 +317,13 @@
             <div class="us-products-card_container">
                 <!-- Buttons -->
                 <div class="us-products-card_buttons" >
-                    <button href="" class="us-products-card_ibutton product-heart"><i class="fa-light fa-heart"></i></button>
+                    <a onclick="add_to_wishlist(this, {{ product.pk }})">
+                         {% if product|in_wishlist:request %}
+                                <button class="us-products-card_ibutton product-heart" type="submit">  <i class="fa-solid fa-heart red-heart"></i></button>
+                          {% else %}
+                                <button class="us-products-card_ibutton product-heart" type="submit"><i class="fa-light fa-heart"></i></button>
+                          {% endif %}
+                    </a>
                 </div>
 
                 <!-- Img -->
@@ -382,10 +392,10 @@
             } else {
                 if (data.added) {
                     $('#message');
-                    element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}"alt=""></button>'
+                    element.innerHTML = '<button class="us-products-card_ibutton" type="submit"><i class="fa-solid fa-heart red-heart"></i></button>'
                 } else {
                     $('#message');
-                     element.innerHTML = '<button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}"alt=""></button>'
+                     element.innerHTML = '<button class="us-products-card_ibutton product-heart" type="submit"><i class="fa-light fa-heart"></i></button>'
                 }
                   $('.like_count').html(data.wishlist_len);
             }
