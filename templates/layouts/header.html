@@ -13,7 +13,7 @@
                     <ul class="header-icons">
                         <li class="header_icon-block">
                             <a href="{% url 'products:wishlist' %}"><i class="fa-regular fa-heart header-icon like-icon"></i></a>
-                            <span class="header-like_counter">{% get_wishlist_count request %}</span>
+                            <span class="header-like_counter" id="like_count_2">{% get_wishlist_count request %}</span>
                         </li>
                         <li class="header_icon-block header-hidden-mobile_ion">
                             <a href="tel:+998712507777"><i class="fa-regular fa-phone header-icon header-call_icon header-icon"></i></a>
@@ -117,7 +117,7 @@
                     <ul class="header-icons">
                         <li class="header_icon-block">
                             <a href="{% url 'products:wishlist' %}"><i class="fa-regular fa-heart header-icon like-icon"></i></a>
-                            <span class="header-like_counter">{% get_wishlist_count request %}</span>
+                            <span class="header-like_counter" id="like_count">{% get_wishlist_count request %}</span>
                         </li>
                         <li class="header_nav-call header_icon-block">
                             <i class="fa-regular fa-phone header-call_icon header-icon"></i>
