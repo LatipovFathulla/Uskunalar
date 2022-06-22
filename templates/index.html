@@ -623,14 +623,16 @@ body.deactive {
 
 .swiper-slide_title {
     color: white;
-    font-size: 18px
+    font-size: 18px;
+    padding:6px;
 }
 
 .swiper-slide_desc {
     font-size: 16px;
     color: white;
     display: flex;
-    align-items: center
+    align-items: center;
+    padding:6px;
 }
 
 .swiper-slide_desc::before {
@@ -2123,63 +2125,36 @@ body.deactive {
     <br>
 
 </div>
-<div class="container">
-    <div class="splide_4">
-        <div class="splide__track" style="padding-left: 0px;
-    padding-right: 0px;
-    height: 281px;
-    margin: 19px;">
-            <ul class="splide__list">
-                {% for blog in blogs %}
-                <li class="splide__slide">
-                    <img src="{{ blog.image.url }}"
-                         style="width: 99%;border-radius: 6px;" alt="">
-                    <div class="article2">
-                        <p class="article-text">{{ blog.title|safe }}</p>
-                        <p class="article-date">{{ blog.created_at|date:'m.d.Y' }}</p>
-                        <a href="{% url 'blog:single-blog' pk=blog.pk %}"
-                           style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-            <br>
-        </div>
-    </div>
-</div>
-<br>
-<div class="container">
-    <div class="splide">
-        <div class="splide__track">
-            <ul class="splide__list">
-                {% for blog in blogs %}
-                <li class="splide__slide" style="height:500px">
-                    <img src="{{ blog.image.url }}"
-                         style="width: 350px;border-radius: 6px;height:400px" alt="">
-                    <div class="article">
-                        <p class="article-text">{{ blog.title|safe }}</p>
-                        <p class="article-date">{{ blog.created_at|date:'m.d.Y' }}</p>
-                        <a href="{% url 'blog:single-blog' pk=blog.pk %}"
-                           style="position: absolute;bottom: 11px;color: #132E6B;">{% trans 'Читать полностью' %}</a>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="text-center">
-            <ul>
-                <li>
-                    <a href="{% url 'blog:blogs' %}">
-                        <button class="button-center button-bottom">
-                            <p style="font-size: 16px;">{% trans 'Смотреть еще' %}</p>
-                        </button>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
 
+<div class="products-section" style="margin-top:10px">
+    <div class="products-section_container">
+        <!-- Here Goes Title and short description -->
+        <!-- Slider main container -->
+        <div class="swiper lines">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {% for blog in blogs %}
+                <div class="swiper-slide">
+                    <img src="{{ blog.image.url }}" alt="" class="swiper-slide_img">
+                    <div class="swiper-slide-content">
+                        <h4 class="swiper-slide_title">{{ blog.title }}</h4>
+                        <a href="{% url 'blog:single-blog' pk=blog.pk %}" class="swiper-slide_desc">{% trans 'Подробнее' %}</a>
+                    </div>
+                    <a href="{% url 'blog:single-blog' pk=blog.pk %}" class="swiper-slide_link"><span>{% trans 'Подробнее' %}</span></a>
+                </div>
+               {% endfor %}
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+                <img src="/static/images/left-arrow.svg" alt="" class="swiper-button_prev">
+                <img src="/static/images/right-arrow.svg" alt="" class="swiper-button_next">
+
+        </div>
+    </div>
+</div>
 <div class="container">
     <img src="{% static 'images/settings.svg' %}" class="icon-right-transform3" alt="">
     <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;">
@@ -2952,9 +2927,6 @@ var slider = new TuinSlider("#slider", {
     });
 
     splide.mount();
-
-
-
 </script>
 <script>
     $("#search2_input_box").hide();

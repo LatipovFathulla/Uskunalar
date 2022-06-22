@@ -194,18 +194,6 @@ splide.mount();
 
 
 //splide 3
-var splide = new Splide('.splide_4', {
-    perPage: 1,
-    rewind: true,
-});
-
-splide.mount();
-
-//splide 4
-
-
-//  end
-
 // menu
 
 //splide 2
