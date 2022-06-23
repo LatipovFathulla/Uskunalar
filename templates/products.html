@@ -658,15 +658,14 @@ accordion {
         </div>
     </div>
 
-    <div class="container ">
-        <div class="row desk-product">
+
+<div class="products-none">
+      <div class="us-products">
             {% for product in products|slice:'4'  %}
-            <div class="col-md-3">
                 {% include 'layouts/product_block.html' %}
-            </div>
             {% endfor %}
-        </div>
-    </div>
+     </div>
+</div>
 </div>
 
 
