@@ -67,6 +67,13 @@
             display: inline-flex;
             margin-top: 60%;
         }
+        
+    .biznes-small-image-block {
+        width:200px;
+        max-width:100%;
+        min-height: 260px;
+        object-fit: cover;
+    }    
   }
 
 .has-children {
@@ -1728,6 +1735,11 @@ body.deactive {
     font-size: 14px;
   }
 }
+
+
+.biznes-image-block {
+    flex: unset;
+}
 </style>
 
 <body>
@@ -1876,24 +1888,16 @@ body.deactive {
         </div>
     </div>
 </div>
-<div class="text-center">
-    <ul>
-        <li>
-            <a href="{% url 'line:lines' %}">
-                <button class="button-center button-bottom" style="margin-top:0px">
-                    <p style="font-size: 15px;">{% trans 'Смотреть все' %}</p>
-                </button>
-            </a>
-        </li>
-    </ul>
-    <br>
-</div>
+  <div class="button-container">
+    <a href="{% url 'line:lines' %}" class="us-btn btn-4"><span>Batafsil</span></a>
+    <!--End of Button 4 -->
+  </div>
 <br>
 
 <div class="container">
     <img src="{% static 'images/Group_419.svg' %}" class="icon-left-transform " alt="">
     <h1 class="text-center"
-        style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
+        style="font-weight: 600;font-size: 35px;padding: 20px;margin-left: 0%;">
         {% trans 'Популярные товары' %}</h1>
     <p class="text-center" style="color: silver;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
         aliquid autem<br> minima nemo ex consectetur maiores recusandae.Enim, assumenda, aperiam ea magnam odio
@@ -1934,19 +1938,10 @@ body.deactive {
      </div>
 </div>
 
-
-<div class="text-center mt-1">
-    <ul>
-        <li>
-            <a href="{% url 'products:product' %}">
-                <button class="button-center button-bottom" style="margin-top:0px">
-                    <p style="font-size: 15px;">{% trans 'Смотреть все' %}</p>
-                </button>
-            </a>
-        </li>
-    </ul>
-    <br>
-</div>
+  <div class="button-container mt-3">
+    <a href="{% url 'products:product' %}" class="us-btn btn-4"><span>Batafsil</span></a>
+    <!--End of Button 4 -->
+  </div>
 <!-- parallax -->
 <!--<div class="parallax">-->
 <!--    <br>-->
@@ -2057,8 +2052,8 @@ body.deactive {
             <div class="biznes-all-block">
                 <img class="biznes-big-image" src="{{ biznes.image.url }}" alt="">
                 <div class="biznes-text-block">
-                    <h3>{{ biznes.title|safe }}</h3>
-                    <p>{{ biznes.long_descriptions|slice:':100'|safe }} ...</p>
+                    <h3 style="word-break: break-all;">{{ biznes.title|safe }}</h3>
+                    <p style="word-break: break-all;">{{ biznes.long_descriptions|slice:':100'|safe }} ...</p>
                     <a href="{% url 'biznes:detail' pk=biznes.pk %}">Learn more</a>
                 </div>
             </div>
@@ -2067,10 +2062,10 @@ body.deactive {
     <div class="biznes-extra-block">
           {% for biznes in biznes %}
             <div class="biznes-inner-block">
-                <img class="biznes-small-image-block" src="{{ biznes.image.url }}" alt="">
+                    <img class="biznes-small-image-block" src="{{ biznes.image.url }}" alt="">
                 <div class="biznes-inner-text-block">
-                    <h3>{{ biznes.title|safe }}</h3>
-                    <p style="word-break: break-word;">{{ biznes.long_descriptions|slice:':100'|safe }}...</p>
+                    <h3 style="word-break: break-all;">{{ biznes.title|safe }}</h3>
+                    <span class="biznes-p-block">{{ biznes.long_descriptions|safe }}...</span>
                     <a href="{% url 'biznes:detail' pk=biznes.pk %}">Learn more</a>
                 </div>
             </div>
@@ -2079,23 +2074,16 @@ body.deactive {
 </div>
 </div>
 
-<div class="text-center">
-    <ul>
-        <li>
-            <a href="{% url 'work:works' %}">
-                <button class="button-center button-bottom">
-                    <p style="font-size: 16px;">{% trans 'Читать еще' %}</p>
-                </button>
-            </a>
-        </li>
-    </ul>
-</div>
+  <div class="button-container mt-5">
+    <a href="{% url 'work:works' %}" class="us-btn btn-4"><span>Batafsil</span></a>
+    <!--End of Button 4 -->
+  </div>
 <br>
 <br>
 <div class="container">
     <img src="{% static 'images/Group_418.svg' %}" class="icon-left-transform2" alt="">
     <h1 class="text-center"
-        style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
+        style="font-weight: 600;font-size: 35px;padding: 20px;margin-left: 0%;">
         {% trans 'Статьи и советы' %}</h1>
     <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
         информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
@@ -2165,17 +2153,10 @@ body.deactive {
 
     </div>
     <img src="{% static 'images/Group_417.svg' %}" class="icon-left-absolute" alt="">
-    <div class="text-center">
-        <ul>
-            <li>
-                <a href="{% url 'work:works' %}">
-                    <button class="button-center button-bottom">
-                        <p style="font-size: 16px;">{% trans 'Смотреть еще' %}</p>
-                    </button>
-                </a>
-            </li>
-        </ul>
-    </div>
+      <div class="button-container mt-5">
+    <a href="{% url 'work:works' %}" class="us-btn btn-4"><span>Batafsil</span></a>
+    <!--End of Button 4 -->
+  </div>
 </div>
 </div>
 
@@ -2221,118 +2202,7 @@ body.deactive {
 {% include 'requests.html' %}
         <br>
 
-<footer id="footer" class="footer-1">
-    <div class="main-footer widgets-dark typo-light">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="widget subscribe no-box">
-                          <h5 class="widget-title"><img src="{% static './images/Uskunalar_logo_white.svg' %}" alt=""><span></span></h5>
-                        <p class="widget-desc">{% trans 'Команда USKUNALAR.UZ экономит ваше время и деньги, поставляя производственииые оборудования.' %}</p>
-                        <h5 class="widget-title">{% trans 'Будь в курсе' %}<span></span></h5>
-                        <div class="row">
-                            <div class="col-md-9">
-                                <input class="form-control" type="text"
-                                       style="border: none;width: 236px;height: 45px;"
-                                       placeholder="Введите свой email">
-                            </div>
-                            <div class="col-md-3">
-                                <button class="btn send-email"><img src="{% static 'images/send.svg' %}" style="position: absolute;
-    left: 12px;
-    top: 13px;" alt=""></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="widget no-box">
-                        <h5 class="widget-title ml-2">{% trans 'Меню' %}<span></span></h5>
-                        <ul class="thumbnail-widget">
-                            <li>
-                                <div class="thumb-content"><a href="./catelog.html"
-                                                              class="thumb-content">{% trans 'Каталог' %}</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumb-content"><a href="./our_works.html" class="thumb-content">{% trans 'Наши работа' %}</a></div>
-                            </li>
-                            <li>
-                                <div class="thumb-content"><a href="./videos.html" class="thumb-content">{% trans 'Наши видео' %}</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumb-content"><a href="./blog.html" class="thumb-content">{% trans 'Статьи' %}</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumb-content"><a href="./about.html" class="thumb-content">{% trans 'О нас' %}</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumb-content"><a href="./contacts.html"
-                                                              class="thumb-content">{% trans 'Контакты' %}</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="widget no-box">
-                        <h5 class="widget-title">{% trans 'Контакты' %}<span></span></h5>
-                        <p class="widget-number"><img src="{% static 'images/map_footer.svg' %}"
-                                                      alt=""> Тошкент
-                            шаҳри, Сирғали тумани, Катта олмос 1-тор кўчаси 9а-уй.</p>
-                        <a href="tel:+998 71 250 77 77"><p class="widget-number"><img
-                                src="{% static 'images/phone.svg' %}" alt=""> +998 71 250 77 77</p></a>
-                        <p class="widget-number"><img src="{% static 'images/clock.svg' %}" alt=""> c 9:00 до 18:00
-                            ежедневно</p>
-                    </div>
-                </div>
-
-                <div class="col-xs-12 col-sm-6 col-md-3">
-
-                    <div class="widget no-box">
-                      <h5 class="widget-title">Соц.сети<span></span></h5>
-                      <a href="https://www.facebook.com/uskunalaruz/">
-                        <p class="widget-number"> <img src="{% static './images/facebook.svg' %}" style="width: 25px;" alt=""> <span
-                            style="margin-left: 2%;position: absolute;">Facebook</span> </p>
-                      </a>
-                      <a href="https://instagram.com/uskunalaruz?utm_medium=copy_link">
-                        <p class="widget-number"> <img src="{% static './images/instagram.svg' %}" style="width: 25px;" alt=""> <span
-                            style="margin-left: 2%;position: absolute;">Instagram</span> </p>
-                      </a>
-                      <a href="https://t.me/uskunalaruz">
-                        <p class="widget-number"> <img src="https://img.icons8.com/color/29/000000/telegram-app--v1.png" />
-                          <span style="margin-left: 2%;position: absolute;">Telegram</span> </p>
-                      </a>
-                      <a href="https://www.youtube.com/c/uskunalaruz">
-                        <p class="widget-number"> <img src="https://img.icons8.com/color/29/000000/youtube-play.png"/>
-                          <span style="margin-left: 2%;position: absolute;margin-top:1%">YouTube</span> </p>
-                      </a>
-                        <a href="https://www.youtube.com/c/uskunalaruz">
-                        <p class="widget-number"> <img src="{% static './images/olx.png' %}" style="width:30px"/>
-                          <span style="margin-left: 2%;position: absolute;margin-top:1%">Olx</span> </p>
-                      </a>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer-copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <p>{% trans 'Copyright Uskunalar.uz' %} © <span id="year"></span> . {% trans 'All rights reserved.' %} LF</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+{% include 'layouts/footer.html' %}
 <script>
         document.getElementById("year").innerHTML = new Date().getFullYear();
 
@@ -2360,7 +2230,6 @@ body.deactive {
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.6/swiper-bundle.min.js"></script>
 <script src='https://s3.amazonaws.com/dimsemenov-static/dist/jquery.magnific-popup.min.js'></script>
-<script src="//code-eu1.jivosite.com/widget/rmQE0QqY5D" async></script>
 <script src="{% static 'js/main.js' %}"></script>
 {% include 'layouts/tabbar.html' %}
 <script>
@@ -3667,6 +3536,9 @@ window.FontAwesomeKitConfig = {
     console.error("".concat("Font Awesome Kit:", " ").concat(t));
   }
 });
+</script>
+<script>
+
 </script>
 </body>
 </html>

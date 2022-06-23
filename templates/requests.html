@@ -12,6 +12,15 @@
         width: 93%;
         border-color: #FFE700;
     }
+
+
+    textarea {
+         height: 150px;
+          padding: 12px 20px;
+          box-sizing: border-box;
+          width:100%;
+          border-radius:0.25rem;
+    }
 }
 @media (min-width: 1000px) {
      .alert-warning {
@@ -24,9 +33,92 @@
         height: 200px;
         border-color: #FFE700;
     }
+
+       textarea {
+         height: 150px;
+          padding: 12px 20px;
+          box-sizing: border-box;
+          width:100%;
+          border-radius:0.25rem;
+    }
  }
 
 
+
+
+.biznes-image-block {
+    flex: 1 0 57%;
+}
+
+.biznes-p-block {
+    word-break: break-all;
+}
+
+
+.button-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
+  padding-top:0px;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .button-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.us-btn {
+  color: #132e6b;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 45px;
+  max-width: 190px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .us-btn {
+    margin: 0 1em 2em;
+  }
+}
+.us-btn:hover {
+  text-decoration: none;
+}
+
+
+.btn-4 {
+  border: 1px solid;
+  overflow: hidden;
+  position: relative;
+}
+.btn-4 span {
+  z-index: 20;
+}
+.btn-4:after {
+  background: #132e6b;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: 0.2;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  width: 50px;
+  z-index: -10;
+}
+
+.btn-4:hover:after {
+  left: 120%;
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+}
 </style>
 
 <div class="container mt-5">
@@ -41,30 +133,26 @@
             обеспечение нашей деятельности представляет собой интересный.</p>
         <br>
        <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
-        <div class="row mt-3">
+        <div class="row mt-3" style="align-items: center;justify-content: center;">
             <div class="col-md-6 col-12 p-3">
-                <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;font-weight: 500;font-size: 19px" name="name"
+                <input class="form-control" style="height: 50px !important;background-color: #F4F5F7;border: none;font-weight: 500;font-size: 19px" name="name"
                        type="text"
                        placeholder="{% trans 'ФИО' %}" required>
             </div>
 
             <div class="col-md-6 col-12 p-3">
-                <input class="form-control" style="height: 50px;background-color: #F4F5F7;border: none;font-weight: 500;font-size: 19px" type="tel"
+                <input class="form-control" style="height: 50px !important;background-color: #F4F5F7;border: none;font-weight: 500;font-size: 19px" type="tel"
                        name="phone" placeholder="{% trans 'Ваш номер' %}" required>
             </div>
             <div class="col-md-12 mt-4">
-          <textarea class="form-control" style="background-color: #F4F5F7;border: none;font-weight: 500;font-size: 19px" name="message" id="" cols="30" rows="7" placeholder="{% trans 'Введите сообщения' %}"></textarea>
+          <textarea  style="background-color: #F4F5F7;border: none;font-weight: 500;font-size: 19px" name="message" id="" cols="30" rows="7" placeholder="{% trans 'Введите сообщения' %}"></textarea>
             </div>
-            <div class="text-center" style="margin: auto;">
-                <ul>
-                    <li>
-                        <button class="button-center button-bottom" type="submit">
-                            <p style="font-size: 16px;">{% trans 'Отправить' %}</p>
-                        </button>
-                    </li>
-                </ul>
-                <br>
-            </div>
+
+          <div class="button-container mt-3">
+            <button type="submit" class="us-btn btn-4" style="background:transparent;width:190px"><span>{% trans 'Отправить' %}</span></button>
+            <!--End of Button 4 -->
+          </div>
+
         </div>
 
     </form>
