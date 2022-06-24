@@ -1809,50 +1809,6 @@ body.deactive {
     <button class="categories-swiper-button categories-prev" id="categories-prev-1"><i class="fa-solid fa-angle-left"></i></button>
     <button class="categories-swiper-button categories-next" id="categories-next-1"><i class="fa-solid fa-angle-right"></i></button>
   </div>
-<!--    <section id="gallery-carousel">-->
-<!--        <div class="gallery-carousel-content">-->
-<!--            <div class="container">-->
-<!--                <div class="slider responsive">-->
-<!--                  {% for category in categories2 %}-->
-<!--                    {% if not forloop.counter|divisibleby:2 %}-->
-<!--                    <div>-->
-<!--                        <a href="{% url 'products:product' %}?category={{ category.pk }}">-->
-<!--                             <div class="box">-->
-<!--                            <p style="font-weight: 500">{{ category.category|safe }}</p>-->
-<!--                            <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px;width: 100%" alt="">-->
-<!--                          </div>-->
-<!--                        </a>-->
-<!--                    {% else %}-->
-<!--                      <h3></h3>-->
-<!--                        <a href="{% url 'products:product' %}?category={{ category.pk }}">-->
-<!--                               <div class="box">-->
-<!--                                <p style="font-weight: 500">{{ category.category|safe }}</p>-->
-<!--                                <img class="img-fluid float-right mt-3"  src="{{ category.image.url|default:'' }}" style="height:155px;width:100%"  alt="">-->
-<!--                              </div>-->
-<!--                        </a>-->
-<!--                    </div>-->
-<!--                    {% endif %}-->
-<!--                  {% endfor %}-->
-
-<!--                </div>-->
-<!--                </div>-->
-<!--                <div class="text-center">-->
-<!--                    <ul>-->
-<!--                        <li>-->
-<!--                            <a href="{% url 'home:catalog' %}">-->
-<!--                                <button class="button-center button-bottom mobile-button">-->
-<!--                                    <p style="font-size: 15px;">{% trans 'Смотреть все' %}</p>-->
-<!--                                </button>-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                    <br>-->
-<!--                </div>-->
-<!--        </div>-->
-<!--    </section>-->
-
-
-
 <!-- end carousel -->
 <div class="products-section">
     <div class="products-section_container">
@@ -1939,48 +1895,9 @@ body.deactive {
 </div>
 
   <div class="button-container mt-3">
-    <a href="{% url 'products:product' %}" class="us-btn btn-4"><span>Batafsil</span></a>
+    <a href="{% url 'products:product' %}" class="us-btn btn-4"><span>{% trans 'Batafsil' %}</span></a>
     <!--End of Button 4 -->
   </div>
-<!-- parallax -->
-<!--<div class="parallax">-->
-<!--    <br>-->
-<!--    <div class="dark-overlay">-->
-<!--        <div class="container p-5">-->
-<!--            <h3 class="dark-text">{% trans 'О компании Uskunalar' %}</h3>-->
-<!--            <p class="dark-desc">Идейные соображения высшего порядка, а также постоянное-->
-<!--                информационно-пропагандистское-->
-<!--                обеспечение нашей деятельности представляет собой интересный.</p>-->
-<!--            <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">-->
-<!--            <div class="row" style="margin-top: 6%;text-align: center;">-->
-<!--                <div class="col-md-3 col-6 number_icons">-->
-<!--                    <img src="{% static 'images/box_1.svg' %}" style="margin-top: -50%;" alt="">-->
-<!--                    <h3 class="dark-number">980+</h3>-->
-<!--                    <p class="number-desc">{% trans 'Продано' %}</p>-->
-<!--                </div>-->
-<!--                <div class="col-md-3 col-6 number_icons">-->
-<!--                    <img src="{% static 'images/man-user_1.svg' %}" style="margin-top: -50%;" alt="">-->
-<!--                    <h3 class="dark-number">650+</h3>-->
-<!--                    <p class="number-desc">{% trans 'Постоянных клиентов' %}</p>-->
-<!--                </div>-->
-<!--                <div class="col-md-3 col-6 number_icons">-->
-<!--                    <img src="{% static 'images/project_1.svg' %}" style="margin-top: -50%;" alt="">-->
-<!--                    <h3 class="dark-number">999+</h3>-->
-<!--                    <p class="number-desc">{% trans 'Реализация проектов' %}</p>-->
-<!--                </div>-->
-<!--                <div class="col-md-3 col-6 number_icons">-->
-<!--                    <img src="{% static 'images/group_1.svg' %}" style="margin-top: -50%;" alt="">-->
-<!--                    <h3 class="dark-number">599+</h3>-->
-<!--                    <p class="number-desc">{% trans 'Сотрудников' %}</p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--</div>-->
-<!-- end parallax -->
-
-<!--new about-->
 <!-- About Company -->
 <div class="about mt-4" style="min-height:600px">
   <div class="about-video_block">
@@ -2054,7 +1971,7 @@ body.deactive {
                 <div class="biznes-text-block">
                     <h3 style="word-break: break-all;">{{ biznes.title|safe }}</h3>
                     <p style="word-break: break-all;">{{ biznes.long_descriptions|slice:':100'|safe }} ...</p>
-                    <a href="{% url 'biznes:detail' pk=biznes.pk %}">Learn more</a>
+                    <a href="{% url 'biznes:detail' pk=biznes.pk %}">{% trans 'Learn more' %}</a>
                 </div>
             </div>
          {% endfor %}
@@ -2066,7 +1983,7 @@ body.deactive {
                 <div class="biznes-inner-text-block">
                     <h3 style="word-break: break-all;">{{ biznes.title|safe }}</h3>
                     <span class="biznes-p-block">{{ biznes.long_descriptions|safe }}...</span>
-                    <a href="{% url 'biznes:detail' pk=biznes.pk %}">Learn more</a>
+                    <a href="{% url 'biznes:detail' pk=biznes.pk %}">{% trans 'Learn more' %}</a>
                 </div>
             </div>
          {% endfor %}
@@ -2075,7 +1992,7 @@ body.deactive {
 </div>
 
   <div class="button-container mt-5">
-    <a href="{% url 'work:works' %}" class="us-btn btn-4"><span>Batafsil</span></a>
+    <a href="{% url 'work:works' %}" class="us-btn btn-4"><span>{% trans 'Batafsil' %}</span></a>
     <!--End of Button 4 -->
   </div>
 <br>
@@ -2146,7 +2063,7 @@ body.deactive {
                 <h3 style="padding:3px">{{ work.title }}</h3>
                 <p style="padding:3px">{{ work.short_descriptions|slice:':200'|safe }}...</p>
                 <br>
-                <a href="{% url 'work:single-work' pk=work.pk %}" style="padding:3px;color:#132E6B">Читать дальше</a>
+                <a href="{% url 'work:single-work' pk=work.pk %}" style="padding:3px;color:#132E6B">{% trans 'Читать дальше' %}</a>
             </div>
         </div>
         {% endfor %}
@@ -2154,7 +2071,7 @@ body.deactive {
     </div>
     <img src="{% static 'images/Group_417.svg' %}" class="icon-left-absolute" alt="">
       <div class="button-container mt-5">
-    <a href="{% url 'work:works' %}" class="us-btn btn-4"><span>Batafsil</span></a>
+    <a href="{% url 'work:works' %}" class="us-btn btn-4"><span>{% trans 'Batafsil' %}</span></a>
     <!--End of Button 4 -->
   </div>
 </div>

@@ -634,9 +634,10 @@ body.deactive {
     align-items: center
 }
 
+
 .header-logo {
     max-width: 100%;
-    width: 250px;
+    width: 300px;
     transition: .5s ease
 }
 
@@ -7014,7 +7015,7 @@ nav .nav-ul li a span.rotate {
 
 footer .main-footer {
     padding: 20px 0;
-    height:520px;
+    height:100%;
 }
 
 footer ul {
