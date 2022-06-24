@@ -3160,18 +3160,6 @@ a {
 /* end */
 
 
-.back_elements {
-    background: url(/static/images/backgorund-shadow.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-    position: absolute;
-    width: 70%;
-    height: 479px;
-    margin-top: -1%;
-}
-
 
 .shadow {
     position: absolute;
@@ -4855,17 +4843,6 @@ nav .nav-ul li a span.rotate {
         display: none;
     }
 
-    .back_elements {
-        background: url(/static/images/backgorund-shadow.svg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        overflow: hidden;
-        position: absolute;
-        width: 92%;
-        height: 479px;
-        margin-top: -24%;
-    }
 
     .carousel-button-text {
         font-size: 13.5px;
@@ -5829,7 +5806,7 @@ nav .nav-ul li a span.rotate {
         background-position: center;
         width: 100%;
         height: 250px;
-        margin-top:9%;
+        margin-top:7%;
     }
 
        .has-children .dropdown.arrow-top {

@@ -50,6 +50,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index:10;
 }
 
 .us-products-card_ibutton {
@@ -328,17 +329,21 @@
                 </div>
 
                 <!-- Img -->
-                <a href="{% url 'products:single' pk=product.pk %}">
+
                           <div class="us-products-card_img-holder">
                             <div class="us-products-card_img_back" style="background: url('{{ product.background.image.url }}') no-repeat center center / contain;">
-                                <img src="{{ product.image.url }}" alt="" class="us-products-card_img">
+                                <a href="{% url 'products:single' pk=product.pk %}">
+                                     <img src="{{ product.image.url }}" alt="" class="us-products-card_img">
+                                </a>
                             </div>
                         </div>
 
-                </a>
+
                 <!-- Details Section -->
                 <div class="us-products-card-details">
-                    <h2 class="us-products-card-title">{{ product.title }}</h2>
+                     <a href="{% url 'products:single' pk=product.pk %}">
+                        <h2 class="us-products-card-title">{{ product.title }}</h2>
+                     </a>
                     <!-- omborda mavjud -->
                     <!-- <p class="us-products-card-product_status"><i class="fa-solid fa-circle"></i> omborda mavjud</p> -->
                     <!-- buyurtmaga -->

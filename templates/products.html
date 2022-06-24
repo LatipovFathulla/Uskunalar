@@ -201,8 +201,6 @@ accordion {
         </div>
         <h1 class="banner-text">{% trans 'Каталог' %}</h1>
         <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc" >{% trans 'Главная' %}</a>  <span> > <a href="" class="banner-desc-title" style="color:#132E6B;">{% trans 'Каталог' %}</a></span></p>
-
-        <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
     </div>
 
 </section>
@@ -219,7 +217,7 @@ accordion {
             <h4>{% trans 'Фильтр' %}</h4>
             <br>
             <a href="{% url 'products:product' %}"><p style="float: right;margin-top: -3%;">{% trans 'Сбросить' %}</p></a>
-            <div class="row">
+            <div class="row" style="margin:1px">
                 <div class="col-md-4">
                       <!-- Custom select structure -->
                     <div class="select_mate" data-mate-select="active" style="font-family:RobotoCondensed,Arial,sans-serif;">
