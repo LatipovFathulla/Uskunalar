@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-24 16:12+0500\n"
+"POT-Creation-Date: 2022-06-24 16:40+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -471,19 +471,19 @@ msgstr "Наши работы"
 msgid "Наши партнеры"
 msgstr "Наши партнеры"
 
-#: templates/layouts/header.html:49 templates/layouts/header.html:200
+#: templates/layouts/header.html:49 templates/layouts/header.html:204
 msgid "Mahsulotlar"
 msgstr "Продукты"
 
-#: templates/layouts/header.html:52 templates/layouts/header.html:204
+#: templates/layouts/header.html:52 templates/layouts/header.html:208
 msgid "Liniyalar"
 msgstr "Линии"
 
-#: templates/layouts/header.html:55 templates/layouts/header.html:208
+#: templates/layouts/header.html:55 templates/layouts/header.html:212
 msgid "Tayyor Biznes"
 msgstr "Готовый бизнес"
 
-#: templates/layouts/header.html:58 templates/layouts/header.html:212
+#: templates/layouts/header.html:58 templates/layouts/header.html:216
 msgid "Biz Haqimizda"
 msgstr "О нас"
 
@@ -499,19 +499,27 @@ msgstr "Наши работы"
 msgid "Bizning maqolalar"
 msgstr "Наши статьи"
 
-#: templates/layouts/header.html:66 templates/layouts/header.html:224
+#: templates/layouts/header.html:66 templates/layouts/header.html:228
 msgid "Kontaktlar"
 msgstr "Контакты"
+
+#: templates/layouts/header.html:91
+msgid "Katalog"
+msgstr "Каталог"
 
 #: templates/layouts/header.html:102
 msgid "выберите категорию"
 msgstr "Выберите категорию"
 
-#: templates/layouts/header.html:216
+#: templates/layouts/header.html:108
+msgid "Uskunalar qidirish"
+msgstr "Искать оборудования"
+
+#: templates/layouts/header.html:220
 msgid "Bizning Videolar"
 msgstr "Наши видео"
 
-#: templates/layouts/header.html:220
+#: templates/layouts/header.html:224
 msgid "Bizning Maqolalar"
 msgstr "Наши статьи"
 

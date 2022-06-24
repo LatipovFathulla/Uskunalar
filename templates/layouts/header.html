@@ -88,7 +88,7 @@
 
             <!-- Search & Likes -->
             <div class="header-second_menu">
-                <button class="header-catalog_button"><span class="header-catalog_icon"></span> Katalog</button>
+                <button class="header-catalog_button"><span class="header-catalog_icon"></span>{% trans 'Katalog' %}</button>
                 <div class="mobile_container">
                     <button class="header-burgerMenu"><i id="burgerMenu"
                             class="fa-solid fa-bars header-burgerMenu_btn"></i></button>
@@ -105,7 +105,7 @@
                                              {% endfor %}
                                           </select>
                                     <input type="text" class="form-control lnt-search-input header-input"
-                                        aria-label="Search" name="q" value="{{ request.GET.q }}" placeholder="Mahsulot qidirish...">
+                                        aria-label="Search" name="q" value="{{ request.GET.q }}" placeholder="{% trans 'Uskunalar qidirish' %}...">
                                 </div><!-- /input-group -->
                             </div>
                             <button type="submit" class="btn btn-search header-search_btn"><span
@@ -169,6 +169,7 @@
                     {% for category in categories2 %}
                             <div id="us-{{ category.pk }}" class="catalog-submenu-backend active">
                                 <ul class="catalog-submenu-subcategories_list">
+                                  {% if category.subcategories.all %}
                                     {% for subcategory in category.subcategories.all %}
                                     <li class="catalog-submenu-subcategories_list-item">
                                         <a href="/products/?subcategory={{ subcategory.pk }}">
@@ -179,6 +180,9 @@
                                         </a>
                                     </li>
                                  {% endfor %}
+                                {% else %}
+                                    <h3>Подкатегории не существует!</h3>
+                            {% endif %}
                                 </ul>
                             </div>
                     {% endfor %}
