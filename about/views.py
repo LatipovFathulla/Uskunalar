@@ -53,12 +53,13 @@ class RequestCreateView(CreateView):
 class HomeView(TemplateView):
     template_name = 'index.html'
 
+
 class NavbarView(TemplateView):
     template_name = 'header.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = CategoryModel.objects.order_by('-pk')[:13]
+        context['categories'] = CategoryModel.objects.order_by('-pk')
 
         return context
 

@@ -153,11 +153,11 @@
                 </div> -->
                     <!-- Catalog List -->
                     <ul class="catalog-menu_list">
-                        {% for category in categories %}
+                        {% for category in categories2 %}
                             <li id="us-{{ category.pk }}" class="catalog-menu_list-item">
                                 <a href="" class="catalog-menu_list-item-content">
                                     <img class="catalog-menu_list-item-content-icon" src="{{ category.image.url }}" style="width:20px" alt="">
-                                    <span class="catalog-menu_list-item-content_title">{{ category.category|safe }}</span>
+                                    <span class="catalog-menu_list-item-content_title">{{ category.category|safe}}</span>
                                 </a>
                                 <i class="catalog-menu_list-rightIcon fa-solid fa-chevron-right"></i>
                             </li>
@@ -167,9 +167,9 @@
                 <!-- Catalog Sub Menu -->
                 <div class="catalog-submenu-container">
                     {% for category in categories2 %}
-                         {% for subcategory in category.subcategories.all %}
-                            <div id="us-{{ subcategory.pk }}" class="catalog-submenu-backend active">
+                            <div id="us-{{ category.pk }}" class="catalog-submenu-backend active">
                                 <ul class="catalog-submenu-subcategories_list">
+                                    {% for subcategory in category.subcategories.all %}
                                     <li class="catalog-submenu-subcategories_list-item">
                                         <a href="/products/?subcategory={{ subcategory.pk }}">
                                             {% if subcategory.image %}
@@ -178,9 +178,9 @@
                                             <span class="subcategroy-title">{{ subcategory|safe }}</span>
                                         </a>
                                     </li>
+                                 {% endfor %}
                                 </ul>
                             </div>
-                        {% endfor %}
                     {% endfor %}
                 </div>
             </div>
@@ -273,7 +273,7 @@ const showMenu = () => {
     if (userScreenSize < 1300) {
       first_navbar_menu.classList.add('showOrhide');
     } else {
-      second_navbar_menu.classList.add('showOrhide');
+
     } // Search
 
 
@@ -406,21 +406,6 @@ menu_item_2.forEach(item => {
 //     catalog_submenu_block.classList.remove("active");
 //   })
 // Title replace with ...
-
-menu_title_2.forEach(element => {
-  let title = element.innerHTML;
-  let splitedTitle = title.split(" ");
-  let newArray = [];
-
-  if (splitedTitle.length >= 5) {
-    for (let i = 0; i < splitedTitle.length / 2; i++) {
-      newArray.push(splitedTitle[i]);
-    }
-
-    newArray.push("...");
-    element.innerHTML = newArray.join(" ");
-  }
-}); // Make Adaptive Input
 
 const headerSearchInput = document.querySelector(".header-input");
 const headerSearchInputSize = window.innerWidth / 2;

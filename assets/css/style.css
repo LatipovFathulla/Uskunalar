@@ -1976,12 +1976,11 @@ a {
 }
 
 .catalog-submenu-container {
-    max-width: 100%;
-    width: 900px;
-    min-height: 557px;
-    height: 100%;
+    width: 45%;
+    height: 557px;
     margin-left: 10px;
     border-radius: 10px;
+    overflow:scroll;
     visibility: hidden;
     opacity: 0;
     transform: translateX(-1%);
