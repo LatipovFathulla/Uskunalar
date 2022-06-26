@@ -193,6 +193,142 @@ accordion {
 }
 
 
+.us-container-1 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 1700px;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.us-categories-accordion-body {
+    max-width: 350px;
+    width: 100%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.us-categories-accordion-body::before {
+    content: '';
+    display: block;
+    background-color: #132e6b;
+    width: 100%;
+    height: 50px;
+}
+
+.us-categories-accordion {
+    background-color: white;
+    padding: 10px;
+}
+
+.us-categories-accordion-holder {
+    margin-top: 20px;
+    height: 700px;
+    padding: 0 10px;
+    overflow-y: scroll;
+}
+.us-categories-accordion-holder::-webkit-scrollbar {
+    width: 5px;
+}
+
+.us-categories-accordion-holder::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.us-categories-accordion-holder::-webkit-scrollbar-thumb {
+    background-color: #333333;
+    border-radius: 10px;
+}
+
+.us-categories-accordion-title {
+    color: #132e6b;
+    margin-left: 15px;
+}
+.us-categories-accordion-title::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 30%;
+    margin-top: 10px;
+    background-color: #333333;
+}
+
+.us-categories-accordion .us-categories-accordion-container {
+    position: relative;
+    margin: 5px 0;
+}
+
+.us-categories-accordion .us-categories-label {
+    position: relative;
+    padding: 10px 5px;
+    font-size: 16px;
+    color: #333333;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #333333;
+}
+
+.us-categories-label-img {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+}
+
+.us-categories-label i {
+    color: #333333;
+    font-size: 20px;
+    /* border: 1px solid #2a2a2a; */
+    padding: 0 5px;
+    /* transform: rotateX(90deg); */
+    transition: transform .5s ease-in-out;
+}
+
+.us-categories-content {
+    /* display: none; */
+    background: white;
+    height: 0;
+    font-size: 16px;
+    max-width: 780px;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+    margin-top: 15px;
+}
+
+.us-categories-content-listItem{
+    list-style: none;
+    padding: 10px 10px;
+}
+.us-categories-content-listItem a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333333;
+    display: flex;
+    align-items: center;
+}
+
+.us-categories-content-listItem:hover {
+    background-color: #132e6b;
+}
+.us-categories-content-listItem:hover a{
+    color: #fff;
+}
+
+.us-categories-accordion-container.active .us-categories-content {
+    user-select: none;
+    height: var(--subaccardion-height);
+}
+
+.us-categories-accordion .us-categories-accordion-container.active .us-categories-label i {
+    transform: rotate(-180deg);
+}
 </style>
 <section class="banner">
     <div class="container">
@@ -452,54 +588,74 @@ accordion {
 <!-- end filter mobile -->
 <div class="products-flex">
     <div class="col-xl-3 col-lg-4 col-md-5 category-none">
-            <ul class="accordion" >
-                <h3 class="categories_none"
-                    style="margin-bottom: -20px;padding: 15px;color: #132E6B;text-align: left;">
-                    {% trans 'Категории' %}</h3>
-                <!-- <hr class="hr-menu" style="position: absolute;"> -->
-            </ul>
-            <div class="sidebar-categories">
-                <ul id="accordion" class="accordion" style="overflow-y:auto;max-height:700px;">
-                    {% for category in categories %}
-                    <li>
-                        <div class="link">
-                            {% if category.image %}
-                            <img src="{{ category.image.url }}" style="width:20px;position: relative;left: -6px;" alt="">
-                             {% else %}
-                            <p></p>
-                            {% endif %}
-                            <a href="?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;width:220px">{{ category.category|safe }}</span></a> <i
-                                class="fa fa-chevron-down"></i>
-                            <hr class="hr-menu" style="position: absolute;bottom: -1px;">
-                        </div>
-                        <ul class="submenu">
-                                {% for subcategory in category.subcategories.all %}
-                                     <div class="accordion js-accordion" style="margin-top: 0px;">
-                                       <div class="accordion__item js-accordion-item">
-                                                <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}" style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory|safe }}</a>  <hr class="hr-menu" style="border: 1px solid #CCCCCA"> </div>
-                                       </div><!-- end of accordion item -->
-                                    </div><!-- end of accordion -->
-                                {% endfor %}
-                        </ul>
-                    </li>
-                    {% endfor %}
+          <div class="us-categories-accordion-body">
+            <div class="us-categories-accordion">
+                <h1 class="us-categories-accordion-title" style="font-size:28px">Kategoriyalar</h1>
 
-
-                </ul>
-
-
-                <!-- <ul class="main-categories">
-                        <li class="main-nav-list">
-                            {% for categories in category %}
-                             <a {% if request.GET.category == categories.pk|stringformat:'i' %}class="a-active"
-                {% endif %} onclick="addUrlParameter('category', '{{ categories.pk }}')" style="cursor:pointer">
-                                <span class="lnr lnr-arrow-right"></span>{{ categories.title }}<span
-                                    class="number"></span></a>
+                <div class="us-categories-accordion-holder">
+                {% for category in categories %}
+                    <div class="us-categories-accordion-container">
+                        <div class="us-categories-label"><img class="us-categories-label-img" src="{{ category.image.url }}" alt="">{{  category.category|safe }}<i class="fa-light fa-angle-down"></i></div>
+                        <ul class="us-categories-content">
+                            {% for subcategory in category.subcategories.all %}
+                                <li class="us-categories-content-listItem"><a href="?subcategory={{ subcategory.pk }}">{{ subcategory|safe }}</a></li>
                             {% endfor %}
-                        </li>
-                    </ul> -->
-                <br>
+                        </ul>
+                    </div>
+                {% endfor %}
+                </div>
+
             </div>
+        </div>
+
+{#            <ul class="accordion" >#}
+{#                <h3 class="categories_none"#}
+{#                    style="margin-bottom: -20px;padding: 15px;color: #132E6B;text-align: left;">#}
+{#                    {% trans 'Категории' %}</h3>#}
+{#                <!-- <hr class="hr-menu" style="position: absolute;"> -->#}
+{#            </ul>#}
+{#            <div class="sidebar-categories">#}
+{#                <ul id="accordion" class="accordion" style="overflow-y:auto;max-height:700px;">#}
+{#                    {% for category in categories %}#}
+{#                    <li>#}
+{#                        <div class="link">#}
+{#                            {% if category.image %}#}
+{#                            <img src="{{ category.image.url }}" style="width:20px;position: relative;left: -6px;" alt="">#}
+{#                             {% else %}#}
+{#                            <p></p>#}
+{#                            {% endif %}#}
+{#                            <a href="?category={{ category.pk }}" style="color:#000;font-family: revert;font-weight: 500;"> <span style="position: absolute;width:220px">{{ category.category|safe }}</span></a> <i#}
+{#                                class="fa fa-chevron-down"></i>#}
+{#                            <hr class="hr-menu" style="position: absolute;bottom: -1px;">#}
+{#                        </div>#}
+{#                        <ul class="submenu">#}
+{#                                {% for subcategory in category.subcategories.all %}#}
+{#                                     <div class="accordion js-accordion" style="margin-top: 0px;">#}
+{#                                       <div class="accordion__item js-accordion-item">#}
+{#                                                <div class="accordion-header js-accordion-header"><a href="?subcategory={{ subcategory.pk }}" style="font-size: 17px;text-align: left;font-weight: 500;font-family: Sans-Serif">{{ subcategory|safe }}</a>  <hr class="hr-menu" style="border: 1px solid #CCCCCA"> </div>#}
+{#                                       </div><!-- end of accordion item -->#}
+{#                                    </div><!-- end of accordion -->#}
+{#                                {% endfor %}#}
+{#                        </ul>#}
+{#                    </li>#}
+{#                    {% endfor %}#}
+{##}
+{##}
+{#                </ul>#}
+{##}
+{##}
+{#                <!-- <ul class="main-categories">#}
+{#                        <li class="main-nav-list">#}
+{#                            {% for categories in category %}#}
+{#                             <a {% if request.GET.category == categories.pk|stringformat:'i' %}class="a-active"#}
+{#                {% endif %} onclick="addUrlParameter('category', '{{ categories.pk }}')" style="cursor:pointer">#}
+{#                                <span class="lnr lnr-arrow-right"></span>{{ categories.title }}<span#}
+{#                                    class="number"></span></a>#}
+{#                            {% endfor %}#}
+{#                        </li>#}
+{#                    </ul> -->#}
+{#                <br>#}
+{#            </div>#}
         </div>
 
             <!-- End Filter Bar -->
@@ -542,11 +698,11 @@ accordion {
               {% if page_obj.has_previous <= page_obj.number|add:'-2' %}
                  <li class="page_numb"><a href="?page=1" style="color: #132E6B;">1</a></li>
               {% endif %}
-            {% for i in page_obj.paginator.page_range %}
-                {% if page_obj.number == i %}
-                    <li class="page_numb-active"><a style="color: #132E6B;">{{ i }}</a></li>
-                {% elif i > page_obj.number|add:'-2' and i < page_obj.number|add:'2' %}
-                   <li class="page_numb"><a href="?page={{ i }}" style="color: #132E6B;">{{ i }}</a></li>
+            {% for page in page_obj.paginator.page_range %}
+                {% if page_obj.number == page %}
+                         <li class="page_numb-active"><a style="color: #132E6B;">{{ page }}</a></li>
+                {% elif page > page_obj.number|add:'-2' and page < page_obj.number|add:'2' %}
+                   <li class="page_numb"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
                 {% endif %}
             {% endfor %}
           {% if page_obj.has_next %}
@@ -835,9 +991,11 @@ accordion {
 <script>
   function addUrlParameter(name, value) {
       let searchParams = new URLSearchParams(window.location.search)
-      if (['category', 'subcategory', 'sku', 'brand', 'tag', 'sort', 'som'].includes(name)) {
-          searchParams.delete('?');
-      }
+      if (['category', 'subcategory', 'sku', 'sort', 'page', 'som'].includes(name))
+          {
+              searchParams.delete('?');
+
+          }
       if (searchParams.has(name) && searchParams.get(name) === value) {
           searchParams.delete(name);
       } else {
@@ -846,6 +1004,50 @@ accordion {
       window.location.search = searchParams.toString()
   }
 </script>
+    <script>
+
+const accordionBtns = document.querySelectorAll(".us-categories-label");
+let array = []
+accordionBtns.forEach((accordion) => {
+
+    accordion.onclick = function () {
+        if (!this.parentElement.classList.contains("active")) {
+            if (!array.includes(this)) {
+                array.push(this)
+            }
+            else {
+                // console.log(this);
+            }
+        }
+
+
+        if (array.length > 1) {
+            array.forEach((openAccardion,index) => {
+                if (index = array.length - 1) {
+                    openAccardion.parentElement.classList.remove('active')
+                    array.shift()
+                }
+            })
+            // array[0].parentElement.classList.remove("active")
+
+            this.parentElement.classList.toggle("active");
+
+        }
+        else {
+            this.parentElement.classList.toggle("active");
+        }
+
+
+        let content = this.nextElementSibling;
+        let accordionHeight = content.scrollHeight + "px";
+        //if the accordion is currently closed
+        document.documentElement.style.setProperty('--subaccardion-height', accordionHeight);
+
+        // console.log(array);
+    };
+});
+
+    </script>
 <script>
     window.onload = function(){
   crear_select();

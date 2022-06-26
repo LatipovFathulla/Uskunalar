@@ -183,15 +183,6 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
 
-// splide
-
-var splide = new Splide('.splide_2', {
-    perPage: 1,
-    rewind: true,
-});
-
-splide.mount();
-
 
 //splide 3
 // menu
