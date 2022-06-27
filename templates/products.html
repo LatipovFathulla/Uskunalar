@@ -225,6 +225,7 @@ accordion {
     margin-top: 20px;
     height: 700px;
     padding: 0 10px;
+    overflow:hidden;
     overflow-y: scroll;
 }
 .us-categories-accordion-holder::-webkit-scrollbar {
@@ -598,7 +599,9 @@ accordion {
                         <div class="us-categories-label"><img class="us-categories-label-img" src="{{ category.image.url }}" alt="">{{  category.category|safe }}<i class="fa-light fa-angle-down"></i></div>
                         <ul class="us-categories-content">
                             {% for subcategory in category.subcategories.all %}
-                                <li class="us-categories-content-listItem"><a href="?subcategory={{ subcategory.pk }}">{{ subcategory|safe }}</a></li>
+                                <li class="us-categories-content-listItem">
+                                    <a href="?subcategory={{ subcategory.pk }}">{{ subcategory|safe }}</a>
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -991,11 +994,9 @@ accordion {
 <script>
   function addUrlParameter(name, value) {
       let searchParams = new URLSearchParams(window.location.search)
-      if (['category', 'subcategory', 'sku', 'sort', 'page', 'som'].includes(name))
-          {
-              searchParams.delete('?');
-
-          }
+      if (['category', 'subcategory', 'sku', 'sort', 'som'].includes(name)) {
+          searchParams.delete('?');
+      }
       if (searchParams.has(name) && searchParams.get(name) === value) {
           searchParams.delete(name);
       } else {

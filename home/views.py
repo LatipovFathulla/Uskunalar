@@ -49,7 +49,7 @@ class BannerInfoModelView(ListView):
             filters['category_id'] = category
 
         if subcategory:
-            filters['category_id'] = subcategory
+            filters['subcategory_id'] = subcategory
 
         if price:
             price_from, price_to = price.split(';')

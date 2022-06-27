@@ -1,5 +1,4 @@
 from home.models import CategoryModel, SubCategoryModel
-from django.core.cache import cache
 
 
 def product_categories(request):
