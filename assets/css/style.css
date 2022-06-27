@@ -5173,7 +5173,6 @@ nav .nav-ul li a span.rotate {
         margin-top:15px;
         overflow: auto;
         overflow-x: hidden;
-        display:none;
     }
 
      .alert-warning {
@@ -7507,9 +7506,10 @@ ul.social-footer2 li a {
 .accordion li i.fa-chevron-down {
     right: 11px;
     left: auto;
-    font-size: 16px;
+    font-size: 14px;
     top: 24px;
-    transform: rotate(270deg);
+    color: #000;
+    transform: rotate(0deg);
 }
 
 .accordion li.open .link {

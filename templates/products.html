@@ -190,6 +190,14 @@ accordion {
   .accordion {
     width: 100%;
   }
+
+  .category-ds-1 {
+      display: none;
+  }
+
+  .modal {
+      top: 15%;
+  }
 }
 
 
@@ -400,7 +408,7 @@ accordion {
                                                 <br>
                                                 <div class="col-md-3">
                                                     <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                                                        <div class="link" style="padding: 20px 20px 20px 35px;"><p style="font-family: RobotoCondensed,Arial,sans-serif;position: absolute;left: 8px;font-size:17px">{% trans 'Цена' %}</p><br><i
+                                                        <div class="link" style="padding: 20px 20px 20px 35px;height: 57px;"><p style="position: absolute;left: 8px;font-size:18px">{% trans 'Цена' %}</p><br><i
                                                                 class="fa fa-chevron-down"></i></div>
                                                         <ul class="submenu"
                                                             style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
@@ -424,11 +432,10 @@ accordion {
                                 <div class="modal-footer" style="justify-content: center;border-top: none;">
                                     <ul>
                                         <li>
-                                            <a href="{% url 'products:product' %}">
-                                                <button class="button-center button-bottom" type="button">
-                                                <p style="font-size: 16px;">{% trans 'Сбросить' %}</p>
-                                                </button>
-                                            </a>
+                                             <div class="button-container mt-3">
+                                                <a href="{% url 'products:product' %}" class="us-btn btn-4" style="width: 180px"><span>{% trans 'Batafsil' %}</span></a>
+                                                <!--End of Button 4 -->
+                                              </div>
                                         </li>
                                     </ul>
 
