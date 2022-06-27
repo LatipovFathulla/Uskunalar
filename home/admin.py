@@ -40,7 +40,7 @@ def format_sub_category(obj):
 @admin.register(SubCategoryModel)
 class SubCategoryModelAdmin(MyTranslationAdmin):
     list_display = ['category', format_sub_category, 'created_at']
-    search_fields = ['category', 'subcategory']
+    search_fields = ['subcategory']
     list_filter = ['category', 'subcategory']
 
 
