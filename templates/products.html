@@ -193,143 +193,6 @@ accordion {
 }
 
 
-.us-container-1 {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    max-width: 1700px;
-    width: 100%;
-    margin: auto;
-    margin-top: 20px;
-}
-
-.us-categories-accordion-body {
-    max-width: 350px;
-    width: 100%;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-.us-categories-accordion-body::before {
-    content: '';
-    display: block;
-    background-color: #132e6b;
-    width: 100%;
-    height: 50px;
-}
-
-.us-categories-accordion {
-    background-color: white;
-    padding: 10px;
-}
-
-.us-categories-accordion-holder {
-    margin-top: 20px;
-    height: 700px;
-    padding: 0 10px;
-    overflow:hidden;
-    overflow-y: scroll;
-}
-.us-categories-accordion-holder::-webkit-scrollbar {
-    width: 5px;
-}
-
-.us-categories-accordion-holder::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-
-.us-categories-accordion-holder::-webkit-scrollbar-thumb {
-    background-color: #333333;
-    border-radius: 10px;
-}
-
-.us-categories-accordion-title {
-    color: #132e6b;
-    margin-left: 15px;
-}
-.us-categories-accordion-title::after {
-    content: '';
-    display: block;
-    height: 3px;
-    width: 30%;
-    margin-top: 10px;
-    background-color: #333333;
-}
-
-.us-categories-accordion .us-categories-accordion-container {
-    position: relative;
-    margin: 5px 0;
-}
-
-.us-categories-accordion .us-categories-label {
-    position: relative;
-    padding: 10px 5px;
-    font-size: 16px;
-    color: #333333;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    user-select: none;
-    /* background-color: red; */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #333333;
-}
-
-.us-categories-label-img {
-    width: 36px;
-    height: 36px;
-    margin-right: 10px;
-}
-
-.us-categories-label i {
-    color: #333333;
-    font-size: 20px;
-    /* border: 1px solid #2a2a2a; */
-    padding: 0 5px;
-    /* transform: rotateX(90deg); */
-    transition: transform .5s ease-in-out;
-}
-
-.us-categories-content {
-    /* display: none; */
-    background: white;
-    height: 0;
-    font-size: 16px;
-    max-width: 780px;
-    width: 100%;
-    overflow: hidden;
-    transition: all 0.2s ease-in;
-    margin-top: 15px;
-}
-
-.us-categories-content-listItem{
-    list-style: none;
-    padding: 10px 10px;
-}
-.us-categories-content-listItem a{
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    color: #333333;
-    display: flex;
-    align-items: center;
-}
-
-.us-categories-content-listItem:hover {
-    background-color: #132e6b;
-}
-.us-categories-content-listItem:hover a{
-    color: #fff;
-}
-
-.us-categories-accordion-container.active .us-categories-content {
-    user-select: none;
-    height: var(--subaccardion-height);
-}
-
-.us-categories-accordion .us-categories-accordion-container.active .us-categories-label i {
-    transform: rotate(-180deg);
-}
 </style>
 <section class="banner">
     <div class="container">
@@ -426,7 +289,6 @@ accordion {
 <div class="container">
     <div class="row">
         <div class="col-12">
-               <img src="{% static './images/Group_419.svg' %}" class="icon-right m-3" style="transform: rotate(2.33deg);left:-12%" alt="">
             <br>
             <p class="categories_block mt-2">{% trans 'Категории' %}</p>
             <br>
@@ -588,10 +450,10 @@ accordion {
 </div>
 <!-- end filter mobile -->
 <div class="products-flex">
-    <div class="col-xl-3 col-lg-4 col-md-5 category-none">
+    <div class="category-none">
           <div class="us-categories-accordion-body">
             <div class="us-categories-accordion">
-                <h1 class="us-categories-accordion-title" style="font-size:28px">Kategoriyalar</h1>
+                <h1 class="us-categories-accordion-title" style="font-size:28px">{% trans 'Kategoriyalar' %}</h1>
 
                 <div class="us-categories-accordion-holder">
                 {% for category in categories %}
@@ -742,78 +604,24 @@ accordion {
 
 
 
-    <div class="container">
-        <div class="row-1">
-            <br>
-            <div class="splide_3_2">
-                <div class="splide__track" style="height: 520px;">
-                    <ul class="splide__list">
+<div class="container">
+    <div class="row-1">
+        <br>
+        <div class="splide_3_2">
+            <div class="splide__track">
+                    <ul class="splide__list" style="height:700px">
                      {% for product in products %}
                         <li class="splide__slide">
-                                <div class="col-md-3">
-                                <div class="produdcs-section2">
-                                    <div class="flex-itm">
-                                        <div class="flex-iem-inner">
-                                            <!-- card -->
-                                                <div class="card-front bg-violet">
-                                                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                                                      {% if product|in_wishlist:request %}
-                                                        <button class="btn-like2" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img src="{% static './images/red_active.svg' %}" style="margin-top: 7px;" alt=""></button>
-                                                      {% else %}
-                                                        <button class="btn-like2" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;"><img src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt=""></button>
-                                                      {% endif %}
-
-                                                     {% if product.is_discount %}
-                                                        <a href="#" class="card-link">
-                                                        <button class="btn"
-                                                                style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                                        </button>
-                                                        </a>
-                                                        {% elif product.is_new %}
-                                                            <a href="#" class="card-link1">
-                                                            <button class="btn new-mobile-1">
-                                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                                            </button>
-                                                        </a>
-                                                     {% endif %}
-                                                    <img src="{{ product.image.url }}"
-                                                         style="width: 100%;height: 300px;display: table;margin: auto;"
-                                                         alt="">
-                                                    <div class="card-text"
-                                                         style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                        <h4 class="front-title">{{ product.title }}</h4>
-                                                        <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
-                                                        <p class="desc">${{ product.get_price_dollar }} - {{ product.get_price }} сум</p>
-                                                        <div class="text-center">
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="{% url 'products:single' pk=product.pk %}">
-                                                                        <button class="button-center button-bottom2 mobile-button"
-                                                                            style="width: 127px;height: 43px;">
-                                                                        <p style="font-size: 13px;">{% trans 'Заказать' %}</p>
-                                                                    </button>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <br>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <!-- /card -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                             <div class="us-products">
+                                  {% include 'layouts/product_block.html' %}
+                              </div>
                         </li>
                       {% endfor %}
                     </ul>
                 </div>
-            </div>
-        </div>
         </div>
     </div>
+</div>
 
 
 <div class="products-none">

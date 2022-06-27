@@ -82,26 +82,20 @@
 <div class="container">
     <div class="row">
         <div class="col-xl-3 col-lg-4 col-md-3">
-            <ul class="accordion">
-                <h3 class="categories_none" style="margin-bottom: -20px;padding: 15px;color: #132E6B;text-align: left;">{% trans 'Категории' %}</h3>
-                <!-- <hr class="hr-menu" style="position: absolute;"> -->
-            </ul>
-            <div class="sidebar-categories" style="margin-top: 20px">
-            <div class="row">
-                  <div class="line-slider" style="width:100%">
-                  {% for category in line_categories %}
-                      <div class="col-12 col-md-12">
-                        <div class="link">
-                            <a {% if request.GET.category == category.pk|stringformat:'i' %}class="b-active"{% else %}class="a-active"{% endif %} href="?category={{ category.pk }}"> <span style="position: absolute;font-family: inherit;font-weight: 500;width:200px">{{ category.category|safe }}</span></a>
-                        </div>
-                      </div>
-                    {% endfor %}
+               <div class="us-categories-accordion-body">
+            <div class="us-categories-accordion">
+                <h1 class="us-categories-accordion-title" style="font-size:28px">{% trans 'Kategoriyalar' %}</h1>
+
+                <div class="us-categories-accordion-holder">
+                 {% for category in line_categories %}
+                    <div class="us-categories-accordion-container">
+                        <div class="us-categories-label">{{ category.category|safe }}<i class="fa-light fa-angle-down"></i></div>
+                    </div>
+                {% endfor %}
+                </div>
+
             </div>
-            </div>
-{#asd#}
-                    <img src="{% static './images/Group_417.svg' %}" class="icon-left" style="left: -24%;" alt="">
-                <br>
-            </div>
+        </div>
         </div>
 
         <br>

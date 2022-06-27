@@ -152,6 +152,7 @@
     text-align: end;
     color: #000;
     font-size: 18px;
+    word-break: break-all;
     font-weight: 500;
 }
 
@@ -347,7 +348,13 @@
                     <!-- omborda mavjud -->
                     <!-- <p class="us-products-card-product_status"><i class="fa-solid fa-circle"></i> omborda mavjud</p> -->
                     <!-- buyurtmaga -->
-                    <p class="us-products-card-product_status not-exists"><i class="fa-solid fa-circle"></i> buyurtma orqali</p>
+                   {% if product.delivery %}
+                    <p class="us-products-card-product_status not-exists"><i class="fa-solid fa-circle" style="padding: 3px"></i>{{ product.delivery}}</p>
+                   {% endif %}
+                   {% if product.inbox %}
+                       <p class="us-products-card-product_status"><i class="fa-solid fa-circle" style="padding: 3px"></i>{{ product.inbox}}</p>
+                   {% endif %}
+
                     <ul class="us-products-card-details_list">
                      {% for j in product.specifications.all|slice:':4' %}
                         <li class="us-products-card-details_item">
