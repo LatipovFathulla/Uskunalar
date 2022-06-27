@@ -1977,15 +1977,15 @@ a {
 }
 
 .catalog-submenu-container {
-    width: 45%;
+    max-width: max-content;
     height: 557px;
     margin-left: 10px;
     border-radius: 10px;
-    overflow:scroll;
+    overflow: scroll;
     visibility: hidden;
     opacity: 0;
     transform: translateX(-1%);
-    transition: .5s ease-out
+    transition: .5s ease-out;
 }
 
 .catalog-submenu-container.active {
