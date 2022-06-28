@@ -51,6 +51,21 @@ $(document).ready(function () {
 
 });
 
+
+(function ($) {
+
+    /*------------------
+        Preloader
+    --------------------*/
+    $(window).on('load', function () {
+        $(".ctn-preloader").fadeOut();
+        $(".animation-preloader").delay(1200).fadeOut("slow");
+
+
+    });
+})(jQuery);
+
+
 var splide = new Splide('.splide_3_2', {
     perPage: 1,
     rewind: true,
