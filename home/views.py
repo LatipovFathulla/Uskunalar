@@ -29,6 +29,7 @@ class BannerInfoModelView(ListView):
     context_object_name = 'products'
     paginate_by = 9
 
+
     def get_queryset(self, ):
         q = self.request.GET.get('q', '')
         category = self.request.GET.get('category')
