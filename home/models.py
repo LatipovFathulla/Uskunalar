@@ -145,6 +145,7 @@ class CarouselModel(models.Model):
     title = models.CharField(max_length=60, verbose_name=_('title'))
     descriptions = models.TextField(verbose_name=_('descriptions'))
     image = models.FileField(upload_to='Banner_home1', verbose_name=_('image'))
+    background = models.FileField(upload_to='Banner_background', verbose_name=_('background'), null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

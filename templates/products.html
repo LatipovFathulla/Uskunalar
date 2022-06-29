@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block title %} {% trans 'Mahsulotlar' %} {% endblock %}
 {% load static %}
+{% load paginator_tags %}
 {% load humanize %}
 {% load tags %}
 {% block content %}
@@ -576,7 +577,7 @@ accordion {
                 {% if page_obj.number == page %}
                          <li class="page_numb-active"><a style="color: #132E6B;">{{ page }}</a></li>
                 {% elif page > page_obj.number|add:'-2' and page < page_obj.number|add:'2' %}
-                   <li class="page_numb"><a href="?page={{ page }}" style="color: #132E6B;">{{ page }}</a></li>
+                   <li class="page_numb"><a rel="next" href="{% relative_url page 'page' request.GET.urlencode %}" style="color: #132E6B;">{{ page }}</a></li>
                 {% endif %}
             {% endfor %}
           {% if page_obj.has_next %}

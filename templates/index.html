@@ -1798,36 +1798,20 @@ body.deactive {
             <section class="section" id="slider">
                 <div class="slider">
                     <div class="slider__container">
-                        <div style="background: url('/static/images/backmemak.jpg') no-repeat center center / cover;" class="slider__item slide-burger">
-                            <div class="slider__content grid">
-                                <div class="column">
-                                    <h1 class="title">Memak</h1>
-                                    <h1 class="title">Professional Machine</h1>
-                                </div>
-                                <div class="column"><img class="float image slide_img" src="/static/images/memakk.png" />
-                                </div>
-                            </div>
-                        </div>
-                        <div style="background: url('/static/images/backzicar.jpg') no-repeat center center / cover;" class="slider__item slide-burger">
-                            <div class="slider__content grid">
-                                <div class="column">
-                                    <h1 class="title">Memak</h1>
-                                    <h1 class="title">Professional Machine</h1>
-                                </div>
-                                <div class="column"><img class="float image slide_img" src="/static/images/memakk.png" />
+                        {% for carousel in carousels %}
+                        {% if carousel.background %}
+                            <div style="background: url({{ carousel.background.url }}) no-repeat center center / cover;" class="slider__item slide-burger">
+                        {% endif %}
+                                <div class="slider__content grid">
+                                    <div class="column">
+                                        <h1 class="title">{{ carousel.title }}</h1>
+                                        <h1 class="title">{{ carousel.descriptions }}</h1>
+                                    </div>
+                                    <div class="column"><img class="float image slide_img" src="{{ carousel.image.url }}" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div style="background: url('/static/images/backmemak.jpg') no-repeat center center / cover;" class="slider__item slide-burger">
-                            <div class="slider__content grid">
-                                <div class="column">
-                                    <h1 class="title">Memak</h1>
-                                    <h1 class="title">Professional Machine</h1>
-                                </div>
-                                <div class="column"><img class="float image slide_img" src="/static/images/memakk.png" />
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </section>
