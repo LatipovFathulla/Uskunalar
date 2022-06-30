@@ -12,133 +12,339 @@
   .btn-like3::after {
     margin-left:10%
   }
+
+
+.us-horizontal-products {
+    max-width: 1290px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    /* background: chartreuse; */
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+}
+
+.us-horizontal-products-card {
+    user-select: none;
+    margin: auto;
+    background: #fff;
+    border: 1px solid #4e4e4e44;
+    max-width: 100%;
+    width: 900px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition: box-shadow .3s ease-in-out;
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+}
+
+.us-horizontal-products-card:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.us-horizontal-products-card_container {
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+}
+
+/* Buttons */
+
+.us-horizontal-products-card_buttons {
+}
+
+.us-horizontal-products-card_ibutton {
+    background: transparent;
+    border: none;
+    font-size: 26px;
+    text-decoration: none;
+}
+
+.product-telegram {
+    color: #0088cc;
+    transition: all .4s ease-out;
+}
+
+.product-telegram:hover {
+    transform: translateY(-10%);
+}
+
+.product-heart {
+    transition: all .4s ease-out;
+}
+.product-heart.active {
+    color: #ff0000;
+}
+
+.product-heart:hover {
+    color: red;
+    transform: translateY(-10%);
+}
+
+/* Img */
+
+.us-horizontal-products-card_img-holder {
+    width: 100%;
+    height: 100%;
+}
+
+.us-horizontal-products-card_img_back {
+    text-align: center;
+}
+
+.us-horizontal-products-card_img {
+    /* transform: translateY(-15%); */
+    max-width: 100%;
+    width: 200px;
+    vertical-align: middle;
+}
+
+.us-horizontal-products-card-detailsAndCountry {
+    display: flex;
+    flex-direction: column;
+    flex: 0.5 0 auto;
+    margin-left: 15px;
+    justify-content: space-between;
+}
+
+.us-horizontal-products-card-title {
+    text-transform: capitalize;
+    font-size: 24px;
+    font-weight: 500;
+    color: #132E6B;
+    line-height: 100%;
+    width: 250px;
+}
+
+.us-horizontal-products-card-details_list {
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    line-height: 145%;
+}
+
+.us-horizontal-products-card-details_item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.us-horizontal-products-card-detailname {
+    font-size: 18px;
+    color: #666666;
+    font-weight: 500;
+}
+
+.us-horizontal-products-card-detail {
+    text-align: end;
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    width: 250px;
+}
+
+
+/* Country Flag */
+.us-horizontal-products-card-country_container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.us-horizontal-products-card-countryName {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.us-horizontal-products-car-countryImg {
+    max-width: 100%;
+    width: 45px;
+}
+
+/* Product Status */
+.us-horizontal-products-card-status {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    line-height: 150%;
+    margin: 0 15px;
+    width: 100%;
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+.us-horizontal-products-card-productPrice_dollar {
+    font-size: 26px;
+    color: #FF0000;
+    font-weight: 600;
+}
+
+.us-horizontal-products-card-priceInfo {
+    margin-top: 30%;
+}
+
+.us-horizontal-products-card-productPrice_som {
+    font-size: 17px;
+    color: #000;
+    font-weight: normal;
+}
+
+.us-horizontal-products-card-product_id {
+    font-size: 25px;
+    text-align: end;
+    color: #132E6B;
+    font-weight: 500;
+}
+
+.us-horizontal-products-card-product_status {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #1fb141;
+    text-align: start;
+}
+
+.us-horizontal-products-card-product_status.not-exists {
+    color: #FF0000;
+}
+
+
+.us-horizontal-products-card_buttonMore {
+    padding: 8px 5px;
+    max-width: 180px;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    background: rgb(255, 230, 0);
+    background: linear-gradient(90deg, rgba(255, 230, 0, 1) 0%, rgba(255, 174, 0, 1) 100%);
+    border: none;
+    font-size: 18px;
+    color: #132E6B;
+    text-align: center;
+    cursor: pointer;
+    transition: hover .5s ease-in-out;
+}
+
+.us-horizontal-products-card_buttonMore:hover {
+    background: linear-gradient(270deg, #ff0000, #ffae00, #ffe600);
+    background-size: 600% 600%;
+    color: white;
+
+    -webkit-animation: us-horizontal-button 11s ease infinite;
+    -moz-animation: us-horizontal-button 11s ease infinite;
+    -o-animation: us-horizontal-button 11s ease infinite;
+    animation: us-horizontal-button 5s ease infinite;
+}
+
+/* Media */
+@media (max-width:1020px) {
+    .us-horizontal-products-card {
+        width: 890px;
+    }
+    .us-horizontal-products-card-country_container {
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+    .us-horizontal-products-card-country_container {
+        margin-bottom: 0;
+    }
+    .us-horizontal-products-card-product_status {
+        margin-top: 8px;
+    }
+}
+
+/* Animation */
+
+@-webkit-keyframes us-horizontal-button {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes us-horizontal-button {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes us-horizontal-button {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes us-horizontal-button {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
 </style>
 {% endblock %}
-<div class="sort-menu-products">
-                            <div class="row">
-                                <div class="col-md-3 col-6 d-like" style="position: absolute;z-index: 8;">
-                                    <a onclick="add_to_wishlist(this, {{ product.pk }})"  class="card-link">
-                                        <button class="btn like-mobile-1"><img
-                                                src="{% static './images/like.svg' %}"
-                                                style="margin-top: 7px;" alt=""></button>
-                                    </a>
-                                    {% if product.is_discount %}
-                                        <a href="#" class="card-link1"><button class="btn"
-                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                          </button></a>
-                                        {% elif product.is_new %}
-                                            <a href="#" class="card-link1">
-                                            <button class="btn new-mobile-1">
-                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                            </button>
-                                        </a>
-                                    {% endif %}
+    <div class="us-horizontal-products-card">
+            <div class="us-horizontal-products-card_container">
+                <!-- Buttons -->
+                <div class="us-horizontal-products-card_buttons">
+                    <button href="" class="us-horizontal-products-card_ibutton product-heart"><i
+                            class="fa-light fa-heart"></i></button>
+                </div>
+
+                <!-- Img -->
+                <div class="us-horizontal-products-card_img-holder">
+                    <div class="us-horizontal-products-card_img_back yellow">
+                        <img src="{{ product.image.url }}" alt="" class="us-horizontal-products-card_img">
+                    </div>
+                </div>
+
+                <div class="us-horizontal-products-card-detailsAndCountry">
+
+                    <!-- Details Section -->
+                    <div class="us-horizontal-products-card-details">
+                        <h2 class="us-horizontal-products-card-title">{{ product.title }}</h2>
+                        <!-- omborda mavjud -->
+                        {% if product.inbox %}
+                            <p class="us-horizontal-products-card-product_status"><i class="fa-solid fa-circle"></i> omborda mavjud</p>
+                        {% endif %}
+                        <!-- buyurtmaga -->
+                        {% if product.delivery %}
+                        <p class="us-horizontal-products-card-product_status not-exists"><i class="fa-solid fa-circle"></i>
+                            {{ product.delivery }}</p>
+                        {% endif %}
+                        <ul class="us-horizontal-products-card-details_list">
+                        {% for j in  product.specifications.all|slice:':4' %}
+                            <li class="us-horizontal-products-card-details_item">
+                                <h4 class="us-horizontal-products-card-detailname">{{ j.product_customer|safe }}:</h4>
+                                <p class="us-horizontal-products-card-detail">{{ j.product_number|safe }}</p>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
 
 
-                                </div>
+                    <!-- Country -->
+                    <div class="us-horizontal-products-card-country_container">
+                        <p class="us-horizontal-products-card-countryName">{% trans 'Mamlakat' %}:</p>
+                        <img src="{{ product.country.image.url }}" alt="" class="us-horizontal-products-car-countryImg">
+                    </div>
 
-                                <div class="col-md-3 col-6">
-                                    <img src="{{ product.image.url }}" style="width: 100%;height: auto;"
-                                         alt="">
-                                </div>
-                                <div class="col-md-6 col-6 mt-3">
-                                    <h4 class="front-title-paris">
-                                        {{ product.title }}</h4>
-                                      <p class="detail-paris">{% trans 'Город' %}:{{ product.city }}</p>
-                                    <p class="detail-paris">
-                                        {% trans 'Артикул' %}: {{ product.sku }}</p>
-                                            <p class="detail" style="margin-top:2px;margin-left:2%">
-                                        <img src="{% static './images/radius.svg' %}" sty alt="">
-                                        {{ product.inbox }}
-                                        {{ product.delivery }}</p>
-{#                                    safsdf#}
+                </div>
 
-                                    <p class="desc-paris">{{ product.get_price_dollar }} $ - {{ product.get_price|intcomma }} сум</p>
-                                    <p class="mob-price" style="margin-left: 2%;">${{ product.get_price_dollar }}</p>
-                                    <p class="mob-price mt-2" style="margin-left: 2%;">{{ product.get_price|intcomma }} cум</p>
-                                    <ul class="mob-button-2">
-                                        <li style="margin:auto;display:table">
-                                            <a href="{% url 'products:single'  pk=product.pk %}">
-                                                <button class="button-center button-bottom-left ds-none2"
-                                                        style="width: 127px;height: 52px;">
-                                                    <p class="carousel-button-text" style="font-size: 16px;">{% trans 'Заказать' %}</p>
-                                                </button>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-3 m-like">
-                                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link2" style="position: absolute;top: 23%;right: 8%;">
-                                     {% if product|in_wishlist:request %}
-                                        <button class="btn-like3" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 3px;top: -42px;">
-                                            <img
-                                                    src="{% static './images/red_active.svg' %}" style="margin-top: 7px;margin-left:-30%"
-                                                    alt=""></button>
-                                      {% else %}
-                                        <button class="btn-like3" style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 3px;top: -42px;">
-                                            <img
-                                                    src="{% static './images/like.svg' %}" style="margin-top: 7px;margin-left:-30%"
-                                                    alt=""></button>
-                                      {% endif %}
-                                    </a>
-                                    {% if product.is_discount %}
-                                        <a href="#" class="card-link1"><button class="btn"
-                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                          </button></a>
-                                    {% elif product.is_new %}
-                                            <a href="#" class="card-link1">
-                                            <button class="btn new-mobile-1">
-                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                            </button>
-                                        </a>
-                                    {% endif %}
-                                </div>
+                <!-- Price & Inventory Info -->
+                <div class="us-horizontal-products-card-status">
+                    <div class="us-horizontal-products-card-statusinfo">
+                        <h3 class="us-horizontal-products-card-product_id">ID:{{ product.pk }}</h3>
+                    </div>
+                    <div class="us-horizontal-products-card-priceInfo">
+                        <h3 class="us-horizontal-products-card-productPrice_dollar">${{ product.get_price_dollar }}</h3>
+                        <p class="us-horizontal-products-card-productPrice_som">{{ product.dollar_exchanges|intcomma }} so'm</p>
+                    </div>
+                    <!-- More Details Button -->
+                    <a href="{% url 'products:single' pk=product.pk %}" class="us-horizontal-products-card_buttonMore">More Details</a>
+                </div>
 
-                                <br>
-
-                            </div>
-                            <div class="sort-menu-info">
-                                <div class="container">
-                                    <div class="row">
-                                        {% for j in product.specifications.all %}
-                                        <div class="col-md-3">
-                                            <p class="info-back-product">{{ j.product_customer }}:</p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <p style="padding-top: 8%;">{{ j.product_number }}</p>
-                                        </div>
-                                        {% endfor %}
-<!--                                        <div class="col-md-3">-->
-<!--                                            <p class="info-back-product">Энергопотребление:</p>-->
-<!--                                            <p class="info-back-product">Материал:</p>-->
-<!--                                            <p class="info-back-product">Тип энергии:</p>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-md-3">-->
-<!--                                            <p style="padding-top: 3%;">25 кв / ч.</p>-->
-<!--                                            <p style="padding-top: 11%;">Зангламас металл S208:</p>-->
-<!--                                            <p style="padding-top: 11%;">Ток</p>-->
-<!--                                        </div>-->
-
-                                    </div>
-                                    <div class="text-center">
-                                        <ul>
-                                            <li>
-                                                <a href="{% url 'products:single'  pk=product.pk %}">
-                                                    <button class="button-product button-bottom-single-product"
-                                                        style="right: 0%;margin: auto;display: table;">
-                                                    <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
-                                                </button>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <br>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
 {% block extra_js %}
 <script>
     function add_to_wishlist(element, pk) {
