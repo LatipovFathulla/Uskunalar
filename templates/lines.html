@@ -148,23 +148,24 @@
     <br>
     <br>
 
-{#                <div class="us-categories-accordion-body">#}
-{#                    <div class="us-categories-accordion">#}
-{#                        <h1 class="us-categories-accordion-title"#}
-{#                            style="font-size:28px">{% trans 'Kategoriyalar' %}</h1>#}
-{##}
-{#                        <div class="us-categories-accordion-holder">#}
-{#                            {% for category in line_categories %}#}
-{#                                <div class="us-categories-accordion-container">#}
-{#                                    <div class="us-categories-label">{{ category.category|safe }}</div>#}
-{#                                </div>#}
-{#                            {% endfor %}#}
-{#                        </div>#}
-{##}
-{#                    </div>#}
-{#                </div>#}
+
                      <br>
          <div class="obshiy-container">
+                         <div class="us-categories-accordion-body">
+                    <div class="us-categories-accordion">
+                        <h1 class="us-categories-accordion-title"
+                            style="font-size:28px">{% trans 'Kategoriyalar' %}</h1>
+
+                        <div class="us-categories-accordion-holder">
+                            {% for category in line_categories %}
+                                <div class="us-categories-accordion-container">
+                                    <div class="us-categories-label">{{ category.category|safe }}</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
                     <div class="us-lines">
                         {% for line in lines %}
                             <div class="us-line-card" style="background: url('{{ line.image.url }}') no-repeat center center / cover;">
