@@ -14,5 +14,4 @@ urlpatterns = [
     path('request/', RequestCreateView.as_view(), name='request'),
     path('form/', OrderCreateView.as_view(), name='form'),
     path('', cache_page(1800)(HomeView.as_view()), name='home'),
-
 ]

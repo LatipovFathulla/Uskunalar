@@ -4,317 +4,373 @@
 {% load static %}
 {% block content %}
 <style>
-    .b-active {
-        color:#000;
-        font-family: inherit;
-        font-weight: 600;
-        background:silver;
-    }
+.obshiy-container {
+    max-width: 1500px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
 
-     .b-active:hover {
-        color:#fff;
-        font-family: inherit;
-        font-weight: 600;
-        background:silver;
-    }
+}
 
-    .a-active {
-        color:#000;
-        font-family: inherit;
-        font-weight: 600;
-    }
+.us-lines {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
 
-     .a-active:hover {
-        color:#000;
-        font-family: inherit;
-        font-weight: 600
-    }
+.us-line-card {
+    width: 100%;
+    min-height: 400px;
+    height: 100%;
+    position: relative;
+    transition: box-shadow, background-image .4s ease-in-out;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
 
-    .line-slider .link {
-        padding: 6px 8px 47px 15px;
-        background: #fff;
-        margin-top: 1px;
-        height: auto;
-        box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important
-    }
+.us-line-card:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    background-blend-mode: hue;
+}
+.us-line-card:hover .us-line-card-content{
+    transform: translateY(0);
+}
+.us-line-card:hover .us-line-card-container{
+    background: #00000046;
+}
+.us-line-card:hover .us-line-card-main-title {
+    opacity: 0;
+    display: none;
+}
+.us-line-card:hover .us-line-card-container::before {
+    backdrop-filter: blur(5px);
+    /* background-color: #00000046; */
+}
 
-    .line-slider .link:hover {
-        padding: 6px 8px 47px 15px;
-        background: #FFE700;
-        margin-top: 1px;
-        height: auto;
-        box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important
-    }
+.us-line-card-content {
+    padding: 10px 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #00000029;
+    user-select: none;
+    transform: translateY(100%);
+    transition: all .4s ease-in-out;
+}
 
+.us-line-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    transition: all .4s ease-in-out;
+    background: #00000046;
+}
 
-        span {
-            line-height: 20px;
-            font-family: system-ui;
-        }
+.us-line-card-container::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: all .4s ease-in-out;
+}
 
-        p {
-            line-height: 20px;
-            font-family: system-ui;
-        }
+.us-line-card-main-title {
+    color: white;
+    font-size: 22px;
+    /* align-self: center; */
+    margin-left: 10px;
+    align-content: center;
+    transition: all .4s ease-in-out;
+    user-select: none;
+    margin-bottom: 15px;
+}
 
-        strong {
-            line-height: 20px;
-            font-family: system-ui;
-        }
+.us-line-card-title {
+    font-size: 20px;
+    color: #333;
+    /* border-bottom: 1px dashed #333; */
+    margin-bottom: 10px;
+    /* padding-bottom: 15px; */
+    display: flex;
+    flex-direction: column;
+}
+.us-line-card-title::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 40%;
+    margin-top: 10px;
+    background-color: #333;
+    text-align: end;
+    align-self: flex-end;
+}
 
+.us-line-card-text {
+    font-size: 16px;
+    word-break: break-all;
+}
+
+.us-line-card-subcontent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.us-line-card-price {
+    color: #ff0000;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.us-line-card-more {
+    background: transparent;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
 </style>
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<section class="banner">
-    <div class="container">
-        <div class="row">
-
-        </div>
-        <h1 class="banner-text">{% trans 'Линии' %}</h1>
-        <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a> <span> > <a
-            href="" class="banner-desc-title" style="color: #132E6B;">{% trans 'Линии' %}</a></span></p>
-
-        <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
-    </div>
-
-</section>
-
-<br>
-<br>
-<div class="container">
-    <div class="row">
-        <div class="col-xl-3 col-lg-4 col-md-3">
-               <div class="us-categories-accordion-body">
-            <div class="us-categories-accordion">
-                <h1 class="us-categories-accordion-title" style="font-size:28px">{% trans 'Kategoriyalar' %}</h1>
-
-                <div class="us-categories-accordion-holder">
-                 {% for category in line_categories %}
-                    <div class="us-categories-accordion-container">
-                        <div class="us-categories-label">{{ category.category|safe }}</div>
-                    </div>
-                {% endfor %}
-                </div>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <section class="banner">
+        <div class="container">
+            <div class="row">
 
             </div>
+            <h1 class="banner-text">{% trans 'Линии' %}</h1>
+            <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>
+            <span> > <a
+                    href="" class="banner-desc-title" style="color: #132E6B;">{% trans 'Линии' %}</a></span></p>
+
+            <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
         </div>
-        </div>
 
-        <br>
-        <img src="{% static './images/settings.svg' %}" class="icon-right" style="margin-top: -1.8%;right: 15%;"
-             alt="">
-        <div class="col-md-9">
-            <div class="row">
-                {% for line in lines %}
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="tabcontent" id="{{ line.pk }}" style="padding: 0px">
-                            <div data-aos="fade-right">
-                                <div class="imagewrap">
-                                    <div class="thumbnail2">
+    </section>
 
-                                        <img src="{{ line.image.url }}"
-                                             style="width:90%;margin:auto;display:table;height:250px">
+    <br>
+    <br>
 
-                                    </div>
-                                    <a href="{% url 'line:detail' pk=line.pk %}"> <input type="button" class="button1 ig-btn" value="Смотреть"/></a>
+
+                     <br>
+         <div class="obshiy-container">
+                         <div class="us-categories-accordion-body">
+                    <div class="us-categories-accordion">
+                        <h1 class="us-categories-accordion-title"
+                            style="font-size:28px">{% trans 'Kategoriyalar' %}</h1>
+
+                        <div class="us-categories-accordion-holder">
+                            {% for category in line_categories %}
+                                <div class="us-categories-accordion-container">
+                                    <div class="us-categories-label">{{ category.category|safe }}</div>
                                 </div>
-                                <div class="info">
-                                    <div class="row"><span><hr class="hr-left" style="height:69px"></span>
-                                        <div class="col-md-11 col-11">
-                                            <p style="color: #000;font-weight: 500;width: 100%;font-size: 14.5px;">{{ line.title|safe }}</p>
-                                            <p style="color: #132E6B;font-weight: 500;width: 100%;position:relative;top:7px">
-                                                {{ line.created_at|date:'m.d.Y' }}</p>
-                                            <br>
-                                            <a href="#"
-                                               style="position:relative;bottom:5px">{% trans 'Читать дальше..' %}</a>
-                                            <br>
-                                            <p></p>
-                                        </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+                    <div class="us-lines">
+                        {% for line in lines %}
+                            <div class="us-line-card" style="background: url('{{ line.image.url }}') no-repeat center center / cover;">
+                            <div class="us-line-card-container">
+                                <h2 class="us-line-card-main-title">{{ line.title }}</h2>
+                                <div class="us-line-card-content">
+                                    <h2 class="us-line-card-title">{{ line.title }}</h2>
+                                    <p class="us-line-card-text" style="width: 100%">{{ line.description|safe }}</p>
+                                    <div class="us-line-card-subcontent">
+                                        <p class="us-line-card-price">{{ line.created_at }}</p>
+                                        <a href="{% url 'line:detail' pk=line.pk %}"><button  class="us-line-card-more">Learn More <i class="fa-regular fa-arrow-up-right-from-square"></i></button></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {% endfor %}
+
                     </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
 
-</div>
-<!-- TABS PRESENTATION -->
+          </div>
+    <!-- TABS PRESENTATION -->
 
-<!-- TABS PRESENTATION // -->
-</div>
-<!-- pagination menu -->
-     <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
-         {% if page_obj.has_previous %}
+    <!-- TABS PRESENTATION // -->
+    <!-- pagination menu -->
+    <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
+        {% if page_obj.has_previous %}
             <li><a href="?page={{ page_obj.previous_page_number }}"><img src="/static/images/left.svg" alt=""></a></li>
         {% else %}
             <li class="disabled"><span><img src="/static/images/left.svg" style="display:none" alt=""></span></li>
         {% endif %}
-          <ul style="display: flex;justify-content: center;">
-              {% if page_obj.has_previous <= page_obj.number|add:'-2' %}
-                 <li class="page_numb"><a href="?page=1" style="color: #132E6B;">1</a></li>
-              {% endif %}
+        <ul style="display: flex;justify-content: center;">
+            {% if page_obj.has_previous <= page_obj.number|add:'-2' %}
+                <li class="page_numb"><a href="?page=1" style="color: #132E6B;">1</a></li>
+            {% endif %}
             {% for i in page_obj.paginator.page_range %}
                 {% if page_obj.number == i %}
                     <li class="page_numb-active"><a style="color: #132E6B;">{{ i }}</a></li>
                 {% elif i > page_obj.number|add:'-2' and i < page_obj.number|add:'2' %}
-                   <li class="page_numb"><a href="?page={{ i }}" style="color: #132E6B;">{{ i }}</a></li>
+                    <li class="page_numb"><a href="?page={{ i }}" style="color: #132E6B;">{{ i }}</a></li>
                 {% endif %}
             {% endfor %}
-          {% if page_obj.has_next %}
-            {% if page_obj.number <= page_obj.paginator.num_pages %}
-                <li><a href="?page={{ page_obj.number|add:'2' }}">&hellip;</a></li>
+            {% if page_obj.has_next %}
+                {% if page_obj.number <= page_obj.paginator.num_pages %}
+                    <li><a href="?page={{ page_obj.number|add:'2' }}">&hellip;</a></li>
+                {% endif %}
             {% endif %}
-          {% endif %}
-           {% if page_obj.has_next %}
-              <li class="page_numb"><a href="?page={{ page_obj.paginator.num_pages }}" style="color: #132E6B;">{{ page_obj.paginator.num_pages }}</a></li>
-           {% endif %}
-          </ul>
-         {% if page_obj.has_next %}
+            {% if page_obj.has_next %}
+                <li class="page_numb"><a href="?page={{ page_obj.paginator.num_pages }}"
+                                         style="color: #132E6B;">{{ page_obj.paginator.num_pages }}</a></li>
+            {% endif %}
+        </ul>
+        {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}"><img src="/static/images/right.svg" alt=""></a></li>
         {% else %}
             <li class="disabled"><span><img src="/static/images/right.svg" style="display:none" alt=""></span></li>
         {% endif %}
-        </nav>
+    </nav>
 
 
-<!-- end pagination menu -->
+    <!-- end pagination menu -->
 
-<br>
-{% include 'requests.html' %}
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
+    <br>
+    {% include 'requests.html' %}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
 
 
-
-</script>
+    </script>
 
 {% endblock %}
 
 {% block extra_js %}
-<script>
-    window.onload = function(){
-  crear_select();
-}
+    <script>
+        window.onload = function () {
+            crear_select();
+        }
 
-function isMobileDevice() {
-        window.onload = function(){
-  crear_select();
-}
-};
+        function isMobileDevice() {
+            window.onload = function () {
+                crear_select();
+            }
+        };
 
 
-var li = new Array();
-function crear_select(){
-var div_cont_select = document.querySelectorAll("[data-mate-select='active']");
-var select_ = '';
-for (var e = 0; e < div_cont_select.length; e++) {
-div_cont_select[e].setAttribute('data-indx-select',e);
-div_cont_select[e].setAttribute('data-selec-open','false');
-var ul_cont = document.querySelectorAll("[data-indx-select='"+e+"'] > .cont_list_select_mate > ul");
- select_ = document.querySelectorAll("[data-indx-select='"+e+"'] >select")[0];
- if (isMobileDevice()) {
-select_.addEventListener('change', function () {
- _select_option(select_.selectedIndex,e);
-});
- }
-var select_optiones = select_.options;
-document.querySelectorAll("[data-indx-select='"+e+"']  > .selecionado_opcion ")[0].setAttribute('data-n-select',e);
-document.querySelectorAll("[data-indx-select='"+e+"']  > .icon_select_mate ")[0].setAttribute('data-n-select',e);
-for (var i = 0; i < select_optiones.length; i++) {
-li[i] = document.createElement('li');
-if (select_optiones[i].selected == true || select_.value == select_optiones[i].innerHTML ) {
-li[i].className = 'active';
-document.querySelector("[data-indx-select='"+e+"']  > .selecionado_opcion ").innerHTML = select_optiones[i].innerHTML;
-};
-li[i].setAttribute('data-index',i);
-li[i].setAttribute('data-selec-index',e);
+        var li = new Array();
+
+        function crear_select() {
+            var div_cont_select = document.querySelectorAll("[data-mate-select='active']");
+            var select_ = '';
+            for (var e = 0; e < div_cont_select.length; e++) {
+                div_cont_select[e].setAttribute('data-indx-select', e);
+                div_cont_select[e].setAttribute('data-selec-open', 'false');
+                var ul_cont = document.querySelectorAll("[data-indx-select='" + e + "'] > .cont_list_select_mate > ul");
+                select_ = document.querySelectorAll("[data-indx-select='" + e + "'] >select")[0];
+                if (isMobileDevice()) {
+                    select_.addEventListener('change', function () {
+                        _select_option(select_.selectedIndex, e);
+                    });
+                }
+                var select_optiones = select_.options;
+                document.querySelectorAll("[data-indx-select='" + e + "']  > .selecionado_opcion ")[0].setAttribute('data-n-select', e);
+                document.querySelectorAll("[data-indx-select='" + e + "']  > .icon_select_mate ")[0].setAttribute('data-n-select', e);
+                for (var i = 0; i < select_optiones.length; i++) {
+                    li[i] = document.createElement('li');
+                    if (select_optiones[i].selected == true || select_.value == select_optiones[i].innerHTML) {
+                        li[i].className = 'active';
+                        document.querySelector("[data-indx-select='" + e + "']  > .selecionado_opcion ").innerHTML = select_optiones[i].innerHTML;
+                    }
+                    ;
+                    li[i].setAttribute('data-index', i);
+                    li[i].setAttribute('data-selec-index', e);
 // funcion click al selecionar
-li[i].addEventListener( 'click', function(){  _select_option(this.getAttribute('data-index'),this.getAttribute('data-selec-index')); });
+                    li[i].addEventListener('click', function () {
+                        _select_option(this.getAttribute('data-index'), this.getAttribute('data-selec-index'));
+                    });
 
-li[i].innerHTML = select_optiones[i].innerHTML;
-ul_cont[0].appendChild(li[i]);
+                    li[i].innerHTML = select_optiones[i].innerHTML;
+                    ul_cont[0].appendChild(li[i]);
 
-    }; // Fin For select_optiones
-  }; // fin for divs_cont_select
-} // Fin Function
-
-
-
-var cont_slc = 0;
-function open_select(idx){
-var idx1 =  idx.getAttribute('data-n-select');
-  var ul_cont_li = document.querySelectorAll("[data-indx-select='"+idx1+"'] .cont_select_int > li");
-var hg = 0;
-var slect_open = document.querySelectorAll("[data-indx-select='"+idx1+"']")[0].getAttribute('data-selec-open');
-var slect_element_open = document.querySelectorAll("[data-indx-select='"+idx1+"'] select")[0];
- if (isMobileDevice()) {
-  if (window.document.createEvent) { // All
-  var evt = window.document.createEvent("MouseEvents");
-  evt.initMouseEvent("mousedown", false, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-	slect_element_open.dispatchEvent(evt);
-} else if (slect_element_open.fireEvent) { // IE
-  slect_element_open.fireEvent("onmousedown");
-}else {
-  slect_element_open.click();
-}
-}else {
+                }
+                ; // Fin For select_optiones
+            }
+            ; // fin for divs_cont_select
+        } // Fin Function
 
 
-  for (var i = 0; i < ul_cont_li.length; i++) {
-hg += ul_cont_li[i].offsetHeight;
-};
- if (slect_open == 'false') {
- document.querySelectorAll("[data-indx-select='"+idx1+"']")[0].setAttribute('data-selec-open','true');
- document.querySelectorAll("[data-indx-select='"+idx1+"'] > .cont_list_select_mate > ul")[0].style.height = hg+"px";
- document.querySelectorAll("[data-indx-select='"+idx1+"'] > .icon_select_mate")[0].style.transform = 'rotate(180deg)';
-}else{
- document.querySelectorAll("[data-indx-select='"+idx1+"']")[0].setAttribute('data-selec-open','false');
- document.querySelectorAll("[data-indx-select='"+idx1+"'] > .icon_select_mate")[0].style.transform = 'rotate(0deg)';
- document.querySelectorAll("[data-indx-select='"+idx1+"'] > .cont_list_select_mate > ul")[0].style.height = "0px";
- }
-}
+        var cont_slc = 0;
 
-} // fin function open_select
-
-function salir_select(indx){
-var select_ = document.querySelectorAll("[data-indx-select='"+indx+"'] > select")[0];
- document.querySelectorAll("[data-indx-select='"+indx+"'] > .cont_list_select_mate > ul")[0].style.height = "0px";
-document.querySelector("[data-indx-select='"+indx+"'] > .icon_select_mate").style.transform = 'rotate(0deg)';
- document.querySelectorAll("[data-indx-select='"+indx+"']")[0].setAttribute('data-selec-open','false');
-}
+        function open_select(idx) {
+            var idx1 = idx.getAttribute('data-n-select');
+            var ul_cont_li = document.querySelectorAll("[data-indx-select='" + idx1 + "'] .cont_select_int > li");
+            var hg = 0;
+            var slect_open = document.querySelectorAll("[data-indx-select='" + idx1 + "']")[0].getAttribute('data-selec-open');
+            var slect_element_open = document.querySelectorAll("[data-indx-select='" + idx1 + "'] select")[0];
+            if (isMobileDevice()) {
+                if (window.document.createEvent) { // All
+                    var evt = window.document.createEvent("MouseEvents");
+                    evt.initMouseEvent("mousedown", false, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                    slect_element_open.dispatchEvent(evt);
+                } else if (slect_element_open.fireEvent) { // IE
+                    slect_element_open.fireEvent("onmousedown");
+                } else {
+                    slect_element_open.click();
+                }
+            } else {
 
 
-function _select_option(indx,selc){
- if (isMobileDevice()) {
-selc = selc -1;
-}
-    var select_ = document.querySelectorAll("[data-indx-select='"+selc+"'] > select")[0];
+                for (var i = 0; i < ul_cont_li.length; i++) {
+                    hg += ul_cont_li[i].offsetHeight;
+                }
+                ;
+                if (slect_open == 'false') {
+                    document.querySelectorAll("[data-indx-select='" + idx1 + "']")[0].setAttribute('data-selec-open', 'true');
+                    document.querySelectorAll("[data-indx-select='" + idx1 + "'] > .cont_list_select_mate > ul")[0].style.height = hg + "px";
+                    document.querySelectorAll("[data-indx-select='" + idx1 + "'] > .icon_select_mate")[0].style.transform = 'rotate(180deg)';
+                } else {
+                    document.querySelectorAll("[data-indx-select='" + idx1 + "']")[0].setAttribute('data-selec-open', 'false');
+                    document.querySelectorAll("[data-indx-select='" + idx1 + "'] > .icon_select_mate")[0].style.transform = 'rotate(0deg)';
+                    document.querySelectorAll("[data-indx-select='" + idx1 + "'] > .cont_list_select_mate > ul")[0].style.height = "0px";
+                }
+            }
 
-  var li_s = document.querySelectorAll("[data-indx-select='"+selc+"'] .cont_select_int > li");
-  var p_act = document.querySelectorAll("[data-indx-select='"+selc+"'] > .selecionado_opcion")[0].innerHTML = li_s[indx].innerHTML;
-var select_optiones = document.querySelectorAll("[data-indx-select='"+selc+"'] > select > option");
-for (var i = 0; i < li_s.length; i++) {
-if (li_s[i].className == 'active') {
-li_s[i].className = '';
-};
-li_s[indx].className = 'active';
+        } // fin function open_select
 
-};
-select_optiones[indx].selected = true;
-  select_.selectedIndex = indx;
-  select_.onchange();
-  salir_select(selc);
-}
+        function salir_select(indx) {
+            var select_ = document.querySelectorAll("[data-indx-select='" + indx + "'] > select")[0];
+            document.querySelectorAll("[data-indx-select='" + indx + "'] > .cont_list_select_mate > ul")[0].style.height = "0px";
+            document.querySelector("[data-indx-select='" + indx + "'] > .icon_select_mate").style.transform = 'rotate(0deg)';
+            document.querySelectorAll("[data-indx-select='" + indx + "']")[0].setAttribute('data-selec-open', 'false');
+        }
 
 
+        function _select_option(indx, selc) {
+            if (isMobileDevice()) {
+                selc = selc - 1;
+            }
+            var select_ = document.querySelectorAll("[data-indx-select='" + selc + "'] > select")[0];
 
-</script>
-<script>
+            var li_s = document.querySelectorAll("[data-indx-select='" + selc + "'] .cont_select_int > li");
+            var p_act = document.querySelectorAll("[data-indx-select='" + selc + "'] > .selecionado_opcion")[0].innerHTML = li_s[indx].innerHTML;
+            var select_optiones = document.querySelectorAll("[data-indx-select='" + selc + "'] > select > option");
+            for (var i = 0; i < li_s.length; i++) {
+                if (li_s[i].className == 'active') {
+                    li_s[i].className = '';
+                }
+                ;
+                li_s[indx].className = 'active';
+
+            }
+            ;
+            select_optiones[indx].selected = true;
+            select_.selectedIndex = indx;
+            select_.onchange();
+            salir_select(selc);
+        }
+
+
+    </script>
+    <script>
         $(function () {
             var Accordion = function (el, multiple) {
                 this.el = el || {};
@@ -344,6 +400,5 @@ select_optiones[indx].selected = true;
         });
 
 
-
-</script>
+    </script>
 {% endblock %}

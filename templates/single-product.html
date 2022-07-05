@@ -29,181 +29,767 @@
         }
     }
 
-    .btn-like2 {
-        position: absolute;
-        bottom: 9.8%;
-        right: 13%;
-        width: 48px;
-        height: 48px;
-        background-color: #FFF5F5;
-        border: none;
-        border-radius: 4px;
+.single-product-container {
+    max-width: 1500px;
+    width: 100%;
+    margin: auto;
+    margin-top: 1%;
+}
+
+.single-product_block {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.single-product-img-Holder {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column-reverse;
+}
+
+.single-product-images-list {
+    max-height: 600px;
+    height: 100%;
+    max-width: 100%;
+    width: 600px;
+    padding: 10px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.single-product-swiper {
+    overflow: hidden;
+}
+
+.single-product-images-option {
+    max-width: 100px;
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 15px;
+    transition: box-shadow .5s ease-in-out;
+    border: 1px solid #eee;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px; */
+}
+
+.single-product-images-option:hover {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.single-product-images-option.active {
+    border: 2px solid #ffe600;
+}
+
+.single-product-images-option img {
+    max-width: 150px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.single-product-images-mainImage {
+    max-width: 100%;
+    width: 600px;
+    max-height: 100%;
+    height: 600px;
+    overflow: hidden;
+    margin-left: 5px;
+    position: relative;
+}
+
+.single-product-images-mainImage::after {
+    content: '';
+    display: block;
+    background: url('{{ object.background.image.url }}') no-repeat center center / contain;
+    max-width: 600px;
+    width: 100%;
+    height: 600px;
+    position: absolute;
+    z-index: -10;
+    top: 10%;
+}
+
+
+/* Content */
+
+.single-product-content-Holder {
+    margin-left: 30px;
+}
+
+.single-prodcut-title {
+    color: #333333;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.single-products-newproduct {
+    color: white;
+    background: #ff4500;
+    font-size: 24px;
+    border-radius: 10px;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+.single-product-status-block {
+    display: flex;
+    margin-top: 5%;
+    justify-content: space-between;
+}
+
+.single-product_status {
+    color: #16c67a;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.on-the-way {
+    color: #ffa600;
+}
+.on-the-way i{
+    background-color: #ffa600 !important;
+}
+
+.single-product_status i {
+    color: #fff;
+    font-size: 12px;
+    padding: 6px 6px;
+    border-radius: 50%;
+    background-color: #16c67a;
+    margin-right: 5px;
+}
+
+.single-product_articuleID {
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.single-product-short-description {
+    margin-top: 2%;
+    border-top: 1px dashed #333;
+    padding-top: 20px;
+}
+
+.single-product-miniBlock {
+    margin-top: 5%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.single-product-miniInfo-list {
+    background: #f7f7f7;
+    max-width: 330px;
+    width: 100%;
+    padding: 15px 10px;
+    border-radius: 10px;
+}
+
+.single-product-miniInfo-list-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 15px;
+}
+
+.list-dashed {
+    border-top: 1px dashed #333333;
+    border-bottom: 1px dashed #333333;
+}
+
+
+/* Banks */
+.single-product-buyFromBank-list-holder {
+    margin-left: 30px;
+}
+
+.single-product-buyFromBank-list {
+    display: grid;
+    grid-template-columns: repeat(3, 25%);
+}
+
+.single-product-buyFromBank-bank {
+    transition: .5s ease-in-out;
+}
+
+.single-product-buyFromBank-list-title {
+    color: #333333;
+}
+
+.single-product-buyFromBank-bank-img {
+    max-width: 100%;
+    width: 150px;
+    object-fit: contain;
+    transition: .5s ease-in-out;
+}
+
+.single-product-buyFromBank-bank:hover .single-product-buyFromBank-bank-img {
+    transform: translateY(-10%);
+}
+
+.sinle-products-purchase-block {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.single-products-product-purchase-container {
+    display: flex;
+    align-items: center;
+}
+
+.single-products-product-priceBlock {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+}
+
+.single-products-product-priceBlock-title {
+    font-size: 28px;
+}
+
+.single-products-product-priceBlock-usdPrice {
+    font-size: 36px;
+    color: #ff0000;
+    line-height: 100%;
+}
+
+.single-products-product-priceBlock-uzsPrice {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* Purchase BTn */
+.single-products-product-purchase-buy {
+    background-image: linear-gradient(to right, #333 0%, #5a5a5a 51%, #333 100%);
+    margin: 10px;
+    padding: 15px 15px;
+    max-width: 100%;
+    width: 200px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+    background-size: 400% auto;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.single-products-product-purchase-buy:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+
+/* Download PDF btn */
+
+.single-products-product-purchase-downloadPDf {
+    /* background-image: linear-gradient(to right, #ffa600 0%, #fac666  51%, #ffa600  100%); */
+    background: transparent;
+    border: 2px solid #ffa600;
+    margin: 10px;
+    padding: 15px 15px;
+    max-width: 100%;
+    width: 200px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 400% auto;
+    color: #333333;
+    border-radius: 6px;
+    display: block;
+    /* border: none; */
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.single-products-product-purchase-downloadPDf:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    text-decoration: none;
+}
+
+
+/* Product Characteristics */
+
+.single-product-characteristics-container {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-top: 2px dashed #333;
+    padding-top: 20px;
+}
+
+.single-product-characteristics-options-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.single-product-characteristics-options-option {
+    color: #333;
+    margin-left: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #333;
+    /* background-color: white; */
+    /* border: 1px solid #333;
+    border-top: none;
+    border-bottom: none;
+    border-left: none; */
+    border-radius: 6px;
+    text-align: center;
+    padding: 15px 10px;
+    width: 100%;
+    transition: all .4s ease-in-out;
+}
+
+.single-product-characteristics-options-option.active {
+    background-color: #333;
+    color: #fff;
+}
+/* .single-product-characteristics-options-option:hover {
+    background-color: #ffe600;
+} */
+
+.single-product-characteristics-optionInfo-block {
+    margin-top: 2%;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    border-radius: 10px;
+    min-height: 600px;
+    height: 100%;
+}
+
+.single-product-characteristics-optionInfo-insideBlock {
+    display: none;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+}
+.single-product-characteristics-optionInfo-insideBlock.active {
+    display: block;
+    opacity: 1;
+}
+
+.single-product-characteristics-optionInfo-insideBlock ul li {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 10px 5px;
+}
+.single-product-characteristics-optionInfo-insideBlock ul li:hover {
+    background-color: #ffe600;
+}
+.single-product-characteristics-optionInfo-insideBlock ul li:nth-child(even) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: #c9c8c8;
+}
+.single-product-characteristics-optionInfo-insideBlock ul li:hover {
+    background-color: #ffe600;
+}
+/* .single-product-characteristics-optionInfo-insideBlock ul li:nth-child() {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: #fff;
+} */
+
+
+
+/* Share Button */
+.single-produce-backgroundinMobile {
+    position: relative;
+}
+.single-product-share-block {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 100px;
+    height: 100px;
+    /* background-color: white; */
+    text-align: end;
+}
+.single-product-shareBtn {
+    font-size: 32px;
+    color: #333;
+    background: #ffe600;
+    padding: 0 10px;
+    border-radius: 50%;
+    user-select: none;
+    cursor: pointer;
+}
+.single-product-share-option {
+    font-size: 32px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: -10;
+    visibility: hidden;
+    transition: .4s ease-in-out;
+    cursor: pointer;
+}
+.single-product-share-option:nth-child(1).active {
+    transform: translateX(-180%);
+    top: -20%;
+    visibility: visible;
+    z-index: 0;
+}
+.single-product-share-option:nth-child(1) a {
+    color: #0088cc;
+}
+.single-product-share-option:nth-child(2).active {
+    transform: translateX(-160%);
+    top: 30%;
+    visibility: visible;
+    z-index: 0;
+}
+.single-product-share-option:nth-child(2) a {
+    color: #1877f2;
+}
+.single-product-share-option:nth-child(3).active {
+    transform: translateX(-20%);
+    visibility: visible;
+    top: 55%;
+    z-index: 0;
+}
+.single-product-share-option:nth-child(3) a {
+    color: #25d366;
+}
+
+/* Media Queries */
+@media (max-width: 1450px) {
+    .single-product-content-Holder {
+        margin-left: 15px;
     }
-
-.img-magnifier-container {
-  position:relative;
+    .single-product-status-block {
+        width: 90%;
+    }
+    .single-product-buyFromBank-list {
+        grid-template-columns: repeat(3, 30%);
+    }
+    .single-product-characteristics-options-option {
+        padding: 10px 5px;
+    }
+    .single-product-characteristics-optionInfo-block {
+        padding: 10px 15px;
+        margin: 10px;
+    }
+    .single-product-characteristics-options-list {
+        margin-right: 10px;
+    }
+    .single-product-miniInfo-list-info {
+        padding: 10px;
+    }
 }
 
-.img-magnifier-glass {
-  position: absolute;
-  border: 3px solid #000;
-  border-radius: 50%;
-  cursor: none;
-  /*Set the size of the magnifier glass:*/
-  width: 150px;
-  height: 150px;
-}
-strong {
-    color:#000;
-}
-
-.nav-2 {
-  display: inline-block;
-  background: #FFFFFF;
-  border-radius: 3px;
-  border-top: 2px solid #FFE700;
-  height: 60px;
-}
-.nav-2 ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.nav-2 ul li {
-  position: relative;
-  display: inline-block;
-  height: 60px;
-  border-left: 1px solid rgba(0, 0, 0, 0.05);
-  vertical-align: middle;
-  float: left;
-}
-.nav-2 ul li:first-child,
-.nav-2 ul li:nth-child(2),
-.nav-2 ul li:last-child {
-  border-left: 0;
-}
-.nav-2 ul li:nth-child(2) a:before,
-.nav-2 ul li:nth-last-child(2) a:before,
-.nav-2 ul li:nth-child(2) a:after,
-.nav-2 ul li:nth-last-child(2) a:after {
-  -webkit-transition: all 0.3s linear 0s;
-  -moz-transition: all 0.3s linear 0s;
-  -ms-transition: all 0.3s linear 0s;
-  -o-transition: all 0.3s linear 0s;
-  transition: all 0.3s linear 0s;
-}
-.nav-2 ul li:nth-child(2) > a:before {
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: -15px;
-  content: '';
-  width: 0;
-  height: 0;
-  display: block;
-  border-right: 15px solid #FFFFFF;
-  border-top: 60px solid transparent;
-}
-.nav-2 ul li:nth-last-child(2) a:after {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: -15px;
-  content: '';
-  width: 0;
-  height: 0;
-  display: block;
-  border-left: 15px solid #FFFFFF;
-  border-bottom: 60px solid transparent;
-}
-.nav-2 ul li:last-child a {
-  padding: 0 25px 0 30px;
-  color: #000;
-}
-.nav-2 ul li:last-child a:hover {
-  background: #FFE700;
-}
-.nav-2 ul li a {
-  position: relative;
-  display: block;
-  padding: 0 25px;
-  color: #666666;
-  font-size: 14px;
-  line-height: 60px;
-  text-decoration: none;
-  -webkit-transition: all 0.3s linear 0s;
-  -moz-transition: all 0.3s linear 0s;
-  -ms-transition: all 0.3s linear 0s;
-  -o-transition: all 0.3s linear 0s;
-  transition: all 0.3s linear 0s;
-}
-.nav-2 ul li a:hover {
-  background: #FFE700;
-}
-.nav-2 ul li a:hover:before {
-  border-right: 15px solid #FFE700;
-}
-.nav-2 ul li a:hover:after {
-  border-left: 15px solid #FFE700;
-}
-.nav-2 ul li a.logo {
-  background: #FFE700;
-  width: 30px;
-  height: 30px;
-  padding: 15px 30px 15px 15px;
-  line-height: 1;
-  vertical-align: middle;
-}
-.nav-2 ul li a.logo:hover {
-  background: #FFE700;
-}
-.nav-2 ul li a.logo img {
-  width: 100%;
-}
-.nav-2 ul li a i {
-  margin: 0 0 0 6px;
-}
-.nav-2 ul li .menu {
-  display: none;
-  position: absolute;
-  background: #FFFFFF;
-  top: 100%;
-  max-width: 100%;
-  width: 193px;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  border-bottom: 3px solid #ffce54;
-  border-radius: 0 0 3px 3px;
-  overflow: hidden;
-}
-.nav-2 ul li .menu li {
-  display: block;
-  width: 100%;
-  height: 45px;
-  margin: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-.nav-2 ul li .menu li:nth-child(2),
-.nav-2 ul li .menu li:nth-last-child(2) {
-  height: 45px;
-}
-.nav-2 ul li .menu li:nth-child(2) a:before,
-.nav-2 ul li .menu li:nth-last-child(2) a:before,
-.nav-2 ul li .menu li:nth-child(2) a:after,
-.nav-2 ul li .menu li:nth-last-child(2) a:after {
-  content: '';
-  display: none;
-}
-.nav-2 ul li .menu li a {
-  background: #FFFFFF;
-  padding: 0 15px 0 30px;
-  color: #666666;
-  line-height: 45px;
-  text-align: left;
-}
-.nav-2 ul li .menu li a:hover {
-  background: #FFE700;
+@media (max-width: 1300px) {
+    .single-products-product-purchase-container {
+        flex-direction: column-reverse;
+    }
+    .single-product-miniInfo-list {
+        padding: 10px;
+    }
+    .single-products-product-purchase-downloadPDf {
+        margin: 0;
+        margin-bottom: 10px;
+        box-shadow: none;
+    }
+    .single-products-product-purchase-buy {
+        margin: 0;
+    }
+    .sinle-products-purchase-block {
+        align-items: center;
+        margin-top: 3%;
+    }
 }
 
+@media (max-width: 1200px) {
+    .single-product-miniInfo-list {
+        padding: 0 10px;
+    }
+    .single-products-product-purchase-container {
+        flex-direction: column-reverse;
+    }
+    .single-products-product-purchase-downloadPDf {
+        box-shadow: none;
+    }
+    .sinle-products-purchase-block {
+        align-items: center;
+        margin-top: 2%;
+    }
+    .single-product-miniInfo-list-info {
+        padding: 10px;
+    }
+    .single-product-img-Holder {
+        align-items: center;
+    }
+    .single-product-images-mainImage {
+        width: 500px;
+        height: 550px;
+    }
+    .single-product-content-Holder {
+        margin-left: 0;
+    }
+    .single-product-characteristics-options-option {
+        font-size: 18px;
+    }
+    .single-prodcut-title {
+        line-height: 150%;
+    }
+    .single-product-images-list {
+        width: 525px;
+    }
+}
+
+
+@media (max-width: 1100px) {
+    .single-product-images-option {
+        height: 85px;
+    }
+}
+@media (max-width: 992px) {
+    .single-product-images-mainImage {
+        width: 400px;
+        height: 450px;
+    }
+    .single-product-images-mainImage::after {
+        height: 480px;
+    }
+    .single-prodcut-title {
+        line-height: 130%;
+    }
+    .single-product-short-description {
+        font-size: 14px;
+    }
+    .single-product-images-list {
+        width: 460px;
+    }
+    .single-product-images-option {
+        height: 70px;
+    }
+    .single-product-miniInfo-list-infoTitle {
+        font-size: 14px;
+    }
+    .single-products-product-purchase-downloadPDf {
+        padding: 10px;
+    }
+    .single-products-product-purchase-buy {
+        padding: 12px;
+    }
+    .single-product-buyFromBank-list-title {
+        font-size: 14px;
+    }
+    .single-products-product-priceBlock-title {
+        font-size: 20px;
+    }
+    .single-products-product-priceBlock-usdPrice {
+        font-size: 30px;
+    }
+    .single-products-product-priceBlock-uzsPrice {
+        font-size: 18px;
+    }
+    .single-products-newproduct {
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 880px) {
+    .single-product-miniInfo-list-infoTitle {
+        font-size: 12px;
+    }
+    .single-products-product-priceBlock-uzsPrice {
+        font-size: 15px;
+    }
+    .single-products-product-purchase-downloadPDf {
+        width: 160px;
+        font-size: 13px;
+    }
+    .single-products-product-purchase-buy {
+        width: 160px;
+        font-size: 13px;
+    }
+    .single-prodcut-title {
+        font-size: 24px;
+    }
+    .single-products-newproduct {
+        font-size: 16px;
+    }
+    .single-product_status {
+        font-size: 14px;
+    }
+    .single-product_articuleID {
+        font-size: 16px;
+    }
+    .single-product-images-mainImage  {
+        width: 370px;
+        height: 380px;
+    }
+    .single-product-images-list {
+        width: 420px;
+    }
+    .single-product-characteristics-options-option {
+        font-size: 17px;
+    }
+    .single-product-images-mainImage {
+        margin-left: 0;
+    }
+    .single-product-share-block {
+        right: 10px;
+    }
+}
+
+@media (max-width: 800px) {
+    .single-product_block {
+        flex-direction: column;
+        align-items: center;
+    }
+    .single-product-content-container {
+        padding: 10px;
+    }
+    .single-product-characteristics-options-option {
+        font-size: 14px;
+    }
+    .single-product-miniInfo-list-infoTitle {
+        font-size: 15px;
+    }
+    .single-products-product-priceBlock-title {
+        font-size: 28px;
+    }
+    .single-products-product-priceBlock-usdPrice {
+        font-size: 34px;
+    }
+    .sinle-products-purchase-block {
+        margin-top: 0;
+    }
+    .single-product-characteristics-optionInfo-insideBlock p {
+        font-size: 15px;
+    }
+    .single-product-videoBlock iframe {
+        width: 500px;
+        height: 300px;
+    }
+    .single-product-characteristics-optionInfo-block {
+        min-height: 100%;
+    }
+    .single-product-images-option {
+        height: 50px;
+    }
+    .single-product-characteristics-options-option {
+        margin-left: 0;
+    }
+    .single-product-images-mainImage::after {
+        top: 0;
+    }
+    .single-product-status-block {
+        width: 95%;
+    }
+}
+
+@media (max-width: 674px) {
+    .single-product-characteristics-options-option {
+        font-size: 13px;
+    }
+    .single-product-characteristics-options-list {
+        display: grid;
+        grid-template-columns: repeat(2, 40%);
+        grid-gap: 5px 20px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .single-product-images-list {
+        width: 340px;
+    }
+    .single-product-miniBlock {
+        flex-direction: column;
+    }
+    .single-product-buyFromBank-list-holder {
+        margin-top: 5%;
+        margin-left: 10px;
+    }
+    .single-product-buyFromBank-list {
+        grid-template-columns: repeat(3, 25%);
+        justify-content: center;
+        grid-gap: 10px;
+    }
+}
+@media (max-width: 300px) {
+    .single-product-miniInfo-list-infoTitle {
+        font-size: 12px;
+    }
+    .single-product-images-mainImage {
+        width: 266px;
+    }
+    .single-product-images-list {
+        padding: 5px;
+    }
+    .single-product-images-mainImage {
+        height: 345px;
+    }
+    .single-product-content-container {
+        padding: 0;
+    }
+    .single-product-miniInfo-list {
+        padding: 0;
+    }
+    .single-prodcut-title {
+        margin-top: 10px;
+    }
+    .single-product-images-list {
+        width: 270px;
+    }
+    .single-product-images-option {
+        height: 35px;
+    }
+    .single-products-product-purchase-downloadPDf {
+        width: 130px;
+        font-size: 10px;
+    }
+    .single-products-product-purchase-buy {
+        width: 130px;
+        font-size: 11px;
+    }
+    .single-products-product-priceBlock-title {
+        font-size: 20px;
+    }
+    .single-products-product-priceBlock-usdPrice {
+        font-size: 28px;
+    }
+    .single-products-product-priceBlock-uzsPrice {
+        font-size: 13px;
+    }
+    .single-product-short-description {
+        padding-left: 5px;
+    }
+    .single-prodcut-title {
+        padding-left: 5px;
+    }
+    .single-products-product-purchase-downloadPDf {
+        margin-bottom: 5px;
+    }
+    .single-product_status {
+        padding-left: 5px;
+    }
+}
 </style>
 <section class="banner">
     <div class="container">
@@ -221,111 +807,210 @@ strong {
 </section>
 
 <br>
-<br>
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="single-image">
-                <div class="product-gallery">
-                    <div class="img-magnifier-container">
-<!--                      {% with object.image.url as url_path %}-->
-                        <img id="myimage" src="{{ object.image.url }}" style="width: 100%;margin-top: 10px;height: 450px;">
-<!--                      {% endwith %}-->
+<br> <div class="single-product-container">
+        <div class="single-product_block">
+            <div class="single-produce-backgroundinMobile">
+                <div class="single-product-img-Holder">
+                    <!-- Lists -->
+
+                    <!-- Swiper -->
+                    <div class="single-product-swiper mySwiper">
+                        <ul class="swiper-wrapper single-product-images-list">
+                              {% for i in object.images.all %}
+                            <li class="swiper-slide single-product-images-option active">
+                                <img src="./images/us11-removebg-preview.png" alt="">
+                            </li>
+                            {% endfor %}
+                            <li class="swiper-slide single-product-images-option">
+                                <img src="./images/2-removebg-preview_Ic1V6IP.png" alt="">
+                            </li>
+                            <li class="swiper-slide single-product-images-option">
+                                <img src="./images/simpledimple.png" alt="">
+                            </li>
+                            <li class="swiper-slide single-product-images-option">
+                                <img src="./images/us11-removebg-preview.png" alt="">
+                            </li>
+                            <li class="swiper-slide single-product-images-option">
+                                <img src="./images/us11-removebg-preview.png" alt="">
+                            </li>
+                        </ul>
+                        <div class="swiper-pagination"></div>
                     </div>
-                    <ul class="image-list" style="margin-left: 2%;">
-                        <li class="image-item">
-                            <img src="{{ object.image.url }}" alt="">
-{#                            {% with object.image.url as url_path %}#}
-{#                                <img style="width: 80px;height: 79px;padding: 2px;" src="{{ object.image.url|watermark:"uskunalar,scale=R35%,position=br,opacity=100"  }}"></li>#}
-{#                            {% endwith %}#}
-                        {% for i in object.images.all %}
-                        <li class="image-item"><img style="width: 80px;height: 79px;padding: 2px;"
-                                                    src="{{ i.image.url }}"></li>
-                        {% endfor %}
+                    <!-- Image -->
+                    <div class="single-product-images-mainImage"
+                        style="background: url({{ object.image.url }}) no-repeat center center / contain;"
+                        oncontextmenu="return false;">
+                        <!-- <img class="single-product-images-mainImage-img" src="./images/us11-removebg-preview.png" alt=""> -->
+                    </div>
+                </div>
+                <div class="single-product-share-block">
+                    <buttun class="single-product-shareBtn"><i class="fa-light fa-share-nodes"></i></buttun>
+                    <ul class="single-product-share-options">
+                        <li class="single-product-share-option"><a href=""><i class="fa-brands fa-telegram"></i></a></li>
+                        <li class="single-product-share-option"><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+                        <li class="single-product-share-option"><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
-            <p class="single-product-title" style="font-size: 24px;">{{ object.title }}</p>
-            <div class="row">
-                <div class="col-md-4 mt-3">
-                    {% if object.inbox %}
-                        <p class="in_box" style="width:172px"><img src="{% static './images/radius.svg' %}" alt="">
-                        {{ object.inbox }}
-                    {% endif %}
-                    {% if object.delivery %}
-                          <p class="in_box" style="width:172px"><img src="{% static './images/radius.svg' %}" alt="">
-                        {{ object.delivery }}
-                    {% endif %}
-                    </p>
-                </div>
-                <div class="col-md-4 mt-3">
-                    <p class="in_article"><img src="{% static './images/radius.svg' %}" alt=""> {% trans 'Артикул' %}:{{ object.sku }}</p>
-                </div>
-                <div class="col-md-4 mt-2">
-                    <div class="pdf">
-                         <a href="{{ object.pdf.url|default:'' }}"> <img src="{% static './images/pdf' %} 1.svg" alt=""><span
-                            class="download_pdf">{% trans 'Скачать Pdf' %}</span></a>
+            <div class="single-product-content-Holder">
+                <div class="single-product-content-container">
+                    <!-- Title -->
+                    <h2 class="single-prodcut-title">{{ object.title }}
+                        {% if object.is_new %}
+                            <span class="single-products-newproduct">{% trans 'New' %}</span>
+                        {% endif %}
+                    </h2>
+                    <!-- Status and ID -->
+                    <div class="single-product-status-block">
+                        {% if object.inbox %}
+                        <p class="single-product_status"><i class="fa-light fa-check"></i>{{ object.inbox }}</p>
+                        {% endif %}
+                        {% if object.delivery %}
+                         <p class="single-product_status"><i class="fa-light fa-truck-bolt"></i>{{ object.delivery }}</p>
+                        {% endif %}
+                        <!-- <p class="single-product_status on-the-way"><i class="fa-light fa-clock-rotate-left"></i> Kelmoqda</p> -->
+                        <span class="single-product_articuleID">ID: {{ object.pk }}</span>
                     </div>
-                </div>
-            </div>
+                    <!-- Short Description -->
+                    <p class="single-product-short-description">{{ object.short_description|safe }}</p>
 
-            <p style="line-height:28px;font-family:sans-serif">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab delectus incidunt magni nostrum officia pariatur, ullam. Ab accusamus consequuntur dignissimos error ipsum labore laudantium necessitatibus nesciunt non perferendis, possimus, recusandae rem temporibus. Accusamus accusantium aut dolore error et excepturi harum, provident sed sequi tenetur. Consequuntur dicta doloremque dolores magnam minus.</p>
-            <div class="row">
-                <div class="col-md-7">
-                      <p class="desc_prod mb-1" style="color:#132E6B;font-weight:bold;margin-top:20px">КОНВEРТАЦИЯ:</p>
-                        <p class="desc_prod mt-1"><img src="{% static './images/bank.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;color:#132E6B;font-family:sans-serif">15% НДС</span></p>
-                        <p class="desc_prod mt-1"><img src="{% static './images/krip.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;color:#132E6B;font-family:sans-serif">Конвертация хизмати учун 1%</span></p>
-                        <p class="desc_prod mt-1"><img src="{% static './images/procent.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;color:#132E6B;font-family:sans-serif">Банк хизмати учун 0.5%</span></p>
-                        <p class="desc_prod mt-1"><img src="{% static './images/dollar.png' %}" style="width:30px" alt=""><span style="margin:8px;position:relative;top:-6px;color:#132E6B;font-family:sans-serif">Доллар без НДС</span></p>
-                </div>
-                <div class="col-md-5">
-                 <div class='nav-2 mt-4'>
-                  <ul>
-                    <li>
-                      <a href='#calendar'>
-                        Купить через банк
-                        <i class='fa fa-caret-down'></i>
-                      </a>
-                      <ul class='menu'>
-                        <li>
-                          <a href='#event_one'>infin bank</a>
-                        </li>
-                        <li>
-                          <a href='#event_two'>Hamkorbank</a>
-                        </li>
-                        <li>
-                          <a href='#event_three'>Qishloq qurilish banki</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 mt-4">
-                    <p class="price_prod" style="font-size: 20px;font-weight: bold;color: #000;">{% trans 'Цена' %}:</p>
-                    <h3 class="count_prod" style="color: #e3000f;font-size: 35px;font-weight: bold;">${{ object.dollar }}</h3>
-                    <h3 class="count_prod" style="margin-top: 5px;font-size:20px">{{ object.dollar_exchanges|intcomma }} сум</h3>
-                </div>
-                <div class="col-md-6 mt-4">
-                    <div class="numbers_prod" style="margin-top: 3px;">
-                        <ul>
-                            <li>
-                                <button id="single-buttom" class="button-left button-bottom-left" type="button"
-                                        data-toggle="modal" data-target="#exampleModalCenter"
-                                        style="width: 195px;height: 57px;margin-top:20px;right:0px">
-                                    <p class="carousel-button-text">{% trans 'Купить' %}</p>
-                                </button>
+                    <!-- Convertation and Buy by Bank -->
+                    <div class="single-product-miniBlock">
+                        <!-- Convertation Icons -->
+                        <ul class="single-product-miniInfo-list">
+                            <li class="single-product-miniInfo-list-info">
+                                <p class="single-product-miniInfo-list-infoTitle"><i
+                                        class="fa-light fa-money-bill-transfer"></i> Konvertatsiya xizmatlari uchun 1%
+                                </p>
+                            </li>
+                            <li class="single-product-miniInfo-list-info list-dashed">
+                                <p class="single-product-miniInfo-list-infoTitle"><i
+                                        class="fa-light fa-building-columns"></i> Bank xizmatlari uchun 0.5%</p>
+                            </li>
+                            <li class="single-product-miniInfo-list-info">
+                                <p class="single-product-miniInfo-list-infoTitle"><i
+                                        class="fa-light fa-badge-percent"></i> 15% QQS (dollarda hisoblanmaydi)</p>
                             </li>
                         </ul>
+
+                        <!-- Buy By Bank -->
+                        <div class="single-product-buyFromBank-list-holder">
+                            <h3 class="single-product-buyFromBank-list-title">Bank orqali xarid qilish</h3>
+                            <ul class="single-product-buyFromBank-list">
+                                <li class="single-product-buyFromBank-bank">
+                                    <a href=""><img class="single-product-buyFromBank-bank-img" src="/static/images/sqb.png"
+                                            alt=""></a>
+                                </li>
+                                <li class="single-product-buyFromBank-bank">
+                                    <a href=""><img class="single-product-buyFromBank-bank-img" src="/static/images/qqb.png"
+                                            alt=""></a>
+                                </li>
+                                <li class="single-product-buyFromBank-bank">
+                                    <a href=""><img class="single-product-buyFromBank-bank-img"
+                                            src="/static/images/ipoteka.png" alt=""></a>
+                                </li>
+                                <li class="single-product-buyFromBank-bank">
+                                    <a href=""><img class="single-product-buyFromBank-bank-img"
+                                            src="/static/images/trastbank.png" alt=""></a>
+                                </li>
+                                <li class="single-product-buyFromBank-bank">
+                                    <a href=""><img class="single-product-buyFromBank-bank-img"
+                                            src="/static/images/infinbank.png" alt=""></a>
+                                </li>
+                                <li class="single-product-buyFromBank-bank">
+                                    <a href=""><img class="single-product-buyFromBank-bank-img"
+                                            src="/static/images/hamkorbank.png" alt=""></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Purchase-->
+                    <div class="sinle-products-purchase-block">
+                        <!-- Product Price Block -->
+                        <div class="single-products-product-priceBlock">
+                            <h3 class="single-products-product-priceBlock-title">Narxi:</h3>
+                            <div>
+                                <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price_dollar }}</h4>
+                                <h5 class="single-products-product-priceBlock-uzsPrice">{{ object.dollar_exchanges|intcomma }}  so'm</h5>
+                            </div>
+                        </div>
+
+                        <!-- Purchase Button -->
+                        <div class="single-products-product-purchase-container">
+                            <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="single-products-product-purchase-buy"><i
+                                    class="fa-solid fa-cart-shopping"></i> Sotib Olish</button>
+                            <a href="{{ object.pdf.url|default:'' }}" target="_blank"><button type="submit" class="single-products-product-purchase-downloadPDf"><i
+                                    class="fa-solid fa-file"></i> Pdf Yuklab olish</button></a>
+                        </div>
                     </div>
 
                 </div>
             </div>
+        </div>
+
+        <div class="single-product-characteristics-container">
+            <div class="single-product-characteristics-options-block">
+                <ul class="single-product-characteristics-options-list">
+                    <li id="us-product-1" class="single-product-characteristics-options-option active">Xususiyatlari
+                    </li>
+                    <li id="us-product-2" class="single-product-characteristics-options-option">Tavsifi</li>
+                    <li id="us-product-3" class="single-product-characteristics-options-option">Videolar</li>
+                    <li id="us-product-4" class="single-product-characteristics-options-option">Yetkazib Berish</li>
+                    <li id="us-product-5" class="single-product-characteristics-options-option">Kafolat shartlari</li>
+                </ul>
+            </div>
+            <div class="single-product-characteristics-optionInfo-block">
+                <div id="us-product-1" class="single-product-characteristics-optionInfo-insideBlock active">
+                    <ul>
+                         {% for z in object.specifications.all %}
+                              <li>
+                                <p class="single-product-characteristics-title">{{ z.product_customer|safe }}</p>
+                                <p class="single-product-characteristics-character">{{ z.product_number|safe }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div id="us-product-2" class="single-product-characteristics-optionInfo-insideBlock">
+                    <p>{{ object.long_description|safe}}</p>
+                </div>
+                <div id="us-product-3" class="single-product-characteristics-optionInfo-insideBlock">
+                    <div class="single-product-videoBlock" style="display: flex;justify-content: center;">
+                        <iframe width="1000" height="600" src="https://www.youtube.com/embed/kKlnpUWQWdE"
+                            title="Night lovell - Deira City Centre Madness Remix |CAR MUSIC 2021" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div id="us-product-4" class="single-product-characteristics-optionInfo-insideBlock">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, laboriosam modi quam
+                        officiis, minus necessitatibus atque in vero ducimus obcaecati quod debitis temporibus laborum
+                        eum non mollitia repellendus est doloremque architecto. Magni nulla libero accusantium quod
+                        mollitia maiores obcaecati. Error voluptate quasi veniam. Quaerat aspernatur unde, temporibus
+                        quae placeat blanditiis. Maiores aliquam est numquam obcaecati assumenda magnam cumque vitae
+                        repudiandae accusantium quia. Non et, ratione a ipsum ex qui facilis vero provident, ad repellat
+                        quasi reprehenderit. Neque voluptates rerum possimus et delectus velit commodi ab excepturi
+                        accusantium placeat. Nostrum libero sequi totam obcaecati natus placeat ipsa excepturi ipsam
+                        dignissimos officia.</p>
+                </div>
+                <div id="us-product-5" class="single-product-characteristics-optionInfo-insideBlock">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae, atque nam, debitis quis
+                        maxime aperiam ipsa repellat aut, dolorem nobis aspernatur repellendus pariatur ducimus et
+                        similique! Cum beatae, optio debitis, illum odio dolore amet eligendi magni necessitatibus
+                        voluptates dolorem similique ex officia placeat exercitationem praesentium fugit tempora?
+                        Cupiditate, asperiores voluptatibus odio nobis consequatur commodi minima ipsa architecto fuga
+                        placeat inventore esse deserunt quam maxime autem, provident soluta? Explicabo fuga libero
+                        asperiores, voluptates facere, officiis cum rerum architecto accusamus quibusdam minus facilis
+                        illo. Consectetur, quisquam vel suscipit repellendus dicta, quis accusamus cum itaque amet nobis
+                        illo animi voluptates nisi harum quaerat? Pariatur at nulla sint error, ullam, repudiandae
+                        doloremque id unde iste quo quaerat ad tempore, delectus iusto corrupti vitae eveniet. Atque
+                        facere cumque ea, sed eligendi quaerat iste voluptates beatae. Similique autem harum dicta
+                        debitis cumque libero minima aperiam. Enim, laudantium inventore! Obcaecati quos animi repellat
+                        eaque expedita aperiam iusto.</p>
+                </div>
+            </div>
+        </div>
+    </div>
             <div class="row">
                 <div class="col-md-6 col-6">
                     <!-- Modal -->
@@ -357,9 +1042,6 @@ strong {
             </div>
             <br>
         </div>
-        <img src="{% static './images/settings.svg' %}" class="icon-right" style="transform: rotate(-25deg);" alt="">
-        <img src="{% static './images/Group_419.svg' %}" class="icon-right-2"
-             style="position: absolute;right: 24%;transform: rotate(-35deg);" alt="">
     </div>
 </div>
 <div class="container">
@@ -376,229 +1058,82 @@ strong {
 {% endif %}
 </div>
 <br>
-<div data-aos="fade-right">
+{#<div data-aos="fade-right">#}
+{#    <div class="container">#}
+{#        <p class="description_prod">{% trans 'Характеристики и описания оборудования' %}</p>#}
+{#    </div>#}
+{#    <div class="container" style="border: 1px solid #C9C8D3;border-radius: 4px;padding: 20px;">#}
+{#        <table class="table table-striped">#}
+{#            <tbody>#}
+{#            {% for z in object.specifications.all %}#}
+{#            <tr>#}
+{#                <td style="font-weight: 500;">{{ z.product_customer|safe }}</td>#}
+{#                <td style="text-align:center">{{ z.product_number|safe }}</td>#}
+{#                <td style="text-align:center"><img src="{% if z.product_image %} {{ z.product_image.url }} {% endif %}"#}
+{#                                                   style="width:44px" alt=""></td>#}
+{#            </tr>#}
+{#            {% endfor %}#}
+{#            </tbody>#}
+{#        </table>#}
+{#        <p style=" border-bottom: 3px silver dashed;"></p>#}
+{#        <br>#}
+{#        <p class="description_long">{{ object.long_description|safe }} </p>#}
+{#        <br>#}
+{#    </div>#}
+{#</div>#}
+<br>
+<br>
+
     <div class="container">
-        <p class="description_prod">{% trans 'Характеристики и описания оборудования' %}</p>
-    </div>
-    <div class="container" style="border: 1px solid #C9C8D3;border-radius: 4px;padding: 20px;">
-        <table class="table table-striped">
-            <tbody>
-            {% for z in object.specifications.all %}
-            <tr>
-                <td style="font-weight: 500;">{{ z.product_customer|safe }}</td>
-                <td style="text-align:center">{{ z.product_number|safe }}</td>
-                <td style="text-align:center"><img src="{% if z.product_image %} {{ z.product_image.url }} {% endif %}"
-                                                   style="width:44px" alt=""></td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-        <p style=" border-bottom: 3px silver dashed;"></p>
+        <h1 class="text-center"
+            style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
+            {% trans 'Популярные товары' %}</h1>
+        <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
+            информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
         <br>
-        <p class="description_long">{{ object.long_description|safe }} </p>
         <br>
-    </div>
-</div>
-<img src="{% static './images/Group_418.svg' %}" class="icon-left" style="width: 90px;margin-left: 4%;" alt="">
-<br>
-<br>
-
-<div class="container">
-    <div class="back_elements">
+        <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
+        <br>
 
     </div>
-    <img src="{% static './images/Group_417.svg' %}" class="icon-right-transform" style="position: absolute;" alt="">
-    <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
-        {% trans 'Популярные товары' %}</h1>
-    <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
-        информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
-    <br>
-    <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;background-color: #ffe700;">
-</div>
+
 
 <div class="container">
     <div class="row-1">
         <br>
         <div class="splide_3_2">
-            <div class="splide__track" style="height: 520px;">
-                <ul class="splide__list">
-                    {% for product in related %}
-                    <li class="splide__slide">
-                        <div class="col-md-3">
-                            <div class="produdcs-section2">
-                                <div class="flex-itm">
-                                    <div class="flex-iem-inner">
-                                        <!-- card -->
-                                        <a onclick="add_to_wishlist(this, {{ product.pk }})">
-                                            <div class="card-front bg-violet">
-                                                <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                                                    {% if product|in_wishlist:request %}
-                                                    <button class="btn-like2" type="submit"
-                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;top:5%">
-                                                        <img
-                                                                src="{% static './images/red_active.svg' %}"
-                                                                style="margin-top: 7px;" alt=""></button>
-                                                    {% else %}
-                                                    <button class="btn-like2" type="submit"
-                                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;top:5%">
-                                                        <img
-                                                                src="{% static './images/like.svg' %}"
-                                                                style="margin-top: 7px;" alt=""></button>
-                                                    {% endif %}
-                                                </a>
-                                                {% if product.is_discount %}
-                                                <a href="#" class="card-link">
-                                                    <button class="btn"
-                                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                        <p style="margin-left:-10%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                                    </button>
-                                                </a>
-                                                {% elif product.is_new %}
-                                                <a href="#" class="card-link1">
-                                                    <button class="btn new-mobile-1">
-                                                        <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                                    </button>
-                                                </a>
-                                                {% endif %}
-                                                <a href="{% url 'products:single' pk=product.pk %}">
-                                                    <img src="{{ product.image.url }}"
-                                                         style="width: 100%;height: 300px;display: table;margin: auto;"
-                                                         alt="">
-                                                </a>
-
-                                                <div class="card-text"
-                                                     style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                    <h4 class="front-title">{{ product.title }}</h4>
-                                                    <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
-                                                    <p class="desc">${{ product.get_price_dollar }} - {{ product.get_price }} сум</p>
-                                                    <div class="text-center">
-                                                        <ul>
-                                                            <li>
-                                                                <a href="{% url 'products:single' pk=product.pk %}">
-                                                                    <button class="button-center button-bottom2 mobile-button"
-                                                                            style="width: 127px;height: 43px;">
-                                                                        <p style="font-size: 13px;">{% trans 'Заказать' %}</p>
-                                                                    </button>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                        <br>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <!-- /card -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container ">
-    <div class="row desk-product">
-        {% for product in related|slice:':4' %}
-        <div class="col-md-3">
-            <div class="produdcs-section">
-                <div class="flex-item">
-                    <div class="flex-item-inner">
-                        <!-- card -->
-                        <a href="{% url 'products:single' pk=product.pk %}">
-                            <div class="card-front bg-violet">
-                                <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                                    <button class="btn"
-                                            style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                                        <img
-                                                src="{% static './images/like.svg' %}" style="margin-top: 7px;" alt="">
-                                    </button>
-                                </a>
-                                {% if product.is_discount %}
-                                <a href="#" class="card-link">
-                                    <button class="btn"
-                                            style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                        <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                    </button>
-                                </a>
-                                {% elif product.is_new %}
-                                <a href="#" class="card-link1">
-                                    <button class="btn new-mobile-1">
-                                        <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                    </button>
-                                </a>
-                                {% endif %}
-                                <img src="{{ product.image.url }}" class="product-image-url"  alt="">
-{#                              {% with product.image.url as url_path %}#}
-{#                                <img src="{{ product.image.url|watermark:"uskunalar,scale=R35%,position=br,opacity=100"  }}" class="product-image-url" alt="">#}
-{#                              {% endwith %}#}
-                                <div class="card-text">
-                                    <h4 class="front-title">{{ product.title }}</h4>
-                                    <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
-                                    <p class="detail">{% trans 'Город' %}: {{ product.city }}</p>
-                                    <p class="desc">${{ product.dollar }} - {{ product.dollar_exchanges|intcomma  }} сум</p>
-                                </div>
-                            </div>
-                            <div class="card-back bg-violet">
-                                <p class="back-title">{{ product.title }}</p>
-                                <p class="desc">${{ product.dollar }} - {{ product.dollar_exchanges|intcomma  }} сум</p>
-                                <div class="container">
-                                    <div class="spetifications" style="margin-top: 15%;padding: 1px;">
-                                        <div class="row">
-                                            {% for j in product.specifications.all %}
-                                            <div class="col-md-6">
-
-                                                <p style="font-size: 14px;margin-bottom: 8px;">
-                                                    {{ j.product_customer }}:</p>
-                                            </div>
-                                            <br>
-                                            <div class="col-md-6">
-                                                <p style="font-size: 14px;margin-bottom: 8px;">
-                                                    {{ j.product_number }}</p>
-                                            </div>
-                                            <br>
-                                            <br>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="buttons" style="text-align: center;padding: 10px;">
-                                    <ul>
-                                        <li>
-                                            <a href="{% url 'products:single' pk=product.pk %}">
-                                                <button class="button-product button-bottom-product">
-                                                    <p style="font-size: 16px;">{% trans 'Заказать' %}</p>
-                                                </button>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <a onclick="add_to_wishlist(this, {{ product.pk }})" class="card-link">
-                                         {% if product|in_wishlist:request %}
-                                            <button class="btn-like2" type="submit"><img src="{% static './images/red_active.svg' %}" alt=""></button>
-                                            {% else %}
-                                            <button class="btn-like2" type="submit"><img src="{% static './images/like.svg' %}" alt=""></button>
-                                        {% endif %}
-                                    </a>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- /card -->
-                    </div>
+            <div class="splide__track">
+                    <ul class="splide__list" style="height:700px">
+                     {% for product in products %}
+                        <li class="splide__slide">
+                             <div class="us-products">
+                                  {% include 'layouts/product_block.html' %}
+                              </div>
+                        </li>
+                      {% endfor %}
+                    </ul>
                 </div>
-            </div>
         </div>
-        {% endfor %}
     </div>
 </div>
+
+
+<div class="products-none">
+      <div class="us-products">
+            {% for product in products|slice:'4'  %}
+                {% include 'layouts/product_block.html' %}
+            {% endfor %}
+     </div>
 </div>
 
+
+
+
 <br>
 
 
 <br>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 {% block extra_js %}
 <script>
 (function () {
@@ -630,6 +1165,113 @@ strong {
 
 
 
+</script>
+<script>
+var swiper = new Swiper(".mySwiper", {
+    direction: "horizontal",
+    slidesPerView: 3,
+    spaceBetween: 15,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+
+//   Slider Get  Image
+const singleProductImages = document.querySelectorAll('.single-product-images-option img')
+const singleProductImage = document.querySelector('.single-product-images-mainImage');
+let lastActiveProductImage;
+
+
+singleProductImages.forEach(singleProductImageElement => {
+    if (singleProductImageElement.parentElement.classList.contains('active')) {
+        lastActiveProductImage = singleProductImageElement.parentElement;
+    }
+    singleProductImageElement.addEventListener('click', () => {
+        const singleProductNewImage = singleProductImageElement.src.split('images/')[1];
+        singleProductImage.style.background = `url(./images/${singleProductNewImage}) no-repeat center center / contain`
+        lastActiveProductImage.classList.remove('active')
+        lastActiveProductImage = singleProductImageElement.parentElement;
+        singleProductImageElement.parentElement.classList.add('active')
+    })
+})
+
+
+
+var zoomedImage = document.querySelector('.single-product-images-mainImage');
+
+if (zoomedImage) {
+// Zoom image on mouse enter.
+zoomedImage.addEventListener('mouseenter', function(e) {
+    this.style.backgroundSize = "200%";
+}, false);
+
+
+// Show different parts of image depending on cursor position.
+zoomedImage.addEventListener('mousemove', function(e) {
+
+    // getBoundingClientReact gives us various information about the position of the element.
+    var dimentions = this.getBoundingClientRect();
+
+    // Calculate the position of the cursor inside the element (in pixels).
+    var x = e.clientX - dimentions.left;
+    var y = e.clientY - dimentions.top;
+
+    // Calculate the position of the cursor as a percentage of the total width/height of the element.
+    var xpercent = Math.round(100 / (dimentions.width / x));
+    var ypercent = Math.round(100 / (dimentions.height / y));
+
+    // Update the background position of the image.
+    this.style.backgroundPosition = xpercent+'% ' + ypercent+'%';
+
+}, false);
+
+
+// When leaving the container zoom out the image back to normal size.
+zoomedImage.addEventListener('mouseleave', function(e) {
+    this.style.backgroundSize = "contain";
+    this.style.backgroundPosition = "center";
+}, false);
+}
+
+// Product Characteristics
+
+const characteristicsOptions = document.querySelectorAll('.single-product-characteristics-options-option');
+const characteristicsContent = document.querySelectorAll('.single-product-characteristics-optionInfo-insideBlock');
+let lastcharacteristicsOption, lastcharacteristicsListOption;
+
+characteristicsOptions.forEach(element => {
+
+    if (element.classList.contains('active')) {
+        lastcharacteristicsListOption = element;
+    }
+
+    element.addEventListener('click', () => {
+        lastcharacteristicsListOption.classList.remove('active');
+        lastcharacteristicsListOption = element;
+        element.classList.add('active')
+
+        characteristicsContent.forEach(contentElement => {
+            if (element.id === contentElement.id) {
+                contentElement.classList.add('active')
+            }
+            else {
+                contentElement.classList.remove('active')
+            }
+        })
+    })
+})
+
+
+// Share Button
+const shareBtn = document.querySelector('.single-product-shareBtn');
+const shareBtnOption = document.querySelectorAll('.single-product-share-option');
+
+shareBtn.addEventListener('click', () => {
+    shareBtnOption.forEach(element => {
+        element.classList.toggle('active')
+    })
+})
 </script>
 <script>
       function add_to_wishlist(element, pk) {
@@ -698,65 +1340,6 @@ $(".nav-2 li").hover(function () {
 });
 
 
-</script>
-{#<script>#}
-{#function magnify(imgID, zoom) {#}
-{#  var img, glass, w, h, bw;#}
-{#  img = document.getElementById(imgID);#}
-{#  /*create magnifier glass:*/#}
-{#  glass = document.createElement("DIV");#}
-{#  glass.setAttribute("class", "img-magnifier-glass");#}
-{#  /*insert magnifier glass:*/#}
-{#  img.parentElement.insertBefore(glass, img);#}
-{#  /*set background properties for the magnifier glass:*/#}
-{#  glass.style.backgroundImage = "url('" + img.src + "')";#}
-{#  glass.style.backgroundRepeat = "no-repeat";#}
-{#  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";#}
-{#  bw = 3;#}
-{#  w = glass.offsetWidth / 2;#}
-{#  h = glass.offsetHeight / 2;#}
-{#  /*execute a function when someone moves the magnifier glass over the image:*/#}
-{#  glass.addEventListener("mousemove", moveMagnifier);#}
-{#  img.addEventListener("mousemove", moveMagnifier);#}
-{#  /*and also for touch screens:*/#}
-{#  glass.addEventListener("touchmove", moveMagnifier);#}
-{#  img.addEventListener("touchmove", moveMagnifier);#}
-{#  function moveMagnifier(e) {#}
-{#    var pos, x, y;#}
-{#    /*prevent any other actions that may occur when moving over the image*/#}
-{#    e.preventDefault();#}
-{#    /*get the cursor's x and y positions:*/#}
-{#    pos = getCursorPos(e);#}
-{#    x = pos.x;#}
-{#    y = pos.y;#}
-{#    /*prevent the magnifier glass from being positioned outside the image:*/#}
-{#    if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}#}
-{#    if (x < w / zoom) {x = w / zoom;}#}
-{#    if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}#}
-{#    if (y < h / zoom) {y = h / zoom;}#}
-{#    /*set the position of the magnifier glass:*/#}
-{#    glass.style.left = (x - w) + "px";#}
-{#    glass.style.top = (y - h) + "px";#}
-{#    /*display what the magnifier glass "sees":*/#}
-{#    glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";#}
-{#  }#}
-{#  function getCursorPos(e) {#}
-{#    var a, x = 0, y = 0;#}
-{#    e = e || window.event;#}
-{#    /*get the x and y positions of the image:*/#}
-{#    a = img.getBoundingClientRect();#}
-{#    /*calculate the cursor's x and y coordinates, relative to the image:*/#}
-{#    x = e.pageX - a.left;#}
-{#    y = e.pageY - a.top;#}
-{#    /*consider any page scrolling:*/#}
-{#    x = x - window.pageXOffset;#}
-{#    y = y - window.pageYOffset;#}
-{#    return {x : x, y : y};#}
-{#  }#}
-{#}#}
-{#</script>#}
-<script>
-magnify("myimage", 2);
 </script>
 <script>
   AOS.init();
