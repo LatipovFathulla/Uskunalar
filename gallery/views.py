@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView, ListView
 
-# Create your views here.
+from gallery.models import GalleryModel
+
+
+class GalleryTemplateView(ListView):
+    model = GalleryModel
+    template_name = 'gallery.html'
+    queryset = GalleryModel.objects.order_by('-pk')
+    paginate_by = 6

@@ -13,5 +13,5 @@ urlpatterns = [
     path('catalog/', CatalogView.as_view(), name='catalog'),
     path('request/', RequestCreateView.as_view(), name='request'),
     path('form/', OrderCreateView.as_view(), name='form'),
-    path('', cache_page(1)(HomeView.as_view()), name='home'),
+    path('', cache_page(1800)(HomeView.as_view()), name='home'),
 ]

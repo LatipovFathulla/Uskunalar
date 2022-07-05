@@ -1,0 +1,232 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<style>
+
+.about-company {
+    margin-top: 40px;
+    overflow-x: hidden;
+}
+
+.about-company-container {
+    max-width: 1300px;
+    width: 100%;
+    margin: auto;
+}
+
+.about-company-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.about-company-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.about-company-card:nth-child(even) .about-company-card-sliderBlock::after {
+    left: 0;
+    border-width: 50px 0 50px 86.6px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.about-company-card-sliderBlock {
+    flex: 0.5 0 auto;
+    max-width: 585px;
+    width: 100%;
+    position: relative;
+    user-select: none;
+}
+
+.about-company-card-sliderBlock::after {
+    position: absolute;
+    top: 35%;
+    right: 0;
+    z-index: 999;
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 40px 76.6px 40px 0;
+    border-color: transparent #fff transparent transparent;
+}
+
+.about-company-card-contentBlock {
+    padding: 30px;
+}
+
+.about-company-card-title {
+    color: #333;
+    font-size: 25px;
+    font-weight: 700;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.about-company-card-swiper {
+    /* width: 100%; */
+    height: 100%;
+    overflow: hidden;
+}
+
+.about-company-card-swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.about-company-card-swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-company-card-swiper .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+}
+
+.about-company-card-swiper .swiper-pagination-bullet-active-main {
+    background-color: #ffe600 !important;
+}
+
+.about-company-videoBlock {
+    margin-top: 10%;
+}
+
+.about-company-videoBlock-title {
+    color: #132e6b;
+    font-size: 38px;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+.about-company-videoBlock-title::before {
+    content: '';
+    display: block;
+    width: 20%;
+    height: 1px;
+    background-color: #132e6b;
+    margin-bottom: 10px;
+}
+.about-company-videoBlock-title::after {
+    content: '';
+    display: block;
+    width: 20%;
+    height: 1px;
+    background-color: #132e6b;
+    align-self: flex-end;
+    margin-top: 10px;
+}
+
+
+@media (max-width: 992px) {
+    .about-company-card {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+    .about-company-card:nth-child(even) {
+        flex-direction: column;
+    }
+    .about-company-card-sliderBlock {
+        padding: 5px;
+    }
+    .about-company-card-sliderBlock::after {
+        display: none;
+    }
+    .about-company-card-contentBlock {
+        padding: 10px 15px;
+    }
+    .about-company-card-title {
+        font-size: 20px;
+        padding-top: 0;
+    }
+    .about-company-card-text {
+        font-size: 14px;
+    }
+    .about-company-videoBlock-title {
+        font-size: 26px;
+    }
+}
+</style>
+<section class="banner">
+    <div class="container">
+        <div class="row">
+
+        </div>
+        <h1 class="banner-text">{% trans 'Kompaniya haqida' %}</h1>
+        <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Asosiy' %} </a>   <span> > <a href="" class="banner-desc-title" style="color: #132E6B;">{% trans 'Kompaniya haqida' %}</a></span></p>
+
+        <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
+    </div>
+
+</section>
+
+ <div class="about-company">
+        <div class="about-company-container">
+            <div class="about-company-card">
+                <div data-aos="fade-right" class="about-company-card-sliderBlock">
+                    <a href="">
+                        <div class="swiper mySwiper about-company-card-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide about-company-card-swiper-slide "><img src="./companyphoto.jpg" alt=""></div>
+                                <div class="swiper-slide about-company-card-swiper-slide "><img src="./companyphoto.jpg" alt=""></div>
+                                <div class="swiper-slide about-company-card-swiper-slide "><img src="./companyphoto.jpg" alt=""></div>
+                                <div class="swiper-slide about-company-card-swiper-slide "><img src="./companyphoto.jpg" alt=""></div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </a>
+                </div>
+                <div data-aos="fade-left" class="about-company-card-contentBlock">
+                    <h2 class="about-company-card-title">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Sapiente, at?</h2>
+                    <p class="about-company-card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                        Excepturi soluta enim maxime, vel, quae deserunt nihil, laudantium assumenda debitis cumque
+                        perferendis exercitationem. Odit laudantium laboriosam voluptate dolores, ipsa provident
+                        similique.</p>
+                </div>
+            </div>
+
+            <div class="about-company-videoBlock">
+                <h2 class="about-company-videoBlock-title">About Uskunalar International</h2>
+                <iframe width="100%" height="420" src="https://www.youtube.com/embed/97JZMrnRnYM" title="Современные Агро-Машины Совершенно Нового Уровня ▶10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+<script>
+        AOS.init();
+</script>
+<script>
+var swiper = new Swiper(".mySwiper", {
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: true,
+    },
+    autoplay: {
+        delay: 5000,
+      },
+  });
+</script>
+{% endblock %}
