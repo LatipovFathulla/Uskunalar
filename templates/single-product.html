@@ -57,7 +57,6 @@
     padding: 10px 5px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .single-product-swiper {
@@ -817,22 +816,10 @@
                     <div class="single-product-swiper mySwiper">
                         <ul class="swiper-wrapper single-product-images-list">
                               {% for i in object.images.all %}
-                            <li class="swiper-slide single-product-images-option active">
-                                <img src="./images/us11-removebg-preview.png" alt="">
+                            <li class="swiper-slide single-product-images-option ">
+                                <img src="{{ i.image.url }}" alt="">
                             </li>
                             {% endfor %}
-                            <li class="swiper-slide single-product-images-option">
-                                <img src="./images/2-removebg-preview_Ic1V6IP.png" alt="">
-                            </li>
-                            <li class="swiper-slide single-product-images-option">
-                                <img src="./images/simpledimple.png" alt="">
-                            </li>
-                            <li class="swiper-slide single-product-images-option">
-                                <img src="./images/us11-removebg-preview.png" alt="">
-                            </li>
-                            <li class="swiper-slide single-product-images-option">
-                                <img src="./images/us11-removebg-preview.png" alt="">
-                            </li>
                         </ul>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -846,9 +833,9 @@
                 <div class="single-product-share-block">
                     <buttun class="single-product-shareBtn"><i class="fa-light fa-share-nodes"></i></buttun>
                     <ul class="single-product-share-options">
-                        <li class="single-product-share-option"><a href=""><i class="fa-brands fa-telegram"></i></a></li>
-                        <li class="single-product-share-option"><a href=""><i class="fa-brands fa-facebook"></i></a></li>
-                        <li class="single-product-share-option"><a href=""><i class="fa-brands fa-whatsapp"></i></a></li>
+                        <li class="single-product-share-option"><a href="https://t.me/share/url?url={{ request.get_host }}{{ request.get_full_path }}&text={{ object.title }}" target="_blank"><i class="fa-brands fa-telegram"></i></a></li>
+                        <li class="single-product-share-option"><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ request.get_full_path }}" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li class="single-product-share-option"><a href="https://wa.me/?text={{ request.get_host }}{{ request.get_full_path }}" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -1136,37 +1123,6 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 {% block extra_js %}
 <script>
-(function () {
-
-    $(".hamburger").on("click", function () {
-        $(this).parent(".hamburger-wrapper").toggleClass("hamburger-active")
-    });
-
-}());
-
-
-</script>
-<script>
-  const activeImage = document.querySelector(".product-image .active");
-  const productImages = document.querySelectorAll(".image-list img");
-  const navItem = document.querySelector('a.toggle-nav');
-
-  function changeImage(e) {
-    activeImage.src = e.target.src;
-  }
-
-  function toggleNavigation(){
-    this.nextElementSibling.classList.toggle('active');
-  }
-
-  productImages.forEach(image => image.addEventListener("click", changeImage));
-  navItem.addEventListener('click', toggleNavigation);
-
-
-
-
-</script>
-<script>
 var swiper = new Swiper(".mySwiper", {
     direction: "horizontal",
     slidesPerView: 3,
@@ -1182,18 +1138,21 @@ const singleProductImages = document.querySelectorAll('.single-product-images-op
 const singleProductImage = document.querySelector('.single-product-images-mainImage');
 let lastActiveProductImage;
 
+// singleProductImages[0].parentElement.classList.add('active');
 
 singleProductImages.forEach(singleProductImageElement => {
     if (singleProductImageElement.parentElement.classList.contains('active')) {
         lastActiveProductImage = singleProductImageElement.parentElement;
     }
     singleProductImageElement.addEventListener('click', () => {
-        const singleProductNewImage = singleProductImageElement.src.split('images/')[1];
-        singleProductImage.style.background = `url(./images/${singleProductNewImage}) no-repeat center center / contain`
+        console.log(singleProductImageElement.src)
+        const singleProductNewImage = singleProductImageElement.src.split('products/')[1];
+        singleProductImage.style.background = `url(/media/products/${singleProductNewImage}) no-repeat center center / contain`
         lastActiveProductImage.classList.remove('active')
         lastActiveProductImage = singleProductImageElement.parentElement;
         singleProductImageElement.parentElement.classList.add('active')
     })
+//    single-product-images-option
 })
 
 
