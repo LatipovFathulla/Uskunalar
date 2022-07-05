@@ -4,20 +4,20 @@
 {% load static %}
 {% block content %}
 <style>
+
 .obshiy-container {
     max-width: 1500px;
     width: 100%;
     margin: auto;
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
-
 }
 
 .us-lines {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
+    margin-left: 30px;
 }
 
 .us-line-card {
@@ -42,7 +42,6 @@
 }
 .us-line-card:hover .us-line-card-main-title {
     opacity: 0;
-    display: none;
 }
 .us-line-card:hover .us-line-card-container::before {
     backdrop-filter: blur(5px);
@@ -53,8 +52,8 @@
     padding: 10px 15px;
     position: absolute;
     bottom: 0;
-    width: 100%;
-    background: #00000029;
+    width:100%;
+    background-color: #ffffffce;
     user-select: none;
     transform: translateY(100%);
     transition: all .4s ease-in-out;
@@ -133,6 +132,24 @@
     border: none;
     cursor: pointer;
 }
+
+@media (max-width: 1200px) {
+    .us-lines {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .us-lines {
+         grid-template-columns: repeat(1, 1fr);
+        margin-left: 0px;
+        padding: 10px;
+    }
+
+    .us-categories-accordion-body {
+        display: none;
+    }
+}
 </style>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <section class="banner">
@@ -171,24 +188,25 @@
 
                     </div>
                 </div>
-                    <div class="us-lines">
-                        {% for line in lines %}
-                            <div class="us-line-card" style="background: url('{{ line.image.url }}') no-repeat center center / cover;">
-                            <div class="us-line-card-container">
-                                <h2 class="us-line-card-main-title">{{ line.title }}</h2>
-                                <div class="us-line-card-content">
-                                    <h2 class="us-line-card-title">{{ line.title }}</h2>
-                                    <p class="us-line-card-text" style="width: 100%">{{ line.description|safe }}</p>
-                                    <div class="us-line-card-subcontent">
-                                        <p class="us-line-card-price">{{ line.created_at }}</p>
-                                        <a href="{% url 'line:detail' pk=line.pk %}"><button  class="us-line-card-more">Learn More <i class="fa-regular fa-arrow-up-right-from-square"></i></button></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
 
+                <div class="us-lines">
+        {% for line in lines %}
+            <div class="us-line-card" style="background: url('{{ line.image.url }}') no-repeat center center / cover;">
+                    <div class="us-line-card-container">
+                        <h2 class="us-line-card-main-title">{{ line.title}}</h2>
+                        <div class="us-line-card-content">
+                            <h2 class="us-line-card-title">{{ line.title}}</h2>
+<!--                            <p class="us-line-card-text">{{ line.description|slice:':100'|safe}}</p>-->
+
+                                <div class="us-line-card-subcontent">
+                                    <p class="us-line-card-price">$120,000</p>
+                                    <a href="{% url 'line:detail' pk=line.pk %}"><button class="us-line-card-more">Learn More <i class="fa-regular fa-arrow-up-right-from-square"></i></button></a>
+                                </div>
+                        </div>
                     </div>
+            </div>
+         {% endfor %}
+        </div>
 
           </div>
     <!-- TABS PRESENTATION -->
