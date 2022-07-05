@@ -13,20 +13,23 @@
 
         span {
             color: #000;
-            line-height: 30px;
             font-family: system-ui;
         }
 
         p {
             color: #000;
-            line-height: 20px;
             font-family: system-ui;
         }
 
         strong {
             color: #000;
-            line-height: 20px;
             font-family: system-ui;
+        }
+
+        @media screen and (max-width: 900px) {
+            .us-categories-accordion-body {
+                display: none;
+            }
         }
     </style>
     <section class="banner">
@@ -59,17 +62,22 @@
     </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-3 about-desktop-drop">
-                <div class="tab">
-                    {% for about in abouts %}
-                        <hr class="hr-menu">
-                        <button class="tablinks" onclick="openCity(event, '{{ about.pk }}')" id="defaultOpen" style="font-family:RobotoCondensed,Arial,sans-serif;font-size:17px">{{ about.title|safe }}</button>
-                        <hr class="hr-menu">
-                    {% endfor %}
-                    <img src="{% static './images/Group_417.svg' %}" class="icon-right" style="left: -7%;margin: 10px;transform: rotate(-29deg)" alt="">
+        <div class="d-flex">
+              <div class="us-categories-accordion-body">
+                    <div class="us-categories-accordion">
+                        <h1 class="us-categories-accordion-title"
+                            style="font-size:28px">{% trans 'Kategoriyalar' %}</h1>
+
+                        <div class="us-categories-accordion-holder">
+                            {% for about in abouts %}
+                                <div class="us-categories-accordion-container">
+                                    <div class="us-categories-label" style="text-align: unset"><button onclick="openCity(event, '{{ about.pk }}')" style="background: transparent;border: none;width: 100%;text-align: unset" id="defaultOpen">{{ about.title|safe }}</button></div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
                 </div>
-            </div>
             <br>
             <img src="{% static './images/settings.svg' %}" class="icon-right" style="margin-top: -1.8%;right: 15%;"
                  alt="">
