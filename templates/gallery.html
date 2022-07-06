@@ -1,6 +1,7 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load embed_video_tags %}
 {% load paginator_tags %}
 {% block content %}
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -99,7 +100,6 @@
 .about-company-card-swiper-slide img {
     display: block;
     width: 100%;
-    max-width: 500px;
     min-height: 100%;
     height: 500px;
     object-fit: cover;
@@ -193,7 +193,7 @@
             {% for gallery in galleries %}
             <div class="about-company-card">
                 <div data-aos="fade-right" class="about-company-card-sliderBlock">
-                    <a href="">
+                    <a href="{% url 'galleries:single' pk=gallery.pk %}">
                         <div class="swiper mySwiper about-company-card-swiper">
                             <div class="swiper-wrapper">
                                 {% for i in gallery.images.all %}
