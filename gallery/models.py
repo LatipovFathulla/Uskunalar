@@ -6,7 +6,6 @@ from django.utils.translation import gettext_lazy as _
 class GalleryModel(models.Model):
     title = models.CharField(max_length=300, verbose_name=_('title'))
     short_descriptions = RichTextUploadingField(verbose_name=_('short_description'))
-    image = models.FileField(upload_to='gallery_image', verbose_name=_('image'))
     long_descriptions = RichTextUploadingField(verbose_name=_('long_description'))
     created_at = models.DateField(auto_now_add=True, verbose_name=_('created_at'))
 
@@ -17,3 +16,12 @@ class GalleryModel(models.Model):
         verbose_name = _('gallery')
         verbose_name_plural = _('galleries')
 
+
+class GalleyImageModel(models.Model):
+    product = models.ForeignKey(GalleryModel, on_delete=models.CASCADE, related_name='images',
+                                verbose_name=_('gallery'), null=True, blank=True)
+    image = models.ImageField(upload_to='gallery_images', verbose_name=_('image'), null=True, blank=True)
+
+    class Meta:
+        verbose_name = _('gallery image')
+        verbose_name_plural = _('gallery images')

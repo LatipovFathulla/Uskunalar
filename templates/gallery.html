@@ -1,7 +1,10 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load paginator_tags %}
 {% block content %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <style>
 
 .about-company {
@@ -18,7 +21,6 @@
 .about-company-card {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin-bottom: 15px;
 }
 .about-company-card:nth-child(even) {
@@ -55,6 +57,7 @@
 
 .about-company-card-contentBlock {
     padding: 30px;
+    margin-left: 20px;
 }
 
 .about-company-card-title {
@@ -96,7 +99,9 @@
 .about-company-card-swiper-slide img {
     display: block;
     width: 100%;
-    height: 100%;
+    max-width: 500px;
+    min-height: 100%;
+    height: 500px;
     object-fit: cover;
 }
 
@@ -185,39 +190,68 @@
 
  <div class="about-company">
         <div class="about-company-container">
+            {% for gallery in galleries %}
             <div class="about-company-card">
                 <div data-aos="fade-right" class="about-company-card-sliderBlock">
                     <a href="">
                         <div class="swiper mySwiper about-company-card-swiper">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide about-company-card-swiper-slide "><img src="./companyphoto.jpg" alt=""></div>
-                                <div class="swiper-slide about-company-card-swiper-slide "><img src="./companyphoto.jpg" alt=""></div>
-                                <div class="swiper-slide about-company-card-swiper-slide "><img src="./companyphoto.jpg" alt=""></div>
-                                <div class="swiper-slide about-company-card-swiper-slide "><img src="./companyphoto.jpg" alt=""></div>
+                                {% for i in gallery.images.all %}
+                                <div class="swiper-slide about-company-card-swiper-slide "><img src="{{ i.image.url }}" alt=""></div>
+                                {% endfor %}
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
                     </a>
                 </div>
                 <div data-aos="fade-left" class="about-company-card-contentBlock">
-                    <h2 class="about-company-card-title">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Sapiente, at?</h2>
-                    <p class="about-company-card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                        Excepturi soluta enim maxime, vel, quae deserunt nihil, laudantium assumenda debitis cumque
-                        perferendis exercitationem. Odit laudantium laboriosam voluptate dolores, ipsa provident
-                        similique.</p>
+                    <h2 class="about-company-card-title">{{ gallery.title }}</h2>
+                    <p class="about-company-card-text">{{ gallery.long_descriptions|safe }}</p>
                 </div>
             </div>
-
+            {% endfor %}
+              <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
+         {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}"><img src="/static/images/left.svg" alt=""></a></li>
+        {% else %}
+            <li class="disabled"><span><img src="/static/images/left.svg" style="display:none" alt=""></span></li>
+        {% endif %}
+          <ul style="display: flex;justify-content: center;">
+              {% if page_obj.has_previous <= page_obj.number|add:'-2' %}
+                 <li class="page_numb"><a href="?page=1" style="color: #132E6B;">1</a></li>
+              {% endif %}
+            {% for page in page_obj.paginator.page_range %}
+                {% if page_obj.number == page %}
+                         <li class="page_numb-active"><a style="color: #132E6B;">{{ page }}</a></li>
+                {% elif page > page_obj.number|add:'-2' and page < page_obj.number|add:'2' %}
+                   <li class="page_numb"><a rel="next" href="{% relative_url page 'page' request.GET.urlencode %}" style="color: #132E6B;">{{ page }}</a></li>
+                {% endif %}
+            {% endfor %}
+          {% if page_obj.has_next %}
+            {% if page_obj.number <= page_obj.paginator.num_pages %}
+                <li><a href="{% relative_url page_obj.number|add:'2' 'page' request.GET.urlencode %}">&hellip;</a></li>
+            {% endif %}
+          {% endif %}
+           {% if page_obj.has_next %}
+              <li class="page_numb"><a href="{% relative_url page_obj.paginator.num_pages 'page' request.GET.urlencode %}" style="color: #132E6B;">{{ page_obj.paginator.num_pages }}</a></li>
+           {% endif %}
+          </ul>
+         {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}"><img src="/static/images/right.svg" alt=""></a></li>
+        {% else %}
+            <li class="disabled"><span><img src="/static/images/right.svg" style="display:none" alt=""></span></li>
+        {% endif %}
+        </nav>
             <div class="about-company-videoBlock">
                 <h2 class="about-company-videoBlock-title">About Uskunalar International</h2>
                 <iframe width="100%" height="420" src="https://www.youtube.com/embed/97JZMrnRnYM" title="Современные Агро-Машины Совершенно Нового Уровня ▶10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
-<script>
-        AOS.init();
-</script>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.6/swiper-bundle.min.js"></script>
 <script>
 var swiper = new Swiper(".mySwiper", {
     pagination: {
@@ -228,5 +262,8 @@ var swiper = new Swiper(".mySwiper", {
         delay: 5000,
       },
   });
+</script>
+<script>
+    AOS.init();
 </script>
 {% endblock %}
