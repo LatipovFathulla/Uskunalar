@@ -3,7 +3,68 @@
 {% block title %} {% trans 'Bizning ishlar' %} {% endblock %}
 {% load static %}
 {% block content %}
+<style>
+    .fa-angle-left:before {
+        margin-right: 8px;
+        position: relative;
+    }
 
+    .fa-angle-right:before {
+        position: relative;
+        margin-left: 10px;
+    }
+    @media screen and (max-width: 900px){
+        .left-mobile {
+            display: block;
+            float: right;
+            font-size: 20px;
+            color: #333;
+            margin-top: 15px;
+        }
+
+        .left-desktop {
+            display: none;
+        }
+
+        .right-desktop {
+            display: none;
+        }
+
+        .right-mobile2 {
+             display: block;
+            float: left;
+            font-size: 20px;
+            color: #333;
+            margin-top: 15px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .left-mobile {
+            display: none;
+        }
+
+        .left-desktop {
+            float: right;
+            font-size: 20px;
+            color: #333;
+            margin-top: 15px;
+        }
+
+        .right-mobile2 {
+            display: none;
+        }
+
+        .right-desktop {
+            float: left;
+            font-size: 20px;
+            color: #333;
+            margin-top: 15px;
+        }
+
+
+    }
+</style>
 <section class="banner">
     <div class="container">
         <div class="row">
@@ -29,28 +90,13 @@
         <div class="col-md-12">
             <div class="single-blog ">
                 <p style="font-size: 32px;color: #131311;line-height: 38px;font-weight: 500;">{{ object.title }}</p>
-                <img src="{% static './images/Group_417.svg' %}" class="icon-right-22" alt="">
-                <img class="img-fluid" style="margin:15px auto;display: table;" width="100%" height="300px"
+                <p>{{ object.short_descriptions|safe }}</p>
+                <img class="img-fluid" style="margin:15px auto;display: table;max-width: 600px;" width="100%" height="300px"
                      src="{{ object.image.url }}" alt="">
                 <br>
                 <div class="container mobile-work">
                     <p style="color: #131311;font-size: 16px;line-height: 24px;margin-top: 10px">{{ object.descriptions|safe }} </p>
                     <br>
-                    <table class="table table-striped" style="border-top: 0px;">
-                        <tbody>
-                        {% for i in workmodel.work.all %}
-                        <tr>
-                            <td style="font-weight: 500;">{{ i.work_customer }}</td>
-                            <td style="text-align:center">{{ i.work_number }}</td>
-                            <td style="text-align: center"><img
-                                    src="{% if i.work_image %} {{ i.work_image.url}} {% endif %}" style="width: 34px"
-                                    alt=""></td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                    <img src="{% static './images/Group_418.svg' %}" class="icon-right"
-                         style="right:-7%;transform: rotate(-29.52deg);" alt="">
                     <div class="row">
                         {% for k in workmodel.work_image.all %}
                         <div class="col-md-3">
@@ -59,6 +105,19 @@
                         </div>
                         {% endfor %}
                     </div>
+                    <br>
+                    <table class="table table-striped" style="border-top: 0px;">
+                        <tbody>
+                        {% for i in workmodel.work.all %}
+                        <tr>
+                            <td style="font-weight: 500;">{{ i.work_customer }}</td>
+                            <td style="text-align:center">{{ i.work_number }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <img src="{% static './images/Group_418.svg' %}" class="icon-right"
+                         style="right:-7%;transform: rotate(-29.52deg);" alt="">
                 </div>
             </div>
         </div>
@@ -67,29 +126,29 @@
 
 <div class="container p-3">
     {% if object.get_prev %}
-        <a href="{% url 'work:single-work' pk=object.get_prev.pk %}">
-            <button class="btn btn-prev">
-            <img src="{% static './images/left.svg' %}" style="position: absolute;padding: 2px;margin-left: -9px;" alt="">
-            <span style="font-size: 20px;line-height: 24px;position: relative;left: 9px;">{% trans 'Перейти к предыдущей' %}</span>
-            </button>
+        <a class="right-desktop" href="{% url 'work:single-work' pk=object.get_prev.pk %}">
+           <i class="fa-light fa-angle-left"></i>Avvalgisi
         </a>
     {% endif %}
 
     {% if object.get_next %}
-    <a href="{% url 'work:single-work' pk=object.get_next.pk %}">
-            <button class="btn btn-next float-right"><span style="font-size: 17px;line-height: 24px;position: relative;left: -8px;">{% trans 'Перейти к следующей' %}</span>
-        <img src="{% static './images/right.svg' %}" style="position: absolute;padding: 2px;margin-left: -3px;" alt=""></button>
-    </a>
+        <a class="left-desktop" href="{% url 'work:single-work' pk=object.get_next.pk %}">
+          Keyingisi <i class="fa-light fa-angle-right"></i>
+        </a>
     {% endif %}
 
 <!--mobile-->
-    <button class="btn btn-prev-mobile"><img src="{% static './images/left.svg' %}"
-                                             style="position: absolute;padding: 2px;margin-left: -9px;" alt=""><span
-            style="font-size: 19px;line-height: 24px;position: relative;left: 9px;">{% trans 'Назад' %}</span></button>
-    <button class="btn btn-next-mobile float-right"><span
-            style="font-size: 19px;line-height: 24px;position: absolute;margin-left: -3%;"></span>{% trans 'Далее' %} <b></b><img
-            src="{% static './images/right.svg' %}" style="position: absolute;padding: 2px;margin-left: -3px;"
-            alt=""></button>
+    {% if object.get_prev %}
+        <a class="right-mobile2" href="{% url 'work:single-work' pk=object.get_prev.pk %}">
+           <i class="fa-light fa-angle-left"></i>Avvalgisi
+        </a>
+    {% endif %}
+
+   {% if object.get_next %}
+        <a class="left-mobile" href="{% url 'work:single-work' pk=object.get_next.pk %}">
+            Keyingisi<i class="fa-light fa-angle-right"></i>
+        </a>
+   {% endif %}
 </div>
 <br>
 <br>
