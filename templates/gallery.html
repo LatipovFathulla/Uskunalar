@@ -146,6 +146,10 @@
     margin-top: 10px;
 }
 
+.about-company-card-text {
+        font-size: 19px;
+        line-height: 150% !important;
+}
 
 @media (max-width: 992px) {
     .about-company-card {
@@ -168,9 +172,9 @@
         font-size: 20px;
         padding-top: 0;
     }
-    .about-company-card-text {
+    .about-company-card-text p{
         font-size: 14px;
-        line-height: 23px;
+        line-height: 150% !important;
     }
     .about-company-videoBlock-title {
         font-size: 26px;
@@ -208,7 +212,7 @@
                 </div>
                 <div data-aos="fade-left" class="about-company-card-contentBlock" style="width: 100%">
                     <h2 class="about-company-card-title">{{ gallery.title }}</h2>
-                    <p class="about-company-card-text">{{ gallery.long_descriptions|safe }}</p>
+                    <div class="about-company-card-text">{{ gallery.long_descriptions|safe|slice:':300' }}</div>
                 </div>
             </div>
             {% endfor %}
