@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-06 14:40+0500\n"
+"POT-Creation-Date: 2022-07-06 14:45+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,6 +118,10 @@ msgstr ""
 msgid "Syndication"
 msgstr ""
 
+#: gallery/apps.py:8 gallery/models.py:16 gallery/models.py:22
+msgid "gallery"
+msgstr "gallereya"
+
 #: gallery/models.py:8 home/models.py:84
 msgid "short_description"
 msgstr "kalta tavsif"
@@ -125,10 +129,6 @@ msgstr "kalta tavsif"
 #: gallery/models.py:9 home/models.py:85 lines/models.py:39
 msgid "long_description"
 msgstr "uzun tavsif"
-
-#: gallery/models.py:16 gallery/models.py:22
-msgid "gallery"
-msgstr "gallereya"
 
 #: gallery/models.py:17
 msgid "galleries"
@@ -428,7 +428,7 @@ msgid "Категории"
 msgstr "Kategoriyalar"
 
 #: templates/contacts.html:3 templates/layouts/header.html:67
-#: templates/layouts/header.html:229
+#: templates/layouts/header.html:233
 msgid "Kontaktlar"
 msgstr "Kontaktlar"
 
@@ -485,7 +485,7 @@ msgid "Отправить"
 msgstr "Jonatish"
 
 #: templates/gallery.html:183 templates/gallery.html:184
-#: templates/layouts/header.html:58
+#: templates/layouts/header.html:58 templates/layouts/header.html:217
 msgid "Kompaniya haqida"
 msgstr "Kompaniya haqida"
 
@@ -544,7 +544,7 @@ msgstr "Liniyalar"
 msgid "Tayyor Biznes"
 msgstr "Tayyor Biznes"
 
-#: templates/layouts/header.html:60 templates/layouts/header.html:217
+#: templates/layouts/header.html:60 templates/layouts/header.html:221
 msgid "Biz Haqimizda"
 msgstr "Biz Haqimizda"
 
@@ -565,11 +565,11 @@ msgstr "Barchasi"
 msgid "Uskunalar qidirish"
 msgstr "Uskunalar qidirish"
 
-#: templates/layouts/header.html:221
+#: templates/layouts/header.html:225
 msgid "Bizning Videolar"
 msgstr "Bizning Videolar"
 
-#: templates/layouts/header.html:225
+#: templates/layouts/header.html:229
 msgid "Bizning Maqolalar"
 msgstr "Bizning Maqolalar"
 
