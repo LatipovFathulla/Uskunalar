@@ -23,6 +23,11 @@ ul, li {
 
 p {
     color: #000;
+    font-family:'Poppins', sans-serif;
+}
+
+span {
+    font-family:'Poppins', sans-serif;
 }
 
 tr:hover {
@@ -7994,6 +7999,7 @@ ul.social-footer2 li a {
 .us-categories-accordion-body {
     max-width: 310px;
     width: 100%;
+    height: 100%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .us-categories-accordion-body::before {
