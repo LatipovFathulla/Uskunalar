@@ -1,6 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
-
+from django.utils.safestring import mark_safe
 from gallery.models import GalleryModel, GalleyImageModel
 
 

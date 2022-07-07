@@ -258,7 +258,9 @@
                         <h2 class="us-single-company-content-title">{{ object.title }}</h2>
                         <p class="us-single-company-content-shortDesc">{{ object.short_descriptions|safe }}</p>
                         <div class="us-single-company-videoBlock">
+                            {% if object.video %}
                                 {% video object.video '100%x520' %}
+                            {% endif %}
                         </div>
                         <p class="us-single-company-content-longDesc">{{ object.long_descriptions|safe }}</p>
                         <span class="us-single-company-date"><i class="fa-light fa-calendar-image" style="margin-right: 10px;"></i>{{ object.last_date }}</span>
