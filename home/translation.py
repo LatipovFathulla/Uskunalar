@@ -24,3 +24,4 @@ class BannerTranslationOptions(TranslationOptions):
 @register(CarouselModel)
 class CarouselTranslationOptions(TranslationOptions):
     fields = ('title', 'descriptions',)
+
