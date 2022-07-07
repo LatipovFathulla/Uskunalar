@@ -42,6 +42,9 @@ class BannerInfoModelView(ListView):
 
         filters = {}
 
+        if q:
+            filters['title__icontains'] = q
+
         if category:
             filters['category_id'] = category
 
@@ -67,10 +70,6 @@ class BannerInfoModelView(ListView):
             # diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
             # return diff.days <= 3
         qs = BannerInfoModel.objects.select_related('category', 'category_uz', 'category_ru', 'category_en', 'subcategory',).filter(**filters).order_by(*order_by)
-
-        if q:
-            qs = qs.filter(Q(title__icontains=q) |
-                         Q(sku__icontains=q))
 
         if sort:
             if sort == 'price':
