@@ -420,6 +420,10 @@ const headerSearchInput = document.querySelector(".header-input");
 const headerSearchInputSize = window.innerWidth / 2;
 
 switch (true) {
+    case window.innerWidth > 3700:
+    search_root.style.setProperty("--inputSize", headerSearchInputSize - 1500 + "px");
+    break;
+
     case window.innerWidth > 3000:
     search_root.style.setProperty("--inputSize", headerSearchInputSize - 1000 + "px");
     break;
