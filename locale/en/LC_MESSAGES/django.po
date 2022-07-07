@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-07 12:39+0500\n"
+"POT-Creation-Date: 2022-07-07 14:33+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -355,29 +355,26 @@ msgstr ""
 msgid "Biz haqimizda"
 msgstr ""
 
-#: templates/about.html:44
-msgid "О нашей компании"
+#: templates/about.html:45 templates/about.html:46
+#: templates/layouts/header.html:60 templates/layouts/header.html:221
+msgid "Kompaniya faoliyati"
 msgstr ""
 
-#: templates/about.html:45 templates/biznes.html:13 templates/blog.html:13
+#: templates/about.html:46 templates/biznes.html:14 templates/blog.html:14
 #: templates/catalog.html:114 templates/contacts.html:13
-#: templates/lines.html:162 templates/our_works.html:13
+#: templates/lines.html:163 templates/our_works.html:14
 #: templates/products.html:214 templates/single-biznes.html:12
 #: templates/single-blog.html:13 templates/single-lines.html:37
 #: templates/single-product.html:799 templates/single-work.html:77
-#: templates/videos.html:14 templates/wishlist.html:14
+#: templates/videos.html:15 templates/wishlist.html:14
 msgid "Главная"
 msgstr ""
 
-#: templates/about.html:45
-msgid "О нас"
-msgstr ""
-
-#: templates/about.html:73 templates/lines.html:180 templates/products.html:466
+#: templates/about.html:74 templates/lines.html:181 templates/products.html:466
 msgid "Kategoriyalar"
 msgstr ""
 
-#: templates/about.html:103
+#: templates/about.html:104
 msgid "Видео о нас"
 msgstr ""
 
@@ -393,16 +390,16 @@ msgstr ""
 msgid "Tayyor biznes"
 msgstr ""
 
-#: templates/biznes.html:12 templates/biznes.html:13 templates/index.html:1983
+#: templates/biznes.html:13 templates/biznes.html:14 templates/index.html:1983
 #: templates/single-biznes.html:11
 msgid "Готовый бизнес"
 msgstr ""
 
-#: templates/biznes.html:35
+#: templates/biznes.html:36
 msgid "Время добавления"
 msgstr ""
 
-#: templates/biznes.html:45 templates/our_works.html:64
+#: templates/biznes.html:46 templates/our_works.html:65
 msgid "Смотреть еще"
 msgstr ""
 
@@ -411,11 +408,11 @@ msgstr ""
 msgid "Bizning maqolalar"
 msgstr ""
 
-#: templates/blog.html:12 templates/blog.html:13 templates/single-blog.html:14
+#: templates/blog.html:13 templates/blog.html:14 templates/single-blog.html:14
 msgid "Наши статьи"
 msgstr ""
 
-#: templates/blog.html:49 templates/blog.html:81 templates/index.html:2094
+#: templates/blog.html:50 templates/blog.html:82 templates/index.html:2094
 #: templates/single-blog.html:60 templates/single-blog.html:71
 msgid "Читать дальше"
 msgstr ""
@@ -518,8 +515,8 @@ msgstr ""
 msgid "Статьи и советы"
 msgstr ""
 
-#: templates/index.html:2074 templates/our_works.html:12
-#: templates/our_works.html:13 templates/single-work.html:76
+#: templates/index.html:2074 templates/our_works.html:13
+#: templates/our_works.html:14 templates/single-work.html:76
 #: templates/single-work.html:78
 msgid "Наши работы"
 msgstr ""
@@ -550,10 +547,6 @@ msgstr ""
 msgid "Biz Haqimizda"
 msgstr ""
 
-#: templates/layouts/header.html:60 templates/layouts/header.html:221
-msgid "Kompaniya faoliyati"
-msgstr ""
-
 #: templates/layouts/header.html:61
 msgid "Bizning video"
 msgstr ""
@@ -579,40 +572,49 @@ msgstr ""
 msgid "Bizning Maqolalar"
 msgstr ""
 
+#: templates/layouts/product_block.html:389
+#: templates/layouts/products-sort.html:343
+msgid "More Details"
+msgstr ""
+
 #: templates/layouts/products-sort.html:327
 msgid "Mamlakat"
 msgstr ""
 
-#: templates/lines.html:161 templates/lines.html:164
+#: templates/lines.html:162 templates/lines.html:165
 #: templates/single-lines.html:36 templates/single-lines.html:38
 msgid "Линии"
 msgstr ""
 
-#: templates/our_works.html:29
+#: templates/lines.html:204
+msgid "Learn More"
+msgstr ""
+
+#: templates/our_works.html:30
 msgid "Все работы"
 msgstr ""
 
-#: templates/our_works.html:95
+#: templates/our_works.html:96
 msgid "Смотреть"
 msgstr ""
 
-#: templates/our_works.html:163
+#: templates/our_works.html:164
 msgid "О компании Uskunalar"
 msgstr ""
 
-#: templates/our_works.html:172
+#: templates/our_works.html:173
 msgid "Продано"
 msgstr ""
 
-#: templates/our_works.html:177
+#: templates/our_works.html:178
 msgid "Постоянных клиентов"
 msgstr ""
 
-#: templates/our_works.html:182
+#: templates/our_works.html:183
 msgid "Реализация проектов"
 msgstr ""
 
-#: templates/our_works.html:187
+#: templates/our_works.html:188
 msgid "Сотрудников"
 msgstr ""
 
@@ -718,7 +720,7 @@ msgstr ""
 msgid "Bizning videolar"
 msgstr ""
 
-#: templates/videos.html:13 templates/videos.html:14
+#: templates/videos.html:14 templates/videos.html:15
 msgid "Наши видео"
 msgstr ""
 

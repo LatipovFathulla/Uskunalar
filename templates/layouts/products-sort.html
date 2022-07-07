@@ -340,7 +340,7 @@
                         <p class="us-horizontal-products-card-productPrice_som">{{ product.dollar_exchanges|intcomma }} so'm</p>
                     </div>
                     <!-- More Details Button -->
-                    <a href="{% url 'products:single' pk=product.pk %}" class="us-horizontal-products-card_buttonMore">More Details</a>
+                    <a href="{% url 'products:single' pk=product.pk %}" class="us-horizontal-products-card_buttonMore">{% trans 'More Details' %}</a>
                 </div>
 
             </div>
