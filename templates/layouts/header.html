@@ -156,7 +156,7 @@
                     <ul class="catalog-menu_list">
                         {% for category in categories2 %}
                             <li id="us-{{ category.pk }}" class="catalog-menu_list-item">
-                                <a href="" class="catalog-menu_list-item-content">
+                                <a href="/products/?category={{ category.pk }}" class="catalog-menu_list-item-content">
                                     <img class="catalog-menu_list-item-content-icon" src="{{ category.image.url }}" style="width:20px" alt="">
                                     <span class="catalog-menu_list-item-content_title">{{ category.category|safe}}</span>
                                 </a>

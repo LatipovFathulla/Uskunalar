@@ -25,9 +25,17 @@ a {
     }
 }
 
-.menu_bar {
+
+.menu-bar-holder {
     position: fixed;
     bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.menu_bar {
     width: 100%;
     background-color: #fff;
     z-index: 99997;
@@ -154,25 +162,365 @@ a {
     transition: background-color 0.4s ease-in-out;
     background-color: #ffe600;
 }
+
+/* Bo'limlar */
+.menu-categories-section {
+    width: 100%;
+    height: 95vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    background-color: #ffe600;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    transform: translateY(150%);
+    transition: .5s ease-in;
+}
+
+.menu-categories-section_container {
+    padding: 10px;
+}
+
+.menu-categories-section-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 6%;
+    display: flex;
+    flex-direction: column;
+}
+.menu-categories-section-title::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 50px;
+    text-align: center;
+    background-color: #333;
+    align-self: center;
+    margin-top: 5px;
+}
+
+.menu-categories-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.menu-categories-button {
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu-categories-button.active {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: .7s;
+    animation-duration: .7s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-delay: .5s;
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-categories-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-categories-button img {
+    max-width: 100%;
+    width: 40px;
+    margin-right: 15px;
+}
+
+.menu-categories-button-title {
+    color: #333;
+    line-height: 130%;
+}
+
+.menu_bar-categories-button {
+    max-width: 100px;
+    width: 100%;
+    align-self: center;
+    background: #ffe600;
+    border: none;
+    padding: 5px 10px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99999;
+    position: relative;
+    transition: .3s linear;
+}
+
+.menu_bar-categories-button.active {
+    background-color: #fff;
+}
+
+.menu_bar-categories-button i {
+    transition: .3s linear;
+}
+
+.menu_bar-categories-button.active i {
+    transform: rotate(180deg);
+}
+
+
+.menu-categories-section.wakeUp {
+    transform: translateY(0);
+    -webkit-animation-name: slideInUp;
+    animation-name: slideInUp;
+    -webkit-animation-duration: .7s;
+    animation-duration: .7s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.menu-categories-section.sleep {
+    -webkit-animation-name: slideOutDown;
+    animation-name: slideOutDown;
+    -webkit-animation-duration: .7s;
+    animation-duration: .7s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+
+/* SubMenu */
+.submenu-categories-section {
+    width: 100%;
+    height: 95vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    background-color: #ffe600;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    transform: translateY(150%);
+    transition: .5s ease-in;
+}
+
+.submenu-categories-section_container {
+    padding: 10px;
+}
+
+.submenu-categories-section-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 6%;
+    display: flex;
+    flex-direction: column;
+}
+.submenu-categories-section-title::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 50px;
+    text-align: center;
+    background-color: #333;
+    align-self: center;
+    margin-top: 5px;
+}
+
+.submenu-categories-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.submenu-categories-button {
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.submenu-categories-button.active {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    opacity: 1;
+    visibility: visible;
+}
+
+.submenu-categories-button a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.submenu-categories-button a img {
+    max-width: 100%;
+    width: 40px;
+    margin-right: 15px;
+}
+
+.submenu-categories-button-title {
+    color: #333;
+    line-height: 130%;
+}
+
+.submenu-categories-section.wakeUp {
+    transform: translateY(0);
+    -webkit-animation-name: slideInUp;
+    animation-name: slideInUp;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.submenu-categories-section.sleep {
+    -webkit-animation-name: slideOutDown;
+    animation-name: slideOutDown;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+
+@-webkit-keyframes slideOutDown {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    100% {
+        visibility: hidden;
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+}
+
+@keyframes slideOutDown {
+    0% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    100% {
+        visibility: hidden;
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+}
+
+
+@-webkit-keyframes slideInUp {
+    0% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        visibility: visible;
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    .menu-categories-section {
+        display: none;
+    }
+    .menu_bar-categories-button {
+        display: none;
+    }
+}
 </style>
-    <div class="menu_bar">
-        <div class="menu_bar-filters">
-            <div class="filters-container">
-                <div class="filters-wrapper">
-                    <ul class="filter-tabs">
-                        {% for category in categories %}
-                            <li class="filter-tabs-listItem filter-active">
-                                <a href="{% url 'products:product' %}?category={{ category.pk }}" class="filter-button" data-translate-value="100%">{{ category }}
-                                </a>
-                            </li>
-                        {% endfor %}
-                        <!-- </ul>
-              <div class="filter-slider">
-                <div class="filter-slider-rect">&nbsp;</div>
-              </div> -->
-                </div>
+<!--    sub and cat-->
+  <div class="menu-categories-section">
+        <div class="menu-categories-section_container">
+            <h3 class="menu-categories-section-title">Kategoriyalar</h3>
+            <ul class="menu-categories-list">
+                {% for category in categories %}
+                <li id="us-submenu-{{ category.pk }}" class="menu-categories-button">
+                    {% if category.image %}
+                        <img src="{{ category.image.url }}" alt="">
+                    {% endif %}
+                        <span class="menu-categories-button-title">{{ category.category|safe }}</span>
+                </li>
+               {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+  {% for category in categories %}
+        <div id="us-submenu-{{ category.pk }}" class="submenu-categories-section">
+            <div class="submenu-categories-section_container">
+                <h3 class="submenu-categories-section-title">Quyi Kategoriyalar</h3>
+                <ul class="submenu-categories-list">
+                       {% for subcategory in category.subcategories.all %}
+                        <li class="submenu-categories-button">
+                            <a href="?subcategory={{ subcategory.pk }}">
+                                <span class="submenu-categories-button-title">{{ subcategory|safe }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
+    {% endfor %}
+<!--end-->
+
+    <div class="menu-bar-holder">
+        <button class="menu_bar-categories-button">Bo'limlar<i class="fa-solid fa-angle-up"></i></button>
+    <div class="menu_bar">
         <div class="menu_bar-tabs">
             <ul class="mobile-tabs">
          {% with url_name=request.resolver_match.url_name %}
@@ -224,12 +572,81 @@ a {
             </ul>
         </div>
     </div>
+    </div>
 <script>
-const mainTabs = document.querySelector(".mobile-tabs");
-const menu_MobileCatalog = document.querySelector('#menuCatalog');
-const mobileFilterContainer = document.querySelector('.filters-container')
+// resources in description
+const menuBarCategories = document.querySelector('.menu-categories-section');
+const wakeUpButton = document.querySelector('.menu_bar-categories-button');
+const menuBarCategoriesItems = document.querySelectorAll('.menu-categories-button')
+const submenuCategories = document.querySelectorAll('.submenu-categories-section')
+const submenuCategoriesItems = document.querySelectorAll('.submenu-categories-button')
+let menuBarCategoriesIsAwake = false;
 
-if (menu_MobileCatalog.classList.contains('active')) {
-    mobileFilterContainer.classList.add('active')
+wakeUpButton.addEventListener('click', () => {
+
+    menuBarCategoriesIsAwake = !menuBarCategoriesIsAwake;
+
+    if (menuBarCategoriesIsAwake) {
+        menuBarCategories.classList.remove('sleep')
+        menuBarCategories.classList.add('wakeUp')
+        wakeUpButton.classList.add('active');
+
+        menuBarCategoriesItems.forEach(element => {
+            if (element.classList.contains('active')) {
+                element.classList.remove('active')
+            }
+        });
+
+        showCategories(menuBarCategoriesItems, 0);
+
+    }
+    else {
+        menuBarCategories.classList.remove('wakeUp');
+        menuBarCategories.classList.add('sleep');
+        submenuCategories.forEach(element => {
+            if (element.classList.contains('wakeUp')) {
+                element.classList.remove('wakeUp');
+                element.classList.add('sleep');
+            }
+        })
+        wakeUpButton.classList.remove('active');
+        menuBarCategoriesItems.forEach(element => {
+            element.classList.remove('active')
+        })
+        submenuCategoriesItems.forEach(element => {
+            element.classList.remove('active')
+        })
+    }
+})
+
+
+function showCategories(element, increment) {
+    let id = null;
+    clearInterval(id);
+    id = setInterval(frame, 300);
+    function frame() {
+        if (increment == menuBarCategoriesItems.length) {
+            clearInterval(id);
+        } else {
+            element[increment].classList.add('active')
+            increment++;
+        }
+    }
 }
+
+// Submenu
+menuBarCategoriesItems.forEach(element => {
+    element.addEventListener('click', () => {
+        let ElementID = element.id
+        submenuCategories.forEach(subelement => {
+            if (ElementID === subelement.id) {
+                if (subelement.classList.contains('sleep')) {
+                    subelement.classList.remove('sleep');
+                }
+                subelement.classList.add('wakeUp');
+                showCategories(submenuCategoriesItems, 0);
+            }
+        });
+    } )
+})
 </script>
