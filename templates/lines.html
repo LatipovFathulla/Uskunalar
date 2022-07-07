@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block title %} {% trans 'Liniyalar' %} {% endblock %}
 {% load static %}
+{% load paginator_tags %}
 {% block content %}
 <style>
 
@@ -200,7 +201,7 @@
                             <p class="us-line-card-text">{{ line.description|slice:':100'|safe}}</p>
                                 <div class="us-line-card-subcontent">
                                     <p class="us-line-card-price">$120,000</p>
-                                    <a href="{% url 'line:detail' pk=line.pk %}"><button class="us-line-card-more">Learn More <i class="fa-regular fa-arrow-up-right-from-square"></i></button></a>
+                                    <a href="{% url 'line:detail' pk=line.pk %}"><button class="us-line-card-more">{% trans 'Learn More' %}<i class="fa-regular fa-arrow-up-right-from-square"></i></button></a>
                                 </div>
                         </div>
                     </div>
@@ -213,39 +214,38 @@
 
     <!-- TABS PRESENTATION // -->
     <!-- pagination menu -->
-    <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
-        {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}"><img src="/static/images/left.svg" alt=""></a></li>
+              <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
+         {% if page_obj.has_previous %}
+            <li class="page-previous"><a href="?page={{ page_obj.previous_page_number }}"><img src="/static/images/left.svg" alt=""></a></li>
         {% else %}
             <li class="disabled"><span><img src="/static/images/left.svg" style="display:none" alt=""></span></li>
         {% endif %}
-        <ul style="display: flex;justify-content: center;">
-            {% if page_obj.has_previous <= page_obj.number|add:'-2' %}
-                <li class="page_numb"><a href="?page=1" style="color: #132E6B;">1</a></li>
-            {% endif %}
-            {% for i in page_obj.paginator.page_range %}
-                {% if page_obj.number == i %}
-                    <li class="page_numb-active"><a style="color: #132E6B;">{{ i }}</a></li>
-                {% elif i > page_obj.number|add:'-2' and i < page_obj.number|add:'2' %}
-                    <li class="page_numb"><a href="?page={{ i }}" style="color: #132E6B;">{{ i }}</a></li>
+          <ul style="display: flex;justify-content: center;">
+              {% if page_obj.has_previous <= page_obj.number|add:'-2' %}
+                 <li class="page_numb"><a href="?page=1" style="color: #132E6B;">1</a></li>
+              {% endif %}
+            {% for page in page_obj.paginator.page_range %}
+                {% if page_obj.number == page %}
+                         <li class="page_numb-active"><a style="color: #132E6B;">{{ page }}</a></li>
+                {% elif page > page_obj.number|add:'-2' and page < page_obj.number|add:'2' %}
+                   <li class="page_numb"><a rel="next" href="{% relative_url page 'page' request.GET.urlencode %}" style="color: #132E6B;">{{ page }}</a></li>
                 {% endif %}
             {% endfor %}
-            {% if page_obj.has_next %}
-                {% if page_obj.number <= page_obj.paginator.num_pages %}
-                    <li><a href="?page={{ page_obj.number|add:'2' }}">&hellip;</a></li>
-                {% endif %}
+          {% if page_obj.has_next %}
+            {% if page_obj.number <= page_obj.paginator.num_pages %}
+                <li class="page-dotted"><a href="{% relative_url page_obj.number|add:'2' 'page' request.GET.urlencode %}">&hellip;</a></li>
             {% endif %}
-            {% if page_obj.has_next %}
-                <li class="page_numb"><a href="?page={{ page_obj.paginator.num_pages }}"
-                                         style="color: #132E6B;">{{ page_obj.paginator.num_pages }}</a></li>
-            {% endif %}
-        </ul>
-        {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}"><img src="/static/images/right.svg" alt=""></a></li>
+          {% endif %}
+           {% if page_obj.has_next %}
+              <li class="page_numb"><a href="{% relative_url page_obj.paginator.num_pages 'page' request.GET.urlencode %}" style="color: #132E6B;">{{ page_obj.paginator.num_pages }}</a></li>
+           {% endif %}
+          </ul>
+         {% if page_obj.has_next %}
+            <li class="page-next"><a href="?page={{ page_obj.next_page_number }}"><i class="fa-light fa-angle-right" style="color: #132E6B;font-weight: 500;"></i></a></li>
         {% else %}
-            <li class="disabled"><span><img src="/static/images/right.svg" style="display:none" alt=""></span></li>
+            <li class="disabled"><span><i class="fa-light fa-angle-right" style="display: none"></i></span></li>
         {% endif %}
-    </nav>
+        </nav>
 
 
     <!-- end pagination menu -->

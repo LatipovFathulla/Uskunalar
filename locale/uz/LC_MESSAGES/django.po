@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-06 14:45+0500\n"
+"POT-Creation-Date: 2022-07-07 12:39+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,13 +22,13 @@ msgstr ""
 msgid "about"
 msgstr "biz haqimizda"
 
-#: about/models.py:9 biznes/models.py:8 blog/models.py:7 gallery/models.py:7
+#: about/models.py:9 biznes/models.py:8 blog/models.py:7 gallery/models.py:8
 #: home/models.py:68 home/models.py:145 lines/models.py:34 videos/models.py:8
 #: works/models.py:7
 msgid "title"
 msgstr "sarlavha"
 
-#: about/models.py:10 blog/models.py:8 gallery/models.py:23 home/models.py:45
+#: about/models.py:10 blog/models.py:8 gallery/models.py:26 home/models.py:45
 #: home/models.py:57 home/models.py:70 home/models.py:125 home/models.py:147
 #: lines/models.py:35 lines/models.py:60
 msgid "image"
@@ -39,7 +39,7 @@ msgid "description"
 msgstr "tavsif"
 
 #: about/models.py:13 about/models.py:27 biznes/models.py:11
-#: biznes/models.py:32 gallery/models.py:10 home/models.py:17 home/models.py:86
+#: biznes/models.py:32 gallery/models.py:13 home/models.py:17 home/models.py:86
 #: lines/models.py:9 lines/models.py:21 lines/models.py:40 orders/models.py:12
 #: videos/models.py:11
 msgid "created_at"
@@ -118,27 +118,35 @@ msgstr ""
 msgid "Syndication"
 msgstr ""
 
-#: gallery/apps.py:8 gallery/models.py:16 gallery/models.py:22
+#: gallery/apps.py:8 gallery/models.py:19 gallery/models.py:25
 msgid "gallery"
 msgstr "gallereya"
 
-#: gallery/models.py:8 home/models.py:84
+#: gallery/models.py:9 home/models.py:84
 msgid "short_description"
 msgstr "kalta tavsif"
 
-#: gallery/models.py:9 home/models.py:85 lines/models.py:39
+#: gallery/models.py:10 home/models.py:85 lines/models.py:39
 msgid "long_description"
 msgstr "uzun tavsif"
 
-#: gallery/models.py:17
+#: gallery/models.py:11
+msgid "last_date"
+msgstr ""
+
+#: gallery/models.py:12 videos/models.py:17
+msgid "video"
+msgstr "video"
+
+#: gallery/models.py:20
 msgid "galleries"
 msgstr "gallereya"
 
-#: gallery/models.py:26
+#: gallery/models.py:29
 msgid "gallery image"
 msgstr "gallereya_rasmi"
 
-#: gallery/models.py:27
+#: gallery/models.py:30
 msgid "gallery images"
 msgstr "gallereya_rasmi"
 
@@ -349,31 +357,31 @@ msgstr "buyurtmalar"
 msgid "Biz haqimizda"
 msgstr "Biz Haqimizda"
 
-#: templates/about.html:40
+#: templates/about.html:44
 msgid "О нашей компании"
 msgstr "Bizning kompaniya"
 
-#: templates/about.html:41 templates/biznes.html:13 templates/blog.html:13
+#: templates/about.html:45 templates/biznes.html:13 templates/blog.html:13
 #: templates/catalog.html:114 templates/contacts.html:13
 #: templates/lines.html:162 templates/our_works.html:13
 #: templates/products.html:214 templates/single-biznes.html:12
 #: templates/single-blog.html:13 templates/single-lines.html:37
-#: templates/single-product.html:799 templates/single-work.html:13
+#: templates/single-product.html:799 templates/single-work.html:77
 #: templates/videos.html:14 templates/wishlist.html:14
 msgid "Главная"
 msgstr "Asosiy"
 
-#: templates/about.html:41
+#: templates/about.html:45
 msgid "О нас"
 msgstr "Biz haqimizda"
 
-#: templates/about.html:69 templates/lines.html:180 templates/products.html:466
+#: templates/about.html:73 templates/lines.html:180 templates/products.html:466
 #, fuzzy
 #| msgid "category"
 msgid "Kategoriyalar"
 msgstr "kategoriya"
 
-#: templates/about.html:99
+#: templates/about.html:103
 msgid "Видео о нас"
 msgstr "Bizning video"
 
@@ -484,12 +492,12 @@ msgstr "Sizning nomeriz"
 msgid "Отправить"
 msgstr "Jonatish"
 
-#: templates/gallery.html:183 templates/gallery.html:184
-#: templates/layouts/header.html:58 templates/layouts/header.html:217
+#: templates/gallery.html:4 templates/gallery.html:189
+#: templates/gallery.html:190 templates/single-gallery.html:3
 msgid "Kompaniya haqida"
 msgstr "Kompaniya haqida"
 
-#: templates/gallery.html:184
+#: templates/gallery.html:190
 msgid "Asosiy"
 msgstr "Asosiy"
 
@@ -517,8 +525,8 @@ msgid "Статьи и советы"
 msgstr "Maqolalar va maslahatlar"
 
 #: templates/index.html:2074 templates/our_works.html:12
-#: templates/our_works.html:13 templates/single-work.html:12
-#: templates/single-work.html:14
+#: templates/our_works.html:13 templates/single-work.html:76
+#: templates/single-work.html:78
 msgid "Наши работы"
 msgstr "Bizning ishlar"
 
@@ -544,9 +552,15 @@ msgstr "Liniyalar"
 msgid "Tayyor Biznes"
 msgstr "Tayyor Biznes"
 
-#: templates/layouts/header.html:60 templates/layouts/header.html:221
+#: templates/layouts/header.html:58 templates/layouts/header.html:217
 msgid "Biz Haqimizda"
 msgstr "Biz Haqimizda"
+
+#: templates/layouts/header.html:60 templates/layouts/header.html:221
+#, fuzzy
+#| msgid "Kompaniya haqida"
+msgid "Kompaniya faoliyati"
+msgstr "Kompaniya haqida"
 
 #: templates/layouts/header.html:61
 msgid "Bizning video"
@@ -675,22 +689,18 @@ msgstr ""
 "boglanishadi!!"
 
 #: templates/single-biznes.html:71 templates/single-lines.html:139
-#: templates/single-work.html:73
 msgid "Перейти к предыдущей"
 msgstr "Avvalgisiga o'tish"
 
 #: templates/single-biznes.html:78 templates/single-lines.html:147
-#: templates/single-work.html:80
 msgid "Перейти к следующей"
 msgstr "Keyingisiga o'tish"
 
 #: templates/single-biznes.html:85 templates/single-lines.html:159
-#: templates/single-work.html:88
 msgid "Назад"
 msgstr "Orqaga"
 
 #: templates/single-biznes.html:89 templates/single-lines.html:166
-#: templates/single-work.html:90
 msgid "Далее"
 msgstr "Keyingisi"
 
@@ -751,10 +761,6 @@ msgstr ""
 #: videos/apps.py:8 videos/models.py:18
 msgid "videos"
 msgstr "videolar"
-
-#: videos/models.py:17
-msgid "video"
-msgstr "video"
 
 #: works/apps.py:8 works/models.py:8 works/models.py:24
 msgid "works"

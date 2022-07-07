@@ -563,9 +563,9 @@ accordion {
             <div class="filter-bar d-flex flex-wrap align-items-center">
     </div>
 </div>
-  <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
+           <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
          {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}"><img src="/static/images/left.svg" alt=""></a></li>
+            <li class="page-previous"><a href="?page={{ page_obj.previous_page_number }}"><img src="/static/images/left.svg" alt=""></a></li>
         {% else %}
             <li class="disabled"><span><img src="/static/images/left.svg" style="display:none" alt=""></span></li>
         {% endif %}
@@ -582,7 +582,7 @@ accordion {
             {% endfor %}
           {% if page_obj.has_next %}
             {% if page_obj.number <= page_obj.paginator.num_pages %}
-                <li><a href="{% relative_url page_obj.number|add:'2' 'page' request.GET.urlencode %}">&hellip;</a></li>
+                <li class="page-dotted"><a href="{% relative_url page_obj.number|add:'2' 'page' request.GET.urlencode %}">&hellip;</a></li>
             {% endif %}
           {% endif %}
            {% if page_obj.has_next %}
@@ -590,9 +590,9 @@ accordion {
            {% endif %}
           </ul>
          {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}"><img src="/static/images/right.svg" alt=""></a></li>
+            <li class="page-next"><a href="?page={{ page_obj.next_page_number }}"><i class="fa-light fa-angle-right" style="color: #132E6B;font-weight: 500;"></i></a></li>
         {% else %}
-            <li class="disabled"><span><img src="/static/images/right.svg" style="display:none" alt=""></span></li>
+            <li class="disabled"><span><i class="fa-light fa-angle-right" style="display: none"></i></span></li>
         {% endif %}
         </nav>
     <div class="container">
