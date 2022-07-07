@@ -204,9 +204,7 @@
                             <div class="swiper-wrapper">
                                 {% for i in gallery.images.all %}
                                 <div class="swiper-slide about-company-card-swiper-slide ">
-                                    {% if image.url %}
                                         <img src="{{ i.image.url }}" alt="">
-                                    {% endif %}
                                 </div>
                                 {% endfor %}
                             </div>

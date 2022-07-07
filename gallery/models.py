@@ -24,8 +24,8 @@ class GalleryModel(models.Model):
 class GalleyImageModel(models.Model):
     product = models.ForeignKey(GalleryModel, on_delete=models.CASCADE, related_name='images',
                                 verbose_name=_('gallery'), null=True, blank=True)
-    image = models.ImageField(upload_to='gallery_images', verbose_name=_('image'), null=True, blank=True)
 
+    image = models.FileField(upload_to='gallery_images', verbose_name=_('image'), null=True, blank=True)
 
     class Meta:
         verbose_name = _('gallery image')
