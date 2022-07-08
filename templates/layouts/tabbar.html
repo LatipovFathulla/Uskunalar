@@ -483,39 +483,39 @@ a {
 }
 </style>
 <!--    sub and cat-->
-  <div class="menu-categories-section">
-        <div class="menu-categories-section_container">
-            <h3 class="menu-categories-section-title">Kategoriyalar</h3>
-            <ul class="menu-categories-list">
-                {% for category in categories %}
-                <li id="us-submenu-{{ category.pk }}" class="menu-categories-button">
-                    {% if category.image %}
-                        <img src="{{ category.image.url }}" alt="">
-                    {% endif %}
-                        <span class="menu-categories-button-title">{{ category.category|safe }}</span>
-                </li>
-               {% endfor %}
-            </ul>
-        </div>
-    </div>
+<!--  <div class="menu-categories-section">-->
+<!--        <div class="menu-categories-section_container">-->
+<!--            <h3 class="menu-categories-section-title">Kategoriyalar</h3>-->
+<!--            <ul class="menu-categories-list">-->
+<!--                {% for category in categories %}-->
+<!--                <li id="us-submenu-{{ category.pk }}" class="menu-categories-button">-->
+<!--                    {% if category.image %}-->
+<!--                        <img src="{{ category.image.url }}" alt="">-->
+<!--                    {% endif %}-->
+<!--                        <span class="menu-categories-button-title">{{ category.category|safe }}</span>-->
+<!--                </li>-->
+<!--               {% endfor %}-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
-  {% for category in categories %}
-        <div id="us-submenu-{{ category.pk }}" class="submenu-categories-section">
-            <div class="submenu-categories-section_container">
-                <h3 class="submenu-categories-section-title">Quyi Kategoriyalar</h3>
-                <ul class="submenu-categories-list">
-                       {% for subcategory in category.subcategories.all %}
-                        <li class="submenu-categories-button">
-                            <a href="?subcategory={{ subcategory.pk }}">
-                                <span class="submenu-categories-button-title">{{ subcategory|safe }}</span>
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    {% endfor %}
+<!--  {% for category in categories %}-->
+<!--        <div id="us-submenu-{{ category.pk }}" class="submenu-categories-section">-->
+<!--            <div class="submenu-categories-section_container">-->
+<!--                <h3 class="submenu-categories-section-title">Quyi Kategoriyalar</h3>-->
+<!--                <ul class="submenu-categories-list">-->
+<!--                       {% for subcategory in category.subcategories.all %}-->
+<!--                        <li class="submenu-categories-button">-->
+<!--                            <a href="?subcategory={{ subcategory.pk }}">-->
+<!--                                <span class="submenu-categories-button-title">{{ subcategory|safe }}</span>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    {% endfor %}-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    {% endfor %}-->
 <!--end-->
 
     <div class="menu-bar-holder">
