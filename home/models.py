@@ -12,7 +12,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CategoryModel(models.Model):
-    category = RichTextUploadingField(max_length=400, verbose_name=_('category'), null=True)
+    category = RichTextUploadingField(max_length=400, verbose_name=_('category'), null=True, db_index=True)
     image = models.FileField(upload_to='category_image', verbose_name=_('category_image'), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
@@ -27,9 +27,9 @@ class CategoryModel(models.Model):
 
 class SubCategoryModel(models.Model):
     category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'),
-                                 related_name='subcategories')
+                                 related_name='subcategories', db_index=True)
     image = models.FileField(upload_to='sub_image', verbose_name=_('sub_image'), null=True, blank=True)
-    subcategory = models.CharField(max_length=300, verbose_name=_('subcategory'), )
+    subcategory = models.CharField(max_length=300, verbose_name=_('subcategory'), db_index=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
 
     def __str__(self):
@@ -70,7 +70,8 @@ class BannerInfoModel(models.Model):
     image = models.FileField(upload_to='banner', verbose_name=_('image'), null=True)
     background = models.ForeignKey(BannerBackModel, on_delete=models.SET_NULL, verbose_name=_('background'), null=True,
                                    blank=True)
-    country = models.ForeignKey(BannerCountryModel, on_delete=models.SET_NULL, verbose_name=_('country'), null=True, blank=True)
+    country = models.ForeignKey(BannerCountryModel, on_delete=models.SET_NULL, verbose_name=_('country'), null=True,
+                                blank=True)
     pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True, blank=True)
     category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, verbose_name=_('category'), null=True)
     subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'),
@@ -117,6 +118,7 @@ class BannerInfoModel(models.Model):
         verbose_name = _('products')
         verbose_name_plural = _('products')
         ordering = ['title']
+        index_together = ['title', 'category', 'subcategory', 'price', 'dollar']
 
 
 class BannerImageModel(models.Model):
@@ -135,6 +137,9 @@ class ProductSpecificationsModel(models.Model):
     product_customer = models.CharField(max_length=99, verbose_name=_('product_customer'), null=True, blank=True)
     product_number = models.CharField(max_length=99, verbose_name=_('product_numbers'), null=True, blank=True)
     product_image = models.FileField(upload_to='pdf_image', verbose_name=_('product_image'), null=True, blank=True)
+
+    def my_product_delete(request, id):
+        ProductSpecificationsModel.objects.filter(product_id=id).delete()
 
     class Meta:
         verbose_name = _('product specification')
