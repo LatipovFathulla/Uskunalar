@@ -3,6 +3,7 @@
 {% block title %} {% trans 'Kompaniya haqida' %} {% endblock %}
 {% load embed_video_tags %}
 {% block content %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <style>
 .us-single-company {
@@ -144,6 +145,143 @@
     color: #929292;
 }
 
+
+/* Gallery */
+.us-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    list-style: none;
+    margin-top: 30px;
+}
+
+.us-gallery-grid-list {
+}
+
+.us-gallery-grid-list-pic {
+    max-width: 100%;
+    width: 600px;
+    min-height: 300px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.us-gallery-swiper {
+    max-width: 330px;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+    display: none;
+}
+
+.us-gallery-swiper-pic {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+@media (max-width: 1351px) {
+    .us-single-company-content {
+        width: 1000px;
+    }
+    .us-single-swiper-pagination {
+        margin-bottom: 9%;
+    }
+}
+
+@media (max-width: 1150px) {
+    .us-single-company-content {
+        width: 920px;
+    }
+    .us-single-swiper-pagination {
+        margin-bottom: 11%;
+    }
+    .us-single-company-content-title {
+        font-size: 26px;
+    }
+    .us-single-company-content {
+        width: 920px;
+        padding: 50px 40px;
+    }
+    .single-company-swiper-slide img {
+        height: 80vh;
+    }
+}
+
+@media (max-width: 1010px) {
+    .us-single-company-content {
+        width: 790px;
+        padding: 50px 40px;
+        transform: translateY(-8%);
+    }
+    .us-single-company-content-title {
+        font-size: 22px;
+    }
+    .single-company-swiper-slide img {
+        height: 70vh;
+    }
+
+    .us-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 875px) {
+    .us-single-company-content {
+        width: 660px;
+    }
+}
+@media (max-width: 770px) {
+    .us-single-company-content {
+        width: auto;
+        transform: translateY(0);
+        box-shadow: none;
+    }
+    .us-single-swiper-pagination {
+        margin-bottom: 10px;
+    }
+
+    .single-company-swiper-slide img {
+        height: 55vh;
+    }
+}
+
+@media (max-width: 550px) {
+    .single-company-swiper-slide img {
+        height: 45vh;
+    }
+    .single-company-swiper-button {
+        width: 45px;
+        height: 45px;
+    }
+    .us-single-company-videoBlock iframe {
+        height: 320px;
+    }
+    .us-gallery-swiper {
+        display: block;
+    }
+    .us-gallery-grid {
+        display: none;
+    }
+}
+
+@media (max-width: 445px) {
+    .us-single-company-content {
+        padding: 20px;
+    }
+    .single-company-swiper-slide img {
+        height: 30vh;
+    }
+    .us-single-company-date {
+        position: unset;
+    }
+    .us-single-company-content-longDesc {
+        margin-bottom: 10px;
+    }
+}
+
+
+
 @media (max-width: 1351px) {
     .us-single-company-content {
         width: 1000px;
@@ -264,11 +402,36 @@
                         </div>
                         <p class="us-single-company-content-longDesc">{{ object.long_descriptions|safe }}</p>
                         <span class="us-single-company-date"><i class="fa-light fa-calendar-image" style="margin-right: 10px;"></i>{{ object.last_date }}</span>
+
+                          <ul class="us-gallery-grid">
+                                {% for object in object.images.all %}
+                                    <li data-aos="zoom-in-up" class="us-gallery-grid-list">
+                                        <img src="{{ object.image.url }}" alt="" class="us-gallery-grid-list-pic">
+                                    </li>
+                                  {% endfor %}
+                        </ul>
+
+                        <!-- Mobile Version Gallery Slider -->
+                        <div class="us-gallery-swiper">
+                            <div class="swiper mySwiper1">
+                                <div class="swiper-wrapper">
+                                    {% for object in object.images.all %}
+                                          <div class="swiper-slide">
+                                            <img src="{{ object.image.url }}" alt="" class="us-gallery-swiper-pic">
+                                          </div>
+                                    {% endfor %}
+                                </div>
+                              </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+ <script>
+    AOS.init();
+</script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
 var swiper = new Swiper(".mySwiper", {
@@ -284,5 +447,19 @@ var swiper = new Swiper(".mySwiper", {
         prevEl: ".swiper-button_prev",
     },
 });
+
+var swiper1 = new Swiper(".mySwiper1", {
+    grabCursor: true,
+    effect: "creative",
+    creativeEffect: {
+      prev: {
+        shadow: true,
+        translate: [0, 0, -400],
+      },
+      next: {
+        translate: ["100%", 0, 0],
+      },
+    },
+  });
 </script>
 {% endblock %}

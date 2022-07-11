@@ -139,7 +139,7 @@ class ProductSpecificationsModel(models.Model):
     product_image = models.FileField(upload_to='pdf_image', verbose_name=_('product_image'), null=True, blank=True)
 
     def my_product_delete(request, id):
-        ProductSpecificationsModel.objects.filter(product_id=id).delete()
+        ProductSpecificationsModel.objects.select_related('asdasd').filter(product_id=id).delete()
 
     class Meta:
         verbose_name = _('product specification')

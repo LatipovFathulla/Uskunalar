@@ -154,7 +154,7 @@
                 </div> -->
                     <!-- Catalog List -->
                     <ul class="catalog-menu_list">
-                        {% for category in categories2 %}
+                        {% for category in categories %}
                             <li id="us-{{ category.pk }}" class="catalog-menu_list-item">
                                 <a href="/products/?category={{ category.pk }}" class="catalog-menu_list-item-content">
                                     <img class="catalog-menu_list-item-content-icon" src="{{ category.image.url }}" style="width:20px" alt="">
@@ -167,10 +167,10 @@
                 </div>
                 <!-- Catalog Sub Menu -->
                 <div class="catalog-submenu-container">
-                    {% for category in categories2 %}
+                    {% for category in categories %}
                             <div id="us-{{ category.pk }}" class="catalog-submenu-backend active">
                                 <ul class="catalog-submenu-subcategories_list">
-                                  {% if category.subcategories.all %}
+                                  {% if category.subcategories %}
                                     {% for subcategory in category.subcategories.all %}
                                     <li class="catalog-submenu-subcategories_list-item">
                                         <a href="/products/?subcategory={{ subcategory.pk }}">

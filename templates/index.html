@@ -1825,7 +1825,7 @@ body.deactive {
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
-       {% for category in categories2 %}
+       {% for category in categories %}
         <a href="{% url 'products:product' %}?category={{ category.pk }}" class="swiper-slide categories-link">
           <img src="/static/images/xolodilnik.svg" alt="" class="categories-icon">
           <h2 class="categories-title">{{ category.category|safe }}</h2>
