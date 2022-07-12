@@ -54,22 +54,12 @@ class HomeView(TemplateView):
     template_name = 'index.html'
 
 
-class NavbarView(TemplateView):
+class NavbarView(ListView):
     template_name = 'header.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['categories'] = CategoryModel.objects.order_by('-pk')
-
-        return context
-
-
-class CatalogView(TemplateView):
-    template_name = 'catalog.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['categories'] = CategoryModel.objects.order_by('-pk')
-        context['subcategories'] = SubCategoryModel.objects.order_by('-pk')
+        context['categories'] = CategoryModel.objects.select_related('iouj').order_by('-pk')
+        print(context)
 
         return context

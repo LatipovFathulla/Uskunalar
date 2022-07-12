@@ -7,17 +7,18 @@ from works.models import WorkModel
 
 def index_categories(request):
     products = BannerInfoModel.objects.order_by('-pk')[:8]
-    categories2 = CategoryModel.objects.order_by('pk')
+    categories = CategoryModel.objects.order_by('pk')
     lines = LineModel.objects.order_by('-pk')[:8]
     works = WorkModel.objects.order_by('-pk')[:4]
     blogs = BlogModel.objects.order_by('-pk')
-    subcategories = SubCategoryModel.objects.order_by('-pk')
+    subcategories = SubCategoryModel.objects.select_related("category_ru", "category_uz", "category", "category_en",).\
+        values_list('category__pk', flat=True).order_by('-pk')
     carousels = CarouselModel.objects.order_by('-pk')
     biznes = BiznesModel.objects.order_by('-pk')
 
     return {
         'products': products,
-        'categories2': categories2,
+        'categories': categories,
         'lines': lines,
         'works': works,
         'blogs': blogs,

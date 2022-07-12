@@ -1825,7 +1825,7 @@ body.deactive {
       <!-- Additional required wrapper -->
       <div class="swiper-wrapper">
         <!-- Slides -->
-       {% for category in categories2 %}
+       {% for category in categories %}
         <a href="{% url 'products:product' %}?category={{ category.pk }}" class="swiper-slide categories-link">
           <img src="/static/images/xolodilnik.svg" alt="" class="categories-icon">
           <h2 class="categories-title">{{ category.category|safe }}</h2>
@@ -1932,7 +1932,7 @@ body.deactive {
     <div class="about-video_side">
       <!-- Your Video -->
       <div class="youtube-player pristine" data-video-id="bMq6nKN7OIQ">
-        <img src="/static/images/zicar.jpg" alt="custom-preview" />
+        <img src="/static/images/18.jpg" alt="custom-preview" />
       </div>
     </div>
     <div class="video-title_side">

@@ -1,6 +1,8 @@
 from django import template
 from django.core.paginator import Paginator
 
+from home.models import ProductSpecificationsModel
+
 register = template.Library()
 
 
@@ -21,3 +23,8 @@ def relative_url(value, field_name, urlencode=None):
         encoded_querystring = '&'.join(filtered_querystring)
         url = '{}&{}'.format(url, encoded_querystring)
     return url
+
+
+@register.simple_tag()
+def delete_duplicate():
+    return ProductSpecificationsModel.objects.values_list('product_id', flat=True).order_by('pk').distinct('product_id')

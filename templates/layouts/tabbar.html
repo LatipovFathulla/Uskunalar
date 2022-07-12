@@ -145,6 +145,125 @@ a {
     margin-top: 3px;
 }
 
+.menu-bar-holder {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.menu_bar {
+    width: 100%;
+    background: #fff;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+
+.mobile-tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.filters-container {
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+}
+
+.filters-container.active {
+    max-height: 100%;
+    opacity: 1;
+}
+
+.filters-wrapper {
+    position: relative;
+    padding: 10px 10px 0 10px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.filter-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1rem;
+    padding: 0.3rem;
+    overflow-x: scroll;
+    background-color: #ffe600;
+}
+
+
+.filter-tabs-listItem {
+    min-width: 220px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    z-index: 1;
+    padding: 8px;
+    justify-content: center;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.filter-button {
+    max-width: 100%;
+    width: 50px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-grow: 1;
+    height: 3rem;
+    padding: 0 1.5rem;
+    color: #000;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    transition: all 1s ease;
+}
+
+.filter-tabs-listItem.filter-active {
+    transition: color 0.7s ease-in-out;
+    /* color: var(--grey-900); */
+    color: #000;
+    background-color: white;
+}
+
+
+.round-button {
+    height: 4.6rem;
+    width: 4.4rem;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--grey-900);
+    transition: color 0.2s ease-in-out;
+}
+
+.round-button:hover,
+.round-button.active {
+    color: inherit;
+}
+
+.round-button.active {
+    background-color: #ffe600;
+    border-radius: 10px;
+}
+
+.round-button svg {
+    pointer-events: none;
+    height: 35px;
+    width: 35px;
+    transform: translate(0, 0);
+}
+
+.button-title {
+    font-size: 11px;
+    margin-top: 3px;
+}
+
 .menu_bar_circle-container {
     pointer-events: none;
     position: absolute;
@@ -155,6 +274,7 @@ a {
     transition: transform 0.4s ease-in-out;
     transform: translateX(var(--translate-main-slider));
 }
+
 .menu_bar_cicle {
     height: 62.8px;
     width: 62.8px;
@@ -162,6 +282,7 @@ a {
     transition: background-color 0.4s ease-in-out;
     background-color: #ffe600;
 }
+
 
 /* Bo'limlar */
 .menu-categories-section {
@@ -171,8 +292,8 @@ a {
     overflow-y: scroll;
     background-color: #ffe600;
     z-index: 9999;
-    position: fixed;
     top: 0;
+    position: fixed;
     transform: translateY(150%);
     transition: .5s ease-in;
 }
@@ -240,6 +361,7 @@ a {
 .menu-categories-button-title {
     color: #333;
     line-height: 130%;
+    word-break: break-word;
 }
 
 .menu_bar-categories-button {
@@ -300,14 +422,15 @@ a {
     overflow-y: scroll;
     background-color: #ffe600;
     z-index: 9999;
-    position: fixed;
     top: 0;
+    position: fixed;
     transform: translateY(150%);
     transition: .5s ease-in;
 }
 
 .submenu-categories-section_container {
     padding: 10px;
+    position: relative;
 }
 
 .submenu-categories-section-title {
@@ -369,6 +492,7 @@ a {
 .submenu-categories-button-title {
     color: #333;
     line-height: 130%;
+    word-break: break-word;
 }
 
 .submenu-categories-section.wakeUp {
@@ -388,6 +512,17 @@ a {
     animation-duration: .4s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
+}
+
+.us-submenu-close {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 13px;
+    border-radius: 50%;
+    border: none;
+    margin: 10px;
 }
 
 
@@ -483,39 +618,40 @@ a {
 }
 </style>
 <!--    sub and cat-->
-  <div class="menu-categories-section">
-        <div class="menu-categories-section_container">
-            <h3 class="menu-categories-section-title">Kategoriyalar</h3>
-            <ul class="menu-categories-list">
-                {% for category in categories %}
-                <li id="us-submenu-{{ category.pk }}" class="menu-categories-button">
-                    {% if category.image %}
-                        <img src="{{ category.image.url }}" alt="">
-                    {% endif %}
-                        <span class="menu-categories-button-title">{{ category.category|safe }}</span>
-                </li>
-               {% endfor %}
-            </ul>
-        </div>
-    </div>
+<!--  <div class="menu-categories-section">-->
+<!--        <div class="menu-categories-section_container">-->
+<!--            <h3 class="menu-categories-section-title">Kategoriyalar</h3>-->
+<!--            <ul class="menu-categories-list">-->
+<!--                {% for category in categories %}-->
+<!--                <li id="us-submenu-{{ category.pk }}" class="menu-categories-button">-->
+<!--                    {% if category.image %}-->
+<!--                        <img src="{{ category.image.url }}" alt="">-->
+<!--                    {% endif %}-->
+<!--                        <span class="menu-categories-button-title">{{ category.category|safe }}</span>-->
+<!--                </li>-->
+<!--               {% endfor %}-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
-  {% for category in categories %}
-        <div id="us-submenu-{{ category.pk }}" class="submenu-categories-section">
-            <div class="submenu-categories-section_container">
-                <h3 class="submenu-categories-section-title">Quyi Kategoriyalar</h3>
-                <ul class="submenu-categories-list">
-                       {% for subcategory in category.subcategories.all %}
-                        <li class="submenu-categories-button">
-                            <a href="?subcategory={{ subcategory.pk }}">
-                                <span class="submenu-categories-button-title">{{ subcategory|safe }}</span>
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    {% endfor %}
+<!--  {% for category in categories %}-->
+<!--        <div id="us-submenu-{{ category.pk }}" class="submenu-categories-section">-->
+<!--            <div class="submenu-categories-section_container">-->
+<!--                <h3 class="submenu-categories-section-title">Quyi Kategoriyalar</h3>-->
+<!--                   <button class="us-submenu-close"><i class="fa-solid fa-arrow-left"></i></button>-->
+<!--                <ul class="submenu-categories-list">-->
+<!--                       {% for subcategory in category.subcategories.all %}-->
+<!--                        <li class="submenu-categories-button">-->
+<!--                            <a href="?subcategory={{ subcategory.pk }}">-->
+<!--                                <span class="submenu-categories-button-title">{{ subcategory|safe }}</span>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    {% endfor %}-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    {% endfor %}-->
 <!--end-->
 
     <div class="menu-bar-holder">
@@ -580,6 +716,7 @@ const wakeUpButton = document.querySelector('.menu_bar-categories-button');
 const menuBarCategoriesItems = document.querySelectorAll('.menu-categories-button')
 const submenuCategories = document.querySelectorAll('.submenu-categories-section')
 const submenuCategoriesItems = document.querySelectorAll('.submenu-categories-button')
+const submenuCloseButtons = document.querySelectorAll('.us-submenu-close')
 let menuBarCategoriesIsAwake = false;
 
 wakeUpButton.addEventListener('click', () => {
@@ -648,5 +785,13 @@ menuBarCategoriesItems.forEach(element => {
             }
         });
     } )
+})
+
+// Close SubMenu
+submenuCloseButtons.forEach(element => {
+    element.addEventListener('click', () => {
+        element.closest(".submenu-categories-section").classList.remove('wakeUp')
+        element.closest(".submenu-categories-section").classList.add('sleep')
+    })
 })
 </script>

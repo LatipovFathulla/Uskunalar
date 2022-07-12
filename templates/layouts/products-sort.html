@@ -313,10 +313,10 @@
                         {% endif %}
                         <ul class="us-horizontal-products-card-details_list">
                         {% for j in  product.specifications.all|slice:':4' %}
-                            <li class="us-horizontal-products-card-details_item">
-                                <h4 class="us-horizontal-products-card-detailname">{{ j.product_customer|safe }}:</h4>
-                                <p class="us-horizontal-products-card-detail">{{ j.product_number|safe }}</p>
-                            </li>
+                                <li class="us-horizontal-products-card-details_item">
+                                    <h4 class="us-horizontal-products-card-detailname">{{ j.product_customer|safe }}:</h4>
+                                    <p class="us-horizontal-products-card-detail">{{ j.product_number|safe }}</p>
+                                </li>
                         {% endfor %}
                         </ul>
                     </div>
