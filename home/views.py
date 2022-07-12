@@ -67,8 +67,7 @@ class BannerInfoModelView(ListView):
             order_by.append('created_at')
             # diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
             # return diff.days <= 3
-        qs = BannerInfoModel.objects.select_related('category', 'category_uz', 'category_ru', 'category_en',
-                                                ).filter(**filters, ).order_by(*order_by)
+        qs = BannerInfoModel.objects.select_related('category', 'category_uz', 'category_ru', 'category_en').filter(**filters,).order_by(*order_by)
 
         if sort:
             if sort == 'price':
