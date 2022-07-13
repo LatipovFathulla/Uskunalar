@@ -10,13 +10,13 @@ def product_categories(request, ):
     # categories = CategoryModel.objects.first()
     # print(categories.language_code)
     if current_language == 'ru':
-        categories = CategoryModel.objects.filter(language_code=current_language.upper()).order_by('pk')
+        categories = CategoryModel.objects.filter(language_code=current_language.upper()).order_by('-pk')
         subcategories = SubCategoryModel.objects.filter(language_code=current_language.upper()).order_by('pk')
     elif current_language == 'en':
-        categories = CategoryModel.objects.filter(language_code=current_language.upper()).order_by('pk')
+        categories = CategoryModel.objects.filter(language_code=current_language.upper()).order_by('-pk')
         subcategories = SubCategoryModel.objects.filter(language_code=current_language.upper()).order_by('pk')
     else:
-        categories = CategoryModel.objects.filter(language_code=current_language.upper()).order_by('pk')
+        categories = CategoryModel.objects.filter(language_code=current_language.upper()).order_by('-pk')
         subcategories = SubCategoryModel.objects.filter(language_code=current_language.upper()).order_by('pk')
         # print(categories)
         # subcategories = SubCategoryModel.objects.filter()
