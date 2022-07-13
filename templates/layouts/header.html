@@ -94,6 +94,7 @@
                     <button class="header-burgerMenu"><i id="burgerMenu"
                             class="fa-solid fa-bars header-burgerMenu_btn"></i></button>
                 </div>
+            {% with categories2 as all_categories %}
                 <div class="header-search_container">
                     <div class="search_input-block">
                         <form action="{% url 'products:product' %}" class="navbar-form navbar-left lnt-search-form" role="search">
@@ -101,7 +102,7 @@
                                 <div class="input-group">
                                          <select class="header-toggle_btn">
                                             <option style="overflow-y:scroll;height:200px">{% trans 'выберите категорию' %}</option>
-                                             {% for category in categories %}
+                                             {% for category in all_categories %}
                                                  <option>{{ category }}</option>
                                              {% endfor %}
                                           </select>
@@ -154,7 +155,7 @@
                 </div> -->
                     <!-- Catalog List -->
                     <ul class="catalog-menu_list">
-                        {% for category in categories %}
+                        {% for category in all_categories %}
                             <li id="us-{{ category.pk }}" class="catalog-menu_list-item">
                                 <a href="/products/?category={{ category.pk }}" class="catalog-menu_list-item-content">
                                     <img class="catalog-menu_list-item-content-icon" src="{{ category.image.url }}" style="width:20px" alt="">
@@ -167,7 +168,7 @@
                 </div>
                 <!-- Catalog Sub Menu -->
                 <div class="catalog-submenu-container">
-                    {% for category in categories %}
+                    {% for category in all_categories %}
                             <div id="us-{{ category.pk }}" class="catalog-submenu-backend active">
                                 <ul class="catalog-submenu-subcategories_list">
                                   {% if category.subcategories %}
@@ -188,6 +189,7 @@
                             </div>
                     {% endfor %}
                 </div>
+            {% endwith %}
             </div>
         </div>
     </div>

@@ -8,17 +8,17 @@
 {% block content %}
 
 
-<style>
+    <style>
 
-nav ul li a span strong {
-    color:#fff;
-    font-size: 15px;
-}
+        nav ul li a span strong {
+            color: #fff;
+            font-size: 15px;
+        }
 
-strong {
-    color: #000;
-    font-size: 13px;
-}
+        strong {
+            color: #000;
+            font-size: 13px;
+        }
 
         @media screen and (max-width: 950px) {
             #accordion2 {
@@ -45,36 +45,36 @@ strong {
                 grid-gap: 10px;
             }
 
-             .products-flex {
-                    display: initial;
-                    max-width: 1370px;
-                    width: 100%;
-                    margin: auto;
-             }
+            .products-flex {
+                display: initial;
+                max-width: 1370px;
+                width: 100%;
+                margin: auto;
+            }
 
-             .category-none {
-                 display: none;
-             }
+            .category-none {
+                display: none;
+            }
         }
 
         .modal-content {
-        position: relative;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        width: 100%;
-        pointer-events: auto;
-        background-color: #fff;
-        background-clip: padding-box;
-        border: 1px solid rgba(0,0,0,.2);
-        border-radius: 0.3rem;
-        outline: 0;
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0, 0, 0, .2);
+            border-radius: 0.3rem;
+            outline: 0;
         }
 
-       @media (min-width:1199px) {
-             .category-ds-1 {
-                display:none
+        @media (min-width: 1199px) {
+            .category-ds-1 {
+                display: none
             }
 
             .minimalist-tab-content2.active {
@@ -88,7 +88,7 @@ strong {
                 z-index: 999;
             }
 
-             #Paris.btn-like3 {
+            #Paris.btn-like3 {
                 position: absolute;
                 bottom: 20%;
                 right: 13%;
@@ -98,454 +98,515 @@ strong {
                 border: none;
                 border-radius: 4px;
             }
-       }
+        }
 
-@media (min-width: 1200px)  {
-     .product-new-us {
-            max-width: 1370px;
-            width: 100%;
-            margin: auto;
-            /* background: chartreuse; */
-            padding: 10px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(1, 1fr);
-            grid-gap: 10px;
-      }
+        @media (min-width: 1200px) {
+            .product-new-us {
+                max-width: 1370px;
+                width: 100%;
+                margin: auto;
+                /* background: chartreuse; */
+                padding: 10px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+                grid-gap: 10px;
+            }
 
-     .products-flex {
-        display:flex;
-        max-width:1370px;
-        width:100%;
-        margin:auto;
-    }
+            .products-flex {
+                display: flex;
+                max-width: 1370px;
+                width: 100%;
+                margin: auto;
+            }
 
-}
+        }
 
-accordion {
-  font-size: 1rem;
-  width: 30vw;
-  margin: 0 auto;
-  border-radius: 5px;
-}
-
-
-.accordion-body {
-  background: white;
-}
-
-.accordion-header {
-  color: #132E6B;
-  cursor: pointer;
-  font-size: .7em;
-  letter-spacing: .1em;
-  transition: all .3s;
-  background-color: #CCCCCA;
-}
+        accordion {
+            font-size: 1rem;
+            width: 30vw;
+            margin: 0 auto;
+            border-radius: 5px;
+        }
 
 
-.accordion__item .accordion__item {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
+        .accordion-body {
+            background: white;
+        }
 
-.accordion-header:hover {
-  position: relative;
-  z-index: 5;
-}
-
-.accordion-body {
-  background: #fcfcfc;
-  color: #353535;
-  display: none;
-}
-
-.accordion-body__contents {
-  padding: 7px 1.5em;
-  font-size: 19px;
-  font-weight: 500;
-}
-
-.accordion__item.active:last-child .accordion-header {
-  border-radius: none;
-}
-
-.accordion:first-child > .accordion__item > .accordion-header {
-  border-bottom: 1px solid #CCCCCA;
-}
+        .accordion-header {
+            color: #132E6B;
+            cursor: pointer;
+            font-size: .7em;
+            letter-spacing: .1em;
+            transition: all .3s;
+            background-color: #CCCCCA;
+        }
 
 
+        .accordion__item .accordion__item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .accordion-header:hover {
+            position: relative;
+            z-index: 5;
+        }
+
+        .accordion-body {
+            background: #fcfcfc;
+            color: #353535;
+            display: none;
+        }
+
+        .accordion-body__contents {
+            padding: 7px 1.5em;
+            font-size: 19px;
+            font-weight: 500;
+        }
+
+        .accordion__item.active:last-child .accordion-header {
+            border-radius: none;
+        }
+
+        .accordion:first-child > .accordion__item > .accordion-header {
+            border-bottom: 1px solid #CCCCCA;
+        }
 
 
-.accordion__item.active > .accordion-header:after {
-  transform: rotate(-180deg);
-}
+        .accordion__item.active > .accordion-header:after {
+            transform: rotate(-180deg);
+        }
 
-.accordion__item.active .accordion-header {
-  background: #FFE700;
-}
+        .accordion__item.active .accordion-header {
+            background: #FFE700;
+        }
 
-.accordion__item .accordion__item .accordion-header {
-  background: #f1f1f1;
-  color: #353535;
-}
+        .accordion__item .accordion__item .accordion-header {
+            background: #f1f1f1;
+            color: #353535;
+        }
 
-@media screen and (max-width: 1000px) {
-  .accordion {
-    width: 100%;
-  }
+        @media screen and (max-width: 1000px) {
+            .accordion {
+                width: 100%;
+            }
 
-  .category-ds-1 {
-      display: none;
-  }
+            .category-ds-1 {
+                display: none;
+            }
 
-  .modal {
-      top: 15%;
-  }
-}
+            .modal {
+                top: 15%;
+            }
+        }
 
 
-</style>
-<section class="banner">
-    <div class="container">
-        <div class="row">
+    </style>
+    <section class="banner">
+        <div class="container">
+            <div class="row">
 
+            </div>
+            <h1 class="banner-text">{% trans 'Каталог' %}</h1>
+            <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>
+            <span> > <a href="" class="banner-desc-title" style="color:#132E6B;">{% trans 'Каталог' %}</a></span></p>
         </div>
-        <h1 class="banner-text">{% trans 'Каталог' %}</h1>
-        <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc" >{% trans 'Главная' %}</a>  <span> > <a href="" class="banner-desc-title" style="color:#132E6B;">{% trans 'Каталог' %}</a></span></p>
-    </div>
 
-</section>
+    </section>
 
-<br>
+    <br>
 
 
-<img src="{% static './images/settings.svg' %}" class="icon-right" style="right: 15%;transform: rotate(20.33deg);"
-     alt="">
-<!-- filter -->
-<div class="container ">
-    <ul id="accordion2" class="accordion" style="position:relative">
-        <div class="filter">
-            <h4>{% trans 'Фильтр' %}</h4>
-            <br>
-            <a href="{% url 'products:product' %}"><p style="float: right;margin-top: -3%;">{% trans 'Сбросить' %}</p></a>
-            <div class="row" style="margin:1px">
-                <div class="col-md-4">
-                      <!-- Custom select structure -->
-                    <div class="select_mate" data-mate-select="active" style="font-family:RobotoCondensed,Arial,sans-serif;">
+    <img src="{% static './images/settings.svg' %}" class="icon-right" style="right: 15%;transform: rotate(20.33deg);"
+         alt="">
+    <!-- filter -->
+    <div class="container ">
+        <ul id="accordion2" class="accordion" style="position:relative">
+            <div class="filter">
+                <h4>{% trans 'Фильтр' %}</h4>
+                <br>
+                <a href="{% url 'products:product' %}"><p
+                        style="float: right;margin-top: -3%;">{% trans 'Сбросить' %}</p></a>
+                <div class="row" style="margin:1px">
+                    <div class="col-md-4">
+                        <!-- Custom select structure -->
+                        <div class="select_mate" data-mate-select="active"
+                             style="font-family:RobotoCondensed,Arial,sans-serif;">
 
-                        <select onchange="addUrlParameter('sort', this.value)">
-                            <option>{% trans 'Все товары' %}</option>
-                            <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price">{% trans 'Сначала дешевые' %}</option>
-                            <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price">{% trans 'Сначала дорогие' %}</option>
-                            <option {% if request.GET.sort == 'created_at' %}selected{% endif %} value="created_at">{% trans 'Новые' %}</option>
-                        </select>
-                          <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <select onchange="addUrlParameter('sort', this.value)">
+                                <option>{% trans 'Все товары' %}</option>
+                                <option {% if request.GET.sort == 'price' %}selected{% endif %}
+                                        value="price">{% trans 'Сначала дешевые' %}</option>
+                                <option {% if request.GET.sort == '-price' %}selected{% endif %}
+                                        value="-price">{% trans 'Сначала дорогие' %}</option>
+                                <option {% if request.GET.sort == 'created_at' %}selected{% endif %}
+                                        value="created_at">{% trans 'Новые' %}</option>
+                            </select>
+                            <p class="selecionado_opcion" onclick="open_select(this)"></p><span
+                                onclick="open_select(this)" class="icon_select_mate"><svg fill="#000000" height="24"
+                                                                                          viewBox="0 0 24 24" width="24"
+                                                                                          xmlns="http://www.w3.org/2000/svg">
                               <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
                               <path d="M0-.75h24v24H0z" fill="none"/>
                           </svg></span>
-                          <div class="cont_list_select_mate">
-                            <ul class="cont_select_int">  </ul>
-                          </div>
-                      </div>
-                      <!-- Custom select structure -->
-                </div>
-                <div class="col-md-4">
-                       <!-- Custom select structure -->
-                    <div class="select_mate" data-mate-select="active" style="font-family:RobotoCondensed,Arial,sans-serif;">
+                            <div class="cont_list_select_mate">
+                                <ul class="cont_select_int"></ul>
+                            </div>
+                        </div>
+                        <!-- Custom select structure -->
+                    </div>
+                    <div class="col-md-4">
+                        <!-- Custom select structure -->
+                        <div class="select_mate" data-mate-select="active"
+                             style="font-family:RobotoCondensed,Arial,sans-serif;">
 
-                        <select onchange="addUrlParameter('sort', this.value)">
-                            <option>{% trans 'Валюта' %}</option>
-                            <option {% if request.GET.sort == 'som' %}selected{% endif %} value="som">{% trans 'Сум' %}</option>
-                            <option {% if request.GET.sort == '-som' %}selected{% endif %} value="-som">{% trans 'Доллар' %}</option>
+                            <select onchange="addUrlParameter('sort', this.value)">
+                                <option>{% trans 'Валюта' %}</option>
+                                <option {% if request.GET.sort == 'som' %}selected{% endif %}
+                                        value="som">{% trans 'Сум' %}</option>
+                                <option {% if request.GET.sort == '-som' %}selected{% endif %}
+                                        value="-som">{% trans 'Доллар' %}</option>
 
 
-                        </select>
-                          <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            </select>
+                            <p class="selecionado_opcion" onclick="open_select(this)"></p><span
+                                onclick="open_select(this)" class="icon_select_mate"><svg fill="#000000" height="24"
+                                                                                          viewBox="0 0 24 24" width="24"
+                                                                                          xmlns="http://www.w3.org/2000/svg">
                               <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
                               <path d="M0-.75h24v24H0z" fill="none"/>
                           </svg></span>
-                          <div class="cont_list_select_mate">
-                            <ul class="cont_select_int">  </ul>
-                          </div>
-                      </div>
-                      <!-- Custom select structure -->
-                </div>
-                <div class="col-md-4">
-                    <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                        <div class="link" style="padding: 20px ;background:#FFE700;border-radius: 3px;height: 58px">
-                           <p style="position: absolute;left: 8px;font-weight: 500;font-size: 17px;">{% trans 'Цена' %}</p> <br><i
-                                class="fa fa-chevron-down"></i></div>
-                        <ul class="submenu"
-                            style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                            <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
-                            <li style="padding:10px">
-                                <form action="">
-                                     <input class="js-range-slider" name="js-range-slider" />
-                                 </form>
-                            </li>
+                            <div class="cont_list_select_mate">
+                                <ul class="cont_select_int"></ul>
+                            </div>
+                        </div>
+                        <!-- Custom select structure -->
+                    </div>
+                    <div class="col-md-4">
+                        <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
+                            <div class="link" style="padding: 20px ;background:#FFE700;border-radius: 3px;height: 58px">
+                                <p style="position: absolute;left: 8px;font-weight: 500;font-size: 17px;">{% trans 'Цена' %}</p>
+                                <br><i
+                                    class="fa fa-chevron-down"></i></div>
+                            <ul class="submenu"
+                                style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
+                                <img src="{% static './images/triangle.svg' %}" style="overflow: hidden;" alt="">
+                                <li style="padding:10px">
+                                    <form action="">
+                                        <input class="js-range-slider" name="js-range-slider"/>
+                                    </form>
+                                </li>
 
-                        </ul>
-                    </li>
+                            </ul>
+                        </li>
+                    </div>
+
                 </div>
 
             </div>
+        </ul>
+    </div>
+    <!-- end filter -->
+    <!-- logotip product, дочерние компании, homiylar...., bayroqlar va davlat -->
 
-        </div>
-    </ul>
-</div>
-<!-- end filter -->
-<!-- logotip product, дочерние компании, homiylar...., bayroqlar va davlat -->
-
-<!-- filter mobile -->
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <br>
-            <p class="categories_block mt-2">{% trans 'Категории' %}</p>
-            <br>
-<!--               <select onchange="addUrlParameter('sort', this.value)">
+    <!-- filter mobile -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <br>
+                <p class="categories_block mt-2">{% trans 'Категории' %}</p>
+                <br>
+                <!--               <select onchange="addUrlParameter('sort', this.value)">
                                                             <option>Все товары</option>
-                                                            <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price" >От А до Я</option>
-                                                            <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price"  >От Я до А</option>
-                                                            <option {% if request.GET.sort == 'created_at' %}selected{% endif %} value="created_at">Новые</option>
+                                                            <option {% if request.GET.sort == 'price' %}
+                    selected{% endif %} value="price" >От А до Я</option>
+                                                            <option {% if request.GET.sort == '-price' %}
+                    selected{% endif %} value="-price"  >От Я до А</option>
+                                                            <option {% if request.GET.sort == 'created_at' %}
+                    selected{% endif %} value="created_at">Новые</option>
 
 
-                                                        </select>-->
-            <div class="category-ds-1">
-                <div class="select_mate" data-mate-select="active" >
-                <select name="category2" onchange="location = this.value;" onclick="return false;"  id="">
-                     {% for category in categories %}
-                        <option {% if request.GET.category == category.pk|stringformat:'i' %}selected{% endif %} value="?category={{ category.pk }}" style="padding: 10px">
-                            {{ category.category|safe }}
-                        </option>
-                    {% endfor %}
-                </select>
-                  <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+               {% with categories2 as all_categories  %}                                          </select>-->
+                    <div class="category-ds-1">
+                        <div class="select_mate" data-mate-select="active">
+
+                            <select name="category2" onchange="location = this.value;" onclick="return false;" id="">
+                                {% for category in all_categories %}
+                                    <option {% if request.GET.category == category.pk|stringformat:'i' %}selected{% endif %}
+                                            value="?category={{ category.pk }}" style="padding: 10px">
+                                        {{ category.category|safe }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                            <p class="selecionado_opcion" onclick="open_select(this)"></p><span
+                                onclick="open_select(this)" class="icon_select_mate"><svg fill="#000000" height="24"
+                                                                                          viewBox="0 0 24 24" width="24"
+                                                                                          xmlns="http://www.w3.org/2000/svg">
                       <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
                       <path d="M0-.75h24v24H0z" fill="none"/>
                   </svg></span>
-                  <div class="cont_list_select_mate">
-                    <ul class="cont_select_int">  </ul>
-                  </div>
-              </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<div class="container">
-                <div id="message">
-
-            </div>
-            <!-- Start Filter Bar -->
-            <div class="filter-bar d-flex flex-wrap align-items-center m-auto">
-                <div class="sorting mr-auto">
-
-                    <!-- <option value="1">{% trans 'Showing' %} {{ page_obj.start_index }}-{{ page_obj.end_index }} {% trans 'of' %} {{ page_obj.paginator.count }}</option> -->
-                    <button class="btn btn-mobile" data-toggle="modal" data-target="#exampleModal1"
-                            style="width: 108px;height: 48px;background-color: #f4f5f7;border-radius: 6px;">{% trans 'Фильтр' %}
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
-                         aria-labelledby="exampleModalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel"
-                                        style="position: absolute;left: 40%;">{% trans 'Фильтр' %}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <ul id="accordion7_2" class="accordion" style="position:relative">
-                                        <div class="filter" style="margin-bottom: 0px;">
-                                            <h4>{% trans 'Фильтр' %}</h4>
-                                            <p style="float: right;margin-top: -6.5%;"></p>
-                                            <div class="row">
-                                                  <div class="col-md-3">
-                                                      <!-- Custom select structure -->
-                                                    <div class="select_mate" data-mate-select="active" style="width:100%">
-
-                                                        <select onchange="addUrlParameter('sort', this.value)">
-                                                            <option>{% trans 'Все товары' %}</option>
-                                                            <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price">{% trans 'Сначала дешевые' %}</option>
-                                                            <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price">{% trans 'Сначала дорогие' %}</option>
-                                                            <option {% if request.GET.sort == 'created_at' %}selected{% endif %} value="created_at">{% trans 'Новые' %}</option>
-
-
-                                                        </select>
-                                                          <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                                              <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
-                                                              <path d="M0-.75h24v24H0z" fill="none"/>
-                                                          </svg></span>
-                                                          <div class="cont_list_select_mate">
-                                                            <ul class="cont_select_int">  </ul>
-                                                          </div>
-                                                      </div>
-                                                      <!-- Custom select structure -->
-                                                </div>
-                                                <br>
-                                                            <div class="col-md-3">
-                       <!-- Custom select structure -->
-                                                    <div class="select_mate" data-mate-select="active" style="width:100%" >
-
-                                                        <select onchange="addUrlParameter('sort', this.value)">
-                                                            <option>{% trans 'Валюта' %}</option>
-                                                            <option {% if request.GET.sort == 'som' %}selected{% endif %} value="som">{% trans 'Сум' %}</option>
-                                                            <option {% if request.GET.sort == '-som' %}selected{% endif %} value="-som">{% trans 'Доллар' %}</option>
-
-
-                                                        </select>
-                                                          <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                                              <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
-                                                              <path d="M0-.75h24v24H0z" fill="none"/>
-                                                          </svg></span>
-                                                          <div class="cont_list_select_mate">
-                                                            <ul class="cont_select_int">  </ul>
-                                                          </div>
-                                                      </div>
-                                                      <!-- Custom select structure -->
-                                                </div>
-                                                <br>
-                                                <div class="col-md-3">
-                                                    <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                                                        <div class="link" style="padding: 20px 20px 20px 35px;height: 57px;"><p style="position: absolute;left: 8px;font-size:18px">{% trans 'Цена' %}</p><br><i
-                                                                class="fa fa-chevron-down"></i></div>
-                                                        <ul class="submenu"
-                                                            style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
-                                                            <img src="{% static './images/triangle.svg' %}"
-                                                                 style="overflow: hidden;" alt="">
-                                                            <li>
-                                                                <form action="">
-                                                                    <input class="js-range-slider" name="js-range-slider" />
-                                                                </form>
-                                                            </li>
-
-                                                        </ul>
-                                                    </li>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </ul>
-                                </div>
-                                <div class="modal-footer" style="justify-content: center;border-top: none;">
-                                    <ul>
-                                        <li>
-                                             <div class="button-container mt-3">
-                                                <a href="{% url 'products:product' %}" class="us-btn btn-4" style="width: 180px"><span>{% trans 'Batafsil' %}</span></a>
-                                                <!--End of Button 4 -->
-                                              </div>
-                                        </li>
-                                    </ul>
-
-                                </div>
+                            <div class="cont_list_select_mate">
+                                <ul class="cont_select_int"></ul>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="tab3">
-                    <a class="tablinks" onclick="openCity(event, 'Paris')"><img
-                            src="{% static './images/sorted.svg' %}"
-                            alt=""></a>
-                    <a class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen"><img
-                            src="{% static './images/six_boxes.svg' %}"
-                            alt=""></a>
-                </div>
 
-            </div>
-</div>
-<!-- end filter mobile -->
-<div class="products-flex">
-    <div class="category-none">
-          <div class="us-categories-accordion-body">
-            <div class="us-categories-accordion">
-                <h1 class="us-categories-accordion-title" style="font-size:28px">{% trans 'Kategoriyalar' %}</h1>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="container">
+                        <div id="message">
 
-                <div class="us-categories-accordion-holder">
-                {% for category in categories %}
-                    <div class="us-categories-accordion-container">
-                        <div class="us-categories-label"><img class="us-categories-label-img" src="{{ category.image.url }}" alt="">{{  category.category|safe }}<i class="fa-light fa-angle-down"></i></div>
-                        <ul class="us-categories-content">
+                        </div>
+                        <!-- Start Filter Bar -->
+                        <div class="filter-bar d-flex flex-wrap align-items-center m-auto">
+                            <div class="sorting mr-auto">
+
+                                <!-- <option value="1">{% trans 'Showing' %} {{ page_obj.start_index }}-{{ page_obj.end_index }} {% trans 'of' %} {{ page_obj.paginator.count }}</option> -->
+                                <button class="btn btn-mobile" data-toggle="modal" data-target="#exampleModal1"
+                                        style="width: 108px;height: 48px;background-color: #f4f5f7;border-radius: 6px;">{% trans 'Фильтр' %}
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel"
+                                                    style="position: absolute;left: 40%;">{% trans 'Фильтр' %}</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <ul id="accordion7_2" class="accordion" style="position:relative">
+                                                    <div class="filter" style="margin-bottom: 0px;">
+                                                        <h4>{% trans 'Фильтр' %}</h4>
+                                                        <p style="float: right;margin-top: -6.5%;"></p>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <!-- Custom select structure -->
+                                                                <div class="select_mate" data-mate-select="active"
+                                                                     style="width:100%">
+
+                                                                    <select onchange="addUrlParameter('sort', this.value)">
+                                                                        <option>{% trans 'Все товары' %}</option>
+                                                                        <option {% if request.GET.sort == 'price' %}selected{% endif %}
+                                                                                value="price">{% trans 'Сначала дешевые' %}</option>
+                                                                        <option {% if request.GET.sort == '-price' %}selected{% endif %}
+                                                                                value="-price">{% trans 'Сначала дорогие' %}</option>
+                                                                        <option {% if request.GET.sort == 'created_at' %}selected{% endif %}
+                                                                                value="created_at">{% trans 'Новые' %}</option>
+
+
+                                                                    </select>
+                                                                    <p class="selecionado_opcion"
+                                                                       onclick="open_select(this)"></p><span
+                                                                        onclick="open_select(this)"
+                                                                        class="icon_select_mate"><svg fill="#000000"
+                                                                                                      height="24"
+                                                                                                      viewBox="0 0 24 24"
+                                                                                                      width="24"
+                                                                                                      xmlns="http://www.w3.org/2000/svg">
+                                                              <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                                              <path d="M0-.75h24v24H0z" fill="none"/>
+                                                          </svg></span>
+                                                                    <div class="cont_list_select_mate">
+                                                                        <ul class="cont_select_int"></ul>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Custom select structure -->
+                                                            </div>
+                                                            <br>
+                                                            <div class="col-md-3">
+                                                                <!-- Custom select structure -->
+                                                                <div class="select_mate" data-mate-select="active"
+                                                                     style="width:100%">
+
+                                                                    <select onchange="addUrlParameter('sort', this.value)">
+                                                                        <option>{% trans 'Валюта' %}</option>
+                                                                        <option {% if request.GET.sort == 'som' %}selected{% endif %}
+                                                                                value="som">{% trans 'Сум' %}</option>
+                                                                        <option {% if request.GET.sort == '-som' %}selected{% endif %}
+                                                                                value="-som">{% trans 'Доллар' %}</option>
+
+
+                                                                    </select>
+                                                                    <p class="selecionado_opcion"
+                                                                       onclick="open_select(this)"></p><span
+                                                                        onclick="open_select(this)"
+                                                                        class="icon_select_mate"><svg fill="#000000"
+                                                                                                      height="24"
+                                                                                                      viewBox="0 0 24 24"
+                                                                                                      width="24"
+                                                                                                      xmlns="http://www.w3.org/2000/svg">
+                                                              <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                                                              <path d="M0-.75h24v24H0z" fill="none"/>
+                                                          </svg></span>
+                                                                    <div class="cont_list_select_mate">
+                                                                        <ul class="cont_select_int"></ul>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Custom select structure -->
+                                                            </div>
+                                                            <br>
+                                                            <div class="col-md-3">
+                                                                <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
+                                                                    <div class="link"
+                                                                         style="padding: 20px 20px 20px 35px;height: 57px;">
+                                                                        <p style="position: absolute;left: 8px;font-size:18px">{% trans 'Цена' %}</p>
+                                                                        <br><i
+                                                                            class="fa fa-chevron-down"></i></div>
+                                                                    <ul class="submenu"
+                                                                        style="position: relative;z-index: 99;width: 100%;margin-top: 10px;background: #FFFFFF;box-shadow: 0px 0px 25px 8px rgba(3, 127, 139, 0.05);border-radius: 4px;">
+                                                                        <img src="{% static './images/triangle.svg' %}"
+                                                                             style="overflow: hidden;" alt="">
+                                                                        <li>
+                                                                            <form action="">
+                                                                                <input class="js-range-slider"
+                                                                                       name="js-range-slider"/>
+                                                                            </form>
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </li>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </ul>
+                                            </div>
+                                            <div class="modal-footer" style="justify-content: center;border-top: none;">
+                                                <ul>
+                                                    <li>
+                                                        <div class="button-container mt-3">
+                                                            <a href="{% url 'products:product' %}" class="us-btn btn-4"
+                                                               style="width: 180px"><span>{% trans 'Batafsil' %}</span></a>
+                                                            <!--End of Button 4 -->
+                                                        </div>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab3">
+                                <a class="tablinks" onclick="openCity(event, 'Paris')"><img
+                                        src="{% static './images/sorted.svg' %}"
+                                        alt=""></a>
+                                <a class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen"><img
+                                        src="{% static './images/six_boxes.svg' %}"
+                                        alt=""></a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- end filter mobile -->
+                    <div class="products-flex">
+                    <div class="category-none">
+                    <div class="us-categories-accordion-body">
+                    <div class="us-categories-accordion">
+                    <h1 class="us-categories-accordion-title" style="font-size:28px">{% trans 'Kategoriyalar' %}</h1>
+
+                    <div class="us-categories-accordion-holder">
+                    {% for category in all_categories %}
+                        <div class="us-categories-accordion-container">
+                            <div class="us-categories-label"><img class="us-categories-label-img"
+                                                                  src="{{ category.image.url }}"
+                                                                  alt="">{{ category.category|safe }}<i
+                                    class="fa-light fa-angle-down"></i></div>
+                            <ul class="us-categories-content">
                                 {% for subcategory in category.subcategories.all %}
                                     <li class="us-categories-content-listItem">
                                         <a href="?subcategory={{ subcategory.pk }}">{{ subcategory|safe }}</a>
                                     </li>
                                 {% endfor %}
-                        </ul>
-                    </div>
-                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                {% endwith %}
                 </div>
 
-            </div>
-        </div>
-        </div>
-
-            <!-- End Filter Bar -->
-            <!-- Start Best Seller -->
-            <section class="lattest-product-area  category-list">
-                <div id="London" class="tabcontent3">
-                    <div class="product-new-us">
-                                    {% for product in object_list %}
-                                            {% include 'layouts/product_block.html' %}
-                                    {% endfor %}
-                    </div>
+                </div>
+                </div>
                 </div>
 
-                <div id="Paris" class="tabcontent3">
-                    <div class="us-horizontal-products">
-                        {% for product in products %}
-                            {% include 'layouts/products-sort.html' %}
-                        {% endfor %}
+                <!-- End Filter Bar -->
+                <!-- Start Best Seller -->
+                <section class="lattest-product-area  category-list">
+                    <div id="London" class="tabcontent3">
+                        <div class="product-new-us">
+                            {% for product in object_list %}
+                                {% include 'layouts/product_block.html' %}
+                            {% endfor %}
+                        </div>
                     </div>
+
+                    <div id="Paris" class="tabcontent3">
+                        <div class="us-horizontal-products">
+                            {% for product in products %}
+                                {% include 'layouts/products-sort.html' %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </section>
+                <br>
+                <!-- pagination menu -->
+
+
+                <!-- end pagination menu -->
+                <!-- End Best Seller -->
+                <!-- Start Filter Bar -->
+                <div class="filter-bar d-flex flex-wrap align-items-center">
                 </div>
-
-            </section>
-            <br>
-            <!-- pagination menu -->
-
-
-            <!-- end pagination menu -->
-            <!-- End Best Seller -->
-            <!-- Start Filter Bar -->
-            <div class="filter-bar d-flex flex-wrap align-items-center">
-    </div>
-</div>
-           <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
-         {% if page_obj.has_previous %}
-            <li class="page-previous"><a href="?page={{ page_obj.previous_page_number }}"><img src="/static/images/left.svg" alt=""></a></li>
+                </div>
+    <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
+        {% if page_obj.has_previous %}
+            <li class="page-previous"><a href="?page={{ page_obj.previous_page_number }}"><img
+                    src="/static/images/left.svg" alt=""></a></li>
         {% else %}
             <li class="disabled"><span><img src="/static/images/left.svg" style="display:none" alt=""></span></li>
         {% endif %}
-          <ul style="display: flex;justify-content: center;">
-              {% if page_obj.has_previous <= page_obj.number|add:'-2' %}
-                 <li class="page_numb"><a href="?page=1" style="color: #132E6B;">1</a></li>
-              {% endif %}
+        <ul style="display: flex;justify-content: center;">
+            {% if page_obj.has_previous <= page_obj.number|add:'-2' %}
+                <li class="page_numb"><a href="?page=1" style="color: #132E6B;">1</a></li>
+            {% endif %}
             {% for page in page_obj.paginator.page_range %}
                 {% if page_obj.number == page %}
-                         <li class="page_numb-active"><a style="color: #132E6B;">{{ page }}</a></li>
+                    <li class="page_numb-active"><a style="color: #132E6B;">{{ page }}</a></li>
                 {% elif page > page_obj.number|add:'-2' and page < page_obj.number|add:'2' %}
-                   <li class="page_numb"><a rel="next" href="{% relative_url page 'page' request.GET.urlencode %}" style="color: #132E6B;">{{ page }}</a></li>
+                    <li class="page_numb"><a rel="next" href="{% relative_url page 'page' request.GET.urlencode %}"
+                                             style="color: #132E6B;">{{ page }}</a></li>
                 {% endif %}
             {% endfor %}
-          {% if page_obj.has_next %}
-            {% if page_obj.number <= page_obj.paginator.num_pages %}
-                <li class="page-dotted"><a href="{% relative_url page_obj.number|add:'2' 'page' request.GET.urlencode %}">&hellip;</a></li>
+            {% if page_obj.has_next %}
+                {% if page_obj.number <= page_obj.paginator.num_pages %}
+                    <li class="page-dotted"><a
+                            href="{% relative_url page_obj.number|add:'2' 'page' request.GET.urlencode %}">&hellip;</a>
+                    </li>
+                {% endif %}
             {% endif %}
-          {% endif %}
-           {% if page_obj.has_next %}
-              <li class="page_numb"><a href="{% relative_url page_obj.paginator.num_pages 'page' request.GET.urlencode %}" style="color: #132E6B;">{{ page_obj.paginator.num_pages }}</a></li>
-           {% endif %}
-          </ul>
-         {% if page_obj.has_next %}
-            <li class="page-next"><a href="?page={{ page_obj.next_page_number }}"><i class="fa-light fa-angle-right" style="color: #132E6B;font-weight: 500;"></i></a></li>
+            {% if page_obj.has_next %}
+                <li class="page_numb"><a
+                        href="{% relative_url page_obj.paginator.num_pages 'page' request.GET.urlencode %}"
+                        style="color: #132E6B;">{{ page_obj.paginator.num_pages }}</a></li>
+            {% endif %}
+        </ul>
+        {% if page_obj.has_next %}
+            <li class="page-next"><a href="?page={{ page_obj.next_page_number }}"><i class="fa-light fa-angle-right"
+                                                                                     style="color: #132E6B;font-weight: 500;"></i></a>
+            </li>
         {% else %}
             <li class="disabled"><span><i class="fa-light fa-angle-right" style="display: none"></i></span></li>
         {% endif %}
-        </nav>
+    </nav>
     <div class="container">
         <div class="back_elements" style="margin-top: 1%;">
 
@@ -565,46 +626,46 @@ accordion {
 
 
 
-<div class="container">
-    <div class="row-1">
-        <br>
-        <div class="splide_3_2">
-            <div class="splide__track">
+    <div class="container">
+        <div class="row-1">
+            <br>
+            <div class="splide_3_2">
+                <div class="splide__track">
                     <ul class="splide__list" style="height:700px">
-                     {% for product in products %}
-                        <li class="splide__slide">
-                             <div class="us-products">
-                                  {% include 'layouts/product_block.html' %}
-                              </div>
-                        </li>
-                      {% endfor %}
+                        {% for product in products %}
+                            <li class="splide__slide">
+                                <div class="us-products">
+                                    {% include 'layouts/product_block.html' %}
+                                </div>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </div>
+            </div>
         </div>
     </div>
-</div>
 
 
-<div class="products-none">
-      <div class="us-products">
-            {% for product in products|slice:'4'  %}
+    <div class="products-none">
+        <div class="us-products">
+            {% for product in products|slice:'4' %}
                 {% include 'layouts/product_block.html' %}
             {% endfor %}
-     </div>
-</div>
+        </div>
+    </div>
 
 
 
-<br>
-<script>
-</script>
+    <br>
+    <script>
+    </script>
 {% endblock %}
 <!-- Articul id ++++++-->
 <!-- 4,5 -->
 
 {% block extra_js %}
-<script>
-      $('.btn1').click(function () {
+    <script>
+        $('.btn1').click(function () {
             $(this).toggleClass("click");
             $('.sidebar').toggleClass("show");
         });
@@ -619,8 +680,8 @@ accordion {
         $('nav ul li').click(function () {
             $(this).addClass("active").siblings().removeClass("active");
         });
-</script>
-<script>
+    </script>
+    <script>
         $(function () {
             var Accordion = function (el, multiple) {
                 this.el = el || {};
@@ -650,11 +711,11 @@ accordion {
         });
 
 
-</script>
+    </script>
 
 
 
-<script>
+    <script>
         $(function () {
             var Accordion = function (el, multiple) {
                 this.el = el || {};
@@ -684,26 +745,26 @@ accordion {
         });
 
 
-</script>
-<script>
-  function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent3");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
+    </script>
+    <script>
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent3");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
 
-  // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
-</script>
-<script>
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+    <script>
         $(function () {
             var Accordion = function (el, multiple) {
                 this.el = el || {};
@@ -731,26 +792,26 @@ accordion {
 
             var accordion = new Accordion($('#accordion4_2'), false);
         });
-</script>
+    </script>
 
-<script>
-  $(".js-range-slider").ionRangeSlider({
-        type: "double",
-        grid: true,
-        min: {{ min_price }},
-        max: {{ max_price }},
-        from: {% get_price request 0 %},
-        to: {% get_price request 1 %},
-        prefix: '$',
-        onFinish(data) {
-            let result = data.from.toString() + ';' + data.to.toString()
-            addUrlParameter('price', result);
-        }
-    });
-</script>
+    <script>
+        $(".js-range-slider").ionRangeSlider({
+            type: "double",
+            grid: true,
+            min: {{ min_price }},
+            max: {{ max_price }},
+            from: {% get_price request 0 %},
+            to: {% get_price request 1 %},
+            prefix: '$',
+            onFinish(data) {
+                let result = data.from.toString() + ';' + data.to.toString()
+                addUrlParameter('price', result);
+            }
+        });
+    </script>
 
-<!--asd-->
-<script>
+    <!--asd-->
+    <script>
         var splide = new Splide('.splide_3_2', {
             perPage: 1,
             rewind: true,
@@ -759,273 +820,280 @@ accordion {
         splide.mount();
 
 
-</script>
-<script>
-  function addUrlParameter(name, value) {
-      let searchParams = new URLSearchParams(window.location.search)
-      if (['category', 'subcategory', 'sku', 'sort', 'som'].includes(name)) {
-          searchParams.delete('?');
-      }
-      if (searchParams.has(name) && searchParams.get(name) === value) {
-          searchParams.delete(name);
-      } else {
-          searchParams.set(name, value)
-      }
-      window.location.search = searchParams.toString()
-  }
-</script>
+    </script>
+    <script>
+        function addUrlParameter(name, value) {
+            let searchParams = new URLSearchParams(window.location.search)
+            if (['category', 'subcategory', 'sku', 'sort', 'som'].includes(name)) {
+                searchParams.delete('?');
+            }
+            if (searchParams.has(name) && searchParams.get(name) === value) {
+                searchParams.delete(name);
+            } else {
+                searchParams.set(name, value)
+            }
+            window.location.search = searchParams.toString()
+        }
+    </script>
     <script>
 
-const accordionBtns = document.querySelectorAll(".us-categories-label");
-let array = []
-accordionBtns.forEach((accordion) => {
+        const accordionBtns = document.querySelectorAll(".us-categories-label");
+        let array = []
+        accordionBtns.forEach((accordion) => {
 
-    accordion.onclick = function () {
-        if (!this.parentElement.classList.contains("active")) {
-            if (!array.includes(this)) {
-                array.push(this)
-            }
-            else {
-                // console.log(this);
-            }
-        }
-
-
-        if (array.length > 1) {
-            array.forEach((openAccardion,index) => {
-                if (index = array.length - 1) {
-                    openAccardion.parentElement.classList.remove('active')
-                    array.shift()
+            accordion.onclick = function () {
+                if (!this.parentElement.classList.contains("active")) {
+                    if (!array.includes(this)) {
+                        array.push(this)
+                    } else {
+                        // console.log(this);
+                    }
                 }
-            })
-            // array[0].parentElement.classList.remove("active")
-
-            this.parentElement.classList.toggle("active");
-
-        }
-        else {
-            this.parentElement.classList.toggle("active");
-        }
 
 
-        let content = this.nextElementSibling;
-        let accordionHeight = content.scrollHeight + "px";
-        //if the accordion is currently closed
-        document.documentElement.style.setProperty('--subaccardion-height', accordionHeight);
+                if (array.length > 1) {
+                    array.forEach((openAccardion, index) => {
+                        if (index = array.length - 1) {
+                            openAccardion.parentElement.classList.remove('active')
+                            array.shift()
+                        }
+                    })
+                    // array[0].parentElement.classList.remove("active")
 
-        // console.log(array);
-    };
-});
+                    this.parentElement.classList.toggle("active");
+
+                } else {
+                    this.parentElement.classList.toggle("active");
+                }
+
+
+                let content = this.nextElementSibling;
+                let accordionHeight = content.scrollHeight + "px";
+                //if the accordion is currently closed
+                document.documentElement.style.setProperty('--subaccardion-height', accordionHeight);
+
+                // console.log(array);
+            };
+        });
 
     </script>
-<script>
-    window.onload = function(){
-  crear_select();
-}
-
-function isMobileDevice() {
-        window.onload = function(){
-  crear_select();
-}
-};
-
-
-var li = new Array();
-function crear_select(){
-var div_cont_select = document.querySelectorAll("[data-mate-select='active']");
-var select_ = '';
-for (var e = 0; e < div_cont_select.length; e++) {
-div_cont_select[e].setAttribute('data-indx-select',e);
-div_cont_select[e].setAttribute('data-selec-open','false');
-var ul_cont = document.querySelectorAll("[data-indx-select='"+e+"'] > .cont_list_select_mate > ul");
- select_ = document.querySelectorAll("[data-indx-select='"+e+"'] >select")[0];
- if (isMobileDevice()) {
-select_.addEventListener('change', function () {
- _select_option(select_.selectedIndex,e);
-});
- }
-var select_optiones = select_.options;
-document.querySelectorAll("[data-indx-select='"+e+"']  > .selecionado_opcion ")[0].setAttribute('data-n-select',e);
-document.querySelectorAll("[data-indx-select='"+e+"']  > .icon_select_mate ")[0].setAttribute('data-n-select',e);
-for (var i = 0; i < select_optiones.length; i++) {
-li[i] = document.createElement('li');
-if (select_optiones[i].selected == true || select_.value == select_optiones[i].innerHTML ) {
-li[i].className = 'active';
-document.querySelector("[data-indx-select='"+e+"']  > .selecionado_opcion ").innerHTML = select_optiones[i].innerHTML;
-};
-li[i].setAttribute('data-index',i);
-li[i].setAttribute('data-selec-index',e);
-// funcion click al selecionar
-li[i].addEventListener( 'click', function(){  _select_option(this.getAttribute('data-index'),this.getAttribute('data-selec-index')); });
-
-li[i].innerHTML = select_optiones[i].innerHTML;
-ul_cont[0].appendChild(li[i]);
-
-    }; // Fin For select_optiones
-  }; // fin for divs_cont_select
-} // Fin Function
-
-
-
-var cont_slc = 0;
-function open_select(idx){
-var idx1 =  idx.getAttribute('data-n-select');
-  var ul_cont_li = document.querySelectorAll("[data-indx-select='"+idx1+"'] .cont_select_int > li");
-var hg = 0;
-var slect_open = document.querySelectorAll("[data-indx-select='"+idx1+"']")[0].getAttribute('data-selec-open');
-var slect_element_open = document.querySelectorAll("[data-indx-select='"+idx1+"'] select")[0];
- if (isMobileDevice()) {
-  if (window.document.createEvent) { // All
-  var evt = window.document.createEvent("MouseEvents");
-  evt.initMouseEvent("mousedown", false, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-	slect_element_open.dispatchEvent(evt);
-} else if (slect_element_open.fireEvent) { // IE
-  slect_element_open.fireEvent("onmousedown");
-}else {
-  slect_element_open.click();
-}
-}else {
-
-
-  for (var i = 0; i < ul_cont_li.length; i++) {
-hg += ul_cont_li[i].offsetHeight;
-};
- if (slect_open == 'false') {
- document.querySelectorAll("[data-indx-select='"+idx1+"']")[0].setAttribute('data-selec-open','true');
- document.querySelectorAll("[data-indx-select='"+idx1+"'] > .cont_list_select_mate > ul")[0].style.height = hg+"px";
- document.querySelectorAll("[data-indx-select='"+idx1+"'] > .icon_select_mate")[0].style.transform = 'rotate(180deg)';
-}else{
- document.querySelectorAll("[data-indx-select='"+idx1+"']")[0].setAttribute('data-selec-open','false');
- document.querySelectorAll("[data-indx-select='"+idx1+"'] > .icon_select_mate")[0].style.transform = 'rotate(0deg)';
- document.querySelectorAll("[data-indx-select='"+idx1+"'] > .cont_list_select_mate > ul")[0].style.height = "0px";
- }
-}
-
-} // fin function open_select
-
-function salir_select(indx){
-var select_ = document.querySelectorAll("[data-indx-select='"+indx+"'] > select")[0];
- document.querySelectorAll("[data-indx-select='"+indx+"'] > .cont_list_select_mate > ul")[0].style.height = "0px";
-document.querySelector("[data-indx-select='"+indx+"'] > .icon_select_mate").style.transform = 'rotate(0deg)';
- document.querySelectorAll("[data-indx-select='"+indx+"']")[0].setAttribute('data-selec-open','false');
-}
-
-
-function _select_option(indx,selc){
- if (isMobileDevice()) {
-selc = selc -1;
-}
-    var select_ = document.querySelectorAll("[data-indx-select='"+selc+"'] > select")[0];
-
-  var li_s = document.querySelectorAll("[data-indx-select='"+selc+"'] .cont_select_int > li");
-  var p_act = document.querySelectorAll("[data-indx-select='"+selc+"'] > .selecionado_opcion")[0].innerHTML = li_s[indx].innerHTML;
-var select_optiones = document.querySelectorAll("[data-indx-select='"+selc+"'] > select > option");
-for (var i = 0; i < li_s.length; i++) {
-if (li_s[i].className == 'active') {
-li_s[i].className = '';
-};
-li_s[indx].className = 'active';
-
-};
-select_optiones[indx].selected = true;
-  select_.selectedIndex = indx;
-  select_.onchange();
-  salir_select(selc);
-}
-</script>
-<script>
-    $(function () {
-    var Accordion = function (el, multiple) {
-        this.el = el || {};
-        this.multiple = multiple || false;
-
-        // Variables privadas
-        var links = this.el.find('.link');
-        // Evento
-        links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
-    }
-
-    Accordion.prototype.dropdown = function (e) {
-        var $el = e.data.el;
-        $this = $(this),
-            $next = $this.next();
-
-        $next.slideToggle();
-        $this.parent().toggleClass('open');
-
-        if (!e.data.multiple) {
-            $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+    <script>
+        window.onload = function () {
+            crear_select();
         }
-        ;
-    }
 
-    var accordion = new Accordion($('#accordion7_2'), false);
-});
+        function isMobileDevice() {
+            window.onload = function () {
+                crear_select();
+            }
+        };
 
-</script>
-<script>
-(function () {
 
-    $(".hamburger").on("click", function () {
-        $(this).parent(".hamburger-wrapper").toggleClass("hamburger-active")
-    });
+        var li = new Array();
 
-}());
-</script>
-<script>
-  var accordion = (function(){
+        function crear_select() {
+            var div_cont_select = document.querySelectorAll("[data-mate-select='active']");
+            var select_ = '';
+            for (var e = 0; e < div_cont_select.length; e++) {
+                div_cont_select[e].setAttribute('data-indx-select', e);
+                div_cont_select[e].setAttribute('data-selec-open', 'false');
+                var ul_cont = document.querySelectorAll("[data-indx-select='" + e + "'] > .cont_list_select_mate > ul");
+                select_ = document.querySelectorAll("[data-indx-select='" + e + "'] >select")[0];
+                if (isMobileDevice()) {
+                    select_.addEventListener('change', function () {
+                        _select_option(select_.selectedIndex, e);
+                    });
+                }
+                var select_optiones = select_.options;
+                document.querySelectorAll("[data-indx-select='" + e + "']  > .selecionado_opcion ")[0].setAttribute('data-n-select', e);
+                document.querySelectorAll("[data-indx-select='" + e + "']  > .icon_select_mate ")[0].setAttribute('data-n-select', e);
+                for (var i = 0; i < select_optiones.length; i++) {
+                    li[i] = document.createElement('li');
+                    if (select_optiones[i].selected == true || select_.value == select_optiones[i].innerHTML) {
+                        li[i].className = 'active';
+                        document.querySelector("[data-indx-select='" + e + "']  > .selecionado_opcion ").innerHTML = select_optiones[i].innerHTML;
+                    }
+                    ;
+                    li[i].setAttribute('data-index', i);
+                    li[i].setAttribute('data-selec-index', e);
+// funcion click al selecionar
+                    li[i].addEventListener('click', function () {
+                        _select_option(this.getAttribute('data-index'), this.getAttribute('data-selec-index'));
+                    });
 
-  var $accordion = $('.js-accordion');
-  var $accordion_header = $accordion.find('.js-accordion-header');
-  var $accordion_item = $('.js-accordion-item');
+                    li[i].innerHTML = select_optiones[i].innerHTML;
+                    ul_cont[0].appendChild(li[i]);
 
-  // default settings
-  var settings = {
-    // animation speed
-    speed: 400,
+                }
+                ; // Fin For select_optiones
+            }
+            ; // fin for divs_cont_select
+        } // Fin Function
 
-    // close all other accordion items if true
-    oneOpen: false
-  };
 
-  return {
-    // pass configurable object literal
-    init: function($settings) {
-      $accordion_header.on('click', function() {
-        accordion.toggle($(this));
-      });
+        var cont_slc = 0;
 
-      $.extend(settings, $settings);
+        function open_select(idx) {
+            var idx1 = idx.getAttribute('data-n-select');
+            var ul_cont_li = document.querySelectorAll("[data-indx-select='" + idx1 + "'] .cont_select_int > li");
+            var hg = 0;
+            var slect_open = document.querySelectorAll("[data-indx-select='" + idx1 + "']")[0].getAttribute('data-selec-open');
+            var slect_element_open = document.querySelectorAll("[data-indx-select='" + idx1 + "'] select")[0];
+            if (isMobileDevice()) {
+                if (window.document.createEvent) { // All
+                    var evt = window.document.createEvent("MouseEvents");
+                    evt.initMouseEvent("mousedown", false, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                    slect_element_open.dispatchEvent(evt);
+                } else if (slect_element_open.fireEvent) { // IE
+                    slect_element_open.fireEvent("onmousedown");
+                } else {
+                    slect_element_open.click();
+                }
+            } else {
 
-      // ensure only one accordion is active if oneOpen is true
-      if(settings.oneOpen && $('.js-accordion-item.active').length > 1) {
-        $('.js-accordion-item.active:not(:first)').removeClass('active');
-      }
 
-      // reveal the active accordion bodies
-      $('.js-accordion-item.active').find('> .js-accordion-body').show();
-    },
-    toggle: function($this) {
+                for (var i = 0; i < ul_cont_li.length; i++) {
+                    hg += ul_cont_li[i].offsetHeight;
+                }
+                ;
+                if (slect_open == 'false') {
+                    document.querySelectorAll("[data-indx-select='" + idx1 + "']")[0].setAttribute('data-selec-open', 'true');
+                    document.querySelectorAll("[data-indx-select='" + idx1 + "'] > .cont_list_select_mate > ul")[0].style.height = hg + "px";
+                    document.querySelectorAll("[data-indx-select='" + idx1 + "'] > .icon_select_mate")[0].style.transform = 'rotate(180deg)';
+                } else {
+                    document.querySelectorAll("[data-indx-select='" + idx1 + "']")[0].setAttribute('data-selec-open', 'false');
+                    document.querySelectorAll("[data-indx-select='" + idx1 + "'] > .icon_select_mate")[0].style.transform = 'rotate(0deg)';
+                    document.querySelectorAll("[data-indx-select='" + idx1 + "'] > .cont_list_select_mate > ul")[0].style.height = "0px";
+                }
+            }
 
-      if(settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
-        $this.closest('.js-accordion')
-               .find('> .js-accordion-item')
-               .removeClass('active')
-               .find('.js-accordion-body')
-               .slideUp()
-      }
+        } // fin function open_select
 
-      // show/hide the clicked accordion item
-      $this.closest('.js-accordion-item').toggleClass('active');
-      $this.next().stop().slideToggle(settings.speed);
-    }
-  }
-})();
+        function salir_select(indx) {
+            var select_ = document.querySelectorAll("[data-indx-select='" + indx + "'] > select")[0];
+            document.querySelectorAll("[data-indx-select='" + indx + "'] > .cont_list_select_mate > ul")[0].style.height = "0px";
+            document.querySelector("[data-indx-select='" + indx + "'] > .icon_select_mate").style.transform = 'rotate(0deg)';
+            document.querySelectorAll("[data-indx-select='" + indx + "']")[0].setAttribute('data-selec-open', 'false');
+        }
 
-$(document).ready(function(){
-  accordion.init({ speed: 300, oneOpen: true });
-});
-</script>
-<!--asd-->
+
+        function _select_option(indx, selc) {
+            if (isMobileDevice()) {
+                selc = selc - 1;
+            }
+            var select_ = document.querySelectorAll("[data-indx-select='" + selc + "'] > select")[0];
+
+            var li_s = document.querySelectorAll("[data-indx-select='" + selc + "'] .cont_select_int > li");
+            var p_act = document.querySelectorAll("[data-indx-select='" + selc + "'] > .selecionado_opcion")[0].innerHTML = li_s[indx].innerHTML;
+            var select_optiones = document.querySelectorAll("[data-indx-select='" + selc + "'] > select > option");
+            for (var i = 0; i < li_s.length; i++) {
+                if (li_s[i].className == 'active') {
+                    li_s[i].className = '';
+                }
+                ;
+                li_s[indx].className = 'active';
+
+            }
+            ;
+            select_optiones[indx].selected = true;
+            select_.selectedIndex = indx;
+            select_.onchange();
+            salir_select(selc);
+        }
+    </script>
+    <script>
+        $(function () {
+            var Accordion = function (el, multiple) {
+                this.el = el || {};
+                this.multiple = multiple || false;
+
+                // Variables privadas
+                var links = this.el.find('.link');
+                // Evento
+                links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+            }
+
+            Accordion.prototype.dropdown = function (e) {
+                var $el = e.data.el;
+                $this = $(this),
+                    $next = $this.next();
+
+                $next.slideToggle();
+                $this.parent().toggleClass('open');
+
+                if (!e.data.multiple) {
+                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                }
+                ;
+            }
+
+            var accordion = new Accordion($('#accordion7_2'), false);
+        });
+
+    </script>
+    <script>
+        (function () {
+
+            $(".hamburger").on("click", function () {
+                $(this).parent(".hamburger-wrapper").toggleClass("hamburger-active")
+            });
+
+        }());
+    </script>
+    <script>
+        var accordion = (function () {
+
+            var $accordion = $('.js-accordion');
+            var $accordion_header = $accordion.find('.js-accordion-header');
+            var $accordion_item = $('.js-accordion-item');
+
+            // default settings
+            var settings = {
+                // animation speed
+                speed: 400,
+
+                // close all other accordion items if true
+                oneOpen: false
+            };
+
+            return {
+                // pass configurable object literal
+                init: function ($settings) {
+                    $accordion_header.on('click', function () {
+                        accordion.toggle($(this));
+                    });
+
+                    $.extend(settings, $settings);
+
+                    // ensure only one accordion is active if oneOpen is true
+                    if (settings.oneOpen && $('.js-accordion-item.active').length > 1) {
+                        $('.js-accordion-item.active:not(:first)').removeClass('active');
+                    }
+
+                    // reveal the active accordion bodies
+                    $('.js-accordion-item.active').find('> .js-accordion-body').show();
+                },
+                toggle: function ($this) {
+
+                    if (settings.oneOpen && $this[0] != $this.closest('.js-accordion').find('> .js-accordion-item.active > .js-accordion-header')[0]) {
+                        $this.closest('.js-accordion')
+                            .find('> .js-accordion-item')
+                            .removeClass('active')
+                            .find('.js-accordion-body')
+                            .slideUp()
+                    }
+
+                    // show/hide the clicked accordion item
+                    $this.closest('.js-accordion-item').toggleClass('active');
+                    $this.next().stop().slideToggle(settings.speed);
+                }
+            }
+        })();
+
+        $(document).ready(function () {
+            accordion.init({speed: 300, oneOpen: true});
+        });
+    </script>
+    <!--asd-->
 
 {% endblock %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-07 14:33+0500\n"
+"POT-Creation-Date: 2022-07-13 19:20+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,14 +22,14 @@ msgstr ""
 msgid "about"
 msgstr "biz haqimizda"
 
-#: about/models.py:9 biznes/models.py:8 blog/models.py:7 gallery/models.py:8
-#: home/models.py:68 home/models.py:145 lines/models.py:34 videos/models.py:8
+#: about/models.py:9 biznes/models.py:8 blog/models.py:7 gallery/models.py:9
+#: home/models.py:81 home/models.py:164 lines/models.py:34 videos/models.py:8
 #: works/models.py:7
 msgid "title"
 msgstr "sarlavha"
 
-#: about/models.py:10 blog/models.py:8 gallery/models.py:26 home/models.py:45
-#: home/models.py:57 home/models.py:70 home/models.py:125 home/models.py:147
+#: about/models.py:10 blog/models.py:8 gallery/models.py:28 home/models.py:58
+#: home/models.py:70 home/models.py:83 home/models.py:141 home/models.py:166
 #: lines/models.py:35 lines/models.py:60
 msgid "image"
 msgstr "rasm"
@@ -39,9 +39,9 @@ msgid "description"
 msgstr "tavsif"
 
 #: about/models.py:13 about/models.py:27 biznes/models.py:11
-#: biznes/models.py:32 gallery/models.py:13 home/models.py:17 home/models.py:86
-#: lines/models.py:9 lines/models.py:21 lines/models.py:40 orders/models.py:12
-#: videos/models.py:11
+#: biznes/models.py:32 gallery/models.py:14 home/models.py:24
+#: home/models.py:101 lines/models.py:9 lines/models.py:21 lines/models.py:40
+#: orders/models.py:12 videos/models.py:11
 msgid "created_at"
 msgstr "yasalgan_vaqti"
 
@@ -118,35 +118,35 @@ msgstr ""
 msgid "Syndication"
 msgstr ""
 
-#: gallery/apps.py:8 gallery/models.py:19 gallery/models.py:25
+#: gallery/apps.py:8 gallery/models.py:20 gallery/models.py:26
 msgid "gallery"
 msgstr "gallereya"
 
-#: gallery/models.py:9 home/models.py:84
+#: gallery/models.py:10 home/models.py:99
 msgid "short_description"
 msgstr "kalta tavsif"
 
-#: gallery/models.py:10 home/models.py:85 lines/models.py:39
+#: gallery/models.py:11 home/models.py:100 lines/models.py:39
 msgid "long_description"
 msgstr "uzun tavsif"
 
-#: gallery/models.py:11
+#: gallery/models.py:12
 msgid "last_date"
 msgstr ""
 
-#: gallery/models.py:12 videos/models.py:17
+#: gallery/models.py:13 videos/models.py:17
 msgid "video"
 msgstr "video"
 
-#: gallery/models.py:20
+#: gallery/models.py:21
 msgid "galleries"
 msgstr "gallereya"
 
-#: gallery/models.py:29
+#: gallery/models.py:31
 msgid "gallery image"
 msgstr "gallereya_rasmi"
 
-#: gallery/models.py:30
+#: gallery/models.py:32
 msgid "gallery images"
 msgstr "gallereya_rasmi"
 
@@ -154,132 +154,132 @@ msgstr "gallereya_rasmi"
 msgid "home"
 msgstr "bosh sahifa"
 
-#: home/models.py:15 home/models.py:24 home/models.py:29 home/models.py:75
+#: home/models.py:21 home/models.py:31 home/models.py:41 home/models.py:89
 #: lines/models.py:20 lines/models.py:32
 msgid "category"
 msgstr "kategoriya"
 
-#: home/models.py:16
+#: home/models.py:22
 msgid "category_image"
 msgstr "kategoriya_rasmi"
 
-#: home/models.py:25
+#: home/models.py:32
 msgid "categories"
 msgstr "kategoriyalar"
 
-#: home/models.py:31
+#: home/models.py:43
 msgid "sub_image"
 msgstr "pastki kategoriya rasmi"
 
-#: home/models.py:32 home/models.py:39 home/models.py:76
+#: home/models.py:44 home/models.py:52 home/models.py:90
 msgid "subcategory"
 msgstr "pastki kategoriya"
 
-#: home/models.py:33
+#: home/models.py:46
 msgid "crated_at"
 msgstr "yasalgan vaqti"
 
-#: home/models.py:40
+#: home/models.py:53
 msgid "subcategories"
 msgstr "pastki kategoriya"
 
-#: home/models.py:44 home/models.py:73
+#: home/models.py:57 home/models.py:86
 msgid "country"
 msgstr "shaxri"
 
-#: home/models.py:51 home/models.py:52
+#: home/models.py:64 home/models.py:65
 msgid "Banner_country"
 msgstr "Product_shaxri"
 
-#: home/models.py:56
+#: home/models.py:69
 msgid "color"
 msgstr "rangi"
 
-#: home/models.py:63
+#: home/models.py:76
 msgid "Banner_back"
 msgstr "Product_rangi"
 
-#: home/models.py:64
+#: home/models.py:77
 msgid "Banner_backs"
 msgstr "Mahsulotni orqa foni"
 
-#: home/models.py:71 home/models.py:148
+#: home/models.py:84 home/models.py:167
 msgid "background"
 msgstr "orqa foni"
 
-#: home/models.py:74
+#: home/models.py:88
 msgid "pdf"
 msgstr "pdf"
 
-#: home/models.py:78
+#: home/models.py:93
 msgid "city"
 msgstr "shaxri"
 
-#: home/models.py:79
+#: home/models.py:94
 msgid "price"
 msgstr "narxi"
 
-#: home/models.py:80
+#: home/models.py:95
 msgid "dollar"
 msgstr "dollar"
 
-#: home/models.py:81
+#: home/models.py:96
 msgid "discount"
 msgstr "chegirma"
 
-#: home/models.py:82
+#: home/models.py:97
 msgid "inbox"
 msgstr "ombor da mavjud"
 
-#: home/models.py:83
+#: home/models.py:98
 msgid "delivery"
 msgstr "yetkazib berish"
 
-#: home/models.py:117 home/models.py:118 home/models.py:134 orders/models.py:10
+#: home/models.py:132 home/models.py:133 home/models.py:150 orders/models.py:10
 msgid "products"
 msgstr "mahsulotlar"
 
-#: home/models.py:124
+#: home/models.py:140
 msgid "product"
 msgstr "mahsulot"
 
-#: home/models.py:128
+#: home/models.py:144
 msgid "product image"
 msgstr "mahsulotning rasimi"
 
-#: home/models.py:129
+#: home/models.py:145
 msgid "product images"
 msgstr "mahsulotning rasmi"
 
-#: home/models.py:135
+#: home/models.py:151
 msgid "product_customer"
 msgstr "mahsulotni hususiyati"
 
-#: home/models.py:136
+#: home/models.py:152
 msgid "product_numbers"
 msgstr "mahsulotni raqami"
 
-#: home/models.py:137
+#: home/models.py:153
 msgid "product_image"
 msgstr "mahsulotni rasmi"
 
-#: home/models.py:140
+#: home/models.py:159
 msgid "product specification"
 msgstr "mahsulotni hususiyati"
 
-#: home/models.py:141
+#: home/models.py:160
 msgid "product specifications"
 msgstr "mahsulotni hususiyatlari"
 
-#: home/models.py:146 works/models.py:10
+#: home/models.py:165 works/models.py:10
 msgid "descriptions"
 msgstr "tavsif"
 
-#: home/models.py:155
+#: home/models.py:174
 msgid "carousel"
 msgstr "karusel"
 
-#: home/models.py:156
+#: home/models.py:175
 msgid "carousels"
 msgstr "karusel"
 
@@ -358,7 +358,7 @@ msgid "Biz haqimizda"
 msgstr "Biz Haqimizda"
 
 #: templates/about.html:45 templates/about.html:46
-#: templates/layouts/header.html:60 templates/layouts/header.html:221
+#: templates/layouts/header.html:60 templates/layouts/header.html:226
 #, fuzzy
 #| msgid "Kompaniya haqida"
 msgid "Kompaniya faoliyati"
@@ -374,7 +374,7 @@ msgstr "Kompaniya haqida"
 msgid "Главная"
 msgstr "Asosiy"
 
-#: templates/about.html:74 templates/lines.html:181 templates/products.html:466
+#: templates/about.html:74 templates/lines.html:181 templates/products.html:467
 #, fuzzy
 #| msgid "category"
 msgid "Kategoriyalar"
@@ -435,7 +435,7 @@ msgid "Категории"
 msgstr "Kategoriyalar"
 
 #: templates/contacts.html:3 templates/layouts/header.html:67
-#: templates/layouts/header.html:233
+#: templates/layouts/header.html:238
 msgid "Kontaktlar"
 msgstr "Kontaktlar"
 
@@ -505,13 +505,13 @@ msgstr "Asosiy"
 msgid "Подробнее"
 msgstr "Batafsil"
 
-#: templates/index.html:1885 templates/products.html:606
+#: templates/index.html:1885 templates/products.html:559
 #: templates/single-product.html:1077
 msgid "Популярные товары"
 msgstr "Ommabop mahsulotlar"
 
 #: templates/index.html:1926 templates/index.html:2023
-#: templates/index.html:2102 templates/products.html:439
+#: templates/index.html:2102 templates/products.html:440
 msgid "Batafsil"
 msgstr "Batafsil"
 
@@ -537,21 +537,21 @@ msgstr "Bizning hamkorlar"
 msgid "Home"
 msgstr "Asosiy"
 
-#: templates/layouts/header.html:49 templates/layouts/header.html:205
+#: templates/layouts/header.html:49 templates/layouts/header.html:210
 #: templates/products.html:3 templates/single-product.html:3
 msgid "Mahsulotlar"
 msgstr "Mahsulotlar"
 
-#: templates/layouts/header.html:52 templates/layouts/header.html:209
+#: templates/layouts/header.html:52 templates/layouts/header.html:214
 #: templates/lines.html:3 templates/single-lines.html:3
 msgid "Liniyalar"
 msgstr "Liniyalar"
 
-#: templates/layouts/header.html:55 templates/layouts/header.html:213
+#: templates/layouts/header.html:55 templates/layouts/header.html:218
 msgid "Tayyor Biznes"
 msgstr "Tayyor Biznes"
 
-#: templates/layouts/header.html:58 templates/layouts/header.html:217
+#: templates/layouts/header.html:58 templates/layouts/header.html:222
 msgid "Biz Haqimizda"
 msgstr "Biz Haqimizda"
 
@@ -564,19 +564,19 @@ msgstr "Bizning video"
 msgid "Bizning ishlar"
 msgstr "Bizning ishlar"
 
-#: templates/layouts/header.html:103
+#: templates/layouts/header.html:104
 msgid "выберите категорию"
 msgstr "Barchasi"
 
-#: templates/layouts/header.html:109
+#: templates/layouts/header.html:110
 msgid "Uskunalar qidirish"
 msgstr "Uskunalar qidirish"
 
-#: templates/layouts/header.html:225
+#: templates/layouts/header.html:230
 msgid "Bizning Videolar"
 msgstr "Bizning Videolar"
 
-#: templates/layouts/header.html:229
+#: templates/layouts/header.html:234
 msgid "Bizning Maqolalar"
 msgstr "Bizning Maqolalar"
 
@@ -632,8 +632,8 @@ msgstr "Ishchilar"
 msgid "Каталог"
 msgstr "Katalog"
 
-#: templates/products.html:228 templates/products.html:346
-#: templates/products.html:356 templates/products.html:364
+#: templates/products.html:228 templates/products.html:347
+#: templates/products.html:357 templates/products.html:365
 msgid "Фильтр"
 msgstr "Filtr"
 
@@ -641,43 +641,43 @@ msgstr "Filtr"
 msgid "Сбросить"
 msgstr "Yangilash"
 
-#: templates/products.html:237 templates/products.html:372
+#: templates/products.html:237 templates/products.html:373
 msgid "Все товары"
 msgstr "Barcha mahsulotlar"
 
-#: templates/products.html:238 templates/products.html:373
+#: templates/products.html:238 templates/products.html:374
 msgid "Сначала дешевые"
 msgstr "Arzondan"
 
-#: templates/products.html:239 templates/products.html:374
+#: templates/products.html:239 templates/products.html:375
 msgid "Сначала дорогие"
 msgstr "Qimmatdan"
 
-#: templates/products.html:240 templates/products.html:375
+#: templates/products.html:240 templates/products.html:376
 msgid "Новые"
 msgstr "Yangi"
 
-#: templates/products.html:257 templates/products.html:395
+#: templates/products.html:257 templates/products.html:396
 msgid "Валюта"
 msgstr "Valyuta"
 
-#: templates/products.html:258 templates/products.html:396
+#: templates/products.html:258 templates/products.html:397
 msgid "Сум"
 msgstr "Som"
 
-#: templates/products.html:259 templates/products.html:397
+#: templates/products.html:259 templates/products.html:398
 msgid "Доллар"
 msgstr "Dollar"
 
-#: templates/products.html:276 templates/products.html:414
+#: templates/products.html:276 templates/products.html:415
 msgid "Цена"
 msgstr "Narxi"
 
-#: templates/products.html:344
+#: templates/products.html:345
 msgid "Showing"
 msgstr "Korsatilgan"
 
-#: templates/products.html:344
+#: templates/products.html:345
 msgid "of"
 msgstr ""
 

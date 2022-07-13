@@ -12,8 +12,15 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CategoryModel(models.Model):
+
+    LANGUAGE_CODES = (
+        ("RU", 'ru'),
+        ('EN', 'en'),
+        ('UZ', 'uz')
+    )
     category = RichTextUploadingField(max_length=400, verbose_name=_('category'), null=True, db_index=True)
     image = models.FileField(upload_to='category_image', verbose_name=_('category_image'), null=True, blank=True)
+    language_code = models.CharField(max_length=2, choices=LANGUAGE_CODES, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
@@ -26,10 +33,16 @@ class CategoryModel(models.Model):
 
 
 class SubCategoryModel(models.Model):
-    category = models.ForeignKey(CategoryModel, on_delete=models.PROTECT, verbose_name=_('category'),
+    LANGUAGE_CODES = (
+        ("RU", 'ru'),
+        ('EN', 'en'),
+        ('UZ', 'uz')
+    )
+    category = models.ForeignKey(CategoryModel, on_delete=models.CASCADE, verbose_name=_('category'),
                                  related_name='subcategories', db_index=True)
     image = models.FileField(upload_to='sub_image', verbose_name=_('sub_image'), null=True, blank=True)
     subcategory = models.CharField(max_length=300, verbose_name=_('subcategory'), db_index=True)
+    language_code = models.CharField(max_length=2, choices=LANGUAGE_CODES, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
 
     def __str__(self):
@@ -74,8 +87,9 @@ class BannerInfoModel(models.Model):
                                 blank=True)
     pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True, blank=True)
     category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, verbose_name=_('category'), null=True)
-    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.PROTECT, verbose_name=_('subcategory'),
+    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.CASCADE, verbose_name=_('subcategory'),
                                     null=True, blank=True)
+
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True, db_index=True)
     price = models.DecimalField(max_digits=12, decimal_places=0, verbose_name=_('price'))
     dollar = models.IntegerField(verbose_name=_('dollar'), null=True)
@@ -99,8 +113,8 @@ class BannerInfoModel(models.Model):
             return self.dollar - self.dollar * self.discount / 100
         return self.dollar
 
-    def dollar_exchanges(self):
-        return self.price * Decimal(_main())
+    # def dollar_exchanges(self):
+    #     return self.price * Decimal(_main())
 
     def is_new(self):
         diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
@@ -137,9 +151,6 @@ class ProductSpecificationsModel(models.Model):
     product_customer = models.CharField(max_length=99, verbose_name=_('product_customer'), null=True, blank=True)
     product_number = models.CharField(max_length=99, verbose_name=_('product_numbers'), null=True, blank=True)
     product_image = models.FileField(upload_to='pdf_image', verbose_name=_('product_image'), null=True, blank=True)
-
-    def my_product_delete(request, id):
-        ProductSpecificationsModel.objects.select_related('asdasd').filter(product_id=id).delete()
 
     class Meta:
         verbose_name = _('product specification')

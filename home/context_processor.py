@@ -1,16 +1,33 @@
-from home.models import CategoryModel, SubCategoryModel, BannerInfoModel
+from home.models import CategoryModel, SubCategoryModel, BannerInfoModel, ProductSpecificationsModel
 from django.db.models import Min, Max
+from django.utils.translation import get_language, activate
 
 
 def product_categories(request, ):
-    categories = CategoryModel.objects.select_related("category_ru_id").values_list('id', flat=True).order_by('pk').distinct('id')
-    subcategories = SubCategoryModel.objects.select_related("category_ru", "category_uz", "category", "category_en", "category_ru_id").values_list('category__pk', flat=True).order_by('pk').distinct('category__pk')
+    prod_spetification = ProductSpecificationsModel.objects.order_by('pk')
+    current_language = get_language()
+    print(current_language)
+    # categories = CategoryModel.objects.first()
+    # print(categories.language_code)
+    if current_language == 'ru':
+        categories = CategoryModel.objects.filter(language_code=current_language.upper()).order_by('pk')
+        subcategories = SubCategoryModel.objects.filter(language_code=current_language.upper()).order_by('pk')
+    elif current_language == 'en':
+        categories = CategoryModel.objects.filter(language_code=current_language.upper()).order_by('pk')
+        subcategories = SubCategoryModel.objects.filter(language_code=current_language.upper()).order_by('pk')
+    else:
+        categories = CategoryModel.objects.filter(language_code=current_language.upper()).order_by('pk')
+        subcategories = SubCategoryModel.objects.filter(language_code=current_language.upper()).order_by('pk')
+        # print(categories)
+        # subcategories = SubCategoryModel.objects.filter()
+    # activate(current_language)
     # min_price = BannerInfoModel.objects.aggregate(Min('dollar')
     # max_price = BannerInfoModel.objects.aggregate(Max('dollar')
 
     return {
-        'categories': categories,
-        'subcategories': subcategories,
+        'categories2': categories,
+        'subcategories2': subcategories,
+        'prod_spetification': prod_spetification
         # 'min_price': min_price,
         # 'max_price': max_price,
     }
