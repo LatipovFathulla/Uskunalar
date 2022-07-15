@@ -876,7 +876,7 @@
                             </li>
                             <li class="single-product-miniInfo-list-info">
                                 <p class="single-product-miniInfo-list-infoTitle"><i
-                                        class="fa-light fa-badge-percent"></i> 15% QQS (dollarda hisoblanmaydi)</p>
+                                        class="fa-light fa-badge-percent"></i> 15% QQS (so'mda)</p>
                             </li>
                         </ul>
 
@@ -919,7 +919,7 @@
                             <h3 class="single-products-product-priceBlock-title">Narxi:</h3>
                             <div>
                                 <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price_dollar }}</h4>
-                                <h5 class="single-products-product-priceBlock-uzsPrice">{{ object.dollar_exchanges|intcomma }}  so'm</h5>
+                                <h5 class="single-products-product-priceBlock-uzsPrice"><span> </span> so'm</h5>
                             </div>
                         </div>
 
@@ -1301,9 +1301,30 @@ $(".nav-2 li").hover(function () {
 
 </script>
 <script>
-  AOS.init();
-</script>
+       // Currency
+        const apiUrl = 'https://nbu.uz/en/exchange-rates/json/'
+        const usdSinglePrice = document.querySelector('.single-products-product-priceBlock-usdPrice').innerHTML.substring(1);
+        const uzsSinglePrice = document.querySelector('.single-products-product-priceBlock-uzsPrice span')
 
+        // Currency
+        async function singleExchangeCurrency(usd, element) {
+            let response = await fetch(apiUrl);
+
+            if (response.ok) {
+                let json = await response.json();
+                let CurrencyRate = json[json.length - 1]['cb_price'];
+                let finalPrice = Math.floor(CurrencyRate * usd);
+                element.innerHTML = finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+            } else {
+                alert("HTTP-Error: " + response.status);
+            }
+        }
+
+
+         singleExchangeCurrency(usdSinglePrice, uzsSinglePrice)
+
+
+</script>
 {% endblock %}
 
 {% endblock %}
