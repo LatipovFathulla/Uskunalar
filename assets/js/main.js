@@ -59,7 +59,7 @@ $(document).ready(function () {
     --------------------*/
     $(window).on('load', function () {
         $(".ctn-preloader").fadeOut();
-        $(".animation-preloader").delay(1200).fadeOut("slow");
+        $(".animation-preloader").delay(250).fadeOut("slow");
 
 
     });
