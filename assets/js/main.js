@@ -52,18 +52,15 @@ $(document).ready(function () {
 });
 
 
-(function ($) {
-
-    /*------------------
-        Preloader
-    --------------------*/
+/*------------------
+    Preloader
+--------------------*/
+jQuery(document).ready(function ($) {
     $(window).on('load', function () {
         $(".ctn-preloader").fadeOut();
         $(".animation-preloader").delay(250).fadeOut("slow");
-
-
     });
-})(jQuery);
+})
 
 
 var splide = new Splide('.splide_3_2', {
@@ -196,7 +193,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 }());
-
 
 
 //splide 3
