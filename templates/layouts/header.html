@@ -563,13 +563,25 @@ const top_catalog_block = document.querySelector(".header-catalog_block")
 const top_navbarMenu_height = top_navbarMenu.offsetHeight
 search_root.style.setProperty("--menuTop", top_navbarMenu_height + "px");
 </script>
+
 <script>
 const showSearchCategoriesButton = document.querySelector('.us-search-category-select');
 const SearchCategoriesList = document.querySelector('.us-category-seach');
 const SearchCategoriesListItem = document.querySelectorAll('.us-category-seach-itemsBlock-list')
+let SearchButtonActive = false;
+
 
 showSearchCategoriesButton.addEventListener('click', () => {
-    SearchCategoriesList.classList.toggle('active');
+
+    SearchButtonActive = !SearchButtonActive;
+
+    if (SearchButtonActive) {
+        SearchCategoriesList.classList.add('active');
+    }
+    else {
+        SearchCategoriesList.classList.remove('active')
+    }
+
 })
 
 SearchCategoriesListItem.forEach(element => {

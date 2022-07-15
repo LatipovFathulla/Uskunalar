@@ -1432,7 +1432,10 @@ a {
     right: -35%;
     text-align: center;
     color: #000;
-    font-size: 16px
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .like-icon:hover {
@@ -2128,7 +2131,9 @@ a {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    transform: translateX(20%);
+    margin: auto;
+	max-width: 1570px;
+	width: 100%;
 }
 
 .header-catalog_block.active {
@@ -2174,6 +2179,7 @@ a {
     margin-top: 10px;
     overflow-y:scroll;
     height:600px;
+    width: 350px;
 }
 
 .catalog-menu_list-item {
@@ -5442,7 +5448,7 @@ nav .nav-ul li a span.rotate {
         background-size: cover;
         background-position: center;
         width: 100%;
-        height: 186px;
+        height: 30%;
         margin-top: 22%;
     }
 
