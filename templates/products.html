@@ -201,6 +201,20 @@
             }
         }
 
+        .tablinks {
+            color: #a0a0a0;
+            font-width: 500;
+            font-size: 24px;
+            transition: .5s linear;
+        }
+
+        .tablinks:hover{
+            color: #333;
+        }
+
+        .tablinks.active i {
+            color: #333;
+        }
 
     </style>
     <section class="banner">
@@ -497,12 +511,8 @@
                                 </div>
                             </div>
                             <div class="tab3">
-                                <a class="tablinks" onclick="openCity(event, 'Paris')"><img
-                                        src="{% static './images/sorted.svg' %}"
-                                        alt=""></a>
-                                <a class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen"><img
-                                        src="{% static './images/six_boxes.svg' %}"
-                                        alt=""></a>
+                                <a class="tablinks" onclick="openCity(event, 'Paris')"><i class="fa-solid fa-list" style="margin-right: 10px;"></i></a>
+                                <a class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen"><i class="fa-solid fa-grid"></i></a>
                             </div>
 
                         </div>
@@ -510,7 +520,7 @@
                     <!-- end filter mobile -->
                     <div class="products-flex">
                     <div class="category-none">
-                    <div class="us-categories-accordion-body">
+                    <div class="us-categories-accordion-body" style="min-width:310px ">
                     <div class="us-categories-accordion">
                     <h1 class="us-categories-accordion-title" style="font-size:28px">{% trans 'Kategoriyalar' %}</h1>
 
@@ -569,8 +579,8 @@
                 </div>
     <nav aria-label="Page navigation example" style="margin: 20px auto;display: flex;justify-content: center;">
         {% if page_obj.has_previous %}
-            <li class="page-previous"><a href="?page={{ page_obj.previous_page_number }}"><img
-                    src="/static/images/left.svg" alt=""></a></li>
+            <li class="page-previous"><a href="?page={{ page_obj.previous_page_number }}"><i class="fa-light fa-angle-left"
+                                                                                     style="color: #132E6B;font-weight: 500;"></i></a></li>
         {% else %}
             <li class="disabled"><span><img src="/static/images/left.svg" style="display:none" alt=""></span></li>
         {% endif %}
@@ -1093,6 +1103,33 @@
         $(document).ready(function () {
             accordion.init({speed: 300, oneOpen: true});
         });
+    </script>
+    <script>
+       // Currency
+        const apiUrl = 'https://nbu.uz/en/exchange-rates/json/'
+        const usdPrice = document.querySelectorAll('.us-products-card-productPrice_dollar');
+        const uzsPrice = document.querySelectorAll('.us-products-card-productPrice_som span')
+
+        // Currency
+        async function ExchangeCurrency(usd, element) {
+            let response = await fetch(apiUrl);
+
+            if (response.ok) {
+                let json = await response.json();
+                let CurrencyRate = json[json.length - 1]['cb_price'];
+                let finalPrice = Math.floor(CurrencyRate * usd);
+                element.innerHTML = finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            } else {
+                alert("HTTP-Error: " + response.status);
+            }
+        }
+
+
+        uzsPrice.forEach(element => {
+            let usdPriceOfElement = element.parentNode.previousElementSibling.innerHTML.substring(1);
+            ExchangeCurrency(usdPriceOfElement, element)
+        })
+
     </script>
     <!--asd-->
 

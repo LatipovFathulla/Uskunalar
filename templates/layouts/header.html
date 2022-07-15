@@ -1,6 +1,100 @@
 {% load static %}
 {% load i18n %}
 {% load tags %}
+<style>
+
+.us-search-category-select {
+    background-color: #ffe600;
+    border: none;
+    cursor: pointer;
+    padding: 13px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    max-width: 160px;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.us-search-category-select p {
+    margin-bottom: 0px !important;
+}
+
+/* Here */
+.us-category-seach {
+    width: 100%;
+    /* background-color: red; */
+    position: fixed;
+    visibility: hidden;
+    transition: .5s ease;
+    z-index: 99;
+}
+
+.us-category-seach.active {
+    visibility: visible;
+}
+
+.us-category-seach-itemsBlock {
+    max-width: 100%;
+    width: 700px;
+    margin: auto;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow: rgb(0 0 0 / 8%) 0px 10px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px;
+    transform: translateY(-10%);
+    opacity: 0;
+    transition: all .4s ease;
+}
+
+.us-category-seach.active .us-category-seach-itemsBlock {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.us-category-seach-itemsBlock-lists {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 250px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.us-category-seach-itemsBlock-lists::-webkit-scrollbar {
+    width: 8px;
+}
+
+.us-category-seach-itemsBlock-lists::-webkit-scrollbar-track {
+    background: transparent;
+}
+.us-category-seach-itemsBlock-lists::-webkit-scrollbar-thumb {
+    background: #5f5f5f;
+    border-radius: 10px;
+}
+
+.us-category-seach-itemsBlock-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.us-category-seach-itemsBlock-list img {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.us-category-seach-itemsBlock-title {
+    font-size: 18px;
+}
+</style>
     <!-- Header Main Menu -->
     <div class="header-navbarMenu">
         <div class="header-navbar_container">
@@ -97,17 +191,12 @@
             {% with categories2 as all_categories %}
                 <div class="header-search_container">
                     <div class="search_input-block">
+                         <button class="us-search-category-select">{% trans 'Kategoriya' %}</button>
                         <form action="{% url 'products:product' %}" class="navbar-form navbar-left lnt-search-form" role="search">
                             <div class="form-group">
                                 <div class="input-group">
-                                         <select class="header-toggle_btn">
-                                            <option style="overflow-y:scroll;height:200px">{% trans 'выберите категорию' %}</option>
-                                             {% for category in all_categories %}
-                                                 <option>{{ category }}</option>
-                                             {% endfor %}
-                                          </select>
                                     <input type="text" class="form-control lnt-search-input header-input"
-                                        aria-label="Search" name="q" value="{{ request.GET.q }}" placeholder="{% trans 'Uskunalar qidirish' %}...">
+                                        aria-label="Search" name="q" value="{{ request.GET.q }}" style="border-radius: 0px;padding: 20px" placeholder="{% trans 'Uskunalar qidirish' %}...">
                                 </div><!-- /input-group -->
                             </div>
                             <button type="submit" class="btn btn-search header-search_btn"><span
@@ -189,10 +278,24 @@
                             </div>
                     {% endfor %}
                 </div>
-            {% endwith %}
+
             </div>
         </div>
     </div>
+
+    <div class="us-category-seach">
+        <div class="us-category-seach-itemsBlock">
+            <ul class="us-category-seach-itemsBlock-lists">
+                 {% for category in all_categories %}
+                    <li class="us-category-seach-itemsBlock-list">
+                            <img src="{{ category.image.url }}" alt="">
+                            <span class="us-category-seach-itemsBlock-title">{{ category.category|safe }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endwith %}
 <!--end -->
 
 <!--mobile-->
@@ -267,6 +370,7 @@
 
 <div class="mobile-black_screen"></div>
 <!--end-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script>
 //= include ../../../node_modules/jquery/dist/jquery.min.js
 const showMenu = () => {
@@ -458,4 +562,36 @@ const top_navbarMenu = document.querySelector(".header-navbarMenu")
 const top_catalog_block = document.querySelector(".header-catalog_block")
 const top_navbarMenu_height = top_navbarMenu.offsetHeight
 search_root.style.setProperty("--menuTop", top_navbarMenu_height + "px");
+</script>
+<script>
+const showSearchCategoriesButton = document.querySelector('.us-search-category-select');
+const SearchCategoriesList = document.querySelector('.us-category-seach');
+const SearchCategoriesListItem = document.querySelectorAll('.us-category-seach-itemsBlock-list')
+
+showSearchCategoriesButton.addEventListener('click', () => {
+    SearchCategoriesList.classList.toggle('active');
+})
+
+SearchCategoriesListItem.forEach(element => {
+    element.addEventListener('click', () => {
+        showSearchCategoriesButton.innerHTML = element.lastElementChild.innerHTML;
+        SearchCategoriesList.classList.remove('active')
+    })
+})
+
+
+</script>
+<script>
+$(document).mouseup(function(e)
+{
+    var container = $(".us-category-seach-itemsBlock");
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0)
+    {
+        $(".us-category-seach").removeClass('active');
+        console.log('sdfsfd')
+    }
+
+});
 </script>

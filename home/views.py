@@ -28,7 +28,7 @@ from home.utils import get_wishlist_data
 class BannerInfoModelView(ListView):
     template_name = 'products.html'
     context_object_name = 'products'
-    paginate_by = 9
+    paginate_by = 1
 
     def get_queryset(self, ):
         q = self.request.GET.get('q', '')
@@ -84,14 +84,14 @@ class BannerInfoModelView(ListView):
 
         return qs
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['min_price'], context['max_price'] = BannerInfoModel.objects.aggregate(
-    #         Min('dollar'),
-    #         Max('dollar')
-    #     ).values()
-    #
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['min_price'], context['max_price'] = BannerInfoModel.objects.aggregate(
+            Min('dollar'),
+            Max('dollar')
+        ).values()
+
+        return context
 
 
 def get_subcategory(request):

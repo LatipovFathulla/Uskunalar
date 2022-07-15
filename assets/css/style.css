@@ -1361,7 +1361,8 @@ a {
     background-color: #ffe600;
     outline: none !important;
     border-color: #ffe600 !important;
-    transform: translateX(-10%)
+    transform: translateX(-10%);
+    padding: 8px 15px !important;
 }
 
 .header-toggle_btn {
@@ -2114,7 +2115,7 @@ a {
 .header-catalog_block {
     visibility: hidden;
     position: fixed;
-    background-color: #f7f7f7f7;
+    background-color: #f1f1f1;
     opacity: 0;
     width: 100%;
     height: 0;
@@ -2142,13 +2143,12 @@ a {
 }
 
 .catalog-menu-container {
-    max-width: 100%;
-    width: 291px;
     min-height: 557px;
     height: 100%;
     visibility: hidden;
     display: none;
     opacity: 0;
+    flex: 0.5 0.5 auto;
     transition: .1s ease
 }
 
@@ -2217,6 +2217,7 @@ a {
     opacity: 0;
     transform: translateX(-1%);
     transition: .5s ease-out;
+    flex: 1 0 90%;
 }
 
 .catalog-submenu-container.active {
@@ -2238,10 +2239,10 @@ a {
 }
 
 .catalog-submenu-subcategories_list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
-    padding: 17px
+    padding: 5px;
+    display:flex;
+    flex-wrap:wrap;
+    grid-gap:15px;
 }
 
 .catalog-submenu-subcategories_list-item {
@@ -2284,6 +2285,16 @@ a {
     .title {
         font-size: 7em
     }
+}
+
+@media screen and (max-width: 768px) {
+        .us-search-category-select {
+            display: none;
+        }
+
+        .header-input {
+            padding: 15px !important;
+        }
 }
 
 @media (min-width: 768px) {
@@ -2707,7 +2718,7 @@ a {
     }
 
     .header-second_menu {
-        justify-content: flex-end
+        justify-content: center;
     }
 
     .mobile {
@@ -2789,7 +2800,7 @@ a {
     }
 
     .mobile_container {
-        margin-left: 40px
+        margin-left: auto;
     }
 
     .header-logo {
@@ -2825,7 +2836,7 @@ a {
     }
 
     .btn {
-        padding: 2px 15px !important
+        padding: 3px 15px !important
     }
 
     .header-toggle_btn {
@@ -7996,11 +8007,21 @@ ul.social-footer2 li a {
     justify-content: center;
 }
 
+.page-previous {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-top: -15px;
+}
+
+
 .page-next {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 30px;
+    margin-top: -15px;
 }
 
 /* end pagination in pages */

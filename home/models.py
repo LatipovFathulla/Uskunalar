@@ -113,8 +113,8 @@ class BannerInfoModel(models.Model):
             return self.dollar - self.dollar * self.discount / 100
         return self.dollar
 
-    def dollar_exchanges(self):
-        return self.price * Decimal(_main())
+    # def dollar_exchanges(self):
+    #     return self.price * Decimal(_main())
 
     def is_new(self):
         diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
