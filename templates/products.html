@@ -1118,7 +1118,7 @@
                 let json = await response.json();
                 let CurrencyRate = json[json.length - 1]['cb_price'];
                 let finalPrice = Math.floor(CurrencyRate * usd);
-                element.innerHTML = finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                element.innerHTML = finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
             } else {
                 alert("HTTP-Error: " + response.status);
             }
