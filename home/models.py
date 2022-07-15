@@ -6,7 +6,6 @@ from django.contrib import admin
 import pytz as pytz
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
-from home.scrapper import _main
 from django.db.models import FloatField
 from django.utils.translation import gettext_lazy as _
 

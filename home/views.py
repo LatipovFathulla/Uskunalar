@@ -6,7 +6,6 @@ from django.http import JsonResponse, HttpResponse
 import json
 from django.views.generic import ListView, TemplateView, DetailView
 from rest_framework.response import Response
-from home.scrapper import _main
 
 from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 from home.utils import get_wishlist_data
