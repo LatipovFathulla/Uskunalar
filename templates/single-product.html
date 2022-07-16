@@ -1302,13 +1302,13 @@ $(".nav-2 li").hover(function () {
 </script>
 <script>
        // Currency
-        const apiUrl = 'https://nbu.uz/en/exchange-rates/json/'
+        const SingleApiUrl = 'https://nbu.uz/en/exchange-rates/json/'
         const usdSinglePrice = document.querySelector('.single-products-product-priceBlock-usdPrice').innerHTML.substring(1);
         const uzsSinglePrice = document.querySelector('.single-products-product-priceBlock-uzsPrice span')
 
         // Currency
         async function singleExchangeCurrency(usd, element) {
-            let response = await fetch(apiUrl);
+            let response = await fetch(SingleApiUrl);
 
             if (response.ok) {
                 let json = await response.json();
@@ -1325,6 +1325,33 @@ $(".nav-2 li").hover(function () {
 
 
 </script>
+<script>
+       // Currency
+        const apiUrl = 'https://nbu.uz/en/exchange-rates/json/'
+        const usdPrice = document.querySelectorAll('.us-products-card-productPrice_dollar');
+        const uzsPrice = document.querySelectorAll('.us-products-card-productPrice_som span')
+
+        // Currency
+        async function ExchangeCurrency(usd, element) {
+            let response = await fetch(apiUrl);
+
+            if (response.ok) {
+                let json = await response.json();
+                let CurrencyRate = json[json.length - 1]['cb_price'];
+                let finalPrice = Math.floor(CurrencyRate * usd);
+                element.innerHTML = finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+            } else {
+                alert("HTTP-Error: " + response.status);
+            }
+        }
+
+
+        uzsPrice.forEach(element => {
+            let usdPriceOfElement = element.parentNode.previousElementSibling.innerHTML.substring(1);
+            ExchangeCurrency(usdPriceOfElement, element)
+        })
+
+ </script>
 {% endblock %}
 
 {% endblock %}

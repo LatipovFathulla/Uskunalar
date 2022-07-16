@@ -58,7 +58,9 @@ $(document).ready(function () {
 jQuery(document).ready(function ($) {
     $(window).on('load', function () {
         $(".ctn-preloader").fadeOut();
-        $(".animation-preloader").delay(250).fadeOut("slow");
+        $(".animation-preloader").delay(250).fadeOut();
+        $(".ctn-preloader").removeData();
+        $(".animation-preloader").removeData()
     });
 })
 

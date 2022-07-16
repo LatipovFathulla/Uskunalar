@@ -11,15 +11,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CategoryModel(models.Model):
-
-    LANGUAGE_CODES = (
-        ("RU", 'ru'),
-        ('EN', 'en'),
-        ('UZ', 'uz')
-    )
     category = RichTextUploadingField(max_length=400, verbose_name=_('category'), null=True, db_index=True)
     image = models.FileField(upload_to='category_image', verbose_name=_('category_image'), null=True, blank=True)
-    language_code = models.CharField(max_length=2, choices=LANGUAGE_CODES, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
@@ -32,16 +25,10 @@ class CategoryModel(models.Model):
 
 
 class SubCategoryModel(models.Model):
-    LANGUAGE_CODES = (
-        ("RU", 'ru'),
-        ('EN', 'en'),
-        ('UZ', 'uz')
-    )
     category = models.ForeignKey(CategoryModel, on_delete=models.CASCADE, verbose_name=_('category'),
                                  related_name='subcategories', db_index=True)
     image = models.FileField(upload_to='sub_image', verbose_name=_('sub_image'), null=True, blank=True)
     subcategory = models.CharField(max_length=300, verbose_name=_('subcategory'), db_index=True)
-    language_code = models.CharField(max_length=2, choices=LANGUAGE_CODES, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
 
     def __str__(self):

@@ -5,12 +5,12 @@ from home.models import CategoryModel, SubCategoryModel, BannerInfoModel, Carous
 
 @register(CategoryModel)
 class CategoryTranslationOptions(TranslationOptions):
-    fields = ('category', 'language_code')
+    fields = ('category',)
 
 
 @register(SubCategoryModel)
 class SubCategoryTranslationOptions(TranslationOptions):
-    fields = ('category', 'subcategory', 'language_code')
+    fields = ('category', 'subcategory',)
 
 
 @register(BannerInfoModel)
