@@ -591,7 +591,7 @@
             {% for page in page_obj.paginator.page_range %}
                 {% if page_obj.number == page %}
                     <li class="page_numb-active"><a style="color: #132E6B;">{{ page }}</a></li>
-                {% elif page > page_obj.number|add:'-2' and page < page_obj.number|add:'2' %}
+                {% elif page > page_obj.number|add:'-2' and page < page_obj.number|add:'4' %}
                     <li class="page_numb"><a rel="next" href="{% relative_url page 'page' request.GET.urlencode %}"
                                              style="color: #132E6B;">{{ page }}</a></li>
                 {% endif %}
@@ -599,7 +599,7 @@
             {% if page_obj.has_next %}
                 {% if page_obj.number <= page_obj.paginator.num_pages %}
                     <li class="page-dotted"><a
-                            href="{% relative_url page_obj.number|add:'2' 'page' request.GET.urlencode %}">&hellip;</a>
+                            href="{% relative_url page_obj.number|add:'4' 'page' request.GET.urlencode %}">&hellip;</a>
                     </li>
                 {% endif %}
             {% endif %}
