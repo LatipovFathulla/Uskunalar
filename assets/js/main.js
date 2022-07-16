@@ -51,6 +51,7 @@ $(document).ready(function () {
 
 });
 
+
        // Currency
         const apiUrl = 'https://nbu.uz/en/exchange-rates/json/'
         const usdPrice = document.querySelectorAll('.us-products-card-productPrice_dollar');
@@ -91,6 +92,14 @@ $(document).ready(function () {
 //         $(".animation-preloader").removeData()
 //     });
 // })
+
+
+var splide = new Splide('.splide_3_2', {
+    perPage: 1,
+    rewind: true,
+});
+
+splide.mount();
 // $(document).ready(function() {
 
 // $('h3').magnificPopup({
@@ -219,6 +228,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //splide 3
 // menu
+
+//splide 2
+var splide = new Splide('.splide_3', {
+    perPage: 1,
+    rewind: true,
+});
+
+splide.mount();
+
+
+// submenu
+
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent3");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
 
 //  asd
 
