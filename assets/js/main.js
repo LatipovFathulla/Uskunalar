@@ -55,14 +55,14 @@ $(document).ready(function () {
 /*------------------
     Preloader
 --------------------*/
-jQuery(document).ready(function ($) {
-    $(window).on('load', function () {
-        $(".ctn-preloader").fadeOut();
-        $(".animation-preloader").delay(250).fadeOut();
-        $(".ctn-preloader").removeData();
-        $(".animation-preloader").removeData()
-    });
-})
+// jQuery(document).ready(function ($) {
+//     $(window).on('load', function () {
+//         $(".ctn-preloader").fadeOut();
+//         $(".animation-preloader").delay(250).fadeOut();
+//         $(".ctn-preloader").removeData();
+//         $(".animation-preloader").removeData()
+//     });
+// })
 
 
 var splide = new Splide('.splide_3_2', {
