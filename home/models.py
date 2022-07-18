@@ -66,7 +66,6 @@ class BannerBackModel(models.Model):
 class BannerInfoModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
     sku = models.AutoField(primary_key=True, db_index=True)
-    image = models.FileField(upload_to='banner', verbose_name=_('image'), null=True)
     background = models.ForeignKey(BannerBackModel, on_delete=models.SET_NULL, verbose_name=_('background'), null=True,
                                    blank=True)
     country = models.ForeignKey(BannerCountryModel, on_delete=models.SET_NULL, verbose_name=_('country'), null=True,
@@ -78,7 +77,6 @@ class BannerInfoModel(models.Model):
 
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True, db_index=True)
     price = models.DecimalField(max_digits=12, decimal_places=0, verbose_name=_('price'))
-    dollar = models.IntegerField(verbose_name=_('dollar'), null=True)
     discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'))
     inbox = models.CharField(max_length=50, blank=True, verbose_name=_('inbox'))
     delivery = models.CharField(max_length=50, blank=True, verbose_name=_('delivery'))
@@ -114,8 +112,8 @@ class BannerInfoModel(models.Model):
     class Meta:
         verbose_name = _('products')
         verbose_name_plural = _('products')
-        ordering = ['title']
-        index_together = ['title', 'category', 'subcategory', 'price', 'dollar']
+        ordering = ['title', 'pk']
+        index_together = ['title', 'category', 'subcategory', 'price']
 
 
 class BannerImageModel(models.Model):

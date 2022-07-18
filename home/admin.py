@@ -2,6 +2,9 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django import forms
 from django.utils.safestring import mark_safe
+from django.contrib.admin.widgets import AdminFileWidget
+from django.db import models
+from django.utils.translation import gettext_lazy as _
 from modeltranslation.admin import TranslationAdmin
 
 from home.models import BannerInfoModel, CategoryModel, \
@@ -44,8 +47,28 @@ class SubCategoryModelAdmin(MyTranslationAdmin):
     list_filter = ['category', 'subcategory']
 
 
+class AdminImageWidget(AdminFileWidget):
+    def render(self, name, value, attrs=None, renderer=None):
+        output = []
+
+        if value and getattr(value, "url", None):
+            image_url = value.url
+            file_name = str(value)
+
+            output.append(
+                f'<a href="{image_url}" target="_blank">'
+                f'<img src="{image_url}" alt="{file_name}" width="150" height="150" '
+                f'style="object-fit: cover;"/> </a>')
+
+        output.append(super(AdminFileWidget, self).render(name, value, attrs, renderer))
+        return mark_safe(u''.join(output))
+
+
 class BannerImageModelAdmin(admin.TabularInline):
     model = BannerImageModel
+    formfield_overrides = {
+        models.ImageField: {'widget': AdminImageWidget}
+    }
 
 
 class ProductSpecificationsModelAdmin(admin.TabularInline):
@@ -82,19 +105,13 @@ class BannerBackModelAdmin(admin.ModelAdmin):
 
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(MyTranslationAdmin):
-    list_display = ['pk', 'title', 'dollar', 'get_html_photo', 'city', 'created_at', 'category', 'subcategory']
+    list_display = ['pk', 'title', 'city', 'created_at', 'category', 'subcategory']
     search_fields = ['title', 'pk']
     list_filter = ['created_at']
     readonly_fields = ['get_price', 'get_price_dollar']
     form = BannerForm
-    inlines = [ProductSpecificationsModelAdmin, BannerImageModelAdmin]
+    inlines = [ProductSpecificationsModelAdmin, BannerImageModelAdmin, ]
     save_on_top = True
-
-    def get_html_photo(self, object):
-        if object.image:
-            return mark_safe(f"<img src='{object.image.url}', width=50, height=50>")
-
-    get_html_photo.short_description = "Картинки"
 
     # @admin.display
     # def get_subcategories(self):

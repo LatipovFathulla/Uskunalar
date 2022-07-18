@@ -113,6 +113,22 @@
 
         <!-- TABS PRESENTATION // -->
     </div>
+  <div class="menu-categories-section">
+        <div class="menu-categories-section_container">
+            <h3 class="menu-categories-section-title">Kategoriyalar</h3>
+            <ul class="menu-categories-list">
+               {% for about in abouts %}
+                <li id="us-submenu-{{ about.pk }}" class="menu-categories-button">
+                    {% if category.image %}
+                        <img src="{{ category.image.url }}" alt="">
+                    {% endif %}
+                        <span class="menu-categories-button-title">{{ about.title|safe }}</span>
+                </li>
+               {% endfor %}
+            </ul>
+
+        </div>
+    </div>
     <!-- form -->
     <img src="{% static './images/Group_418.svg' %}" class="icon-right-transform2" style="right:20%" alt="">
  {% include 'requests.html' %}

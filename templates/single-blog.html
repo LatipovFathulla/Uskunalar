@@ -20,17 +20,14 @@
   </section>
 
 
-  <img src="{% static './images/settings.svg' %}" class="icon-right m-3" style="right: 7%;" alt="">
-
   <br>
   <br>
   <div class="container mt-4">
     <img src="{{ object.image.url }}" style="filter: drop-shadow(0px 4px 6px rgba(105, 105, 105, 0.25));
     border-radius: 6px;width: 100%;height: 600px" alt="">
     <br>
-    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">{{ object.description|safe }}.</p>
+    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 140%;">{{ object.description|safe }}</p>
     <br>
-    <img src="{% static './images/Group_417.svg' %}" class="icon-left" style="left: 5%;" alt="">
       <br>
 
     <div class="best-text">
@@ -41,15 +38,15 @@
     <br>
     <br>
     <img src="{{ object.image.url|slice:'2' }}" style="width: 100%;border-radius: 10px;" alt="">
-    <img src="{% static './images/Group_418.svg' %}" class="icon-right" style="right: 5%;margin-top: 7%;transform: rotate(-29.52deg);" alt="">
     <br>
-    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 22px;">{{ object.smart_text|safe }}</p>
+    <p style="margin-top: 10px; font-size: 18px;font-family: sans-serif;line-height: 140%;">{{ object.smart_text|safe }}</p>
 
     <p style="float: left;margin-top: 1%;">{{ object.created_at|date:'d.F' }}</p>
 
 <!--    <p style="float: right;margin-top: 1%;">See 459 peoples</p>-->
     <br>
     <div class="row mt-3">
+   {% if object.get_prev %}
       <div class="col-md-6">
         <img src="{% static './images/Group_419.svg' %}" class="icon-left" style="left: -13%;" alt="">
         <div class="single-image p-3">
@@ -62,6 +59,8 @@
 
         </div>
       </div>
+   {% endif %}
+    {% if object.get_next %}
       <div class="col-md-6">
         <div class="single-image p-3">
           <img src="{{ object.get_next.image.url }}" class="img-fluid"  style="width:100%;height:350px" alt="">
@@ -71,8 +70,8 @@
               <a href="{% url 'blog:single-blog' pk=object.get_next.pk %}" style="font-size: 18px;font-weight: 500;margin-left: 3%;">{% trans 'Читать дальше' %} <img src="{% static './images/right.svg' %}" class="blog-right" alt=""></a>
             {% endif %}
         </div>
-        <img src="{% static './images/Group_417.svg' %}" class="icon-right" style="bottom: 0px;right: -3%;transform: rotate(23.85deg);" alt="">
       </div>
+   {% endif %}
     </div>
   </div>
     

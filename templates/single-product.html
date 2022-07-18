@@ -824,11 +824,15 @@
                         <div class="swiper-pagination"></div>
                     </div>
                     <!-- Image -->
-                    <div class="single-product-images-mainImage"
-                        style="background: url({{ object.image.url }}) no-repeat center center / contain;"
-                        oncontextmenu="return false;">
-                        <!-- <img class="single-product-images-mainImage-img" src="./images/us11-removebg-preview.png" alt=""> -->
-                    </div>
+                   {% for i in object.images.all %}
+                       {% if forloop.counter == 1 %}
+                            <div class="single-product-images-mainImage"
+                                style="background: url({{ i.image.url }}) no-repeat center center / contain;"
+                                oncontextmenu="return false;">
+                                <!-- <img class="single-product-images-mainImage-img" src="./images/us11-removebg-preview.png" alt=""> -->
+                            </div>
+                        {% endif %}
+                   {% endfor %}
                 </div>
                 <div class="single-product-share-block">
                     <buttun class="single-product-shareBtn"><i class="fa-light fa-share-nodes"></i></buttun>
@@ -918,7 +922,7 @@
                         <div class="single-products-product-priceBlock">
                             <h3 class="single-products-product-priceBlock-title">Narxi:</h3>
                             <div>
-                                <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price_dollar }}</h4>
+                                <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price }}</h4>
                                 <h5 class="single-products-product-priceBlock-uzsPrice"><span> </span> so'm</h5>
                             </div>
                         </div>

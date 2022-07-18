@@ -8,7 +8,7 @@ from works.models import WorkModel
 def index_categories(request):
     products = BannerInfoModel.objects.order_by('-pk')[:8]
     categories = CategoryModel.objects.order_by('pk')
-    lines = LineModel.objects.order_by('-pk')[:8]
+    lines = LineModel.objects.order_by('?')[:8]
     works = WorkModel.objects.order_by('-pk')[:4]
     blogs = BlogModel.objects.order_by('-pk')
     subcategories = SubCategoryModel.objects.select_related("category_ru", "category_uz", "category", "category_en",).\

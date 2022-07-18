@@ -333,9 +333,13 @@
 
                           <div class="us-products-card_img-holder">
                             <div class="us-products-card_img_back" style="background: url('{{ product.background.image.url }}') no-repeat center center / contain;">
+                            {% for i in product.images.all %}
                                 <a href="{% url 'products:single' pk=product.pk %}">
-                                     <img src="{{ product.image.url }}" alt="" class="us-products-card_img">
+                                    {% if forloop.counter == 1 %}
+                                         <img src="{{ i.image.url }}" alt="" class="us-products-card_img">
+                                    {% endif %}
                                 </a>
+                            {% endfor %}
                             </div>
                         </div>
 
@@ -374,7 +378,7 @@
                 <!-- Price & Inventory Info -->
                 <div class="us-products-card-status">
                     <div class="us-products-card-priceInfo">
-                        <h3 class="us-products-card-productPrice_dollar">${{ product.get_price_dollar }}</h3>
+                        <h3 class="us-products-card-productPrice_dollar">${{ product.get_price }}</h3>
                         <p class="us-products-card-productPrice_som"> <span> </span> so'm</p>
                     </div>
                     <div class="us-products-card-statusinfo">

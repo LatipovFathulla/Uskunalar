@@ -44,13 +44,10 @@
                                         <p class="date-number">{{ blog.created_at|date:'d' }}<span>
                                         <p class="date-date">{{ blog.created_at|date:'F' }}</p></span></p>
                                     </div>
-<!--                                    <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 50px;position: absolute;">Просмотрено 457 человек</small>-->
+                                    <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 50px;position: absolute;">Просмотрено 1202 человек</small>
                                     <p class="blog-title" >{{ blog.title|safe }}</p>
-                                    <p class="blog-desc" style="padding: 10px;">{{ blog.smart_description|safe }}</p>
-                                    <a href="{% url 'blog:single-blog' pk=blog.pk %}">{% trans 'Читать дальше' %} <img
-                                            src="{% static './images/right.svg' %}"
-                                            style="position: absolute;margin-left: 2%;"
-                                            alt=""></a>
+                                    <div class="blog-desc">{{ blog.smart_description|safe|slice:':250' }}..</div>
+                                    <a href="{% url 'blog:single-blog' pk=blog.pk %}">{% trans 'Читать дальше' %} <i class="fa-light fa-angle-right" style="font-size: 20px;font-weight: 600;"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -72,10 +69,10 @@
                             <img src="{{ blog.image.url }}" style="width: 100%;height: auto;" alt="">
                             <br>
                             <br>
-<!--                            <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;">-->
-<!--                                Просмотрено 457 человек</small>-->
+                            <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 1px;">
+                                Просмотрено 1202 человек</small>
                             <br>
-                            <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">{{ blog.title|safe }}</p>
+                            <p style="font-size: 22px;line-height: 26px;letter-spacing: -0.02em;">{{ blog.title|safe|slice:':300' }}</p>
                             <br>
                             <p>{{ blog.description|safe }}</p>
                             <br>

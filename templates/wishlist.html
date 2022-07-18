@@ -4,7 +4,14 @@
 {% load static %}
 {% load tags %}
 {% block content %}
-
+<style>
+    @media screen and (max-width: 900px){
+         .us-products {
+             display: none;
+         }
+    }
+</style>
+    <link rel="stylesheet" href="{% static 'css/splide.min.css' %}">
 <section class="banner2">
     <div class="container">
         <div class="row">
@@ -23,111 +30,45 @@
 
 
 <br>
-{% if not product|in_wishlist:request  %}
-<p>none</p>
-{% else %}
-<div class="container">
-    <div class="row-1">
-        <br>
-        <div class="splide_3_2">
-            <div class="splide__track" style="height: 520px;">
-                <ul class="splide__list">
-                    {% if product in object_list %}
-                      {% for product in object_list %}
-                        <li class="splide__slide">
-                                <div class="col-md-3">
-                                <div class="produdcs-section2">
-                                    <div class="flex-itm">
-                                        <div class="flex-iem-inner">
-                                            <!-- card -->
-                                            <a href="#">
-                                                <div class="card-front bg-violet">
-                                                    <a href="#" class="card-link">
-                                                        <button class="btn"
-                                                                style="width: 48px;height: 48px;background-color: #FFF5F5;position: absolute;right: 10px;">
-                                                            <img
-                                                                    src="{% static './images/like.svg' %}"
-                                                                    style="margin-top: 7px;" alt=""></button>
-                                                    </a>
-                                                     {% if product.is_discount %}
-                                                        <a href="#" class="card-link">
-                                                        <button class="btn"
-                                                                style="width: 48px;height: 48px;background-color: #E97171;position: absolute;right: 70px;border-radius: 50px;">
-                                                            <p style="margin-left:-32%;color: #fff;font-weight: normal;">{{ product.discount }}%</p>
-                                                        </button>
-                                                        </a>
-                                                        {% elif product.is_new %}
-                                                            <a href="#" class="card-link1">
-                                                            <button class="btn new-mobile-1">
-                                                                <p class="new-mobile-text {% if product.is_discount %}mt-5{% endif %}">New!</p>
-                                                            </button>
-                                                        </a>
-                                                     {% endif %}
-                                                    <img src="{{ product.image.url }}"
-                                                         style="width: 100%;height: 300px;display: table;margin: auto;"
-                                                         alt="">
-                                                    <div class="card-text"
-                                                         style="background: #F4F5F7;padding: 11px;border-radius: 4px;height: 150px;">
-                                                        <h4 class="front-title">{{ product.title }}</h4>
-                                                        <p class="detail">{% trans 'Артикул' %}: {{ product.sku }}</p>
-                                                        <p class="desc">${{ product.get_price_dollar }} - {{ product.get_price }} сум</p>
-                                                        <div class="text-center">
-                                                            <ul>
-                                                                <li>
-                                                                    <a href="{% url 'products:single' pk=product.pk %}">
-                                                                        <button class="button-center button-bottom2 mobile-button"
-                                                                            style="width: 127px;height: 43px;">
-                                                                        <p style="font-size: 13px;">Заказать</p>
-                                                                    </button>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                            <br>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <!-- /card -->
-                                        </div>
-                                    </div>
+
+    <div class="container">
+        <div class="row-1">
+            <br>
+            <div class="splide_9_2">
+                <div class="splide__track">
+                    <ul class="splide__list" style="height:700px">
+                        {% for product in object_list %}
+                            <li class="splide__slide">
+                                <div class="us-products">
+                                    {% include 'layouts/product_block.html' %}
                                 </div>
-                            </div>
-                        </li>
-                      {% endfor %}
-                    {% else %}
-                        <p>lorem90</p>
-                    {% endif %}
-                </ul>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
-{% endif %}
 
-{% if not product|in_wishlist:request  %}
-<p>Not found</p>
-{% else %}
- <div class="us-products">
-        {% for product in object_list %}
-            {% include 'layouts/product_block.html' %}
-        {% endfor %}
+    <div class="products-none">
+        <div class="us-products">
+            {% for product in object_list %}
+                {% include 'layouts/product_block.html' %}
+            {% endfor %}
+        </div>
     </div>
-{% endif %}
-
 <br>
+<script src="{% static 'js/splide.min.js' %}"></script>
 <script>
-    var splide = new Splide('.splide_3_2', {
+    var splide = new Splide('.splide_9_2', {
       perPage: 1,
-      rewind: true,
+      rewind: false,
     });
   
     splide.mount();
 
 </script>
-    <script>
 
-
-    </script>
 <!-- Code by Fathulla Latipov LF -->
 
 {% endblock %}

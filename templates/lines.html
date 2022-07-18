@@ -210,6 +210,22 @@
         </div>
 
           </div>
+ <div class="menu-categories-section">
+        <div class="menu-categories-section_container">
+            <h3 class="menu-categories-section-title">Kategoriyalar</h3>
+            <ul class="menu-categories-list">
+               {% for category in line_categories %}
+                <li id="us-submenu-{{ about.pk }}" class="menu-categories-button">
+                    {% if category.image %}
+                        <img src="{{ category.image.url }}" alt="">
+                    {% endif %}
+                    <a href="?category={{ category.pk }}"><span class="menu-categories-button-title">{{ category.category|safe }}</span></a>
+                </li>
+               {% endfor %}
+            </ul>
+
+        </div>
+    </div>
     <!-- TABS PRESENTATION -->
 
     <!-- TABS PRESENTATION // -->
