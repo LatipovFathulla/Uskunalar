@@ -129,8 +129,7 @@
     margin-top: 20px;">
         {% csrf_token %}
         <h3 class="text-center form-us">{% trans 'Обратная связь с нами' %}</h3>
-        <p class="text-center">Идейные соображения высшего порядка, а также постоянное информационно-<br>пропагандистское
-            обеспечение нашей деятельности представляет собой интересный.</p>
+        <p class="text-center">{% trans "Biz bilan bog'lanish uchun quyidagi formani to'ldiring va bizning operatorlarimiz tez orada sizga aloqaga chiqishadi" %}</p>
         <br>
        <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
         <div class="row mt-3" style="align-items: center;justify-content: center;">
