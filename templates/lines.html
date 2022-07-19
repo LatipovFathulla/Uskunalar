@@ -200,7 +200,9 @@
                             <h2 class="us-line-card-title">{{ line.title}}</h2>
                             <p class="us-line-card-text">{{ line.description|slice:':100'|safe}}</p>
                                 <div class="us-line-card-subcontent">
-                                    <p class="us-line-card-price">$120,000</p>
+                                    {% if line.price %}
+                                         <p class="us-line-card-price">${{ line.price }}</p>
+                                    {% endif %}
                                     <a href="{% url 'line:detail' pk=line.pk %}"><button class="us-line-card-more">{% trans 'Learn More' %}<i class="fa-regular fa-arrow-up-right-from-square"></i></button></a>
                                 </div>
                         </div>

@@ -42,7 +42,7 @@ class LineCategoryModel(MyTranslationAdmin):
 
 @admin.register(LineModel)
 class LineModelAdmin(MyTranslationAdmin):
-    list_display = ['pk', 'title', 'category', 'created_at']
+    list_display = ['pk', 'title', 'category', 'price', 'created_at']
     search_fields = ['title', 'pk']
     list_filter = ['title', 'created_at']
 

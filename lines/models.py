@@ -36,6 +36,7 @@ class LineModel(models.Model):
     banner = models.FileField(upload_to='line_image', verbose_name=_('banner'), null=True)
     pdf = models.FileField(upload_to='line_pdf', verbose_name=_('line_pdf'), null=True, blank=True)
     description = RichTextUploadingField(verbose_name=_('description'))
+    price = models.CharField(max_length=100, verbose_name=_('price'), null=True)
     long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
