@@ -81,17 +81,7 @@ $(document).ready(function () {
         }
 
         ExchangeCurrency()
-/*------------------
-    Preloader
---------------------*/
-// jQuery(document).ready(function ($) {
-//     $(window).on('load', function () {
-//         $(".ctn-preloader").fadeOut();
-//         $(".animation-preloader").delay(250).fadeOut();
-//         $(".ctn-preloader").removeData();
-//         $(".animation-preloader").removeData()
-//     });
-// })
+
 $(document).ready(function () {
     $(".minimalist-vertical-menu2").on("mouseleave", function () {
         $(".minimalist-tab-content2").removeClass("active");
