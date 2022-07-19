@@ -5074,6 +5074,18 @@ nav .nav-ul li a span.rotate {
     .biznes-inner-text-block {
         padding:10px;
     }
+
+@media (min-width: 806px) {
+     .splide_3_2 {
+         display: none;
+     }
+}
+
+@media screen and (max-width: 805px) {
+     .splide_3_2 {
+         display: block;
+     }
+}
 @media (max-width: 950px) {
     .social-icons li.title {
         display: block;
