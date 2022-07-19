@@ -2461,6 +2461,10 @@ a {
     color: black
 }
 
+.us-search-category-select {
+    padding: 9px;
+}
+
 @media only screen and (min-width: 768px) {
     .title {
         font-size: 7em
