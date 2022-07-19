@@ -27,6 +27,27 @@
 </head>
 
 <body>
+   <div class="loader">
+        <div class="loader-container">
+            <div class="animation">
+                <div class="polygon-1">
+                    <div class="inside-1"></div>
+                </div>
+                <div class="polygon-2">
+                    <div class="inside-2"></div>
+                </div>
+                <div class="polygon-3">
+                    <div class="inside-3"></div>
+                </div><h3 class="loader-title">Uskunalar Uz</h3>
+            </div>
+
+            <div class="box-loader">
+                <div class="loader-line"></div>
+                <p class="box-loader-title">Yuklanmoqda <span></span></p>
+            </div>
+
+        </div>
+    </div>
 {% include 'layouts/header.html' %}
 
 {% block content %}
@@ -37,6 +58,41 @@
 
 
 
+ <script>
+window.addEventListener('load', (event) => {
+    event.preventDefault()
+    progress()
+    setTimeout( () => {
+        var loader = document.querySelector('.loader')
+        setTimeout( () => {
+             loader.classList.add('loaded')
+        }, 100)
+    }, 100)
+    window.data = event.data
+})
+
+var i = 0;
+function progress() {
+  if (i == 0) {
+    i = 1;
+    var loaderCount = document.querySelector(".box-loader-title span");
+    var width = 0;
+    var id = setInterval(frame, 5);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        document.documentElement.style.setProperty('--loaderWidth', width + '%');
+        loaderCount.innerHTML = `${width}%`
+      }
+    }
+  }
+}
+
+
+ </script>
 <script src="{% static 'js/splide.min.js' %}"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
