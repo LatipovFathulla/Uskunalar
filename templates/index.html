@@ -1771,7 +1771,7 @@ body.deactive {
     {% with categories2 as all_categories %}
        {% for category in all_categories %}
         <a href="{% url 'products:product' %}?category={{ category.pk }}" class="swiper-slide categories-link">
-          <img src="/static/images/xolodilnik.svg" alt="" class="categories-icon">
+          <img src="{{ category.image.url }}" alt="" class="categories-icon">
           <h2 class="categories-title">{{ category.category|safe }}</h2>
         </a>
        {% endfor %}
