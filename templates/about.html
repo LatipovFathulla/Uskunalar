@@ -301,6 +301,17 @@ wakeUpButton1.addEventListener('click', () => {
 
         showCategories(menuBarCategories1Items, 0);
 
+        // Close SubMenu
+        menuBarCategories1Items.forEach(element => {
+            element.addEventListener('click', () => {
+                element.closest(".menu-categories-section1").classList.remove('wakeUp')
+                element.closest(".menu-categories-section1").classList.add('sleep')
+                wakeUpButton1.classList.remove('active');
+                console.log(menuBarCategories1IsAwake)
+                menuBarCategories1IsAwake = !true;
+            })
+        })
+
     }
     else {
         menuBarCategories1.classList.remove('wakeUp');
@@ -312,13 +323,6 @@ wakeUpButton1.addEventListener('click', () => {
     }
 })
 
-// Close SubMenu
-menuBarCategories1Items.forEach(element => {
-    element.addEventListener('click', () => {
-        element.closest(".menu-categories-section1").classList.remove('wakeUp')
-        element.closest(".menu-categories-section1").classList.add('sleep')
-    })
-})
 
 
 function showCategories(element, increment) {
