@@ -63,10 +63,10 @@
  <script>
 window.addEventListener('load', (event) => {
     progress()
-    setTimeout(async () => {
+    setTimeout( () => {
         var loader = document.querySelector('.loader')
-        setTimeout(async () => {
-            await loader.classList.add('loaded')
+        setTimeout( () => {
+             loader.classList.add('loaded')
         }, 100)
     }, 300)
     window.data = event.data
