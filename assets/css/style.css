@@ -103,10 +103,7 @@ td:hover {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 auto;
             flex: 1 0 auto;
-    -webkit-animation: animation 0.4s ease 0s 1 normal forwards;
-            animation: animation 0.4s ease 0s 1 normal forwards;
-    -webkit-animation-delay: 2s;
-            animation-delay: 2s;
+    transform: translateX(-10%);
 }
 
 .polygon-1 {
