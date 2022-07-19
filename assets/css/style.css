@@ -62,7 +62,7 @@ td:hover {
 }
 
 .loader.loaded {
-    animation: splash 3s ease-in;
+    animation: splash 1.5s ease-in-out;
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards;
 }

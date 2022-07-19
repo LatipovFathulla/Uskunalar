@@ -62,14 +62,14 @@
 
  <script>
 window.addEventListener('load', (event) => {
-                  console.log('asdfsdf')
+    progress()
     setTimeout(async () => {
         var loader = document.querySelector('.loader')
-        await progress()
         setTimeout(async () => {
             await loader.classList.add('loaded')
-        }, 300)
+        }, 100)
     }, 300)
+    window.data = event.data
 })
 
 var i = 0;
