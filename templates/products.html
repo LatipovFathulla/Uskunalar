@@ -674,6 +674,91 @@
 <!-- 4,5 -->
 
 {% block extra_js %}
+<script>
+const menuBarCategories = document.querySelector('.menu-categories-section');
+const wakeUpButton = document.querySelector('.menu_bar-categories-button');
+const menuBarCategoriesItems = document.querySelectorAll('.menu-categories-button')
+const submenuCategories = document.querySelectorAll('.submenu-categories-section')
+const submenuCategoriesItems = document.querySelectorAll('.submenu-categories-button')
+const submenuCloseButtons = document.querySelectorAll('.us-submenu-close')
+let menuBarCategoriesIsAwake = false;
+
+wakeUpButton.addEventListener('click', () => {
+
+    menuBarCategoriesIsAwake = !menuBarCategoriesIsAwake;
+
+    if (menuBarCategoriesIsAwake) {
+        menuBarCategories.classList.remove('sleep')
+        menuBarCategories.classList.add('wakeUp')
+        wakeUpButton.classList.add('active');
+
+        menuBarCategoriesItems.forEach(element => {
+            if (element.classList.contains('active')) {
+                element.classList.remove('active')
+            }
+        });
+
+        showCategories(menuBarCategoriesItems, 0);
+
+    }
+    else {
+        menuBarCategories.classList.remove('wakeUp');
+        menuBarCategories.classList.add('sleep');
+        submenuCategories.forEach(element => {
+            if (element.classList.contains('wakeUp')) {
+                element.classList.remove('wakeUp');
+                element.classList.add('sleep');
+            }
+        })
+        wakeUpButton.classList.remove('active');
+        menuBarCategoriesItems.forEach(element => {
+            element.classList.remove('active')
+        })
+        submenuCategoriesItems.forEach(element => {
+            element.classList.remove('active')
+        })
+    }
+})
+
+
+function showCategories(element, increment) {
+    let id = null;
+    clearInterval(id);
+    id = setInterval(frame, 300);
+    function frame() {
+        if (increment == menuBarCategoriesItems.length) {
+            clearInterval(id);
+        } else {
+            element[increment].classList.add('active')
+            increment++;
+        }
+    }
+}
+
+// Submenu
+menuBarCategoriesItems.forEach(element => {
+    element.addEventListener('click', () => {
+        let ElementID = element.id
+        submenuCategories.forEach(subelement => {
+            if (ElementID === subelement.id) {
+                if (subelement.classList.contains('sleep')) {
+                    subelement.classList.remove('sleep');
+                }
+                subelement.classList.add('wakeUp');
+                showCategories(submenuCategoriesItems, 0);
+            }
+        });
+    } )
+})
+
+// Close SubMenu
+submenuCloseButtons.forEach(element => {
+    element.addEventListener('click', () => {
+        element.closest(".submenu-categories-section").classList.remove('wakeUp')
+        element.closest(".submenu-categories-section").classList.add('sleep')
+    })
+})
+</script>
     <script>
         $('.btn1').click(function () {
             $(this).toggleClass("click");

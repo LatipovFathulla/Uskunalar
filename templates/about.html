@@ -312,6 +312,14 @@ wakeUpButton1.addEventListener('click', () => {
     }
 })
 
+// Close SubMenu
+menuBarCategories1Items.forEach(element => {
+    element.addEventListener('click', () => {
+        element.closest(".menu-categories-section1").classList.remove('wakeUp')
+        element.closest(".menu-categories-section1").classList.add('sleep')
+    })
+})
+
 
 function showCategories(element, increment) {
     let id = null;
