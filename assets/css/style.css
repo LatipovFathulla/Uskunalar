@@ -55,6 +55,8 @@ td:hover {
     width: 100%;
     height: 100vh;
     background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: fixed;
     top: 0;
@@ -62,7 +64,8 @@ td:hover {
 }
 
 .loader.loaded {
-    animation: splash 1.5s ease-in-out;
+    -webkit-animation: splash 1.5s ease-in-out;
+            animation: splash 1.5s ease-in-out;
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards;
 }
@@ -76,6 +79,8 @@ td:hover {
     height: 100%;
     background-color: transparent;
     margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     /* flex-direction: column; */
 }
@@ -86,12 +91,22 @@ td:hover {
     width: 100%;
     /* max-height: 400px; */
     height: 100%;
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: flex-start;
-    flex: 1 0 auto;
-    animation: animation 0.6s ease 0s 1 normal forwards;
-    animation-delay: 2s;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+    -webkit-animation: animation 0.6s ease 0s 1 normal forwards;
+            animation: animation 0.6s ease 0s 1 normal forwards;
+    -webkit-animation-delay: 2s;
+            animation-delay: 2s;
 }
 
 .polygon-1 {
@@ -101,7 +116,8 @@ td:hover {
     max-height: 150px;
     height: 100%;
     background-color: transparent;
-    clip-path: polygon(60% 0, 100% 0%, 40% 100%, 0% 100%);
+    -webkit-clip-path: polygon(60% 0, 100% 0%, 40% 100%, 0% 100%);
+            clip-path: polygon(60% 0, 100% 0%, 40% 100%, 0% 100%);
     left: 10px;
     z-index: 9;
 }
@@ -112,7 +128,8 @@ td:hover {
     max-height: 100px;
     height: 100%;
     background-color: transparent;
-    clip-path: polygon(60% 0, 100% 0%, 60% 100%, 20% 100%);
+    -webkit-clip-path: polygon(60% 0, 100% 0%, 60% 100%, 20% 100%);
+            clip-path: polygon(60% 0, 100% 0%, 60% 100%, 20% 100%);
     left: 19%;
     z-index: 9;
 }
@@ -123,7 +140,8 @@ td:hover {
     max-height: 65px;
     height: 100%;
     background-color: transparent;
-    clip-path: polygon(0 0, 53% 0, 86% 100%, 30% 100%);
+    -webkit-clip-path: polygon(0 0, 53% 0, 86% 100%, 30% 100%);
+            clip-path: polygon(0 0, 53% 0, 86% 100%, 30% 100%);
     top: 1px;
     left: 42%;
     z-index: 8;
@@ -133,24 +151,35 @@ td:hover {
     width: 100%;
     height: 100%;
     background-color: red;
-    transform: translateY(100%);
-    animation: inside1 0.6s ease 0s 1 normal forwards;
+    -webkit-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+            transform: translateY(100%);
+    -webkit-animation: inside1 0.6s ease 0s 1 normal forwards;
+            animation: inside1 0.6s ease 0s 1 normal forwards;
 }
 .inside-2 {
     width: 100%;
     height: 100%;
     background-color: #ffe600;
-    transform: translateY(100%);
-    animation: inside2 0.6s ease 0s 1 normal forwards;
-    animation-delay: .6s;
+    -webkit-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+            transform: translateY(100%);
+    -webkit-animation: inside2 0.6s ease 0s 1 normal forwards;
+            animation: inside2 0.6s ease 0s 1 normal forwards;
+    -webkit-animation-delay: .6s;
+            animation-delay: .6s;
 }
 .inside-3 {
     width: 100%;
     height: 100%;
     background-color: #a7a7a8;
-    transform: translateY(100%);
-    animation: inside3 0.6s ease 0s 1 normal forwards;
-    animation-delay: 1s;
+    -webkit-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+            transform: translateY(100%);
+    -webkit-animation: inside3 0.6s ease 0s 1 normal forwards;
+            animation: inside3 0.6s ease 0s 1 normal forwards;
+    -webkit-animation-delay: 1s;
+            animation-delay: 1s;
 }
 
 .loader-title {
@@ -158,8 +187,10 @@ td:hover {
     margin-left: 9%;
     margin-top: 15%;
     opacity: 0;
-    animation: animation-title 0.6s ease 0s 1 normal forwards;
-    animation-delay: 2s;
+    -webkit-animation: animation-title 0.6s ease 0s 1 normal forwards;
+            animation: animation-title 0.6s ease 0s 1 normal forwards;
+    -webkit-animation-delay: 2s;
+            animation-delay: 2s;
 }
 
 /* Line Loader */
@@ -175,8 +206,6 @@ td:hover {
     overflow: hidden;
     background-color: #ddd;
     margin: auto;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
     border-radius: 20px;
 }
 
@@ -189,8 +218,6 @@ td:hover {
     /* -webkit-animation: lineAnim 1s linear infinite;
     -moz-animation: lineAnim 1s linear infinite;
     animation: lineAnim 1s linear infinite; */
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
     border-radius: 20px;
 }
 
@@ -198,6 +225,20 @@ td:hover {
     text-align: center;
     margin-top: 5px;
     font-size: 18px;
+}
+
+@-webkit-keyframes lineAnim {
+    0% {
+        left: -40%;
+    }
+    50% {
+        left: 20%;
+        width: 80%;
+    }
+    100% {
+        left: 100%;
+        width: 100%;
+    }
 }
 
 @keyframes lineAnim {
@@ -214,63 +255,155 @@ td:hover {
     }
 }
 
-@keyframes inside1 {
+@-webkit-keyframes inside1 {
 	0% {
 		opacity: 0;
-		transform: translateY(100%);
-		transform-origin: top;
+		-webkit-transform: translateY(100%);
+		        transform: translateY(100%);
+		-webkit-transform-origin: top;
+		        transform-origin: top;
 	}
 
 	100% {
 		opacity: 1;
-		transform: translateY(0);
-		transform-origin: top;
+		-webkit-transform: translateY(0);
+		        transform: translateY(0);
+		-webkit-transform-origin: top;
+		        transform-origin: top;
+	}
+}
+
+@keyframes inside1 {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(100%);
+		        transform: translateY(100%);
+		-webkit-transform-origin: top;
+		        transform-origin: top;
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		        transform: translateY(0);
+		-webkit-transform-origin: top;
+		        transform-origin: top;
+	}
+}
+@-webkit-keyframes inside2 {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(100%);
+		        transform: translateY(100%);
+		-webkit-transform-origin: bottom;
+		        transform-origin: bottom;
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		        transform: translateY(0);
+		-webkit-transform-origin: bottom;
+		        transform-origin: bottom;
 	}
 }
 @keyframes inside2 {
 	0% {
 		opacity: 0;
-		transform: translateY(100%);
-		transform-origin: bottom;
+		-webkit-transform: translateY(100%);
+		        transform: translateY(100%);
+		-webkit-transform-origin: bottom;
+		        transform-origin: bottom;
 	}
 
 	100% {
 		opacity: 1;
-		transform: translateY(0);
-		transform-origin: bottom;
+		-webkit-transform: translateY(0);
+		        transform: translateY(0);
+		-webkit-transform-origin: bottom;
+		        transform-origin: bottom;
+	}
+}
+@-webkit-keyframes inside3 {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-100%);
+		        transform: translateY(-100%);
+		-webkit-transform-origin: bottom;
+		        transform-origin: bottom;
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		        transform: translateY(0);
+		-webkit-transform-origin: bottom;
+		        transform-origin: bottom;
 	}
 }
 @keyframes inside3 {
 	0% {
 		opacity: 0;
-		transform: translateY(-100%);
-		transform-origin: bottom;
+		-webkit-transform: translateY(-100%);
+		        transform: translateY(-100%);
+		-webkit-transform-origin: bottom;
+		        transform-origin: bottom;
 	}
 
 	100% {
 		opacity: 1;
-		transform: translateY(0);
-		transform-origin: bottom;
+		-webkit-transform: translateY(0);
+		        transform: translateY(0);
+		-webkit-transform-origin: bottom;
+		        transform-origin: bottom;
+	}
+}
+@-webkit-keyframes animation {
+	0% {
+		-webkit-transform: translateX(0);
+		        transform: translateX(0);
+	}
+
+	100% {
+		-webkit-transform: translateX(-10%);
+		        transform: translateX(-10%);
 	}
 }
 @keyframes animation {
 	0% {
-		transform: translateX(0);
+		-webkit-transform: translateX(0);
+		        transform: translateX(0);
 	}
 
 	100% {
-		transform: translateX(-10%);
+		-webkit-transform: translateX(-10%);
+		        transform: translateX(-10%);
 	}
 }
-@keyframes animation-title {
+@-webkit-keyframes animation-title {
 	0% {
-		transform: translateX(0);
+		-webkit-transform: translateX(0);
+		        transform: translateX(0);
         opacity: 0;
 	}
 
 	100% {
         opacity: 1;
-		transform: translateX(56%);
+		-webkit-transform: translateX(56%);
+		        transform: translateX(56%);
+	}
+}
+@keyframes animation-title {
+	0% {
+		-webkit-transform: translateX(0);
+		        transform: translateX(0);
+        opacity: 0;
+	}
+
+	100% {
+        opacity: 1;
+		-webkit-transform: translateX(56%);
+		        transform: translateX(56%);
 	}
 }
 
@@ -279,21 +412,40 @@ td:hover {
         left: 43%;
     }
     .loader-container {
-        transform: scale3d(0.5, 0.5, 0.5);
+        -webkit-transform: scale3d(0.5, 0.5, 0.5);
+                transform: scale3d(0.5, 0.5, 0.5);
     }
 }
 
-@keyframes splash {
+@-webkit-keyframes splash {
     0% {
-      transform: translate(0%,0%);
+      -webkit-transform: translate(0%,0%);
+              transform: translate(0%,0%);
     }
     50% {
-      transform: translate(0%,0%);
+      -webkit-transform: translate(0%,0%);
+              transform: translate(0%,0%);
     }
     100% {
-      transform: translate(-100%,0%);
+      -webkit-transform: translate(-100%,0%);
+              transform: translate(-100%,0%);
     }
  }
+
+@keyframes splash {
+    0% {
+      -webkit-transform: translate(0%,0%);
+              transform: translate(0%,0%);
+    }
+    50% {
+      -webkit-transform: translate(0%,0%);
+              transform: translate(0%,0%);
+    }
+    100% {
+      -webkit-transform: translate(-100%,0%);
+              transform: translate(-100%,0%);
+    }
+}
 /* navbar */
 .navbar-nav .nav-item .nav-link {
     font-weight: 500;
