@@ -1057,38 +1057,13 @@
 {% endif %}
 </div>
 <br>
-{#<div data-aos="fade-right">#}
-{#    <div class="container">#}
-{#        <p class="description_prod">{% trans 'Характеристики и описания оборудования' %}</p>#}
-{#    </div>#}
-{#    <div class="container" style="border: 1px solid #C9C8D3;border-radius: 4px;padding: 20px;">#}
-{#        <table class="table table-striped">#}
-{#            <tbody>#}
-{#            {% for z in object.specifications.all %}#}
-{#            <tr>#}
-{#                <td style="font-weight: 500;">{{ z.product_customer|safe }}</td>#}
-{#                <td style="text-align:center">{{ z.product_number|safe }}</td>#}
-{#                <td style="text-align:center"><img src="{% if z.product_image %} {{ z.product_image.url }} {% endif %}"#}
-{#                                                   style="width:44px" alt=""></td>#}
-{#            </tr>#}
-{#            {% endfor %}#}
-{#            </tbody>#}
-{#        </table>#}
-{#        <p style=" border-bottom: 3px silver dashed;"></p>#}
-{#        <br>#}
-{#        <p class="description_long">{{ object.long_description|safe }} </p>#}
-{#        <br>#}
-{#    </div>#}
-{#</div>#}
-<br>
 <br>
 
     <div class="container">
         <h1 class="text-center"
             style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
             {% trans 'Популярные товары' %}</h1>
-        <p class="text-center" style="color: silver;">Идейные соображения высшего порядка, а также постоянное
-            информационно-<br>пропагандистское обеспечение нашей деятельности представляет собой интересный.</p>
+        <p class="text-center" style="color: silver;">{% trans "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan doimiy ravishda boyitib borilmoqda. Quyida esa Saytimiz kuzatuvchilarining qiziqishlari, talab va istaklari natijasida saralangan ommabop mahsulotlarni taqdim qilamiz. Bizni kuzatishda davom eting!" %}</p>
         <br>
         <br>
         <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
