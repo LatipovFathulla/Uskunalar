@@ -799,6 +799,323 @@
         padding-left: 5px;
     }
 }
+
+/*    NEw form */
+
+/* Purchase Form */
+.single-product-content-Holder {
+    position: relative;
+}
+.single-product-finalpurchase-block {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: none;
+}
+
+.single-product-finalpurchase-block-holder {
+    max-width: 500px;
+    width: 100%;
+    max-height: 500px;
+    height: 100%;
+    transform: translateY(120%);
+    background-color: #fff;
+    backdrop-filter: blur(10px);
+    align-self: center;
+    margin: auto;
+    padding: 15px;
+    border: 2px dashed #333;
+}
+
+.single-product-finalpurchase-block.active{
+    display: flex;
+    background: #33333383;
+    backdrop-filter: blur(10px);
+    z-index: 9999999;
+}
+.single-product-finalpurchase-block.active .single-product-finalpurchase-block-holder {
+    animation: purchase-block .5s normal forwards ease-in-out;
+}
+
+.single-product-finalpurchase-block-container {
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.single-product-finalpurchase-block-title {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.single-product-finalpurchase-block-title::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 20%;
+    background-color: #ffe600;
+    align-self: center;
+    margin: 10px 0;
+}
+
+.single-product-finalpurchase-block-description {
+    font-size: 18px;
+    font-weight: 400;
+
+}
+
+.single-product-finalpurchase-block-imgHolder {
+    margin-top: 20px;
+    height: 82%;
+    display: flex;
+}
+.single-product-finalpurchase-block-imgHolder img {
+    max-width: 385px;
+    width: 100%;
+    align-self: center;
+    border-radius: 10px;
+    padding: 10px 0;
+}
+
+button.nextButton {
+    background-color: transparent;
+    border: none;
+}
+
+/* Form */
+
+.single-product-finalpurchase-block-formBlock form {
+    margin-top: 5%;
+  }
+  .single-product-finalpurchase-block-formBlock form fieldset {
+    position: absolute;
+    width: 95%;
+    height: 60px;
+    background: white;
+    border-radius: 3px;
+    opacity: 0;
+    transform: scale(0.2);
+    transition: all 0.4s ease-in-out;
+  }
+  .single-product-finalpurchase-block-formBlock form fieldset input, form fieldset p {
+    text-align: center;
+    color: #333333;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .single-product-finalpurchase-block-formBlock form fieldset p {
+    margin-top: 15px;
+    text-align: center;
+  }
+  .single-product-finalpurchase-block-formBlock form fieldset input {
+    width: 90%;
+    height: 40px;
+    margin-top: 8px;
+    border: none;
+    outline: none;
+  }
+  .single-product-finalpurchase-block-formBlock form fieldset .icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 15px;
+    transition: all 0.4s ease;
+  }
+  .single-product-finalpurchase-block-formBlock form fieldset .icon i {
+    position: absolute;
+    display: block;
+  }
+  .single-product-finalpurchase-block-formBlock form fieldset .icon i::before, form fieldset .icon i::after {
+    position: absolute;
+    content: "";
+  }
+  .single-product-finalpurchase-block-formBlock form fieldset .icon.left {
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .single-product-finalpurchase-block-formBlock form fieldset .icon.right {
+    right: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .single-product-finalpurchase-block-formBlock form fieldset .icon.button:hover {
+    background: #f2f2f2;
+    border-radius: 3px;
+    transition: all 0.4s ease;
+  }
+  .single-product-finalpurchase-block-formBlock form fieldset.enable {
+    z-index: 1;
+    opacity: 1;
+    transition: all 0.5s ease-out 0.2s;
+    transform: scale(1);
+    animation: enable 0.5s ease-out 0.2s;
+  }
+  .single-product-finalpurchase-block-formBlock form fieldset.disable {
+    opacity: 0;
+    transition: all 0.3s ease-in;
+    transform: translateY(120px) scale(0.9);
+  }
+
+  .single-product-finalpurchase-block-formBlock body.error fieldset {
+    transform-origin: 50% 100%;
+    animation: error 0.3s ease-out;
+  }
+
+  @keyframes enable {
+    0% {
+      opacity: 0;
+      transform: scale(0.2);
+    }
+    60% {
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes error {
+    0%, 50%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-3deg);
+    }
+    75% {
+      transform: rotate(3deg);
+    }
+  }
+
+/* Keyframes */
+
+@keyframes purchase-block {
+    0% {
+        opacity: 0;
+        transform: translateY(120%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*icons*/
+    .icon .arrow {
+    width: 2px;
+    height: 17px;
+    top: 5px;
+    left: 14px;
+    background: #333333;
+  }
+  .icon .arrow::before {
+    width: 6px;
+    height: 6px;
+    bottom: -1px;
+    left: -3px;
+    border-color: #333333;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(45deg);
+  }
+
+  .icon .user {
+    width: 20px;
+    height: 10px;
+    bottom: 5px;
+    left: 5px;
+    box-shadow: 0 0 0 2px #333333 inset;
+    border-radius: 6px 6px 3px 3px;
+  }
+  .icon .user::before {
+    width: 10px;
+    height: 10px;
+    top: -9px;
+    left: 5px;
+    box-shadow: 0 0 0 2px #333333 inset;
+    border-radius: 50%;
+  }
+
+  .icon .letter {
+    width: 20px;
+    height: 12px;
+    top: 9px;
+    left: 5px;
+    box-shadow: 0 0 0 2px #333333 inset;
+    border-radius: 3px;
+  }
+  .icon .letter::before, .icon .letter::after {
+    width: 11px;
+    height: 2px;
+    top: 4px;
+    background: #333333;
+  }
+  .icon .letter::before {
+    left: 0;
+    transform: rotate(30deg);
+  }
+  .icon .letter::after {
+    right: 0;
+    transform: rotate(-30deg);
+  }
+
+  .icon .lock {
+    width: 20px;
+    height: 16px;
+    top: 9px;
+    left: 5px;
+    box-shadow: 0 0 0 2px #333333 inset;
+    border-radius: 3px;
+  }
+  .icon .lock::before {
+    width: 8px;
+    height: 8px;
+    top: -4px;
+    left: 4px;
+    border: 2px solid transparent;
+    border-top: 2px solid #333333;
+    border-right: 2px solid #333333;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+  }
+  .icon .lock::after {
+    width: 6px;
+    height: 7px;
+    top: 4px;
+    left: 7px;
+    box-shadow: 0 0 0 2px #333333 inset;
+  }
+
+  .icon .heart {
+    width: 10px;
+    height: 10px;
+    top: 11px;
+    left: 7px;
+    background: #ff5233;
+    transform: rotate(45deg);
+  }
+  .icon .heart::before, .icon .heart::after {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff5233;
+  }
+  .icon .heart::before {
+    left: -6px;
+  }
+  .icon .heart::after {
+    top: -6px;
+  }
+
 </style>
 <section class="banner">
     <div class="container">
@@ -945,7 +1262,7 @@
 
                         <!-- Purchase Button -->
                         <div class="single-products-product-purchase-container">
-                            <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="single-products-product-purchase-buy"><i
+                            <button type="button" class="single-products-product-purchase-buy"><i
                                     class="fa-solid fa-cart-shopping"></i> {% trans 'Sotib Olish' %}</button>
                             {% if object.pdf %}
                                 <a href="{{ object.pdf.url }}" target="_blank"><button type="submit" class="single-products-product-purchase-downloadPDf"><i
@@ -1019,51 +1336,39 @@
             </div>
         </div>
     </div>
-            <div class="row">
-                <div class="col-md-6 col-6">
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">{% trans 'Заполните форму и наши операторы с вами свяжутся' %}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-
-                                    {% include 'form.html' %}
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" style="height: 55px;margin-top: 5%;"
-                                            data-dismiss="modal">{% trans 'Закрыть' %}
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
+   <div class="single-product-finalpurchase-block">
+        <div class="single-product-finalpurchase-block-holder">
+            <div class="single-product-finalpurchase-block-container">
+                <h3 class="single-product-finalpurchase-block-title">Biz bilan Aloqa</h3>
+                <p class="single-product-finalpurchase-block-description">Ushbu uskunani xarid qilish uchun quyidagi formani to'ldiring va bizning operatorlarimiz tez orada siz bilan bog'lanishadi.</p>
+                    <div class="single-product-finalpurchase-block-formBlock">
+                        <form id="productForm" action="" onsubmit="submittedForm(); return false;">
+                            <ul class="items"></ul>
+                            <fieldset class="username enable">
+                              <div class="icon left"><i class="user"></i></div>
+                              <input class="user_name" type="text" name="name" placeholder="Ismingiz"/>
+                              <button class="icon right nextButton fa-regular fa-arrow-right"></button>
+                            </fieldset>
+                            <fieldset class="email">
+                              <div class="icon left fa-regular fa-phone"></div>
+                              <input class="user_tel" name="email" placeholder="+998 (77) 777-7777" type="tel" name="" id="phoneNumber" required/>
+                              <button type="submit" class="icon right nextButton fa-regular fa-arrow-right"></button>
+                            </fieldset>
+                            <fieldset class="thanks">
+                                <div class="icon left fa-regular fa-circle-check"></div>
+                                <p class="us-form-status">Xabar Muvaffaqiyatli Yuborildi</p>
+                              </fieldset>
+                          </form>
                     </div>
-
-                </div>
+                    <div class="single-product-finalpurchase-block-imgHolder">
+                        <img src="/static/images/122.jpg" alt="" class="single-product-finalpurchase-block-img">
+                    </div>
             </div>
+        </div>
+    </div>
             <br>
         </div>
     </div>
-</div>
-<div class="container">
-    {% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="text-align:center">
-            <h1 style="font-size:30px">{{ message }}</h1>
-            <p>{% trans 'Ваша сообщения успешно отправлено скоро наши операторы с вами свяжутся!!!' %}</p>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-    {% endfor %}
-{% endif %}
 </div>
 <br>
 <br>
@@ -1117,7 +1422,124 @@
 
 <br>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-{% block extra_js %}
+<script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+<script>
+const purchaseBtn = document.querySelector('.single-products-product-purchase-buy');
+const purchaseBlock = document.querySelector('.single-product-finalpurchase-block')
+const StatusMessage = document.querySelector('.us-form-status');
+
+purchaseBtn.addEventListener('click', (e) => {
+    purchaseBlock.classList.add('active')
+})
+
+// Form Animation
+function next(target) {
+    var input = target.previousElementSibling;
+
+    // Check if input is empty
+    if (input.value === '') {
+        body2.classList.add('error');
+    } else {
+        body2.classList.remove('error');
+
+        var enable = document.querySelector('form fieldset.enable'),
+            nextEnable = enable.nextElementSibling;
+        enable.classList.remove('enable');
+        enable.classList.add('disable');
+        nextEnable.classList.add('enable');
+    }
+}
+
+function keyDown(event) {
+    var key = event.keyCode,
+        target = document.querySelector('fieldset.enable.nextButton');
+    if (key == 13 || key == 9) next(target);
+}
+
+var body2 = document.querySelector('body'),
+    form = document.querySelector('form'),
+    count = form.querySelectorAll('fieldset').length;
+
+body2.addEventListener("mouseup", (event) => {
+      var target = event.target || event.toElement;
+        if (target.classList.contains("nextButton")) next(target);
+})
+document.addEventListener("keydown", keyDown, false);
+
+// Phone Mask
+$('#phoneNumber').inputmask("+999 (99) 999-99-99");
+
+// Disable Form
+$('.single-product-finalpurchase-block').mouseup((e) => {
+    e.target.classList.remove('active')
+});
+
+function submittedForm() {
+    try {
+        console.log(StatusMessage);
+        setTimeout(() => {
+            purchaseBlock.classList.remove('active');
+            // window.location.reload();
+        }, 1800);
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// Send Data to Telegram Bot
+$(document).ready(function () {
+    // Form Submit
+    $("#productForm").submit(() => {
+        console.log("hello world");
+        const token = "5475705900:AAFlmINyeHg10t-zIjcdHG_LKDquv3tu898";
+        const chat_id = "-517105134";
+
+        let formID = $(this);
+        let uname = $(formID).find(".user_name").val();
+        let usertel = $(formID).find(".user_tel").val();
+        let productTitle = document.querySelector('.single-prodcut-title').innerText;
+        let productID = document.querySelector('.single-product_articuleID').innerHTML;
+        let productPriceDollar = document.querySelector('.single-products-product-priceBlock-usdPrice').innerHTML;
+        let productPriceSom = document.querySelector('.single-products-product-priceBlock-uzsPrice span').innerHTML;
+        let productImg = document.querySelector('.single-product-images-mainImage'),
+            style = productImg.currentStyle || window.getComputedStyle(productImg, false),
+            finalImgUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+            let anthrImg = 'https://uskunalar.uz/uploads/products/phpreFeS8.jpg'
+
+            console.log();
+
+        const caption = JSON.stringify(
+            `<b>Buyurtma qilingan mahsulot haqida:</b>%0A%0A<b>Mahsulot nomi:</b> ${productTitle}%0A<b>Mahsulot IDsi:</b> ${productID}%0A<b>Mahsulot narxi (dollarda):</b> ${productPriceDollar}%0A<b>Mahsulot narxi(so'mda):</b> ${productPriceSom}so'm%0A__ __ __ __ __ __ __ __ __ __ __ __ __ __ __%0A<b>Mijoz haqida:</b>%0A<b>Mijoz Ismi:</b> ${uname}%0A<b>Telefon Raqami:</b> %2B ${usertel}`
+        ).split('"')[1];
+        console.log(caption);
+        console.log(
+            `https://api.telegram.org/bot${token}/sendPhoto?chat_id=${chat_id}&photo=${anthrImg}&parse_mode=html&caption=${caption}`
+        );
+
+
+        $.ajax({
+            type: "POST",
+            url: `https://api.telegram.org/bot${token}/sendPhoto?chat_id=${chat_id}&photo=${anthrImg}&parse_mode=html&caption=${caption}`,
+            data: formID.serialize(),
+            success: function (data) {
+                console.log(data);
+                //  Shows modal window  / Вывод модальное окно с уведомлением, об успешной отправке
+                // $("#exampleModalCenter").modal("show");
+                // Reload Page
+                setTimeout(function () {
+                    // document.location.href = "./index.html";
+                }, 2000);
+            },
+            error: function (jqXHR, text, error) {
+                // TO DO : Message on error
+            },
+        });
+        return false;
+    });
+});
+
+</script>
 <script>
 var swiper = new Swiper(".mySwiper", {
     direction: "horizontal",
@@ -1128,7 +1550,8 @@ var swiper = new Swiper(".mySwiper", {
       clickable: true,
     },
   });
-
+</script>
+<script>
 //   Slider Get  Image
 const singleProductImages = document.querySelectorAll('.single-product-images-option img')
 const singleProductImage = document.querySelector('.single-product-images-mainImage');
@@ -1141,10 +1564,9 @@ singleProductImages.forEach(singleProductImageElement => {
         lastActiveProductImage = singleProductImageElement.parentElement;
     }
     singleProductImageElement.addEventListener('click', () => {
-        console.log(singleProductImageElement.src)
         const singleProductNewImage = singleProductImageElement.src.split('products/')[1];
         singleProductImage.style.background = `url(/media/products/${singleProductNewImage}) no-repeat center center / contain`
-        lastActiveProductImage.classList.remove('active')
+        // lastActiveProductImage.classList.remove('active')
         lastActiveProductImage = singleProductImageElement.parentElement;
         singleProductImageElement.parentElement.classList.add('active')
     })
@@ -1251,6 +1673,7 @@ shareBtn.addEventListener('click', () => {
         });
     }
 </script>
+
 <script>
   var splide = new Splide('.splide_3_2', {
     perPage: 1,
@@ -1298,13 +1721,13 @@ $(".nav-2 li").hover(function () {
 </script>
 <script>
        // Currency
-        const SingleApiUrl = 'https://nbu.uz/en/exchange-rates/json/'
+        const SingleApiUrl2 = 'https://nbu.uz/en/exchange-rates/json/'
         const usdSinglePrice = document.querySelector('.single-products-product-priceBlock-usdPrice').innerHTML.substring(1);
         const uzsSinglePrice = document.querySelector('.single-products-product-priceBlock-uzsPrice span')
 
         // Currency
         async function singleExchangeCurrency(usd, element) {
-            let response = await fetch(SingleApiUrl);
+            let response = await fetch(SingleApiUrl2);
 
             if (response.ok) {
                 let json = await response.json();
@@ -1321,6 +1744,6 @@ $(".nav-2 li").hover(function () {
 
 
 </script>
-{% endblock %}
+
 
 {% endblock %}
