@@ -872,22 +872,22 @@
                         <ul class="single-product-miniInfo-list">
                             <li class="single-product-miniInfo-list-info">
                                 <p class="single-product-miniInfo-list-infoTitle"><i
-                                        class="fa-light fa-money-bill-transfer"></i> Konvertatsiya xizmatlari uchun 1%
+                                        class="fa-light fa-money-bill-transfer"></i> {% trans 'Konvertatsiya xizmatlari uchun' %} 1%
                                 </p>
                             </li>
                             <li class="single-product-miniInfo-list-info list-dashed">
                                 <p class="single-product-miniInfo-list-infoTitle"><i
-                                        class="fa-light fa-building-columns"></i> Bank xizmatlari uchun 0.5%</p>
+                                        class="fa-light fa-building-columns"></i> {% trans 'Bank xizmatlari uchun' %} 0.5%</p>
                             </li>
                             <li class="single-product-miniInfo-list-info">
                                 <p class="single-product-miniInfo-list-infoTitle"><i
-                                        class="fa-light fa-badge-percent"></i> 15% QQS (so'mda)</p>
+                                        class="fa-light fa-badge-percent"></i> 15% QQS {% trans "(so'mda)" %}</p>
                             </li>
                         </ul>
 
                         <!-- Buy By Bank -->
                         <div class="single-product-buyFromBank-list-holder">
-                            <h3 class="single-product-buyFromBank-list-title">Bank orqali xarid qilish</h3>
+                            <h3 class="single-product-buyFromBank-list-title">{% trans 'Bank orqali xarid qilish' %}</h3>
                             <ul class="single-product-buyFromBank-list">
                                 <li class="single-product-buyFromBank-bank">
                                     <a href="https://sqb.uz/uz/individuals/credits/" target="_blank"><img class="single-product-buyFromBank-bank-img" src="/static/images/sqb.png"
@@ -923,10 +923,13 @@
                         <div class="single-products-product-priceBlock">
                             <h3 class="single-products-product-priceBlock-title">Narxi:</h3>
                                 <div class="d-flex">
-
-                                            <h4 class="single-products-product-priceBlock-usdPrice">{% if object.is_discount %}${{ object.get_price }}{% endif %}</h4>
-
+                                          {% if object.is_discount %}
+                                            <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price }}</h4>
                                              <h4 class="single-products-product-priceBlock-usdPrice"><strike class="ml-2" style="font-size: 27px;color:#6c6b6b;font-weight: 400;">${{ object.price }}</strike></h4>
+                                          {% else %}
+                                             <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price }}</h4>
+                                          {% endif %}
+
                                 </div>
                                 <h5 class="single-products-product-priceBlock-uzsPrice"><span> </span> so'm</h5>
                         </div>
@@ -934,10 +937,10 @@
                         <!-- Purchase Button -->
                         <div class="single-products-product-purchase-container">
                             <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="single-products-product-purchase-buy"><i
-                                    class="fa-solid fa-cart-shopping"></i> Sotib Olish</button>
+                                    class="fa-solid fa-cart-shopping"></i> {% trans 'Sotib Olish' %}</button>
                             {% if object.pdf %}
                                 <a href="{{ object.pdf.url }}" target="_blank"><button type="submit" class="single-products-product-purchase-downloadPDf"><i
-                                        class="fa-solid fa-file"></i> Pdf Yuklab olish</button></a>
+                                        class="fa-solid fa-file"></i> {% trans 'Pdf Yuklab olish' %}</button></a>
                             {% endif %}
                         </div>
                     </div>
