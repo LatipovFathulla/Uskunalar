@@ -55,6 +55,13 @@
 /* Buttons */
 
 .us-horizontal-products-card_buttons {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .us-horizontal-products-card_ibutton {
@@ -90,6 +97,7 @@
 .us-horizontal-products-card_img-holder {
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 .us-horizontal-products-card_img_back {
@@ -241,6 +249,15 @@
     -o-animation: us-horizontal-button 11s ease infinite;
     animation: us-horizontal-button 5s ease infinite;
 }
+
+
+   .us-mobile-products-horizontal-card-discount {
+        background-color: #333;
+        color: #fec20f;
+        padding: 2px 5px;
+        border-radius: 6px;
+        font-size: 18px;
+    }
 
 /* Media */
 @media (max-width:1020px) {
@@ -451,7 +468,14 @@
     <div class="us-horizontal-products-card">
             <div class="us-horizontal-products-card_container">
                 <!-- Buttons -->
-                <div class="us-horizontal-products-card_buttons">
+
+
+                <!-- Img -->
+                <div class="us-horizontal-products-card_img-holder">
+                     <div class="us-horizontal-products-card_buttons">
+                        {% if product.is_discount %}
+                            <span class="us-mobile-products-horizontal-card-discount">-{{ product.discount }}%</span>
+                        {% endif %}
                     <a onclick="add_to_wishlist(this, {{ product.pk }})">
                          {% if product|in_wishlist:request %}
                              <button class="us-horizontal-products-card_ibutton product-heart" type="submit"><i class="fa-light fa-heart red-heart"></i></button>
@@ -461,9 +485,6 @@
                     </a>
 
                 </div>
-
-                <!-- Img -->
-                <div class="us-horizontal-products-card_img-holder">
                      {% for i in product.images.all %}
                         <div class="us-horizontal-products-card_img_back" style="background: url('{{ product.background.image.url }}') no-repeat center center / contain;">
                               {% if forloop.counter == 1 %}
@@ -536,7 +557,9 @@
                         </div>
                     </a>
                     <div class="us-mobile-products-horizontal-card-buttons">
-                        <span class="us-mobile-products-horizontal-card-discount">-10%</span>
+                        {% if product.is_discount %}
+                            <span class="us-mobile-products-horizontal-card-discount">-{{ product.discount }}%</span>
+                        {% endif %}
                          <a onclick="add_to_wishlist(this, {{ product.pk }})">
                          {% if product|in_wishlist:request %}
                                   <button class="us-mobile-products-horizontal-card-like"><i class="fa-solid fa-heart red-heart"></i></button>

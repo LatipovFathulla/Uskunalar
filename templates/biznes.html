@@ -61,9 +61,6 @@
     <div class="container">
         <div class="row">
 
-    <img src="{% static './images/Group_417.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);left:7%;right:0%" alt="">
-
-    <img src="{% static './images/Group_418.svg' %}" class="icon-right m-3" style="transform: rotate(10.33deg);" alt="">
             {% for biznes in biznes %}
                 <div class="col-md-4">
                     <div class="card">
@@ -74,7 +71,7 @@
                                 </div>
                                 <a href="{% url 'biznes:detail' pk=biznes.pk %}"> <input type="button"
                                                                                          class="button1 ig-btn"
-                                                                                         value="Смотреть"/></a>
+                                                                                         value="{% trans 'Смотреть' %}"/></a>
                             </div>
                             <div class="info">
                                 <div class="row">

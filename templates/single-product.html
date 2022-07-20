@@ -3,6 +3,7 @@
 {% block title %} {% trans 'Mahsulotlar' %} {% endblock %}
 {% load static %}
 {% load tags %}
+{% load embed_video_tags %}
 {% load static watermark %}
 {% load humanize %}
 {% block content %}
@@ -889,27 +890,27 @@
                             <h3 class="single-product-buyFromBank-list-title">Bank orqali xarid qilish</h3>
                             <ul class="single-product-buyFromBank-list">
                                 <li class="single-product-buyFromBank-bank">
-                                    <a href=""><img class="single-product-buyFromBank-bank-img" src="/static/images/sqb.png"
+                                    <a href="https://sqb.uz/uz/individuals/credits/" target="_blank"><img class="single-product-buyFromBank-bank-img" src="/static/images/sqb.png"
                                             alt=""></a>
                                 </li>
                                 <li class="single-product-buyFromBank-bank">
-                                    <a href=""><img class="single-product-buyFromBank-bank-img" src="/static/images/qqb.png"
+                                    <a href="https://qishloqqurilishbank.uz/ru/credits/dlya-fizicheskikh-lic" target="_blank"><img class="single-product-buyFromBank-bank-img" src="/static/images/qqb.png"
                                             alt=""></a>
                                 </li>
                                 <li class="single-product-buyFromBank-bank">
-                                    <a href=""><img class="single-product-buyFromBank-bank-img"
+                                    <a href="https://www.ipotekabank.uz/private/crediting/" target="_blank"><img class="single-product-buyFromBank-bank-img"
                                             src="/static/images/ipoteka.png" alt=""></a>
                                 </li>
                                 <li class="single-product-buyFromBank-bank">
-                                    <a href=""><img class="single-product-buyFromBank-bank-img"
+                                    <a href="https://trustbank.uz/oz/private/crediting/" target="_blank"><img class="single-product-buyFromBank-bank-img"
                                             src="/static/images/trastbank.png" alt=""></a>
                                 </li>
                                 <li class="single-product-buyFromBank-bank">
-                                    <a href=""><img class="single-product-buyFromBank-bank-img"
+                                    <a href="https://www.infinbank.com/uz/private/credits/ipoteka/" target="_blank"><img class="single-product-buyFromBank-bank-img"
                                             src="/static/images/infinbank.png" alt=""></a>
                                 </li>
                                 <li class="single-product-buyFromBank-bank">
-                                    <a href=""><img class="single-product-buyFromBank-bank-img"
+                                    <a href="https://hamkorbank.uz/uz/physical/credits/" target="_blank"><img class="single-product-buyFromBank-bank-img"
                                             src="/static/images/hamkorbank.png" alt=""></a>
                                 </li>
                             </ul>
@@ -921,18 +922,23 @@
                         <!-- Product Price Block -->
                         <div class="single-products-product-priceBlock">
                             <h3 class="single-products-product-priceBlock-title">Narxi:</h3>
-                            <div>
-                                <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price }}</h4>
+                                <div class="d-flex">
+
+                                            <h4 class="single-products-product-priceBlock-usdPrice">{% if object.is_discount %}${{ object.get_price }}{% endif %}</h4>
+
+                                             <h4 class="single-products-product-priceBlock-usdPrice"><strike class="ml-2" style="font-size: 27px;color:#6c6b6b;font-weight: 400;">${{ object.price }}</strike></h4>
+                                </div>
                                 <h5 class="single-products-product-priceBlock-uzsPrice"><span> </span> so'm</h5>
-                            </div>
                         </div>
 
                         <!-- Purchase Button -->
                         <div class="single-products-product-purchase-container">
                             <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="single-products-product-purchase-buy"><i
                                     class="fa-solid fa-cart-shopping"></i> Sotib Olish</button>
-                            <a href="{{ object.pdf.url|default:'' }}" target="_blank"><button type="submit" class="single-products-product-purchase-downloadPDf"><i
-                                    class="fa-solid fa-file"></i> Pdf Yuklab olish</button></a>
+                            {% if object.pdf %}
+                                <a href="{{ object.pdf.url }}" target="_blank"><button type="submit" class="single-products-product-purchase-downloadPDf"><i
+                                        class="fa-solid fa-file"></i> Pdf Yuklab olish</button></a>
+                            {% endif %}
                         </div>
                     </div>
 
@@ -967,10 +973,9 @@
                 </div>
                 <div id="us-product-3" class="single-product-characteristics-optionInfo-insideBlock">
                     <div class="single-product-videoBlock" style="display: flex;justify-content: center;">
-                        <iframe width="1000" height="600" src="https://www.youtube.com/embed/kKlnpUWQWdE"
-                            title="Night lovell - Deira City Centre Madness Remix |CAR MUSIC 2021" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                         {% if object.video %}
+                                {% video object.video '50%x520' %}
+                         {% endif %}
                     </div>
                 </div>
                 <div id="us-product-4" class="single-product-characteristics-optionInfo-insideBlock">

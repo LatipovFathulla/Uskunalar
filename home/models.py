@@ -1,6 +1,7 @@
 from datetime import datetime
 from decimal import Decimal
 from django.utils.html import strip_tags
+from embed_video.fields import EmbedVideoField
 from django.contrib import admin
 
 import pytz as pytz
@@ -82,6 +83,7 @@ class BannerInfoModel(models.Model):
     delivery = models.CharField(max_length=50, blank=True, verbose_name=_('delivery'))
     short_description = RichTextUploadingField(verbose_name=_('short_description'), null=True)
     long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True)
+    video = EmbedVideoField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def is_discount(self):

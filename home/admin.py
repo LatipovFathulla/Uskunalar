@@ -112,6 +112,7 @@ class BannerInfoModelAdmin(MyTranslationAdmin):
     form = BannerForm
     inlines = [ProductSpecificationsModelAdmin, BannerImageModelAdmin, ]
     save_on_top = True
+    save_as = True
 
     # @admin.display
     # def get_subcategories(self):

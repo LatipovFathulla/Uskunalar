@@ -321,6 +321,9 @@
             <div class="us-products-card_container">
                 <!-- Buttons -->
                 <div class="us-products-card_buttons" >
+                        {% if product.is_discount %}
+                            <span class="us-mobile-products-horizontal-card-discount">-{{ product.discount }}%</span>
+                         {% endif %}
                     <a onclick="add_to_wishlist(this, {{ product.pk }})">
                          {% if product|in_wishlist:request %}
                                 <button class="us-products-card_ibutton product-heart" type="submit"><i class="fa-solid fa-heart red-heart"></i></button>
@@ -328,6 +331,7 @@
                                 <button class="us-products-card_ibutton" type="submit"><i class="fa-light fa-heart"></i></button>
                           {% endif %}
                     </a>
+
                 </div>
 
                 <!-- Img -->

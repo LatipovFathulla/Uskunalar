@@ -6214,7 +6214,7 @@ nav .nav-ul li a span.rotate {
 
 }
 
-@media (min-width: 1400px) and (max-width: 2000px) {
+@media (min-width: 1200px) {
     .blog-container {
         margin-top: 27%;
     }
