@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-20 15:34+0500\n"
+"POT-Creation-Date: 2022-07-20 17:02+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -808,19 +808,19 @@ msgstr ""
 "Your message has been successfully sent, our operators will contact you "
 "soon!!!"
 
-#: templates/single-biznes.html:71 templates/single-lines.html:139
+#: templates/single-biznes.html:69 templates/single-lines.html:139
 msgid "Перейти к предыдущей"
 msgstr "Back"
 
-#: templates/single-biznes.html:78 templates/single-lines.html:147
+#: templates/single-biznes.html:76 templates/single-lines.html:147
 msgid "Перейти к следующей"
 msgstr "Next"
 
-#: templates/single-biznes.html:85 templates/single-lines.html:159
+#: templates/single-biznes.html:83 templates/single-lines.html:159
 msgid "Назад"
 msgstr "Back"
 
-#: templates/single-biznes.html:89 templates/single-lines.html:166
+#: templates/single-biznes.html:87 templates/single-lines.html:166
 msgid "Далее"
 msgstr "Next"
 
@@ -859,6 +859,26 @@ msgstr "Purchase"
 #: templates/single-product.html:952
 msgid "Pdf Yuklab olish"
 msgstr "Download Pdf"
+
+#: templates/single-product.html:964
+msgid "Xususiyatlari"
+msgstr "Features"
+
+#: templates/single-product.html:966
+msgid "Tavsifi"
+msgstr "Descriptions"
+
+#: templates/single-product.html:967
+msgid "Videolar"
+msgstr "Videos"
+
+#: templates/single-product.html:968
+msgid "Yetkazib Berish"
+msgstr "Delivery"
+
+#: templates/single-product.html:969
+msgid "Kafolat shartlari"
+msgstr "Warranty terms"
 
 #: templates/single-product.html:1030
 msgid "Заполните форму и наши операторы с вами свяжутся"
