@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-20 15:10+0500\n"
+"POT-Creation-Date: 2022-07-20 15:34+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -360,16 +360,16 @@ msgstr "Kompaniya haqida"
 
 #: templates/about.html:183 templates/biznes.html:14 templates/blog.html:14
 #: templates/contacts.html:13 templates/lines.html:163
-#: templates/our_works.html:14 templates/products.html:226
+#: templates/our_works.html:14 templates/products.html:233
 #: templates/single-biznes.html:12 templates/single-blog.html:13
-#: templates/single-lines.html:37 templates/single-product.html:800
+#: templates/single-lines.html:37 templates/single-product.html:809
 #: templates/single-work.html:77 templates/videos.html:15
 #: templates/wishlist.html:21
 msgid "Главная"
 msgstr "Asosiy"
 
 #: templates/about.html:211 templates/lines.html:181
-#: templates/products.html:525
+#: templates/products.html:532
 msgid "Kategoriyalar"
 msgstr "Kategoriyalar"
 
@@ -499,16 +499,17 @@ msgstr "Batafsil"
 
 #: templates/index.html:1822 templates/index.html:1867
 #: templates/index.html:1960 templates/index.html:2034
-#: templates/products.html:502
+#: templates/products.html:509
 msgid "Batafsil"
 msgstr "Batafsil"
 
-#: templates/index.html:1830 templates/products.html:628
-#: templates/single-product.html:1089
+#: templates/index.html:1830 templates/products.html:635
+#: templates/single-product.html:1074
 msgid "Популярные товары"
 msgstr "Ommabop mahsulotlar"
 
-#: templates/index.html:1831 templates/products.html:629
+#: templates/index.html:1831 templates/products.html:636
+#: templates/single-product.html:1075
 msgid ""
 "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi "
 "jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan "
@@ -682,12 +683,17 @@ msgstr "Bizning Videolar"
 msgid "Bizning Maqolalar"
 msgstr "Bizning Maqolalar"
 
-#: templates/layouts/product_block.html:379
+#: templates/layouts/product_block.html:388
 #: templates/layouts/products-sort.html:524
 msgid "Mamlakat"
 msgstr "Mamlakat"
 
-#: templates/layouts/product_block.html:398
+#: templates/layouts/product_block.html:396
+#: templates/layouts/products-sort.html:537
+msgid "so'm"
+msgstr ""
+
+#: templates/layouts/product_block.html:407
 #: templates/layouts/products-sort.html:540
 msgid "More Details"
 msgstr "Batafsil"
@@ -737,60 +743,60 @@ msgstr "Proektlar"
 msgid "Сотрудников"
 msgstr "Ishchilar"
 
-#: templates/products.html:225 templates/products.html:227
+#: templates/products.html:232 templates/products.html:234
 msgid "Каталог"
 msgstr "Katalog"
 
-#: templates/products.html:241 templates/products.html:382
-#: templates/products.html:392 templates/products.html:401
+#: templates/products.html:248 templates/products.html:389
+#: templates/products.html:399 templates/products.html:408
 msgid "Фильтр"
 msgstr "Filtr"
 
-#: templates/products.html:244
+#: templates/products.html:251
 msgid "Сбросить"
 msgstr "Yangilash"
 
-#: templates/products.html:252 templates/products.html:410
+#: templates/products.html:259 templates/products.html:417
 msgid "Все товары"
 msgstr "Barcha mahsulotlar"
 
-#: templates/products.html:254 templates/products.html:412
+#: templates/products.html:261 templates/products.html:419
 msgid "Сначала дешевые"
 msgstr "Arzondan"
 
-#: templates/products.html:256 templates/products.html:414
+#: templates/products.html:263 templates/products.html:421
 msgid "Сначала дорогие"
 msgstr "Qimmatdan"
 
-#: templates/products.html:258 templates/products.html:416
+#: templates/products.html:265 templates/products.html:423
 msgid "Новые"
 msgstr "Yangi"
 
-#: templates/products.html:279 templates/products.html:444
+#: templates/products.html:286 templates/products.html:451
 msgid "Валюта"
 msgstr "Valyuta"
 
-#: templates/products.html:281 templates/products.html:446
+#: templates/products.html:288 templates/products.html:453
 msgid "Сум"
 msgstr "Som"
 
-#: templates/products.html:283 templates/products.html:448
+#: templates/products.html:290 templates/products.html:455
 msgid "Доллар"
 msgstr "Dollar"
 
-#: templates/products.html:303 templates/products.html:474
+#: templates/products.html:310 templates/products.html:481
 msgid "Цена"
 msgstr "Narxi"
 
-#: templates/products.html:332
+#: templates/products.html:339
 msgid "Категории"
 msgstr "Kategoriyalar"
 
-#: templates/products.html:380
+#: templates/products.html:387
 msgid "Showing"
 msgstr "Korsatilgan"
 
-#: templates/products.html:380
+#: templates/products.html:387
 msgid "of"
 msgstr ""
 
@@ -806,7 +812,7 @@ msgstr ""
 msgid "Введите сообщения"
 msgstr "Habar yozing"
 
-#: templates/requests.html:162 templates/single-product.html:1051
+#: templates/requests.html:162 templates/single-product.html:1060
 msgid ""
 "Ваша сообщения успешно отправлено скоро наши операторы с вами свяжутся!!!"
 msgstr ""
@@ -833,43 +839,43 @@ msgstr "Keyingisi"
 msgid "Скачать PDF"
 msgstr "PDF yuklab olish"
 
-#: templates/single-product.html:799 templates/single-product.html:801
+#: templates/single-product.html:808 templates/single-product.html:810
 msgid "Карточка товара"
 msgstr "Mahsulot"
 
-#: templates/single-product.html:852
+#: templates/single-product.html:861
 msgid "New"
 msgstr "Yangi"
 
-#: templates/single-product.html:875
+#: templates/single-product.html:884
 msgid "Konvertatsiya xizmatlari uchun"
 msgstr ""
 
-#: templates/single-product.html:880
+#: templates/single-product.html:889
 msgid "Bank xizmatlari uchun"
 msgstr ""
 
-#: templates/single-product.html:884
+#: templates/single-product.html:893
 msgid "(so'mda)"
 msgstr ""
 
-#: templates/single-product.html:890
+#: templates/single-product.html:899
 msgid "Bank orqali xarid qilish"
 msgstr ""
 
-#: templates/single-product.html:940
+#: templates/single-product.html:949
 msgid "Sotib Olish"
 msgstr ""
 
-#: templates/single-product.html:943
+#: templates/single-product.html:952
 msgid "Pdf Yuklab olish"
 msgstr ""
 
-#: templates/single-product.html:1021
+#: templates/single-product.html:1030
 msgid "Заполните форму и наши операторы с вами свяжутся"
 msgstr "Forma ni toldirin va operatorlarimiz siz blan boglanishadi"
 
-#: templates/single-product.html:1032
+#: templates/single-product.html:1041
 msgid "Закрыть"
 msgstr "Yopish"
 

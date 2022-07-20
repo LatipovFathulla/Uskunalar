@@ -107,6 +107,15 @@
 
 } */
 
+.us-mobile-products-horizontal-card-discount {
+        background-color: #333;
+        color: #fec20f;
+        padding: 2px 5px;
+        border-radius: 6px;
+        font-size: 18px;
+}
+
+
 .us-products-card-title {
     text-transform: initial;
     font-size: 24px;
@@ -384,7 +393,7 @@
                 <div class="us-products-card-status">
                     <div class="us-products-card-priceInfo">
                         <h3 class="us-products-card-productPrice_dollar">${{ product.get_price }}</h3>
-                        <p class="us-products-card-productPrice_som"> <span> </span> so'm</p>
+                        <p class="us-products-card-productPrice_som"> <span> </span> {% trans "so'm" %}</p>
                     </div>
                     <div class="us-products-card-statusinfo">
                         <h3 class="us-products-card-product_id">ID:{{ product.sku }}</h3>
