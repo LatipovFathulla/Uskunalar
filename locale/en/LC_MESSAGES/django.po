@@ -481,8 +481,6 @@ msgid "Asosiy"
 msgstr "Home"
 
 #: templates/index.html:1791
-#, fuzzy
-#| msgid "Liniyalar"
 msgid "Liniyalar "
 msgstr "Lines"
 

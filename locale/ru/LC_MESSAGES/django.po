@@ -483,8 +483,6 @@ msgid "Asosiy"
 msgstr "Главная"
 
 #: templates/index.html:1791
-#, fuzzy
-#| msgid "Liniyalar"
 msgid "Liniyalar "
 msgstr "Линии"
 
