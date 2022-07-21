@@ -124,3 +124,5 @@ class CarouselModelAdmin(MyTranslationAdmin):
     list_display = ['title', 'descriptions', 'image', 'created_at']
     search_fields = ['title', 'descriptions', 'created_at']
     list_filter = ['title', 'created_at']
+
+

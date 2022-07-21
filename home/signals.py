@@ -1,12 +1,14 @@
-from django.db.models.signals import pre_save
+from PIL import Image
+from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 
-from home.models import BannerInfoModel
+from home.models import BannerInfoModel, BannerImageModel
 
 
-@receiver(pre_save, sender=BannerInfoModel)
-def real_price_calc(sender, instance, *args, **kwargs):
-    if instance.is_discount():
-        instance.real_price = instance.price - instance.price * instance.discount / 100
-    else:
-        instance.real_price = instance.price
+def image_compressor(sender, **kwargs):
+    print('working...')
+    if kwargs["created"]:
+        with Image.open(kwargs["instance"].image.path) as photo:
+            photo.save(kwargs["instance"].image.path, optimize=True, quality=20)
+
+post_save.connect(image_compressor, sender=BannerImageModel)

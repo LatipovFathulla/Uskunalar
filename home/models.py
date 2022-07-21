@@ -1,5 +1,6 @@
 from datetime import datetime
-from decimal import Decimal
+from PIL import Image
+from django.db.models.signals import post_save
 from django.utils.html import strip_tags
 from embed_video.fields import EmbedVideoField
 from django.contrib import admin
@@ -65,10 +66,17 @@ class BannerBackModel(models.Model):
 
 
 class BannerInfoModel(models.Model):
+
+    COLORS = (
+        ('yellow', 'yellow'),
+        ('blue', 'blue'),
+        ('red', 'red')
+    )
     title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
     sku = models.AutoField(primary_key=True, db_index=True)
     background = models.ForeignKey(BannerBackModel, on_delete=models.SET_NULL, verbose_name=_('background'), null=True,
                                    blank=True)
+    background_color = models.CharField(max_length=50, blank=True, null=True, choices=COLORS)
     country = models.ForeignKey(BannerCountryModel, on_delete=models.SET_NULL, verbose_name=_('country'), null=True,
                                 blank=True)
     pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True, blank=True)
