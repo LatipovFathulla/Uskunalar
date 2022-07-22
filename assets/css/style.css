@@ -182,7 +182,7 @@ td:hover {
 .loader-title {
     font-size: 45px;
     margin-left: 9%;
-    margin-top: 15%;
+    margin-top: 17%;
     opacity: 0;
     -webkit-animation: animation-title 0.6s ease 0s 1 normal forwards;
             animation: animation-title 0.6s ease 0s 1 normal forwards;
@@ -7102,6 +7102,8 @@ nav .nav-ul li a span.rotate {
     top: 10px;
 }
 
+
+
 /* parallax and more */
 
 .dark-overlay {
@@ -7285,6 +7287,18 @@ nav .nav-ul li a span.rotate {
     border-radius: 6px;
 }
 
+   .us-products-card_img_back.red {
+    background: url('/static/images/product card-red.png') no-repeat center center / contain;
+    }
+    .us-products-card_img_back.blue {
+        background: url('/static/images/product card-blue.png') no-repeat center center / contain;
+    }
+    .us-products-card_img_back.orange {
+        background: url('/static/images/product card-orange.png') no-repeat center center / contain;
+    }
+    .us-products-card_img_back.yellow {
+        background: url('/static/images/product card.png') no-repeat center center / contain;
+    }
 
 /* end blog page */
 
@@ -7918,7 +7932,7 @@ ul.social-footer2 li a {
     color: #4D4D4D;
     font-size: 15px;
     font-weight: 500;
-    height: 70px;
+    height: 100%;
     position: relative;
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;

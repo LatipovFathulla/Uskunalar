@@ -252,18 +252,6 @@
     color: white;
 }
 
-.us-products-card_img_back.red {
-    background: url('/static/images/product card-red.png') no-repeat center center / contain;
-}
-.us-products-card_img_back.blue {
-    background: url('/static/images/product card-blue.png') no-repeat center center / contain;
-}
-.us-products-card_img_back.orange {
-    background: url('/static/images/product card-orange.png') no-repeat center center / contain;
-}
-.us-products-card_img_back.yellow {
-    background: url('/static/images/product card.png') no-repeat center center / contain;
-}
 
 /* Media */
 @media (max-width: 1200px) {
@@ -357,9 +345,8 @@
                 </div>
 
                 <!-- Img -->
-
                           <div class="us-products-card_img-holder">
-                            <div class="us-products-card_img_back {{ product.background_color }}">
+                            <div class="us-products-card_img_back" style="background: url('{{ product.background.image.url }}') no-repeat center center / contain;">
                             <p>{{ product.background_color }}</p>
                             {% for i in product.images.all %}
                                 <a href="{% url 'products:single' pk=product.pk %}">

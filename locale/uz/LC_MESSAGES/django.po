@@ -459,7 +459,7 @@ msgstr "gacha"
 
 #: templates/form.html:8 templates/requests.html:131
 msgid "Обратная связь с нами"
-msgstr "Biz blan aloqa"
+msgstr "Biz bilan aloqa"
 
 #: templates/form.html:17 templates/requests.html:139
 msgid "ФИО"
@@ -471,7 +471,7 @@ msgstr "Sizning nomeriz"
 
 #: templates/form.html:31 templates/requests.html:151
 msgid "Отправить"
-msgstr "Jonatish"
+msgstr "Jo'natish"
 
 #: templates/gallery.html:4 templates/gallery.html:189
 #: templates/gallery.html:190 templates/single-gallery.html:3
@@ -607,7 +607,7 @@ msgstr ""
 
 #: templates/layouts/footer.html:45 templates/layouts/header.html:158
 msgid "Bizning video"
-msgstr "Bizning video"
+msgstr "Bizning videolar"
 
 #: templates/layouts/footer.html:51
 #, fuzzy

@@ -1,9 +1,0 @@
-@charset "UTF-8";
-@font-face { font-family:"Montserrat";font-variant:normal;font-style:italic;font-weight:normal;src:url("#FontID1") format(svg)}
-@font-face { font-family:"Exo 2";font-variant:normal;font-style:italic;font-weight:bold;src:url("#FontID0") format(svg)}
-.fil0 {fill:black}
-.fil1 {fill:#A7A7A8}
-.fil3 {fill:#E3000F}
-.fil2 {fill:#FFE600}
-.fnt1 {font-style:italic;font-weight:normal;font-size:936.56px;font-family:'Montserrat'}
-.fnt0 {font-style:italic;font-weight:bold;font-size:3409.44px;font-family:'Exo 2'}

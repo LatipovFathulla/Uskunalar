@@ -223,6 +223,8 @@
         border-radius: 6px;
         font-size: 18px;
     }
+
+
     </style>
     <section class="banner">
         <div class="container">
@@ -248,7 +250,7 @@
                 <h4>{% trans 'Фильтр' %}</h4>
                 <br>
                 <a href="{% url 'products:product' %}"><p
-                        style="float: right;margin-top: -3%;">{% trans 'Сбросить' %}</p></a>
+                        style="text-align: end;margin-top: -5%">{% trans 'Сбросить' %}</p></a>
                 <div class="row" style="margin:1px">
                     <div class="col-md-4">
                         <!-- Custom select structure -->
@@ -306,7 +308,7 @@
                     </div>
                     <div class="col-md-4">
                         <li style="box-shadow: 0px 6px 20px rgba(169, 169, 170, 0.1);border-radius: 4px;">
-                            <div class="link" style="padding: 20px ;background:#FFE700;border-radius: 3px;height: 58px">
+                            <div class="link" style="padding: 20px ;background:#FFE700;border-radius: 3px;">
                                 <p style="position: absolute;left: 8px;font-weight: 500;font-size: 17px;">{% trans 'Цена' %}</p>
                                 <br><i
                                     class="fa fa-chevron-down"></i></div>
