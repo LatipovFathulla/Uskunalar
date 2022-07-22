@@ -5655,7 +5655,7 @@ nav .nav-ul li a span.rotate {
         font-weight: 500;
         font-style: normal;
         line-height: 50px;
-        margin-top: 18%;
+        margin-top: 30%;
         text-align: center;
         letter-spacing: -0.02em;
         color: #132E6B;
@@ -8245,6 +8245,7 @@ ul.social-footer2 li a {
 .us-categories-accordion-body {
     max-width: 310px;
     width: 100%;
+    border-radius: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .us-categories-accordion-body::before {
@@ -8262,7 +8263,7 @@ ul.social-footer2 li a {
 
 .us-categories-accordion-holder {
     margin-top: 20px;
-    height: 700px;
+    height: 115em;
     padding: 0 10px;
     overflow:hidden;
     overflow-y: scroll;
