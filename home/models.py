@@ -15,6 +15,12 @@ from django.utils.translation import gettext_lazy as _
 class CategoryModel(models.Model):
     category = RichTextUploadingField(max_length=400, verbose_name=_('category'), null=True, db_index=True)
     image = models.FileField(upload_to='category_image', verbose_name=_('category_image'), null=True, blank=True)
+    my_order = models.PositiveIntegerField(
+        default=0,
+        blank=False,
+        null=False,
+        db_index=True
+    )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
@@ -24,6 +30,7 @@ class CategoryModel(models.Model):
     class Meta:
         verbose_name = _('category')
         verbose_name_plural = _('categories')
+        ordering = ['my_order']
 
 
 class SubCategoryModel(models.Model):

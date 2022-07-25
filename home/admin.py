@@ -1,3 +1,4 @@
+from adminsortable2.admin import SortableAdminMixin
 from django.contrib import admin
 from django.utils.html import format_html
 from django import forms
@@ -29,10 +30,11 @@ def format_category(obj):
 
 
 @admin.register(CategoryModel)
-class CategoryModelAdmin(MyTranslationAdmin):
-    list_display = (format_category, 'created_at',)
+class CategoryModelAdmin(SortableAdminMixin, MyTranslationAdmin):
+    list_display = (format_category, 'created_at', 'my_order')
     search_fields = ('category',)
     list_filter = ('category',)
+    ordering = ['my_order']
 
 
 @admin.display()

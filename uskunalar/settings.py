@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'adminsortable2',
     'widget_tweaks',
     'embed_video',
     'bs4',

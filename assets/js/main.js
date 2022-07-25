@@ -56,11 +56,16 @@ $(document).ready(function () {
        // Currency
         const apiUrl = 'https://nbu.uz/en/exchange-rates/json/'
         const usdPrice = document.querySelectorAll('.us-products-card-productPrice_dollar');
-        const uzsPrice = document.querySelectorAll('.us-products-card-productPrice_som span')
+        const horizontalPriceUsd = document.querySelectorAll('.us-horizontal-products-card-productPrice_dollar'),
+            horizontalPriceUzs = document.querySelectorAll('.us-horizontal-products-card-productPrice_som span');
+        // console.log(usdPrice)
+        const uzsPrice = document.querySelectorAll('.us-products-card-productPrice_som span');
+
 
         // Currency
        function WritePrice(usd, currecnyRate, element) {
-            let finalPrice = Math.floor(currecnyRate * usd);
+           let qqs = 15;
+           let finalPrice = Math.floor(currecnyRate * usd + (currecnyRate * usd * qqs/100));
                 element.innerHTML = finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
        }
 
@@ -75,6 +80,14 @@ $(document).ready(function () {
                 let usdPriceOfElement = element.parentNode.previousElementSibling.innerHTML.substring(1);
                     WritePrice(usdPriceOfElement, CurrencyRate, element);
                 });
+
+                if (horizontalPriceUsd) {
+                    horizontalPriceUzs.forEach(element => {
+                let usdPriceOfElement = element.parentNode.previousElementSibling.innerHTML.substring(1);
+                    WritePrice(usdPriceOfElement, CurrencyRate, element);
+                });
+                }
+
 
             } else {
                 alert("HTTP-Error: " + response.status);
