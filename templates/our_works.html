@@ -5,18 +5,14 @@
 {% load paginator_tags %}
 {% block content %}
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <section class="banner">
-        <div class="container">
-            <div class="row">
 
-            </div>
-            <h1 class="banner-text">{% trans 'Наши работы' %}</h1>
-            <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>   <span> > <a href="" class="banner-desc-title" style="color: #132E6B;">{% trans 'Наши работы' %}</a></span></p>
-
-            <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
-        </div>
-
-    </section>
+<section class="banner">
+    <div class="banner-container">
+        <h1 class="banner-text">{% trans 'Наши работы' %}</h1>
+            <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>
+            <span> > <a href="" class="banner-desc-title" style="color:#132E6B;">{% trans 'Наши работы' %}</a></span></p>
+    </div>
+</section>
 
     <img src="{% static './images/settings.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);" alt="">
 

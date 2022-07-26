@@ -632,7 +632,8 @@ showSearchCategoriesButton.addEventListener('click', () => {
 SearchCategoriesListItem.forEach(element => {
     element.addEventListener('click', () => {
         showSearchCategoriesButton.innerHTML = element.lastElementChild.innerHTML;
-        SearchCategoriesList.classList.remove('active')
+        SearchCategoriesList.classList.remove('active');
+        SearchButtonActive = false;
     })
 })
 

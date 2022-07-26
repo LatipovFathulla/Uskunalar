@@ -31,6 +31,16 @@ ul, li {
 p {
     color: #000;
     font-family:'Poppins', sans-serif;
+    margin-bottom: 0 !important;
+}
+
+a {
+    text-decoration: none;
+    color: #333 !important;
+}
+a:hover {
+    text-decoration: none;
+    color: #333;
 }
 
 span {
@@ -443,6 +453,25 @@ td:hover {
               transform: translate(-100%,0%);
     }
 }
+
+/* Banner */
+.banner {
+    width: 100%;
+    max-height: 100%;
+    height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
 /* navbar */
 .navbar-nav .nav-item .nav-link {
     font-weight: 500;
@@ -4615,6 +4644,17 @@ nav .nav-ul li a span.rotate {
     color: #a9a9a9;
     margin-top: 9px;
 }
+.desc-work p{
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 24px;
+    color: #a9a9a9;
+    margin-top: 9px;
+    max-width: 250px;
+    width: 100%;
+    word-wrap: break-word;
+}
 
 /* end our works */
 
@@ -5651,13 +5691,17 @@ nav .nav-ul li a span.rotate {
     }
 
     .banner-text {
-        font-size: 42px;
+        font-size: 26px;
         font-weight: 500;
         font-style: normal;
-        line-height: 50px;
-        margin-top: 30%;
         text-align: center;
-        letter-spacing: -0.02em;
+        color: #132E6B;
+    }
+    .banner-text p{
+        font-size: 26px;
+        font-weight: 500;
+        font-style: normal;
+        text-align: center;
         color: #132E6B;
     }
 
@@ -5678,7 +5722,6 @@ nav .nav-ul li a span.rotate {
         letter-spacing: -0.02em;
         color: #132E6B;
         text-align: center;
-        margin-top: 14px;
     }
 
     .banner-desc-title {
@@ -6767,10 +6810,14 @@ nav .nav-ul li a span.rotate {
         font-size: 42px;
         font-weight: 500;
         font-style: normal;
-        line-height: 50px;
-        margin-top: 6%;
         text-align: center;
-        letter-spacing: -0.02em;
+        color: #132E6B;
+    }
+    .banner-text p{
+        font-size: 42px;
+        font-weight: 500;
+        font-style: normal;
+        text-align: center;
         color: #132E6B;
     }
 
@@ -6789,10 +6836,8 @@ nav .nav-ul li a span.rotate {
         font-size: 16px;
         font-weight: normal;
         line-height: 19px;
-        letter-spacing: -0.02em;
         color: #132E6B;
         text-align: center;
-        margin-top: 14px;
     }
 
     .banner-desc-title {
@@ -6800,7 +6845,6 @@ nav .nav-ul li a span.rotate {
         font-weight: normal;
         font-style: normal;
         color: #132E6B;
-        letter-spacing: -0.02em;
         line-height: 19px;
     }
 
@@ -6818,10 +6862,14 @@ nav .nav-ul li a span.rotate {
         font-size: 42px;
         font-weight: 500;
         font-style: normal;
-        line-height: 50px;
-        margin-top: 6%;
         text-align: center;
-        letter-spacing: -0.02em;
+        color: #132E6B;
+    }
+    .banner-text p{
+        font-size: 42px;
+        font-weight: 500;
+        font-style: normal;
+        text-align: center;
         color: #132E6B;
     }
 
@@ -6829,10 +6877,8 @@ nav .nav-ul li a span.rotate {
         font-size: 20px;
         font-weight: normal;
         line-height: 19px;
-        letter-spacing: -0.02em;
         color: #132E6B;
         text-align: center;
-        margin-top: 14px;
     }
 
     .banner-desc-title {
@@ -9106,3 +9152,4 @@ h3 {
 }
 
 /* end js slider */
+

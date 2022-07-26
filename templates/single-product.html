@@ -1117,19 +1117,16 @@ button.nextButton {
   }
 
 </style>
+
 <section class="banner">
-    <div class="container">
-        <div class="row">
-
-        </div>
+    <div class="banner-container container">
         <h1 class="banner-text">{% trans 'Карточка товара' %}</h1>
-        <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a> <span> > <a
-            href="" class="banner-desc-title">{% trans 'Карточка товара' %}</a></span> > <a
-            href="" class="banner-desc-title" style="#132E6B;">{{ object.title }}</a></span></p>
-
-        <img src="{% static './images/backgorund-shadow.svg' %}" style="margin-top: -30%;margin-left: -60%;" alt="">
+        <div class="banner-links">
+            <a href="{% url 'home:home' %}" style="color:#132E6B" class="banner-desc">{% trans 'Главная' %} <span> > </span></a>
+            <a href="{% url 'blog:blogs' %}" class="banner-desc-title" style="color:#132E6B;">{% trans 'Карточка товара' %}<span> > </span></a>
+            <a href="" class="banner-desc-title" style="color:#132E6B;">{{ object.title }}</a>
+            </div>
     </div>
-
 </section>
 
 <br>

@@ -12,17 +12,13 @@
     }
 </style>
     <link rel="stylesheet" href="{% static 'css/splide.min.css' %}">
-<section class="banner2">
-    <div class="container">
-        <div class="row">
 
-        </div>
+<section class="banner">
+    <div class="banner-container">
         <h1 class="banner-text">{% trans 'Избранное' %}</h1>
-        <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>  <span> > <a href="" class="banner-desc-title" style="color: #132E6B;">{% trans 'Избранное' %}</a></span></p>
-
-        <img src="./images/backgorund-shadow.svg" style="margin-top: -30%;margin-left: -60%;" alt="">
+            <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>
+            <span> > <a href="" class="banner-desc-title" style="color:#132E6B;">{% trans 'Избранное' %}</a></span></p>
     </div>
-
 </section>
 
 
