@@ -67,7 +67,8 @@ class BannerInfoModelView(ListView):
             order_by.append('created_at')
             # diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
             # return diff.days <= 3
-        qs = BannerInfoModel.objects.select_related('category', 'category_uz', 'category_ru', 'category_en').filter(**filters).order_by(*order_by)
+        qs = BannerInfoModel.objects.select_related('category', 'category_uz', 'category_ru', 'category_en').filter(
+            **filters).order_by(*order_by)
 
         if sort:
             if sort == 'price':
@@ -83,6 +84,14 @@ class BannerInfoModelView(ListView):
 
         return qs
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['min_price'], context['max_price'] = BannerInfoModel.objects.aggregate(
+            Min('price'),
+            Max('price')
+        ).values()
+
+        return context
 
 
 def get_subcategory(request):
