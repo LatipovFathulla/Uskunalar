@@ -53,8 +53,8 @@ class BannerInfoModelView(ListView):
 
         if price:
             price_from, price_to = price.split(';')
-            filters['dollar__gte'] = price_from
-            filters['dollar__lte'] = price_to
+            filters['price__gte'] = price_from
+            filters['price__lte'] = price_to
 
         if inbox:
             if inbox == 'inbox':
