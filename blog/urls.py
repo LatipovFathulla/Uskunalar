@@ -5,6 +5,6 @@ from blog.views import BlogModelView, SingleBlogView
 app_name = 'blog'
 
 urlpatterns = [
-    path('', cache_page(1)(BlogModelView.as_view()), name='blogs'),
-    path('<int:pk>/', cache_page(1)(SingleBlogView.as_view()), name='single-blog')
+    path('', cache_page(1800)(BlogModelView.as_view()), name='blogs'),
+    path('<int:pk>/', cache_page(1800)(SingleBlogView.as_view()), name='single-blog')
 ]
