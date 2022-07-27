@@ -490,7 +490,7 @@
                      {% for i in product.images.all %}
                         <div class="us-horizontal-products-card_img_back" style="background: url('{{ product.background.image.url }}') no-repeat center center / contain;">
                               {% if forloop.counter == 1 %}
-                                  <img src="{{ i.image.url }}" alt="" class="us-horizontal-products-card_img">
+                            <a href="{% url 'products:single' pk=product.pk %}"><img src="{{ i.image.url }}" alt="" class="us-horizontal-products-card_img"></a>
                               {% endif %}
                         </div>
                      {% endfor %}
@@ -500,7 +500,7 @@
 
                     <!-- Details Section -->
                     <div class="us-horizontal-products-card-details">
-                        <h2 class="us-horizontal-products-card-title">{{ product.title }}</h2>
+                        <a href="{% url 'products:single' pk=product.pk %}"><h2 class="us-horizontal-products-card-title">{{ product.title }}</h2></a>
                         <!-- omborda mavjud -->
                         {% if product.inbox %}
                             <p class="us-horizontal-products-card-product_status"><i class="fa-solid fa-circle"></i> {{ product.inbox}}</p>
@@ -550,9 +550,11 @@
                         <div class="swiper mobileProductSwiper us-mobile-products-horizontal-card-swiper"  style="background: url('{{ product.background.image.url }}') no-repeat center center / contain;">
                             <div class="swiper-wrapper">
                                {% for i in product.images.all %}
+                                <a href="{% url 'products:single' pk=product.pk %}">
                                         <div class="swiper-slide us-mobile-products-horizontal-card-swiper-slide "><img
                                                 src="{{ i.image.url }}" alt="">
                                         </div>
+                                </a>
                                {% endfor %}
                             </div>
                             <div class="swiper-pagination"></div>
@@ -574,7 +576,7 @@
                     </div>
                 </div>
                 <div class="us-mobile-products-horizontal-card-contentHolder">
-                    <h2 class="us-mobile-products-horizontal-card-title">{{ product.title }}</h2>
+                    <a href="{% url 'products:single' pk=product.pk %}"><h2 class="us-mobile-products-horizontal-card-title">{{ product.title }}</h2></a>
                     <ul class="us-mobile-products-horizontal-card-list">
                          {% for j in product.specifications.all|slice:':3' %}
                         <li class="us-mobile-products-horizontal-card-listItem">

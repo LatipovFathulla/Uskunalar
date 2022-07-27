@@ -1,6 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load i18n %}
-{% block title %} {% trans 'Kompaniya haqida' %} {% endblock %}
+{% block title %} {{ object.title }} {% endblock %}
 {% load embed_video_tags %}
 {% block content %}
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">

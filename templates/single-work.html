@@ -1,6 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load i18n %}
-{% block title %} {% trans 'Bizning ishlar' %} {% endblock %}
+{% block title %} {{ object.title }}  {% endblock %}
 {% load static %}
 {% block content %}
 <style>

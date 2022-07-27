@@ -1,6 +1,6 @@
 {% extends 'layouts/base.html' %}
 {% load i18n %}
-{% block title %} {% trans 'Mahsulotlar' %} {% endblock %}
+{% block title %} {{ object.title }} {% endblock %}
 {% load static %}
 {% load tags %}
 {% load embed_video_tags %}
@@ -814,7 +814,7 @@
     height: 100vh;
     overflow: hidden;
     display: none;
-    z-index: 9999;
+    z-index: 999999;
 }
 
 .single-product-finalpurchase-block-holder {
@@ -829,6 +829,7 @@
     margin: auto;
     padding: 15px;
     border: 2px dashed #333;
+    overflow: hidden;
 }
 
 .single-product-finalpurchase-block.active{
@@ -1459,9 +1460,15 @@ button.nextButton {
                     <div class="single-product-swiper mySwiper">
                         <ul class="swiper-wrapper single-product-images-list">
                               {% for i in object.images.all %}
-                            <li class="swiper-slide single-product-images-option ">
-                                <img src="{{ i.image.url }}" alt="">
-                            </li>
+                                {% if forloop.counter == 1 %}
+                                <li class="swiper-slide single-product-images-option active">
+                                    <img src="{{ i.image.url }}" alt="">
+                                </li>
+                                {% else %}
+                                 <li class="swiper-slide single-product-images-option ">
+                                    <img src="{{ i.image.url }}" alt="">
+                                </li>
+                                {% endif %}
                             {% endfor %}
                         </ul>
                         <div class="swiper-pagination"></div>
@@ -1902,7 +1909,7 @@ singleProductImages.forEach(singleProductImageElement => {
     singleProductImageElement.addEventListener('click', () => {
         const singleProductNewImage = singleProductImageElement.src.split('products/')[1];
         singleProductImage.style.background = `url(/media/products/${singleProductNewImage}) no-repeat center center / contain`
-        // lastActiveProductImage.classList.remove('active')
+        lastActiveProductImage.classList.remove('active')
         lastActiveProductImage = singleProductImageElement.parentElement;
         singleProductImageElement.parentElement.classList.add('active')
     })
