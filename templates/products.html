@@ -530,7 +530,7 @@
                     <div class="us-categories-accordion">
                     <h1 class="us-categories-accordion-title" style="font-size:28px">{% trans 'Kategoriyalar' %}</h1>
 
-                    <div class="us-categories-accordion-holder">
+                    <div class="us-categories-accordion-holder" style="height: 103em !important;">
                     {% for category in all_categories %}
                         <div class="us-categories-accordion-container">
                             <div class="us-categories-label"><img class="us-categories-label-img"
@@ -632,7 +632,7 @@
         <h1 class="text-center"
             style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
             {% trans 'Популярные товары' %}</h1>
-        <p class="text-center" style="color: silver;">{% trans "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan doimiy ravishda boyitib borilmoqda. Quyida esa Saytimiz kuzatuvchilarining qiziqishlari, talab va istaklari natijasida saralangan ommabop mahsulotlarni taqdim qilamiz. Bizni kuzatishda davom eting!" %}</p>
+        <p class="home-product-desc text-center" >{% trans "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan doimiy ravishda boyitib borilmoqda. Quyida esa Saytimiz kuzatuvchilarining qiziqishlari, talab va istaklari natijasida saralangan ommabop mahsulotlarni taqdim qilamiz. Bizni kuzatishda davom eting!" %}</p>
         <br>
         <br>
         <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
@@ -647,7 +647,7 @@
             <div class="splide_3_2">
                 <div class="splide__track">
                     <ul class="splide__list">
-                        {% for product in products %}
+                        {% for product in random_products %}
                             <li class="splide__slide">
                                 <div class="us-products">
                                     {% include 'layouts/product_block.html' %}
@@ -663,7 +663,7 @@
 
     <div class="products-none">
         <div class="us-products">
-            {% for product in products|slice:'4' %}
+            {% for product in random_products|slice:'4' %}
                 {% include 'layouts/product_block.html' %}
             {% endfor %}
         </div>

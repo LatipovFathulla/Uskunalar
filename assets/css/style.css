@@ -36,11 +36,9 @@ p {
 
 a {
     text-decoration: none;
-    color: #333 !important;
 }
 a:hover {
     text-decoration: none;
-    color: #333;
 }
 
 span {
@@ -232,6 +230,10 @@ td:hover {
     text-align: center;
     margin-top: 5px;
     font-size: 18px;
+}
+
+.categories-swiper-button i {
+    color: #000 !important;
 }
 
 @-webkit-keyframes lineAnim {
@@ -8309,7 +8311,7 @@ ul.social-footer2 li a {
 
 .us-categories-accordion-holder {
     margin-top: 20px;
-    height: 115em;
+    height: 700px;
     padding: 0 10px;
     overflow:hidden;
     overflow-y: scroll;

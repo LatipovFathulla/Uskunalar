@@ -4,6 +4,7 @@ from django.utils.translation import get_language, activate
 
 
 def product_categories(request, ):
+    random_products = BannerInfoModel.objects.order_by('?')
     prod_spetification = ProductSpecificationsModel.objects.order_by('pk')
 
     current_language = get_language()
@@ -21,5 +22,6 @@ def product_categories(request, ):
     return {
         'categories2': categories,
         'subcategories2': subcategories,
-        'prod_spetification': prod_spetification
+        'prod_spetification': prod_spetification,
+        'random_products': random_products
     }

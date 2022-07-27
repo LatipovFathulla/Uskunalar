@@ -102,11 +102,6 @@ class BannerInfoModel(models.Model):
             return self.price - self.price * self.discount / 100
         return self.price
 
-    def get_price_dollar(self):
-        if self.is_discount():
-            return self.dollar - self.dollar * self.discount / 100
-        return self.dollar
-
     def is_new(self):
         diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
         return diff.days <= 3

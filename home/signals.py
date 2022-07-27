@@ -11,4 +11,5 @@ def image_compressor(sender, **kwargs):
         with Image.open(kwargs["instance"].image.path) as photo:
             photo.save(kwargs["instance"].image.path, optimize=True, quality=20)
 
+
 post_save.connect(image_compressor, sender=BannerImageModel)

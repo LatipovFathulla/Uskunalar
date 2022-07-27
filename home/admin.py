@@ -110,7 +110,7 @@ class BannerInfoModelAdmin(MyTranslationAdmin):
     list_display = ['pk', 'title', 'city', 'created_at', 'category', 'subcategory']
     search_fields = ['title', 'pk']
     list_filter = ['created_at']
-    readonly_fields = ['get_price', 'get_price_dollar']
+    readonly_fields = ['get_price']
     form = BannerForm
     inlines = [ProductSpecificationsModelAdmin, BannerImageModelAdmin, ]
     save_on_top = True
