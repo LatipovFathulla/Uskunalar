@@ -41,16 +41,16 @@
             </div>
               <div class="widget no-box" style="flex: 0.5 0 auto;">
               <h5 class="widget-title">{% trans 'Biz haqimizda' %}<span></span></h5>
-                <a href="">
+                <a href="{% url 'video:videos' %}">
                    <p class="widget-number">{% trans 'Bizning video' %}</p>
                 </a>
-              <a href="tel:+998 71 250 77 77">
+              <a href="{% url 'blog:blogs' %}">
                 <p class="widget-number">{% trans 'Bizning maqolalar' %}</p>
               </a>
-                <a href="">
+                <a href="{% url 'line:lines' %}">
                       <p class="widget-number">{% trans 'Bizning liniyalar' %}</p>
                 </a>
-                <a href="">
+                <a href="{% url 'work:works' %}">
                    <p class="widget-number">{% trans 'Bizning ishlar' %}</p>
                 </a>
 
