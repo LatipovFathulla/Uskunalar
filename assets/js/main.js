@@ -77,13 +77,13 @@ $(document).ready(function () {
                 let CurrencyRate = json[json.length - 1]['cb_price'];
                 //changeit
                 uzsPrice.forEach(element => {
-                let usdPriceOfElement = element.parentNode.previousElementSibling.innerHTML.substring(1);
+                let usdPriceOfElement = element.parentNode.previousElementSibling.lastElementChild.innerHTML.substring(1);
                     WritePrice(usdPriceOfElement, CurrencyRate, element);
                 });
 
                 if (horizontalPriceUsd) {
                     horizontalPriceUzs.forEach(element => {
-                let usdPriceOfElement = element.parentNode.previousElementSibling.innerHTML.substring(1);
+                let usdPriceOfElement = element.parentNode.previousElementSibling.lastElementChild.innerHTML.substring(1);
                     WritePrice(usdPriceOfElement, CurrencyRate, element);
                 });
                 }

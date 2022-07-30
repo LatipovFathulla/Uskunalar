@@ -1011,6 +1011,20 @@ button.nextButton {
 }
 
 /* Media Queries */
+@media (min-width: 1200px) {
+     .single-products-product-priceBlock-usdPrice.d-d {
+        display: block;
+    }
+
+    .single-products-product-priceBlock-usdPrice.d-m {
+        display: none;
+    }
+
+      .single-products-product-priceBlock-term {
+        padding: 5px 15px;
+        font-size: 13px;
+    }
+}
 @media (max-width: 1450px) {
     .single-product-content-Holder {
         margin-left: 15px;
@@ -1190,6 +1204,18 @@ button.nextButton {
     .single-product-share-block {
         right: 10px;
     }
+    .single-products-product-priceBlock-usdPrice.d-d {
+        display: none;
+    }
+
+    .single-products-product-priceBlock-usdPrice.d-m {
+        display: block;
+    }
+
+    .single-products-product-priceBlock-term {
+        padding: 5px 11px;
+        font-size: 11px;
+    }
 }
 
 @media (max-width: 800px) {
@@ -1327,6 +1353,44 @@ button.nextButton {
     }
 }
 
+.single-products-product-priceBlock-priceabout {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+/*@media screen and (max-width: 850px){*/
+/*    .single-products-product-priceBlock-priceabout {*/
+/*        flex-direction: column;*/
+/*    }*/
+/*}*/
+
+.single-products-product-priceBlock-term {
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 5px 15px;
+    font-size: 13px;
+    margin-right: 5px;
+    cursor: context-menu;
+}
+
+.cip-term {
+    background-color: #ff052e14;
+    color: red;
+}
+.daf-term {
+    background-color: #1fb14114;
+    color: green;
+}
+
+.exw-term {
+    background-color: #ffe6004f;
+    color: #333;
+}
+.fca-term {
+    background-color: #0088cc26;
+    color: #333;
+}
 /* Icons */
 .icon .arrow {
     width: 2px;
@@ -1471,7 +1535,6 @@ button.nextButton {
                                 {% endif %}
                             {% endfor %}
                         </ul>
-                        <div class="swiper-pagination"></div>
                     </div>
                     <!-- Image -->
                    {% for i in object.images.all %}
@@ -1571,16 +1634,26 @@ button.nextButton {
                         <!-- Product Price Block -->
                         <div class="single-products-product-priceBlock">
                             <h3 class="single-products-product-priceBlock-title">Narxi:</h3>
-                                <div class="d-flex">
-                                          {% if object.is_discount %}
+                            <div>
+                                <div class="single-products-product-priceBlock-priceabout">
+                                    <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="single-products-product-priceBlock-term cip-term">CIP</span> -->
+                                    <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="single-products-product-priceBlock-term daf-term">DAF</span>
+                                    <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="single-products-product-priceBlock-term exw-term">EXW</span> -->
+                                    <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="single-products-product-priceBlock-term fca-term">FCA</span> -->
+                                    {% if object.is_discount %}
                                             <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price }}</h4>
-                                             <h4 class="single-products-product-priceBlock-usdPrice"><strike class="ml-2" style="font-size: 27px;color:#6c6b6b;font-weight: 400;">${{ object.price }}</strike></h4>
-                                          {% else %}
-                                             <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price }}</h4>
-                                          {% endif %}
+                                             <h4 class="single-products-product-priceBlock-usdPrice d-d"><strike class="ml-2" style="font-size: 27px;color:#6c6b6b;font-weight: 400;">${{ object.price }}</strike></h4>
 
+                                    {% else %}
+                                             <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price }}</h4>
+                                       {% endif %}
                                 </div>
-                                <h5 class="single-products-product-priceBlock-uzsPrice"><span> </span> so'm</h5>
+                                {% if object.is_discount %}
+                                       <h4 class="single-products-product-priceBlock-usdPrice d-m"><strike class="ml-2" style="font-size: 27px;color:#6c6b6b;font-weight: 400;">${{ object.price }}</strike></h4>
+                                {% endif %}
+                                <!-- <h4 class="single-products-product-priceBlock-usdPrice">$1000</h4> -->
+                                <h5 class="single-products-product-priceBlock-uzsPrice"><span> </span> {% trans "so'm" %}</h5>
+                            </div>
                         </div>
 
                         <!-- Purchase Button -->
@@ -1701,8 +1774,7 @@ button.nextButton {
         <h1 class="text-center"
             style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
             {% trans 'Популярные товары' %}</h1>
-        <p class="text-center" style="color: silver;">{% trans "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan doimiy ravishda boyitib borilmoqda. Quyida esa Saytimiz kuzatuvchilarining qiziqishlari, talab va istaklari natijasida saralangan ommabop mahsulotlarni taqdim qilamiz. Bizni kuzatishda davom eting!" %}</p>
-        <br>
+        <p class="home-product-desc text-center" >{% trans "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan doimiy ravishda boyitib borilmoqda. Quyida esa Saytimiz kuzatuvchilarining qiziqishlari, talab va istaklari natijasida saralangan ommabop mahsulotlarni taqdim qilamiz. Bizni kuzatishda davom eting!" %}</p>
         <br>
         <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
         <br>

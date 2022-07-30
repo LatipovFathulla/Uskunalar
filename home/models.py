@@ -85,6 +85,10 @@ class BannerInfoModel(models.Model):
                                     null=True, blank=True)
 
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True, db_index=True)
+    CIP = models.BooleanField(default=False, verbose_name=_('CIP'), help_text=_('SELECT ONLY ONE'))
+    DAF = models.BooleanField(default=False, verbose_name=_('DAF'))
+    EXW = models.BooleanField(default=False, verbose_name=_('EXW'))
+    FCA = models.BooleanField(default=False, verbose_name=_('FCA'))
     price = models.DecimalField(max_digits=12, decimal_places=0, verbose_name=_('price'))
     discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'))
     inbox = models.CharField(max_length=50, blank=True, verbose_name=_('inbox'))

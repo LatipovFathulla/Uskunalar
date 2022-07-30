@@ -403,6 +403,7 @@
 
     .us-mobile-products-horizontal-card-info {
         display: flex;
+        flex-direction: column;
         align-items: flex-start;
         justify-content: space-between;
         width: auto;
@@ -464,6 +465,38 @@
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
+}
+
+.us-products-card-priceabout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.us-products-card-term {
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 0px 12px;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.cip-term {
+    background-color: #ff052e14;
+    color: red;
+}
+.daf-term {
+    background-color: #1fb14114;
+    color: green;
+}
+
+.exw-term {
+    background-color: #ffe6004f;
+    color: #333;
+}
+.fca-term {
+    background-color: #0088cc26;
+    color: #333;
 }
 </style>
 {% endblock %}
@@ -535,8 +568,15 @@
                         <h3 class="us-horizontal-products-card-product_id">ID:{{ product.pk }}</h3>
                     </div>
                     <div class="us-horizontal-products-card-priceInfo">
-                        <h3 class="us-horizontal-products-card-productPrice_dollar">${{ product.get_price }}</h3>
-                        <p class="us-horizontal-products-card-productPrice_som"><span> </span> {% trans "so'm" %}</p>
+                      <div class="us-products-card-priceabout">
+                            <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term cip-term">CIP</span> -->
+                            <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term daf-term">DAF</span> -->
+                            <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term exw-term">EXW</span>
+                            <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term fca-term">FCA</span> -->
+                           <h3 class="us-horizontal-products-card-productPrice_dollar">${{ product.get_price }}</h3>
+
+                        </div>
+                         <p class="us-horizontal-products-card-productPrice_som"><span> </span> {% trans "so'm" %}</p>
                     </div>
                     <!-- More Details Button -->
                     <a href="{% url 'products:single' pk=product.pk %}" class="us-horizontal-products-card_buttonMore">{% trans 'More Details' %}</a>
@@ -550,11 +590,13 @@
                         <div class="swiper mobileProductSwiper us-mobile-products-horizontal-card-swiper"  style="background: url('{{ product.background.image.url }}') no-repeat center center / contain;">
                             <div class="swiper-wrapper">
                                {% for i in product.images.all %}
-                                <a href="{% url 'products:single' pk=product.pk %}">
-                                        <div class="swiper-slide us-mobile-products-horizontal-card-swiper-slide "><img
-                                                src="{{ i.image.url }}" alt="">
-                                        </div>
-                                </a>
+                                    {% if forloop.counter == 1 %}
+                                    <a href="{% url 'products:single' pk=product.pk %}">
+                                            <div class="swiper-slide us-mobile-products-horizontal-card-swiper-slide "><img
+                                                    src="{{ i.image.url }}" alt="">
+                                            </div>
+                                    </a>
+                                    {% endif %}
                                {% endfor %}
                             </div>
                             <div class="swiper-pagination"></div>
@@ -592,11 +634,18 @@
                     </div>
 
                     <div class="us-mobile-products-horizontal-card-info">
-                        <div class="us-mobile-products-horizontal-card-priceBlock">
-                            <p class="us-products-card-productPrice_dollar">${{ product.get_price }}</p>
-                            <p class="us-products-card-productPrice_som"> <span> </span> {% trans "so'm" %}</p>
-                        </div>
                         <span class="us-mobile-products-horizontal-card-productID">ID:{{ product.pk }}</span>
+                        <div class="us-mobile-products-horizontal-card-priceBlock">
+                           <div class="us-products-card-priceabout">
+                            <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term cip-term">CIP</span> -->
+                            <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term daf-term">DAF</span> -->
+                            <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term exw-term">EXW</span>
+                            <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term fca-term">FCA</span> -->
+                              <h3 class="us-horizontal-products-card-productPrice_dollar">${{ product.get_price }}</h3>
+                        </div>
+                               <p class="us-horizontal-products-card-productPrice_som"><span> </span> {% trans "so'm" %}</p>
+                        </div>
+
                     </div>
                 </div>
             </div>
