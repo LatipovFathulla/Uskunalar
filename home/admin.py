@@ -43,10 +43,11 @@ def format_sub_category(obj):
 
 
 @admin.register(SubCategoryModel)
-class SubCategoryModelAdmin(MyTranslationAdmin):
+class SubCategoryModelAdmin(SortableAdminMixin, MyTranslationAdmin):
     list_display = ['category', format_sub_category, 'created_at']
     search_fields = ['subcategory']
     list_filter = ['category', 'subcategory']
+    ordering = ['my_order']
 
 
 class AdminImageWidget(AdminFileWidget):
@@ -108,7 +109,6 @@ class BannerBackModelAdmin(admin.ModelAdmin):
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(MyTranslationAdmin):
     list_display = ['pk', 'title', 'city', 'created_at', 'category', 'subcategory']
-    fields = ('title', 'background', 'country', 'pdf', 'category', 'subcategory', ('CIP', 'DAF', 'EXW', 'FCA'), 'price', 'discount', 'inbox', 'delivery', 'short_description', 'long_description', 'video', )
     search_fields = ['title', 'pk']
     list_filter = ['created_at']
     readonly_fields = ['get_price']

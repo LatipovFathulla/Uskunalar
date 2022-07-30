@@ -38,6 +38,12 @@ class SubCategoryModel(models.Model):
                                  related_name='subcategories', db_index=True)
     image = models.FileField(upload_to='sub_image', verbose_name=_('sub_image'), null=True, blank=True)
     subcategory = models.CharField(max_length=300, verbose_name=_('subcategory'), db_index=True)
+    my_order = models.PositiveIntegerField(
+        default=0,
+        blank=False,
+        null=False,
+        db_index=True
+    )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('crated_at'))
 
     def __str__(self):
@@ -46,6 +52,7 @@ class SubCategoryModel(models.Model):
     class Meta:
         verbose_name = _('subcategory')
         verbose_name_plural = _('subcategories')
+        ordering = ['my_order']
 
 
 class BannerCountryModel(models.Model):
@@ -121,7 +128,6 @@ class BannerInfoModel(models.Model):
     class Meta:
         verbose_name = _('products')
         verbose_name_plural = _('products')
-        ordering = ['title', 'pk']
         index_together = ['title', 'category', 'subcategory', 'price']
 
 

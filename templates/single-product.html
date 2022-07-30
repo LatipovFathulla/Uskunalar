@@ -1633,13 +1633,19 @@ button.nextButton {
                     <div class="sinle-products-purchase-block">
                         <!-- Product Price Block -->
                         <div class="single-products-product-priceBlock">
-                            <h3 class="single-products-product-priceBlock-title">Narxi:</h3>
+                            <h3 class="single-products-product-priceBlock-title">{% trans 'Narxi' %}:</h3>
                             <div>
                                 <div class="single-products-product-priceBlock-priceabout">
-                                    <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="single-products-product-priceBlock-term cip-term">CIP</span> -->
-                                    <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="single-products-product-priceBlock-term daf-term">DAF</span>
-                                    <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="single-products-product-priceBlock-term exw-term">EXW</span> -->
-                                    <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="single-products-product-priceBlock-term fca-term">FCA</span> -->
+                                      {% if object.CIP == True %}
+                                              <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="single-products-product-priceBlock-term cip-term">CIP</span>
+                                       {% elif object.DAF == True %}
+                                              <span title="INNKOTERMS - 2022 bo'yicha DAF" class="single-products-product-priceBlock-term daf-term">DAF</span>
+                                       {% elif object.EXW == True %}
+                                                 <span title="INNKOTERMS - 2022 bo'yicha EXW" class="single-products-product-priceBlock-term exw-term">EXW</span>
+                                       {% elif object.FCA == True %}
+                                                <span title="INNKOTERMS - 2022 bo'yicha FCA" class="single-products-product-priceBlock-term fca-term">FCA</span>
+                                       {% endif %}
+
                                     {% if object.is_discount %}
                                             <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price }}</h4>
                                              <h4 class="single-products-product-priceBlock-usdPrice d-d"><strike class="ml-2" style="font-size: 27px;color:#6c6b6b;font-weight: 400;">${{ object.price }}</strike></h4>
@@ -1736,14 +1742,14 @@ button.nextButton {
     <div class="single-product-finalpurchase-block">
         <div class="single-product-finalpurchase-block-holder">
             <div class="single-product-finalpurchase-block-container">
-                <h3 class="single-product-finalpurchase-block-title">Biz bilan Aloqa</h3>
-                <p class="single-product-finalpurchase-block-description">Ushbu uskunani xarid qilish uchun quyidagi formani to'ldiring va bizning operatorlarimiz tez orada siz bilan bog'lanishadi.</p>
+                <h3 class="single-product-finalpurchase-block-title">{% trans 'Biz bilan Aloqa' %}</h3>
+                <p class="single-product-finalpurchase-block-description">{% trans "Ushbu uskunani xarid qilish uchun quyidagi formani to'ldiring va bizning operatorlarimiz tez orada siz bilan bog'lanishadi." %}</p>
                     <div class="single-product-finalpurchase-block-formBlock">
                         <form id="productForm" action="" onsubmit="submittedForm(); return false;">
                             <ul class="items"></ul>
                             <fieldset class="username enable">
                               <div class="icon left"><i class="user"></i></div>
-                              <input class="user_name" type="text" name="name" placeholder="Ismingiz"/>
+                              <input class="user_name" type="text" name="name" placeholder="{% trans 'Ismingiz' %}"/>
                               <button class="icon right nextButton fa-regular fa-arrow-right"></button>
                             </fieldset>
                             <fieldset class="email">
@@ -1753,7 +1759,7 @@ button.nextButton {
                             </fieldset>
                             <fieldset class="thanks">
                                 <div class="icon left fa-regular fa-circle-check"></div>
-                                <p class="us-form-status">Xabar Muvaffaqiyatli Yuborildi</p>
+                                <p class="us-form-status">{% trans 'Xabar Muvaffaqiyatli Yuborildi' %}</p>
                               </fieldset>
                           </form>
                     </div>
