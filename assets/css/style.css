@@ -4,6 +4,7 @@
     --loaderWidth:0;
     --inputSize: 560px;
     --menuTop:140px;
+    --searchMenuTop: 157px;
 }
 
 
@@ -2325,7 +2326,7 @@ a {
     opacity: 0;
     width: 100%;
     height: 0;
-    top: var(--menuTop);
+    /*top: var(--menuTop);*/
     z-index: -99999;
     display:none
 }
@@ -3835,14 +3836,18 @@ a {
 }
 
 .thumbnail {
-    width: 320px;
+    max-width: 320px;
+    min-width: 320px;
+    width: 100%;
     height: 256px;
     overflow: hidden;
 }
 
 .thumbnail img {
     opacity: 1;
-    width: 320px;
+    max-width: 320px;
+    min-width: 320px;
+    width: 100%;
     height: 250px;
     transition: all 500ms;
 }
@@ -4651,8 +4656,6 @@ nav .nav-ul li a span.rotate {
     line-height: 24px;
     color: #a9a9a9;
     margin-top: 9px;
-    max-width: 250px;
-    width: 100%;
     word-wrap: break-word;
 }
 

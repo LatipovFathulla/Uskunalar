@@ -827,7 +827,7 @@ msgstr ""
 
 #: templates/requests.html:146
 msgid "Введите сообщения"
-msgstr "Habar yozing"
+msgstr "Xabar yozing"
 
 #: templates/requests.html:161
 msgid ""
@@ -853,7 +853,7 @@ msgid "Далее"
 msgstr "Keyingisi"
 
 #: templates/single-lines.html:64
-msgid "Скачать PDF"
+msgid "Cкачать PDF"
 msgstr "PDF yuklab olish"
 
 #: templates/single-product.html:1507 templates/single-product.html:1510
