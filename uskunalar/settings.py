@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'parler',
     'adminsortable2',
     'widget_tweaks',
     'embed_video',
@@ -138,6 +139,20 @@ LANGUAGES = (
     ('en', _('English')),
 
 )
+
+PARLER_DEFAULT_LANGUAGE_CODE = 'uz'
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'uz',},
+        {'code': 'en',},
+        {'code': 'ru',},
+    ),
+    'default': {
+        'fallback': 'uz',             # defaults to PARLER_DEFAULT_LANGUAGE_CODE
+        'hide_untranslated': False,   # the default; let .active_translations() return fallbacks too.
+    }
+}
 
 # MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 

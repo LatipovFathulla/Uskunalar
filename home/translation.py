@@ -1,11 +1,16 @@
 from modeltranslation.translator import register, TranslationOptions
 
-from home.models import CategoryModel, SubCategoryModel, BannerInfoModel, CarouselModel
+from home.models import CategoryModel, SubCategoryModel, BannerInfoModel, CarouselModel, ProductSpecificationsModel
 
 
 @register(CategoryModel)
 class CategoryTranslationOptions(TranslationOptions):
     fields = ('category',)
+
+
+@register(ProductSpecificationsModel)
+class ProductTranslationOptions(TranslationOptions):
+    fields = ('product_customer', 'product_number')
 
 
 @register(SubCategoryModel)
@@ -24,4 +29,3 @@ class BannerTranslationOptions(TranslationOptions):
 @register(CarouselModel)
 class CarouselTranslationOptions(TranslationOptions):
     fields = ('title', 'descriptions',)
-

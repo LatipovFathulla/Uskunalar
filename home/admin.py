@@ -6,7 +6,7 @@ from django.utils.safestring import mark_safe
 from django.contrib.admin.widgets import AdminFileWidget
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from modeltranslation.admin import TranslationAdmin
+from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 
 from home.models import BannerInfoModel, CategoryModel, \
     SubCategoryModel, BannerImageModel, ProductSpecificationsModel, CarouselModel, BannerBackModel, BannerCountryModel
@@ -74,7 +74,7 @@ class BannerImageModelAdmin(admin.TabularInline):
     }
 
 
-class ProductSpecificationsModelAdmin(admin.TabularInline):
+class ProductSpecificationsModelAdmin(TranslationTabularInline):
     model = ProductSpecificationsModel
 
 
