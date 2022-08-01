@@ -28,7 +28,8 @@
     /* background-color: red; */
     position: fixed;
     visibility: hidden;
-    margin-top: 157px;
+    /*margin-top: 157px;*/
+    margin-top: var(--searchMenuTop);
     transition: .5s ease;
     top: 0px;
     z-index: 99;
@@ -418,6 +419,7 @@
 </script>
 <script>
 //= include ../../../node_modules/jquery/dist/jquery.min.js
+let mainMenuHeight;
 const showMenu = () => {
   let yPosition = window.scrollY;
   let scrollPosition = 0;
@@ -429,6 +431,7 @@ const showMenu = () => {
     header_burgerBtn.classList.add('active_btn'); // Header Change On Mobile
     first_navbar_menu.classList.add('showOrhide');
     const userScreenSize = window.innerWidth;
+    mainMenuHeight = document.querySelector('.header-navbar_container').clientHeight
 
     if (userScreenSize < 1300) {
       first_navbar_menu.classList.add('showOrhide');
@@ -440,6 +443,7 @@ const showMenu = () => {
     search_root.style.setProperty("--searchinput-backgorund", "#FFE700");
     search_root.style.setProperty("--searchinput-border", "black");
     search_root.style.setProperty("--searchinput-color", "black");
+    search_root.style.setProperty("--searchMenuTop", mainMenuHeight + 'px');
     navbar_list.forEach(element => {
       element.classList.add('active_link');
     });
@@ -457,9 +461,13 @@ const showMenu = () => {
       second_navbar_menu.classList.remove('showOrhide');
     }
 
+    mainMenuHeight = 170;
+      console.log(mainMenuHeight)
+
     search_root.style.setProperty("--searchinput-backgorund", "white");
     search_root.style.setProperty("--searchinput-border", "white");
     search_root.style.setProperty("--searchinput-color", "white");
+    search_root.style.setProperty("--searchMenuTop", mainMenuHeight + 'px');
   }
 
   scrollPosition = yPosition;
