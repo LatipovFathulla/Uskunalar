@@ -22,9 +22,6 @@
 </section>
 
 
-<img src="{% static './images/settings.svg' %}" class="icon-right m-3" style="right: 7%;" alt="">
-
-
 <br>
 
     <div class="container">
@@ -33,6 +30,7 @@
             <div class="splide_9_2">
                 <div class="splide__track">
                     <ul class="splide__list">
+                    {% if object_list %}
                         {% for product in object_list %}
                             <li class="splide__slide">
                                 <div class="us-products">
@@ -40,6 +38,9 @@
                                 </div>
                             </li>
                         {% endfor %}
+                    {% else %}
+                    <h3 style="text-align: center">{% trans "В избранном пусто" %}</h3>
+                    {%  endif %}
                     </ul>
                 </div>
             </div>
@@ -48,9 +49,13 @@
 
     <div class="products-none">
         <div class="us-products">
+        {% if object_list %}
             {% for product in object_list %}
                 {% include 'layouts/product_block.html' %}
             {% endfor %}
+        {% else %}
+            <h3 style="text-align: center">{% trans "В избранном пусто" %}</h3>
+        {% endif %}
         </div>
     </div>
 <br>

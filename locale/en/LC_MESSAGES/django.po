@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-30 15:26+0500\n"
+"POT-Creation-Date: 2022-08-03 01:51+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -372,7 +372,7 @@ msgid "Biz haqimizda"
 msgstr "About us"
 
 #: templates/about.html:180 templates/about.html:182
-#: templates/layouts/header.html:170 templates/layouts/header.html:342
+#: templates/layouts/header.html:171 templates/layouts/header.html:343
 msgid "Kompaniya faoliyati"
 msgstr "Company activities"
 
@@ -425,7 +425,7 @@ msgid "Смотреть"
 msgstr "More"
 
 #: templates/blog.html:3 templates/layouts/footer.html:48
-#: templates/layouts/header.html:173
+#: templates/layouts/header.html:174
 msgid "Bizning maqolalar"
 msgstr "Our articles"
 
@@ -438,8 +438,8 @@ msgstr "Our articles"
 msgid "Читать дальше"
 msgstr "More"
 
-#: templates/contacts.html:3 templates/layouts/header.html:177
-#: templates/layouts/header.html:354
+#: templates/contacts.html:3 templates/layouts/header.html:178
+#: templates/layouts/header.html:355
 msgid "Kontaktlar"
 msgstr "Contacts"
 
@@ -616,7 +616,7 @@ msgid ""
 msgstr ""
 "Uskunalar.uz it saves your time and money by supplying production equipment."
 
-#: templates/layouts/footer.html:45 templates/layouts/header.html:171
+#: templates/layouts/footer.html:45 templates/layouts/header.html:172
 msgid "Bizning video"
 msgstr "Our videos"
 
@@ -624,7 +624,7 @@ msgstr "Our videos"
 msgid "Bizning liniyalar"
 msgstr "Our lines"
 
-#: templates/layouts/footer.html:54 templates/layouts/header.html:172
+#: templates/layouts/footer.html:54 templates/layouts/header.html:173
 #: templates/our_works.html:3
 msgid "Bizning ishlar"
 msgstr "Our projects"
@@ -653,56 +653,56 @@ msgstr "Our location"
 msgid "All rights reserved"
 msgstr "All rights reserved"
 
-#: templates/layouts/header.html:159 templates/layouts/header.html:326
+#: templates/layouts/header.html:160 templates/layouts/header.html:327
 #: templates/layouts/tabbar.html:704 templates/products.html:3
 msgid "Mahsulotlar"
 msgstr "Products"
 
-#: templates/layouts/header.html:162 templates/layouts/header.html:330
+#: templates/layouts/header.html:163 templates/layouts/header.html:331
 #: templates/lines.html:3
 msgid "Liniyalar"
 msgstr "Lines"
 
-#: templates/layouts/header.html:165 templates/layouts/header.html:334
+#: templates/layouts/header.html:166 templates/layouts/header.html:335
 msgid "Tayyor Biznes"
 msgstr "Business projects"
 
-#: templates/layouts/header.html:168 templates/layouts/header.html:338
+#: templates/layouts/header.html:169 templates/layouts/header.html:339
 msgid "Biz Haqimizda"
 msgstr "About us"
 
-#: templates/layouts/header.html:202
+#: templates/layouts/header.html:203
 msgid "Katalog"
 msgstr "Catalog"
 
-#: templates/layouts/header.html:210
+#: templates/layouts/header.html:211
 msgid "Kategoriya"
 msgstr "Category"
 
-#: templates/layouts/header.html:215
+#: templates/layouts/header.html:216
 msgid "Uskunalar qidirish"
 msgstr "Search for equipment"
 
-#: templates/layouts/header.html:346
+#: templates/layouts/header.html:347
 msgid "Bizning Videolar"
 msgstr "Our videos"
 
-#: templates/layouts/header.html:350
+#: templates/layouts/header.html:351
 msgid "Bizning Maqolalar"
 msgstr "Our artiles"
 
-#: templates/layouts/product_block.html:425
-#: templates/layouts/products-sort.html:559
+#: templates/layouts/product_block.html:429
+#: templates/layouts/products-sort.html:563
 msgid "Mamlakat"
 msgstr "Country"
 
-#: templates/layouts/product_block.html:453
-#: templates/layouts/products-sort.html:582
+#: templates/layouts/product_block.html:457
+#: templates/layouts/products-sort.html:591
 msgid "More Details"
 msgstr "More"
 
-#: templates/layouts/products-sort.html:579
-#: templates/layouts/products-sort.html:646 templates/single-product.html:1661
+#: templates/layouts/products-sort.html:588
+#: templates/layouts/products-sort.html:655 templates/single-product.html:1661
 msgid "so'm"
 msgstr "som"
 
@@ -939,15 +939,19 @@ msgstr "Our videos"
 msgid "Избранное"
 msgstr "Wishlist"
 
-#: uskunalar/settings.py:136
+#: templates/wishlist.html:42 templates/wishlist.html:57
+msgid "В избранном пусто"
+msgstr "Favorites is empty"
+
+#: uskunalar/settings.py:137
 msgid "Uzbek"
 msgstr ""
 
-#: uskunalar/settings.py:137
+#: uskunalar/settings.py:138
 msgid "Russian"
 msgstr ""
 
-#: uskunalar/settings.py:138
+#: uskunalar/settings.py:139
 msgid "English"
 msgstr ""
 
