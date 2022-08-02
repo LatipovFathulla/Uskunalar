@@ -544,12 +544,16 @@
                             {{ product.delivery }}</p>
                         {% endif %}
                         <ul class="us-horizontal-products-card-details_list">
-                        {% for j in  product.specifications.all|slice:':4' %}
-                                <li class="us-horizontal-products-card-details_item">
-                                    <h4 class="us-horizontal-products-card-detailname">{{ j.product_customer|safe }}:</h4>
-                                    <p class="us-horizontal-products-card-detail">{{ j.product_number|safe }}</p>
-                                </li>
-                        {% endfor %}
+                                    {% for j in  product.specifications.all|slice:':4' %}
+                                            <li class="us-horizontal-products-card-details_item">
+                                                {% if j.product_customer %}
+                                                    <h4 class="us-horizontal-products-card-detailname">{{ j.product_customer|safe }}:</h4>
+                                                {% endif %}
+                                                {% if j.product_number %}
+                                                  <p class="us-horizontal-products-card-detail">{{ j.product_number|safe }}</p>
+                                                {% endif %}
+                                            </li>
+                                    {% endfor %}
                         </ul>
                     </div>
 
@@ -569,10 +573,15 @@
                     </div>
                     <div class="us-horizontal-products-card-priceInfo">
                       <div class="us-products-card-priceabout">
-                            <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term cip-term">CIP</span> -->
-                            <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term daf-term">DAF</span> -->
-                            <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term exw-term">EXW</span>
-                            <!-- <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term fca-term">FCA</span> -->
+                           {% if product.CIP == True %}
+                                     <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term cip-term">CIP</span>
+                           {% elif product.DAF == True %}
+                                   <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term daf-term">DAF</span>
+                           {% elif product.EXW == True %}
+                                     <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term exw-term">EXW</span>
+                           {% elif product.FCA == True %}
+                                   <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-card-term fca-term">FCA</span>
+                           {% endif %}
                            <h3 class="us-horizontal-products-card-productPrice_dollar">${{ product.get_price }}</h3>
 
                         </div>
