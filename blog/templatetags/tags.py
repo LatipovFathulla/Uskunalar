@@ -5,9 +5,10 @@ register = template.Library()
 
 @register.simple_tag
 def get_url_lang(request, lang):
+    get_page = '?page=' + request.GET.get('page', '')
     url = request.path.split('/')
     url[1] = lang
-    return '/'.join(url)
+    return '/'.join(url) + get_page
 
 
 @register.filter()

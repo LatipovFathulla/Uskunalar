@@ -922,7 +922,7 @@ submenuCloseButtons.forEach(element => {
         function addUrlParameter(name, value) {
             let searchParams = new URLSearchParams(window.location.search)
             if (['category', 'subcategory', 'sku', 'sort', 'som'].includes(name)) {
-                searchParams.delete('?');
+                searchParams.delete('page');
             }
             if (searchParams.has(name) && searchParams.get(name) === value) {
                 searchParams.delete(name);
