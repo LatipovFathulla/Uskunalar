@@ -53,15 +53,17 @@
                    {% endif %}
 
                     <ul class="us-products-card-details_list">
-                     {% for j in product.specifications.all|slice:':4' %}
-                        <li class="us-products-card-details_item">
-                        {% if j.product_customer %}
-                            <h4 class="us-products-card-detailname">{{ j.product_customer|safe }}:</h4>
-                        {% endif %}
-                         {% if j.product_number %}
-                            <p class="us-products-card-detail">{{ j.product_number|safe }}</p>
-                        {% endif %}
-                        </li>
+                     {% for j in product.specifications.all %}
+                         {% if forloop.counter < 5 %}
+                                <li class="us-products-card-details_item">
+                                {% if j.product_customer %}
+                                    <h4 class="us-products-card-detailname">{{ j.product_customer|safe }}:</h4>
+                                {% endif %}
+                                 {% if j.product_number %}
+                                    <p class="us-products-card-detail">{{ j.product_number|safe }}</p>
+                                {% endif %}
+                                </li>
+                         {% endif %}
                      {% endfor %}
                     </ul>
                 </div>

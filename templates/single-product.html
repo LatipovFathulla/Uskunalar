@@ -2150,7 +2150,8 @@ $(".nav-2 li").hover(function () {
             if (response.ok) {
                 let json = await response.json();
                 let CurrencyRate = json[json.length - 1]['cb_price'];
-                let finalPrice = Math.floor(CurrencyRate * usd);
+                let qqs = 15;
+                let finalPrice = Math.floor(CurrencyRate * usd + (CurrencyRate * usd * qqs/100));
                 element.innerHTML = finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
             } else {
                 alert("HTTP-Error: " + response.status);
