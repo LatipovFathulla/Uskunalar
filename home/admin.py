@@ -31,8 +31,8 @@ def format_category(obj):
 
 @admin.register(CategoryModel)
 class CategoryModelAdmin(SortableAdminMixin, MyTranslationAdmin):
-    list_display = (format_category, 'created_at', 'my_order')
-    search_fields = ('category',)
+    list_display = (format_category, 'id',  'created_at', 'my_order', )
+    search_fields = ('category', 'pk')
     list_filter = ('category',)
     ordering = ['my_order']
 
@@ -44,8 +44,8 @@ def format_sub_category(obj):
 
 @admin.register(SubCategoryModel)
 class SubCategoryModelAdmin(SortableAdminMixin, MyTranslationAdmin):
-    list_display = ['category', format_sub_category, 'created_at']
-    search_fields = ['subcategory']
+    list_display = ['category', format_sub_category, 'id', 'created_at']
+    search_fields = ['subcategory', 'pk']
     list_filter = ['category', 'subcategory']
     ordering = ['my_order']
 
@@ -113,6 +113,7 @@ class BannerInfoModelAdmin(MyTranslationAdmin):
     search_fields = ['title', 'pk']
     list_filter = ['created_at']
     readonly_fields = ['get_price']
+    raw_id_fields = ['category', 'subcategory']
     form = BannerForm
     inlines = [ProductSpecificationsModelAdmin, BannerImageModelAdmin, ]
     save_on_top = True
