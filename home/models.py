@@ -87,8 +87,8 @@ class BannerInfoModel(models.Model):
     country = models.ForeignKey(BannerCountryModel, on_delete=models.SET_NULL, verbose_name=_('country'), null=True,
                                 blank=True)
     pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True, blank=True)
-    category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, verbose_name=_('category'), null=True)
-    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.CASCADE, verbose_name=_('subcategory'),
+    category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, verbose_name=_('category'),  null=True)
+    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.CASCADE, verbose_name=_('subcategory'), related_name='products',
                                     null=True, blank=True)
 
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True, db_index=True)

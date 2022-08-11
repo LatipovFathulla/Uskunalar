@@ -106,7 +106,7 @@ class SingleModelDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['related'] = BannerInfoModel.objects.order_by('-pk')
+        context['related'] = self.object.subcategory.products.exclude(pk=self.object.pk)[:2]
         return context
 
 

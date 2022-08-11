@@ -51,7 +51,6 @@
                    {% if product.inbox %}
                        <p class="us-products-card-product_status"><i class="fa-solid fa-circle" style="padding: 3px"></i>{{ product.inbox}}</p>
                    {% endif %}
-
                     <ul class="us-products-card-details_list">
                      {% for j in product.specifications.all %}
                          {% if forloop.counter < 5 %}
