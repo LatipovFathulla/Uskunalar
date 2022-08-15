@@ -17,6 +17,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'modeltranslation',
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +48,31 @@ INSTALLED_APPS = [
     'gallery',
     'orders',
 ]
+JAZZMIN_SETTINGS = {
+                    "site_title": "Uskunalar.uz", "site_header": "Uskunalar.uz", "site_brand": "Uskunalar.uz",
+                    "site_logo": "images/favicon-us.png", "login_logo": None, "login_logo_dark": None,
+                    "site_icon": None, "welcome_sign": "Uskunalar.uz", "copyright": "Uskunalar.uz", "user_avatar": None,
+                    "show_ui_builder": True, "topmenu_links": [
+
+                    # Url that gets reversed (Permissions can be added)
+                    {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+
+                    # external url that opens in a new window (Permissions can be added)
+                    {"name": "Products", "url": "/admin/home/bannerinfomodel/"},
+                    {"name": "Categories", "url": "/admin/home/categorymodel/"},
+                    {"name": "Subcategories", "url": "/admin/home/subcategorymodel/"},
+                    {"name": "Lines", "url": "/admin/lines/linemodel/"},
+                    {"name": "Blogs", "url": "/admin/blog/blogmodel/"},
+                    {"name": "Biznes", "url": "/admin/blog/blogmodel/"},
+
+                ], "usermenu_links": [
+                    {"model": "auth.user"}
+                ], "show_sidebar": True, "navigation_expanded": True, "hide_apps": [], "hide_models": [],
+                    "order_with_respect_to": ["auth", "home", "about", "lines", "blog", "works"],
+                    "related_modal_active": False, "custom_css": None, "custom_js": None,
+                    "changeform_format": "horizontal_tabs",
+                    "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"}
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
