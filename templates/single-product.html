@@ -298,13 +298,15 @@
         <div class="splide_3_2">
             <div class="splide__track">
                     <ul class="splide__list">
-                     {% for product in related %}
-                        <li class="splide__slide">
-                             <div class="us-products">
-                                  {% include 'layouts/product_block.html' %}
-                              </div>
-                        </li>
-                      {% endfor %}
+                        {% if object.subcategory %}
+                         {% for product in related %}
+                              <li class="splide__slide">
+                                     <div class="us-products">
+                                          {% include 'layouts/product_block.html' %}
+                                      </div>
+                              </li>
+                         {% endfor %}
+                      {% endif %}
                     </ul>
                 </div>
         </div>
@@ -314,9 +316,11 @@
 
 <div class="products-none">
       <div class="us-products">
+      {% if object.subcategory %}
             {% for product in related  %}
-                {% include 'layouts/product_block.html' %}
+                    {% include 'layouts/product_block.html' %}
             {% endfor %}
+      {% endif %}
      </div>
 </div>
 

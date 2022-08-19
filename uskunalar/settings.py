@@ -68,7 +68,7 @@ JAZZMIN_SETTINGS = {
                 ], "usermenu_links": [
                     {"model": "auth.user"}
                 ], "show_sidebar": True, "navigation_expanded": True, "hide_apps": [], "hide_models": [],
-                    "order_with_respect_to": ["auth", "home", "about", "lines", "blog", "works"],
+                    "order_with_respect_to": ["home", "about", "lines", "blog", "works"],
                     "related_modal_active": False, "custom_css": None, "custom_js": None,
                     "changeform_format": "horizontal_tabs",
                     "changeform_format_overrides": {"auth.user": "collapsible", "auth.group": "vertical_tabs"}

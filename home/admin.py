@@ -109,7 +109,7 @@ class BannerBackModelAdmin(admin.ModelAdmin):
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(MyTranslationAdmin):
     list_display = ['pk', 'title', 'city', 'created_at', 'category', 'subcategory']
-    fields = ('title', 'background', 'country', 'pdf', ('CIP', 'DAF', 'EXW', 'FCA'), 'price', 'discount', 'inbox', 'delivery', 'short_description', 'long_description', 'video', )
+    fields = ('title', 'background', 'category', 'subcategory', 'country', 'pdf', ('CIP', 'DAF', 'EXW', 'FCA'), 'price', 'discount', 'inbox', 'delivery', 'short_description', 'long_description', 'video', )
     search_fields = ['title', 'pk']
     list_filter = ['created_at']
     readonly_fields = ['get_price']
