@@ -424,10 +424,10 @@ let lastScroll = window.scrollY || document.documentElement.scrollTop;
 let mainMenuHeight;
 window.addEventListener("scroll", ()=> {
     if (lastScroll < window.scrollY) {
-        console.log('we are going down')
+        {#console.log('we are going down')#}
         // header Navbar
     // header_logo.src = "./images/us-logo.png";
-      console.log('down')
+      {#console.log('down')#}
     navbar_menu.classList.add("menu_active");
     header_burgerBtn.classList.add('active_btn'); // Header Change On Mobile
     first_navbar_menu.classList.add('showOrhide');
@@ -450,7 +450,7 @@ window.addEventListener("scroll", ()=> {
     });
     }
     else {
-        console.log('we are going up')
+        {#console.log('we are going up')#}
         // header_logo.src = "./images/logo2.png";
     navbar_menu.classList.remove("menu_active");
     header_burgerBtn.classList.remove('active_btn');

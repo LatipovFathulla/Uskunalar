@@ -1747,6 +1747,68 @@ body.deactive {
 .us-products-card_img_back.yellow {
     background: url('/static/images/product card.png') no-repeat center center / contain;
 }
+
+{# our partners #}
+
+.us-our-partners {
+    background: #f0f0f0;
+}
+
+.us-our-partners-container {
+    margin: 10px;
+}
+
+.us-our-partners-content {
+    max-width: 1140px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.us-our-partners-title {
+    font-weight: 600;
+    font-size: 35px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 0%;
+    text-align: center;
+}
+
+.us-our-partners-desc {
+    text-align: center;
+    color: #444;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.partners-swiper {
+    margin-top: 10px;
+}
+
+.us-our-partners-list {
+    display: flex;
+    align-items: center;
+}
+
+.us-our-partners-item img {
+    max-width: 250px;
+    width: 100%;
+    -webkit-filter: grayscale(100%);
+    /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    cursor: pointer;
+}
+.us-our-partners-item:hover img {
+    -webkit-filter: grayscale(0);
+    /* Safari 6.0 - 9.0 */
+    filter: grayscale(0);
+}
+
+.us-our-partners-img {
+    align-self: center;
+    margin-top: 3%;
+}
 </style>
 
 <!-- start carousel -->
@@ -2063,27 +2125,41 @@ body.deactive {
 
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <img class="img-fluid" src="https://torguem.uz/files/images/items/2/2149v22c8851e.jpg" alt="">
-        </div>
-        <div class="col-md-3">
-            <img class="img-fluid"
-                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMYTzqKbfu6MCXwtE4bYD8AcwSORvmzO2PW5woNS6ltRAzbrhdI3m1kt9thoDcOFb7aMc&usqp=CAU"
-                 style="margin: auto;display:table" alt="">
-        </div>
-        <div class="col-md-3">
-            <img class="img-fluid"
-                 src="https://media-exp1.licdn.com/dms/image/C560BAQFmtNZAuvaLIQ/company-logo_200_200/0/1519864885842?e=2159024400&v=beta&t=Hr39gQqbBuW2uaZ6EgZXc9q62i5v10SHhsHlUzxMPdo"
-                 style="margin: auto;display:table" alt="">
-        </div>
-        <div class="col-md-3">
-            <img class="img-fluid" src=""
-                 style="margin: auto;display:table" alt="">
+ <div class="us-our-partners">
+        <div class="us-our-partners-container">
+            <div class="us-our-partners-content">
+                <h1 class="us-our-partners-title">Bizning Hamkorlar</h1>
+                <div class="us-our-partners-desc">Kompaniyamiz 18 yilldan beri jahonning 10 mingdan ortiq zavodlar bilan
+                    hamkorlikda ishlab kelmoqda. Xususan, Xitoy, Turkiya, Eron, Rossiya, Hindiston, Germaniya va Italiya
+                    kabi davlatlaridagi korxonalar bilan mustahkam sherikchilik aloqalari o'rnatilgan.
+                </div>
+                <img src="" alt="" class="us-our-partners-img">
+            </div>
+            <!-- Swiper -->
+            <div class="swiper partners-swiper">
+                <div class="swiper-wrapper us-our-partners-list">
+                    <div class="swiper-slide us-our-partners-item">
+                        <img src="{% static 'images/image_prev_ui (4).png' %}" alt="">
+                    </div>
+                    <div class="swiper-slide us-our-partners-item">
+                        <img src="{% static 'images/zicar.png' %}" alt="">
+                    </div>
+                    <div class="swiper-slide us-our-partners-item">
+                        <img src="{% static 'images/image_prev_ui (5).png' %}" alt="">
+                    </div>
+                    <div class="swiper-slide us-our-partners-item">
+                        <img src="{% static 'images/Alibaba-Emblem.png' %}" alt="">
+                    </div>
+                    <div class="swiper-slide us-our-partners-item">
+                        <img src="{% static 'images/byd.png' %}" alt="">
+                    </div>
+                    <div class="swiper-slide us-our-partners-item">
+                        <img src="{% static 'images/xpert.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
 <br>
 <br>
@@ -2094,7 +2170,6 @@ body.deactive {
 <!-- Code by Fathulla Latipov LF -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
 <script>
-console.log('work')
   var utils = {
     // From http://stackoverflow.com/questions/11197247/javascript-equivalent-of-jquerys-extend-method
     extend: function (defaults, options) {
@@ -2605,5 +2680,35 @@ var slider = new TuinSlider("#slider", {
     return tl;
   }
 });
+</script>
+  <script>
+        var swiper = new Swiper(".partners-swiper", {
+            slidesPerView: 5,
+            spaceBetween: 30,
+            freeMode: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                // mobile + tablet - 320-990
+                320: {
+                    slidesPerView: 1
+                },
+                768: {
+                    slidesPerView: 3
+                },
+                // desktop >= 991
+                991: {
+                    slidesPerView: 4
+                },
+                1200: {
+                    slidesPerView: 5
+                },
+                2000: {
+                    slidesPerView: 8
+                }
+            }
+        });
 </script>
 {% endblock %}
