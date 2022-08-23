@@ -7,7 +7,30 @@
 {% load static watermark %}
 {% load humanize %}
 {% block content %}
+<style>
+.single-product-images-mainImage {
+    max-width: 100%;
+    width: 600px;
+    max-height: 100%;
+    height: 600px;
+    overflow: hidden;
+    margin-left: 5px;
+    position: relative;
+}
 
+.single-product-images-mainImage::after {
+    content: '';
+    display: block;
+    background: url('{{ object.background.image.url }}') no-repeat center center / contain;
+    max-width: 600px;
+    width: 100%;
+    height: 600px;
+    position: absolute;
+    z-index: -10;
+    top: 10%;
+}
+
+</style>
 <section class="banner">
     <div class="banner-container container">
         <h1 class="banner-text">{% trans 'Карточка товара' %}</h1>
