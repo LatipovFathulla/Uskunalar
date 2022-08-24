@@ -7,6 +7,7 @@ from about.forms import ContactModelForm
 from about.models import AboutModel
 from biznes.models import BiznesModel
 from blog.models import BlogModel
+from clients.models import ClientModel
 from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
 from lines.models import LineModel
 from works.models import WorkModel
@@ -52,6 +53,13 @@ class RequestCreateView(CreateView):
 
 class HomeView(TemplateView):
     template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['partners'] = ClientModel.objects.order_by('pk')
+        print(context)
+
+        return context
 
 
 class NavbarView(ListView):

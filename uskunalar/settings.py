@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'biznes',
     'gallery',
     'orders',
+    'clients',
 ]
 JAZZMIN_SETTINGS = {
                     "site_title": "Uskunalar.uz", "site_header": "Uskunalar.uz", "site_brand": "Uskunalar.uz",

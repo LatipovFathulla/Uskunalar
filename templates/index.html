@@ -2112,50 +2112,22 @@ body.deactive {
 </div>
 </div>
 
-
-<div class="container">
-    <h1 class="text-center"
-        style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 0%;">
-        {% trans 'Наши партнеры' %}</h1>
-    <p class="home-product-desc text-center" >{% trans "Kompaniyamiz 18 yilldan beri jahonning 10 mingdan ortiq zavodlar bilan hamkorlikda ishlab kelmoqda. Xususan, Xitoy, Turkiya, Eron, Rossiya, Hindiston, Germaniya va Italiya kabi davlatlaridagi korxonalar bilan mustahkam sherikchilik aloqalari o'rnatilgan." %}</p>
-    <br>
-    <br>
-        <img src="{% static './images/title-icon.png' %}"  style="margin:auto;display:block">
-    <br>
-
-</div>
-
  <div class="us-our-partners">
         <div class="us-our-partners-container">
             <div class="us-our-partners-content">
-                <h1 class="us-our-partners-title">Bizning Hamkorlar</h1>
-                <div class="us-our-partners-desc">Kompaniyamiz 18 yilldan beri jahonning 10 mingdan ortiq zavodlar bilan
-                    hamkorlikda ishlab kelmoqda. Xususan, Xitoy, Turkiya, Eron, Rossiya, Hindiston, Germaniya va Italiya
-                    kabi davlatlaridagi korxonalar bilan mustahkam sherikchilik aloqalari o'rnatilgan.
+                <h1 class="us-our-partners-title">{% trans 'Наши партнеры' %}</h1>
+                <div class="us-our-partners-desc">{% trans "Kompaniyamiz 18 yilldan beri jahonning 10 mingdan ortiq zavodlar bilan hamkorlikda ishlab kelmoqda. Xususan, Xitoy, Turkiya, Eron, Rossiya, Hindiston, Germaniya va Italiya kabi davlatlaridagi korxonalar bilan mustahkam sherikchilik aloqalari o'rnatilgan." %}
                 </div>
-                <img src="" alt="" class="us-our-partners-img">
+                <img src="{% static './images/title-icon.png' %}" alt="" class="us-our-partners-img">
             </div>
             <!-- Swiper -->
             <div class="swiper partners-swiper">
                 <div class="swiper-wrapper us-our-partners-list">
-                    <div class="swiper-slide us-our-partners-item">
-                        <img src="{% static 'images/image_prev_ui (4).png' %}" alt="">
-                    </div>
-                    <div class="swiper-slide us-our-partners-item">
-                        <img src="{% static 'images/zicar.png' %}" alt="">
-                    </div>
-                    <div class="swiper-slide us-our-partners-item">
-                        <img src="{% static 'images/image_prev_ui (5).png' %}" alt="">
-                    </div>
-                    <div class="swiper-slide us-our-partners-item">
-                        <img src="{% static 'images/Alibaba-Emblem.png' %}" alt="">
-                    </div>
-                    <div class="swiper-slide us-our-partners-item">
-                        <img src="{% static 'images/byd.png' %}" alt="">
-                    </div>
-                    <div class="swiper-slide us-our-partners-item">
-                        <img src="{% static 'images/xpert.png' %}" alt="">
-                    </div>
+                   {% for client in partners %}
+                      <div class="swiper-slide us-our-partners-item">
+                            <img src="{{ client.image.url }}" alt="">
+                      </div>
+                   {% endfor %}
                 </div>
             </div>
         </div>
@@ -2681,8 +2653,9 @@ var slider = new TuinSlider("#slider", {
   }
 });
 </script>
-  <script>
-        var swiper = new Swiper(".partners-swiper", {
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+        var swiper10 = new Swiper(".partners-swiper", {
             slidesPerView: 5,
             spaceBetween: 30,
             freeMode: true,
