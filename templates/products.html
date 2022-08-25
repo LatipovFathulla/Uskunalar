@@ -537,9 +537,11 @@
                             <ul class="us-categories-content">
                                 {% for subcategory in category.subcategories.all %}
                                     <li class="us-categories-content-listItem">
-                                        <a href="?subcategory={{ subcategory.pk }}">{{ subcategory|safe }}</a>
+                                        <a href="?subcategory={{ subcategory.pk }}">{{ subcategory|safe }} ({{ subcategory.count }})</a>
                                     </li>
                                 {% endfor %}
+                              {{ subcategory.count }}
+                                {{ query|length }}
                             </ul>
                         </div>
                     {% endfor %}

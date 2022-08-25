@@ -1,6 +1,7 @@
 from datetime import datetime
 from PIL import Image
 from django.db.models.signals import post_save
+from django.shortcuts import render
 from django.utils.html import strip_tags
 from embed_video.fields import EmbedVideoField
 from django.contrib import admin
@@ -87,8 +88,9 @@ class BannerInfoModel(models.Model):
     country = models.ForeignKey(BannerCountryModel, on_delete=models.SET_NULL, verbose_name=_('country'), null=True,
                                 blank=True)
     pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True, blank=True)
-    category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, verbose_name=_('category'),  null=True)
-    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.CASCADE, verbose_name=_('subcategory'), related_name='products',
+    category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, verbose_name=_('category'), null=True)
+    subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.CASCADE, verbose_name=_('subcategory'),
+                                    related_name='products',
                                     null=True, blank=True)
 
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True, db_index=True)
@@ -116,6 +118,11 @@ class BannerInfoModel(models.Model):
     def is_new(self):
         diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
         return diff.days <= 3
+
+    def get_subcat_count(self, request, pk):
+        query = BannerInfoModel.objects.filter(subcategory_id=pk)
+        print(query)
+        return render(request, 'products.html', {'query': query})
 
     @staticmethod
     def get_from_wishlist(request):

@@ -1,9 +1,11 @@
 from datetime import datetime
 
 import pytz
-from django.db.models import Q, Min, Max
+from django.db.models import Q, Min, Max, Count
 from django.http import JsonResponse, HttpResponse
 import json
+
+from django.shortcuts import render
 from django.views.generic import ListView, TemplateView, DetailView
 from rest_framework.response import Response
 
@@ -70,6 +72,7 @@ class BannerInfoModelView(ListView):
         qs = BannerInfoModel.objects.select_related('category', 'category_uz', 'category_ru', 'category_en').filter(
             **filters).order_by(*order_by)
 
+
         if sort:
             if sort == 'price':
                 qs = sorted(qs, key=lambda i: i.get_price())
@@ -90,9 +93,23 @@ class BannerInfoModelView(ListView):
             Min('price'),
             Max('price')
         ).values()
+        # def Base(request, pk):
+        #     query = Product.objects.filter(category_id__id=pk)
+        #     return render(request, 'base.html', {'query': query})
+        context['subcategory'] = SubCategoryModel.objects.annotate(count=Count('products'))
+        return context
+
+    def get_subcategory_count(self, request, pk, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['query'] = BannerInfoModel.objects.filter(subcategory_id__in=pk)
+        print(context, "tyuio")
 
         return context
 
+
+# def Admin_index(request):
+#     categories = Category.objects.annotate(count=Count('category'))
+#     return render(request, 'admin/admin-index.html', {'queryset': categories})
 
 def get_subcategory(request):
     pk = request.GET.get('pk', '')
@@ -141,3 +158,4 @@ def add_to_wishlist(request, pk):
 
 class CategoryTest(TemplateView):
     template_name = 'test.html'
+
