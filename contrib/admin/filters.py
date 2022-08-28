@@ -443,7 +443,7 @@ class AllValuesFieldListFilter(FieldListFilter):
         parent_model, reverse_path = reverse_field_path(model, field_path)
         # Obey parent ModelAdmin queryset when deciding which options to show
         if model == parent_model:
-            queryset = model_admin.get_queryset(request)
+            queryset = model_admin.get_queryset
         else:
             queryset = parent_model._default_manager.all()
         self.lookup_choices = (
@@ -491,8 +491,8 @@ FieldListFilter.register(lambda f: True, AllValuesFieldListFilter)
 class RelatedOnlyFieldListFilter(RelatedFieldListFilter):
     def field_choices(self, field, request, model_admin):
         pk_qs = (
-            model_admin.get_queryset(request)
-            .distinct()
+            model_admin.get_queryset
+                .distinct()
             .values_list("%s__pk" % self.field_path, flat=True)
         )
         ordering = self.field_admin_ordering(field, request, model_admin)

@@ -9,7 +9,7 @@ from django.contrib import admin
 import pytz as pytz
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
-from django.db.models import FloatField
+from django.db.models import FloatField, Count
 from django.utils.translation import gettext_lazy as _
 
 
@@ -119,16 +119,27 @@ class BannerInfoModel(models.Model):
         diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
         return diff.days <= 3
 
-    def get_subcat_count(self, request, pk):
-        query = BannerInfoModel.objects.filter(subcategory_id=pk)
-        print(query)
-        return render(request, 'products.html', {'query': query})
+    # @staticmethod
+    # def get_subcategory_count(request):
+    #     products = BannerInfoModel.objects.get(products)
+    #     return BannerInfoModel.objects.filter(subcategory=products).count()
 
     @staticmethod
     def get_from_wishlist(request):
         wishlist = request.session.get('wishlist', [])
         return BannerInfoModel.objects.filter(pk__in=wishlist)
 
+    # def type_description(self):
+    #         school_type_description = 'Some default description'
+    #
+    #         if self.area.filter(pk=9).exists():
+    #             school_type_description = "Some description for Area 9"
+    #         elif self.school_type == 'ND':
+    #             school_type_description = "Some description for ND"
+    #         elif self.school_type == 'MA':
+    #             school_type_description = "Some description for MA"
+    #
+    #         return school_type_description
     def __str__(self):
         return self.title
 

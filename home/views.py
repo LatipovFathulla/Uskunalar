@@ -40,6 +40,7 @@ class BannerInfoModelView(ListView):
         som = self.request.GET.get('price')
         created_at = self.request.GET.get('created_at')
         inbox = self.request.GET.get('inbox')
+        subcategory_count = self.request.GET.get('subcategory_count')
         delivery = self.request.GET.get('delivery')
 
         filters = {}
@@ -67,11 +68,12 @@ class BannerInfoModelView(ListView):
 
         if created_at == 'created_at':
             order_by.append('created_at')
+
             # diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
             # return diff.days <= 3
+
         qs = BannerInfoModel.objects.select_related('category', 'category_uz', 'category_ru', 'category_en').filter(
             **filters).order_by(*order_by)
-
 
         if sort:
             if sort == 'price':
@@ -87,22 +89,14 @@ class BannerInfoModelView(ListView):
 
         return qs
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+    def get_context_data(self, *args, **kwargs):
+        context = super(BannerInfoModelView, self).get_context_data(*args, **kwargs)
         context['min_price'], context['max_price'] = BannerInfoModel.objects.aggregate(
             Min('price'),
             Max('price')
         ).values()
-        # def Base(request, pk):
-        #     query = Product.objects.filter(category_id__id=pk)
-        #     return render(request, 'base.html', {'query': query})
-        context['subcategory'] = SubCategoryModel.objects.annotate(count=Count('products'))
-        return context
-
-    def get_subcategory_count(self, request, pk, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['query'] = BannerInfoModel.objects.filter(subcategory_id__in=pk)
-        print(context, "tyuio")
+        context['sub_count'] = BannerInfoModel.subcategory.products.count()
+        print(context)
 
         return context
 
@@ -158,4 +152,3 @@ def add_to_wishlist(request, pk):
 
 class CategoryTest(TemplateView):
     template_name = 'test.html'
-
