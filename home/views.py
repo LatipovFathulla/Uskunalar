@@ -90,13 +90,11 @@ class BannerInfoModelView(ListView):
         return qs
 
     def get_context_data(self, *args, **kwargs):
-        context = super(BannerInfoModelView, self).get_context_data(*args, **kwargs)
+        context = super().get_context_data(*args, **kwargs)
         context['min_price'], context['max_price'] = BannerInfoModel.objects.aggregate(
             Min('price'),
             Max('price')
         ).values()
-        context['sub_count'] = BannerInfoModel.subcategory.products.count()
-        print(context)
 
         return context
 
