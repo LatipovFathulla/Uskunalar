@@ -155,13 +155,18 @@
 </style>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<section class="banner">
-    <div class="banner-container">
-        <h1 class="banner-text">{% trans 'Линии' %}</h1>
-            <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>
-            <span> > <a href="" class="banner-desc-title" style="color:#132E6B;">{% trans 'Линии' %}</a></span></p>
+   <div class="us-navigation-block">
+        <div class="us-products-page-container">
+            <ul class="us-navigation-block-list">
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'home:home' %}" class="us-navigation-block-link">{% trans 'Главная' %}</a>
+                </li>
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'products:product' %}" class="us-navigation-block-link">{% trans 'Lines' %}</a>
+                </li>
+            </ul>
+        </div>
     </div>
-</section>
                      <br>
          <div class="obshiy-container">
                          <div class="us-categories-accordion-body">

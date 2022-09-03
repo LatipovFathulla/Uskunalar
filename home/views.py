@@ -29,7 +29,7 @@ from home.utils import get_wishlist_data
 class BannerInfoModelView(ListView):
     template_name = 'products.html'
     context_object_name = 'products'
-    paginate_by = 9
+    paginate_by = 20
 
     def get_queryset(self, ):
         q = self.request.GET.get('q', '')
@@ -95,7 +95,8 @@ class BannerInfoModelView(ListView):
             Min('price'),
             Max('price')
         ).values()
-
+        context['pr_count'] = BannerInfoModel.objects.count()
+        context['cat_count'] = CategoryModel.objects.count()
         return context
 
 

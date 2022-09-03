@@ -1,0 +1,127 @@
+{% load static %}
+{% load tags %}
+{% load i18n %}
+{% block content %}
+    <div class="us-products-hr-card">
+        <div class="us-products-hr-card_container">
+
+            <!-- Img -->
+            <div class="us-products-hr-card_img-holder">
+                <div class="us-products-hr-card_img_back" style="background: url('{{ product.background.image.url }}') no-repeat center center / contain;">
+                     {% for i in product.images.all %}
+                                <a href="{% url 'products:single' pk=product.pk %}">
+                                    {% if forloop.counter == 1 %}
+                                         <img src="{{ i.image.url }}" alt="" class="us-products-hr-card_img">
+                                    {% endif %}
+                                </a>
+                    {% endfor %}
+                </div>
+                <!-- Buttons -->
+                <div class="us-products-hr-card_buttons">
+                   <a onclick="add_to_wishlist(this, {{ product.pk }})">
+                         {% if product|in_wishlist:request %}
+                             <button class="us-products-hr-card_ibutton product-heart" type="submit"><i class="fa-solid fa-heart red-heart"></i></button>
+                            {% else %}
+                                <button class="us-products-hr-card_ibutton" type="submit"><i class="fa-light fa-heart"></i></button>
+                          {% endif %}
+                    </a>
+                    <div class="us-products-page-products-productCard-discountBlock-hr">
+                     {% if product.is_new %}
+                        <p class="us-products-hr-card-newProduct">🔥 {% trans 'New' %}<span></span></p>
+                     {% endif %}
+                         {% if product.is_discount %}
+                             <p class="us-products-hr-card-discounted">-{{ product.discount }}%</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="us-products-hr-card-detailsAndCountry">
+
+                <!-- Details Section -->
+                <div class="us-products-hr-card-details">
+                    <h2 class="us-products-hr-card-title">{{ product.title }}</h2>
+                    {% if product.delivery %}
+                    <p class="us-products-page-products-productCard_status"><i class="fa-light fa-truck-bolt" style="padding: 3px"></i>{% trans 'Buyurtma orqali' %}</p>
+                   {% endif %}
+                   {% if product.inbox %}
+                       <p class="us-products-page-products-productCard_status"><i class="fa-light fa-check" style="padding: 3px"></i>{% trans 'Omborda mavjud' %}</p>
+                   {% endif %}
+                    <ul class="us-products-hr-card-details_list">
+                          {% for j in product.specifications.all %}
+                         {% if forloop.counter < 5 %}
+                              <li class="us-products-hr-card-details_item">
+                                {% if j.product_customer %}
+                                    <h4 class="us-products-hr-card-detailname">{{ j.product_customer|safe }}:</h4>
+                                {% endif %}
+                                 {% if j.product_number %}
+                                    <p class="uus-products-hr-card-detail">{{ j.product_number|safe }}</p>
+                                {% endif %}
+                                </li>
+                         {% endif %}
+                     {% endfor %}
+                    </ul>
+                </div>
+
+
+                <!-- Country -->
+                <div class="us-products-hr-card-country_container">
+                    <p class="us-products-hr-card-countryName">{% trans 'Mamlakat' %}:</p>
+                    <img src="{{ product.country.image.url }}" alt=""
+                         class="us-products-car-countryImg">
+                </div>
+
+            </div>
+
+            <!-- Price & Inventory Info -->
+            <div class="us-products-hr-card-status">
+                <div class="us-products-hr-card-statusinfo">
+                    <h3 class="us-products-hr-card-product_id">ID: {{ product.pk }}</h3>
+                </div>
+                <div class="us-products-hr-card-priceInfo">
+                     <div class="us-products-page-products-productCard-priceabout" style="justify-content: center">
+                            {% if product.CIP == True %}
+                                     <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term cip-term">CIP</span>
+                           {% elif product.DAF == True %}
+                                     <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term daf-term">DAF</span>
+                           {% elif product.EXW == True %}
+                                     <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term exw-term">EXW</span>
+                           {% elif product.FCA == True %}
+                                    <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term exw-term">FCA</span>
+                           {% endif %}
+                            <h3 class="us-products-hr-card-productPrice_dollar">${{ product.get_price }}</h3>
+                        </div>
+                    <p class="us-products-hr-card-productPrice_som"><span> </span> {% trans "so'm" %}</p>
+                </div>
+                <!-- More Details Button -->
+                <a href="{% url 'products:single' pk=product.pk %}" class="us-products-page-products-productCard-moreLink">{% trans 'More Details' %}<i class="fa-light fa-arrow-right"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+<script>
+    function add_to_wishlist(element, pk) {
+        $.getJSON('/products/' + "wishlist/" + pk, function (data) {
+            if (!data.status) {
+               $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            Error
+                        </div>
+                    </div>`);
+            } else {
+                if (data.added) {
+                    $('#message');
+                    element.innerHTML = '<button class="us-products-hr-card_ibutton product-heart" type="submit"><i class="fa-light fa-heart red-heart"></i></button>'
+                } else {
+                    $('#message');
+                     element.innerHTML = '<button class="us-products-hr-card_ibutton" type="submit"><i class="fa-light fa-heart"></i></button>'
+                }
+                  $('.like_count').html(data.wishlist_len);
+                  $('.like_count2').html(data.wishlist_len);
+            }
+        });
+    }
+</script>
+{% endblock %}

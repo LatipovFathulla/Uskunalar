@@ -6,7 +6,7 @@ from works.models import WorkModel
 
 
 def index_categories(request):
-    products = BannerInfoModel.objects.order_by('?')[:8]
+    products = BannerInfoModel.objects.order_by('?')[:16]
     categories = CategoryModel.objects.order_by('my_order')
     lines = LineModel.objects.order_by('?')[:8]
     works = WorkModel.objects.order_by('-pk')[:4]

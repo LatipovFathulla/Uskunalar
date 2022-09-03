@@ -55,12 +55,11 @@ $(document).ready(function () {
 
        // Currency
         const apiUrl = 'https://nbu.uz/en/exchange-rates/json/'
-        const usdPrice = document.querySelectorAll('.us-products-card-productPrice_dollar');
-        const horizontalPriceUsd = document.querySelectorAll('.us-horizontal-products-card-productPrice_dollar'),
-            horizontalPriceUzs = document.querySelectorAll('.us-horizontal-products-card-productPrice_som span');
-        // console.log(usdPrice)
-        const uzsPrice = document.querySelectorAll('.us-products-card-productPrice_som span');
+        const usdPrice = document.querySelectorAll('.us-products-page-products-productCard-productPrice_dollar');
+        const horizontalPriceUsd = document.querySelectorAll('.us-products-hr-card-productPrice_dollar'),
+            horizontalPriceUzs = document.querySelectorAll('.us-products-hr-card-productPrice_som span');
 
+        const uzsPrice = document.querySelectorAll('.us-products-page-products-productCard-productPrice_som span');
 
         // Currency
        function WritePrice(usd, currecnyRate, element) {
@@ -78,6 +77,7 @@ $(document).ready(function () {
                 //changeit
                 uzsPrice.forEach(element => {
                 let usdPriceOfElement = element.parentNode.previousElementSibling.lastElementChild.innerHTML.substring(1);
+                    // console.log(usdPriceOfElement)
                     WritePrice(usdPriceOfElement, CurrencyRate, element);
                 });
 
