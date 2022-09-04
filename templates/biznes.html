@@ -6,15 +6,18 @@
 {% block content %}
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-<section class="banner">
-    <div class="banner-container">
-        <h1 class="banner-text">{% trans 'Готовый бизнес' %}</h1>
-            <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>
-            <span> > <a href="" class="banner-desc-title" style="color:#132E6B;">{% trans 'Готовый бизнес' %}</a></span></p>
-    </div>
-</section>
-
-    <img src="{% static './images/settings.svg' %}" class="icon-right m-3" style="transform: rotate(20.33deg);" alt="">
+ <div class="us-navigation-block">
+        <div class="us-products-page-container">
+            <ul class="us-navigation-block-list">
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'home:home' %}" class="us-navigation-block-link">{% trans 'Главная' %}</a>
+                </li>
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'biznes:biznes' %}" class="us-navigation-block-link">{% trans 'Готовый бизнес'  %}</a>
+                </li>
+            </ul>
+        </div>
+</div>
 
     <br>
     <div class="container mt-5">

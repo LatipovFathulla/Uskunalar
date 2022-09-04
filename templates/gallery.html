@@ -182,13 +182,20 @@
 }
 </style>
 
-<section class="banner">
-    <div class="banner-container">
-        <h1 class="banner-text">{% trans 'Kompaniya haqida' %}</h1>
-            <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>
-            <span> > <a href="" class="banner-desc-title" style="color:#132E6B;">{% trans 'Kompaniya haqida' %}</a></span></p>
-    </div>
-</section>
+
+ <div class="us-navigation-block">
+        <div class="us-products-page-container">
+            <ul class="us-navigation-block-list">
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'home:home' %}" class="us-navigation-block-link">{% trans 'Главная' %}</a>
+                </li>
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'galleries:gallery' %}" class="us-navigation-block-link">{% trans 'Kompaniya haqida'  %}</a>
+                </li>
+            </ul>
+        </div>
+</div>
+
 
  <div class="about-company">
         <div class="about-company-container">

@@ -1402,8 +1402,6 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 
 
 
-
-
 <div class="container">
        <div class="us-products-page-products-grid">
        <ul class="us-products-page-products-grid-list active">
@@ -1963,9 +1961,15 @@ submenuCloseButtons.forEach(element => {
             for(index in lists){
             //   li += "<li>" + lists[index] + "</li>";
               li += `<li class="us-products-page-categories-list-item">
-              <a href="">
-                  <span class="us-products-page-categories-list-item-title">${lists[index]}</span>
-              </a>
+            {% with categories2 as all_categories  %}
+              {% for category in all_categories %}
+                {% for subcategory in category.subcategories.all|slice:":1" %}
+                  <a href="?subcategory={{ subcategory.pk }}">
+                      <span class="us-products-page-categories-list-item-title">${lists[index]}</span>
+                  </a>
+                {% endfor %}
+              {% endfor %}
+            {% endwith %}
           </li>`;
             }
             categorySearchBlock.innerHTML = li;

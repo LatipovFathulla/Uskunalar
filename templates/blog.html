@@ -7,17 +7,18 @@
 
 
 
-<section class="banner">
-    <div class="banner-container">
-        <h1 class="banner-text">{% trans 'Наши статьи' %}</h1>
-            <a href="{% url 'home:home' %}" style="color:#132E6B"><p class="banner-desc">{% trans 'Главная' %}</a>
-            <span> > <a href="" class="banner-desc-title" style="color:#132E6B;">{% trans 'Наши статьи' %}</a></span></p>
-    </div>
-</section>
-
-
-    <img src="{% static './images/settings.svg' %}" class="icon-right m-3" style="right: 7%;" alt="">
-
+ <div class="us-navigation-block">
+        <div class="us-products-page-container">
+            <ul class="us-navigation-block-list">
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'home:home' %}" class="us-navigation-block-link">{% trans 'Главная' %}</a>
+                </li>
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'blog:blogs' %}" class="us-navigation-block-link">{% trans 'Наши статьи'  %}</a>
+                </li>
+            </ul>
+        </div>
+</div>
 
     <br>
 
