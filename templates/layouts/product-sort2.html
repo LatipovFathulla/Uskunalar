@@ -2,6 +2,318 @@
 {% load tags %}
 {% load i18n %}
 {% block content %}
+<style>
+
+.us-products-hr-card-priceInfo-m {
+    display: none;
+}
+
+.us-products-hr-card-product_id-mobile {
+    display: none;
+}
+
+/* @media (max-width:1030px) {
+    .us-products-hr-card-priceInfo {
+        margin-top: 0px;
+    }
+    .us-products-hr-card_img-holder {
+        width: 35%;
+        height: auto;
+    }
+    .us-products-hr-card_img {
+        width: 300px;
+    }
+    .us-products-hr-card_container {
+        justify-content: space-around;
+    }
+} */
+
+@media (max-width: 1021px) {
+    .us-products-hr-card {
+        /* max-width: 500px; */
+        padding: 5px;
+    }
+
+    .us-products-hr-card_img-holder {
+        height: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .us-products-hr-card-productPrice_dollar {
+        font-size: 20px;
+    }
+
+    .us-products-hr-card-productPrice_som {
+        font-size: 15px;
+    }
+
+    .us-products-hr-card-detailsAndCountry {
+        flex: auto;
+    }
+
+    .us-products-hr-card-status {
+        margin: 0 5px;
+    }
+}
+
+@media (max-width: 890px) {
+    .us-products-hr-card-detailsAndCountry {
+        max-width: 200px;
+        width: 100%;
+    }
+}
+
+@media (max-width:550px) {
+    .us-products-hr-card_img_back {
+        width: 100%;
+    }
+
+    .us-products-hr-card-status {
+        display: none;
+    }
+
+    .us-products-hr-card-product_id-mobile{
+        font-size: 15px;
+    }
+
+    .us-products-hr-card {
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 440px) {
+    .us-products-hr-card-title {
+        font-size: 15px;
+    }
+
+    .us-products-hr-card-detailname {
+        font-size: 12px;
+    }
+
+    .us-products-hr-card-detail {
+        font-size: 12px;
+    }
+
+    .us-products-hr-card-countryName {
+        font-size: 13px;
+    }
+
+    .us-products-car-countryImg {
+        width: 35px;
+    }
+
+    .us-products-hr-card-priceInfo-m {
+        width: 100%;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .us-products-hr-card-detailsAndCountry {
+        max-width: 160px;
+    }
+
+}
+
+
+
+.us-products-page-filterBlock-item {
+    padding: 5px 7px;
+}
+
+@media (max-width: 1440px) {
+    .us-navigation-block {
+        padding: 20px 40px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .us-products-page-products-holder {
+        padding: 0;
+        padding-top: 10px;
+    }
+
+    .us-products-page-categories-holder {
+        margin-right: 5px;
+    }
+
+    .us-products-page-products-grid-list.active {
+        grid-gap: 10px;
+    }
+
+    .us-products-page-categories-list-item {
+        width: auto;
+    }
+}
+
+@media (max-width: 1312px) {
+    .us-products-page-products-productCard {
+        max-width: 245px;
+        min-width: 175px;
+        width: 100%;
+        min-height: 390px;
+    }
+
+    .us-products-page-products-productCard-productPrice_dollar {
+        font-size: 20px;
+    }
+
+    .us-products-page-products-productCard-productPrice_som {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1230px) {
+    .us-products-page-products-productCard {
+        max-width: initial;
+        min-height: 390px;
+    }
+
+    .us-products-page-products-productCard-productPrice_dollar {
+        font-size: 20px;
+    }
+
+    .us-products-page-products-productCard-productPrice_som {
+        font-size: 14px;
+    }
+
+    .us-products-page-products-grid-list.active {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .us-products-page-products-container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .us-products-page-categories-holder {
+        display: none;
+    }
+
+    .us-products-page-products-productCard_imageBlock {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .us-products-page-products-productCard-discountBlock {
+        width: 90%;
+    }
+}
+
+@media (max-width: 970px) {
+    .us-products-page-products-grid-list.active {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .us-products-hr-card-newProduct {
+        font-size: 10px;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .us-products-page-products-productCard_img {
+        height: 185px;
+    }
+
+    .us-products-page-products-productCard_status {
+        font-size: 12px;
+    }
+
+    .us-products-page-products-productCard_articuleID {
+        font-size: 12px;
+    }
+
+    .us-products-page-products-productCard-product-title {
+        margin: 10px 0;
+    }
+
+    .us-products-page-products-productCard-detailname {
+        font-size: 13px;
+    }
+
+    .us-products-page-products-productCard-detail {
+        font-size: 13px;
+    }
+
+    .us-products-page-products-productCard-term {
+        font-size: 12px;
+    }
+
+    .us-products-page-products-productCard-productPrice_dollar {
+        font-size: 17px;
+    }
+
+    .us-products-page-products-productCard-productPrice_som {
+        font-size: 13px;
+    }
+
+    .us-products-page-products-productCard-detailsView {
+        padding: 10px;
+    }
+    .us-products-page-filterBlock {
+        align-items: flex-start;
+    }
+    .us-products-hr-card-discounted {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 450px) {
+    .us-products-page-filterBlock {
+        flex-direction: column;
+    }
+    .us-products-page-filterBlock ul:first-child{
+        margin-bottom: 10px;
+    }
+    .us-products-page-products-productCard {
+        min-height: 375px;
+    }
+    .us-products-page-products-productCard-product-title {
+        font-size: 13px;
+        margin: 5px 0;
+        line-height: 18px;
+    }
+    .us-products-page-products-productCard_status {
+        font-size: 10px;
+    }
+    .us-products-page-products-productCard-status {
+        margin: 15px 5px;
+    }
+    .us-products-page-products-productCard_ibutton i {
+        font-size: 25px;
+    }
+    .us-products-page-products-productCard-detail {
+        line-height: 18px;
+    }
+    .us-products-page-products-productCard_img {
+        height: 215px;
+    }
+    .us-products-page-filterBlock {
+        margin-top: 25px;
+    }
+}
+
+@media (max-width:300px) {
+    .us-products-page-products-grid-list.active {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .us-products-page-filterBlock-item {
+        margin-right: 0;
+        font-size: 12px;
+    }
+    .us-navigation-block {
+        padding: 20px 10px;
+    }
+    .us-products-page-filterBlock ul:nth-child(2) li:nth-last-child(1),.us-products-page-filterBlock ul:nth-child(2) li:nth-last-child(2) {
+        display: none;
+    }
+}
+</style>
     <div class="us-products-hr-card">
         <div class="us-products-hr-card_container">
 
@@ -36,43 +348,61 @@
                 </div>
             </div>
 
-            <div class="us-products-hr-card-detailsAndCountry">
+{#                new#}
+<div class="us-products-hr-card-detailsAndCountry">
 
-                <!-- Details Section -->
-                <div class="us-products-hr-card-details">
-                    <h2 class="us-products-hr-card-title">{{ product.title }}</h2>
-                    {% if product.delivery %}
-                    <p class="us-products-page-products-productCard_status"><i class="fa-light fa-truck-bolt" style="padding: 3px"></i>{% trans 'Buyurtma orqali' %}</p>
-                   {% endif %}
-                   {% if product.inbox %}
-                       <p class="us-products-page-products-productCard_status"><i class="fa-light fa-check" style="padding: 3px"></i>{% trans 'Omborda mavjud' %}</p>
-                   {% endif %}
-                    <ul class="us-products-hr-card-details_list">
-                          {% for j in product.specifications.all %}
-                         {% if forloop.counter < 5 %}
-                              <li class="us-products-hr-card-details_item">
-                                {% if j.product_customer %}
-                                    <h4 class="us-products-hr-card-detailname">{{ j.product_customer|safe }}:</h4>
-                                {% endif %}
-                                 {% if j.product_number %}
-                                    <p class="uus-products-hr-card-detail">{{ j.product_number|safe }}</p>
-                                {% endif %}
-                                </li>
-                         {% endif %}
-                     {% endfor %}
-                    </ul>
-                </div>
+                                            <!-- Details Section -->
+                                            <div class="us-products-hr-card-details">
+                                                <h3 class="us-products-hr-card-product_id-mobile">ID:{{ product.pk }}</h3>
+                                                <h2 class="us-products-hr-card-title">{{ product.title }}</h2>
+                                                <!-- omborda mavjud -->
+                                                <!-- <p class="us-products-hr-card-product_status"><i class="fa-solid fa-circle"></i> omborda mavjud</p> -->
+                                                <!-- buyurtmaga -->
+                                                <p class="us-products-hr-card-product_status not-exists"><i
+                                                        class="fa-solid fa-circle"></i>
+                                                    buyurtma orqali</p>
+                                                <ul class="us-products-hr-card-details_list">
+                                                      {% for j in product.specifications.all %}
+                                                         {% if forloop.counter < 5 %}
+                                                              <li class="us-products-hr-card-details_item">
+                                                                {% if j.product_customer %}
+                                                                    <h4 class="us-products-hr-card-detailname">{{ j.product_customer|safe }}:</h4>
+                                                                {% endif %}
+                                                                 {% if j.product_number %}
+                                                                    <p class="uus-products-hr-card-detail">{{ j.product_number|safe }}</p>
+                                                                {% endif %}
+                                                                </li>
+                                                         {% endif %}
+                                                     {% endfor %}
+                                                </ul>
+                                            </div>
 
 
-                <!-- Country -->
-                <div class="us-products-hr-card-country_container">
-                    <p class="us-products-hr-card-countryName">{% trans 'Mamlakat' %}:</p>
-                    <img src="{{ product.country.image.url }}" alt=""
-                         class="us-products-car-countryImg">
-                </div>
+                                            <!-- Country -->
+                                            <div class="us-products-hr-card-country_container">
+                                                <p class="us-products-hr-card-countryName">{% trans 'Mamlakat' %}:</p>
+                                                <img src="{{ product.country.image.url }}" alt=""
+                                                    class="us-products-car-countryImg">
+                                            </div>
 
-            </div>
+                                            <div class="us-products-hr-card-priceInfo-m">
+                                                 <div class="us-products-page-products-productCard-priceabout" style="justify-content: center">
+                                                        {% if product.CIP == True %}
+                                                                 <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term cip-term">CIP</span>
+                                                       {% elif product.DAF == True %}
+                                                                 <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term daf-term">DAF</span>
+                                                       {% elif product.EXW == True %}
+                                                                 <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term exw-term">EXW</span>
+                                                       {% elif product.FCA == True %}
+                                                                <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term exw-term">FCA</span>
+                                                       {% endif %}
+                                                        <h3 class="us-products-hr-card-productPrice_dollar">${{ product.get_price }}</h3>
+                                                    </div>
+                                                   <p class="us-products-hr-card-productPrice_som"><span> </span> {% trans "so'm" %}</p>
+                                            </div>
 
+                                        </div>
+{#        new #}
             <!-- Price & Inventory Info -->
             <div class="us-products-hr-card-status">
                 <div class="us-products-hr-card-statusinfo">
