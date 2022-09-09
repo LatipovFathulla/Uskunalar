@@ -28,24 +28,24 @@
             font-family: system-ui;
         }
     </style>
-
-<section class="banner">
-    <div class="banner-container container">
-        <h1 class="banner-text">{{ object.title|safe }}</h1>
-        <div class="banner-links">
-            <a href="{% url 'home:home' %}" style="color:#132E6B" class="banner-desc">{% trans 'Главная' %} <span> > </span></a>
-            <a href="{% url 'blog:blogs' %}" class="banner-desc-title" style="color:#132E6B;">{% trans 'Линии' %} <span> > </span></a>
-            <a href="" class="banner-desc-title" style="color:#132E6B;">{{ object.title|safe }}</a>
-            </div>
+   <div class="us-navigation-block">
+        <div class="us-products-page-container">
+            <ul class="us-navigation-block-list">
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'home:home' %}" class="us-navigation-block-link">{% trans 'Главная' %}</a>
+                </li>
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'line:lines' %}" class="us-navigation-block-link">{% trans 'Liniyalar' %}</a>
+                </li>
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'line:lines' %}" class="us-navigation-block-link">{{ object.title|safe }}</a>
+                </li>
+            </ul>
+        </div>
     </div>
-</section>
-    <br>
-    <img src="{% static './images/settings.svg' %}" class="icon-right" alt="">
-
-    <br>
 
 
-    <div class="container ">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="single-blog ">

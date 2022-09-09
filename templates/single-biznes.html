@@ -4,18 +4,21 @@
 {% load static %}
 {% block content %}
 
-<section class="banner">
-    <div class="banner-container container">
-        <h1 class="banner-text">{{ object.title|safe }}</h1>
-        <div class="banner-links">
-            <a href="{% url 'home:home' %}" style="color:#132E6B" class="banner-desc">{% trans 'Главная' %} <span> > </span></a>
-            <a href="{% url 'blog:blogs' %}" class="banner-desc-title" style="color:#132E6B;">{% trans 'Готовый бизнес' %}<span> > </span></a>
-            <a href="" class="banner-desc-title" style="color:#132E6B;">{{ object.title|safe }}</a>
-            </div>
-    </div>
-</section>
-
-<br>
+<div class="us-navigation-block">
+        <div class="us-products-page-container">
+            <ul class="us-navigation-block-list">
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'home:home' %}" class="us-navigation-block-link">{% trans 'Главная' %}</a>
+                </li>
+                <li class="us-navigation-block-item">
+                    <a href="{% url 'biznes:biznes' %}" class="us-navigation-block-link">{% trans 'Готовый бизнес'  %}</a>
+                </li>
+                 <li class="us-navigation-block-item">
+                    <a href="{% url 'biznes:biznes' %}" class="us-navigation-block-link">{{ object.title|safe }}</a>
+                </li>
+            </ul>
+        </div>
+</div>
 
 <br>
 

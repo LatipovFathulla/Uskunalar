@@ -1637,8 +1637,13 @@ form fieldset .icon i::after {
                                 </li>
                             </ul>
                         </div>
-                        <button class="single-products-product-AddWishList"><i class="fa-light fa-heart"></i>
-                            {% trans "Sevimlilarga qo'shish" %}</button>
+                              <a onclick="add_to_wishlist(this, {{ object.pk }})">
+                                 {% if object|in_wishlist:request %}
+                                       <button class="single-products-product-AddWishList"><i class="fa-solid fa-heart"></i> {% trans "Sevimlilarga qo`shildi" %}</button>
+                                  {% else %}
+                                        <button class="single-products-product-AddWishList"><i class="fa-light fa-heart"></i> {% trans "Sevimlilarga qo`shish" %}</button>
+                                  {% endif %}
+                                </a>
                     </div>
                 </div>
 
@@ -2118,7 +2123,7 @@ $(".nav-2 li").hover(function () {
 
 
 </script>
-<script
+<script>
     function add_to_wishlist(element, pk) {
         $.getJSON('/products/' + "wishlist/" + pk, function (data) {
             if (!data.status) {
@@ -2130,9 +2135,9 @@ $(".nav-2 li").hover(function () {
                     </div>`);
             } else {
                 if (data.added) {
-                    element.innerHTML = '<button class="us-products-page-products-productCard_ibutton product-heart" type="submit"><i class="fa-solid fa-heart red-heart"></i></button>'
+                    element.innerHTML = '<button class="single-products-product-AddWishList"><i class="fa-solid fa-heart"></i> {% trans "Sevimlilarga qo`shildi" %}</button>
                 } else {
-                    element.innerHTML = '<button class="us-products-page-products-productCard_ibutton" type="submit"><i class="fa-light fa-heart"></i></button>'
+                    element.innerHTML = '<button class="single-products-product-AddWishList"><i class="fa-light fa-heart"></i> {% trans "Sevimlilarga qo`shish" %}</button>'
                 }
                   $('#like_count').html(data.wishlist_len);
                   $('#like_count_2').html(data.wishlist_len);
