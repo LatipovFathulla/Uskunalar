@@ -355,12 +355,12 @@
                                             <div class="us-products-hr-card-details">
                                                 <h3 class="us-products-hr-card-product_id-mobile">ID:{{ product.pk }}</h3>
                                                 <h2 class="us-products-hr-card-title">{{ product.title }}</h2>
-                                                <!-- omborda mavjud -->
-                                                <!-- <p class="us-products-hr-card-product_status"><i class="fa-solid fa-circle"></i> omborda mavjud</p> -->
-                                                <!-- buyurtmaga -->
-                                                <p class="us-products-hr-card-product_status not-exists"><i
-                                                        class="fa-solid fa-circle"></i>
-                                                    buyurtma orqali</p>
+                                            {% if product.delivery %}
+                                                <p class="us-products-hr-card-product_status not-exists"><i class="fa-light fa-truck-bolt" style="padding: 3px"></i>{% trans 'Buyurtma orqali' %}</p>
+                                               {% endif %}
+                                               {% if product.inbox %}
+                                                   <p class="us-products-hr-card-product_status"><i class="fa-light fa-check" style="padding: 3px"></i>{% trans 'Omborda mavjud' %}</p>
+                                               {% endif %}
                                                 <ul class="us-products-hr-card-details_list">
                                                       {% for j in product.specifications.all %}
                                                          {% if forloop.counter < 5 %}
