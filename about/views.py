@@ -57,7 +57,6 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['partners'] = ClientModel.objects.order_by('pk')
-        print(context)
 
         return context
 
@@ -68,6 +67,5 @@ class NavbarView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = CategoryModel.objects.select_related('iouj').order_by('-pk')
-        print(context)
 
         return context

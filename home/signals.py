@@ -6,7 +6,6 @@ from home.models import BannerInfoModel, BannerImageModel
 
 
 def image_compressor(sender, **kwargs):
-    print('working...')
     if kwargs["created"]:
         with Image.open(kwargs["instance"].image.path) as photo:
             photo.save(kwargs["instance"].image.path, optimize=True, quality=20)
