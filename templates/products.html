@@ -302,9 +302,9 @@
                     <div class="us-products-page-products-container">
                         <h2 class="us-products-page-products-catTitle">
                             {% if request.GET.category %}
-                                {% trans 'Category' %}
+                                {{ categories|get_category_name:request.GET.category }}
                             {% elif request.GET.subcategory %}
-                                {% trans 'Subcategory' %}
+                                {{ subcategories|get_subcategory_name:request.GET.subcategory }}
                             {% else %}
                                 {% trans 'Mahsulotlar' %}
                             {% endif %}

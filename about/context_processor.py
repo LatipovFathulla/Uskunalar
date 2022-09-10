@@ -11,8 +11,7 @@ def index_categories(request):
     lines = LineModel.objects.order_by('?')[:8]
     works = WorkModel.objects.order_by('-pk')[:4]
     blogs = BlogModel.objects.order_by('-pk')
-    subcategories = SubCategoryModel.objects.select_related("category_ru", "category_uz", "category", "category_en",).\
-        values_list('category__pk', flat=True).order_by('-pk')
+    subcategories = SubCategoryModel.objects.order_by('-pk')
     carousels = CarouselModel.objects.order_by('-pk')
     biznes = BiznesModel.objects.order_by('-pk')
 
