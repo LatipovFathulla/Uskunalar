@@ -961,7 +961,7 @@ submenuCloseButtons.forEach(element => {
 
         categoryButtons.forEach(button => {
             button.addEventListener('click', () => {
-                categoryListBlock.style.display = 'none'
+                {#categoryListBlock.style.display = 'none'#}
                 let categoryID = button.parentElement.id;
                 subcategoryBlocks.forEach(subcategory => {
                     if (subcategory.id === categoryID) {

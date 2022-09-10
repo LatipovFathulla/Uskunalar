@@ -3,7 +3,7 @@
 :root {
     --loaderWidth:0;
     --inputSize: 560px;
-    --menuTop:140px;
+    --menuTop:150px;
     --searchMenuTop: 157px;
 }
 
@@ -11270,16 +11270,18 @@ button.nextButton {
 }
 
 .us-products-page-categories-holder {
-    max-width: 265px;
+    max-width: 280px;
     width: 100%;
     margin-right: 10px;
     border-right: 1px solid #ececec;
     padding: 10px;
+    padding-right: 0px;
     height: 100vh;
     flex: 1 0 100%;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
+    overflow-x: hidden;
 }
 
 .us-products-page-categories-searchBlock {
@@ -11312,8 +11314,12 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 
 .us-products-page-categories-listHolder {
     position: relative;
+}
+
+.us-products-page-categories-list {
     overflow-x: hidden;
     height: 100vh;
+    padding: 0 5px;
 }
 
 .us-products-page-categories-list-item {
@@ -11353,6 +11359,7 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
     transform: translateX(100%);
     /* display: none; */
     width: 100%;
+    height: 100vh;
     visibility: hidden;
     transition: all .3s ease-in-out;
 }
@@ -11509,6 +11516,15 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
     position: absolute;
     opacity: 1;
     transform: translateY(0);
+    visibility: visible;
+}
+
+.us-products-page-filtersection-pricefilterBox form {
+    opacity: 0;
+    visibility: hidden;
+}
+.us-products-page-filtersection-pricefilterBox.active form{
+    opacity: 1;
     visibility: visible;
 }
 
@@ -11870,6 +11886,7 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
     width: 900px;
     margin-bottom: 20px;
     padding: 10px 20px;
+    padding-right: 5px;
     transition: box-shadow .3s ease-in-out;
     border: 1px solid #e4e4e4;
     border-left: 15px solid #ffe600;
@@ -11923,6 +11940,8 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 
 .us-products-hr-card_img-holder {
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .us-products-hr-card_buttons{

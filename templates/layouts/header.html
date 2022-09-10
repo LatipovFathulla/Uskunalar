@@ -423,6 +423,7 @@
 let lastScroll = window.scrollY || document.documentElement.scrollTop;
 let mainMenuHeight;
 window.addEventListener("scroll", ()=> {
+    let top_navbarMenu_height;
     if (lastScroll < window.scrollY) {
         {#console.log('we are going down')#}
         // header Navbar
@@ -440,7 +441,8 @@ window.addEventListener("scroll", ()=> {
 
     } // Search
 
-
+    top_navbarMenu_height = top_navbarMenu.offsetHeight
+    search_root.style.setProperty("--menuTop", top_navbarMenu_height + "px");
     search_root.style.setProperty("--searchinput-backgorund", "#FFE700");
     search_root.style.setProperty("--searchinput-border", "black");
     search_root.style.setProperty("--searchinput-color", "black");
@@ -466,6 +468,8 @@ window.addEventListener("scroll", ()=> {
 
     mainMenuHeight = 170;
 
+    top_navbarMenu_height = top_navbarMenu.offsetHeight
+    search_root.style.setProperty("--menuTop", top_navbarMenu_height + "px");
     search_root.style.setProperty("--searchinput-backgorund", "white");
     search_root.style.setProperty("--searchinput-border", "white");
     search_root.style.setProperty("--searchinput-color", "white");
@@ -474,6 +478,8 @@ window.addEventListener("scroll", ()=> {
 
     lastScroll = window.scrollY
 })
+
+
 const navbar_menu = document.querySelector(".header-navbar_container");
 const first_navbar_menu = document.querySelector(".header-navbar");
 const second_navbar_menu = document.querySelector(".header-second_menu");
@@ -576,9 +582,9 @@ menu_item_2.forEach(item => {
 // Title replace with ...
 
 const headerSearchInput = document.querySelector(".header-input");
-const headerSearchInputSize = window.innerWidth / 2;
 
-switch (true) {
+const headerSearchInputSize = window.innerWidth / 2;
+    switch (true) {
     case window.innerWidth > 3700:
     search_root.style.setProperty("--inputSize", headerSearchInputSize - 1500 + "px");
     break;
@@ -606,10 +612,45 @@ switch (true) {
   default:
     search_root.style.setProperty("--inputSize", headerSearchInputSize + "px");
     break;
-} // window.addEventListener('resize', () => {
+}
+
+
+window.addEventListener('resize', function(event) {
+    const headerSearchInputSize = window.innerWidth / 2;
+    switch (true) {
+    case window.innerWidth > 3700:
+    search_root.style.setProperty("--inputSize", headerSearchInputSize - 1500 + "px");
+    break;
+
+    case window.innerWidth > 3000:
+    search_root.style.setProperty("--inputSize", headerSearchInputSize - 1000 + "px");
+    break;
+
+  case window.innerWidth > 2000:
+    search_root.style.setProperty("--inputSize", headerSearchInputSize - 500 + "px");
+    break;
+
+  case window.innerWidth > 1300:
+    search_root.style.setProperty("--inputSize", headerSearchInputSize - 210 + "px");
+    break;
+
+  case window.innerWidth < 500:
+    search_root.style.setProperty("--inputSize", headerSearchInputSize + 80 + "px");
+    break;
+
+  case window.innerWidth <= 576:
+    search_root.style.setProperty("--inputSize", headerSearchInputSize + 150 + "px");
+    break;
+
+  default:
+    search_root.style.setProperty("--inputSize", headerSearchInputSize + "px");
+    break;
+}
+}, true);
+
+ // window.addEventListener('resize', () => {
 //   search_root.style.setProperty("--inputSize", headerSearchInputSize + 'px')
 // }, true);
-
 // nav bottom
 const top_navbarMenu = document.querySelector(".header-navbarMenu")
 const top_catalog_block = document.querySelector(".header-catalog_block")
