@@ -1,7 +1,7 @@
 from django import template
 from django.core.paginator import Paginator
 
-from home.models import ProductSpecificationsModel
+from home.models import ProductSpecificationsModel, CategoryModel, SubCategoryModel
 
 register = template.Library()
 
@@ -28,3 +28,20 @@ def relative_url(value, field_name, urlencode=None):
 @register.simple_tag()
 def delete_duplicate():
     return ProductSpecificationsModel.objects.values_list('product_id', flat=True).order_by('pk').distinct('product_id')
+
+
+@register.filter
+def get_category_name(categories, category_id):
+    try:
+        return categories.get(id=category_id)
+    except CategoryModel.DoesNotExist:
+        pass
+
+
+@register.filter
+def get_subcategory_name(subcategories, subcategory_id):
+    try:
+        return subcategories.get(id=subcategory_id)
+    except SubCategoryModel.DoesNotExist:
+        pass
+

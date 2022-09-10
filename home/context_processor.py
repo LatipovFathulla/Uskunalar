@@ -10,18 +10,14 @@ def product_categories(request, ):
     current_language = get_language()
     if current_language == 'ru':
         categories = CategoryModel.objects.order_by('my_order')
-        subcategories = SubCategoryModel.objects.order_by('pk')
 
     elif current_language == 'en':
         categories = CategoryModel.objects.order_by('my_order')
-        subcategories = SubCategoryModel.objects.order_by('pk')
     else:
         categories = CategoryModel.objects.order_by('my_order')
-        subcategories = SubCategoryModel.objects.order_by('pk')
 
     return {
         'categories2': categories,
-        'subcategories2': subcategories,
         'prod_spetification': prod_spetification,
         'random_products': random_products
     }
