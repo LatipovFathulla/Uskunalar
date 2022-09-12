@@ -667,6 +667,7 @@
             display: flex;
             align-items: center;
             padding: 6px;
+            transition: all 0.5s ease;
         }
 
         .swiper-slide_desc::before {
@@ -675,7 +676,11 @@
             height: 2px;
             width: 40px;
             margin-right: 15px;
-            background-color: white
+            background-color: white;
+        }
+
+        .swiper-slide_desc:hover {
+            color: #ffe600 !important;
         }
 
         .products-section .swiper-pagination-progressbar {

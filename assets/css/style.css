@@ -11281,7 +11281,7 @@ button.nextButton {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .us-products-page-categories-searchBlock {
