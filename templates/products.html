@@ -985,24 +985,20 @@ submenuCloseButtons.forEach(element => {
 
         // Push all subcategories
         allSubCategories.forEach(subcategory => {
-            let subcatTitle = subcategory.innerHTML
+            console.log()
+            let subcatTitle = {}
+            subcatTitle.name = subcategory.innerHTML
+            subcatTitle.href = subcategory.parentElement.href
             categories.push(subcatTitle)
         })
 
           var render_lists = function(lists){
             var li = ``;
             for(index in lists){
-            //   li += "<li>" + lists[index] + "</li>";
               li += `<li class="us-products-page-categories-list-item-2">
-            {% with categories2 as all_categories  %}
-              {% for category in all_categories %}
-                {% for subcategory in category.subcategories.all|slice:":1" %}
-                  <a href="?subcategory={{ subcategory.pk }}">
-                      <span class="us-products-page-categories-list-item-title">${lists[index]}</span>
+                  <a href="${lists[index].href}">
+                      <span class="us-products-page-categories-list-item-title">${lists[index].name}</span>
                   </a>
-                {% endfor %}
-              {% endfor %}
-            {% endwith %}
           </li>`;
             }
             categorySearchBlock.innerHTML = li;
@@ -1013,7 +1009,7 @@ submenuCloseButtons.forEach(element => {
           var filterUsers = function(event){
             keyword = categorySearchInput.value.toLowerCase();
             filtered_users = categories.filter(function(category){
-                category = category.toLowerCase();
+                category = category.name.toLowerCase();
                  return category.indexOf(keyword) > -1;
             });
 
