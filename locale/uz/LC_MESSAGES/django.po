@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-09 17:57+0500\n"
+"POT-Creation-Date: 2022-09-14 19:54+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -383,9 +383,9 @@ msgstr "Biz Haqimizda"
 #: templates/contacts.html:21 templates/gallery.html:190
 #: templates/lines.html:162 templates/our_works.html:14
 #: templates/products.html:234 templates/single-biznes.html:11
-#: templates/single-blog.html:11 templates/single-lines.html:36
-#: templates/single-product.html:1389 templates/single-work.html:76
-#: templates/videos.html:14 templates/wishlist.html:19
+#: templates/single-blog.html:12 templates/single-lines.html:35
+#: templates/single-product.html:1409 templates/single-work.html:76
+#: templates/videos.html:14
 msgid "Главная"
 msgstr "Asosiy"
 
@@ -412,8 +412,8 @@ msgstr "Adminka"
 msgid "Tayyor biznes"
 msgstr "Tayyor Biznes"
 
-#: templates/biznes.html:16 templates/index.html:2741
-#: templates/single-biznes.html:12
+#: templates/biznes.html:16 templates/index.html:2747
+#: templates/single-biznes.html:14
 msgid "Готовый бизнес"
 msgstr "Tayyor biznes"
 
@@ -434,12 +434,12 @@ msgstr "Batafsil"
 msgid "Bizning maqolalar"
 msgstr "Bizning maqolalar"
 
-#: templates/blog.html:17 templates/single-blog.html:12
+#: templates/blog.html:17 templates/single-blog.html:15
 msgid "Наши статьи"
 msgstr "Bizning maqolalar"
 
-#: templates/blog.html:48 templates/blog.html:77 templates/index.html:2849
-#: templates/single-blog.html:53 templates/single-blog.html:66
+#: templates/blog.html:48 templates/blog.html:77 templates/index.html:2856
+#: templates/single-blog.html:57 templates/single-blog.html:70
 msgid "Читать дальше"
 msgstr "Batafsil"
 
@@ -476,7 +476,7 @@ msgstr "Har kuni"
 msgid "с"
 msgstr " "
 
-#: templates/contacts.html:52 templates/layouts/footer.html:64
+#: templates/contacts.html:52 templates/layouts/footer.html:70
 msgid "до"
 msgstr " — "
 
@@ -500,33 +500,33 @@ msgstr "Jo'natish"
 msgid "Kompaniya haqida"
 msgstr "Kompaniya haqida"
 
-#: templates/index.html:2606
+#: templates/index.html:2612
 #, fuzzy
 #| msgid "Liniyalar"
 msgid "Liniyalar "
 msgstr "Liniyalar"
 
-#: templates/index.html:2607
+#: templates/index.html:2613
 msgid "Eng yuqori sifat hamda eng ilg'or texnologiyalar jamlanmasi"
 msgstr "Eng yuqori sifat hamda eng ilg'or texnologiyalar jamlanmasi"
 
-#: templates/index.html:2621 templates/index.html:2624
-#: templates/index.html:2809 templates/index.html:2812
+#: templates/index.html:2627 templates/index.html:2630
+#: templates/index.html:2816 templates/index.html:2819
 msgid "Подробнее"
 msgstr "Batafsil"
 
-#: templates/index.html:2639 templates/index.html:2685
-#: templates/index.html:2778 templates/index.html:2856
+#: templates/index.html:2645 templates/index.html:2691
+#: templates/index.html:2785 templates/index.html:2863
 msgid "Batafsil"
 msgstr "Batafsil"
 
-#: templates/index.html:2647 templates/products.html:425
-#: templates/single-product.html:1753
+#: templates/index.html:2653 templates/products.html:425
+#: templates/single-product.html:1778
 msgid "Популярные товары"
 msgstr "Ommabop mahsulotlar"
 
-#: templates/index.html:2648 templates/products.html:426
-#: templates/single-product.html:1754
+#: templates/index.html:2654 templates/products.html:426
+#: templates/single-product.html:1779
 msgid ""
 "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi "
 "jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan "
@@ -540,7 +540,7 @@ msgstr ""
 "qiziqishlari, talab va istaklari natijasida saralangan ommabop mahsulotlarni "
 "taqdim qilamiz. Bizni kuzatishda davom eting!"
 
-#: templates/index.html:2742
+#: templates/index.html:2748
 msgid ""
 "Bizning saytimizda nafaqat uskunalar haqida ma'lumot olishingiz, balki "
 "tadbirkorlik faoliyatini yo'lga qo'ymoqchi bo'lsangiz jahonda mavjud so'ngi "
@@ -552,15 +552,15 @@ msgstr ""
 "texnalogiyalar asosida tajribali mutaxasislarimiz tomonidan ishlab chiqilgan "
 "tayyor biznes loyihalar bilan tanishishingiz mumkin."
 
-#: templates/index.html:2757 templates/index.html:2769
+#: templates/index.html:2763 templates/index.html:2776
 msgid "Learn more"
 msgstr "Batafsil"
 
-#: templates/index.html:2786
+#: templates/index.html:2793
 msgid "Статьи и советы"
 msgstr "Maqolalar va maslahatlar"
 
-#: templates/index.html:2787
+#: templates/index.html:2794
 msgid ""
 "Kompaniyamiz faoliyati davomida yig'ilgan tajriba va ko'nikmalar asosida "
 "sizning muammolaringizni yechishda yordam beradigan maqola va maslahatlarni "
@@ -570,12 +570,12 @@ msgstr ""
 "sizning muammolaringizni yechishda yordam beradigan maqola va maslahatlarni "
 "berib boramiz."
 
-#: templates/index.html:2828 templates/our_works.html:17
-#: templates/single-work.html:74 templates/single-work.html:77
+#: templates/index.html:2835 templates/our_works.html:17
+#: templates/single-work.html:79
 msgid "Наши работы"
 msgstr "Bizning ishlar"
 
-#: templates/index.html:2829
+#: templates/index.html:2836
 msgid ""
 "Bizning Kompaniyamiz butun Markaziy Osiyoda ishlab chiqarish sohasida "
 "birinchilardan bo'lib zamonaviy texnika-texnologiyalar bilan ko'plab "
@@ -589,11 +589,11 @@ msgstr ""
 "Bizning asosiy maqsadimiz tadbirkorlik sohasini rivojlantirish va keng, "
 "qulay imkoniyatlar yaratish. Uzkunalar.uz ni siz uchun yaratdik!"
 
-#: templates/index.html:2865
+#: templates/index.html:2872
 msgid "Наши партнеры"
 msgstr "Bizning hamkorlar"
 
-#: templates/index.html:2866
+#: templates/index.html:2873
 msgid ""
 "Kompaniyamiz 18 yilldan beri jahonning 10 mingdan ortiq zavodlar bilan "
 "hamkorlikda ishlab kelmoqda. Xususan, Xitoy, Turkiya, Eron, Rossiya, "
@@ -642,19 +642,19 @@ msgstr ""
 msgid "Тошкент шаҳри, Сирғали тумани, Катта олмос 1-тор кўчаси 9а-уй."
 msgstr ""
 
-#: templates/layouts/footer.html:64
+#: templates/layouts/footer.html:70
 msgid "c"
 msgstr " "
 
-#: templates/layouts/footer.html:64
+#: templates/layouts/footer.html:70
 msgid "ежедневно"
 msgstr "Har kuni"
 
-#: templates/layouts/footer.html:68
+#: templates/layouts/footer.html:74
 msgid "Bizning manzil"
-msgstr "Bizning ishlar"
+msgstr "Bizning manzil"
 
-#: templates/layouts/footer.html:86
+#: templates/layouts/footer.html:92
 msgid "All rights reserved"
 msgstr ""
 
@@ -666,6 +666,7 @@ msgstr "Mahsulotlar"
 
 #: templates/layouts/header.html:163 templates/layouts/header.html:331
 #: templates/lines.html:3 templates/lines.html:165
+#: templates/single-lines.html:38
 msgid "Liniyalar"
 msgstr "Liniyalar"
 
@@ -697,31 +698,31 @@ msgstr "Bizning Videolar"
 msgid "Bizning Maqolalar"
 msgstr "Bizning Maqolalar"
 
-#: templates/layouts/product-block2.html:209
-#: templates/layouts/product-sort2.html:359 templates/single-product.html:1457
+#: templates/layouts/product-block2.html:212
+#: templates/layouts/product-sort2.html:359 templates/single-product.html:1477
 msgid "Buyurtma orqali"
 msgstr ""
 
-#: templates/layouts/product-block2.html:212
-#: templates/layouts/product-sort2.html:362 templates/single-product.html:1451
+#: templates/layouts/product-block2.html:215
+#: templates/layouts/product-sort2.html:362 templates/single-product.html:1471
 msgid "Omborda mavjud"
 msgstr ""
 
-#: templates/layouts/product-block2.html:234
+#: templates/layouts/product-block2.html:237
 #: templates/layouts/product-sort2.html:342 templates/products.html:330
-#: templates/single-product.html:1444
+#: templates/single-product.html:1464
 msgid "New"
 msgstr "Yangi"
 
-#: templates/layouts/product-block2.html:278
+#: templates/layouts/product-block2.html:281
 #: templates/layouts/product-sort2.html:401
 #: templates/layouts/product-sort2.html:424
 #: templates/layouts/products-sort.html:588
-#: templates/layouts/products-sort.html:655 templates/single-product.html:1567
+#: templates/layouts/products-sort.html:655 templates/single-product.html:1587
 msgid "so'm"
 msgstr "so'm"
 
-#: templates/layouts/product-block2.html:292
+#: templates/layouts/product-block2.html:295
 #: templates/layouts/product-sort2.html:427
 #: templates/layouts/product_block.html:100
 #: templates/layouts/products-sort.html:591
@@ -778,17 +779,9 @@ msgstr "Proektlar"
 msgid "Сотрудников"
 msgstr "Ishchilar"
 
-#: templates/products.html:237 templates/single-product.html:1392
+#: templates/products.html:237 templates/single-product.html:1412
 msgid "Каталог"
 msgstr "Katalog"
-
-#: templates/products.html:305
-msgid "Category"
-msgstr "Kategoriya"
-
-#: templates/products.html:307
-msgid "Subcategory"
-msgstr "Pastki kategoriya"
 
 #: templates/products.html:331
 msgid "Narxiga ko'ra"
@@ -798,7 +791,7 @@ msgstr ""
 msgid "Ommabopligi bo'yicha"
 msgstr ""
 
-#: templates/products.html:337 templates/single-product.html:1543
+#: templates/products.html:337 templates/single-product.html:1563
 msgid "Narxi"
 msgstr ""
 
@@ -821,25 +814,21 @@ msgstr ""
 "Sizning habariz muffaqiyatli jonatildi tez orada operatorlarimiz siz blan "
 "boglanishadi!!"
 
-#: templates/single-biznes.html:70 templates/single-lines.html:136
+#: templates/single-biznes.html:73 templates/single-lines.html:136
 msgid "Перейти к предыдущей"
 msgstr "Avvalgisiga o'tish"
 
-#: templates/single-biznes.html:77 templates/single-lines.html:144
+#: templates/single-biznes.html:80 templates/single-lines.html:144
 msgid "Перейти к следующей"
 msgstr "Keyingisiga o'tish"
 
-#: templates/single-biznes.html:84 templates/single-lines.html:156
+#: templates/single-biznes.html:87 templates/single-lines.html:156
 msgid "Назад"
 msgstr "Orqaga"
 
-#: templates/single-biznes.html:88 templates/single-lines.html:163
+#: templates/single-biznes.html:91 templates/single-lines.html:163
 msgid "Далее"
 msgstr "Keyingisi"
-
-#: templates/single-lines.html:37
-msgid "Линии"
-msgstr "Liniyalar"
 
 #: templates/single-lines.html:64
 #, fuzzy
@@ -847,91 +836,87 @@ msgstr "Liniyalar"
 msgid "Скачать PDF"
 msgstr "PDF yuklab olish"
 
-#: templates/single-product.html:1475
+#: templates/single-product.html:1495
 msgid "Yuqori sifat"
 msgstr ""
 
-#: templates/single-product.html:1479
+#: templates/single-product.html:1499
 msgid "Rasmiy zavod dilleri"
 msgstr ""
 
-#: templates/single-product.html:1483
+#: templates/single-product.html:1503
 msgid "Ishonchli kafolat"
 msgstr ""
 
-#: templates/single-product.html:1494
+#: templates/single-product.html:1514
 msgid "Konvertatsiya xizmatlari uchun"
 msgstr ""
 
-#: templates/single-product.html:1499
+#: templates/single-product.html:1519
 msgid "Bank xizmatlari uchun"
 msgstr ""
 
-#: templates/single-product.html:1503
+#: templates/single-product.html:1523
 msgid "(so'mda)"
 msgstr ""
 
-#: templates/single-product.html:1509
+#: templates/single-product.html:1529
 msgid "Bank orqali xarid qilish"
 msgstr ""
 
-#: templates/single-product.html:1575
+#: templates/single-product.html:1595
 msgid "Sotib Olish"
 msgstr ""
 
-#: templates/single-product.html:1578
+#: templates/single-product.html:1598
 msgid "Pdf Yuklab olish"
 msgstr ""
 
-#: templates/single-product.html:1584 templates/single-product.html:1620
+#: templates/single-product.html:1604 templates/single-product.html:1640
 msgid "Ulashish"
 msgstr ""
 
-#: templates/single-product.html:1606 templates/single-product.html:2042
+#: templates/single-product.html:1626 templates/single-product.html:1662
+#: templates/single-product.html:2067 templates/single-product.html:2158
 #, fuzzy
 #| msgid "Sevimlilar"
 msgid "Sevimlilarga qo`shildi"
 msgstr "Sevimlilar"
 
-#: templates/single-product.html:1608 templates/single-product.html:2044
+#: templates/single-product.html:1628 templates/single-product.html:1664
+#: templates/single-product.html:2069 templates/single-product.html:2160
 #, fuzzy
 #| msgid "Sevimlilar"
 msgid "Sevimlilarga qo`shish"
 msgstr "Sevimlilar"
 
-#: templates/single-product.html:1641
-#, fuzzy
-#| msgid "Sevimlilar"
-msgid "Sevimlilarga qo'shish"
-msgstr "Sevimlilar"
-
-#: templates/single-product.html:1654
+#: templates/single-product.html:1679
 msgid "Xususiyatlari"
 msgstr ""
 
-#: templates/single-product.html:1655
+#: templates/single-product.html:1680
 msgid "Tavsifi"
 msgstr ""
 
-#: templates/single-product.html:1656
+#: templates/single-product.html:1681
 #, fuzzy
 #| msgid "Bizning Videolar"
 msgid "Videolar"
 msgstr "Bizning Videolar"
 
-#: templates/single-product.html:1657
+#: templates/single-product.html:1682
 msgid "Yetkazib Berish"
 msgstr ""
 
-#: templates/single-product.html:1658
+#: templates/single-product.html:1683
 msgid "Kafolat shartlari"
 msgstr ""
 
-#: templates/single-product.html:1716
+#: templates/single-product.html:1741
 msgid "Biz bilan Aloqa"
 msgstr ""
 
-#: templates/single-product.html:1717
+#: templates/single-product.html:1742
 #, fuzzy
 #| msgid ""
 #| "Biz bilan bog'lanish uchun quyidagi formani to'ldiring va bizning "
@@ -943,11 +928,11 @@ msgstr ""
 "Biz bilan bog'lanish uchun quyidagi formani to'ldiring va bizning "
 "operatorlarimiz tez orada sizga aloqaga chiqishadi"
 
-#: templates/single-product.html:1723
+#: templates/single-product.html:1748
 msgid "Ismingiz"
 msgstr ""
 
-#: templates/single-product.html:1733
+#: templates/single-product.html:1758
 msgid "Xabar Muvaffaqiyatli Yuborildi"
 msgstr ""
 
@@ -959,11 +944,11 @@ msgstr "Bizning Videolar"
 msgid "Наши видео"
 msgstr "Bizning video"
 
-#: templates/wishlist.html:18 templates/wishlist.html:20
+#: templates/wishlist.html:20 templates/wishlist.html:23
 msgid "Избранное"
 msgstr "Sevimlilar"
 
-#: templates/wishlist.html:42 templates/wishlist.html:57
+#: templates/wishlist.html:38
 msgid "В избранном пусто"
 msgstr "Sevimlilar boʻsh"
 
@@ -1015,6 +1000,20 @@ msgstr "ishlarning hususiyatlari"
 #: works/models.py:44
 msgid "work specifications"
 msgstr "ishlarning hususiyatlari"
+
+#~ msgid "Category"
+#~ msgstr "Kategoriya"
+
+#~ msgid "Subcategory"
+#~ msgstr "Pastki kategoriya"
+
+#~ msgid "Линии"
+#~ msgstr "Liniyalar"
+
+#, fuzzy
+#~| msgid "Sevimlilar"
+#~ msgid "Sevimlilarga qo'shish"
+#~ msgstr "Sevimlilar"
 
 #~ msgid "Карточка товара"
 #~ msgstr "Mahsulot"
