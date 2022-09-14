@@ -2770,7 +2770,7 @@
                     <div class="biznes-inner-block">
                         <img class="biznes-small-image-block" src="{{ biznes.image.url }}" alt="">
                         <div class="biznes-inner-text-block">
-                            <h3 style="word-break: break-all;">{{ biznes.title|safe }}</h3>
+                            <h3 style="word-break: break-all;font-size:17px;">{{ biznes.title|safe }}</h3>
                             <span class="biznes-p-block">{{ biznes.long_descriptions|slice:':200'|safe }}....</span>
                             <br>
                             <a href="{% url 'biznes:detail' pk=biznes.pk %}" style="font-size:20px">{% trans 'Learn more' %}</a>
