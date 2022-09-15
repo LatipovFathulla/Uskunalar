@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'django.contrib.humanize',
     'debug_toolbar',
+    'corsheaders',
 
     'home',
     'about',
@@ -80,6 +81,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -240,6 +242,16 @@ AUTHENTICATION_BACKENDS = (
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:4200',
+    'http://127.0.0.1',
+    'http://5.23.52.211'
+)
 try:
     from .settings_local import *
 except ImportError:

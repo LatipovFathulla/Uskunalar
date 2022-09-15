@@ -1921,7 +1921,7 @@ function submitPurchaseInfo() {
 
         $.ajax({
             type: "POST",
-            url: `https://api.telegram.org/bot${token}/sendPhoto?chat_id=${chat_id}&photo=${anthrImg}&parse_mode=html&caption=${caption}&reply_markup={"inline_keyboard":[[{"text":"Mahsulotni ko'rish","url":"${window.location.href}"}]]}`,
+            url: `https://api.telegram.org/bot${token}/sendPhoto?chat_id=${chat_id}&photo=${finalImgUrl}&parse_mode=html&caption=${caption}&reply_markup={"inline_keyboard":[[{"text":"Mahsulotni ko'rish","url":"${window.location.href}"}]]}`,
             data: formID.serialize(),
             success: function (data) {
                 console.log(data);
