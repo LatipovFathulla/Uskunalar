@@ -1603,7 +1603,7 @@ form fieldset .icon i::after {
                                     <i class="fa-light fa-share-nodes"></i>
                                     <span>{% trans 'Ulashish' %}</span>
                                     <ul class="share-links">
-                                        <li class="share-link"><a href="{{ request.get_full_path }}" target="_blank"
+                                        <li class="share-link"><a href="" class="copyClipboard"
                                                 rel="noopener noreferrer"><i title="Havolani ko'chirish"
                                                     class="fa-light fa-link-simple"></i></a>
                                         </li>
@@ -1639,7 +1639,7 @@ form fieldset .icon i::after {
                             <i class="fa-light fa-share-nodes"></i>
                             <span>{% trans 'Ulashish' %}</span>
                             <ul class="share-links">
-                                <li class="share-link"><a href="{{ request.get_full_path }}" target="_blank"
+                                <li class="share-link"><a href="" class="copyClipboard"
                                         rel="noopener noreferrer"><i title="Havolani ko'chirish"
                                             class="fa-light fa-link-simple"></i></a>
                                 </li>
@@ -2165,5 +2165,34 @@ $(".nav-2 li").hover(function () {
         });
     }
 </script>
+
+    <script>
+    const copyClipboardBtn = document.querySelector('.copyClipboard')
+
+    function CopyToClipboard(text) {
+        try {
+    // Теперь, когда мы выбрали текст ссылки, выполним команду копирования
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copy url command was ' + msg);
+  } catch(err) {
+    console.log('Oops, unable to copy');
+  }
+    }
+
+    copyClipboardBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+    let textToCopy = window.location.href
+    if(navigator.clipboard) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            alert('Copied to clipboard')
+        })
+    } else {
+        console.log('Browser is not compatible')
+    }
+
+    })
+
+    </script>
 
 {% endblock %}
