@@ -1482,7 +1482,7 @@ form fieldset .icon i::after {
                                 {% endif %}
                         </div>
                         <!-- <p class="single-product_status on-the-way"><i class="fa-light fa-clock-rotate-left"></i> Kelmoqda</p> -->
-                        <span class="single-product_articuleID">ID: {{ object.pk }}</span>
+                        <p class="single-product_articuleID">ID: <span>{{ object.pk }}</span></p>
                     </div>
                     <!-- Short Description -->
                     <p class="single-product-short-description">{{ object.short_description|safe }}</p>
@@ -1921,7 +1921,7 @@ function submitPurchaseInfo() {
 
         $.ajax({
             type: "POST",
-            url: `https://api.telegram.org/bot${token}/sendPhoto?chat_id=${chat_id}&photo=${anthrImg}&parse_mode=html&caption=${caption}`,
+            url: `https://api.telegram.org/bot${token}/sendPhoto?chat_id=${chat_id}&photo=${anthrImg}&parse_mode=html&caption=${caption}&reply_markup={"inline_keyboard":[[{"text":"Mahsulotni ko'rish","url":"${window.location.href}"}]]}`,
             data: formID.serialize(),
             success: function (data) {
                 console.log(data);
