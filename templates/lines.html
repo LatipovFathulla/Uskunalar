@@ -192,7 +192,7 @@
                         <h2 class="us-line-card-main-title">{{ line.title}}</h2>
                         <div class="us-line-card-content">
                             <h2 class="us-line-card-title">{{ line.title}}</h2>
-                            <p class="us-line-card-text">{{ line.description|slice:':100'|safe}}</p>
+                            <p class="us-line-card-text">{{ line.description|slice:':200'|safe}}...</p>
                                 <div class="us-line-card-subcontent">
                                     {% if line.price %}
                                          <p class="us-line-card-price">${{ line.price }}</p>
@@ -208,7 +208,7 @@
           </div>
  <div class="menu-categories-section">
         <div class="menu-categories-section_container">
-            <h3 class="menu-categories-section-title">Kategoriyalar</h3>
+            <h3 class="menu-categories-section-title">{% trans 'Kategoriyalar' %}</h3>
             <ul class="menu-categories-list">
                {% for category in line_categories %}
                 <li id="us-submenu-{{ about.pk }}" class="menu-categories-button">

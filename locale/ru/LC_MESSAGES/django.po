@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-14 19:54+0500\n"
+"POT-Creation-Date: 2022-09-15 21:52+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -396,7 +396,7 @@ msgstr "Главная"
 msgid "Kompaniya faoliyati"
 msgstr "Деятельность компании"
 
-#: templates/about.html:213 templates/lines.html:175
+#: templates/about.html:213 templates/lines.html:175 templates/lines.html:211
 msgid "Kategoriyalar"
 msgstr "Категории"
 
@@ -747,7 +747,6 @@ msgid "Aloqa"
 msgstr "Контакты"
 
 #: templates/lines.html:200
-#, fuzzy
 msgid "Learn More"
 msgstr "Подробнее"
 
@@ -809,23 +808,23 @@ msgid ""
 msgstr ""
 "Ваша сообщения успешно отправлено скоро наши операторы с вами свяжутся!!!"
 
-#: templates/single-biznes.html:73 templates/single-lines.html:136
+#: templates/single-biznes.html:73 templates/single-lines.html:135
 msgid "Перейти к предыдущей"
 msgstr "Перейти к предыдущей"
 
-#: templates/single-biznes.html:80 templates/single-lines.html:144
+#: templates/single-biznes.html:80 templates/single-lines.html:143
 msgid "Перейти к следующей"
 msgstr "Перейти к следующей"
 
-#: templates/single-biznes.html:87 templates/single-lines.html:156
+#: templates/single-biznes.html:87 templates/single-lines.html:155
 msgid "Назад"
 msgstr "Назад"
 
-#: templates/single-biznes.html:91 templates/single-lines.html:163
+#: templates/single-biznes.html:91 templates/single-lines.html:162
 msgid "Далее"
 msgstr "Далее"
 
-#: templates/single-lines.html:64
+#: templates/single-lines.html:63
 msgid "Скачать PDF"
 msgstr "Скачать PDF"
 
