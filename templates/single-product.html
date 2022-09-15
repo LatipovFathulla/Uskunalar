@@ -2169,17 +2169,6 @@ $(".nav-2 li").hover(function () {
     <script>
     const copyClipboardBtn = document.querySelector('.copyClipboard')
 
-    function CopyToClipboard(text) {
-        try {
-    // Теперь, когда мы выбрали текст ссылки, выполним команду копирования
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('Copy url command was ' + msg);
-  } catch(err) {
-    console.log('Oops, unable to copy');
-  }
-    }
-
     copyClipboardBtn.addEventListener('click', (e) => {
         e.preventDefault()
     let textToCopy = window.location.href
