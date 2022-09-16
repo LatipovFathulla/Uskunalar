@@ -14,7 +14,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CategoryModel(models.Model):
-    category = RichTextUploadingField(max_length=400, verbose_name=_('category'), null=True, db_index=True)
+    category = models.CharField(max_length=400, verbose_name=_('category'), null=True, db_index=True)
     image = models.FileField(upload_to='category_image', verbose_name=_('category_image'), null=True, blank=True)
     my_order = models.PositiveIntegerField(
         default=0,

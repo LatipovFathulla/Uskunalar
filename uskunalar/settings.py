@@ -246,10 +246,10 @@ INTERNAL_IPS = [
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
-
-CORS_ORIGIN_WHITELIST = (
-    'http://134.209.239.110'
-)
+#
+# CORS_ORIGIN_WHITELIST = (
+#     'localhost:8000'
+# )
 try:
     from .settings_local import *
 except ImportError:
