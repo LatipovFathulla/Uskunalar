@@ -29,3 +29,9 @@ class LineModelView(ListView):
 class LineDetailModelView(DetailView):
     template_name = 'single-lines.html'
     model = LineModel
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.object.category:
+            context['relatsdfsdfed'] = self.object.category.lines.exclude(pk=self.object.pk)[:7]
+        return context

@@ -14,6 +14,9 @@ def index_categories(request):
     subcategories = SubCategoryModel.objects.order_by('-pk')
     carousels = CarouselModel.objects.order_by('-pk')
     biznes = BiznesModel.objects.order_by('-pk')
+    random_lines = LineModel.objects.order_by('?')[:7]
+    random_line = LineModel.objects.order_by('?')[:4]
+    random_prod_line = BannerInfoModel.objects.order_by('?')[:6]
 
     return {
         'products': products,
@@ -23,5 +26,8 @@ def index_categories(request):
         'blogs': blogs,
         'subcategories': subcategories,
         'carousels': carousels,
-        'biznes': biznes
+        'biznes': biznes,
+        'random_lines': random_lines,
+        'random_line': random_line,
+        'random_prod_line': random_prod_line
     }

@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block title %} {{ object.title }}  {% endblock %}
 {% load static %}
+{% load tags %}
 {% block content %}
     <style>
     tr:hover {
@@ -13,20 +14,373 @@
         color:#fff
     }
 
-        span {
-            line-height: 30px;
-            font-family: system-ui;
-        }
+.us-single-line {
+    margin-top: 15px;
+    padding: 0 10px;
+}
 
-        p {
-            line-height: 20px;
-            font-family: system-ui;
-        }
+.us-single-line-container {
+    max-width: 1410px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
 
-        strong {
-            line-height: 20px;
-            font-family: system-ui;
-        }
+.us-single-line-latest-container, .us-single-line-recAndPopularBlock-container {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5px;
+}
+
+/* Latest Lines */
+.us-single-line-latest {
+    flex: 1;
+}
+
+.us-single-line-latest-listOfLines {
+    margin-top: 20px;
+    border-right: 1px solid #ececec;
+    height: 100vh;
+}
+
+.us-single-line-latest-title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.us-single-line-latest-title i {
+    color: #ffe600;
+    font-weight: 500;
+}
+
+.us-single-line-latest-ItemLine {
+    border-bottom: 1px solid #ececec;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.us-single-line-latest-ItemLine-price {
+    font-size: 14px;
+    font-weight: 400;
+    color: #aaaaaa;
+    cursor: auto;
+    margin-bottom: 5px;
+    transition: all .4s ease;
+}
+
+.us-single-line-latest-ItemLine:hover .us-single-line-latest-ItemLine-price {
+    color: #333;
+}
+
+.us-single-line-latest-ItemLine-price i {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffe600;
+}
+
+.us-single-line-latest-ItemLine-title {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 21px;
+    color: #333;
+}
+
+.us-single-line-latest-ItemLine-title:hover {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 21px;
+    color: #333;
+}
+
+
+/* Main Block */
+.us-single-line-mainBlock {
+    flex: 3;
+}
+
+.us-single-line-mainBlock-container {
+    margin: 0 15px;
+}
+
+.us-single-line-mainBlock-metaViewShare {
+    display: flex;
+    align-items: center;
+}
+
+.us-single-line-mainBlock-view {
+    font-size: 13px;
+}
+
+.us-single-line-mainBlock-share-links {
+    visibility: visible;
+    margin-left: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.us-single-line-mainBlock-share-link a {
+    font-size: 16px;
+    margin-right: 10px;
+    color: #5a5a5a;
+}
+
+.us-single-line-mainBlock-share-link a:hover {
+    color: #ffe600;
+}
+
+.us-single-line-mainBlock-meta {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.us-single-line-mainBlock-meta-downloadPDF {
+    background: transparent;
+    border: 1px solid #333;
+    font-size: 14px;
+    padding: 5px 10px;
+    outline: none;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.us-single-line-mainBlock-meta-downloadPDF:hover {
+    border: 1px solid transparent;
+    background-color: #ffe600;
+    color: #333;
+}
+
+.us-single-line-mainBlock-line-title {
+    margin-top: 30px;
+    font-size: 28px;
+    color: #333;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.us-single-line-mainBlock-line-title::after {
+    content: '. . .';
+    display: block;
+    margin-left: 5px;
+    width: 100%;
+    color: #ececec;
+}
+
+.us-single-line-mainBlock-line-fullDescription img {
+    /* max-width: 815px !important; */
+    width: 100%;
+    margin-top: 10px;
+}
+
+.us-single-line-mainBlock-line-fullDescription table {
+    background: white;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.us-single-line-mainBlock-line-fullDescription tr {
+    font-size: 15px;
+    color: gray;
+    line-height: 1.2;
+    font-weight: unset;
+    padding: 10px;
+    border: 1px solid #333;
+}
+
+.us-single-line-mainBlock-line-fullDescription tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.us-single-line-mainBlock-line-fullDescription tr:hover {
+    background-color: #ffe600;
+}
+
+.us-single-line-mainBlock-line-fullDescription td {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.2;
+    font-weight: unset;
+    padding: 10px;
+    border: none;
+    border-right: 1px solid;
+}
+
+.us-single-line-mainBlock-line-fullDescription td:nth-child(odd) {
+    color: #333
+}
+
+/* Recommended & Popular block */
+.us-single-line-recAndPopularBlock {
+    flex: 1;
+}
+
+.us-single-line-recAndPopularBlock-title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.us-single-line-recAndPopularBlock-title i {
+    color: #ffe600;
+    font-weight: 500;
+}
+
+.us-single-line-recAndPopularBlock-listOfLines {
+    margin-top: 20px;
+    /* border-left: 1px solid #ececec; */
+}
+
+.us-single-line-recAndPopularBlock-ItemLine {
+    border: 1px solid #ececec;
+    /* border-left: none; */
+    padding: 10px;
+    margin-bottom: 18px;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.us-single-line-recAndPopularBlock-ItemLine-price {
+    font-size: 14px;
+    font-weight: 400;
+    color: #aaaaaa;
+    cursor: auto;
+    margin-bottom: 5px;
+    transition: all .4s ease;
+}
+
+.us-single-line-recAndPopularBlock-ItemLine:hover {
+    border-color: #ffe600
+}
+
+.us-single-line-recAndPopularBlock-ItemLine:hover .us-single-line-recAndPopularBlock-ItemLine-price {
+    color: #333;
+}
+
+.us-single-line-recAndPopularBlock-ItemLine-price i {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffe600;
+}
+
+.us-single-line-recAndPopularBlock-ItemLine-title {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 21px;
+    color: #333;
+}
+
+.us-single-line-recAndPopularBlock-ItemLine-title:hover {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 21px;
+    color: #333;
+}
+
+
+.us-productsRec {
+    max-width: 270px;
+    width: 100%;
+}
+
+@media (max-width: 1300px) {
+    .us-single-line-latest-title, .us-single-line-recAndPopularBlock-title {
+        font-size: 16px;
+    }
+    .us-single-line-latest-ItemLine-title, .us-single-line-recAndPopularBlock-ItemLine-title {
+        padding-right: 5px;
+        font-size: 12px;
+    }
+    .us-single-line-latest-ItemLine-price, .us-single-line-recAndPopularBlock-ItemLine-price {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .us-single-line-recAndPopularBlock {
+        width: 18%;
+    }
+}
+
+@media (max-width: 1250px) {
+    .us-single-line-latest {
+        display: none;
+    }
+}
+
+
+@media (max-width: 920px) {
+    .us-single-line-mainBlock-line-title {
+        font-size: 24px;
+        margin-top: 15px;
+    }
+    .us-single-line-mainBlock-line-fullDescription td {
+        padding: 5px;
+    }
+    .us-single-line-mainBlock-meta-downloadPDF {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 760px) {
+    .us-single-line-container {
+        flex-direction: column;
+    }
+    .us-single-line-recAndPopularBlock {
+        /* display: none; */
+        width: 100%;
+        margin-top: 10px;
+    }
+    .us-single-line-mainBlock-line-title {
+        font-size: 20px
+    }
+    .us-single-line-recAndPopularBlock-listOfLines {
+        display: grid;
+        grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+        grid-gap: 5px;
+        margin-bottom: 10px;
+    }
+    .us-single-line-recAndPopularBlock-ItemLine {
+        margin-bottom: 0;
+    }
+    .us-single-line-recAndPopularBlock-second {
+        display: none;
+    }
+}
+
+@media (max-width: 550px) {
+    .us-single-line-recAndPopularBlock-second {
+        display: block;
+    }
+    .us-single-line-mainBlock-line-fullDescription td {
+        font-size: 12px;
+    }
+    .us-single-line-mainBlock-line-title {
+        font-size: 18px;
+    }
+    .us-single-line-mainBlock-meta-downloadPDF {
+        font-size: 10px
+    }
+    .us-single-line-mainBlock-share-links {
+        margin-left: 15px;
+    }
+    .us-single-line-mainBlock-view {
+        font-size: 10px;
+    }
+    .us-single-line-mainBlock-share-link a {
+        font-size: 14px;
+    }
+    .us-productsRec {
+        max-width: fit-content;
+    }
+    .us-single-line-mainBlock-container {
+        margin: 0;
+    }
+}
     </style>
    <div class="us-navigation-block">
         <div class="us-products-page-container">
@@ -44,85 +398,198 @@
         </div>
     </div>
 
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="single-blog ">
-                    <p style="font-size: 24px;color: #131311;line-height: 38px;font-weight: 500;">{{ object.title }}</p>
-                    {#          <p style="font-size: 16px;font-weight: 500;line-height: 20px;color: #132E6B;padding: 20px 0px;">ДЕРЕВООБРАБОТКА(ФРЕЗЕРОВАНИЕ)</p>#}
-                    <p style="line-height: 24px;margin-top: 10px">{{ object.description|safe }} </p>
-                {% if object.banner.url %}
-                          <img class="img-fluid" style="margin:15px auto;display: table;" width="100%" height="300px" src="{{ object.banner.url }}" alt="">
-                {% endif %}
-                    <br>
-                    <div class="container mobile-work">
-                        <table class="table table-striped" style="border-top: 0px;">
-                            <tbody>
-                            <p>{{ object.long_description|safe }}</p>
-                              <h3>{% trans 'Скачать PDF' %} <a href="{{ object.pdf.url }}"><img src="{% static 'images/pdf.svg' %}" style="margin-top: 10px" alt=""> </a>  </h3>
-                            {% for a in lines.line.all %}
-                                <tr>
-                                    <td style="text-align: center"><img
-                                            src="{% if i.work_image %} {{ i.work_image.url }} {% endif %}"
-                                            style="width: 34px" alt=""></td>
-                                </tr>
-                            {% endfor %}
-                            {#                            <tr>#}
-                            {#                                <td style="font-weight: 500;">Автоматическая система смазки:</td>#}
-                            {#                                <td style="text-align:center">#}
-                            {#                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"#}
-                            {#                                           checked>#}
-                            {#                                    <label class="form-check-label" for="flexCheckChecked">#}
-                            {#                                        Есть#}
-                            {#                                    </label>#}
-                            {#                                </td>#}
-                            {#                            </tr>#}
-                            {#                            <tr>#}
-                            {#                                <td style="font-weight: 500;">Датчик Автоматического управления:</td>#}
-                            {#                                <td style="text-align:center">#}
-                            {#                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"#}
-                            {#                                           checked>#}
-                            {#                                    <label class="form-check-label" for="flexCheckChecked">#}
-                            {#                                        Есть#}
-                            {#                                    </label>#}
-                            {#                                </td>#}
-                            {#                            </tr>#}
-                            </tbody>
-                        </table>
-                        <img src="{% static './images/Group_418.svg' %}" class="icon-right"
-                             style="right:-7%;transform: rotate(-29.52deg);" alt="">
-                     <div class="container">
-                                <p style="margin-top: 10px;">{{ object.short_descriptions|safe }}</p>
-                            </div>
-                        <div class="row">
-                          {% if k.image.url %}
-                            {% for k in linemodel.line_image.all %}
-                                <div class="col-md-3">
-                                     <img src="{{ k.image.url|default:'none' }}" class="img-fluid"
-                                         style="display: table;margin: 3px auto;height: 150px" alt="">
-                                </div>
-                            {% endfor %}
-                           {% endif %}
-                            <br>
-                        <div class="container">
-                               <table class="table table-striped">
-                                    <tbody>
-                                    <br>
-                                    {% for k in linemodel.line_image.all %}
-                                    <tr>
-                                        <td style="font-weight: 500;">{{ k.line_spec|safe }}</td>
-                                        <td style="text-align:center">{{ k.line_num|safe }}</td>
-                                    </tr>
-                                    {% endfor %}
-                                    </tbody>
-                            </table>
+       <div class="us-single-line">
+        <div class="us-single-line-container">
+            <aside class="us-single-line-latest">
+                <div class="us-single-line-latest-container">
+                    <h3 class="us-single-line-latest-title"><i class="fa-regular fa-circle-small"></i> {% trans "O'xshash liniyalar" %}
+                    </h3>
+                    <ul class="us-single-line-latest-listOfLines">
+                        {% for line in random_lines %}
+                              <li class="us-single-line-latest-ItemLine">
+                                <h5 class="us-single-line-latest-ItemLine-price"><i class="fa-light fa-tag"></i> ${{ line.price }}</h5>
+                                <a href="{% url 'line:detail' pk=line.pk %}" class="us-single-line-latest-ItemLine-title">{{ line.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </aside>
+            <div class="us-single-line-mainBlock">
+                <div class="us-single-line-mainBlock-container">
+                    <!-- Top Buttons -->
+                    <div class="us-single-line-mainBlock-meta">
+                        <div class="us-single-line-mainBlock-metaViewShare">
+                            <p class="us-single-line-mainBlock-view"><i class="fa-light fa-eye"></i> 20700</p>
+                            <ul class="us-single-line-mainBlock-share-links">
+                                <li class="us-single-line-mainBlock-share-link"><a href="http://" target="_blank"
+                                        rel="noopener noreferrer"><i title="Havolani ko'chirish"
+                                            class="fa-light fa-link-simple"></i></a>
+                                </li>
+                                <li class="us-single-line-mainBlock-share-link"><a href="https://t.me/share/url?url={{ request.get_host }}{{ request.get_full_path }}&text={{ object.title }}" target="_blank"
+                                        rel="noopener noreferrer"><i title="Telegram"
+                                            class="fa-brands fa-telegram"></i></a>
+                                </li>
+                                <li class="us-single-line-mainBlock-share-link"><a href="https://wa.me/?text={{ request.get_host }}{{ request.get_full_path }}" target="_blank"
+                                        rel="noopener noreferrer"><i title="WhatsApp"
+                                            class="fa-brands fa-whatsapp"></i></a>
+                                </li>
+                                <li class="us-single-line-mainBlock-share-link"><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ request.get_full_path }}" target="_blank"
+                                        rel="noopener noreferrer"><i title="Facebook"
+                                            class="fa-brands fa-facebook"></i></a>
+                                </li>
+                            </ul>
                         </div>
+                        <a href="{{ object.pdf.url }}"><button class="us-single-line-mainBlock-meta-downloadPDF"><i class="fa-regular fa-files"></i>
+                            Download PDF</button></a>
+                    </div>
 
-                        </div>
+                    <h1 class="us-single-line-mainBlock-line-title">{{ object.title }}</h1>
+
+                    <div class="us-single-line-mainBlock-line-fullDescription">
+                            {{ object.long_description|safe }}
                     </div>
                 </div>
             </div>
+            <aside class="us-single-line-recAndPopularBlock">
+                <div class="us-single-line-recAndPopularBlock-container">
+
+                    <div class="us-single-line-recAndPopularBlock-first">
+                        <h3 class="us-single-line-recAndPopularBlock-title"><i class="fa-regular fa-circle-small"></i>
+                            {% trans "Tavsiya qilamiz" %}</h3>
+                        <ul class="us-single-line-recAndPopularBlock-listOfLines">
+                            {% for line in random_line %}
+                            <li class="us-single-line-recAndPopularBlock-ItemLine">
+                                <h5 class="us-single-line-recAndPopularBlock-ItemLine-price"><i
+                                        class="fa-light fa-tag"></i>
+                                    ${{ line.price }}</h5>
+                                <a href="" class="us-single-line-recAndPopularBlock-ItemLine-title">{{ line.title }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="us-single-line-recAndPopularBlock-second">
+                        <!-- Slider main container -->
+                        <div class="swiper us-productsRec">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper us-productsRec-swiper">
+                                <!-- Slides -->
+                                {% for product in random_prod_line %}
+                                      <div class="swiper-slide">
+
+                                  <div class="us-products-page-products-productCard">
+        <div class="us-products-page-products-productCard-preview">
+            <div class="us-products-page-products-productCard_top">
+                <div class="us-products-page-products-productCard_status-block">
+                    <!-- <p class="us-products-page-products-productCard_status"><i class="fa-light fa-check"></i> Omborda mavjud</p> -->
+                   {% if product.delivery %}
+                    <p class="us-products-page-products-productCard_status"><i class="fa-light fa-truck-bolt" style="padding: 3px"></i>{% trans 'Buyurtma orqali' %}</p>
+                   {% endif %}
+                   {% if product.inbox %}
+                       <p class="us-products-page-products-productCard_status"><i class="fa-light fa-check" style="padding: 3px"></i>{% trans 'Omborda mavjud' %}</p>
+                   {% endif %}
+
+                    <span class="us-products-page-products-productCard_articuleID">ID:
+                                                        {{ product.pk }}</span>
+                </div>
+                <h3 class="us-products-page-products-productCard-product-title">
+                    {{ product.title }}</h3>
+            </div>
+            <div class="us-products-page-products-productCard_imageBlock">
+                <div class="us-products-page-products-productCard_img_back" style="background: url('{{ product.background.image.url }}') no-repeat center center / contain;">
+                     {% for i in product.images.all %}
+                                <a>
+                                    {% if forloop.counter == 1 %}
+                                         <img src="{{ i.image.url }}" alt="" class="us-products-page-products-productCard_img">
+                                    {% endif %}
+                                </a>
+                    {% endfor %}
+                </div>
+
+                <div class="us-products-page-products-productCard-discountBlock">
+                {% if product.is_new %}
+                     <p class="newProduct">🔥 {% trans 'New' %}<span></span></p>
+                {% endif %}
+                      {% if product.is_discount %}
+                             <p class="discounted">-{{ product.discount }}%</p>
+                      {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="us-products-page-products-productCard-detailsView">
+            <div class="us-products-page-products-productCard-content">
+                <h3 class="us-products-page-products-productCard-product-title">
+                    {{ product.title }}</h3>
+                <ul class="us-products-page-products-productCard-details_list">
+                      {% for j in product.specifications.all %}
+                         {% if forloop.counter < 5 %}
+                              <li class="us-products-page-products-productCard-details_item">
+                                {% if j.product_customer %}
+                                    <h4 class="us-products-page-products-productCard-detailname">{{ j.product_customer|safe }}:</h4>
+                                {% endif %}
+                                 {% if j.product_number %}
+                                    <p class="us-products-page-products-productCard-detail">{{ j.product_number|safe }}</p>
+                                {% endif %}
+                                </li>
+                         {% endif %}
+                     {% endfor %}
+                </ul>
+            </div>
+
+            <div class="us-products-page-products-productCard-secondPart">
+                <!-- Price & Inventory Info -->
+                <div class="us-products-page-products-productCard-status">
+                    <div class="us-products-page-products-productCard-priceInfo">
+                        <div class="us-products-page-products-productCard-priceabout">
+                            {% if product.CIP == True %}
+                                     <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term cip-term">CIP</span>
+                           {% elif product.DAF == True %}
+                                     <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term daf-term">DAF</span>
+                           {% elif product.EXW == True %}
+                                     <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term exw-term">EXW</span>
+                           {% elif product.FCA == True %}
+                                    <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term exw-term">FCA</span>
+                           {% endif %}
+                            <h3 class="us-products-page-products-productCard-productPrice_dollar">${{ product.get_price }}</h3>
+                        </div>
+                        <p class="us-products-page-products-productCard-productPrice_som"><span> </span> {% trans "so'm" %}</p>
+                    </div>
+                    <!-- Buttons -->
+                    <div class="us-products-page-products-productCard_buttons">
+                         <a onclick="add_to_wishlist(this, {{ product.pk }})">
+                         {% if product|in_wishlist:request %}
+                                <button class="us-products-page-products-productCard_ibutton product-heart" type="submit"><i class="fa-solid fa-heart red-heart"></i></button>
+                          {% else %}
+                                <button class="us-products-page-products-productCard_ibutton" type="submit"><i class="fa-light fa-heart"></i></button>
+                          {% endif %}
+                        </a>
+                    </div>
+                </div>
+
+                <a href="{% url 'products:single' pk=product.pk %}" class="us-products-page-products-productCard-moreLink">{% trans 'More Details' %} <i class="fa-light fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+                                </div>
+                                {% endfor %}
+
+
+                            </div>
+                            <!-- If we need pagination -->
+                            <div class="swiper-pagination"></div>
+
+                            <!-- If we need navigation buttons -->
+                            <!-- <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div> -->
+
+                            <!-- If we need scrollbar -->
+                            <!-- <div class="swiper-scrollbar"></div> -->
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
         </div>
     </div>
 
@@ -166,4 +633,15 @@
         {% endif %}
     </div>
     <br>
+<script>
+const usProductsRec_swiper = new Swiper('.us-productsRec', {
+    // Optional parameters
+    spaceBetween: 10,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: true,
+        },
+  });
+</script>
 {% endblock %}
