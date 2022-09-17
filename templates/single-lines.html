@@ -4,6 +4,7 @@
 {% load static %}
 {% load tags %}
 {% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <style>
     tr:hover {
         background: #FFE700;
@@ -592,47 +593,7 @@
             </aside>
         </div>
     </div>
-
-    <div class="container p-3">
-        {% if object.get_prev %}
-            <a href="{% url 'line:detail' pk=object.get_prev.pk %}">
-                <button class="btn btn-prev">
-                    <img src="{% static './images/left.svg' %}"
-                         style="position: absolute;padding: 2px;margin-left: -9px;" alt="">
-                    <span style="font-size: 20px;line-height: 24px;position: relative;left: 9px;">{% trans 'Перейти к предыдущей' %}</span>
-                </button>
-            </a>
-        {% endif %}
-
-        {% if object.get_next %}
-            <a href="{% url 'line:detail' pk=object.get_next.pk %}">
-                <button class="btn btn-next float-right"><span
-                        style="font-size: 17px;line-height: 24px;position: relative;left: -8px;">{% trans 'Перейти к следующей' %}</span>
-                    <img src="{% static './images/right.svg' %}"
-                         style="position: absolute;padding: 2px;margin-left: -3px;" alt=""></button>
-            </a>
-        {% endif %}
-
-        <!--mobile-->
-        {% if object.get_prev %}
-            <a href="{% url 'line:detail' pk=object.get_prev.pk %}">
-                <button class="btn btn-prev-mobile"><img src="{% static './images/left.svg' %}"
-                                                         style="position: absolute;padding: 2px;margin-left: -9px;"
-                                                         alt=""><span
-                        style="font-size: 19px;line-height: 24px;position: relative;left: 9px;">{% trans 'Назад' %}</span></button>
-            </a>
-        {% endif %}
-
-        {% if object.get_next %}
-            <a href="{% url 'line:detail' pk=object.get_next.pk %}">
-                <button class="btn btn-next-mobile float-right"><span
-                        style="font-size: 19px;line-height: 24px;position: absolute;margin-left: -3%;"></span>{% trans 'Далее' %}
-                    <b></b><img src="{% static './images/right.svg' %}"
-                                style="position: absolute;padding: 2px;margin-left: -3px;" alt=""></button>
-            </a>
-        {% endif %}
-    </div>
-    <br>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script>
 const usProductsRec_swiper = new Swiper('.us-productsRec', {
     // Optional parameters
