@@ -462,7 +462,7 @@
                                 <h5 class="us-single-line-recAndPopularBlock-ItemLine-price"><i
                                         class="fa-light fa-tag"></i>
                                     ${{ line.price }}</h5>
-                                <a href="" class="us-single-line-recAndPopularBlock-ItemLine-title">{{ line.title }}</a>
+                                <a href="{% url 'line:detail' pk=line.pk %}" class="us-single-line-recAndPopularBlock-ItemLine-title">{{ line.title }}</a>
                             </li>
                             {% endfor %}
                         </ul>
