@@ -2,8 +2,9 @@
 {% load i18n %}
 {% block title %} {{ object.title }} {% endblock %}
 {% load static %}
+{% load tags %}
 {% block content %}
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 <div class="us-navigation-block">
         <div class="us-products-page-container">
             <ul class="us-navigation-block-list">
@@ -22,76 +23,232 @@
 
 <br>
 
+ <div class="us-single-line">
+        <div class="us-single-line-container">
+            <aside class="us-single-line-latest">
+                <div class="us-single-line-latest-container">
+                    <h3 class="us-single-line-latest-title"><i class="fa-regular fa-circle-small"></i> O'xshash bizneslar
+                    </h3>
+                    <ul class="us-single-line-latest-listOfLines">
+                        {% for biznes in random_biznes %}
+                              <li class="us-single-line-latest-ItemLine">
+                                <h5 class="us-single-line-latest-ItemLine-price"><i class="fa-light fa-tag"></i> ${{ biznes.price }}</h5>
+                                <a href="{% url 'biznes:detail' pk=biznes.pk %}" class="us-single-line-latest-ItemLine-title">{{ biznes.title|safe }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </aside>
+            <div class="us-single-line-mainBlock">
+                <div class="us-single-line-mainBlock-container">
+                    <!-- Top Buttons -->
+                    <div class="us-single-line-mainBlock-meta">
+                        <div class="us-single-line-mainBlock-metaViewShare">
+                            <p class="us-single-line-mainBlock-view"><i class="fa-light fa-eye"></i> 20700</p>
+                            <ul class="us-single-line-mainBlock-share-links">
+                                <li class="us-single-line-mainBlock-share-link"><a href="http://" target="_blank"
+                                        rel="noopener noreferrer"><i title="Havolani ko'chirish"
+                                            class="fa-light fa-link-simple"></i></a>
+                                </li>
+                                <li class="us-single-line-mainBlock-share-link"><a href="https://t.me/share/url?url={{ request.get_host }}{{ request.get_full_path }}&text={{ object.title }}" target="_blank"
+                                        rel="noopener noreferrer"><i title="Telegram"
+                                            class="fa-brands fa-telegram"></i></a>
+                                </li>
+                                <li class="us-single-line-mainBlock-share-link"><a href="https://wa.me/?text={{ request.get_host }}{{ request.get_full_path }}" target="_blank"
+                                        rel="noopener noreferrer"><i title="WhatsApp"
+                                            class="fa-brands fa-whatsapp"></i></a>
+                                </li>
+                                <li class="us-single-line-mainBlock-share-link"><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ request.get_full_path }}" target="_blank"
+                                        rel="noopener noreferrer"><i title="Facebook"
+                                            class="fa-brands fa-facebook"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="{{ object.pdf.url }}"><button class="us-single-line-mainBlock-meta-downloadPDF"><i class="fa-regular fa-files"></i>
+                            Download PDF</button></a>
+                    </div>
 
-<div class="container ">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="single-blog ">
-                <p>{{ object.title|safe }}</p>
-                <img src="{% static './images/Group_417.svg' %}" class="icon-right-22" alt="">
-                <img class="img-fluid" style="margin:15px auto;display: table;" width="100%" height="300px"
-                     src="{{ object.image.url }}" alt="">
-                <br>
-                <div class="container mobile-work">
-                    <table class="table table-striped" style="border-top: 0px;">
-                        <tbody>
-                        {% for i in biznesmodel.biznes_image.all %}
-                        <tr>
-                            <td style="font-weight: 500;">{{ i.biznes_spec }}</td>
-                            <td style="text-align:center">{{ i.biznes_num }}</td>
-                            <td style="text-align: center"><img
-                                    src="{% if i.image %} {{ i.image.url}} {% endif %}" style="width: 34px"
-                                    alt=""></td>
-                        </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                    <img src="{% static './images/Group_418.svg' %}" class="icon-right"
-                         style="right:-7%;transform: rotate(-29.52deg);" alt="">
-                    <div class="row">
-                        {% for k in biznesmodel.biznes_image.all  %}
-                        <div class="col-md-3">
-                            <img src="{{ k.image.url }}" class="img-fluid"
-                                 style="display: table;margin: 3px auto;" alt="">
-                        </div>
-                        {% endfor %}
-                        <div class="container">
-                            <p style="margin-top: 20px;">{{ object.long_descriptions|safe }}</p>
-                        </div>
+                    <h1 class="us-single-line-mainBlock-line-title">{{ object.title }}</h1>
+
+                    <div class="us-single-line-mainBlock-line-fullDescription">
+                            {{ object.long_descriptions|safe }}
                     </div>
                 </div>
             </div>
+            <aside class="us-single-line-recAndPopularBlock">
+                <div class="us-single-line-recAndPopularBlock-container">
+
+                    <div class="us-single-line-recAndPopularBlock-first">
+                        <h3 class="us-single-line-recAndPopularBlock-title"><i class="fa-regular fa-circle-small"></i>
+                            {% trans "Tavsiya qilamiz" %}</h3>
+                        <ul class="us-single-line-recAndPopularBlock-listOfLines">
+                            {% for biznes in random_prod_biznes %}
+                            <li class="us-single-line-recAndPopularBlock-ItemLine">
+                                <h5 class="us-single-line-recAndPopularBlock-ItemLine-price"><i
+                                        class="fa-light fa-tag"></i>
+                                    ${{ biznes.price }}</h5>
+                                <a href="{% url 'biznes:detail' pk=biznes.pk %}" class="us-single-line-recAndPopularBlock-ItemLine-title">{{ biznes.title|safe }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="us-single-line-recAndPopularBlock-second">
+                        <!-- Slider main container -->
+                        <div class="swiper us-productsRec">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper us-productsRec-swiper">
+                                <!-- Slides -->
+                                {% for product in random_prod_line %}
+                                      <div class="swiper-slide">
+
+                                  <div class="us-products-page-products-productCard">
+        <div class="us-products-page-products-productCard-preview">
+            <div class="us-products-page-products-productCard_top">
+                <div class="us-products-page-products-productCard_status-block">
+                    <!-- <p class="us-products-page-products-productCard_status"><i class="fa-light fa-check"></i> Omborda mavjud</p> -->
+                   {% if product.delivery %}
+                    <p class="us-products-page-products-productCard_status"><i class="fa-light fa-truck-bolt" style="padding: 3px"></i>{% trans 'Buyurtma orqali' %}</p>
+                   {% endif %}
+                   {% if product.inbox %}
+                       <p class="us-products-page-products-productCard_status"><i class="fa-light fa-check" style="padding: 3px"></i>{% trans 'Omborda mavjud' %}</p>
+                   {% endif %}
+
+                    <span class="us-products-page-products-productCard_articuleID">ID:
+                                                        {{ product.pk }}</span>
+                </div>
+                <h3 class="us-products-page-products-productCard-product-title">
+                    {{ product.title }}</h3>
+            </div>
+            <div class="us-products-page-products-productCard_imageBlock">
+                <div class="us-products-page-products-productCard_img_back" style="background: url('{{ product.background.image.url }}') no-repeat center center / contain;">
+                     {% for i in product.images.all %}
+                                <a>
+                                    {% if forloop.counter == 1 %}
+                                         <img src="{{ i.image.url }}" alt="" class="us-products-page-products-productCard_img">
+                                    {% endif %}
+                                </a>
+                    {% endfor %}
+                </div>
+
+                <div class="us-products-page-products-productCard-discountBlock">
+                {% if product.is_new %}
+                     <p class="newProduct">🔥 {% trans 'New' %}<span></span></p>
+                {% endif %}
+                      {% if product.is_discount %}
+                             <p class="discounted">-{{ product.discount }}%</p>
+                      {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="us-products-page-products-productCard-detailsView">
+            <div class="us-products-page-products-productCard-content">
+                <h3 class="us-products-page-products-productCard-product-title">
+                    {{ product.title }}</h3>
+                <ul class="us-products-page-products-productCard-details_list">
+                      {% for j in product.specifications.all %}
+                         {% if forloop.counter < 5 %}
+                              <li class="us-products-page-products-productCard-details_item">
+                                {% if j.product_customer %}
+                                    <h4 class="us-products-page-products-productCard-detailname">{{ j.product_customer|safe }}:</h4>
+                                {% endif %}
+                                 {% if j.product_number %}
+                                    <p class="us-products-page-products-productCard-detail">{{ j.product_number|safe }}</p>
+                                {% endif %}
+                                </li>
+                         {% endif %}
+                     {% endfor %}
+                </ul>
+            </div>
+
+            <div class="us-products-page-products-productCard-secondPart">
+                <!-- Price & Inventory Info -->
+                <div class="us-products-page-products-productCard-status">
+                    <div class="us-products-page-products-productCard-priceInfo">
+                        <div class="us-products-page-products-productCard-priceabout">
+                            {% if product.CIP == True %}
+                                     <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term cip-term">CIP</span>
+                           {% elif product.DAF == True %}
+                                     <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term daf-term">DAF</span>
+                           {% elif product.EXW == True %}
+                                     <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term exw-term">EXW</span>
+                           {% elif product.FCA == True %}
+                                    <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="us-products-page-products-productCard-term exw-term">FCA</span>
+                           {% endif %}
+                            <h3 class="us-products-page-products-productCard-productPrice_dollar">${{ product.get_price }}</h3>
+                        </div>
+                        <p class="us-products-page-products-productCard-productPrice_som"><span> </span> {% trans "so'm" %}</p>
+                    </div>
+                    <!-- Buttons -->
+                    <div class="us-products-page-products-productCard_buttons">
+                         <a onclick="add_to_wishlist(this, {{ product.pk }})">
+                         {% if product|in_wishlist:request %}
+                                <button class="us-products-page-products-productCard_ibutton product-heart" type="submit"><i class="fa-solid fa-heart red-heart"></i></button>
+                          {% else %}
+                                <button class="us-products-page-products-productCard_ibutton" type="submit"><i class="fa-light fa-heart"></i></button>
+                          {% endif %}
+                        </a>
+                    </div>
+                </div>
+
+                <a href="{% url 'products:single' pk=product.pk %}" class="us-products-page-products-productCard-moreLink">{% trans 'More Details' %} <i class="fa-light fa-arrow-right"></i></a>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="container p-3">
-    {% if object.get_prev %}
-        <a href="{% url 'biznes:detail' pk=object.get_prev.pk %}">
-            <button class="btn btn-prev">
-            <img src="{% static './images/left.svg' %}" style="position: absolute;padding: 2px;margin-left: -9px;" alt="">
-            <span style="font-size: 20px;line-height: 24px;position: relative;left: 9px;">{% trans 'Перейти к предыдущей' %}</span>
-            </button>
-        </a>
-    {% endif %}
+                                </div>
+                                {% endfor %}
 
-    {% if object.get_next %}
-    <a href="{% url 'biznes:detail' pk=object.get_next.pk %}">
-            <button class="btn btn-next float-right"><span style="font-size: 17px;line-height: 24px;position: relative;left: -8px;">{% trans 'Перейти к следующей' %}</span>
-        <img src="{% static './images/right.svg' %}" style="position: absolute;padding: 2px;margin-left: -3px;" alt=""></button>
-    </a>
-    {% endif %}
 
-<!--mobile-->
-   {% if object.get_prev %}
-    <a href="{% url 'biznes:detail' pk=object.get_prev.pk %}"> <button class="btn btn-prev-mobile"><img src="{% static './images/left.svg' %}" style="position: absolute;padding: 2px;margin-left: -9px;" alt=""><span style="font-size: 19px;line-height: 24px;position: relative;left: 9px;">{% trans 'Назад' %}</span></button></a>
-   {% endif %}
+                            </div>
+                            <!-- If we need pagination -->
+                            <div class="swiper-pagination"></div>
 
-    {% if object.get_next %}
-    <a href="{% url 'biznes:detail' pk=object.get_next.pk %}"><button class="btn btn-next-mobile float-right"><span style="font-size: 19px;line-height: 24px;position: absolute;margin-left: -3%;"></span>{% trans 'Далее' %} <b></b><img src="{% static './images/right.svg' %}" style="position: absolute;padding: 2px;margin-left: -3px;" alt=""></button></a>
-    {% endif %}
-</div>
-<br>
-<br>
+                            <!-- If we need navigation buttons -->
+                            <!-- <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div> -->
 
+                            <!-- If we need scrollbar -->
+                            <!-- <div class="swiper-scrollbar"></div> -->
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script>
+const usProductsRec_swiper = new Swiper('.us-productsRec', {
+    // Optional parameters
+    spaceBetween: 10,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: true,
+        },
+  });
+</script>
+<script>
+    function add_to_wishlist(element, pk) {
+        $.getJSON('/products/' + "wishlist/" + pk, function (data) {
+            if (!data.status) {
+               $('#message').append(`<div style="padding:5px">
+                        <div id="inner-message" class="alert alert-error">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            Error
+                        </div>
+                    </div>`);
+            } else {
+                if (data.added) {
+                    element.innerHTML = '<button class="us-products-page-products-productCard_ibutton product-heart" type="submit"><i class="fa-solid fa-heart red-heart"></i></button>'
+                } else {
+                    element.innerHTML = '<button class="us-products-page-products-productCard_ibutton" type="submit"><i class="fa-light fa-heart"></i></button>'
+                }
+                  $('#like_count').html(data.wishlist_len);
+                  $('#like_count_2').html(data.wishlist_len);
+            }
+        });
+    }
+</script>
 {% endblock %}
