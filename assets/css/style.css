@@ -12400,7 +12400,7 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 .us-single-line-latest-container, .us-single-line-recAndPopularBlock-container {
     position: -webkit-sticky;
     position: sticky;
-    top: 5px;
+    top: 8%;
 }
 
 /* Latest Lines */
@@ -12469,6 +12469,7 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 /* Main Block */
 .us-single-line-mainBlock {
     flex: 3;
+    border-bottom: 1px solid #cbcbcb;
 }
 
 .us-single-line-mainBlock-container {
@@ -12583,6 +12584,10 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
     color: #333
 }
 
+.us-single-line-mainBlock-line-fullDescription {
+    margin-top: 10px;
+}
+
 /* Recommended & Popular block */
 .us-single-line-recAndPopularBlock {
     flex: 1;
@@ -12651,7 +12656,7 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 
 
 .us-productsRec {
-    max-width: 270px;
+    max-width: 280px;
     width: 100%;
 }
 
@@ -12730,23 +12735,29 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
     .us-single-line-mainBlock-line-title {
         font-size: 18px;
     }
-    .us-single-line-mainBlock-meta-downloadPDF {
-        font-size: 10px
-    }
     .us-single-line-mainBlock-share-links {
         margin-left: 15px;
     }
     .us-single-line-mainBlock-view {
-        font-size: 10px;
+        font-size: 11px;
     }
     .us-single-line-mainBlock-share-link a {
-        font-size: 14px;
+        font-size: 15px;
     }
     .us-productsRec {
         max-width: fit-content;
     }
     .us-single-line-mainBlock-container {
         margin: 0;
+    }
+    .us-single-line-latest-title, .us-single-line-recAndPopularBlock-title {
+        font-size: 17px;
+    }
+    .us-single-line-recAndPopularBlock-ItemLine {
+        padding: 15px 10px;
+    }
+    .us-single-line-mainBlock-line-fullDescription p{
+        font-size: 14px;
     }
 }
 /* end new single lines*/
