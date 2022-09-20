@@ -24,6 +24,7 @@
         <div class="blog-biznes">
             <div class="row">
                 {% for biznes in biznes|slice:':1' %}
+                    {{ forloop.counter }}
                     <div class="col-md-6">
                         <img src="{{ biznes.image.url }}" style="width:100%;height:400px" alt="">
                     </div>

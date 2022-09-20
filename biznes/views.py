@@ -1,3 +1,5 @@
+import time
+
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
@@ -11,7 +13,11 @@ class BiznesModelView(ListView):
     paginate_by = 7
 
 
-class BiznesModelDetailView(DetailView):
-    model = BiznesModel
-    template_name = 'single-biznes.html'
+def detail_view(request, pk):
+    object = BiznesModel.objects.get(id=pk)
+    object.views = object.views + 1
+    object.save()
 
+    return render(request, "single-biznes.html", context = {
+        'object': object
+    })
