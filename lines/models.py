@@ -37,6 +37,7 @@ class LineModel(models.Model):
     pdf = models.FileField(upload_to='line_pdf', verbose_name=_('line_pdf'), null=True, blank=True)
     description = models.TextField(verbose_name=_('description'))
     price = models.CharField(max_length=100, verbose_name=_('price'), null=True)
+    views = models.IntegerField(default=0, null=True, blank=True)
     long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
