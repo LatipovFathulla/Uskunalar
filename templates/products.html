@@ -308,9 +308,15 @@
                             {% else %}
                                 {% trans 'Mahsulotlar' %}
                             {% endif %}
+                         {% if request.GET.category %}
+                             <span>{{ categories.count }}</span>
+                           {% elif request.GET.subcategory %}
+                                <span>{{ subcategories.count }}</span>
+                            {% else %}
                             {% for product in products|slice:":1" %}
                                 <span>{{ pr_count }}</span>
                             {% endfor %}
+                         {% endif %}
                         </h2>
 
                         <!-- Filter Section -->

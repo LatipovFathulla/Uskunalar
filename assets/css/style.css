@@ -11281,7 +11281,11 @@ button.nextButton {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    overflow: hidden;
+    overflow: scroll;
+}
+
+.us-products-page-subcategories-list-item-count{
+    font-size:14px;
 }
 
 .us-products-page-categories-searchBlock {
@@ -12258,6 +12262,7 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 @media (max-width: 1200px) {
     .us-products-page-categories-holder {
         display: none;
+
     }
 
     .us-products-page-products-productCard_imageBlock {
