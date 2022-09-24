@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-24 17:26+0500\n"
+"POT-Creation-Date: 2022-09-24 17:47+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -513,12 +513,12 @@ msgid "Batafsil"
 msgstr "Batafsil"
 
 #: templates/index.html:2653 templates/products.html:431
-#: templates/single-product.html:1778
+#: templates/single-product.html:1779
 msgid "Популярные товары"
 msgstr "Ommabop mahsulotlar"
 
 #: templates/index.html:2654 templates/products.html:432
-#: templates/single-product.html:1779
+#: templates/single-product.html:1780
 msgid ""
 "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi "
 "jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan "
@@ -710,7 +710,7 @@ msgstr "Yangi"
 #: templates/layouts/product-sort2.html:401
 #: templates/layouts/product-sort2.html:424
 #: templates/layouts/products-sort.html:588
-#: templates/layouts/products-sort.html:655 templates/single-product.html:1587
+#: templates/layouts/products-sort.html:655 templates/single-product.html:1588
 msgid "so'm"
 msgstr "so'm"
 
@@ -842,59 +842,59 @@ msgstr ""
 msgid "Bank orqali xarid qilish"
 msgstr ""
 
-#: templates/single-product.html:1595
+#: templates/single-product.html:1596
 msgid "Sotib Olish"
 msgstr ""
 
-#: templates/single-product.html:1598
+#: templates/single-product.html:1599
 msgid "Pdf Yuklab olish"
 msgstr ""
 
-#: templates/single-product.html:1604 templates/single-product.html:1640
+#: templates/single-product.html:1605 templates/single-product.html:1641
 msgid "Ulashish"
 msgstr ""
 
-#: templates/single-product.html:1626 templates/single-product.html:1662
-#: templates/single-product.html:2067 templates/single-product.html:2158
+#: templates/single-product.html:1627 templates/single-product.html:1663
+#: templates/single-product.html:2068 templates/single-product.html:2159
 #, fuzzy
 #| msgid "Sevimlilar"
 msgid "Sevimlilarga qo`shildi"
 msgstr "Sevimlilar"
 
-#: templates/single-product.html:1628 templates/single-product.html:1664
-#: templates/single-product.html:2069 templates/single-product.html:2160
+#: templates/single-product.html:1629 templates/single-product.html:1665
+#: templates/single-product.html:2070 templates/single-product.html:2161
 #, fuzzy
 #| msgid "Sevimlilar"
 msgid "Sevimlilarga qo`shish"
 msgstr "Sevimlilar"
 
-#: templates/single-product.html:1679
+#: templates/single-product.html:1680
 msgid "Xususiyatlari"
 msgstr ""
 
-#: templates/single-product.html:1680
+#: templates/single-product.html:1681
 msgid "Tavsifi"
 msgstr ""
 
-#: templates/single-product.html:1681
+#: templates/single-product.html:1682
 #, fuzzy
 #| msgid "Bizning Videolar"
 msgid "Videolar"
 msgstr "Bizning Videolar"
 
-#: templates/single-product.html:1682
+#: templates/single-product.html:1683
 msgid "Yetkazib Berish"
 msgstr ""
 
-#: templates/single-product.html:1683
+#: templates/single-product.html:1684
 msgid "Kafolat shartlari"
 msgstr ""
 
-#: templates/single-product.html:1741
+#: templates/single-product.html:1742
 msgid "Biz bilan Aloqa"
 msgstr ""
 
-#: templates/single-product.html:1742
+#: templates/single-product.html:1743
 #, fuzzy
 #| msgid ""
 #| "Biz bilan bog'lanish uchun quyidagi formani to'ldiring va bizning "
@@ -906,11 +906,11 @@ msgstr ""
 "Biz bilan bog'lanish uchun quyidagi formani to'ldiring va bizning "
 "operatorlarimiz tez orada sizga aloqaga chiqishadi"
 
-#: templates/single-product.html:1748
+#: templates/single-product.html:1749
 msgid "Ismingiz"
 msgstr ""
 
-#: templates/single-product.html:1758
+#: templates/single-product.html:1759
 msgid "Xabar Muvaffaqiyatli Yuborildi"
 msgstr ""
 

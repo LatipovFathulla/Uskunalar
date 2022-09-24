@@ -15,5 +15,5 @@ class LineTranslationOptions(TranslationOptions):
 
 @register(LineModel)
 class AboutTranslationOptions(TranslationOptions):
-    fields = ('title', 'category', 'description', 'long_description')
+    fields = ('title', 'description', 'long_description')
 

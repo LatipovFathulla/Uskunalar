@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-24 17:26+0500\n"
+"POT-Creation-Date: 2022-09-24 17:47+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -509,12 +509,12 @@ msgid "Batafsil"
 msgstr "More"
 
 #: templates/index.html:2653 templates/products.html:431
-#: templates/single-product.html:1778
+#: templates/single-product.html:1779
 msgid "Популярные товары"
 msgstr "Popular products"
 
 #: templates/index.html:2654 templates/products.html:432
-#: templates/single-product.html:1779
+#: templates/single-product.html:1780
 msgid ""
 "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi "
 "jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan "
@@ -705,7 +705,7 @@ msgstr "New"
 #: templates/layouts/product-sort2.html:401
 #: templates/layouts/product-sort2.html:424
 #: templates/layouts/products-sort.html:588
-#: templates/layouts/products-sort.html:655 templates/single-product.html:1587
+#: templates/layouts/products-sort.html:655 templates/single-product.html:1588
 msgid "so'm"
 msgstr "sum"
 
@@ -837,53 +837,53 @@ msgstr "(sum)"
 msgid "Bank orqali xarid qilish"
 msgstr "Shopping through the Bank"
 
-#: templates/single-product.html:1595
+#: templates/single-product.html:1596
 msgid "Sotib Olish"
 msgstr "Purchase"
 
-#: templates/single-product.html:1598
+#: templates/single-product.html:1599
 msgid "Pdf Yuklab olish"
 msgstr "Download Pdf"
 
-#: templates/single-product.html:1604 templates/single-product.html:1640
+#: templates/single-product.html:1605 templates/single-product.html:1641
 msgid "Ulashish"
 msgstr "Share"
 
-#: templates/single-product.html:1626 templates/single-product.html:1662
-#: templates/single-product.html:2067 templates/single-product.html:2158
+#: templates/single-product.html:1627 templates/single-product.html:1663
+#: templates/single-product.html:2068 templates/single-product.html:2159
 msgid "Sevimlilarga qo`shildi"
 msgstr "Added to wishlist"
 
-#: templates/single-product.html:1628 templates/single-product.html:1664
-#: templates/single-product.html:2069 templates/single-product.html:2160
+#: templates/single-product.html:1629 templates/single-product.html:1665
+#: templates/single-product.html:2070 templates/single-product.html:2161
 msgid "Sevimlilarga qo`shish"
 msgstr "Add to wishlist"
 
-#: templates/single-product.html:1679
+#: templates/single-product.html:1680
 msgid "Xususiyatlari"
 msgstr "Features"
 
-#: templates/single-product.html:1680
+#: templates/single-product.html:1681
 msgid "Tavsifi"
 msgstr "Descriptions"
 
-#: templates/single-product.html:1681
+#: templates/single-product.html:1682
 msgid "Videolar"
 msgstr "Videos"
 
-#: templates/single-product.html:1682
+#: templates/single-product.html:1683
 msgid "Yetkazib Berish"
 msgstr "Delivery"
 
-#: templates/single-product.html:1683
+#: templates/single-product.html:1684
 msgid "Kafolat shartlari"
 msgstr "Warranty terms"
 
-#: templates/single-product.html:1741
+#: templates/single-product.html:1742
 msgid "Biz bilan Aloqa"
 msgstr "Contact Us"
 
-#: templates/single-product.html:1742
+#: templates/single-product.html:1743
 msgid ""
 "Ushbu uskunani xarid qilish uchun quyidagi formani to'ldiring va bizning "
 "operatorlarimiz tez orada siz bilan bog'lanishadi."
@@ -891,11 +891,11 @@ msgstr ""
 "Please fill out the form below to contact us and our operators will contact "
 "withyou soon"
 
-#: templates/single-product.html:1748
+#: templates/single-product.html:1749
 msgid "Ismingiz"
 msgstr "Name"
 
-#: templates/single-product.html:1758
+#: templates/single-product.html:1759
 msgid "Xabar Muvaffaqiyatli Yuborildi"
 msgstr "Sent succsessfully"
 
