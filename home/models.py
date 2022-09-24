@@ -102,7 +102,7 @@ class BannerInfoModel(models.Model):
     discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'), null=True)
     inbox = models.CharField(max_length=50, blank=True,)
     delivery = models.CharField(max_length=50, blank=True,)
-    short_description = models.TextField(verbose_name=_('short_description'), null=True, blank=True)
+    short_description = RichTextUploadingField(verbose_name=_('short_description'), null=True, blank=True)
     long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True, blank=True)
     video = EmbedVideoField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
