@@ -11276,12 +11276,18 @@ button.nextButton {
     border-right: 1px solid #ececec;
     padding: 10px;
     padding-right: 0px;
-    height: 100vh;
+    height: 120vh;
     flex: 1 0 100%;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    overflow: scroll;
+    overflow: hidden;
+}
+
+.us-products-page-subcategories-list {
+    overflow: hidden;
+    overflow-y: scroll;
+     height: 100%;
 }
 
 .us-products-page-subcategories-list-item-count{

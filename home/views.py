@@ -9,7 +9,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, TemplateView, DetailView
 from rest_framework.response import Response
 
-from home.models import BannerInfoModel, CategoryModel, SubCategoryModel
+from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, ProductEXWModel
 from home.utils import get_wishlist_data
 
 

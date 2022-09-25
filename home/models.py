@@ -80,6 +80,33 @@ class BannerBackModel(models.Model):
         verbose_name_plural = _('Banner_backs')
 
 
+class ProductEXWModel(models.Model):
+    MY_SELECT_OPTIONS = (
+        ('CIP', 'CIP'),
+        ('DAF', 'DAF'),
+        ('EXW', 'EXW'),
+        ('FCA', 'FCA')
+    )
+    delivery = models.CharField(
+        max_length=30,
+        choices=MY_SELECT_OPTIONS,
+        default=None,
+        verbose_name=_('delivery')
+    )
+
+    title = models.CharField(max_length=300, verbose_name=_('title'))
+    short_descriptions = RichTextUploadingField()
+    long_descriptions = RichTextUploadingField()
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('Delivery')
+        verbose_name_plural = _('Delivery')
+
+
 class BannerInfoModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
     sku = models.AutoField(primary_key=True, db_index=True)
@@ -92,7 +119,7 @@ class BannerInfoModel(models.Model):
     subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.CASCADE, verbose_name=_('subcategory'),
                                     related_name='products',
                                     null=True, blank=True)
-
+    type = models.ForeignKey(ProductEXWModel, on_delete=models.CASCADE, verbose_name=_('type'), null=True)
     city = models.CharField(max_length=99, verbose_name=_('city'), null=True, db_index=True)
     CIP = models.BooleanField(default=False, verbose_name=_('CIP'), help_text=_('SELECT ONLY ONE'))
     DAF = models.BooleanField(default=False, verbose_name=_('DAF'))
@@ -100,8 +127,8 @@ class BannerInfoModel(models.Model):
     FCA = models.BooleanField(default=False, verbose_name=_('FCA'))
     price = models.DecimalField(max_digits=12, decimal_places=0, verbose_name=_('price'))
     discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'), null=True)
-    inbox = models.CharField(max_length=50, blank=True,)
-    delivery = models.CharField(max_length=50, blank=True,)
+    inbox = models.CharField(max_length=50, blank=True, )
+    delivery = models.CharField(max_length=50, blank=True, )
     short_description = RichTextUploadingField(verbose_name=_('short_description'), null=True, blank=True)
     long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True, blank=True)
     video = EmbedVideoField(null=True, blank=True)
