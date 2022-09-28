@@ -2569,7 +2569,7 @@
                                 <h1 class="title">{{ carousel.title }}</h1>
                                 <h1 class="title">{{ carousel.descriptions }}</h1>
                             </div>
-                            <div class="column"><img class="float image slide_img" src="{{ carousel.image.url }}"/>
+                            <div class="column"><img class="float image slide_img" src="{{ carousel.image.url }}" alt="{{ carousel.title }}"/>
                             </div>
                         </div>
                         </div>
@@ -2591,7 +2591,7 @@
                     {% for category in all_categories %}
                         <a href="{% url 'products:product' %}?category={{ category.pk }}"
                            class="swiper-slide categories-link">
-                            <img src="{{ category.image.url }}" alt="" class="categories-icon">
+                            <img src="{{ category.image.url }}" alt="{{ category.category|safe }}" class="categories-icon">
                             <h2 class="categories-title">{{ category.category|safe }}</h2>
                         </a>
                     {% endfor %}
@@ -2648,9 +2648,9 @@
     <br>
 
     <div class="container">
-        <h1 class="text-center"
+        <h2 class="text-center"
             style="font-weight: 600;font-size: 35px;padding: 20px;margin-left: 0%;">
-            {% trans 'Популярные товары' %}</h1>
+            {% trans 'Популярные товары' %}</h2>
         <p class="home-product-desc text-center">{% trans "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan doimiy ravishda boyitib borilmoqda. Quyida esa Saytimiz kuzatuvchilarining qiziqishlari, talab va istaklari natijasida saralangan ommabop mahsulotlarni taqdim qilamiz. Bizni kuzatishda davom eting!" %}</p>
         <br>
         <br>
@@ -2742,9 +2742,9 @@
     </div>
     <!--new about-->
     <div class="container" style="margin-top:5%">
-        <h1 class="text-center"
+        <h2 class="text-center"
             style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
-            {% trans 'Готовый бизнес' %}</h1>
+            {% trans 'Готовый бизнес' %}</h2>
         <p class="home-product-desc text-center">{% trans "Bizning saytimizda nafaqat uskunalar haqida ma'lumot olishingiz, balki tadbirkorlik faoliyatini yo'lga qo'ymoqchi bo'lsangiz jahonda mavjud so'ngi texnalogiyalar asosida tajribali mutaxasislarimiz tomonidan ishlab chiqilgan tayyor biznes loyihalar bilan tanishishingiz mumkin." %}</p>
         <br>
         <img src="{% static './images/title-icon.png' %}" style="margin:auto;display:block">
@@ -2756,7 +2756,7 @@
             <div class="binzes-big-block">
                 {% for biznes in biznes|slice:':1' %}
                     <div class="biznes-all-block">
-                        <img class="biznes-big-image" src="{{ biznes.image.url }}" alt="">
+                        <img class="biznes-big-image" src="{{ biznes.image.url }}" alt="{{ biznes.title|safe }}">
                         <div class="biznes-text-block">
                             <h3 style="word-break: break-all;">{{ biznes.title|safe }}</h3>
                             <p style="word-break: break-all;">{{ biznes.long_descriptions|slice:':100'|safe }}</p>
@@ -2768,7 +2768,7 @@
             <div class="biznes-extra-block">
                 {% for biznes in biznes|slice:':3' %}
                     <div class="biznes-inner-block">
-                        <img class="biznes-small-image-block" src="{{ biznes.image.url }}" alt="">
+                        <img class="biznes-small-image-block" src="{{ biznes.image.url }}" alt="{{ biznes.title|safe }}">
                         <div class="biznes-inner-text-block">
                             <h3 style="word-break: break-all;font-size:17px;">{{ biznes.title|safe }}</h3>
                             <span class="biznes-p-block">{{ biznes.long_descriptions|slice:':200'|safe }}....</span>
@@ -2788,9 +2788,9 @@
     <br>
     <br>
     <div class="container">
-        <h1 class="text-center"
+        <h2 class="text-center"
             style="font-weight: 600;font-size: 35px;padding: 20px;margin-left: 0%;">
-            {% trans 'Статьи и советы' %}</h1>
+            {% trans 'Статьи и советы' %}</h2>
         <p class="home-product-desc text-center">{% trans "Kompaniyamiz faoliyati davomida yig'ilgan tajriba va ko'nikmalar asosida sizning muammolaringizni yechishda yordam beradigan maqola va maslahatlarni berib boramiz." %}</p>
         <br>
         <br>
@@ -2831,8 +2831,8 @@
         </div>
     </div>
     <div class="container">
-        <h1 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;">
-            {% trans 'Наши работы' %}</h1>
+        <h2 class="text-center" style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;">
+            {% trans 'Наши работы' %}</h2>
         <p class="home-product-desc text-center">{% trans "Bizning Kompaniyamiz butun Markaziy Osiyoda ishlab chiqarish sohasida birinchilardan bo'lib zamonaviy texnika-texnologiyalar bilan ko'plab tadbirkorlik subyektlarini asos solinishida katta xizmat ko'rsatib kelmoqda. Bizning asosiy maqsadimiz tadbirkorlik sohasini rivojlantirish va keng, qulay imkoniyatlar yaratish. Uzkunalar.uz ni siz uchun yaratdik!" %}</p>
         <br>
         <br>
@@ -2869,7 +2869,7 @@
     <div class="us-our-partners">
         <div class="us-our-partners-container">
             <div class="us-our-partners-content">
-                <h1 class="us-our-partners-title">{% trans 'Наши партнеры' %}</h1>
+                <h2 class="us-our-partners-title">{% trans 'Наши партнеры' %}</h2>
                 <div class="us-our-partners-desc">{% trans "Kompaniyamiz 18 yilldan beri jahonning 10 mingdan ortiq zavodlar bilan hamkorlikda ishlab kelmoqda. Xususan, Xitoy, Turkiya, Eron, Rossiya, Hindiston, Germaniya va Italiya kabi davlatlaridagi korxonalar bilan mustahkam sherikchilik aloqalari o'rnatilgan." %}
                 </div>
                 <img src="{% static './images/title-icon.png' %}" alt="" class="us-our-partners-img">

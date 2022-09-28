@@ -12005,7 +12005,7 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 
 .us-products-hr-card_img {
     /* transform: translateY(-15%); */
-    max-width: 100%;
+    max-width: initial;
     width: 200px;
     vertical-align: middle;
 }
@@ -12013,7 +12013,7 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 .us-products-hr-card-detailsAndCountry {
     display: flex;
     flex-direction: column;
-    flex: 1 0 auto;
+    /*flex: 1 0 auto;*/
     margin-left: 15px;
     justify-content: space-between;
 }
@@ -12083,14 +12083,14 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
     align-items: flex-end;
     line-height: 150%;
     margin: 0 15px;
-    flex: 1;
+    flex: 0.7;
     margin-left: 20px;
     padding-top: 10px;
 }
 
 .us-products-hr-card-productPrice_dollar {
     font-size: 26px;
-    color: #FF0000;
+    color: #ff0000;
     font-weight: 600;
     text-align: center;
 }

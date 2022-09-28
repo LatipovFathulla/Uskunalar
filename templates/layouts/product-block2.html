@@ -226,7 +226,7 @@
                      {% for i in product.images.all %}
                                 <a>
                                     {% if forloop.counter == 1 %}
-                                         <img src="{{ i.image.url }}" alt="" class="us-products-page-products-productCard_img">
+                                         <img src="{{ i.image.url }}" alt="{{ product.title }}" class="us-products-page-products-productCard_img">
                                     {% endif %}
                                 </a>
                     {% endfor %}
@@ -244,8 +244,9 @@
         </div>
         <div class="us-products-page-products-productCard-detailsView">
             <div class="us-products-page-products-productCard-content">
-                <h3 class="us-products-page-products-productCard-product-title">
-                    {{ product.title }}</h3>
+                <a href="{% url 'products:single' pk=product.pk %}">
+                    <h3 class="us-products-page-products-productCard-product-title">{{ product.title }}</h3>
+                </a>
                 <ul class="us-products-page-products-productCard-details_list">
                       {% for j in product.specifications.all %}
                          {% if forloop.counter < 5 %}
