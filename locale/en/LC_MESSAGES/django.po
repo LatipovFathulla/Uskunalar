@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-29 19:21+0500\n"
+"POT-Creation-Date: 2022-09-30 02:16+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,13 +23,13 @@ msgid "about"
 msgstr "about"
 
 #: about/models.py:9 biznes/models.py:8 blog/models.py:7 gallery/models.py:9
-#: home/models.py:85 home/models.py:176 lines/models.py:34 videos/models.py:8
+#: home/models.py:85 home/models.py:180 lines/models.py:34 videos/models.py:8
 #: works/models.py:7
 msgid "title"
 msgstr "title"
 
 #: about/models.py:10 blog/models.py:8 clients/models.py:6 gallery/models.py:28
-#: home/models.py:61 home/models.py:73 home/models.py:156 home/models.py:178
+#: home/models.py:61 home/models.py:73 home/models.py:160 home/models.py:182
 #: lines/models.py:35 lines/models.py:62
 msgid "image"
 msgstr "image"
@@ -40,7 +40,7 @@ msgstr "description"
 
 #: about/models.py:13 about/models.py:27 biznes/models.py:12
 #: biznes/models.py:33 clients/models.py:7 gallery/models.py:14
-#: home/models.py:25 home/models.py:109 lines/models.py:9 lines/models.py:21
+#: home/models.py:25 home/models.py:113 lines/models.py:9 lines/models.py:21
 #: lines/models.py:42 orders/models.py:12 videos/models.py:11
 msgid "created_at"
 msgstr "created_at"
@@ -211,7 +211,7 @@ msgstr ""
 msgid "Banner_backs"
 msgstr ""
 
-#: home/models.py:87 home/models.py:179
+#: home/models.py:87 home/models.py:183
 msgid "background"
 msgstr ""
 
@@ -243,10 +243,6 @@ msgstr ""
 msgid "FCA"
 msgstr ""
 
-#: home/models.py:101
-msgid "priceType"
-msgstr ""
-
 #: home/models.py:102 lines/models.py:39
 msgid "price"
 msgstr ""
@@ -255,51 +251,71 @@ msgstr ""
 msgid "discount"
 msgstr ""
 
-#: home/models.py:148 home/models.py:149 home/models.py:165 orders/models.py:10
+#: home/models.py:108
+#, fuzzy
+#| msgid "title"
+msgid "price_title"
+msgstr "title"
+
+#: home/models.py:109
+#, fuzzy
+#| msgid "image"
+msgid "price_image"
+msgstr "image"
+
+#: home/models.py:110
+msgid "price_short"
+msgstr ""
+
+#: home/models.py:111
+msgid "price_long"
+msgstr ""
+
+#: home/models.py:152 home/models.py:153 home/models.py:169 orders/models.py:10
 msgid "products"
 msgstr ""
 
-#: home/models.py:155
+#: home/models.py:159
 msgid "product"
 msgstr ""
 
-#: home/models.py:159
+#: home/models.py:163
 msgid "product image"
 msgstr ""
 
-#: home/models.py:160
+#: home/models.py:164
 msgid "product images"
 msgstr ""
 
-#: home/models.py:166
+#: home/models.py:170
 msgid "product_customer"
 msgstr ""
 
-#: home/models.py:167
+#: home/models.py:171
 msgid "product_numbers"
 msgstr ""
 
-#: home/models.py:168
+#: home/models.py:172
 msgid "product_image"
 msgstr ""
 
-#: home/models.py:171
+#: home/models.py:175
 msgid "product specification"
 msgstr ""
 
-#: home/models.py:172
+#: home/models.py:176
 msgid "product specifications"
 msgstr ""
 
-#: home/models.py:177 works/models.py:10
+#: home/models.py:181 works/models.py:10
 msgid "descriptions"
 msgstr ""
 
-#: home/models.py:186
+#: home/models.py:190
 msgid "carousel"
 msgstr ""
 
-#: home/models.py:187
+#: home/models.py:191
 msgid "carousels"
 msgstr ""
 
@@ -703,23 +719,23 @@ msgstr "Our videos"
 msgid "Bizning Maqolalar"
 msgstr "Our artiles"
 
-#: templates/layouts/product-block2.html:212
+#: templates/layouts/product-block2.html:298
 #: templates/layouts/product-sort2.html:359 templates/single-product.html:1477
 msgid "Buyurtma orqali"
 msgstr "By order"
 
-#: templates/layouts/product-block2.html:215
+#: templates/layouts/product-block2.html:301
 #: templates/layouts/product-sort2.html:362 templates/single-product.html:1471
 msgid "Omborda mavjud"
 msgstr "In stock"
 
-#: templates/layouts/product-block2.html:237
+#: templates/layouts/product-block2.html:323
 #: templates/layouts/product-sort2.html:342 templates/products.html:419
 #: templates/single-product.html:1464
 msgid "New"
 msgstr "New"
 
-#: templates/layouts/product-block2.html:282
+#: templates/layouts/product-block2.html:368
 #: templates/layouts/product-sort2.html:401
 #: templates/layouts/product-sort2.html:424
 #: templates/layouts/products-sort.html:588
@@ -727,7 +743,7 @@ msgstr "New"
 msgid "so'm"
 msgstr "sum"
 
-#: templates/layouts/product-block2.html:296
+#: templates/layouts/product-block2.html:382
 #: templates/layouts/product-sort2.html:427
 #: templates/layouts/product_block.html:100
 #: templates/layouts/products-sort.html:591
