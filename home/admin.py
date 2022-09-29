@@ -9,8 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 
 from home.models import BannerInfoModel, CategoryModel, \
-    SubCategoryModel, BannerImageModel, ProductSpecificationsModel, CarouselModel, BannerBackModel, BannerCountryModel, \
-    ProductEXWModel
+    SubCategoryModel, BannerImageModel, ProductSpecificationsModel, CarouselModel, BannerBackModel, BannerCountryModel
 
 
 class MyTranslationAdmin(TranslationAdmin):
@@ -107,17 +106,10 @@ class BannerBackModelAdmin(admin.ModelAdmin):
     get_html_photo.short_description = "цвета"
 
 
-@admin.register(ProductEXWModel)
-class ProductEXWModelAdmin(admin.ModelAdmin):
-    list_display = ['title', 'created_at']
-    search_fields = ['title', 'delivery']
-    list_filter = ['title', 'created_at']
-
-
 @admin.register(BannerInfoModel)
 class BannerInfoModelAdmin(MyTranslationAdmin):
     list_display = ['pk', 'title', 'city', 'created_at', 'category', 'subcategory']
-    fields = ('title', 'background', 'category', 'subcategory', 'country', 'type', 'pdf', ('CIP', 'DAF', 'EXW', 'FCA'), 'price',
+    fields = ('title', 'background', 'category', 'subcategory', 'country', 'pdf', ('CIP', 'DAF', 'EXW', 'FCA'), 'priceType', 'price',
               'discount', 'inbox', 'delivery', 'short_description', 'long_description', 'video',)
     search_fields = ['title', 'pk']
     list_filter = ['created_at']
