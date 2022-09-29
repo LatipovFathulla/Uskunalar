@@ -106,7 +106,7 @@ class BannerInfoModel(models.Model):
     short_description = RichTextUploadingField(verbose_name=_('short_description'), null=True, blank=True)
     long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True, blank=True)
     price_title = models.CharField(max_length=300, verbose_name=_('price_title'), null=True)
-    price_image = models.FileField(upload_to='price_image', verbose_name=_('price_image'), null=True)
+    price_image = models.ImageField(upload_to='price_image', verbose_name=_('price_image'), null=True)
     price_short_description = RichTextUploadingField(null=True, blank=True, verbose_name=_('price_short'))
     price_long_description = RichTextUploadingField(null=True, blank=True, verbose_name=_('price_long'))
     video = EmbedVideoField(null=True, blank=True)

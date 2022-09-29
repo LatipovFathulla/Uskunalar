@@ -389,8 +389,10 @@
         <div class="us-products-page-products-productCard-term-block">
             <div class="productCard-term-content">
                 <span class="productCard-term-close_btn"><i class="fa-regular fa-xmark-large"></i></span>
-                <img src="{% static '/images/incoterms banner.jpg' %}" alt="" class="productCard-term-img">
-                <h3 class="productCard-term-title">{{ product.price_title }}</h3>
+                {% if product.price_image %}
+                     <img src="{{ product.price_image.url }}" alt="" class="productCard-term-img">
+                {% endif %}
+                <h3 class="productCard-term-title" style="color:#fff">{{ product.price_title }}</h3>
                 <p class="productCard-term-desc">{{ product.price_short_description|safe }}</p>
             </div>
             <div class="productCard-term-content-maincontent">
