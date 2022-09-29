@@ -390,12 +390,12 @@
             <div class="productCard-term-content">
                 <span class="productCard-term-close_btn"><i class="fa-regular fa-xmark-large"></i></span>
                 <img src="{% static '/images/incoterms banner.jpg' %}" alt="" class="productCard-term-img">
-                <h3 class="productCard-term-title">Incoterms</h3>
-                <p class="productCard-term-desc">International commercial terms—Incoterms for short—clarify the rules and terms buyers and sellers use in international and domestic trade contracts. </p>
+                <h3 class="productCard-term-title">{{ product.price_title }}</h3>
+                <p class="productCard-term-desc">{{ product.price_short_description|safe }}</p>
             </div>
             <div class="productCard-term-content-maincontent">
                 <!-- Content from Backend -->
-                    {{ product.priceType|safe }}
+                    {{ product.price_long_description|safe }}
             </div>
         </div>
 </div>

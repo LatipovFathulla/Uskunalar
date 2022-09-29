@@ -98,13 +98,17 @@ class BannerInfoModel(models.Model):
     DAF = models.BooleanField(default=False, verbose_name=_('DAF'))
     EXW = models.BooleanField(default=False, verbose_name=_('EXW'))
     FCA = models.BooleanField(default=False, verbose_name=_('FCA'))
-    priceType = RichTextUploadingField(null=True, blank=True, verbose_name=_('priceType'))
+
     price = models.DecimalField(max_digits=12, decimal_places=0, verbose_name=_('price'))
     discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'), null=True)
     inbox = models.CharField(max_length=50, blank=True, )
     delivery = models.CharField(max_length=50, blank=True, )
     short_description = RichTextUploadingField(verbose_name=_('short_description'), null=True, blank=True)
     long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True, blank=True)
+    price_title = models.CharField(max_length=300, verbose_name=_('price_title'), null=True)
+    price_image = models.FileField(upload_to='price_image', verbose_name=_('price_image'), null=True)
+    price_short_description = RichTextUploadingField(null=True, blank=True, verbose_name=_('price_short'))
+    price_long_description = RichTextUploadingField(null=True, blank=True, verbose_name=_('price_long'))
     video = EmbedVideoField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
