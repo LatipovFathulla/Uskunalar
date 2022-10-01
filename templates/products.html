@@ -392,9 +392,9 @@
                                 {% trans 'Mahsulotlar' %}
                             {% endif %}
                          {% if request.GET.category %}
-                             <span>{{ categories.count }}</span>
+                             <span>{{ cat_count }}</span>
                            {% elif request.GET.subcategory %}
-                                <span>{{ subcategories.count }}</span>
+                                <span>{{ sub_cat_count }}</span>
                             {% else %}
                             {% for product in products|slice:":1" %}
                                 <span>{{ pr_count }}</span>
@@ -418,7 +418,7 @@
 {#                                                                    </select>#}
                                <li class="us-products-page-filterBlock-item {% if request.GET.sort == 'created_at' %}active{% endif %}" onclick="addUrlParameter('sort', 'created_at')">{% trans 'New' %}</li>
                                 <li class="us-products-page-filterBlock-item {% if request.GET.sort == 'price' %}active{% endif %}" onclick="addUrlParameter('sort', 'price')">{% trans "Narxiga ko'ra" %}</li>
-                                <li class="us-products-page-filterBlock-item">{% trans "Ommabopligi bo'yicha" %}</li>
+                                <li class="us-products-page-filterBlock-item {% if request.GET.sort == 'view_count' %}active{% endif %}" onclick="addUrlParameter('sort', 'view_count')">{% trans "Ommabopligi bo'yicha" %}</li>
                             </ul>
 
                                 <ul>

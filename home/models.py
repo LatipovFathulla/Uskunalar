@@ -80,7 +80,6 @@ class BannerBackModel(models.Model):
         verbose_name_plural = _('Banner_backs')
 
 
-
 class BannerInfoModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
     sku = models.AutoField(primary_key=True, db_index=True)
@@ -89,7 +88,9 @@ class BannerInfoModel(models.Model):
     country = models.ForeignKey(BannerCountryModel, on_delete=models.SET_NULL, verbose_name=_('country'), null=True,
                                 blank=True)
     pdf = models.FileField(upload_to='pdf', verbose_name=_('pdf'), null=True, blank=True)
-    category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, verbose_name=_('category'), null=True)
+    category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, verbose_name=_('category'), null=True,
+                                 related_name='products_category'
+                                 )
     subcategory = models.ForeignKey(SubCategoryModel, on_delete=models.CASCADE, verbose_name=_('subcategory'),
                                     related_name='products',
                                     null=True, blank=True)
@@ -110,6 +111,7 @@ class BannerInfoModel(models.Model):
     price_short_description = RichTextUploadingField(null=True, blank=True, verbose_name=_('price_short'))
     price_long_description = RichTextUploadingField(null=True, blank=True, verbose_name=_('price_long'))
     video = EmbedVideoField(null=True, blank=True)
+    view_count = models.IntegerField(default=0, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def is_discount(self):
@@ -119,6 +121,9 @@ class BannerInfoModel(models.Model):
         if self.is_discount():
             return self.price - self.price * self.discount / 100
         return self.price
+
+    def get_view_count(self):
+        return self.view_count
 
     def is_new(self):
         diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at

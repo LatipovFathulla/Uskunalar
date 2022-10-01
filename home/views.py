@@ -38,9 +38,9 @@ class BannerInfoModelView(ListView):
         price = self.request.GET.get('price')
         sort = self.request.GET.get('sort')
         som = self.request.GET.get('price')
+        view_count = self.request.GET.get('view_count')
         created_at = self.request.GET.get('created_at')
         inbox = self.request.GET.get('inbox')
-        subcategory_count = self.request.GET.get('subcategory_count')
         delivery = self.request.GET.get('delivery')
 
         filters = {}
@@ -79,6 +79,8 @@ class BannerInfoModelView(ListView):
                 qs = sorted(qs, key=lambda i: i.get_price())
             elif sort == '-price':
                 qs = sorted(qs, key=lambda i: i.get_price(), reverse=True)
+            elif sort == 'view_count':
+                qs = sorted(qs, key=lambda i: i.get_view_count(), reverse=True)
 
         if som:
             if som == 'som':
@@ -90,12 +92,15 @@ class BannerInfoModelView(ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
+        category = self.request.GET.get('category')
+        subcategory = self.request.GET.get('subcategory')
         context['min_price'], context['max_price'] = BannerInfoModel.objects.aggregate(
             Min('price'),
             Max('price')
         ).values()
         context['pr_count'] = BannerInfoModel.objects.count()
-        context['cat_count'] = CategoryModel.objects.count()
+        context['cat_count'] = BannerInfoModel.objects.filter(category=category).count()
+        context['sub_cat_count'] = BannerInfoModel.objects.filter(subcategory=subcategory).count()
         return context
 
 
@@ -115,6 +120,8 @@ class SingleModelDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        self.object.view_count += 1
+        self.object.save()
         if self.object.subcategory:
             context['related'] = self.object.subcategory.products.exclude(pk=self.object.pk)[:2]
         return context
