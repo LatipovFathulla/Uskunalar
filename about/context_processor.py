@@ -19,6 +19,8 @@ def index_categories(request):
     random_prod_line = BannerInfoModel.objects.order_by('?')[:6]
     random_biznes = BiznesModel.objects.order_by('?')[:4]
     random_prod_biznes = BiznesModel.objects.order_by('?')[:6]
+    random_blog = BlogModel.objects.order_by('?')[:4]
+    random_prod_blog = BlogModel.objects.order_by('?')[:8]
 
     return {
         'products': products,
@@ -34,4 +36,6 @@ def index_categories(request):
         'random_prod_line': random_prod_line,
         'random_biznes': random_biznes,
         'random_prod_biznes': random_prod_biznes,
+        'random_blog': random_blog,
+        'random_prod_blog': random_prod_blog,
     }

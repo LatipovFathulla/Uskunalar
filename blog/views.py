@@ -15,6 +15,11 @@ class BlogModelView(ListView):
         return qs
 
 
-class SingleBlogView(DetailView):
-    template_name = 'single-blog.html'
-    model = BlogModel
+def blog_view(request, pk):
+    object = BlogModel.objects.get(id=pk)
+    object.views = object.views + 1
+    object.save()
+
+    return render(request, "single-blog.html", context = {
+        'object': object
+    })

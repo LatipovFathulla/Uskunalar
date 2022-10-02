@@ -4,7 +4,11 @@
 {% load static %}
 {% load paginator_tags %}
 {% block content %}
-
+<style>
+   dl, ol, ul {
+        margin-bottom: 0;
+    }
+</style>
 
 
  <div class="us-navigation-block">
@@ -42,9 +46,9 @@
                                         <p class="date-number">{{ blog.created_at|date:'d' }}<span>
                                         <p class="date-date">{{ blog.created_at|date:'F' }}</p></span></p>
                                     </div>
-                                    <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 50px;position: absolute;">Просмотрено 1202 человек</small>
+                                    <small style="color: #A9A9AA;font-family:sans-serif;font-weight: 100;margin-top: 50px;position: absolute;">{% trans "Просмотрено" %} {{ blog.views }} {% trans "человек" %}</small>
                                     <p class="blog-title" >{{ blog.title|safe }}</p>
-                                    <div class="blog-desc">{{ blog.smart_description|safe|slice:':250' }}..</div>
+                                    <div class="blog-desc">{{ blog.description|safe|slice:':250' }}..</div>
                                     <a href="{% url 'blog:single-blog' pk=blog.pk %}">{% trans 'Читать дальше' %} <i class="fa-light fa-angle-right" style="font-size: 20px;font-weight: 600;"></i></a>
                                 </div>
                             </div>

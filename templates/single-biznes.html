@@ -55,7 +55,7 @@
         <div class="us-single-line-container">
             <aside class="us-single-line-latest">
                 <div class="us-single-line-latest-container">
-                    <h3 class="us-single-line-latest-title"><i class="fa-regular fa-circle-small"></i> O'xshash bizneslar
+                    <h3 class="us-single-line-latest-title"><i class="fa-regular fa-circle-small"></i> {% trans "O'xshash bizneslar" %}
                     </h3>
                     <ul class="us-single-line-latest-listOfLines">
                         {% for biznes in random_biznes %}
@@ -93,7 +93,7 @@
                             </ul>
                         </div>
                         <a href="{{ object.pdf.url }}"><button class="us-single-line-mainBlock-meta-downloadPDF"><i class="fa-regular fa-files"></i>
-                            Download PDF</button></a>
+                            {% trans "Download PDF" %}</button></a>
                     </div>
 
                     <h1 class="us-single-line-mainBlock-line-title">{{ object.title }}</h1>

@@ -5,4 +5,4 @@ from blog.models import BlogModel
 
 @register(BlogModel)
 class BlogTranslationOptions(TranslationOptions):
-    fields = ('title', 'description',  'smart_description', 'smart_text')
+    fields = ('title', 'description',  'smart_description')

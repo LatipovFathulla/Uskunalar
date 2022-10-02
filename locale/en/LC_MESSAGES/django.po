@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-30 02:16+0500\n"
+"POT-Creation-Date: 2022-10-03 00:45+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,13 +23,13 @@ msgid "about"
 msgstr "about"
 
 #: about/models.py:9 biznes/models.py:8 blog/models.py:7 gallery/models.py:9
-#: home/models.py:85 home/models.py:180 lines/models.py:34 videos/models.py:8
+#: home/models.py:84 home/models.py:185 lines/models.py:34 videos/models.py:8
 #: works/models.py:7
 msgid "title"
 msgstr "title"
 
 #: about/models.py:10 blog/models.py:8 clients/models.py:6 gallery/models.py:28
-#: home/models.py:61 home/models.py:73 home/models.py:160 home/models.py:182
+#: home/models.py:61 home/models.py:73 home/models.py:165 home/models.py:187
 #: lines/models.py:35 lines/models.py:62
 msgid "image"
 msgstr "image"
@@ -40,7 +40,7 @@ msgstr "description"
 
 #: about/models.py:13 about/models.py:27 biznes/models.py:12
 #: biznes/models.py:33 clients/models.py:7 gallery/models.py:14
-#: home/models.py:25 home/models.py:113 lines/models.py:9 lines/models.py:21
+#: home/models.py:25 home/models.py:115 lines/models.py:9 lines/models.py:21
 #: lines/models.py:42 orders/models.py:12 videos/models.py:11
 msgid "created_at"
 msgstr "created_at"
@@ -92,11 +92,7 @@ msgstr ""
 
 #: blog/models.py:10
 msgid "smart_description"
-msgstr ""
-
-#: blog/models.py:11
-msgid "smart_text"
-msgstr ""
+msgstr "long_description"
 
 #: blog/models.py:25
 msgid "blogs"
@@ -130,11 +126,11 @@ msgstr ""
 msgid "gallery"
 msgstr ""
 
-#: gallery/models.py:10 home/models.py:106
+#: gallery/models.py:10 home/models.py:107
 msgid "short_description"
 msgstr ""
 
-#: gallery/models.py:11 home/models.py:107 lines/models.py:41
+#: gallery/models.py:11 home/models.py:108 lines/models.py:41
 msgid "long_description"
 msgstr ""
 
@@ -162,7 +158,7 @@ msgstr ""
 msgid "home"
 msgstr ""
 
-#: home/models.py:17 home/models.py:32 home/models.py:38 home/models.py:92
+#: home/models.py:17 home/models.py:32 home/models.py:38 home/models.py:91
 #: lines/models.py:20 lines/models.py:32
 msgid "category"
 msgstr ""
@@ -179,7 +175,7 @@ msgstr ""
 msgid "sub_image"
 msgstr ""
 
-#: home/models.py:41 home/models.py:54 home/models.py:93
+#: home/models.py:41 home/models.py:54 home/models.py:94
 msgid "subcategory"
 msgstr ""
 
@@ -191,7 +187,7 @@ msgstr ""
 msgid "subcategories"
 msgstr ""
 
-#: home/models.py:60 home/models.py:89
+#: home/models.py:60 home/models.py:88
 msgid "country"
 msgstr ""
 
@@ -211,111 +207,111 @@ msgstr ""
 msgid "Banner_backs"
 msgstr ""
 
-#: home/models.py:87 home/models.py:183
+#: home/models.py:86 home/models.py:188
 msgid "background"
 msgstr ""
 
-#: home/models.py:91
+#: home/models.py:90
 msgid "pdf"
 msgstr ""
 
-#: home/models.py:96
+#: home/models.py:97
 msgid "city"
 msgstr ""
 
-#: home/models.py:97
+#: home/models.py:98
 msgid "CIP"
 msgstr ""
 
-#: home/models.py:97
+#: home/models.py:98
 msgid "SELECT ONLY ONE"
 msgstr "SELECT ONLY ONE"
 
-#: home/models.py:98
+#: home/models.py:99
 msgid "DAF"
 msgstr ""
 
-#: home/models.py:99
+#: home/models.py:100
 msgid "EXW"
 msgstr ""
 
-#: home/models.py:100
+#: home/models.py:101
 msgid "FCA"
 msgstr ""
 
-#: home/models.py:102 lines/models.py:39
+#: home/models.py:103 lines/models.py:39
 msgid "price"
 msgstr ""
 
-#: home/models.py:103
+#: home/models.py:104
 msgid "discount"
 msgstr ""
 
-#: home/models.py:108
+#: home/models.py:109
 #, fuzzy
 #| msgid "title"
 msgid "price_title"
 msgstr "title"
 
-#: home/models.py:109
+#: home/models.py:110
 #, fuzzy
 #| msgid "image"
 msgid "price_image"
 msgstr "image"
 
-#: home/models.py:110
+#: home/models.py:111
 msgid "price_short"
 msgstr ""
 
-#: home/models.py:111
+#: home/models.py:112
 msgid "price_long"
 msgstr ""
 
-#: home/models.py:152 home/models.py:153 home/models.py:169 orders/models.py:10
+#: home/models.py:157 home/models.py:158 home/models.py:174 orders/models.py:10
 msgid "products"
 msgstr ""
 
-#: home/models.py:159
+#: home/models.py:164
 msgid "product"
 msgstr ""
 
-#: home/models.py:163
+#: home/models.py:168
 msgid "product image"
 msgstr ""
 
-#: home/models.py:164
+#: home/models.py:169
 msgid "product images"
 msgstr ""
 
-#: home/models.py:170
+#: home/models.py:175
 msgid "product_customer"
 msgstr ""
 
-#: home/models.py:171
+#: home/models.py:176
 msgid "product_numbers"
 msgstr ""
 
-#: home/models.py:172
+#: home/models.py:177
 msgid "product_image"
 msgstr ""
 
-#: home/models.py:175
+#: home/models.py:180
 msgid "product specification"
 msgstr ""
 
-#: home/models.py:176
+#: home/models.py:181
 msgid "product specifications"
 msgstr ""
 
-#: home/models.py:181 works/models.py:10
+#: home/models.py:186 works/models.py:10
 msgid "descriptions"
 msgstr ""
 
-#: home/models.py:190
+#: home/models.py:195
 msgid "carousel"
 msgstr ""
 
-#: home/models.py:191
+#: home/models.py:196
 msgid "carousels"
 msgstr ""
 
@@ -391,13 +387,13 @@ msgstr ""
 msgid "Biz haqimizda"
 msgstr "About us"
 
-#: templates/about.html:183 templates/biznes.html:13 templates/blog.html:14
+#: templates/about.html:183 templates/biznes.html:13 templates/blog.html:18
 #: templates/contacts.html:21 templates/gallery.html:190
 #: templates/lines.html:162 templates/our_works.html:14
 #: templates/products.html:317 templates/single-biznes.html:40
-#: templates/single-blog.html:12 templates/single-lines.html:40
+#: templates/single-blog.html:16 templates/single-lines.html:40
 #: templates/single-product.html:1409 templates/single-work.html:76
-#: templates/videos.html:14
+#: templates/videos.html:14 templates/wishlist.html:20
 msgid "Главная"
 msgstr "Home"
 
@@ -444,12 +440,19 @@ msgstr "More"
 msgid "Bizning maqolalar"
 msgstr "Our articles"
 
-#: templates/blog.html:17 templates/single-blog.html:15
+#: templates/blog.html:21 templates/single-blog.html:19
 msgid "Наши статьи"
 msgstr "Our articles"
 
-#: templates/blog.html:48 templates/blog.html:77 templates/index.html:2856
-#: templates/single-blog.html:57 templates/single-blog.html:70
+#: templates/blog.html:49
+msgid "Просмотрено"
+msgstr "Viewed by"
+
+#: templates/blog.html:49
+msgid "человек"
+msgstr "people"
+
+#: templates/blog.html:52 templates/blog.html:81 templates/index.html:2856
 msgid "Читать дальше"
 msgstr "More"
 
@@ -529,12 +532,12 @@ msgid "Batafsil"
 msgstr "More"
 
 #: templates/index.html:2653 templates/products.html:514
-#: templates/single-product.html:1778
+#: templates/single-product.html:1777
 msgid "Популярные товары"
 msgstr "Popular products"
 
 #: templates/index.html:2654 templates/products.html:515
-#: templates/single-product.html:1779
+#: templates/single-product.html:1778
 msgid ""
 "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi "
 "jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan "
@@ -739,7 +742,7 @@ msgstr "New"
 #: templates/layouts/product-sort2.html:401
 #: templates/layouts/product-sort2.html:424
 #: templates/layouts/products-sort.html:588
-#: templates/layouts/products-sort.html:655 templates/single-product.html:1587
+#: templates/layouts/products-sort.html:655 templates/single-product.html:1586
 msgid "so'm"
 msgstr "sum"
 
@@ -812,7 +815,7 @@ msgstr "By price"
 msgid "Ommabopligi bo'yicha"
 msgstr "By popularity"
 
-#: templates/products.html:426 templates/single-product.html:1563
+#: templates/products.html:426 templates/single-product.html:1562
 msgid "Narxi"
 msgstr "Price"
 
@@ -835,13 +838,27 @@ msgstr ""
 "Your message has been successfully sent, our operators will contact you "
 "soon!!!"
 
-#: templates/single-biznes.html:111 templates/single-lines.html:109
+#: templates/single-biznes.html:58
+#, fuzzy
+msgid "O'xshash bizneslar"
+msgstr "Similar businesses"
+
+#: templates/single-biznes.html:96
+msgid "Download PDF"
+msgstr "Download PDF"
+
+#: templates/single-biznes.html:111 templates/single-blog.html:86
+#: templates/single-lines.html:109
 msgid "Tavsiya qilamiz"
-msgstr ""
+msgstr "Recommend"
+
+#: templates/single-blog.html:33
+msgid "O'xshash maqolalar"
+msgstr "Similar blogs"
 
 #: templates/single-lines.html:56
 msgid "O'xshash liniyalar"
-msgstr ""
+msgstr "Similar lines"
 
 #: templates/single-product.html:1495
 msgid "Yuqori sifat"
@@ -867,57 +884,57 @@ msgstr "For banking services"
 msgid "(so'mda)"
 msgstr "(sum)"
 
-#: templates/single-product.html:1529
+#: templates/single-product.html:1528
 msgid "Bank orqali xarid qilish"
 msgstr "Shopping through the Bank"
 
-#: templates/single-product.html:1595
+#: templates/single-product.html:1594
 msgid "Sotib Olish"
-msgstr "Purchase"
+msgstr "To order"
 
-#: templates/single-product.html:1598
+#: templates/single-product.html:1597
 msgid "Pdf Yuklab olish"
 msgstr "Download Pdf"
 
-#: templates/single-product.html:1604 templates/single-product.html:1640
+#: templates/single-product.html:1603 templates/single-product.html:1639
 msgid "Ulashish"
 msgstr "Share"
 
-#: templates/single-product.html:1626 templates/single-product.html:1662
-#: templates/single-product.html:2067 templates/single-product.html:2158
+#: templates/single-product.html:1625 templates/single-product.html:1661
+#: templates/single-product.html:2066 templates/single-product.html:2157
 msgid "Sevimlilarga qo`shildi"
 msgstr "Added to wishlist"
 
-#: templates/single-product.html:1628 templates/single-product.html:1664
-#: templates/single-product.html:2069 templates/single-product.html:2160
+#: templates/single-product.html:1627 templates/single-product.html:1663
+#: templates/single-product.html:2068 templates/single-product.html:2159
 msgid "Sevimlilarga qo`shish"
 msgstr "Add to wishlist"
 
-#: templates/single-product.html:1679
+#: templates/single-product.html:1678
 msgid "Xususiyatlari"
 msgstr "Features"
 
-#: templates/single-product.html:1680
+#: templates/single-product.html:1679
 msgid "Tavsifi"
 msgstr "Descriptions"
 
-#: templates/single-product.html:1681
+#: templates/single-product.html:1680
 msgid "Videolar"
 msgstr "Videos"
 
-#: templates/single-product.html:1682
+#: templates/single-product.html:1681
 msgid "Yetkazib Berish"
 msgstr "Delivery"
 
-#: templates/single-product.html:1683
+#: templates/single-product.html:1682
 msgid "Kafolat shartlari"
 msgstr "Warranty terms"
 
-#: templates/single-product.html:1741
+#: templates/single-product.html:1740
 msgid "Biz bilan Aloqa"
 msgstr "Contact Us"
 
-#: templates/single-product.html:1742
+#: templates/single-product.html:1741
 msgid ""
 "Ushbu uskunani xarid qilish uchun quyidagi formani to'ldiring va bizning "
 "operatorlarimiz tez orada siz bilan bog'lanishadi."
@@ -925,11 +942,11 @@ msgstr ""
 "Please fill out the form below to contact us and our operators will contact "
 "withyou soon"
 
-#: templates/single-product.html:1748
+#: templates/single-product.html:1747
 msgid "Ismingiz"
 msgstr "Name"
 
-#: templates/single-product.html:1758
+#: templates/single-product.html:1757
 msgid "Xabar Muvaffaqiyatli Yuborildi"
 msgstr "Sent succsessfully"
 
@@ -941,7 +958,7 @@ msgstr "Our videos"
 msgid "Наши видео"
 msgstr "Our videos"
 
-#: templates/wishlist.html:20 templates/wishlist.html:23
+#: templates/wishlist.html:23
 msgid "Избранное"
 msgstr "Wishlist"
 

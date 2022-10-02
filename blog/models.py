@@ -6,9 +6,9 @@ from django.utils.translation import gettext_lazy as _
 class BlogModel(models.Model):
     title = models.CharField(max_length=40, verbose_name=_('title'),)
     image = models.ImageField(upload_to='blog', verbose_name=_('image'))
-    description = RichTextUploadingField(null=True, verbose_name=_('description'))
+    description = models.TextField(null=True, verbose_name=_('description'))
     smart_description = RichTextUploadingField(null=True, blank=True, verbose_name=_('smart_description'))
-    smart_text = RichTextUploadingField(null=True, blank=True, verbose_name=_('smart_text'))
+    views = models.IntegerField(default=0, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def get_prev(self):
