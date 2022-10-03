@@ -230,6 +230,36 @@ $('nav ul li').click(function () {
 })(jQuery);
 
 
+        // Price Type
+        const PriceType = document.querySelectorAll('.us-products-page-products-productCard-term');
+        const PriceInfoBlock = document.querySelector('.us-products-page-products-productCard-term-BLockBackground')
+        const ClosePriceInfoBlock = document.querySelector('.productCard-term-close_btn')
+
+        PriceType.forEach(element => {
+          element.addEventListener('click', () => {
+              console.log('hello')
+            PriceInfoBlock.classList.add('active')
+            document.body.style.overflow = 'hidden';
+          })
+        })
+
+        ClosePriceInfoBlock.addEventListener('click', () => {
+          PriceInfoBlock.classList.remove('active')
+          document.body.style.overflow = 'initial';
+        })
+
+        $(document).mouseup(function(e)
+        {
+            var container = $(".us-products-page-products-productCard-term-block");
+
+            // if the target of the click isn't the container nor a descendant of the container
+            if (!container.is(e.target) && container.has(e.target).length === 0)
+            {
+                $(".us-products-page-products-productCard-term-BLockBackground").removeClass('active');
+                document.body.style.overflow = 'initial';
+            }
+
+        });
 
 
 
