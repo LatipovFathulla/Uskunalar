@@ -11643,7 +11643,7 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 
 .discounted {
     background: #E43A36;
-    padding: 10px 5px;
+    padding: 10px 8px;
     border-radius: 50%;
     font-size: 13px;
     color: #fff;

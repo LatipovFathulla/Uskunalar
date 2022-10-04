@@ -1418,9 +1418,7 @@ form fieldset .icon i::after {
         </div>
     </div>
 
-
-<br>
-<br> <div class="single-product-container">
+<div class="single-product-container">
         <div class="single-product_block">
             <div class="single-produce-backgroundinMobile">
                 <div class="single-product-img-Holder">
@@ -1459,11 +1457,11 @@ form fieldset .icon i::after {
         <div class="single-product-content-Holder">
                 <div class="single-product-content-container">
                     <!-- Title -->
-                    <h2 class="single-prodcut-title">{{ object.title }}
+                    <h1 class="single-prodcut-title">{{ object.title }}
                         {% if object.is_new %}
                             <span class="single-products-newproduct">{% trans 'New' %}</span>
                         {% endif %}
-                    </h2>
+                    </h1>
                     <!-- Status and ID -->
                     <div class="single-product-status-block">
                         <div class="single-product_status-box">
@@ -2182,5 +2180,39 @@ $(".nav-2 li").hover(function () {
     })
 
     </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "Dukkakli va kukunsimon mahsulotlarni 5 grammdan 100 grammgacha qadoqlash uskunasi",
+  "image": "http://134.209.239.110/media/products/ovebg_lCRqZ4R.png",
+  "description": "Dukkakli va kukunsimon mahsulotlarni 5 grammdan 100 grammgacha qadoqlash uskunasi.
+
+Qadoqlanadigan mahsulotlar turli: shakar, kofe, tuz, pista, yeryong'oq, mayiz, qurt, bodom, dorivor giyohlar, filtr paketchali choy, dukkakli va kukunsimon mahsulotlar.
+
+Uskunaning texnik ko’rsatgichlari:
+
+1. Qadoqlash og’irligi: 5 gramm dan 100 gramm gacha.
+2. Qadoq o’lchami (eni): 300-180 mm.
+3. Qadoq o’lchami (bo’yi): 300-150 mm.
+4. Qadoq lentasi roligi uzunligi: 300 mm (maksimal).
+5. Ishlab chiqarish quvvati: 20-60 dona/minut.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Uskunalar.uz"
+  },
+  "sku": "US-CLI-100",
+  "offers": {
+    "@type": "Offer",
+    "url": "http://134.209.239.110/uz/products/334/",
+    "priceCurrency": "USD",
+    "price": "4200",
+    "priceValidUntil": "2023-05-10",
+    "availability": "https://schema.org/PreOrder",
+    "itemCondition": "https://schema.org/NewCondition"
+  }
+}
+</script>
 
 {% endblock %}
