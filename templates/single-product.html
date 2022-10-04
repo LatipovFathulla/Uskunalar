@@ -2185,9 +2185,9 @@ $(".nav-2 li").hover(function () {
 {
   "@context": "https://schema.org/",
   "@type": "Product",
-  "name": "Dukkakli va kukunsimon mahsulotlarni 5 grammdan 100 grammgacha qadoqlash uskunasi",
-  "image": "http://134.209.239.110/media/products/ovebg_lCRqZ4R.png",
-  "description": "Dukkakli va kukunsimon mahsulotlarni 5 grammdan 100 grammgacha qadoqlash uskunasi.
+  "name": "{{ object.title }}",
+  "image": "{{ object.image.url }}",
+  "description": "{{ object.short_description|safe }}.
 
 Qadoqlanadigan mahsulotlar turli: shakar, kofe, tuz, pista, yeryong'oq, mayiz, qurt, bodom, dorivor giyohlar, filtr paketchali choy, dukkakli va kukunsimon mahsulotlar.
 
@@ -2207,7 +2207,7 @@ Uskunaning texnik ko’rsatgichlari:
     "@type": "Offer",
     "url": "http://134.209.239.110/uz/products/334/",
     "priceCurrency": "USD",
-    "price": "4200",
+    "price": "{{ object.price }}",
     "priceValidUntil": "2023-05-10",
     "availability": "https://schema.org/PreOrder",
     "itemCondition": "https://schema.org/NewCondition"
