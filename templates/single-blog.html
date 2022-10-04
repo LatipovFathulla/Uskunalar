@@ -7,6 +7,29 @@
     dl, ol, ul {
         margin-bottom: 0;
     }
+    .us-products-page-products-productCard {
+        width: auto;
+    }
+    .us-products-page-products-productCard_top {
+        max-width: -webkit-fill-available;
+        max-width: -moz-available;
+        max-width: stretch;
+        width: 100%;
+    }
+    .us-products-page-products-productCard-detailsView , us-products-page-products-productCard-preview{
+        max-width: -webkit-fill-available;
+        max-width: -moz-available;
+        max-width: stretch;
+        width: 100%;
+        max-height: -webkit-fill-available;
+        max-height: -moz-available;
+        max-height: stretch;
+        height: 100%;
+    }
+
+    .us-products-page-products-productCard-moreLink {
+        width: auto;
+    }
 </style>
 
  <div class="us-navigation-block">
@@ -35,7 +58,7 @@
                     <ul class="us-single-line-latest-listOfLines">
                         {% for blog in random_blog %}
                               <li class="us-single-line-latest-ItemLine">
-                                <h5 class="us-single-line-latest-ItemLine-price"><i class="fa-light fa-tag"></i> ${{ blog.title }}</h5>
+                                <h5 class="us-single-line-latest-ItemLine-price"><i class="fa-regular fa-newspaper"></i> {{ object.created_at }}</h5>
                                 <a href="{% url 'blog:single-blog' pk=blog.pk %}" class="us-single-line-latest-ItemLine-title">{{ blog.title }}</a>
                             </li>
                         {% endfor %}
@@ -87,9 +110,7 @@
                         <ul class="us-single-line-recAndPopularBlock-listOfLines">
                             {% for blog in random_blog %}
                             <li class="us-single-line-recAndPopularBlock-ItemLine">
-                                <h5 class="us-single-line-recAndPopularBlock-ItemLine-price"><i
-                                        class="fa-light fa-tag"></i>
-                                    ${{ blog.title }}</h5>
+                                <h5 class="us-single-line-recAndPopularBlock-ItemLine-price"><i class="fa-regular fa-newspaper"></i> {{ object.created_at }}</h5>
                                 <a href="{% url 'blog:single-blog' pk=blog.pk %}" class="us-single-line-recAndPopularBlock-ItemLine-title">{{ blog.title }}</a>
                             </li>
                             {% endfor %}
