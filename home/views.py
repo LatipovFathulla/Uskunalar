@@ -25,7 +25,6 @@ from home.utils import get_wishlist_data
 #                        Q(city__icontains=q)
 #                        )
 #     return qs
-
 class BannerInfoModelView(ListView):
     template_name = 'products.html'
     context_object_name = 'products'
@@ -45,8 +44,6 @@ class BannerInfoModelView(ListView):
 
         filters = {}
         order_by = ['-pk']
-        if q:
-            filters['title__icontains'] = q
 
         if category:
             filters['category_id'] = category
@@ -73,6 +70,9 @@ class BannerInfoModelView(ListView):
             # return diff.days <= 3
 
         qs = BannerInfoModel.objects.filter(**filters).order_by(*order_by)
+
+        if q:
+            qs = qs.filter(Q(title__icontains=q) | Q(sku=q))
 
         if sort:
             if sort == 'price':
