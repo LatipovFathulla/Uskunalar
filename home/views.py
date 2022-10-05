@@ -72,7 +72,11 @@ class BannerInfoModelView(ListView):
         qs = BannerInfoModel.objects.filter(**filters).order_by(*order_by)
 
         if q:
-            qs = qs.filter(Q(title__icontains=q) | Q(sku=q))
+            if q.isdigit():
+                qs = qs.filter(Q(title__icontains=q) | Q(sku=int(q)))
+            else:
+                qs = qs.filter(title__icontains=q)
+        # qs = qs.filter(Q(title__icontains=q) | Q(sku=q))
 
         if sort:
             if sort == 'price':
