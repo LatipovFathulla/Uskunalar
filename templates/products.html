@@ -306,9 +306,30 @@
     background-color: #ffe600;
 }
 
+/* scrollbar */
+.us-products-page-categories-listHolder::-webkit-scrollbar {
+    width: 2px;
+    transition: all .5s ease;
+  }
+.us-products-page-categories-listHolder:hover::-webkit-scrollbar {
+    width: 5px;
+    transition: all .5s ease;
+  }
 
+  /* Track */
+  .us-products-page-categories-listHolder::-webkit-scrollbar-track {
+    background: #FEBD17;
+  }
 
+  /* Handle */
+  .us-products-page-categories-listHolder::-webkit-scrollbar-thumb {
+    background: #202020;
+  }
 
+  /* Handle on hover */
+  .us-products-page-categories-listHolder::-webkit-scrollbar-thumb:hover {
+      background: #202020;
+  }
     </style>
  <!-- New product block -->
      <div class="us-navigation-block">

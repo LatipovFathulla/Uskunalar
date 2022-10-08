@@ -12782,29 +12782,6 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 }
 /* end new single lines*/
 
-/* scrollbar */
-.us-products-page-categories-listHolder::-webkit-scrollbar {
-    width: 2px;
-    transition: all .5s ease;
-  }
-.us-products-page-categories-listHolder:hover::-webkit-scrollbar {
-    width: 5px;
-    transition: all .5s ease;
-  }
 
-  /* Track */
-  .us-products-page-categories-listHolder::-webkit-scrollbar-track {
-    background: #FEBD17;
-  }
-
-  /* Handle */
-  .us-products-page-categories-listHolder::-webkit-scrollbar-thumb {
-    background: #202020;
-  }
-
-  /* Handle on hover */
-  .us-products-page-categories-listHolder::-webkit-scrollbar-thumb:hover {
-      background: #202020;
-  }
 
 /* Code by Fathulla Latipov */
