@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'lines',
     'biznes',
     'gallery',
-    'orders',
     'clients',
 ]
 JAZZMIN_SETTINGS = {
