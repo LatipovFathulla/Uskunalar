@@ -403,10 +403,8 @@ msgstr "Bosh sahifa"
 
 #: templates/about.html:186 templates/layouts/header.html:171
 #: templates/layouts/header.html:343
-#, fuzzy
-#| msgid "Kompaniya haqida"
 msgid "Kompaniya faoliyati"
-msgstr "Kompaniya haqida"
+msgstr "Kompaniya faoliyati"
 
 #: templates/about.html:213 templates/lines.html:175 templates/lines.html:211
 msgid "Kategoriyalar"
@@ -505,7 +503,7 @@ msgstr "Biz bilan aloqa"
 
 #: templates/form.html:17 templates/requests.html:138
 msgid "ФИО"
-msgstr "FIO"
+msgstr "FISh"
 
 #: templates/form.html:22 templates/requests.html:143
 msgid "Ваш номер"
@@ -520,8 +518,6 @@ msgid "Kompaniya haqida"
 msgstr "Kompaniya haqida"
 
 #: templates/index.html:2612
-#, fuzzy
-#| msgid "Liniyalar"
 msgid "Liniyalar "
 msgstr "Liniyalar"
 
@@ -567,8 +563,8 @@ msgid ""
 "tayyor biznes loyihalar bilan tanishishingiz mumkin."
 msgstr ""
 "Bizning saytimizda nafaqat uskunalar haqida ma'lumot olishingiz, balki "
-"tadbirkorlik faoliyatini yo'lga qo'ymoqchi bo'lsangiz jahonda mavjud so'ngi "
-"texnalogiyalar asosida tajribali mutaxasislarimiz tomonidan ishlab chiqilgan "
+"tadbirkorlik faoliyatini yo'lga qo'ymoqchi bo'lsangiz jahonda mavjud so'nggi "
+"texnologiyalar asosida tajribali mutaxassislarimiz tomonidan ishlab chiqilgan "
 "tayyor biznes loyihalar bilan tanishishingiz mumkin."
 
 #: templates/index.html:2763 templates/index.html:2776
@@ -619,9 +615,9 @@ msgid ""
 "Hindiston, Germaniya va Italiya kabi davlatlaridagi korxonalar bilan "
 "mustahkam sherikchilik aloqalari o'rnatilgan."
 msgstr ""
-"Kompaniyamiz 18 yilldan beri jahonning 10 mingdan ortiq zavodlar bilan "
+"Kompaniyamiz 18 yildan beri jahonning 10 mingdan ortiq zavodlari bilan "
 "hamkorlikda ishlab kelmoqda. Xususan, Xitoy, Turkiya, Eron, Rossiya, "
-"Hindiston, Germaniya va Italiya kabi davlatlaridagi korxonalar bilan "
+"Hindiston, Germaniya va Italiya kabi davlatlardagi korxonalar bilan "
 "mustahkam sherikchilik aloqalari o'rnatilgan."
 
 #: templates/layouts/base.html:10
@@ -671,7 +667,7 @@ msgstr ""
 
 #: templates/layouts/footer.html:64
 msgid "Тошкент шаҳри, Сирғали тумани, Катта олмос 1-тор кўчаси 9а-уй."
-msgstr ""
+msgstr "Toshkent shahri, Sirg'ali tumani, Katta olmos 1-tor ko`chasi 9a uy."
 
 #: templates/layouts/footer.html:74
 msgid "c"
@@ -679,7 +675,7 @@ msgstr " "
 
 #: templates/layouts/footer.html:74
 msgid "ежедневно"
-msgstr "Har kuni"
+msgstr "har kuni"
 
 #: templates/layouts/footer.html:78
 msgid "Bizning manzil"
