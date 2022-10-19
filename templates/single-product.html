@@ -1430,11 +1430,11 @@ form fieldset .icon i::after {
                               {% for i in object.images.all %}
                                 {% if forloop.counter == 1 %}
                                 <li class="swiper-slide single-product-images-option active">
-                                    <img src="{{ i.image.url }}" alt="">
+                                    <img src="{{ i.image.url }}" alt="{{ object.title }}">
                                 </li>
                                 {% else %}
                                  <li class="swiper-slide single-product-images-option ">
-                                    <img src="{{ i.image.url }}" alt="">
+                                    <img src="{{ i.image.url }}">
                                 </li>
                                 {% endif %}
                             {% endfor %}
@@ -1469,7 +1469,7 @@ form fieldset .icon i::after {
                                 <p class="single-product_status"><i class="fa-light fa-check"></i>{% trans 'Omborda mavjud' %}
                                     <span class="deliveryInfo"><i class="fa-light fa-circle-question"></i></span>
                                 </p>
-                                   <p class="deliverytext">Ombor Срок доставки товара рассчитывается индивидуально после получения заявки.</p>
+                                   <p class="deliverytext">Срок доставки товара рассчитывается индивидуально после получения заявки.</p>
                                 {% endif %}
                                 {% if object.delivery %}
                                  <p class="single-product_status"><i class="fa-light fa-truck-bolt"></i>{% trans 'Buyurtma orqali' %}
@@ -2185,27 +2185,17 @@ $(".nav-2 li").hover(function () {
 {
   "@context": "https://schema.org/",
   "@type": "Product",
-  "name": "{{ object.title }}",
+  "name": "{{ object.title|safe }}",
   "image": "{{ object.image.url }}",
-  "description": "{{ object.short_description|safe }}.
-
-Qadoqlanadigan mahsulotlar turli: shakar, kofe, tuz, pista, yeryong'oq, mayiz, qurt, bodom, dorivor giyohlar, filtr paketchali choy, dukkakli va kukunsimon mahsulotlar.
-
-Uskunaning texnik ko’rsatgichlari:
-
-1. Qadoqlash og’irligi: 5 gramm dan 100 gramm gacha.
-2. Qadoq o’lchami (eni): 300-180 mm.
-3. Qadoq o’lchami (bo’yi): 300-150 mm.
-4. Qadoq lentasi roligi uzunligi: 300 mm (maksimal).
-5. Ishlab chiqarish quvvati: 20-60 dona/minut.",
+  "description": "{{ object.short_description|safe }}",
   "brand": {
     "@type": "Brand",
     "name": "Uskunalar.uz"
   },
-  "sku": "US-CLI-100",
+  "sku": "US-{{ object.pk }}",
   "offers": {
     "@type": "Offer",
-    "url": "http://134.209.239.110/uz/products/334/",
+    "url": "{{ request.get_host }}{{ request.get_full_path }}",
     "priceCurrency": "USD",
     "price": "{{ object.price }}",
     "priceValidUntil": "2023-05-10",
