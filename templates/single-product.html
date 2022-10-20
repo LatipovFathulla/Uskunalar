@@ -2181,7 +2181,7 @@ $(".nav-2 li").hover(function () {
 
     </script>
 
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org/",
   "@type": "Product",
@@ -2195,7 +2195,7 @@ $(".nav-2 li").hover(function () {
   "sku": "US-{{ object.pk }}",
   "offers": {
     "@type": "Offer",
-    "url": "{{ request.get_host }}{{ request.get_full_path }}",
+    "url": "https://{{ request.get_host }}{{ request.get_full_path }}",
     "priceCurrency": "USD",
     "price": "{{ object.price }}",
     "priceValidUntil": "2023-05-10",
