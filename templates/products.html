@@ -406,7 +406,7 @@
                 </div>
                 <div class="us-products-page-products-holder">
                     <div class="us-products-page-products-container">
-                        <h2 class="us-products-page-products-catTitle">
+                        <h1 class="us-products-page-products-catTitle">
                             {% if request.GET.category %}
                                 {{ categories|get_category_name:request.GET.category }}
                             {% elif request.GET.subcategory %}
@@ -423,7 +423,7 @@
                                 <span>{{ pr_count }}</span>
                             {% endfor %}
                          {% endif %}
-                        </h2>
+                        </h1>
 
                         <!-- Filter Section -->
                         <div class="us-products-page-filterBlock">
