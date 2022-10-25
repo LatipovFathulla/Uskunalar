@@ -69,3 +69,7 @@ class NavbarView(ListView):
         context['categories'] = CategoryModel.objects.select_related('iouj').order_by('-pk')
 
         return context
+
+
+def handle_not_found(request, exception):
+    return render(request, '404.html')

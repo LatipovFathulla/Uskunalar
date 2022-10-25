@@ -26,6 +26,7 @@ urlpatterns += i18n_patterns(
     path('getSubcategory/', get_subcategory, name='subcategory')
 )
 
+handler404 = "about.views.handle_not_found"
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
