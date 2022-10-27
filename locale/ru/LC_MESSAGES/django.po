@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-25 20:26+0500\n"
+"POT-Creation-Date: 2022-10-27 13:33+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -248,6 +248,14 @@ msgstr "цена"
 #: home/models.py:104
 msgid "discount"
 msgstr "скидка"
+
+#: home/models.py:105
+msgid "inbox"
+msgstr "в складе"
+
+#: home/models.py:106
+msgid "delivery"
+msgstr "доставка"
 
 #: home/models.py:109
 msgid "price_title"
@@ -1023,9 +1031,6 @@ msgstr "характеристика работ"
 #~ msgid "priceType"
 #~ msgstr "цена"
 
-#~ msgid "delivery"
-#~ msgstr "доставка"
-
 #, fuzzy
 #~| msgid "delivery"
 #~ msgid "Delivery"
@@ -1033,9 +1038,6 @@ msgstr "характеристика работ"
 
 #~ msgid "Home"
 #~ msgstr "Главная"
-
-#~ msgid "inbox"
-#~ msgstr "в складе"
 
 #~ msgid "Перейти к предыдущей"
 #~ msgstr "Перейти к предыдущей"

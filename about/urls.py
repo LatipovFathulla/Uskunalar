@@ -10,5 +10,4 @@ urlpatterns = [
     path('<int:pk>/', AboutModelDetailView.as_view(), name='detail'),
     path('contacts/', ContactModelTemplateView.as_view(), name='contacts'),
     path('request/', RequestCreateView.as_view(), name='request'),
-    path('', HomeView.as_view(), name='home'),
 ]

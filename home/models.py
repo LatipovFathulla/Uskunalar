@@ -2,6 +2,7 @@ from datetime import datetime
 from PIL import Image
 from django.db.models.signals import post_save
 from django.shortcuts import render
+from django.urls import reverse
 from django.utils.html import strip_tags
 from embed_video.fields import EmbedVideoField
 from django.contrib import admin
@@ -102,8 +103,8 @@ class BannerInfoModel(models.Model):
 
     price = models.DecimalField(max_digits=12, decimal_places=0, verbose_name=_('price'))
     discount = models.DecimalField(default=0, max_digits=9, decimal_places=0, verbose_name=_('discount'), null=True)
-    inbox = models.CharField(max_length=50, blank=True, )
-    delivery = models.CharField(max_length=50, blank=True, )
+    inbox = models.CharField(max_length=50, blank=True, verbose_name=_('inbox'))
+    delivery = models.CharField(max_length=50, blank=True, verbose_name=_('delivery'))
     short_description = RichTextUploadingField(verbose_name=_('short_description'), null=True, blank=True)
     long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True, blank=True)
     price_title = models.CharField(max_length=300, verbose_name=_('price_title'), null=True, blank=True)
@@ -129,6 +130,8 @@ class BannerInfoModel(models.Model):
         diff = datetime.now(pytz.timezone('Asia/Tashkent')) - self.created_at
         return diff.days <= 3
 
+    def get_absolute_url(self):
+        return reverse('products:single', args=[str(self.pk)])
     # @staticmethod
     # def get_subcategory_count(request):
     #     products = BannerInfoModel.objects.get(products)
@@ -157,6 +160,7 @@ class BannerInfoModel(models.Model):
         verbose_name = _('products')
         verbose_name_plural = _('products')
         index_together = ['title', 'category', 'subcategory', 'price']
+        ordering = ['-pk']
 
 
 class BannerImageModel(models.Model):

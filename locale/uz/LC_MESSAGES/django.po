@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-25 20:26+0500\n"
+"POT-Creation-Date: 2022-10-27 13:33+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -246,6 +246,14 @@ msgstr "narxi"
 #: home/models.py:104
 msgid "discount"
 msgstr "chegirma"
+
+#: home/models.py:105
+msgid "inbox"
+msgstr "ombor da mavjud"
+
+#: home/models.py:106
+msgid "delivery"
+msgstr "yetkazib berish"
 
 #: home/models.py:109
 #, fuzzy
@@ -1040,9 +1048,6 @@ msgstr "ishlarning hususiyatlari"
 #~ msgid "priceType"
 #~ msgstr "narxi"
 
-#~ msgid "delivery"
-#~ msgstr "yetkazib berish"
-
 #, fuzzy
 #~| msgid "delivery"
 #~ msgid "Delivery"
@@ -1050,9 +1055,6 @@ msgstr "ishlarning hususiyatlari"
 
 #~ msgid "Home"
 #~ msgstr "Asosiy"
-
-#~ msgid "inbox"
-#~ msgstr "ombor da mavjud"
 
 #~ msgid "Перейти к предыдущей"
 #~ msgstr "Avvalgisiga o'tish"
