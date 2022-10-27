@@ -7,6 +7,15 @@
 {% load static watermark %}
 {% load humanize %}
 {% block content %}
+ <meta name="description" content="{{ object.short_description|safe }}">
+ <meta name="keywords" content="{{ object.subcategory }}">
+  <!-- Open Graph -->
+ <meta property="og:title" content="{{ object.title }}" />
+ <meta property="og:type" content="product" />
+ <meta property="og:url" content="https://uskunalar.uz/product/{{ object.pk }}/" />
+ <meta property="og:image" content="{% for i in object.images.all %}{% if forloop.counter == 1 %}https://uskunalar.uz{{ i.image.url }}{% endif %}{% endfor %}" />
+ <meta property="og:description" content="{{ object.short_description|safe }}" />
+  <!-- Open Graph -->
 <style>
 .single-product-images-mainImage {
     max-width: 100%;
@@ -1401,7 +1410,6 @@ form fieldset .icon i::after {
     color: #333;
 }
 </style>
-
  <div class="us-navigation-block">
         <div class="us-products-page-container">
             <ul class="us-navigation-block-list">

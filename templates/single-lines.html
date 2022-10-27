@@ -4,6 +4,15 @@
 {% load static %}
 {% load tags %}
 {% block content %}
+ <meta name="description" content="{{ object.description|safe }}">
+ <meta name="keywords" content="{{ object.category }}">
+  <!-- Open Graph -->
+ <meta property="og:title" content="{{ object.title }}" />
+ <meta property="og:type" content="product" />
+ <meta property="og:url" content="https://uskunalar.uz/lines/{{ object.pk }}/" />
+ <meta property="og:image" content="https://uskunalar.uz{{ object.image.url }}"/>
+ <meta property="og:description" content="{{ object.description|safe }}" />
+  <!-- Open Graph -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <style>
     dl, ol, ul {
