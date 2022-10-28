@@ -2,7 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap
 
@@ -42,7 +42,12 @@ urlpatterns += i18n_patterns(
     path('getSubcategory/', get_subcategory, name='subcategory'),
 )
 
-handler404 = "about.views.handle_not_found"
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += [
+        re_path(r'^rosetta/', include('rosetta.urls'))
+    ]
+#
+# handler404 = "about.views.handle_not_found"
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

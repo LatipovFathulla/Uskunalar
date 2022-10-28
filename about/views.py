@@ -71,5 +71,5 @@ class NavbarView(ListView):
         return context
 
 
-def handle_not_found(request, exception):
-    return render(request, '404.html')
+# def handle_not_found(request, exception):
+#     return render(request, '404.html')
