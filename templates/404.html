@@ -76,7 +76,8 @@
                 {% endif %}
                 {% if request.LANGUAGE_CODE == 'ru' %}
                     <h2 class="notfound-page-title">{% trans 'This page is temporary unavailable' %} (404)</h2>
-                {% else %}
+                {% endif %}
+                {% if request.LANGUAGE_CODE == 'en' %}
                     <h2 class="notfound-page-title">{% trans 'This page is temporary unavailable' %} (404)</h2>
                 {% endif %}
                 <p class="notfound-page-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est numquam tempora perspiciatis quam necessitatibus? Quos dolor nesciunt ducimus vel laborum maxime saepe consectetur aut, repudiandae, eligendi quas impedit! Dicta animi dolorem rerum, voluptas illum voluptates, odio tempora quos, qui molestiae adipisci. Nemo, facere sunt dolorem aut harum voluptates deserunt dolor.</p>
