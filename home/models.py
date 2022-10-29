@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.utils.html import strip_tags
 from embed_video.fields import EmbedVideoField
 from django.contrib import admin
-
+from django.template.defaultfilters import slugify
 import pytz as pytz
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
@@ -83,7 +83,7 @@ class BannerBackModel(models.Model):
 
 class BannerInfoModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
-    slug = models.SlugField(max_length=400)
+    slug = models.SlugField(max_length=400, null=False, unique=True)
     sku = models.AutoField(primary_key=True, db_index=True)
     background = models.ForeignKey(BannerBackModel, on_delete=models.SET_NULL, verbose_name=_('background'), null=True,
                                    blank=True)
@@ -133,6 +133,11 @@ class BannerInfoModel(models.Model):
 
     def get_absolute_url(self):
         return reverse('products:single', kwargs={"slug": self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
     # @staticmethod
     # def get_subcategory_count(request):
     #     products = BannerInfoModel.objects.get(products)
