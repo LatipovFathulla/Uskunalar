@@ -83,6 +83,7 @@ class BannerBackModel(models.Model):
 
 class BannerInfoModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
+    slug = models.SlugField(max_length=400)
     sku = models.AutoField(primary_key=True, db_index=True)
     background = models.ForeignKey(BannerBackModel, on_delete=models.SET_NULL, verbose_name=_('background'), null=True,
                                    blank=True)
@@ -131,7 +132,7 @@ class BannerInfoModel(models.Model):
         return diff.days <= 3
 
     def get_absolute_url(self):
-        return reverse('products:single', args=[str(self.pk)])
+        return reverse('products:single', kwargs={"slug": self.slug})
     # @staticmethod
     # def get_subcategory_count(request):
     #     products = BannerInfoModel.objects.get(products)

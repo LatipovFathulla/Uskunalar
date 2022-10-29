@@ -331,7 +331,7 @@
         </div>
         <div class="us-products-page-products-productCard-detailsView">
             <div class="us-products-page-products-productCard-content">
-                <a href="{% url 'products:single' pk=product.pk %}">
+                <a href="{{ product.get_absolute_url }}">
                     <h3 class="us-products-page-products-productCard-product-title">{{ product.title }}</h3>
                 </a>
                 <ul class="us-products-page-products-productCard-details_list">
@@ -380,7 +380,7 @@
                     </div>
                 </div>
 
-                <a href="{% url 'products:single' pk=product.pk %}" class="us-products-page-products-productCard-moreLink">{% trans 'More Details' %} <i class="fa-light fa-arrow-right"></i></a>
+                <a href="{{ product.get_absolute_url }}" class="us-products-page-products-productCard-moreLink">{% trans 'More Details' %} <i class="fa-light fa-arrow-right"></i></a>
             </div>
         </div>
     </div>

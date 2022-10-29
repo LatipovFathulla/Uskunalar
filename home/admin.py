@@ -111,7 +111,7 @@ class BannerInfoModelAdmin(MyTranslationAdmin):
     list_display = ['pk', 'title', 'city', 'created_at', 'category', 'subcategory']
     fieldsets = (
         (None, {
-           "fields": (('title', 'background', 'category', 'subcategory', 'country', 'pdf', ('CIP', 'DAF', 'EXW', 'FCA'),
+           "fields": (('title', 'slug', 'background', 'category', 'subcategory', 'country', 'pdf', ('CIP', 'DAF', 'EXW', 'FCA'),
                        'price',  'discount', 'inbox', 'delivery', 'short_description', 'long_description', 'video'),)
         }),
         ("Price_Type", {
@@ -125,6 +125,7 @@ class BannerInfoModelAdmin(MyTranslationAdmin):
     inlines = [ProductSpecificationsModelAdmin, BannerImageModelAdmin, ]
     save_on_top = True
     save_as = True
+    prepopulated_fields = {'slug_uz': ("title_uz",), 'slug_ru': ("title_ru",), 'slug_en': ("title_en",), }
 
     # @admin.display
     # def get_subcategories(self):
