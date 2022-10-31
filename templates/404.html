@@ -83,13 +83,24 @@
                 <p class="notfound-page-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est numquam tempora perspiciatis quam necessitatibus? Quos dolor nesciunt ducimus vel laborum maxime saepe consectetur aut, repudiandae, eligendi quas impedit! Dicta animi dolorem rerum, voluptas illum voluptates, odio tempora quos, qui molestiae adipisci. Nemo, facere sunt dolorem aut harum voluptates deserunt dolor.</p>
                 <a href="{% url 'index' %}" class="notfound-page-btn">{% trans 'OK' %}</a>
             </div>
-        <div class="container">
-              <div class="notfound-page-grid">
-                {% for product in random_products|slice:'15' %}
-                    {% include 'layouts/product-block2.html' %}
-                {% endfor %}
-            </div>
-        </div>
+            <div class="container">
+                    <h2 class="text-center"
+                        style="font-weight: 600;font-size: 35px;padding: 20px;margin-left: 0%;">
+                        {% trans 'Популярные товары' %}</h2>
+                    <p class="home-product-desc text-center">{% trans "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan doimiy ravishda boyitib borilmoqda. Quyida esa Saytimiz kuzatuvchilarining qiziqishlari, talab va istaklari natijasida saralangan ommabop mahsulotlarni taqdim qilamiz. Bizni kuzatishda davom eting!" %}</p>
+                    <br>
+                    <br>
+                    <img src="{% static './images/title-icon.png' %}" style="margin:auto;display:block">
+                </div>
+               <div class="container">
+                 <div class="us-products-page-products-grid">
+                    <ul class="us-products-page-products-grid-list active">
+                        {% for product in products %}
+                            {% include 'layouts/product-block2.html' %}
+                        {% endfor %}
+                    </ul>
+                </div>
+               </div>
         </div>
     </div>
 

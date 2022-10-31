@@ -21,4 +21,4 @@ class BannerInfoModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BannerInfoModel
-        exclude = ['category_uz', 'category_ru', 'category_en']
+        fields = '__all__'
