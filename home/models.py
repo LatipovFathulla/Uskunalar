@@ -8,6 +8,8 @@ from embed_video.fields import EmbedVideoField
 from django.contrib import admin
 from django.template.defaultfilters import slugify
 import pytz as pytz
+import random
+import string
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from django.db.models import FloatField, Count
@@ -136,8 +138,15 @@ class BannerInfoModel(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
-        return super().save(*args, **kwargs)
+            self.slug = slugify(self.title)  # here you don't need to add random numbers since the title is already unque
+        super().save(*args, **kwargs)
+
+    # def save(self, *args, **kwargs):
+    #     if not self.slug:
+    #         self.slug = slugify(self.title)
+    #     else:
+    #         self.slug.exist()
+    #     return super().save(*args, **kwargs)
     # @staticmethod
     # def get_subcategory_count(request):
     #     products = BannerInfoModel.objects.get(products)

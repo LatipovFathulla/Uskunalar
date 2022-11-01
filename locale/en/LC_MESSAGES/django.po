@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-28 17:05+0500\n"
+"POT-Creation-Date: 2022-11-01 21:59+0500\n"
 "PO-Revision-Date: 2022-10-28 17:10+0500\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,14 +24,14 @@ msgid "about"
 msgstr "about"
 
 #: about/models.py:9 biznes/models.py:8 blog/models.py:7 gallery/models.py:9
-#: home/models.py:85 home/models.py:189 lines/models.py:34 videos/models.py:8
+#: home/models.py:87 home/models.py:204 lines/models.py:34 videos/models.py:8
 #: works/models.py:7
 msgid "title"
 msgstr "title"
 
-#: about/models.py:10 blog/models.py:8 clients/models.py:6
-#: gallery/models.py:28 home/models.py:62 home/models.py:74 home/models.py:169
-#: home/models.py:191 lines/models.py:35 lines/models.py:62
+#: about/models.py:10 blog/models.py:8 clients/models.py:6 gallery/models.py:28
+#: home/models.py:64 home/models.py:76 home/models.py:184 home/models.py:206
+#: lines/models.py:35 lines/models.py:62
 msgid "image"
 msgstr "image"
 
@@ -41,7 +41,7 @@ msgstr "description"
 
 #: about/models.py:13 about/models.py:27 biznes/models.py:12
 #: biznes/models.py:33 clients/models.py:7 gallery/models.py:14
-#: home/models.py:26 home/models.py:116 lines/models.py:9 lines/models.py:21
+#: home/models.py:28 home/models.py:119 lines/models.py:9 lines/models.py:21
 #: lines/models.py:42 videos/models.py:11
 msgid "created_at"
 msgstr "created_at"
@@ -127,11 +127,11 @@ msgstr ""
 msgid "gallery"
 msgstr ""
 
-#: gallery/models.py:10 home/models.py:108
+#: gallery/models.py:10 home/models.py:111
 msgid "short_description"
 msgstr ""
 
-#: gallery/models.py:11 home/models.py:109 lines/models.py:41
+#: gallery/models.py:11 home/models.py:112 lines/models.py:41
 msgid "long_description"
 msgstr ""
 
@@ -159,168 +159,168 @@ msgstr ""
 msgid "home"
 msgstr ""
 
-#: home/models.py:18 home/models.py:33 home/models.py:39 home/models.py:92
+#: home/models.py:20 home/models.py:35 home/models.py:41 home/models.py:95
 #: lines/models.py:20 lines/models.py:32
 msgid "category"
 msgstr ""
 
-#: home/models.py:19
+#: home/models.py:21
 msgid "category_image"
 msgstr ""
 
-#: home/models.py:34 templates/products.html:358
+#: home/models.py:36 templates/products.html:358
 msgid "categories"
 msgstr ""
 
-#: home/models.py:41
+#: home/models.py:43
 msgid "sub_image"
 msgstr ""
 
-#: home/models.py:42 home/models.py:55 home/models.py:95
+#: home/models.py:44 home/models.py:57 home/models.py:98
 msgid "subcategory"
 msgstr ""
 
-#: home/models.py:49
+#: home/models.py:51
 msgid "crated_at"
 msgstr ""
 
-#: home/models.py:56
+#: home/models.py:58
 msgid "subcategories"
 msgstr ""
 
-#: home/models.py:61 home/models.py:89
+#: home/models.py:63 home/models.py:92
 msgid "country"
 msgstr ""
 
-#: home/models.py:68 home/models.py:69
+#: home/models.py:70 home/models.py:71
 msgid "Banner_country"
 msgstr ""
 
-#: home/models.py:73
+#: home/models.py:75
 msgid "color"
 msgstr ""
 
-#: home/models.py:80
+#: home/models.py:82
 msgid "Banner_back"
 msgstr ""
 
-#: home/models.py:81
+#: home/models.py:83
 msgid "Banner_backs"
 msgstr ""
 
-#: home/models.py:87 home/models.py:192
+#: home/models.py:90 home/models.py:207
 msgid "background"
 msgstr ""
 
-#: home/models.py:91
+#: home/models.py:94
 msgid "pdf"
 msgstr ""
 
-#: home/models.py:98
+#: home/models.py:101
 msgid "city"
 msgstr ""
 
-#: home/models.py:99
+#: home/models.py:102
 msgid "CIP"
 msgstr ""
 
-#: home/models.py:99
+#: home/models.py:102
 msgid "SELECT ONLY ONE"
 msgstr "SELECT ONLY ONE"
 
-#: home/models.py:100
+#: home/models.py:103
 msgid "DAF"
 msgstr ""
 
-#: home/models.py:101
+#: home/models.py:104
 msgid "EXW"
 msgstr ""
 
-#: home/models.py:102
+#: home/models.py:105
 msgid "FCA"
 msgstr ""
 
-#: home/models.py:104 lines/models.py:39
+#: home/models.py:107 lines/models.py:39
 msgid "price"
 msgstr ""
 
-#: home/models.py:105
+#: home/models.py:108
 msgid "discount"
 msgstr ""
 
-#: home/models.py:106
+#: home/models.py:109
 msgid "inbox"
 msgstr ""
 
-#: home/models.py:107
+#: home/models.py:110
 msgid "delivery"
 msgstr ""
 
-#: home/models.py:110
+#: home/models.py:113
 #, fuzzy
 #| msgid "title"
 msgid "price_title"
 msgstr "title"
 
-#: home/models.py:111
+#: home/models.py:114
 #, fuzzy
 #| msgid "image"
 msgid "price_image"
 msgstr "image"
 
-#: home/models.py:112
+#: home/models.py:115
 msgid "price_short"
 msgstr ""
 
-#: home/models.py:113
+#: home/models.py:116
 msgid "price_long"
 msgstr ""
 
-#: home/models.py:160 home/models.py:161 home/models.py:178
+#: home/models.py:175 home/models.py:176 home/models.py:193
 msgid "products"
 msgstr ""
 
-#: home/models.py:168
+#: home/models.py:183
 msgid "product"
 msgstr ""
 
-#: home/models.py:172
+#: home/models.py:187
 msgid "product image"
 msgstr ""
 
-#: home/models.py:173
+#: home/models.py:188
 msgid "product images"
 msgstr ""
 
-#: home/models.py:179
+#: home/models.py:194
 msgid "product_customer"
 msgstr ""
 
-#: home/models.py:180
+#: home/models.py:195
 msgid "product_numbers"
 msgstr ""
 
-#: home/models.py:181
+#: home/models.py:196
 msgid "product_image"
 msgstr ""
 
-#: home/models.py:184
+#: home/models.py:199
 msgid "product specification"
 msgstr ""
 
-#: home/models.py:185
+#: home/models.py:200
 msgid "product specifications"
 msgstr ""
 
-#: home/models.py:190 works/models.py:10
+#: home/models.py:205 works/models.py:10
 msgid "descriptions"
 msgstr ""
 
-#: home/models.py:199
+#: home/models.py:214
 msgid "carousel"
 msgstr ""
 
-#: home/models.py:200
+#: home/models.py:215
 msgid "carousels"
 msgstr ""
 
@@ -389,13 +389,33 @@ msgstr ""
 msgid "Bizning maqolalar"
 msgstr "Our articles"
 
-#: templates/404.html:74
+#: templates/404.html:75 templates/404.html:78 templates/404.html:81
 msgid "This page is temporary unavailable"
 msgstr "This page is temporary unavailable"
 
-#: templates/404.html:76
+#: templates/404.html:84
 msgid "OK"
 msgstr "OK"
+
+#: templates/404.html:89 templates/index.html:2662 templates/products.html:537
+#: templates/single-product.html:1783
+msgid "Популярные товары"
+msgstr "Popular products"
+
+#: templates/404.html:90 templates/index.html:2663 templates/products.html:538
+#: templates/single-product.html:1784
+msgid ""
+"Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi "
+"jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan "
+"doimiy ravishda boyitib borilmoqda. Quyida esa Saytimiz kuzatuvchilarining "
+"qiziqishlari, talab va istaklari natijasida saralangan ommabop mahsulotlarni "
+"taqdim qilamiz. Bizni kuzatishda davom eting!"
+msgstr ""
+"Uskunalar.uz the catalog of products of the year 2022 is constantly enriched "
+"with information on the most innovative techniques and technologies of the "
+"world. And below on our site we present popular products, sorted as a result "
+"of the interests, demands and desires of the observers. Continue to follow "
+"us!"
 
 #: templates/about.html:3 templates/layouts/footer.html:47
 msgid "Biz haqimizda"
@@ -527,15 +547,14 @@ msgid ""
 "O'zbekiston bo'ylab barcha turdagi yuqori sifatli ishlab chiqarish "
 "uskunalarini hamyonbop narxlarda yetkazib beruvchi kompaniya."
 msgstr ""
-"One of the most trustworthy supplier of all types of high-quality production"
-" equipment at affordable prices throughout Uzbekistan."
+"One of the most trustworthy supplier of all types of high-quality production "
+"equipment at affordable prices throughout Uzbekistan."
 
 #: templates/index.html:7
 msgid ""
 "Uskunalar, Biznes loyihalar, Ускуналар, Ishlab chiqarish, Qayta ishlash, "
 "Liniyalar, Biznes Rejalar"
-msgstr ""
-"Equipment, For Business, Production, Processing, Lines, Business Plans"
+msgstr "Equipment, For Business, Production, Processing, Lines, Business Plans"
 
 #: templates/index.html:9 templates/layouts/base.html:10
 msgid "Uskunalar.uz | Xalqaro uskunalar savdo markazi"
@@ -559,37 +578,17 @@ msgstr "More"
 msgid "Batafsil"
 msgstr "More"
 
-#: templates/index.html:2662 templates/products.html:537
-#: templates/single-product.html:1783
-msgid "Популярные товары"
-msgstr "Popular products"
-
-#: templates/index.html:2663 templates/products.html:538
-#: templates/single-product.html:1784
-msgid ""
-"Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi "
-"jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan"
-" doimiy ravishda boyitib borilmoqda. Quyida esa Saytimiz kuzatuvchilarining "
-"qiziqishlari, talab va istaklari natijasida saralangan ommabop mahsulotlarni"
-" taqdim qilamiz. Bizni kuzatishda davom eting!"
-msgstr ""
-"Uskunalar.uz the catalog of products of the year 2022 is constantly enriched"
-" with information on the most innovative techniques and technologies of the "
-"world. And below on our site we present popular products, sorted as a result"
-" of the interests, demands and desires of the observers. Continue to follow "
-"us!"
-
 #: templates/index.html:2757
 msgid ""
 "Bizning saytimizda nafaqat uskunalar haqida ma'lumot olishingiz, balki "
 "tadbirkorlik faoliyatini yo'lga qo'ymoqchi bo'lsangiz jahonda mavjud so'ngi "
-"texnalogiyalar asosida tajribali mutaxasislarimiz tomonidan ishlab chiqilgan"
-" tayyor biznes loyihalar bilan tanishishingiz mumkin."
+"texnalogiyalar asosida tajribali mutaxasislarimiz tomonidan ishlab chiqilgan "
+"tayyor biznes loyihalar bilan tanishishingiz mumkin."
 msgstr ""
 "On our site you can not only get information about the equipment, but also "
 "get acquainted with ready-made business projects developed by our "
-"experienced specialists on the basis of the latest technologies available in"
-" the world if you want to conduct business activities."
+"experienced specialists on the basis of the latest technologies available in "
+"the world if you want to conduct business activities."
 
 #: templates/index.html:2772 templates/index.html:2785
 msgid "Learn more"
@@ -618,8 +617,8 @@ msgstr "Our works"
 msgid ""
 "Bizning Kompaniyamiz butun Markaziy Osiyoda ishlab chiqarish sohasida "
 "birinchilardan bo'lib zamonaviy texnika-texnologiyalar bilan ko'plab "
-"tadbirkorlik subyektlarini asos solinishida katta xizmat ko'rsatib kelmoqda."
-" Bizning asosiy maqsadimiz tadbirkorlik sohasini rivojlantirish va keng, "
+"tadbirkorlik subyektlarini asos solinishida katta xizmat ko'rsatib kelmoqda. "
+"Bizning asosiy maqsadimiz tadbirkorlik sohasini rivojlantirish va keng, "
 "qulay imkoniyatlar yaratish. Uzkunalar.uz ni siz uchun yaratdik!"
 msgstr ""
 "Our company is one of the first in the field of production in the whole of "
@@ -640,9 +639,9 @@ msgid ""
 "mustahkam sherikchilik aloqalari o'rnatilgan."
 msgstr ""
 "Our company has been working in partnership with more than 18 thousand "
-"factories around the world since 10 years. In particular, strong partnership"
-" relations have been established with enterprises in countries such as "
-"China, Turkey, Iran, Russia, India, Germany and Italy."
+"factories around the world since 10 years. In particular, strong partnership "
+"relations have been established with enterprises in countries such as China, "
+"Turkey, Iran, Russia, India, Germany and Italy."
 
 #: templates/layouts/base.html:75
 msgid "Yuklanmoqda"
@@ -1107,8 +1106,8 @@ msgstr ""
 
 #~ msgid "Заполните форму и наши операторы с вами свяжутся"
 #~ msgstr ""
-#~ "Please fill out the form below to contact us and our operators will contact "
-#~ "you soon"
+#~ "Please fill out the form below to contact us and our operators will "
+#~ "contact you soon"
 
 #~ msgid "Закрыть"
 #~ msgstr "Close"
