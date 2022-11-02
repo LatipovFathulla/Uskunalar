@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-01 21:59+0500\n"
+"POT-Creation-Date: 2022-11-02 15:23+0500\n"
 "PO-Revision-Date: 2022-10-28 17:09+0500\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -639,7 +639,7 @@ msgstr ""
 "18 лет. В частности, установлены прочные партнерские отношения с "
 "предприятиями Китая, Турции, Ирана, России, Индии, Германии и Италии."
 
-#: templates/layouts/base.html:75
+#: templates/layouts/base.html:86
 msgid "Yuklanmoqda"
 msgstr "Загружается"
 
