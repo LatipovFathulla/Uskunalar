@@ -31,6 +31,7 @@ class CategoryModel(models.Model):
         # return mark_safe(self.category)
         return strip_tags(self.category)
 
+
     class Meta:
         verbose_name = _('category')
         verbose_name_plural = _('categories')
@@ -134,7 +135,7 @@ class BannerInfoModel(models.Model):
         return diff.days <= 3
 
     def get_absolute_url(self):
-        return reverse('products:single', kwargs={"slug": self.slug})
+        return reverse('products:single', kwargs={"pk": self.pk})
 
     # def save(self, *args, **kwargs):
     #     if not self.slug:

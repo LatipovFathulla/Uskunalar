@@ -1,5 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from django.urls import reverse
 from django.utils.html import strip_tags
 from django.utils.translation import gettext_lazy as _
 from embed_video.fields import EmbedVideoField
@@ -15,9 +16,15 @@ class AboutModel(models.Model):
     def __str__(self):
         return strip_tags(self.title)
 
+    def get_absolute_url(self):
+        return reverse('home:about',)
+    # def get_absolute_url(self):
+    #     return f'/{self.title}'
+
     class Meta:
         verbose_name = _('about')
         verbose_name_plural = _('abouts')
+        ordering = ['-pk']
 
 
 class RequestsModel(models.Model):

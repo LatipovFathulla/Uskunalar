@@ -6,7 +6,7 @@ from about.views import AboutModelListView, \
 app_name = 'home'
 
 urlpatterns = [
-    path('about/', cache_page(1800)(AboutModelListView.as_view()), name='about'),
+    path('about/', AboutModelListView.as_view(), name='about'),
     path('<int:pk>/', AboutModelDetailView.as_view(), name='detail'),
     path('contacts/', ContactModelTemplateView.as_view(), name='contacts'),
     path('request/', RequestCreateView.as_view(), name='request'),

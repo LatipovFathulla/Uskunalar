@@ -10,11 +10,19 @@ from about.views import HomeView
 from home.views import CategoryTest, get_subcategory
 
 from home.models import BannerInfoModel
+from uskunalar.feeds import LatestPostsFeed
+from uskunalar.sitemaps import PostSitemap, AboutSitemap, StaticViewSitemap, BiznesSitemap
 
 info_dict = {
     'queryset': BannerInfoModel.objects.all(),
 }
 
+sitemaps = {
+    'about': AboutSitemap,
+    'statics': StaticViewSitemap,
+    'posts': PostSitemap,
+    'biznes': BiznesSitemap,
+}
 
 urlpatterns = [
     # ckeditor
@@ -24,6 +32,10 @@ urlpatterns = [
          {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.6)}},
          name='django.contrib.sitemaps.views.sitemap'
          ),
+
+    path('sitemap2.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
+    path('feed/', LatestPostsFeed(), name='post_feed'),
 ]
 
 urlpatterns += i18n_patterns(

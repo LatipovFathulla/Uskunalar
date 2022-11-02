@@ -1,5 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from django.urls import reverse
 from django.utils.html import strip_tags
 from django.utils.translation import gettext_lazy as _
 
@@ -20,9 +21,13 @@ class BiznesModel(models.Model):
     def __str__(self):
         return strip_tags(self.title)
 
+    def get_absolute_url(self):
+        return reverse('biznes:detail', kwargs={"pk": self.pk})
+
     class Meta:
         verbose_name = _('biznes')
         verbose_name_plural = _('biznes')
+        ordering = ['-pk']
 
 
 class BiznesImageModel(models.Model):
