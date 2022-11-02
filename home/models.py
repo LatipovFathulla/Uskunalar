@@ -85,7 +85,7 @@ class BannerBackModel(models.Model):
 
 class BannerInfoModel(models.Model):
     title = models.CharField(max_length=99, verbose_name=_('title'), db_index=True)
-    slug = models.SlugField(max_length=400, null=True, unique=True)
+    # slug = models.SlugField(max_length=400, null=True, unique=True)
     sku = models.AutoField(primary_key=True, db_index=True)
     background = models.ForeignKey(BannerBackModel, on_delete=models.SET_NULL, verbose_name=_('background'), null=True,
                                    blank=True)
@@ -141,10 +141,10 @@ class BannerInfoModel(models.Model):
     #         self.slug = slugify(self.title)  # here you don't need to add random numbers since the title is already unque
     #     super().save(*args, **kwargs)
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        return super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     if not self.slug:
+    #         self.slug = slugify(self.title)
+    #     return super().save(*args, **kwargs)
     # @staticmethod
     # def get_subcategory_count(request):
     #     products = BannerInfoModel.objects.get(products)
