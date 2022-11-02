@@ -21,7 +21,7 @@ class SubCategoryTranslationOptions(TranslationOptions):
 @register(BannerInfoModel)
 class BannerTranslationOptions(TranslationOptions):
     fields = (
-        'title', 'slug', 'city', 'short_description', 'long_description',
+        'title', 'city', 'short_description', 'long_description',
         'price_title', 'price_short_description', 'price_long_description'
     )
 

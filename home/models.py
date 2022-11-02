@@ -144,8 +144,6 @@ class BannerInfoModel(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
-        else:
-            self.slug.exist()
         return super().save(*args, **kwargs)
     # @staticmethod
     # def get_subcategory_count(request):

@@ -125,7 +125,7 @@ class BannerInfoModelAdmin(MyTranslationAdmin):
     inlines = [ProductSpecificationsModelAdmin, BannerImageModelAdmin, ]
     save_on_top = True
     save_as = True
-    prepopulated_fields = {'slug_uz': ("title_uz",), 'slug_ru': ("title_ru",), 'slug_en': ("title_en",), }
+    prepopulated_fields = {'slug': ("title",), }
 
     # @admin.display
     # def get_subcategories(self):
