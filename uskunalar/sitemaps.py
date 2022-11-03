@@ -3,11 +3,14 @@ from django.shortcuts import reverse
 
 from about.models import AboutModel
 from biznes.models import BiznesModel
+from blog.models import BlogModel
 from home.models import BannerInfoModel
+from lines.models import LineModel
+from works.models import WorkModel
 
 
 class PostSitemap(Sitemap):
-    changefreq = 'weekly'
+    changefreq = 'daily'
     priority = 0.9
 
     def items(self):
@@ -18,22 +21,24 @@ class PostSitemap(Sitemap):
 
 
 class AboutSitemap(Sitemap):
-    changefreq = 'weekly'
-    priority = 0.9
-
-    def items(self):
-        return AboutModel.objects.all()
-
-    def lastmod(self, obj):
-        return obj.created_at
+    pass
+    # changefreq = 'weekly'
+    # priority = 0.9
+    #
+    # def items(self):
+    #     return AboutModel.objects.all()
+    #
+    # def lastmod(self, obj):
+    #     return obj.created_at
 
 
 class StaticViewSitemap(Sitemap):
-    def items(self):
-        return ['home:about', 'home:contacts', 'biznes:biznes']
-
-    def location(self, item):
-        return reverse(item)
+    pass
+    # def items(self):
+    #     return ['home:about', 'home:contacts', 'biznes:biznes']
+    #
+    # def location(self, item):
+    #     return reverse(item)
 
 
 class BiznesSitemap(Sitemap):
@@ -42,6 +47,39 @@ class BiznesSitemap(Sitemap):
 
     def items(self):
         return BiznesModel.objects.all()
+
+    def lastmod(self, obj):
+        return obj.created_at
+
+
+class LinesSitemap(Sitemap):
+    changefreq = 'weekly'
+    priority = 0.9
+
+    def items(self):
+        return LineModel.objects.all()
+
+    def lastmod(self, obj):
+        return obj.created_at
+
+
+class WorksSitemap(Sitemap):
+    changefreq = 'weekly'
+    priority = 0.9
+
+    def items(self):
+        return WorkModel.objects.all()
+
+    def lastmod(self, obj):
+        return obj.created_at
+
+
+class BlogSitemap(Sitemap):
+    changefreq = 'weekly'
+    priority = 0.9
+
+    def items(self):
+        return BlogModel.objects.all()
 
     def lastmod(self, obj):
         return obj.created_at

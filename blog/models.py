@@ -1,5 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 
@@ -20,6 +21,10 @@ class BlogModel(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('blog:single-blog', kwargs={"pk": self.pk})
+
     class Meta:
         verbose_name = _('blog')
         verbose_name_plural = _('blogs')
+        ordering = ['-pk']

@@ -1,5 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from django.urls import reverse
 from django.utils.html import strip_tags
 from django.utils.translation import gettext_lazy as _
 
@@ -50,9 +51,13 @@ class LineModel(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('line:detail', kwargs={"pk": self.pk})
+
     class Meta:
         verbose_name = _('line')
         verbose_name_plural = _('lines')
+        ordering = ['-pk']
 
 
 class LineSpecificationModel(models.Model):

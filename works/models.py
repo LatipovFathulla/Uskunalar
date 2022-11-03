@@ -1,5 +1,6 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 
@@ -19,9 +20,13 @@ class WorkModel(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('work:single-work', kwargs={"pk": self.pk})
+
     class Meta:
         verbose_name = _('work')
         verbose_name_plural = _('works')
+        ordering = ['-pk']
 
 
 class WorkImageModel(models.Model):

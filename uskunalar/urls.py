@@ -6,22 +6,36 @@ from django.urls import path, include, re_path
 from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap
 
-from about.views import HomeView
+from about.views import HomeView, AllSitemaps
 from home.views import CategoryTest, get_subcategory
 
 from home.models import BannerInfoModel
 from uskunalar.feeds import LatestPostsFeed
-from uskunalar.sitemaps import PostSitemap, AboutSitemap, StaticViewSitemap, BiznesSitemap
+from uskunalar.sitemaps import PostSitemap, AboutSitemap, StaticViewSitemap, BiznesSitemap, LinesSitemap, WorksSitemap, \
+    BlogSitemap
 
 info_dict = {
     'queryset': BannerInfoModel.objects.all(),
 }
 
 sitemaps = {
-    'about': AboutSitemap,
-    'statics': StaticViewSitemap,
-    'posts': PostSitemap,
+    # 'about': AboutSitemap,
     'biznes': BiznesSitemap,
+    'lines': LinesSitemap,
+    'works': WorksSitemap,
+    'blogs': BlogSitemap,
+}
+
+product_sitemaps = {
+    'posts': PostSitemap,
+}
+
+all_sitemaps = {
+    'biznes': BiznesSitemap,
+    'lines': LinesSitemap,
+    'works': WorksSitemap,
+    'blogs': BlogSitemap,
+    'posts': PostSitemap,
 }
 
 urlpatterns = [
@@ -32,9 +46,6 @@ urlpatterns = [
          {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.6)}},
          name='django.contrib.sitemaps.views.sitemap'
          ),
-
-    path('sitemap2.xml', sitemap, {'sitemaps': sitemaps},
-         name='django.contrib.sitemaps.views.sitemap'),
     path('feed/', LatestPostsFeed(), name='post_feed'),
 ]
 
@@ -52,6 +63,12 @@ urlpatterns += i18n_patterns(
     path('test/', CategoryTest.as_view()),
     path('api-auth/', include('api.urls')),
     path('getSubcategory/', get_subcategory, name='subcategory'),
+    path('sitemap2.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
+    path('sitemap_products_2.xml', sitemap, {'sitemaps': product_sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
+    path('all_sitemaps.xml', sitemap, {'sitemaps': all_sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
 )
 
 if 'rosetta' in settings.INSTALLED_APPS:
