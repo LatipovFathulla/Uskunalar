@@ -1,8 +1,43 @@
 {% extends 'layouts/base.html' %}
 {% load i18n %}
-{% block title %} {{ object.title }} {% endblock %}
 {% load static %}
 {% load tags %}
+{% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{{ object.title }}{% endblock %}</title>
+        <meta name="google-site-verification" content="BKoQKvktTYBYK4gBlkz2Bk1AvjMam45M4Neb4otwUbU"/>
+        <link rel="stylesheet" href="{% static 'css/splide.min.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+              integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+              crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+              integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="icon" type="image/x-icon" href="{% static './images/favicon-us.png' %}">
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.6/swiper-bundle.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+        <link rel="stylesheet" href="{% static 'images/uslogo.css' %}">
+       <meta name="description" content="{{ object.long_descriptions|safe }}">
+          <!-- Open Graph -->
+         <meta property="og:title" content="{{ object.title }}" />
+         <meta property="og:type" content="product" />
+         <meta property="og:url" content="https://uskunalar.uz/lines/{{ object.pk }}/" />
+         <meta property="og:image" content="https://uskunalar.uz{{ object.image.url }}"/>
+         <meta property="og:description" content="{{ object.long_descriptions|safe }}" />
+          <!-- Open Graph -->
+    </head>
+{% endblock %}
 {% block content %}
     <style>
         ol, dl, ul {
