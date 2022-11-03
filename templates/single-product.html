@@ -1,1416 +1,1450 @@
 {% extends 'layouts/base.html' %}
 {% load i18n %}
-{% block title %} {{ object.title }} {% endblock %}
+
 {% load static %}
 {% load tags %}
 {% load embed_video_tags %}
 {% load static watermark %}
 {% load humanize %}
+{% block head %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{{ object.title }}{% endblock %}</title>
+        <meta name="google-site-verification" content="BKoQKvktTYBYK4gBlkz2Bk1AvjMam45M4Neb4otwUbU"/>
+        <link rel="stylesheet" href="{% static 'css/splide.min.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+              integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+              crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+              integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="icon" type="image/x-icon" href="{% static './images/favicon-us.png' %}">
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.1.6/swiper-bundle.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+        <link rel="stylesheet" href="{% static 'images/uslogo.css' %}">
+        <meta name="description" content="{{ object.short_description|slice:':250'|safe }}">
+        <meta name="keywords" content="{{ object.subcategory }}">
+        <!-- Open Graph -->
+        <meta property="og:title" content="{{ object.title }}"/>
+        <meta property="og:type" content="product"/>
+        <meta property="og:url" content="https://uskunalar.uz/product/{{ object.pk }}/"/>
+        <meta property="og:image" content="
+                {% for i in object.images.all %}{% if forloop.counter == 1 %}https://uskunalar.uz{{ i.image.url }}{% endif %}{% endfor %}"/>
+        <meta property="og:description" content="{{ object.short_description|slice:':250'|safe }}"/>
+        <!-- Open Graph -->
+    </head>
+{% endblock %}
 {% block content %}
- <meta name="description" content="{{ object.short_description|slice:':250'|safe }}">
- <meta name="keywords" content="{{ object.subcategory }}">
-  <!-- Open Graph -->
- <meta property="og:title" content="{{ object.title }}" />
- <meta property="og:type" content="product" />
- <meta property="og:url" content="https://uskunalar.uz/product/{{ object.pk }}/" />
- <meta property="og:image" content="{% for i in object.images.all %}{% if forloop.counter == 1 %}https://uskunalar.uz{{ i.image.url }}{% endif %}{% endfor %}" />
- <meta property="og:description" content="{{ object.short_description|slice:':250'|safe }}" />
-  <!-- Open Graph -->
-<style>
-.single-product-images-mainImage {
-    max-width: 100%;
-    width: 600px;
-    max-height: 100%;
-    height: 600px;
-    overflow: hidden;
-    margin-left: 5px;
-    position: relative;
-}
 
-.single-product-images-mainImage::after {
-    content: '';
-    display: block;
-    background: url('{{ object.background.image.url }}') no-repeat center center / contain;
-    max-width: 600px;
-    width: 100%;
-    height: 600px;
-    position: absolute;
-    z-index: -10;
-    top: 10%;
-}
+    <style>
+        .single-product-images-mainImage {
+            max-width: 100%;
+            width: 600px;
+            max-height: 100%;
+            height: 600px;
+            overflow: hidden;
+            margin-left: 5px;
+            position: relative;
+        }
+
+        .single-product-images-mainImage::after {
+            content: '';
+            display: block;
+            background: url('{{ object.background.image.url }}') no-repeat center center / contain;
+            max-width: 600px;
+            width: 100%;
+            height: 600px;
+            position: absolute;
+            z-index: -10;
+            top: 10%;
+        }
+
+
+        /* Content */
+
+        .single-product-content-Holder {
+            margin-left: 30px;
+        }
+
+        .single-prodcut-title {
+            color: #333333;
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .single-products-newproduct {
+            color: white;
+            background: #ff0000;
+            font-size: 20px;
+            border-radius: 10px;
+            padding: 5px;
+            margin-left: 10px;
+        }
+
+        .single-product-status-block {
+            display: flex;
+            margin-top: 10px;
+            justify-content: space-between;
+        }
+
+        .single-product_status {
+            color: #16c67a;
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .on-the-way {
+            color: #ffa600;
+        }
+
+        .on-the-way i {
+            background-color: #ffa600 !important;
+        }
+
+        .single-product_status-box {
+            position: relative;
+            max-width: 280px;
+            width: 100%;
+        }
+
+        .deliverytext {
+            position: absolute;
+            max-width: 220px;
+            left: 13px;
+            top: 40px;
+            -webkit-box-shadow: 0 4px 10px rgb(0 0 0 / 5%), 0 0 40px rgb(5 60 130 / 7%);
+            box-shadow: 0 4px 10px rgb(0 0 0 / 5%), 0 0 40px rgb(5 60 130 / 7%);
+            padding: 18px;
+            font-size: 14px;
+            line-height: 16px;
+            font-weight: 400;
+            color: #0d1436;
+            background-color: white;
+            visibility: hidden;
+            opacity: 0;
+            transition: all .3s ease-out;
+        }
+
+        .deliverytext::before {
+            content: '';
+            display: block;
+            height: 20px;
+            width: 30px;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            background-color: white;
+            position: absolute;
+            top: -15px;
+            left: 145px;
+        }
+
+        .single-product_status i {
+            color: #fff;
+            font-size: 12px;
+            padding: 6px 6px;
+            border-radius: 50%;
+            background-color: #16c67a;
+            margin-right: 5px;
+        }
+
+        .deliveryInfo i {
+            color: #333;
+            font-size: 16px;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .single-product_status-box:hover .deliverytext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .single-product_articuleID {
+            color: black;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .single-product-short-description {
+            margin-top: 2%;
+            border-top: 1px dashed #333;
+            padding-top: 20px;
+        }
 
-
-/* Content */
-
-.single-product-content-Holder {
-    margin-left: 30px;
-}
-
-.single-prodcut-title {
-    color: #333333;
-    font-size: 25px;
-    font-weight: 600;
-}
-
-.single-products-newproduct {
-    color: white;
-    background: #ff0000;
-    font-size: 20px;
-    border-radius: 10px;
-    padding: 5px;
-    margin-left: 10px;
-}
-
-.single-product-status-block {
-    display: flex;
-    margin-top: 10px;
-    justify-content: space-between;
-}
-
-.single-product_status {
-    color: #16c67a;
-    text-align: center;
-    display: flex;
-    align-items: center;
-}
-
-.on-the-way {
-    color: #ffa600;
-}
-
-.on-the-way i {
-    background-color: #ffa600 !important;
-}
-
-.single-product_status-box {
-    position: relative;
-    max-width: 280px;
-    width: 100%;
-}
-
-.deliverytext {
-    position: absolute;
-    max-width: 220px;
-    left: 13px;
-    top: 40px;
-    -webkit-box-shadow: 0 4px 10px rgb(0 0 0 / 5%), 0 0 40px rgb(5 60 130 / 7%);
-    box-shadow: 0 4px 10px rgb(0 0 0 / 5%), 0 0 40px rgb(5 60 130 / 7%);
-    padding: 18px;
-    font-size: 14px;
-    line-height: 16px;
-    font-weight: 400;
-    color: #0d1436;
-    background-color: white;
-    visibility: hidden;
-    opacity: 0;
-    transition: all .3s ease-out;
-}
-
-.deliverytext::before {
-    content: '';
-    display: block;
-    height: 20px;
-    width: 30px;
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    background-color: white;
-    position: absolute;
-    top: -15px;
-    left: 145px;
-}
-
-.single-product_status i {
-    color: #fff;
-    font-size: 12px;
-    padding: 6px 6px;
-    border-radius: 50%;
-    background-color: #16c67a;
-    margin-right: 5px;
-}
-
-.deliveryInfo i {
-    color: #333;
-    font-size: 16px;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.single-product_status-box:hover .deliverytext {
-    visibility: visible;
-    opacity: 1;
-}
-
-.single-product_articuleID {
-    color: black;
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.single-product-short-description {
-    margin-top: 2%;
-    border-top: 1px dashed #333;
-    padding-top: 20px;
-}
-
-.single-product-triggersBlock {
-    background: #fdfd711f;
-    padding: 20px;
-    margin-top: 15px;
-}
-
-.single-product-triggers-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.single-product-triggers-list, .share-links {
-    margin-bottom: 0;
-}
-
-.single-product-triggers-item {
-    cursor: pointer;
-    padding: 15px;
-    color: #333333;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-}
-
-.single-product-triggers-item i {
-    font-size: 40px;
-    line-height: 18px;
-    margin-right: 10px;
-
-}
-
-.single-product-triggers-item span {
-    font-size: 14px;
-    line-height: 18px;
-
-}
-
-.single-product-miniBlock {
-    margin-top: 2%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-
-.single-product-miniInfo-list {
-    background: #f7f7f7;
-    max-width: 330px;
-    width: 100%;
-    padding: 15px 10px;
-    border-radius: 10px;
-}
-
-.single-product-miniInfo-list-info {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 15px;
-}
-
-.list-dashed {
-    border-top: 1px dashed #333333;
-    border-bottom: 1px dashed #333333;
-}
-
-
-/* Banks */
-.single-product-buyFromBank-list-holder {
-    margin-left: 30px;
-}
-
-.single-product-buyFromBank-list {
-    display: grid;
-    grid-template-columns: repeat(3, 20%);
-}
-
-.single-product-buyFromBank-bank {
-    transition: .5s ease-in-out;
-}
-
-.single-product-buyFromBank-list-title {
-    color: #333333;
-    font-size: 20px;
-}
-
-.single-product-buyFromBank-bank-img {
-    max-width: 100%;
-    width: 150px;
-    object-fit: contain;
-    transition: .5s ease-in-out;
-}
-
-.single-product-buyFromBank-bank:hover .single-product-buyFromBank-bank-img {
-    transform: translateY(-10%);
-}
-
-.sinle-products-purchase-block {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 5px 10px;
-    background-color: white;
-    border-radius: 10px;
-}
-
-.single-products-product-purchase-container {
-    display: flex;
-    align-items: center;
-}
-
-.single-products-product-priceBlock {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 100%;
-}
-
-.single-products-product-priceBlock-title {
-    font-size: 28px;
-}
-
-.single-products-product-priceBlock-usdPrice {
-    font-size: 36px;
-    color: #ff0000;
-    line-height: 100%;
-}
-
-.single-products-product-priceBlock-uzsPrice {
-    font-size: 20px;
-    font-weight: 400;
-}
-
-/* Purchase BTn */
-.single-products-product-purchase-buy {
-    background-image: linear-gradient(to right, #333 0%, #5a5a5a 51%, #333 100%);
-    margin: 10px;
-    padding: 15px 15px;
-    max-width: 100%;
-    width: 200px;
-    text-align: center;
-    transition: 0.5s ease-in-out;
-    background-size: 400% auto;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.single-products-product-purchase-buy:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    color: #fff;
-    text-decoration: none;
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-}
-
-
-/* Download PDF btn */
-
-.single-products-product-purchase-downloadPDf {
-    /* background-image: linear-gradient(to right, #ffa600 0%, #fac666  51%, #ffa600  100%); */
-    background: transparent;
-    border: 2px solid #ffa600;
-    margin: 10px;
-    padding: 15px 15px;
-    max-width: 100%;
-    width: 200px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 400% auto;
-    color: #333333;
-    display: block;
-    /* border: none; */
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.single-products-product-purchase-downloadPDf:hover {
-    background-position: right center;
-    /* change the direction of the change here */
-    text-decoration: none;
-}
-
-
-.single-products-product-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 10px;
-}
-
-.single-products-product-buttons button {
-    font-size: 16px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.single-products-product-buttons div {
-    font-size: 16px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.single-products-product-share {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-}
-
-.single-products-product-share span {
-    margin-left: 5px;
-}
-
-.share-links {
-    visibility: visible;
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    opacity: 0;
-    transform: translateX(-10%);
-    transition: all .4s ease;
-}
-
-.share-link a {
-    font-size: 22px;
-    margin-right: 10px;
-    color: #5a5a5a;
-}
-
-.share-link a:hover {
-    color: #ffe600;
-}
-
-.single-products-product-share:hover .share-links {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
-}
-
-
-.single-products-product-buttons-mobile {
-    display: none;
-}
-
-/* Product Characteristics */
-
-.single-product-characteristics-container {
-    margin-top: 3%;
-    margin-bottom: 3%;
-    padding-top: 20px;
-}
-
-.single-product-characteristics-options-list {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* border-bottom: 1px solid #ececec; */
-}
-
-.single-product-characteristics-options-option {
-    width: 100%;
-    color: #333;
-    border-bottom: 1px solid #ececec;
-    padding: 25px;
-    text-align: center;
-    font-size: 18px;
-    cursor: pointer;
-    user-select: none;
-    transition: border-bottom-color .3s ease-in-out;
-}
-
-.single-product-characteristics-options-option.active {
-    border-bottom-color: #0d1436;
-    border-bottom-width: 2px;
-}
-
-/* .single-product-characteristics-options-option:hover {
-    background-color: #ffe600;
-} */
-
-.single-product-characteristics-optionInfo-block {
-    margin-top: 2%;
-    /* border: 1px solid #333; */
-    padding: 10px 20px;
-    /* border-radius: 10px; */
-    height: 100%;
-}
-
-.single-product-characteristics-optionInfo-insideBlock {
-    display: none;
-    opacity: 0;
-    transition: opacity .5s ease-in-out;
-}
-
-.single-product-characteristics-optionInfo-insideBlock.active {
-    display: block;
-    opacity: 1;
-}
-
-.single-product-characteristics-optionInfo-insideBlock ul li {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 10px 5px;
-}
-
-.single-product-characteristics-optionInfo-insideBlock ul li:hover {
-    background-color: #ffe600;
-}
-
-.single-product-characteristics-optionInfo-insideBlock ul li:nth-child(even) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    background: #c9c8c8;
-}
-
-.single-product-characteristics-optionInfo-insideBlock ul li:hover {
-    background-color: #ffe600;
-}
-
-/* .single-product-characteristics-optionInfo-insideBlock ul li:nth-child() {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    background: #fff;
-} */
-
-
-
-/* Share Button */
-.single-produce-backgroundinMobile {
-    position: relative;
-}
-
-.single-product-share-block {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    width: 100px;
-    height: 100px;
-    /* background-color: white; */
-    text-align: end;
-}
-
-.single-product-shareBtn {
-    font-size: 32px;
-    color: #333;
-    background: #ffe600;
-    padding: 0 10px;
-    border-radius: 50%;
-    user-select: none;
-    cursor: pointer;
-}
-
-.single-product-share-option {
-    font-size: 32px;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    z-index: -10;
-    visibility: hidden;
-    transition: .4s ease-in-out;
-    cursor: pointer;
-}
-
-.single-product-share-option:nth-child(1).active {
-    transform: translateX(-180%);
-    top: -20%;
-    visibility: visible;
-    z-index: 0;
-}
-
-.single-product-share-option:nth-child(1) a {
-    color: #0088cc;
-}
-
-.single-product-share-option:nth-child(2).active {
-    transform: translateX(-160%);
-    top: 30%;
-    visibility: visible;
-    z-index: 0;
-}
-
-.single-product-share-option:nth-child(2) a {
-    color: #1877f2;
-}
-
-.single-product-share-option:nth-child(3).active {
-    transform: translateX(-20%);
-    visibility: visible;
-    top: 55%;
-    z-index: 0;
-}
-
-.single-product-share-option:nth-child(3) a {
-    color: #25d366;
-}
-
-/* Purchase Form */
-.single-product-content-Holder {
-    position: relative;
-}
-
-.single-product-finalpurchase-block {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: none;
-}
-
-.single-product-finalpurchase-block-holder {
-    max-width: 500px;
-    width: 100%;
-    max-height: 500px;
-    height: 100%;
-    transform: translateY(120%);
-    background-color: #fff;
-    backdrop-filter: blur(10px);
-    align-self: center;
-    margin: auto;
-    padding: 15px;
-    border: 2px dashed #333;
-}
-
-.single-product-finalpurchase-block.active {
-    display: flex;
-    background: #33333383;
-    backdrop-filter: blur(10px);
-}
-
-.single-product-finalpurchase-block.active .single-product-finalpurchase-block-holder {
-    animation: purchase-block .5s normal forwards ease-in-out;
-}
-
-.single-product-finalpurchase-block-container {
-    max-width: 400px;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    position: relative;
-}
-
-.single-product-finalpurchase-block-title {
-    font-size: 24px;
-    font-weight: 500;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.single-product-finalpurchase-block-title::after {
-    content: '';
-    display: block;
-    height: 2px;
-    width: 20%;
-    background-color: #ffe600;
-    align-self: center;
-    margin: 10px 0;
-}
-
-.single-product-finalpurchase-block-description {
-    font-size: 18px;
-    font-weight: 400;
-
-}
-
-.single-product-finalpurchase-block-imgHolder {
-    margin-top: 20px;
-    height: 82%;
-    display: flex;
-}
-
-.single-product-finalpurchase-block-imgHolder img {
-    max-width: 385px;
-    width: 100%;
-    align-self: center;
-    border-radius: 10px;
-}
-
-button.nextButton {
-    background-color: transparent;
-    border: none;
-}
-
-/* Form */
-
-.single-product-finalpurchase-block-formBlock form {
-    margin-top: 5%;
-}
-
-.single-product-finalpurchase-block-formBlock form fieldset {
-    position: absolute;
-    width: 95%;
-    height: 60px;
-    background: white;
-    border-radius: 3px;
-    opacity: 0;
-    transform: scale(0.2);
-    transition: all 0.4s ease-in-out;
-}
-
-.single-product-finalpurchase-block-formBlock form fieldset input,
-form fieldset p {
-    text-align: center;
-    color: #333333;
-    font-size: 16px;
-    letter-spacing: 1px;
-}
-
-.single-product-finalpurchase-block-formBlock form fieldset p {
-    margin-top: 15px;
-    text-align: center;
-}
-
-.single-product-finalpurchase-block-formBlock form fieldset input {
-    width: 90%;
-    height: 40px;
-    margin-top: 8px;
-    border: none;
-    outline: none;
-}
-
-.single-product-finalpurchase-block-formBlock form fieldset .icon {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 15px;
-    transition: all 0.4s ease;
-}
-
-.single-product-finalpurchase-block-formBlock form fieldset .icon i {
-    position: absolute;
-    display: block;
-}
-
-.single-product-finalpurchase-block-formBlock form fieldset .icon i::before,
-form fieldset .icon i::after {
-    position: absolute;
-    content: "";
-}
-
-.single-product-finalpurchase-block-formBlock form fieldset .icon.left {
-    left: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.single-product-finalpurchase-block-formBlock form fieldset .icon.right {
-    right: 10px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.single-product-finalpurchase-block-formBlock form fieldset .icon.button:hover {
-    background: #f2f2f2;
-    border-radius: 3px;
-    transition: all 0.4s ease;
-}
-
-.single-product-finalpurchase-block-formBlock form fieldset.enable {
-    z-index: 1;
-    opacity: 1;
-    transition: all 0.5s ease-out 0.2s;
-    transform: scale(1);
-    animation: enable 0.5s ease-out 0.2s;
-}
-
-.single-product-finalpurchase-block-formBlock form fieldset.disable {
-    opacity: 0;
-    transition: all 0.3s ease-in;
-    transform: translateY(120px) scale(0.9);
-}
-
-.single-product-finalpurchase-block-formBlock body.error fieldset {
-    transform-origin: 50% 100%;
-    animation: error 0.3s ease-out;
-}
-
-@keyframes enable {
-    0% {
-        opacity: 0;
-        transform: scale(0.2);
-    }
-
-    60% {
-        transform: scale(1.1);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes error {
-
-    0%,
-    50%,
-    100% {
-        transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(-3deg);
-    }
-
-    75% {
-        transform: rotate(3deg);
-    }
-}
-
-/* Keyframes */
-
-@keyframes purchase-block {
-    0% {
-        opacity: 0;
-        transform: translateY(120%);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Media Queries */
-@media (max-width: 1450px) {
-    .single-product-content-Holder {
-        margin-left: 15px;
-    }
-
-    .single-product-status-block {
-        width: 90%;
-    }
-
-    .single-product-buyFromBank-list {
-        grid-template-columns: repeat(3, 30%);
-    }
-
-    .single-product-characteristics-options-option {
-        padding: 10px 5px;
-    }
-
-    .single-product-characteristics-optionInfo-block {
-        padding: 10px 15px;
-        margin: 10px;
-    }
-
-    .single-product-characteristics-options-list {
-        margin-right: 10px;
-    }
-
-    .single-product-miniInfo-list-info {
-        padding: 10px;
-    }
-}
-
-@media (max-width: 1300px) {
-    .single-products-product-purchase-container {
-        flex-direction: column-reverse;
-    }
-
-    .single-product-miniInfo-list {
-        padding: 10px;
-    }
-
-    .single-products-product-purchase-downloadPDf {
-        margin: 0;
-        margin-bottom: 10px;
-        box-shadow: none;
-    }
-
-    .single-products-product-purchase-buy {
-        margin: 0;
-    }
-
-    .sinle-products-purchase-block {
-        align-items: center;
-        margin-top: 3%;
-    }
-
-    .single-products-product-buttons {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .single-product-triggersBlock {
-        padding: 15px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .single-product-miniInfo-list {
-        padding: 0 10px;
-    }
-
-    .single-products-product-purchase-container {
-        flex-direction: column-reverse;
-    }
-
-    .single-products-product-purchase-downloadPDf {
-        box-shadow: none;
-    }
-
-    .sinle-products-purchase-block {
-        align-items: center;
-        margin-top: 2%;
-    }
-
-    .single-product-miniInfo-list-info {
-        padding: 10px;
-    }
-
-    .single-product-img-Holder {
-        align-items: center;
-    }
-
-    .single-product-images-mainImage {
-        width: 500px;
-        height: 550px;
-    }
-
-    .single-product-content-Holder {
-        margin-left: 0;
-    }
-
-    .single-product-characteristics-options-option {
-        font-size: 18px;
-    }
-
-    .single-prodcut-title {
-        line-height: 150%;
-    }
-
-    .single-product-images-list {
-        width: 525px;
-    }
-}
-
-
-@media (max-width: 1100px) {
-    .single-product-images-option {
-        height: 85px;
-    }
-}
-
-@media (max-width: 992px) {
-    .single-product-images-mainImage {
-        width: 400px;
-        height: 450px;
-    }
-
-    .single-product-images-mainImage::after {
-        height: 480px;
-    }
-
-    .single-prodcut-title {
-        line-height: 130%;
-    }
-
-    .single-product-short-description {
-        font-size: 14px;
-    }
-
-    .single-product-images-list {
-        width: 460px;
-    }
-
-    .single-product-images-option {
-        height: 70px;
-    }
-
-    .single-product-miniInfo-list-infoTitle {
-        font-size: 14px;
-    }
-
-    .single-products-product-purchase-downloadPDf {
-        padding: 10px;
-    }
-
-    .single-products-product-purchase-buy {
-        padding: 12px;
-    }
-
-    .single-product-buyFromBank-list-title {
-        font-size: 14px;
-    }
-
-    .single-products-product-priceBlock-title {
-        font-size: 20px;
-    }
-
-    .single-products-product-priceBlock-usdPrice {
-        font-size: 30px;
-    }
-
-    .single-products-product-priceBlock-uzsPrice {
-        font-size: 18px;
-    }
-
-    .single-products-newproduct {
-        margin-left: 5px;
-    }
-}
-
-@media (max-width: 880px) {
-    .single-product-miniInfo-list-infoTitle {
-        font-size: 12px;
-    }
-
-    .single-products-product-priceBlock-uzsPrice {
-        font-size: 15px;
-    }
-
-    .single-products-product-purchase-downloadPDf {
-        width: 160px;
-        font-size: 13px;
-    }
-
-    .single-products-product-purchase-buy {
-        width: 160px;
-        font-size: 13px;
-    }
-
-    .single-prodcut-title {
-        font-size: 24px;
-    }
-
-    .single-products-newproduct {
-        font-size: 16px;
-    }
-
-    .single-product_status {
-        font-size: 14px;
-    }
-
-    .single-product_articuleID {
-        font-size: 16px;
-    }
-
-    .single-product-images-mainImage {
-        width: 370px;
-        height: 380px;
-    }
-
-    .single-product-images-list {
-        width: 420px;
-    }
-
-    .single-product-characteristics-options-option {
-        font-size: 17px;
-    }
-
-    .single-product-images-mainImage {
-        margin-left: 0;
-    }
-
-    .single-product-share-block {
-        right: 10px;
-    }
-}
-
-@media (max-width: 800px) {
-    .single-product_block {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .single-product-content-container {
-        padding: 10px;
-    }
-
-    .single-product-characteristics-options-option {
-        font-size: 14px;
-    }
-
-    .single-product-miniInfo-list-infoTitle {
-        font-size: 15px;
-    }
-
-    .single-products-product-priceBlock-title {
-        font-size: 28px;
-    }
-
-    .single-products-product-priceBlock-usdPrice {
-        font-size: 34px;
-    }
-
-    .sinle-products-purchase-block {
-        margin-top: 0;
-    }
-
-    .single-product-characteristics-optionInfo-insideBlock p {
-        font-size: 15px;
-    }
-
-    .single-product-videoBlock iframe {
-        width: 500px;
-        height: 300px;
-    }
-
-    .single-product-characteristics-optionInfo-block {
-        min-height: 100%;
-    }
-
-    .single-product-images-option {
-        height: 50px;
-    }
-
-    .single-product-characteristics-options-option {
-        margin-left: 0;
-    }
-
-    .single-product-images-mainImage::after {
-        top: 0;
-    }
-
-    .single-product-status-block {
-        width: 95%;
-    }
-}
-
-@media (max-width: 674px) {
-    .single-product-characteristics-options-option {
-        font-size: 13px;
-    }
-
-    .single-product-characteristics-options-list {
-        display: grid;
-        grid-template-columns: repeat(2, 40%);
-        grid-gap: 5px 20px;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 600px) {
-    .single-product-images-list {
-        width: 340px;
-    }
-
-    .single-product-miniBlock {
-        flex-direction: column-reverse;
-    }
-
-    .single-product-buyFromBank-list-holder {
-        margin-top: 5%;
-        margin-left: 10px;
-        width: 100%;
-    }
-
-    .single-product-buyFromBank-list {
-        grid-template-columns: repeat(3, 25%);
-        justify-content: center;
-        grid-gap: 10px;
-    }
-
-    .single-product-miniInfo-list {
-        margin: 10px auto;
-    }
-
-    .single-products-product-buttons {
-        display: none;
-    }
-
-    .single-products-product-buttons-mobile {
-        margin-top: 15px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        border-top: 1px dashed #333;
-        border-bottom: 1px dashed #333;
-        padding: 10px 0;
-    }
-
-    .single-products-product-AddWishList {
-        font-size: 16px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-    }
-}
-
-@media (max-width: 500px) {
-    .single-product-triggers-item {
-        padding: 12px;
-    }
-
-    .single-product-triggers-item i {
-        font-size: 38px;
-    }
-
-    .single-product-triggersBlock {
-        padding: 5px;
-    }
-    .single-product-triggers-item i {
-        font-size: 25px;
-    }
-    .single-products-product-buttons-mobile {
-        padding: 10px 5px;
-    }
-    .single-products-product-priceBlock-usdPrice {
-    font-size: 24px;
-}
-    .single-products-product-priceBlock-title {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 400px) {
         .single-product-triggersBlock {
-        padding: 0px;
-    }
-    .single-product-triggers-item span {
-        font-size: 11px;
-    }
-}
+            background: #fdfd711f;
+            padding: 20px;
+            margin-top: 15px;
+        }
 
-@media (max-width: 300px) {
-    .single-product-miniInfo-list-infoTitle {
-        font-size: 12px;
-    }
+        .single-product-triggers-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .single-product-images-mainImage {
-        width: 266px;
-    }
+        .single-product-triggers-list, .share-links {
+            margin-bottom: 0;
+        }
 
-    .single-product-images-list {
-        padding: 5px;
-    }
+        .single-product-triggers-item {
+            cursor: pointer;
+            padding: 15px;
+            color: #333333;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+        }
 
-    .single-product-images-mainImage {
-        height: 345px;
-    }
+        .single-product-triggers-item i {
+            font-size: 40px;
+            line-height: 18px;
+            margin-right: 10px;
 
-    .single-product-content-container {
-        padding: 0;
-    }
+        }
 
-    .single-product-miniInfo-list {
-        padding: 0;
-    }
+        .single-product-triggers-item span {
+            font-size: 14px;
+            line-height: 18px;
 
-    .single-prodcut-title {
-        margin-top: 10px;
-    }
+        }
 
-    .single-product-images-list {
-        width: 270px;
-    }
+        .single-product-miniBlock {
+            margin-top: 2%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
 
-    .single-product-images-option {
-        height: 35px;
-    }
+        .single-product-miniInfo-list {
+            background: #f7f7f7;
+            max-width: 330px;
+            width: 100%;
+            padding: 15px 10px;
+            border-radius: 10px;
+        }
 
-    .single-products-product-purchase-downloadPDf {
-        width: 130px;
-        font-size: 10px;
-    }
+        .single-product-miniInfo-list-info {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 15px;
+        }
 
-    .single-products-product-purchase-buy {
-        width: 130px;
-        font-size: 11px;
-    }
-
-    .single-products-product-priceBlock-title {
-        font-size: 20px;
-    }
-
-    .single-products-product-priceBlock-usdPrice {
-        font-size: 28px;
-    }
-
-    .single-products-product-priceBlock-uzsPrice {
-        font-size: 13px;
-    }
-
-    .single-product-short-description {
-        padding-left: 5px;
-    }
-
-    .single-prodcut-title {
-        padding-left: 5px;
-    }
-
-    .single-products-product-purchase-downloadPDf {
-        margin-bottom: 5px;
-    }
-
-    .single-product_status {
-        padding-left: 5px;
-    }
-}
-
-/* Icons */
-.icon .arrow {
-    width: 2px;
-    height: 17px;
-    top: 5px;
-    left: 14px;
-    background: #333333;
-}
-
-.icon .arrow::before {
-    width: 6px;
-    height: 6px;
-    bottom: -1px;
-    left: -3px;
-    border-color: #333333;
-    border-right: 2px solid;
-    border-bottom: 2px solid;
-    transform: rotate(45deg);
-}
-
-.icon .user {
-    width: 20px;
-    height: 10px;
-    bottom: 5px;
-    left: 5px;
-    box-shadow: 0 0 0 2px #333333 inset;
-    border-radius: 6px 6px 3px 3px;
-}
-
-.icon .user::before {
-    width: 10px;
-    height: 10px;
-    top: -9px;
-    left: 5px;
-    box-shadow: 0 0 0 2px #333333 inset;
-    border-radius: 50%;
-}
-
-.icon .letter {
-    width: 20px;
-    height: 12px;
-    top: 9px;
-    left: 5px;
-    box-shadow: 0 0 0 2px #333333 inset;
-    border-radius: 3px;
-}
-
-.icon .letter::before,
-.icon .letter::after {
-    width: 11px;
-    height: 2px;
-    top: 4px;
-    background: #333333;
-}
-
-.icon .letter::before {
-    left: 0;
-    transform: rotate(30deg);
-}
-
-.icon .letter::after {
-    right: 0;
-    transform: rotate(-30deg);
-}
-
-.icon .lock {
-    width: 20px;
-    height: 16px;
-    top: 9px;
-    left: 5px;
-    box-shadow: 0 0 0 2px #333333 inset;
-    border-radius: 3px;
-}
-
-.icon .lock::before {
-    width: 8px;
-    height: 8px;
-    top: -4px;
-    left: 4px;
-    border: 2px solid transparent;
-    border-top: 2px solid #333333;
-    border-right: 2px solid #333333;
-    border-radius: 50%;
-    transform: rotate(-45deg);
-}
-
-.icon .lock::after {
-    width: 6px;
-    height: 7px;
-    top: 4px;
-    left: 7px;
-    box-shadow: 0 0 0 2px #333333 inset;
-}
-
-.icon .heart {
-    width: 10px;
-    height: 10px;
-    top: 11px;
-    left: 7px;
-    background: #ff5233;
-    transform: rotate(45deg);
-}
-
-.icon .heart::before,
-.icon .heart::after {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #ff5233;
-}
-
-.icon .heart::before {
-    left: -6px;
-}
-
-.icon .heart::after {
-    top: -6px;
-}
+        .list-dashed {
+            border-top: 1px dashed #333333;
+            border-bottom: 1px dashed #333333;
+        }
 
 
-/* CIp */
-.single-products-product-priceBlock-priceabout {
-    display: flex;
-    align-items: center;
-    /* justify-content: space-between; */
-}
+        /* Banks */
+        .single-product-buyFromBank-list-holder {
+            margin-left: 30px;
+        }
 
-.single-products-product-priceBlock-term {
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 5px 15px;
-    font-size: 13px;
-    margin-right: 5px;
-    cursor: context-menu;
-}
+        .single-product-buyFromBank-list {
+            display: grid;
+            grid-template-columns: repeat(3, 20%);
+        }
 
-.cip-term {
-    background-color: #ff052e14;
-    color: red;
-}
+        .single-product-buyFromBank-bank {
+            transition: .5s ease-in-out;
+        }
 
-.daf-term {
-    background-color: #1fb14114;
-    color: green;
-}
+        .single-product-buyFromBank-list-title {
+            color: #333333;
+            font-size: 20px;
+        }
 
-.exw-term {
-    background-color: #ffe6004f;
-    color: #333;
-}
+        .single-product-buyFromBank-bank-img {
+            max-width: 100%;
+            width: 150px;
+            object-fit: contain;
+            transition: .5s ease-in-out;
+        }
 
-.fca-term {
-    background-color: #0088cc26;
-    color: #333;
-}
-</style>
- <div class="us-navigation-block">
+        .single-product-buyFromBank-bank:hover .single-product-buyFromBank-bank-img {
+            transform: translateY(-10%);
+        }
+
+        .sinle-products-purchase-block {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 5px 10px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .single-products-product-purchase-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .single-products-product-priceBlock {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .single-products-product-priceBlock-title {
+            font-size: 28px;
+        }
+
+        .single-products-product-priceBlock-usdPrice {
+            font-size: 36px;
+            color: #ff0000;
+            line-height: 100%;
+        }
+
+        .single-products-product-priceBlock-uzsPrice {
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        /* Purchase BTn */
+        .single-products-product-purchase-buy {
+            background-image: linear-gradient(to right, #333 0%, #5a5a5a 51%, #333 100%);
+            margin: 10px;
+            padding: 15px 15px;
+            max-width: 100%;
+            width: 200px;
+            text-align: center;
+            transition: 0.5s ease-in-out;
+            background-size: 400% auto;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .single-products-product-purchase-buy:hover {
+            background-position: right center;
+            /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+        }
+
+
+        /* Download PDF btn */
+
+        .single-products-product-purchase-downloadPDf {
+            /* background-image: linear-gradient(to right, #ffa600 0%, #fac666  51%, #ffa600  100%); */
+            background: transparent;
+            border: 2px solid #ffa600;
+            margin: 10px;
+            padding: 15px 15px;
+            max-width: 100%;
+            width: 200px;
+            text-align: center;
+            transition: 0.5s;
+            background-size: 400% auto;
+            color: #333333;
+            display: block;
+            /* border: none; */
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .single-products-product-purchase-downloadPDf:hover {
+            background-position: right center;
+            /* change the direction of the change here */
+            text-decoration: none;
+        }
+
+
+        .single-products-product-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 10px;
+        }
+
+        .single-products-product-buttons button {
+            font-size: 16px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .single-products-product-buttons div {
+            font-size: 16px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .single-products-product-share {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .single-products-product-share span {
+            margin-left: 5px;
+        }
+
+        .share-links {
+            visibility: visible;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0;
+            transform: translateX(-10%);
+            transition: all .4s ease;
+        }
+
+        .share-link a {
+            font-size: 22px;
+            margin-right: 10px;
+            color: #5a5a5a;
+        }
+
+        .share-link a:hover {
+            color: #ffe600;
+        }
+
+        .single-products-product-share:hover .share-links {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+
+        .single-products-product-buttons-mobile {
+            display: none;
+        }
+
+        /* Product Characteristics */
+
+        .single-product-characteristics-container {
+            margin-top: 3%;
+            margin-bottom: 3%;
+            padding-top: 20px;
+        }
+
+        .single-product-characteristics-options-list {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* border-bottom: 1px solid #ececec; */
+        }
+
+        .single-product-characteristics-options-option {
+            width: 100%;
+            color: #333;
+            border-bottom: 1px solid #ececec;
+            padding: 25px;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+            user-select: none;
+            transition: border-bottom-color .3s ease-in-out;
+        }
+
+        .single-product-characteristics-options-option.active {
+            border-bottom-color: #0d1436;
+            border-bottom-width: 2px;
+        }
+
+        /* .single-product-characteristics-options-option:hover {
+            background-color: #ffe600;
+        } */
+
+        .single-product-characteristics-optionInfo-block {
+            margin-top: 2%;
+            /* border: 1px solid #333; */
+            padding: 10px 20px;
+            /* border-radius: 10px; */
+            height: 100%;
+        }
+
+        .single-product-characteristics-optionInfo-insideBlock {
+            display: none;
+            opacity: 0;
+            transition: opacity .5s ease-in-out;
+        }
+
+        .single-product-characteristics-optionInfo-insideBlock.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .single-product-characteristics-optionInfo-insideBlock ul li {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding: 10px 5px;
+        }
+
+        .single-product-characteristics-optionInfo-insideBlock ul li:hover {
+            background-color: #ffe600;
+        }
+
+        .single-product-characteristics-optionInfo-insideBlock ul li:nth-child(even) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            background: #c9c8c8;
+        }
+
+        .single-product-characteristics-optionInfo-insideBlock ul li:hover {
+            background-color: #ffe600;
+        }
+
+        /* .single-product-characteristics-optionInfo-insideBlock ul li:nth-child() {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            background: #fff;
+        } */
+
+
+        /* Share Button */
+        .single-produce-backgroundinMobile {
+            position: relative;
+        }
+
+        .single-product-share-block {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            width: 100px;
+            height: 100px;
+            /* background-color: white; */
+            text-align: end;
+        }
+
+        .single-product-shareBtn {
+            font-size: 32px;
+            color: #333;
+            background: #ffe600;
+            padding: 0 10px;
+            border-radius: 50%;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .single-product-share-option {
+            font-size: 32px;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            z-index: -10;
+            visibility: hidden;
+            transition: .4s ease-in-out;
+            cursor: pointer;
+        }
+
+        .single-product-share-option:nth-child(1).active {
+            transform: translateX(-180%);
+            top: -20%;
+            visibility: visible;
+            z-index: 0;
+        }
+
+        .single-product-share-option:nth-child(1) a {
+            color: #0088cc;
+        }
+
+        .single-product-share-option:nth-child(2).active {
+            transform: translateX(-160%);
+            top: 30%;
+            visibility: visible;
+            z-index: 0;
+        }
+
+        .single-product-share-option:nth-child(2) a {
+            color: #1877f2;
+        }
+
+        .single-product-share-option:nth-child(3).active {
+            transform: translateX(-20%);
+            visibility: visible;
+            top: 55%;
+            z-index: 0;
+        }
+
+        .single-product-share-option:nth-child(3) a {
+            color: #25d366;
+        }
+
+        /* Purchase Form */
+        .single-product-content-Holder {
+            position: relative;
+        }
+
+        .single-product-finalpurchase-block {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: none;
+        }
+
+        .single-product-finalpurchase-block-holder {
+            max-width: 500px;
+            width: 100%;
+            max-height: 500px;
+            height: 100%;
+            transform: translateY(120%);
+            background-color: #fff;
+            backdrop-filter: blur(10px);
+            align-self: center;
+            margin: auto;
+            padding: 15px;
+            border: 2px dashed #333;
+        }
+
+        .single-product-finalpurchase-block.active {
+            display: flex;
+            background: #33333383;
+            backdrop-filter: blur(10px);
+        }
+
+        .single-product-finalpurchase-block.active .single-product-finalpurchase-block-holder {
+            animation: purchase-block .5s normal forwards ease-in-out;
+        }
+
+        .single-product-finalpurchase-block-container {
+            max-width: 400px;
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            position: relative;
+        }
+
+        .single-product-finalpurchase-block-title {
+            font-size: 24px;
+            font-weight: 500;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .single-product-finalpurchase-block-title::after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 20%;
+            background-color: #ffe600;
+            align-self: center;
+            margin: 10px 0;
+        }
+
+        .single-product-finalpurchase-block-description {
+            font-size: 18px;
+            font-weight: 400;
+
+        }
+
+        .single-product-finalpurchase-block-imgHolder {
+            margin-top: 20px;
+            height: 82%;
+            display: flex;
+        }
+
+        .single-product-finalpurchase-block-imgHolder img {
+            max-width: 385px;
+            width: 100%;
+            align-self: center;
+            border-radius: 10px;
+        }
+
+        button.nextButton {
+            background-color: transparent;
+            border: none;
+        }
+
+        /* Form */
+
+        .single-product-finalpurchase-block-formBlock form {
+            margin-top: 5%;
+        }
+
+        .single-product-finalpurchase-block-formBlock form fieldset {
+            position: absolute;
+            width: 95%;
+            height: 60px;
+            background: white;
+            border-radius: 3px;
+            opacity: 0;
+            transform: scale(0.2);
+            transition: all 0.4s ease-in-out;
+        }
+
+        .single-product-finalpurchase-block-formBlock form fieldset input,
+        form fieldset p {
+            text-align: center;
+            color: #333333;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .single-product-finalpurchase-block-formBlock form fieldset p {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .single-product-finalpurchase-block-formBlock form fieldset input {
+            width: 90%;
+            height: 40px;
+            margin-top: 8px;
+            border: none;
+            outline: none;
+        }
+
+        .single-product-finalpurchase-block-formBlock form fieldset .icon {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 15px;
+            transition: all 0.4s ease;
+        }
+
+        .single-product-finalpurchase-block-formBlock form fieldset .icon i {
+            position: absolute;
+            display: block;
+        }
+
+        .single-product-finalpurchase-block-formBlock form fieldset .icon i::before,
+        form fieldset .icon i::after {
+            position: absolute;
+            content: "";
+        }
+
+        .single-product-finalpurchase-block-formBlock form fieldset .icon.left {
+            left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .single-product-finalpurchase-block-formBlock form fieldset .icon.right {
+            right: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .single-product-finalpurchase-block-formBlock form fieldset .icon.button:hover {
+            background: #f2f2f2;
+            border-radius: 3px;
+            transition: all 0.4s ease;
+        }
+
+        .single-product-finalpurchase-block-formBlock form fieldset.enable {
+            z-index: 1;
+            opacity: 1;
+            transition: all 0.5s ease-out 0.2s;
+            transform: scale(1);
+            animation: enable 0.5s ease-out 0.2s;
+        }
+
+        .single-product-finalpurchase-block-formBlock form fieldset.disable {
+            opacity: 0;
+            transition: all 0.3s ease-in;
+            transform: translateY(120px) scale(0.9);
+        }
+
+        .single-product-finalpurchase-block-formBlock body.error fieldset {
+            transform-origin: 50% 100%;
+            animation: error 0.3s ease-out;
+        }
+
+        @keyframes enable {
+            0% {
+                opacity: 0;
+                transform: scale(0.2);
+            }
+
+            60% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes error {
+
+            0%,
+            50%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(-3deg);
+            }
+
+            75% {
+                transform: rotate(3deg);
+            }
+        }
+
+        /* Keyframes */
+
+        @keyframes purchase-block {
+            0% {
+                opacity: 0;
+                transform: translateY(120%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 1450px) {
+            .single-product-content-Holder {
+                margin-left: 15px;
+            }
+
+            .single-product-status-block {
+                width: 90%;
+            }
+
+            .single-product-buyFromBank-list {
+                grid-template-columns: repeat(3, 30%);
+            }
+
+            .single-product-characteristics-options-option {
+                padding: 10px 5px;
+            }
+
+            .single-product-characteristics-optionInfo-block {
+                padding: 10px 15px;
+                margin: 10px;
+            }
+
+            .single-product-characteristics-options-list {
+                margin-right: 10px;
+            }
+
+            .single-product-miniInfo-list-info {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 1300px) {
+            .single-products-product-purchase-container {
+                flex-direction: column-reverse;
+            }
+
+            .single-product-miniInfo-list {
+                padding: 10px;
+            }
+
+            .single-products-product-purchase-downloadPDf {
+                margin: 0;
+                margin-bottom: 10px;
+                box-shadow: none;
+            }
+
+            .single-products-product-purchase-buy {
+                margin: 0;
+            }
+
+            .sinle-products-purchase-block {
+                align-items: center;
+                margin-top: 3%;
+            }
+
+            .single-products-product-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .single-product-triggersBlock {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .single-product-miniInfo-list {
+                padding: 0 10px;
+            }
+
+            .single-products-product-purchase-container {
+                flex-direction: column-reverse;
+            }
+
+            .single-products-product-purchase-downloadPDf {
+                box-shadow: none;
+            }
+
+            .sinle-products-purchase-block {
+                align-items: center;
+                margin-top: 2%;
+            }
+
+            .single-product-miniInfo-list-info {
+                padding: 10px;
+            }
+
+            .single-product-img-Holder {
+                align-items: center;
+            }
+
+            .single-product-images-mainImage {
+                width: 500px;
+                height: 550px;
+            }
+
+            .single-product-content-Holder {
+                margin-left: 0;
+            }
+
+            .single-product-characteristics-options-option {
+                font-size: 18px;
+            }
+
+            .single-prodcut-title {
+                line-height: 150%;
+            }
+
+            .single-product-images-list {
+                width: 525px;
+            }
+        }
+
+
+        @media (max-width: 1100px) {
+            .single-product-images-option {
+                height: 85px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .single-product-images-mainImage {
+                width: 400px;
+                height: 450px;
+            }
+
+            .single-product-images-mainImage::after {
+                height: 480px;
+            }
+
+            .single-prodcut-title {
+                line-height: 130%;
+            }
+
+            .single-product-short-description {
+                font-size: 14px;
+            }
+
+            .single-product-images-list {
+                width: 460px;
+            }
+
+            .single-product-images-option {
+                height: 70px;
+            }
+
+            .single-product-miniInfo-list-infoTitle {
+                font-size: 14px;
+            }
+
+            .single-products-product-purchase-downloadPDf {
+                padding: 10px;
+            }
+
+            .single-products-product-purchase-buy {
+                padding: 12px;
+            }
+
+            .single-product-buyFromBank-list-title {
+                font-size: 14px;
+            }
+
+            .single-products-product-priceBlock-title {
+                font-size: 20px;
+            }
+
+            .single-products-product-priceBlock-usdPrice {
+                font-size: 30px;
+            }
+
+            .single-products-product-priceBlock-uzsPrice {
+                font-size: 18px;
+            }
+
+            .single-products-newproduct {
+                margin-left: 5px;
+            }
+        }
+
+        @media (max-width: 880px) {
+            .single-product-miniInfo-list-infoTitle {
+                font-size: 12px;
+            }
+
+            .single-products-product-priceBlock-uzsPrice {
+                font-size: 15px;
+            }
+
+            .single-products-product-purchase-downloadPDf {
+                width: 160px;
+                font-size: 13px;
+            }
+
+            .single-products-product-purchase-buy {
+                width: 160px;
+                font-size: 13px;
+            }
+
+            .single-prodcut-title {
+                font-size: 24px;
+            }
+
+            .single-products-newproduct {
+                font-size: 16px;
+            }
+
+            .single-product_status {
+                font-size: 14px;
+            }
+
+            .single-product_articuleID {
+                font-size: 16px;
+            }
+
+            .single-product-images-mainImage {
+                width: 370px;
+                height: 380px;
+            }
+
+            .single-product-images-list {
+                width: 420px;
+            }
+
+            .single-product-characteristics-options-option {
+                font-size: 17px;
+            }
+
+            .single-product-images-mainImage {
+                margin-left: 0;
+            }
+
+            .single-product-share-block {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .single-product_block {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .single-product-content-container {
+                padding: 10px;
+            }
+
+            .single-product-characteristics-options-option {
+                font-size: 14px;
+            }
+
+            .single-product-miniInfo-list-infoTitle {
+                font-size: 15px;
+            }
+
+            .single-products-product-priceBlock-title {
+                font-size: 28px;
+            }
+
+            .single-products-product-priceBlock-usdPrice {
+                font-size: 34px;
+            }
+
+            .sinle-products-purchase-block {
+                margin-top: 0;
+            }
+
+            .single-product-characteristics-optionInfo-insideBlock p {
+                font-size: 15px;
+            }
+
+            .single-product-videoBlock iframe {
+                width: 500px;
+                height: 300px;
+            }
+
+            .single-product-characteristics-optionInfo-block {
+                min-height: 100%;
+            }
+
+            .single-product-images-option {
+                height: 50px;
+            }
+
+            .single-product-characteristics-options-option {
+                margin-left: 0;
+            }
+
+            .single-product-images-mainImage::after {
+                top: 0;
+            }
+
+            .single-product-status-block {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 674px) {
+            .single-product-characteristics-options-option {
+                font-size: 13px;
+            }
+
+            .single-product-characteristics-options-list {
+                display: grid;
+                grid-template-columns: repeat(2, 40%);
+                grid-gap: 5px 20px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .single-product-images-list {
+                width: 340px;
+            }
+
+            .single-product-miniBlock {
+                flex-direction: column-reverse;
+            }
+
+            .single-product-buyFromBank-list-holder {
+                margin-top: 5%;
+                margin-left: 10px;
+                width: 100%;
+            }
+
+            .single-product-buyFromBank-list {
+                grid-template-columns: repeat(3, 25%);
+                justify-content: center;
+                grid-gap: 10px;
+            }
+
+            .single-product-miniInfo-list {
+                margin: 10px auto;
+            }
+
+            .single-products-product-buttons {
+                display: none;
+            }
+
+            .single-products-product-buttons-mobile {
+                margin-top: 15px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                border-top: 1px dashed #333;
+                border-bottom: 1px dashed #333;
+                padding: 10px 0;
+            }
+
+            .single-products-product-AddWishList {
+                font-size: 16px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .single-product-triggers-item {
+                padding: 12px;
+            }
+
+            .single-product-triggers-item i {
+                font-size: 38px;
+            }
+
+            .single-product-triggersBlock {
+                padding: 5px;
+            }
+
+            .single-product-triggers-item i {
+                font-size: 25px;
+            }
+
+            .single-products-product-buttons-mobile {
+                padding: 10px 5px;
+            }
+
+            .single-products-product-priceBlock-usdPrice {
+                font-size: 24px;
+            }
+
+            .single-products-product-priceBlock-title {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .single-product-triggersBlock {
+                padding: 0px;
+            }
+
+            .single-product-triggers-item span {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 300px) {
+            .single-product-miniInfo-list-infoTitle {
+                font-size: 12px;
+            }
+
+            .single-product-images-mainImage {
+                width: 266px;
+            }
+
+            .single-product-images-list {
+                padding: 5px;
+            }
+
+            .single-product-images-mainImage {
+                height: 345px;
+            }
+
+            .single-product-content-container {
+                padding: 0;
+            }
+
+            .single-product-miniInfo-list {
+                padding: 0;
+            }
+
+            .single-prodcut-title {
+                margin-top: 10px;
+            }
+
+            .single-product-images-list {
+                width: 270px;
+            }
+
+            .single-product-images-option {
+                height: 35px;
+            }
+
+            .single-products-product-purchase-downloadPDf {
+                width: 130px;
+                font-size: 10px;
+            }
+
+            .single-products-product-purchase-buy {
+                width: 130px;
+                font-size: 11px;
+            }
+
+            .single-products-product-priceBlock-title {
+                font-size: 20px;
+            }
+
+            .single-products-product-priceBlock-usdPrice {
+                font-size: 28px;
+            }
+
+            .single-products-product-priceBlock-uzsPrice {
+                font-size: 13px;
+            }
+
+            .single-product-short-description {
+                padding-left: 5px;
+            }
+
+            .single-prodcut-title {
+                padding-left: 5px;
+            }
+
+            .single-products-product-purchase-downloadPDf {
+                margin-bottom: 5px;
+            }
+
+            .single-product_status {
+                padding-left: 5px;
+            }
+        }
+
+        /* Icons */
+        .icon .arrow {
+            width: 2px;
+            height: 17px;
+            top: 5px;
+            left: 14px;
+            background: #333333;
+        }
+
+        .icon .arrow::before {
+            width: 6px;
+            height: 6px;
+            bottom: -1px;
+            left: -3px;
+            border-color: #333333;
+            border-right: 2px solid;
+            border-bottom: 2px solid;
+            transform: rotate(45deg);
+        }
+
+        .icon .user {
+            width: 20px;
+            height: 10px;
+            bottom: 5px;
+            left: 5px;
+            box-shadow: 0 0 0 2px #333333 inset;
+            border-radius: 6px 6px 3px 3px;
+        }
+
+        .icon .user::before {
+            width: 10px;
+            height: 10px;
+            top: -9px;
+            left: 5px;
+            box-shadow: 0 0 0 2px #333333 inset;
+            border-radius: 50%;
+        }
+
+        .icon .letter {
+            width: 20px;
+            height: 12px;
+            top: 9px;
+            left: 5px;
+            box-shadow: 0 0 0 2px #333333 inset;
+            border-radius: 3px;
+        }
+
+        .icon .letter::before,
+        .icon .letter::after {
+            width: 11px;
+            height: 2px;
+            top: 4px;
+            background: #333333;
+        }
+
+        .icon .letter::before {
+            left: 0;
+            transform: rotate(30deg);
+        }
+
+        .icon .letter::after {
+            right: 0;
+            transform: rotate(-30deg);
+        }
+
+        .icon .lock {
+            width: 20px;
+            height: 16px;
+            top: 9px;
+            left: 5px;
+            box-shadow: 0 0 0 2px #333333 inset;
+            border-radius: 3px;
+        }
+
+        .icon .lock::before {
+            width: 8px;
+            height: 8px;
+            top: -4px;
+            left: 4px;
+            border: 2px solid transparent;
+            border-top: 2px solid #333333;
+            border-right: 2px solid #333333;
+            border-radius: 50%;
+            transform: rotate(-45deg);
+        }
+
+        .icon .lock::after {
+            width: 6px;
+            height: 7px;
+            top: 4px;
+            left: 7px;
+            box-shadow: 0 0 0 2px #333333 inset;
+        }
+
+        .icon .heart {
+            width: 10px;
+            height: 10px;
+            top: 11px;
+            left: 7px;
+            background: #ff5233;
+            transform: rotate(45deg);
+        }
+
+        .icon .heart::before,
+        .icon .heart::after {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ff5233;
+        }
+
+        .icon .heart::before {
+            left: -6px;
+        }
+
+        .icon .heart::after {
+            top: -6px;
+        }
+
+
+        /* CIp */
+        .single-products-product-priceBlock-priceabout {
+            display: flex;
+            align-items: center;
+            /* justify-content: space-between; */
+        }
+
+        .single-products-product-priceBlock-term {
+            background-color: #eee;
+            border-radius: 6px;
+            padding: 5px 15px;
+            font-size: 13px;
+            margin-right: 5px;
+            cursor: context-menu;
+        }
+
+        .cip-term {
+            background-color: #ff052e14;
+            color: red;
+        }
+
+        .daf-term {
+            background-color: #1fb14114;
+            color: green;
+        }
+
+        .exw-term {
+            background-color: #ffe6004f;
+            color: #333;
+        }
+
+        .fca-term {
+            background-color: #0088cc26;
+            color: #333;
+        }
+    </style>
+    <div class="us-navigation-block">
         <div class="us-products-page-container">
             <ul class="us-navigation-block-list">
                 <li class="us-navigation-block-item">
@@ -1419,14 +1453,14 @@ form fieldset .icon i::after {
                 <li class="us-navigation-block-item">
                     <a href="{% url 'products:product' %}" class="us-navigation-block-link">{% trans 'Каталог' %}</a>
                 </li>
-                  <li class="us-navigation-block-item">
+                <li class="us-navigation-block-item">
                     <a href="{% url 'products:product' %}" class="us-navigation-block-link">{{ object.title }}</a>
                 </li>
             </ul>
         </div>
     </div>
 
-<div class="single-product-container">
+    <div class="single-product-container">
         <div class="single-product_block">
             <div class="single-produce-backgroundinMobile">
                 <div class="single-product-img-Holder">
@@ -1435,34 +1469,34 @@ form fieldset .icon i::after {
                     <!-- Swiper -->
                     <div class="single-product-swiper mySwiper">
                         <ul class="swiper-wrapper single-product-images-list">
-                              {% for i in object.images.all %}
+                            {% for i in object.images.all %}
                                 {% if forloop.counter == 1 %}
-                                <li class="swiper-slide single-product-images-option active">
-                                    <img src="{{ i.image.url }}" alt="{{ object.title }}">
-                                </li>
+                                    <li class="swiper-slide single-product-images-option active">
+                                        <img src="{{ i.image.url }}" alt="{{ object.title }}">
+                                    </li>
                                 {% else %}
-                                 <li class="swiper-slide single-product-images-option ">
-                                    <img src="{{ i.image.url }}">
-                                </li>
+                                    <li class="swiper-slide single-product-images-option ">
+                                        <img src="{{ i.image.url }}">
+                                    </li>
                                 {% endif %}
                             {% endfor %}
                         </ul>
                     </div>
                     <!-- Image -->
-                   {% for i in object.images.all %}
-                       {% if forloop.counter == 1 %}
+                    {% for i in object.images.all %}
+                        {% if forloop.counter == 1 %}
                             <div class="single-product-images-mainImage"
-                                style="background: url({{ i.image.url }}) no-repeat center center / contain;"
-                                oncontextmenu="return false;">
+                                 style="background: url({{ i.image.url }}) no-repeat center center / contain;"
+                                 oncontextmenu="return false;">
                                 <!-- <img class="single-product-images-mainImage-img" src="./images/us11-removebg-preview.png" alt=""> -->
                             </div>
                         {% endif %}
-                   {% endfor %}
+                    {% endfor %}
                 </div>
 
             </div>
-{#        new #}
-        <div class="single-product-content-Holder">
+            {#        new #}
+            <div class="single-product-content-Holder">
                 <div class="single-product-content-container">
                     <!-- Title -->
                     <h1 class="single-prodcut-title">{{ object.title }}
@@ -1473,19 +1507,23 @@ form fieldset .icon i::after {
                     <!-- Status and ID -->
                     <div class="single-product-status-block">
                         <div class="single-product_status-box">
-                              {% if object.inbox %}
-                                <p class="single-product_status"><i class="fa-light fa-check"></i>{% trans 'Omborda mavjud' %}
+                            {% if object.inbox %}
+                                <p class="single-product_status"><i
+                                        class="fa-light fa-check"></i>{% trans 'Omborda mavjud' %}
                                     <span class="deliveryInfo"><i class="fa-light fa-circle-question"></i></span>
                                 </p>
-                                   <p class="deliverytext">Срок доставки товара рассчитывается индивидуально после получения заявки.</p>
-                                {% endif %}
-                                {% if object.delivery %}
-                                 <p class="single-product_status"><i class="fa-light fa-truck-bolt"></i>{% trans 'Buyurtma orqali' %}
+                                <p class="deliverytext">Срок доставки товара рассчитывается индивидуально после
+                                    получения заявки.</p>
+                            {% endif %}
+                            {% if object.delivery %}
+                                <p class="single-product_status"><i
+                                        class="fa-light fa-truck-bolt"></i>{% trans 'Buyurtma orqali' %}
                                     <span class="deliveryInfo"><i class="fa-light fa-circle-question"></i></span>
-                                 </p>
-                                 <p class="deliverytext">Срок доставки товара рассчитывается индивидуально после получения
-                                заявки.</p>
-                                {% endif %}
+                                </p>
+                                <p class="deliverytext">Срок доставки товара рассчитывается индивидуально после
+                                    получения
+                                    заявки.</p>
+                            {% endif %}
                         </div>
                         <!-- <p class="single-product_status on-the-way"><i class="fa-light fa-clock-rotate-left"></i> Kelmoqda</p> -->
                         <p class="single-product_articuleID">ID: <span>{{ object.pk }}</span></p>
@@ -1493,23 +1531,23 @@ form fieldset .icon i::after {
                     <!-- Short Description -->
                     <p class="single-product-short-description">{{ object.short_description|safe }}</p>
 
-                        <!--  -->
-                        <div class="single-product-triggersBlock">
-                            <ul class="single-product-triggers-list">
-                                <li class="single-product-triggers-item">
-                                    <i class="fa-light fa-sparkles"></i>
-                                    <span class="single-product-triggers-title">{% trans 'Yuqori sifat' %}</span>
-                                </li>
-                                <li class="single-product-triggers-item">
-                                    <i class="fa-light fa-file-certificate"></i>
-                                    <span class="single-product-triggers-title">{% trans 'Rasmiy zavod dilleri' %}</span>
-                                </li>
-                                <li class="single-product-triggers-item">
-                                    <i class="fa-light fa-shield-check"></i>
-                                    <span class="single-product-triggers-title">{% trans 'Ishonchli kafolat' %}</span>
-                                </li>
-                            </ul>
-                        </div>
+                    <!--  -->
+                    <div class="single-product-triggersBlock">
+                        <ul class="single-product-triggers-list">
+                            <li class="single-product-triggers-item">
+                                <i class="fa-light fa-sparkles"></i>
+                                <span class="single-product-triggers-title">{% trans 'Yuqori sifat' %}</span>
+                            </li>
+                            <li class="single-product-triggers-item">
+                                <i class="fa-light fa-file-certificate"></i>
+                                <span class="single-product-triggers-title">{% trans 'Rasmiy zavod dilleri' %}</span>
+                            </li>
+                            <li class="single-product-triggers-item">
+                                <i class="fa-light fa-shield-check"></i>
+                                <span class="single-product-triggers-title">{% trans 'Ishonchli kafolat' %}</span>
+                            </li>
+                        </ul>
+                    </div>
 
                     <!-- Convertation and Buy by Bank -->
                     <div class="single-product-miniBlock">
@@ -1517,12 +1555,14 @@ form fieldset .icon i::after {
                         <ul class="single-product-miniInfo-list">
                             <li class="single-product-miniInfo-list-info">
                                 <p class="single-product-miniInfo-list-infoTitle"><i
-                                        class="fa-light fa-money-bill-transfer"></i> {% trans 'Konvertatsiya xizmatlari uchun' %} 1%
+                                        class="fa-light fa-money-bill-transfer"></i> {% trans 'Konvertatsiya xizmatlari uchun' %}
+                                    1%
                                 </p>
                             </li>
                             <li class="single-product-miniInfo-list-info list-dashed">
                                 <p class="single-product-miniInfo-list-infoTitle"><i
-                                        class="fa-light fa-building-columns"></i> {% trans 'Bank xizmatlari uchun' %} 0.5%</p>
+                                        class="fa-light fa-building-columns"></i> {% trans 'Bank xizmatlari uchun' %}
+                                    0.5%</p>
                             </li>
                             <li class="single-product-miniInfo-list-info">
                                 <p class="single-product-miniInfo-list-infoTitle"><i
@@ -1534,27 +1574,34 @@ form fieldset .icon i::after {
                             <h3 class="single-product-buyFromBank-list-title">{% trans 'Bank orqali xarid qilish' %}</h3>
                             <ul class="single-product-buyFromBank-list">
                                 <li class="single-product-buyFromBank-bank">
-                                    <a href="https://sqb.uz/uz/individuals/credits/" target="_blank"><img class="single-product-buyFromBank-bank-img" src="/static/images/sqb.png"
+                                    <a href="https://sqb.uz/uz/individuals/credits/" target="_blank"><img
+                                            class="single-product-buyFromBank-bank-img" src="/static/images/sqb.png"
                                             alt=""></a>
                                 </li>
                                 <li class="single-product-buyFromBank-bank">
-                                    <a href="https://qishloqqurilishbank.uz/ru/credits/dlya-fizicheskikh-lic" target="_blank"><img class="single-product-buyFromBank-bank-img" src="/static/images/qqb.png"
-                                            alt=""></a>
+                                    <a href="https://qishloqqurilishbank.uz/ru/credits/dlya-fizicheskikh-lic"
+                                       target="_blank"><img class="single-product-buyFromBank-bank-img"
+                                                            src="/static/images/qqb.png"
+                                                            alt=""></a>
                                 </li>
                                 <li class="single-product-buyFromBank-bank">
-                                    <a href="https://www.ipotekabank.uz/private/crediting/" target="_blank" ><img class="single-product-buyFromBank-bank-img"
+                                    <a href="https://www.ipotekabank.uz/private/crediting/" target="_blank"><img
+                                            class="single-product-buyFromBank-bank-img"
                                             src="/static/images/ipoteka.png" alt=""></a>
                                 </li>
                                 <li class="single-product-buyFromBank-bank">
-                                    <a href="https://trustbank.uz/oz/private/crediting/" target="_blank"><img class="single-product-buyFromBank-bank-img"
+                                    <a href="https://trustbank.uz/oz/private/crediting/" target="_blank"><img
+                                            class="single-product-buyFromBank-bank-img"
                                             src="/static/images/trastbank.png" alt=""></a>
                                 </li>
                                 <li class="single-product-buyFromBank-bank">
-                                    <a href="https://www.infinbank.com/uz/private/credits/ipoteka/" target="_blank"><img class="single-product-buyFromBank-bank-img"
+                                    <a href="https://www.infinbank.com/uz/private/credits/ipoteka/" target="_blank"><img
+                                            class="single-product-buyFromBank-bank-img"
                                             src="/static/images/infinbank.png" alt=""></a>
                                 </li>
                                 <li class="single-product-buyFromBank-bank">
-                                    <a href="https://hamkorbank.uz/uz/physical/credits/" target="_blank"><img class="single-product-buyFromBank-bank-img"
+                                    <a href="https://hamkorbank.uz/uz/physical/credits/" target="_blank"><img
+                                            class="single-product-buyFromBank-bank-img"
                                             src="/static/images/hamkorbank.png" alt=""></a>
                                 </li>
                             </ul>
@@ -1568,28 +1615,39 @@ form fieldset .icon i::after {
                             <h3 class="single-products-product-priceBlock-title">{% trans 'Narxi' %}:</h3>
                             <div>
                                 <div class="single-products-product-priceBlock-priceabout">
-                                     {% if object.CIP == True %}
-                                              <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent" class="single-products-product-priceBlock-term cip-term">CIP</span>
-                                       {% elif object.DAF == True %}
-                                              <span title="INNKOTERMS - 2022 bo'yicha DAF" class="single-products-product-priceBlock-term daf-term">DAF</span>
-                                       {% elif object.EXW == True %}
-                                                 <span title="INNKOTERMS - 2022 bo'yicha EXW" class="single-products-product-priceBlock-term exw-term">EXW</span>
-                                       {% elif object.FCA == True %}
-                                                <span title="INNKOTERMS - 2022 bo'yicha FCA" class="single-products-product-priceBlock-term fca-term">FCA</span>
-                                       {% endif %}
-                                      {% if object.is_discount %}
-                                            <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price }}</h4>
-                                             <h4 class="single-products-product-priceBlock-usdPrice d-d"><strike class="ml-2" style="font-size: 27px;color:#6c6b6b;font-weight: 400;">${{ object.price }}</strike></h4>
-                                      {% else %}
-                                             <h4 class="single-products-product-priceBlock-usdPrice">${{ object.get_price }}</h4>
-                                       {% endif %}
+                                    {% if object.CIP == True %}
+                                        <span title="INNKOTERMS - 2022 bo'yicha CIP Taskent"
+                                              class="single-products-product-priceBlock-term cip-term">CIP</span>
+                                    {% elif object.DAF == True %}
+                                        <span title="INNKOTERMS - 2022 bo'yicha DAF"
+                                              class="single-products-product-priceBlock-term daf-term">DAF</span>
+                                    {% elif object.EXW == True %}
+                                        <span title="INNKOTERMS - 2022 bo'yicha EXW"
+                                              class="single-products-product-priceBlock-term exw-term">EXW</span>
+                                    {% elif object.FCA == True %}
+                                        <span title="INNKOTERMS - 2022 bo'yicha FCA"
+                                              class="single-products-product-priceBlock-term fca-term">FCA</span>
+                                    {% endif %}
+                                    {% if object.is_discount %}
+                                        <h4 class="single-products-product-priceBlock-usdPrice">
+                                            ${{ object.get_price }}</h4>
+                                        <h4 class="single-products-product-priceBlock-usdPrice d-d"><strike class="ml-2"
+                                                                                                            style="font-size: 27px;color:#6c6b6b;font-weight: 400;">${{ object.price }}</strike>
+                                        </h4>
+                                    {% else %}
+                                        <h4 class="single-products-product-priceBlock-usdPrice">
+                                            ${{ object.get_price }}</h4>
+                                    {% endif %}
                                 </div>
 
                                 {% if object.is_discount %}
-                                       <h4 class="single-products-product-priceBlock-usdPrice d-m"><strike class="ml-2" style="font-size: 27px;color:#6c6b6b;font-weight: 400;">${{ object.price }}</strike></h4>
+                                    <h4 class="single-products-product-priceBlock-usdPrice d-m"><strike class="ml-2"
+                                                                                                        style="font-size: 27px;color:#6c6b6b;font-weight: 400;">${{ object.price }}</strike>
+                                    </h4>
                                 {% endif %}
                                 <!-- <h4 class="single-products-product-priceBlock-usdPrice">$1000</h4> -->
-                                <h5 class="single-products-product-priceBlock-uzsPrice"><span> </span> {% trans "so'm" %}</h5>
+                                <h5 class="single-products-product-priceBlock-uzsPrice">
+                                    <span> </span> {% trans "so'm" %}</h5>
                             </div>
                         </div>
 
@@ -1598,10 +1656,12 @@ form fieldset .icon i::after {
                             <div class="single-products-product-purchase-container">
                                 <button class="single-products-product-purchase-buy"><i
                                         class="fa-solid fa-cart-shopping"></i> {% trans 'Sotib Olish' %}</button>
-                             {% if object.pdf %}
-                                     <a href="{{ object.pdf.url }}" target="_blank"> <button type="submit" class="single-products-product-purchase-downloadPDf"><i
-                                       class="fa-solid fa-file"></i> {% trans 'Pdf Yuklab olish' %}</button></a>
-                             {% endif %}
+                                {% if object.pdf %}
+                                    <a href="{{ object.pdf.url }}" target="_blank">
+                                        <button type="submit" class="single-products-product-purchase-downloadPDf"><i
+                                                class="fa-solid fa-file"></i> {% trans 'Pdf Yuklab olish' %}</button>
+                                    </a>
+                                {% endif %}
                             </div>
                             <div class="single-products-product-buttons">
                                 <div class="single-products-product-share">
@@ -1609,29 +1669,38 @@ form fieldset .icon i::after {
                                     <span>{% trans 'Ulashish' %}</span>
                                     <ul class="share-links">
                                         <li class="share-link"><a href="" class="copyClipboard"
-                                                rel="noopener noreferrer"><i title="Havolani ko'chirish"
-                                                    class="fa-light fa-link-simple"></i></a>
+                                                                  rel="noopener noreferrer"><i
+                                                title="Havolani ko'chirish"
+                                                class="fa-light fa-link-simple"></i></a>
                                         </li>
-                                        <li class="share-link"><a href="https://t.me/share/url?url={{ request.get_host }}{{ request.get_full_path }}&text={{ object.title }}" target="_blank"
-                                                rel="noopener noreferrer"><i title="Telegram"
-                                                    class="fa-brands fa-telegram"></i></a>
+                                        <li class="share-link"><a href="https://t.me/share/url?url=
+                                                {{ request.get_host }}{{ request.get_full_path }}&text={{ object.title }}"
+                                                                  target="_blank"
+                                                                  rel="noopener noreferrer"><i title="Telegram"
+                                                                                               class="fa-brands fa-telegram"></i></a>
                                         </li>
-                                        <li class="share-link"><a href="https://wa.me/?text={{ request.get_host }}{{ request.get_full_path }}" target="_blank"
-                                                rel="noopener noreferrer"><i title="WhatsApp"
-                                                    class="fa-brands fa-whatsapp"></i></a>
+                                        <li class="share-link"><a href="https://wa.me/?text=
+                                                {{ request.get_host }}{{ request.get_full_path }}" target="_blank"
+                                                                  rel="noopener noreferrer"><i title="WhatsApp"
+                                                                                               class="fa-brands fa-whatsapp"></i></a>
                                         </li>
-                                        <li class="share-link"><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ request.get_full_path }}" target="_blank"
-                                                rel="noopener noreferrer"><i title="Facebook"
-                                                    class="fa-brands fa-facebook"></i></a>
+                                        <li class="share-link"><a href="https://www.facebook.com/sharer/sharer.php?u=
+                                                {{ request.get_host }}{{ request.get_full_path }}" target="_blank"
+                                                                  rel="noopener noreferrer"><i title="Facebook"
+                                                                                               class="fa-brands fa-facebook"></i></a>
                                         </li>
                                     </ul>
                                 </div>
-                                 <a onclick="add_to_wishlist(this, {{ object.pk }})">
-                                 {% if object|in_wishlist:request %}
-                                       <button class="single-products-product-AddWishList"><i class="fa-solid fa-heart"></i> {% trans "Sevimlilarga qo`shildi" %}</button>
-                                  {% else %}
-                                        <button class="single-products-product-AddWishList"><i class="fa-light fa-heart"></i> {% trans "Sevimlilarga qo`shish" %}</button>
-                                  {% endif %}
+                                <a onclick="add_to_wishlist(this, {{ object.pk }})">
+                                    {% if object|in_wishlist:request %}
+                                        <button class="single-products-product-AddWishList"><i
+                                                class="fa-solid fa-heart"></i> {% trans "Sevimlilarga qo`shildi" %}
+                                        </button>
+                                    {% else %}
+                                        <button class="single-products-product-AddWishList"><i
+                                                class="fa-light fa-heart"></i> {% trans "Sevimlilarga qo`shish" %}
+                                        </button>
+                                    {% endif %}
                                 </a>
 
                             </div>
@@ -1645,54 +1714,66 @@ form fieldset .icon i::after {
                             <span>{% trans 'Ulashish' %}</span>
                             <ul class="share-links">
                                 <li class="share-link"><a href="" class="copyClipboard"
-                                        rel="noopener noreferrer"><i title="Havolani ko'chirish"
-                                            class="fa-light fa-link-simple"></i></a>
+                                                          rel="noopener noreferrer"><i title="Havolani ko'chirish"
+                                                                                       class="fa-light fa-link-simple"></i></a>
                                 </li>
-                                <li class="share-link"><a href="https://t.me/share/url?url={{ request.get_host }}{{ request.get_full_path }}&text={{ object.title }}" target="_blank"
-                                        rel="noopener noreferrer"><i title="Telegram"
-                                            class="fa-brands fa-telegram"></i></a>
+                                <li class="share-link"><a href="https://t.me/share/url?url=
+                                        {{ request.get_host }}{{ request.get_full_path }}&text={{ object.title }}"
+                                                          target="_blank"
+                                                          rel="noopener noreferrer"><i title="Telegram"
+                                                                                       class="fa-brands fa-telegram"></i></a>
                                 </li>
-                                <li class="share-link"><a href="https://wa.me/?text={{ request.get_host }}{{ request.get_full_path }}" target="_blank"
+                                <li class="share-link"><a
+                                        href="https://wa.me/?text={{ request.get_host }}{{ request.get_full_path }}"
+                                        target="_blank"
                                         rel="noopener noreferrer"><i title="WhatsApp"
-                                            class="fa-brands fa-whatsapp"></i></a>
+                                                                     class="fa-brands fa-whatsapp"></i></a>
                                 </li>
-                                <li class="share-link"><a href="https://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ request.get_full_path }}" target="_blank"
-                                        rel="noopener noreferrer"><i title="Facebook"
-                                            class="fa-brands fa-facebook"></i></a>
+                                <li class="share-link"><a href="https://www.facebook.com/sharer/sharer.php?u=
+                                        {{ request.get_host }}{{ request.get_full_path }}" target="_blank"
+                                                          rel="noopener noreferrer"><i title="Facebook"
+                                                                                       class="fa-brands fa-facebook"></i></a>
                                 </li>
                             </ul>
                         </div>
-                              <a onclick="add_to_wishlist(this, {{ object.pk }})">
-                                 {% if object|in_wishlist:request %}
-                                       <button class="single-products-product-AddWishList"><i class="fa-solid fa-heart"></i> {% trans "Sevimlilarga qo`shildi" %}</button>
-                                  {% else %}
-                                        <button class="single-products-product-AddWishList"><i class="fa-light fa-heart"></i> {% trans "Sevimlilarga qo`shish" %}</button>
-                                  {% endif %}
-                                </a>
+                        <a onclick="add_to_wishlist(this, {{ object.pk }})">
+                            {% if object|in_wishlist:request %}
+                                <button class="single-products-product-AddWishList"><i
+                                        class="fa-solid fa-heart"></i> {% trans "Sevimlilarga qo`shildi" %}</button>
+                            {% else %}
+                                <button class="single-products-product-AddWishList"><i
+                                        class="fa-light fa-heart"></i> {% trans "Sevimlilarga qo`shish" %}</button>
+                            {% endif %}
+                        </a>
                     </div>
                 </div>
 
             </div>
-{#        new #}
+            {#        new #}
         </div>
 
-{# new#}
+        {# new#}
 
         <div class="single-product-characteristics-container">
             <div class="single-product-characteristics-options-block">
                 <ul class="single-product-characteristics-options-list">
-                     <li id="us-product-1" class="single-product-characteristics-options-option active">{% trans 'Xususiyatlari' %}</li>
-                    <li id="us-product-2" class="single-product-characteristics-options-option">{% trans 'Tavsifi' %}</li>
-                    <li id="us-product-3" class="single-product-characteristics-options-option">{% trans 'Videolar' %}</li>
-                    <li id="us-product-4" class="single-product-characteristics-options-option">{% trans 'Yetkazib Berish' %}</li>
-                    <li id="us-product-5" class="single-product-characteristics-options-option">{% trans 'Kafolat shartlari' %}</li>
+                    <li id="us-product-1"
+                        class="single-product-characteristics-options-option active">{% trans 'Xususiyatlari' %}</li>
+                    <li id="us-product-2"
+                        class="single-product-characteristics-options-option">{% trans 'Tavsifi' %}</li>
+                    <li id="us-product-3"
+                        class="single-product-characteristics-options-option">{% trans 'Videolar' %}</li>
+                    <li id="us-product-4"
+                        class="single-product-characteristics-options-option">{% trans 'Yetkazib Berish' %}</li>
+                    <li id="us-product-5"
+                        class="single-product-characteristics-options-option">{% trans 'Kafolat shartlari' %}</li>
                 </ul>
             </div>
             <div class="single-product-characteristics-optionInfo-block">
                 <div id="us-product-1" class="single-product-characteristics-optionInfo-insideBlock active">
                     <ul>
-                           {% for z in object.specifications.all %}
-                              <li>
+                        {% for z in object.specifications.all %}
+                            <li>
                                 <p class="single-product-characteristics-title">{{ z.product_customer|safe }}</p>
                                 <p class="single-product-characteristics-character">{{ z.product_number|safe }}</p>
                             </li>
@@ -1700,13 +1781,13 @@ form fieldset .icon i::after {
                     </ul>
                 </div>
                 <div id="us-product-2" class="single-product-characteristics-optionInfo-insideBlock">
-                      <p>{{ object.long_description|safe}}</p>
+                    <p>{{ object.long_description|safe }}</p>
                 </div>
                 <div id="us-product-3" class="single-product-characteristics-optionInfo-insideBlock">
                     <div class="single-product-videoBlock" style="display: flex;justify-content: center;">
-                         {% if object.video %}
-                                {% video object.video '100%x520' %}
-                         {% endif %}
+                        {% if object.video %}
+                            {% video object.video '100%x520' %}
+                        {% endif %}
                     </div>
                 </div>
                 <div id="us-product-4" class="single-product-characteristics-optionInfo-insideBlock">
@@ -1737,7 +1818,7 @@ form fieldset .icon i::after {
                 </div>
             </div>
         </div>
-{#new new#}
+        {#new new#}
     </div>
 
     <div class="single-product-finalpurchase-block">
@@ -1745,43 +1826,44 @@ form fieldset .icon i::after {
             <div class="single-product-finalpurchase-block-container">
                 <h3 class="single-product-finalpurchase-block-title">{% trans 'Biz bilan Aloqa' %}</h3>
                 <p class="single-product-finalpurchase-block-description">{% trans "Ushbu uskunani xarid qilish uchun quyidagi formani to'ldiring va bizning operatorlarimiz tez orada siz bilan bog'lanishadi." %}</p>
-                    <div class="single-product-finalpurchase-block-formBlock">
-                        <form id="productForm" action="" onsubmit="submittedForm(); return false;">
-                            <ul class="items"></ul>
-                            <fieldset class="username enable">
-                              <div class="icon left"><i class="user"></i></div>
-                              <input class="user_name" type="text" name="name" placeholder="{% trans 'Ismingiz' %}"/>
-                              <button class="icon right nextButton fa-regular fa-arrow-right"></button>
-                            </fieldset>
-                            <fieldset class="email">
-                              <div class="icon left fa-regular fa-phone"></div>
-                              <input class="user_tel" name="email" placeholder="+998 (77) 777-7777" type="tel" name="" id="phoneNumber" required/>
-                              <button class="icon right nextButton fa-regular fa-arrow-right"></button>
-                            </fieldset>
-                            <fieldset class="thanks">
-                                <div class="icon left fa-regular fa-circle-check"></div>
-                                <p class="us-form-status">{% trans 'Xabar Muvaffaqiyatli Yuborildi' %}</p>
-                              </fieldset>
-                          </form>
-                    </div>
-                    <div class="single-product-finalpurchase-block-imgHolder">
-                        <img src="/static/images/122_2.jpg" alt="" class="single-product-finalpurchase-block-img">
-                    </div>
+                <div class="single-product-finalpurchase-block-formBlock">
+                    <form id="productForm" action="" onsubmit="submittedForm(); return false;">
+                        <ul class="items"></ul>
+                        <fieldset class="username enable">
+                            <div class="icon left"><i class="user"></i></div>
+                            <input class="user_name" type="text" name="name" placeholder="{% trans 'Ismingiz' %}"/>
+                            <button class="icon right nextButton fa-regular fa-arrow-right"></button>
+                        </fieldset>
+                        <fieldset class="email">
+                            <div class="icon left fa-regular fa-phone"></div>
+                            <input class="user_tel" name="email" placeholder="+998 (77) 777-7777" type="tel" name=""
+                                   id="phoneNumber" required/>
+                            <button class="icon right nextButton fa-regular fa-arrow-right"></button>
+                        </fieldset>
+                        <fieldset class="thanks">
+                            <div class="icon left fa-regular fa-circle-check"></div>
+                            <p class="us-form-status">{% trans 'Xabar Muvaffaqiyatli Yuborildi' %}</p>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="single-product-finalpurchase-block-imgHolder">
+                    <img src="/static/images/122_2.jpg" alt="" class="single-product-finalpurchase-block-img">
+                </div>
             </div>
         </div>
     </div>
-            <br>
-        </div>
+    <br>
     </div>
-</div>
-<br>
-<br>
+    </div>
+    </div>
+    <br>
+    <br>
 
     <div class="container">
         <h2 class="text-center"
             style="font-weight: 600;font-size: 35px;padding: 20px;margin-top: 30px;margin-left: 5%;">
             {% trans 'Популярные товары' %}</h2>
-        <p class="home-product-desc text-center" >{% trans "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan doimiy ravishda boyitib borilmoqda. Quyida esa Saytimiz kuzatuvchilarining qiziqishlari, talab va istaklari natijasida saralangan ommabop mahsulotlarni taqdim qilamiz. Bizni kuzatishda davom eting!" %}</p>
+        <p class="home-product-desc text-center">{% trans "Uskunalar.uz ning mahsulotlar katalogi  <span id='year'></span>-yildagi jahonning eng innovatsion texnika-texnologiyalari bo'yicha ma'lumotlar bilan doimiy ravishda boyitib borilmoqda. Quyida esa Saytimiz kuzatuvchilarining qiziqishlari, talab va istaklari natijasida saralangan ommabop mahsulotlarni taqdim qilamiz. Bizni kuzatishda davom eting!" %}</p>
         <br>
         <hr style="border: 2px solid #ffe600;width: 100px;text-align: center;margin: auto;border-radius: 20px;">
         <br>
@@ -1790,340 +1872,338 @@ form fieldset .icon i::after {
 
 
 
-<div class="container">
-       <div class="us-products-page-products-grid">
-       <ul class="us-products-page-products-grid-list active">
-            {% for product in random_products|slice:'4' %}
-                {% include 'layouts/product-block2.html' %}
-            {% endfor %}
-       </ul>
+    <div class="container">
+        <div class="us-products-page-products-grid">
+            <ul class="us-products-page-products-grid-list active">
+                {% for product in random_products|slice:'4' %}
+                    {% include 'layouts/product-block2.html' %}
+                {% endfor %}
+            </ul>
+        </div>
+
     </div>
 
-</div>
 
 
 
-
-<br>
-
-
-<br>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
-<script>
-
-    // Purchase Block
-const purchaseBtn = document.querySelector('.single-products-product-purchase-buy');
-const purchaseBlock = document.querySelector('.single-product-finalpurchase-block')
-const StatusMessage = document.querySelector('.us-form-status');
-
-purchaseBtn.addEventListener('click', (e) => {
-    purchaseBlock.classList.add('active')
-})
+    <br>
 
 
-function next(target) {
-    var input = target.previousElementSibling;
+    <br>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+    <script>
 
-    // Check if input is empty
-    if (input.value === '') {
-        body2.classList.add('error');
-    } else {
-        body2.classList.remove('error');
+        // Purchase Block
+        const purchaseBtn = document.querySelector('.single-products-product-purchase-buy');
+        const purchaseBlock = document.querySelector('.single-product-finalpurchase-block')
+        const StatusMessage = document.querySelector('.us-form-status');
 
-        var enable = document.querySelector('form fieldset.enable'),
-            nextEnable = enable.nextElementSibling;
-        enable.classList.remove('enable');
-        enable.classList.add('disable');
-        nextEnable.classList.add('enable');
-
-    }
-}
-
-function keyDown(event) {
-    let key = event.keyCode;
-    if (key == 13 || key == 9) {
-        let target = document.querySelector('fieldset.enable button'),
-            enable = document.querySelector('form fieldset.enable'),
-            nextEnable = enable.nextElementSibling;
-
-        next(target)
-
-        // if (nextEnable.classList.contains('thanks') && enable.childNodes[3].value.length !== 0) {
-        //     submitPurchaseInfo()
-        // }
-    };
-}
-
-var body2 = document.querySelector('body'),
-    form = document.querySelector('form'),
-    count = form.querySelectorAll('fieldset').length;
+        purchaseBtn.addEventListener('click', (e) => {
+            purchaseBlock.classList.add('active')
+        })
 
 
-body2.addEventListener("mouseup", (event) => {
-      var target = event.target || event.toElement;
-        if (target.classList.contains("nextButton")) next(target);
-})
-document.addEventListener("keydown", keyDown, false);
+        function next(target) {
+            var input = target.previousElementSibling;
 
+            // Check if input is empty
+            if (input.value === '') {
+                body2.classList.add('error');
+            } else {
+                body2.classList.remove('error');
 
+                var enable = document.querySelector('form fieldset.enable'),
+                    nextEnable = enable.nextElementSibling;
+                enable.classList.remove('enable');
+                enable.classList.add('disable');
+                nextEnable.classList.add('enable');
 
-    // Phone Mask
-    $('#phoneNumber').inputmask("+999 (99) 999-99-99");
-
-    // Disable Form
-    $('.single-product-finalpurchase-block').mouseup((e) => {
-        e.target.classList.remove('active')
-    });
-
-function submittedForm() {
-    try {
-        let lastInput = document.querySelector('fieldset input#phoneNumber')
-
-        if (lastInput.value.length !== 0) {
-            submitPurchaseInfo();
-            setTimeout(() => {
-                purchaseBlock.classList.remove('active');
-                // window.location.reload();
-            }, 1800);
-        }
-        else {
-            alert('Please, fill out the form!')
+            }
         }
 
-    } catch (error) {
-        console.log(error);
-    }
-}
+        function keyDown(event) {
+            let key = event.keyCode;
+            if (key == 13 || key == 9) {
+                let target = document.querySelector('fieldset.enable button'),
+                    enable = document.querySelector('form fieldset.enable'),
+                    nextEnable = enable.nextElementSibling;
+
+                next(target)
+
+                // if (nextEnable.classList.contains('thanks') && enable.childNodes[3].value.length !== 0) {
+                //     submitPurchaseInfo()
+                // }
+            }
+            ;
+        }
+
+        var body2 = document.querySelector('body'),
+            form = document.querySelector('form'),
+            count = form.querySelectorAll('fieldset').length;
 
 
-function submitPurchaseInfo() {
-    try {
-        // console.log("hello world");
-        const token = "5475705900:AAFlmINyeHg10t-zIjcdHG_LKDquv3tu898";
-        const chat_id = "-517105134";
-
-        let formID = $('#productForm');
-        let uname = $(formID).find(".user_name").val();
-        let usertel = $(formID).find(".user_tel").val();
-        let productTitle = document.querySelector('.single-prodcut-title').innerText;
-        let productID = document.querySelector('.single-product_articuleID span').innerHTML;
-        let productPriceDollar = document.querySelector('.single-products-product-priceBlock-usdPrice').innerText;
-        let productPriceSom = document.querySelector('.single-products-product-priceBlock-uzsPrice').innerText;
-        let productImg = document.querySelector('.single-product-images-mainImage'),
-            style = productImg.currentStyle || window.getComputedStyle(productImg, false),
-            finalImgUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
-        let anthrImg = 'https://uskunalar.uz/uploads/products/phpreFeS8.jpg'
-
-        const caption = JSON.stringify(
-            `<b>📩 Buyurtma qilingan mahsulot haqida:</b>%0A%0A<b>🔸 Mahsulot nomi:</b> ${productTitle}%0A<b>🔸 Mahsulot IDsi:</b> ${productID}%0A<b>🔸 Mahsulot narxi (dollarda):</b> ${productPriceDollar}%0A<b>🔸 Mahsulot narxi(so'mda):</b> ${productPriceSom}%0A__ __ __ __ __ __ __ __ __ __ __ __ __ __ __%0A%0A<b>👤 Mijoz haqida:</b>%0A%0A<b>🔹 Mijoz Ismi:</b> ${uname}%0A<b>🔹 Telefon Raqami:</b> %2B ${usertel}`
-        ).split('"')[1];
-        // console.log(caption);
-        // console.log(
-        //     `https://api.telegram.org/bot${token}/sendPhoto?chat_id=${chat_id}&photo=${anthrImg}&parse_mode=html&caption=${caption}`
-        // );
+        body2.addEventListener("mouseup", (event) => {
+            var target = event.target || event.toElement;
+            if (target.classList.contains("nextButton")) next(target);
+        })
+        document.addEventListener("keydown", keyDown, false);
 
 
-        $.ajax({
-            type: "POST",
-            url: `https://api.telegram.org/bot${token}/sendPhoto?chat_id=${chat_id}&photo=${finalImgUrl}&parse_mode=html&caption=${caption}&reply_markup={"inline_keyboard":[[{"text":"Mahsulotni ko'rish","url":"${window.location.href}"}]]}`,
-            data: formID.serialize(),
-            success: function (data) {
-                console.log(data);
-                //  Shows modal window  / Вывод модальное окно с уведомлением, об успешной отправке
-                // $("#exampleModalCenter").modal("show");
-                // Reload Page
-                setTimeout(function () {
-                    // document.location.href = "./index.html";
-                }, 2000);
-            },
-            error: function (jqXHR, text, error) {
-                // TO DO : Message on error
+        // Phone Mask
+        $('#phoneNumber').inputmask("+999 (99) 999-99-99");
+
+        // Disable Form
+        $('.single-product-finalpurchase-block').mouseup((e) => {
+            e.target.classList.remove('active')
+        });
+
+        function submittedForm() {
+            try {
+                let lastInput = document.querySelector('fieldset input#phoneNumber')
+
+                if (lastInput.value.length !== 0) {
+                    submitPurchaseInfo();
+                    setTimeout(() => {
+                        purchaseBlock.classList.remove('active');
+                        // window.location.reload();
+                    }, 1800);
+                } else {
+                    alert('Please, fill out the form!')
+                }
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+
+        function submitPurchaseInfo() {
+            try {
+                // console.log("hello world");
+                const token = "5475705900:AAFlmINyeHg10t-zIjcdHG_LKDquv3tu898";
+                const chat_id = "-517105134";
+
+                let formID = $('#productForm');
+                let uname = $(formID).find(".user_name").val();
+                let usertel = $(formID).find(".user_tel").val();
+                let productTitle = document.querySelector('.single-prodcut-title').innerText;
+                let productID = document.querySelector('.single-product_articuleID span').innerHTML;
+                let productPriceDollar = document.querySelector('.single-products-product-priceBlock-usdPrice').innerText;
+                let productPriceSom = document.querySelector('.single-products-product-priceBlock-uzsPrice').innerText;
+                let productImg = document.querySelector('.single-product-images-mainImage'),
+                    style = productImg.currentStyle || window.getComputedStyle(productImg, false),
+                    finalImgUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+                let anthrImg = 'https://uskunalar.uz/uploads/products/phpreFeS8.jpg'
+
+                const caption = JSON.stringify(
+                    `<b>📩 Buyurtma qilingan mahsulot haqida:</b>%0A%0A<b>🔸 Mahsulot nomi:</b> ${productTitle}%0A<b>🔸 Mahsulot IDsi:</b> ${productID}%0A<b>🔸 Mahsulot narxi (dollarda):</b> ${productPriceDollar}%0A<b>🔸 Mahsulot narxi(so'mda):</b> ${productPriceSom}%0A__ __ __ __ __ __ __ __ __ __ __ __ __ __ __%0A%0A<b>👤 Mijoz haqida:</b>%0A%0A<b>🔹 Mijoz Ismi:</b> ${uname}%0A<b>🔹 Telefon Raqami:</b> %2B ${usertel}`
+                ).split('"')[1];
+                // console.log(caption);
+                // console.log(
+                //     `https://api.telegram.org/bot${token}/sendPhoto?chat_id=${chat_id}&photo=${anthrImg}&parse_mode=html&caption=${caption}`
+                // );
+
+
+                $.ajax({
+                    type: "POST",
+                    url: `https://api.telegram.org/bot${token}/sendPhoto?chat_id=${chat_id}&photo=${finalImgUrl}&parse_mode=html&caption=${caption}&reply_markup={"inline_keyboard":[[{"text":"Mahsulotni ko'rish","url":"${window.location.href}"}]]}`,
+                    data: formID.serialize(),
+                    success: function (data) {
+                        console.log(data);
+                        //  Shows modal window  / Вывод модальное окно с уведомлением, об успешной отправке
+                        // $("#exampleModalCenter").modal("show");
+                        // Reload Page
+                        setTimeout(function () {
+                            // document.location.href = "./index.html";
+                        }, 2000);
+                    },
+                    error: function (jqXHR, text, error) {
+                        // TO DO : Message on error
+                    },
+                });
+                return false;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    </script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            direction: "horizontal",
+            slidesPerView: 3,
+            spaceBetween: 15,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
             },
         });
-        return false;
-    } catch (error) {
-        console.log(error);
-    }
-}
-</script>
-<script>
-var swiper = new Swiper(".mySwiper", {
-    direction: "horizontal",
-    slidesPerView: 3,
-    spaceBetween: 15,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
-</script>
-<script>
-//   Slider Get  Image
-const singleProductImages = document.querySelectorAll('.single-product-images-option img')
-const singleProductImage = document.querySelector('.single-product-images-mainImage');
-let lastActiveProductImage;
+    </script>
+    <script>
+        //   Slider Get  Image
+        const singleProductImages = document.querySelectorAll('.single-product-images-option img')
+        const singleProductImage = document.querySelector('.single-product-images-mainImage');
+        let lastActiveProductImage;
 
-// singleProductImages[0].parentElement.classList.add('active');
+        // singleProductImages[0].parentElement.classList.add('active');
 
-singleProductImages.forEach(singleProductImageElement => {
-    if (singleProductImageElement.parentElement.classList.contains('active')) {
-        lastActiveProductImage = singleProductImageElement.parentElement;
-    }
-    singleProductImageElement.addEventListener('click', () => {
-        const singleProductNewImage = singleProductImageElement.src.split('products/')[1];
-        singleProductImage.style.background = `url(/media/products/${singleProductNewImage}) no-repeat center center / contain`
-        lastActiveProductImage.classList.remove('active')
-        lastActiveProductImage = singleProductImageElement.parentElement;
-        singleProductImageElement.parentElement.classList.add('active')
-    })
+        singleProductImages.forEach(singleProductImageElement => {
+            if (singleProductImageElement.parentElement.classList.contains('active')) {
+                lastActiveProductImage = singleProductImageElement.parentElement;
+            }
+            singleProductImageElement.addEventListener('click', () => {
+                const singleProductNewImage = singleProductImageElement.src.split('products/')[1];
+                singleProductImage.style.background = `url(/media/products/${singleProductNewImage}) no-repeat center center / contain`
+                lastActiveProductImage.classList.remove('active')
+                lastActiveProductImage = singleProductImageElement.parentElement;
+                singleProductImageElement.parentElement.classList.add('active')
+            })
 //    single-product-images-option
-})
+        })
 
 
+        var zoomedImage = document.querySelector('.single-product-images-mainImage');
 
-var zoomedImage = document.querySelector('.single-product-images-mainImage');
-
-if (zoomedImage) {
+        if (zoomedImage) {
 // Zoom image on mouse enter.
-zoomedImage.addEventListener('mouseenter', function(e) {
-    this.style.backgroundSize = "200%";
-}, false);
+            zoomedImage.addEventListener('mouseenter', function (e) {
+                this.style.backgroundSize = "200%";
+            }, false);
 
 
 // Show different parts of image depending on cursor position.
-zoomedImage.addEventListener('mousemove', function(e) {
+            zoomedImage.addEventListener('mousemove', function (e) {
 
-    // getBoundingClientReact gives us various information about the position of the element.
-    var dimentions = this.getBoundingClientRect();
+                // getBoundingClientReact gives us various information about the position of the element.
+                var dimentions = this.getBoundingClientRect();
 
-    // Calculate the position of the cursor inside the element (in pixels).
-    var x = e.clientX - dimentions.left;
-    var y = e.clientY - dimentions.top;
+                // Calculate the position of the cursor inside the element (in pixels).
+                var x = e.clientX - dimentions.left;
+                var y = e.clientY - dimentions.top;
 
-    // Calculate the position of the cursor as a percentage of the total width/height of the element.
-    var xpercent = Math.round(100 / (dimentions.width / x));
-    var ypercent = Math.round(100 / (dimentions.height / y));
+                // Calculate the position of the cursor as a percentage of the total width/height of the element.
+                var xpercent = Math.round(100 / (dimentions.width / x));
+                var ypercent = Math.round(100 / (dimentions.height / y));
 
-    // Update the background position of the image.
-    this.style.backgroundPosition = xpercent+'% ' + ypercent+'%';
+                // Update the background position of the image.
+                this.style.backgroundPosition = xpercent + '% ' + ypercent + '%';
 
-}, false);
+            }, false);
 
 
 // When leaving the container zoom out the image back to normal size.
-zoomedImage.addEventListener('mouseleave', function(e) {
-    this.style.backgroundSize = "contain";
-    this.style.backgroundPosition = "center";
-}, false);
-}
+            zoomedImage.addEventListener('mouseleave', function (e) {
+                this.style.backgroundSize = "contain";
+                this.style.backgroundPosition = "center";
+            }, false);
+        }
 
-// Product Characteristics
+        // Product Characteristics
 
-const characteristicsOptions = document.querySelectorAll('.single-product-characteristics-options-option');
-const characteristicsContent = document.querySelectorAll('.single-product-characteristics-optionInfo-insideBlock');
-let lastcharacteristicsOption, lastcharacteristicsListOption;
+        const characteristicsOptions = document.querySelectorAll('.single-product-characteristics-options-option');
+        const characteristicsContent = document.querySelectorAll('.single-product-characteristics-optionInfo-insideBlock');
+        let lastcharacteristicsOption, lastcharacteristicsListOption;
 
-characteristicsOptions.forEach(element => {
+        characteristicsOptions.forEach(element => {
 
-    if (element.classList.contains('active')) {
-        lastcharacteristicsListOption = element;
-    }
-
-    element.addEventListener('click', () => {
-        lastcharacteristicsListOption.classList.remove('active');
-        lastcharacteristicsListOption = element;
-        element.classList.add('active')
-
-        characteristicsContent.forEach(contentElement => {
-            if (element.id === contentElement.id) {
-                contentElement.classList.add('active')
+            if (element.classList.contains('active')) {
+                lastcharacteristicsListOption = element;
             }
-            else {
-                contentElement.classList.remove('active')
-            }
+
+            element.addEventListener('click', () => {
+                lastcharacteristicsListOption.classList.remove('active');
+                lastcharacteristicsListOption = element;
+                element.classList.add('active')
+
+                characteristicsContent.forEach(contentElement => {
+                    if (element.id === contentElement.id) {
+                        contentElement.classList.add('active')
+                    } else {
+                        contentElement.classList.remove('active')
+                    }
+                })
+            })
         })
-    })
-})
 
 
-// Share Button
-const shareBtn = document.querySelector('.single-product-shareBtn');
-const shareBtnOption = document.querySelectorAll('.single-product-share-option');
+        // Share Button
+        const shareBtn = document.querySelector('.single-product-shareBtn');
+        const shareBtnOption = document.querySelectorAll('.single-product-share-option');
 
-shareBtn.addEventListener('click', () => {
-    shareBtnOption.forEach(element => {
-        element.classList.toggle('active')
-    })
-})
-</script>
-<script>
-    function add_to_wishlist(element, pk) {
-        $.getJSON('/products/' + "wishlist/" + pk, function (data) {
-            if (!data.status) {
-               $('#message').append(`<div style="padding:5px">
+        shareBtn.addEventListener('click', () => {
+            shareBtnOption.forEach(element => {
+                element.classList.toggle('active')
+            })
+        })
+    </script>
+    <script>
+        function add_to_wishlist(element, pk) {
+            $.getJSON('/products/' + "wishlist/" + pk, function (data) {
+                if (!data.status) {
+                    $('#message').append(`<div style="padding:5px">
                         <div id="inner-message" class="alert alert-error">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
                             Error
                         </div>
                     </div>`);
-            } else {
-                if (data.added) {
-                    element.innerHTML = '<button class="single-products-product-AddWishList"><i class="fa-solid fa-heart"></i> {% trans "Sevimlilarga qo`shildi" %}</button>'
                 } else {
-                    element.innerHTML = '<button class="single-products-product-AddWishList"><i class="fa-light fa-heart"></i> {% trans "Sevimlilarga qo`shish" %}</button>'
+                    if (data.added) {
+                        element.innerHTML = '<button class="single-products-product-AddWishList"><i class="fa-solid fa-heart"></i> {% trans "Sevimlilarga qo`shildi" %}</button>'
+                    } else {
+                        element.innerHTML = '<button class="single-products-product-AddWishList"><i class="fa-light fa-heart"></i> {% trans "Sevimlilarga qo`shish" %}</button>'
+                    }
+                    $('#like_count').html(data.wishlist_len);
+                    $('#like_count_2').html(data.wishlist_len);
                 }
-                  $('#like_count').html(data.wishlist_len);
-                  $('#like_count_2').html(data.wishlist_len);
-            }
+            });
+        }
+    </script>
+    <script>
+        var splide = new Splide('.splide_3_2', {
+            perPage: 1,
+            rewind: true,
         });
-    }
-</script>
-<script>
-  var splide = new Splide('.splide_3_2', {
-    perPage: 1,
-    rewind: true,
-  });
 
-  splide.mount();
-</script>
-<script>
-$(".nav-2 li").hover(function () {
-	$(this).children("ul").stop().delay(200).animate({height: "toggle", opacity: "toggle"}, 200);
-});
-</script>
-<script>
-    $(function() {
-	var Accordion = function(el, multiple) {
-		this.el = el || {};
-		this.multiple = multiple || false;
+        splide.mount();
+    </script>
+    <script>
+        $(".nav-2 li").hover(function () {
+            $(this).children("ul").stop().delay(200).animate({height: "toggle", opacity: "toggle"}, 200);
+        });
+    </script>
+    <script>
+        $(function () {
+            var Accordion = function (el, multiple) {
+                this.el = el || {};
+                this.multiple = multiple || false;
 
-		// Variables privadas
-		var links = this.el.find('.link');
-		// Evento
-		links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
-	}
+                // Variables privadas
+                var links = this.el.find('.link');
+                // Evento
+                links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+            }
 
-	Accordion.prototype.dropdown = function(e) {
-		var $el = e.data.el;
-			$this = $(this),
-			$next = $this.next();
+            Accordion.prototype.dropdown = function (e) {
+                var $el = e.data.el;
+                $this = $(this),
+                    $next = $this.next();
 
-		$next.slideToggle();
-		$this.parent().toggleClass('open');
+                $next.slideToggle();
+                $this.parent().toggleClass('open');
 
-		if (!e.data.multiple) {
-			$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-		};
-	}
+                if (!e.data.multiple) {
+                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                }
+                ;
+            }
 
-	var accordion = new Accordion($('#accordion6_4'), false);
-});
+            var accordion = new Accordion($('#accordion6_4'), false);
+        });
 
 
-</script>
-<script>
-       // Currency
+    </script>
+    <script>
+        // Currency
         const SingleApiUrl2 = 'https://nbu.uz/en/exchange-rates/json/'
         const usdSinglePrice = document.querySelector('.single-products-product-priceBlock-usdPrice').innerHTML.substring(1);
         const uzsSinglePrice = document.querySelector('.single-products-product-priceBlock-uzsPrice span')
@@ -2136,7 +2216,7 @@ $(".nav-2 li").hover(function () {
                 let json = await response.json();
                 let CurrencyRate = json[json.length - 1]['cb_price'];
                 let qqs = 15;
-                let finalPrice = Math.floor(CurrencyRate * usd + (CurrencyRate * usd * qqs/100));
+                let finalPrice = Math.floor(CurrencyRate * usd + (CurrencyRate * usd * qqs / 100));
                 element.innerHTML = finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
             } else {
                 alert("HTTP-Error: " + response.status);
@@ -2144,57 +2224,58 @@ $(".nav-2 li").hover(function () {
         }
 
 
-         singleExchangeCurrency(usdSinglePrice, uzsSinglePrice)
+        singleExchangeCurrency(usdSinglePrice, uzsSinglePrice)
 
 
-</script>
-<script>
-    function add_to_wishlist(element, pk) {
-        $.getJSON('/products/' + "wishlist/" + pk, function (data) {
-            if (!data.status) {
-               $('#message').append(`<div style="padding:5px">
+    </script>
+    <script>
+        function add_to_wishlist(element, pk) {
+            $.getJSON('/products/' + "wishlist/" + pk, function (data) {
+                if (!data.status) {
+                    $('#message').append(`<div style="padding:5px">
                         <div id="inner-message" class="alert alert-error">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
                             Error
                         </div>
                     </div>`);
-            } else {
-                if (data.added) {
-                    element.innerHTML = '<button class="single-products-product-AddWishList"><i class="fa-solid fa-heart"></i> {% trans "Sevimlilarga qo`shildi" %}</button>
                 } else {
-                    element.innerHTML = '<button class="single-products-product-AddWishList"><i class="fa-light fa-heart"></i> {% trans "Sevimlilarga qo`shish" %}</button>'
+                    if (data.added) {
+                        element.innerHTML = '<button class="single-products-product-AddWishList"><i class="fa-solid fa-heart"></i> {% trans "Sevimlilarga qo`shildi" %}</button>
+                    } else {
+                        element.innerHTML = '<button class="single-products-product-AddWishList"><i class="fa-light fa-heart"></i> {% trans "Sevimlilarga qo`shish" %}</button>'
+                    }
+                    $('#like_count').html(data.wishlist_len);
+                    $('#like_count_2').html(data.wishlist_len);
                 }
-                  $('#like_count').html(data.wishlist_len);
-                  $('#like_count_2').html(data.wishlist_len);
-            }
-        });
-    }
-</script>
+            });
+        }
+    </script>
 
     <script>
-    const copyClipboardBtn = document.querySelector('.copyClipboard')
+        const copyClipboardBtn = document.querySelector('.copyClipboard')
 
-    copyClipboardBtn.addEventListener('click', (e) => {
-        e.preventDefault()
-    let textToCopy = window.location.href
-    if(navigator.clipboard) {
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            alert('Copied to clipboard')
+        copyClipboardBtn.addEventListener('click', (e) => {
+            e.preventDefault()
+            let textToCopy = window.location.href
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    alert('Copied to clipboard')
+                })
+            } else {
+                console.log('Browser is not compatible')
+            }
+
         })
-    } else {
-        console.log('Browser is not compatible')
-    }
-
-    })
 
     </script>
 
-<script type="application/ld+json">
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
   "@type": "Product",
   "name": "{{ object.title|safe }}",
-  "image": "{% for i in object.images.all %}{% if forloop.counter == 1 %}https://uskunalar.uz{{ i.image.url }}{% endif %}{% endfor %}",
+  "image": "{% for i in object.images.all %}{% if forloop.counter == 1 %}https://uskunalar.uz{{ i.image.url }}
+    {% endif %}{% endfor %}",
   "description": "{{ object.short_description|safe }}",
   "brand": {
     "@type": "Brand",
