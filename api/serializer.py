@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
-from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, BannerBackModel, ProductSpecificationsModel
+from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, BannerBackModel, ProductSpecificationsModel, \
+    BannerImageModel
 
 
 class CategoryModelSerializer(serializers.ModelSerializer):
@@ -27,11 +28,18 @@ class ProductSpecificationsModelSerializer(serializers.ModelSerializer):
         exclude = ['product']
 
 
+class BannerImageModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BannerImageModel
+        exclude = ['product']
+
+
 class BannerInfoModelSerializer(serializers.ModelSerializer):
     category = CategoryModelSerializer()
     subcategory = SubCategoryModelSerializer()
     background = BannerBackgroundModelSerializer()
     specifications = ProductSpecificationsModelSerializer(many=True)
+    images = BannerImageModelSerializer(many=True)
 
     class Meta:
         model = BannerInfoModel
