@@ -1,7 +1,14 @@
 from rest_framework import serializers
 
+from about.models import AboutModel
+from biznes.models import BiznesModel
+from blog.models import BlogModel
+from gallery.models import GalleryModel
 from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, BannerBackModel, ProductSpecificationsModel, \
     BannerImageModel
+from lines.models import LineModel, LineCategoryModel
+from videos.models import VideoModel
+from works.models import WorkModel
 
 
 class CategoryModelSerializer(serializers.ModelSerializer):
@@ -43,4 +50,61 @@ class BannerInfoModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BannerInfoModel
+        fields = '__all__'
+
+
+# lines
+class LineCategoryModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LineCategoryModel
+        fields = '__all__'
+
+
+class LinesModelSerializer(serializers.ModelSerializer):
+    category = LineCategoryModelSerializer()
+
+    class Meta:
+        model = LineModel
+        fields = '__all__'
+
+
+# biznes
+class BiznesModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BiznesModel
+        fields = '__all__'
+
+
+# videos
+class VideoModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VideoModel
+        fields = '__all__'
+
+
+# blogs
+class BlogModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BlogModel
+        fields = '__all__'
+
+
+# about
+class AboutModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AboutModel
+        fields = '__all__'
+
+
+# gallery
+class GalleryModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GalleryModel
+        fields = '__all__'
+
+
+# works
+class WorkModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WorkModel
         fields = '__all__'
