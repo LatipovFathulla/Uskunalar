@@ -64,12 +64,6 @@ class HomeView(TemplateView):
 class NavbarView(ListView):
     template_name = 'header.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['categories'] = CategoryModel.objects.select_related('iouj').order_by('-pk')
-
-        return context
-
 
 class AllSitemaps(TemplateView):
     template_name = 'all_sitemaps.xml'

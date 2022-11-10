@@ -5,7 +5,7 @@ from biznes.models import BiznesModel
 from blog.models import BlogModel
 from gallery.models import GalleryModel
 from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, BannerBackModel, ProductSpecificationsModel, \
-    BannerImageModel
+    BannerImageModel, CarouselModel
 from lines.models import LineModel, LineCategoryModel
 from videos.models import VideoModel
 from works.models import WorkModel
@@ -107,4 +107,27 @@ class GalleryModelSerializer(serializers.ModelSerializer):
 class WorkModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkModel
+        fields = '__all__'
+
+
+# Carousel
+class CarouselSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CarouselModel
+        fields = '__all__'
+
+
+# Category
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CategoryModel
+        fields = '__all__'
+
+
+# Subcategory
+class SubCategorySerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
+
+    class Meta:
+        model = SubCategoryModel
         fields = '__all__'

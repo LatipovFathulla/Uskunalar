@@ -5,11 +5,12 @@ from rest_framework.views import APIView
 
 from about.models import AboutModel
 from api.serializer import BannerInfoModelSerializer, LinesModelSerializer, BiznesModelSerializer, VideoModelSerializer, \
-    BlogModelSerializer, AboutModelSerializer, GalleryModelSerializer, WorkModelSerializer
+    BlogModelSerializer, AboutModelSerializer, GalleryModelSerializer, WorkModelSerializer, CarouselSerializer, \
+    CategorySerializer, SubCategorySerializer
 from biznes.models import BiznesModel
 from blog.models import BlogModel
 from gallery.models import GalleryModel
-from home.models import BannerInfoModel
+from home.models import BannerInfoModel, CarouselModel, CategoryModel, SubCategoryModel
 from lines.models import LineModel
 from videos.models import VideoModel
 from works.models import WorkModel
@@ -109,3 +110,18 @@ class WorkDetailAPIView(APIView):
         products = WorkModel.objects.get(pk=pk)
         serializer = WorkModelSerializer(products, context={'request': request})
         return Response(serializer.data)
+
+
+class BannerCarouselAPIView(ListAPIView):
+    queryset = CarouselModel.objects.all()
+    serializer_class = CarouselSerializer
+
+
+class CategoryAPIView(ListAPIView):
+    queryset = CategoryModel.objects.all()
+    serializer_class = CategorySerializer
+
+
+class SubCategoryAPIView(ListAPIView):
+    queryset = SubCategoryModel.objects.all()
+    serializer_class = SubCategorySerializer
