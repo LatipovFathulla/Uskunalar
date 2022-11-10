@@ -130,4 +130,4 @@ class SubCategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SubCategoryModel
-        fields = '__all__'
+        exclude = ['category_uz', 'category_ru', 'category_en']
