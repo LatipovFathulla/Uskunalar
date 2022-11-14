@@ -35,7 +35,7 @@ class CategoryModelAdmin(SortableAdminMixin, MyTranslationAdmin):
     search_fields = ('category', 'pk')
     list_filter = ('category',)
     ordering = ['my_order']
-
+    save_as = True
 
 @admin.display()
 def format_sub_category(obj):

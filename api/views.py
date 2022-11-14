@@ -1,14 +1,18 @@
+from django.db.models import Count
 from django.shortcuts import render
+from rest_framework import generics
 from rest_framework.generics import ListAPIView
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from about.models import AboutModel
 from api.serializer import BannerInfoModelSerializer, LinesModelSerializer, BiznesModelSerializer, VideoModelSerializer, \
     BlogModelSerializer, AboutModelSerializer, GalleryModelSerializer, WorkModelSerializer, CarouselSerializer, \
-    CategorySerializer, SubCategorySerializer
+    CategorySerializer, SubCategorySerializer, PartnerSerializer
 from biznes.models import BiznesModel
 from blog.models import BlogModel
+from clients.models import ClientModel
 from gallery.models import GalleryModel
 from home.models import BannerInfoModel, CarouselModel, CategoryModel, SubCategoryModel
 from lines.models import LineModel
@@ -16,10 +20,21 @@ from videos.models import VideoModel
 from works.models import WorkModel
 
 
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 0
+    page_size_query_param = 'page_size'
+    max_page_size = 1000
+
+
 class BannerInfoModelAPIView(ListAPIView):
     queryset = BannerInfoModel.objects.all()
     serializer_class = BannerInfoModelSerializer
 
+
+class ALLBannerInfoModelAPIView(ListAPIView):
+    queryset = BannerInfoModel.objects.all()
+    serializer_class = BannerInfoModelSerializer
+    pagination_class = StandardResultsSetPagination
 
 class BannerDetailAPIView(APIView):
     def get(self, request, pk):
@@ -115,13 +130,32 @@ class WorkDetailAPIView(APIView):
 class BannerCarouselAPIView(ListAPIView):
     queryset = CarouselModel.objects.all()
     serializer_class = CarouselSerializer
+    pagination_class = StandardResultsSetPagination
 
 
-class CategoryAPIView(ListAPIView):
+class CategoryAPIView(generics.ListAPIView):
     queryset = CategoryModel.objects.all()
     serializer_class = CategorySerializer
+    pagination_class = StandardResultsSetPagination
+    #
+    # def list(self, request, *args, **kwargs):
+    #     queryset = self.filter_queryset(self.get_queryset())
+    #     categories_counts = queryset.order_by().values('category').annotate(
+    #         count=Count('*')
+    #     )
+    #     return Response({
+    #         d['category']: d['count']
+    #         for d in categories_counts
+    #     })
 
 
 class SubCategoryAPIView(ListAPIView):
     queryset = SubCategoryModel.objects.all()
     serializer_class = SubCategorySerializer
+    pagination_class = StandardResultsSetPagination
+
+
+class PartnersAPIView(ListAPIView):
+    queryset = ClientModel.objects.all()
+    serializer_class = PartnerSerializer
+    pagination_class = StandardResultsSetPagination

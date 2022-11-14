@@ -3,6 +3,7 @@ from rest_framework import serializers
 from about.models import AboutModel
 from biznes.models import BiznesModel
 from blog.models import BlogModel
+from clients.models import ClientModel
 from gallery.models import GalleryModel
 from home.models import BannerInfoModel, CategoryModel, SubCategoryModel, BannerBackModel, ProductSpecificationsModel, \
     BannerImageModel, CarouselModel
@@ -131,3 +132,9 @@ class SubCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = SubCategoryModel
         exclude = ['category_uz', 'category_ru', 'category_en']
+
+
+class PartnerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClientModel
+        fields = '__all__'
