@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'corsheaders',
     'rosetta',
+    'django_filters',
+    'drf_yasg',
 
     'home',
     'about',
