@@ -8,7 +8,7 @@ from django.contrib.sitemaps.views import sitemap
 
 from about.views import HomeView, AllSitemaps
 from home.views import CategoryTest, get_subcategory
-
+from .yasg import urlpatterns as doc_urls
 from home.models import BannerInfoModel
 from uskunalar.feeds import LatestPostsFeed
 from uskunalar.sitemaps import PostSitemap, AboutSitemap, StaticViewSitemap, BiznesSitemap, LinesSitemap, WorksSitemap, \
@@ -70,6 +70,8 @@ urlpatterns += i18n_patterns(
     path('all_sitemaps.xml', sitemap, {'sitemaps': all_sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
 )
+
+urlpatterns += doc_urls
 
 if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += [

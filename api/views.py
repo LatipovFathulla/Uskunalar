@@ -9,13 +9,13 @@ from rest_framework.views import APIView
 from about.models import AboutModel
 from api.serializer import BannerInfoModelSerializer, LinesModelSerializer, BiznesModelSerializer, VideoModelSerializer, \
     BlogModelSerializer, AboutModelSerializer, GalleryModelSerializer, WorkModelSerializer, CarouselSerializer, \
-    CategorySerializer, SubCategorySerializer, PartnerSerializer
+    CategorySerializer, SubCategorySerializer, PartnerSerializer, LineCategoryModelSerializer
 from biznes.models import BiznesModel
 from blog.models import BlogModel
 from clients.models import ClientModel
 from gallery.models import GalleryModel
 from home.models import BannerInfoModel, CarouselModel, CategoryModel, SubCategoryModel
-from lines.models import LineModel
+from lines.models import LineModel, LineCategoryModel
 from videos.models import VideoModel
 from works.models import WorkModel
 
@@ -36,6 +36,7 @@ class ALLBannerInfoModelAPIView(ListAPIView):
     serializer_class = BannerInfoModelSerializer
     pagination_class = StandardResultsSetPagination
 
+
 class BannerDetailAPIView(APIView):
     def get(self, request, pk):
         products = BannerInfoModel.objects.get(pk=pk)
@@ -46,6 +47,11 @@ class BannerDetailAPIView(APIView):
 class LinesInfoModelAPIView(ListAPIView):
     queryset = LineModel.objects.all()
     serializer_class = LinesModelSerializer
+
+
+class LinesCategoriesAPIView(ListAPIView):
+    queryset = LineCategoryModel.objects.all()
+    serializer_class = LineCategoryModelSerializer
 
 
 class LinesDetailAPIView(APIView):

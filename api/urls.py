@@ -2,7 +2,7 @@ from api.views import BannerInfoModelAPIView, LinesInfoModelAPIView, BiznesInfoM
     BlogInfoModelAPIView, AboutInfoModelAPIView, GalleryInfoModelAPIView, WorkInfoModelAPIView, BannerDetailAPIView, \
     LinesDetailAPIView, BiznesDetailAPIView, VideoDetailAPIView, BlogDetailAPIView, AboutDetailAPIView, \
     GalleryDetailAPIView, WorkDetailAPIView, BannerCarouselAPIView, CategoryAPIView, SubCategoryAPIView, \
-    PartnersAPIView, ALLBannerInfoModelAPIView
+    PartnersAPIView, ALLBannerInfoModelAPIView, LinesCategoriesAPIView
 from django.urls import path
 
 app_name = 'api'
@@ -12,6 +12,7 @@ urlpatterns = [
     path('all-products/', ALLBannerInfoModelAPIView.as_view(), name='all-products'),
     path('products/<int:pk>', BannerDetailAPIView.as_view(), name='products-detail'),
     path('lines/', LinesInfoModelAPIView.as_view(), name='lines'),
+    path('lines/categories', LinesCategoriesAPIView.as_view(), name='lines'),
     path('lines/<int:pk>', LinesDetailAPIView.as_view(), name='lines-detail'),
     path('biznes/', BiznesInfoModelAPIView.as_view(), name='biznes'),
     path('biznes/<int:pk>', BiznesDetailAPIView.as_view(), name='biznes-detail'),
