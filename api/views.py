@@ -26,6 +26,11 @@ class StandardResultsSetPagination(PageNumberPagination):
     max_page_size = 1000
 
 
+class NullStandardResultsSetPagination(PageNumberPagination):
+    page_size = 0
+    page_size_query_param = 'page_size'
+    max_page_size = 0
+
 class BannerInfoModelAPIView(ListAPIView):
     queryset = BannerInfoModel.objects.all()
     serializer_class = BannerInfoModelSerializer
@@ -47,6 +52,7 @@ class BannerDetailAPIView(APIView):
 class LinesInfoModelAPIView(ListAPIView):
     queryset = LineModel.objects.all()
     serializer_class = LinesModelSerializer
+    pagination_class = NullStandardResultsSetPagination
 
 
 class LinesCategoriesAPIView(ListAPIView):
