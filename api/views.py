@@ -70,6 +70,7 @@ class LinesDetailAPIView(APIView):
 class BiznesInfoModelAPIView(ListAPIView):
     queryset = BiznesModel.objects.all()
     serializer_class = BiznesModelSerializer
+    pagination_class = NullStandardResultsSetPagination
 
 
 class BiznesDetailAPIView(APIView):
@@ -82,6 +83,7 @@ class BiznesDetailAPIView(APIView):
 class VideoInfoModelAPIView(ListAPIView):
     queryset = VideoModel.objects.all()
     serializer_class = VideoModelSerializer
+    pagination_class = NullStandardResultsSetPagination
 
 
 class VideoDetailAPIView(APIView):
@@ -94,6 +96,7 @@ class VideoDetailAPIView(APIView):
 class BlogInfoModelAPIView(ListAPIView):
     queryset = BlogModel.objects.all()
     serializer_class = BlogModelSerializer
+    pagination_class = NullStandardResultsSetPagination
 
 
 class BlogDetailAPIView(APIView):
@@ -106,6 +109,7 @@ class BlogDetailAPIView(APIView):
 class AboutInfoModelAPIView(ListAPIView):
     queryset = AboutModel.objects.all()
     serializer_class = AboutModelSerializer
+    pagination_class = NullStandardResultsSetPagination
 
 
 class AboutDetailAPIView(APIView):
@@ -118,6 +122,7 @@ class AboutDetailAPIView(APIView):
 class GalleryInfoModelAPIView(ListAPIView):
     queryset = GalleryModel.objects.all()
     serializer_class = GalleryModelSerializer
+    pagination_class = NullStandardResultsSetPagination
 
 
 class GalleryDetailAPIView(APIView):
@@ -130,6 +135,7 @@ class GalleryDetailAPIView(APIView):
 class WorkInfoModelAPIView(ListAPIView):
     queryset = WorkModel.objects.all()
     serializer_class = WorkModelSerializer
+    pagination_class = NullStandardResultsSetPagination
 
 
 class WorkDetailAPIView(APIView):
