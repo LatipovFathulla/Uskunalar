@@ -18,7 +18,7 @@ class LineTextModel(models.Model):
 
 
 class LineCategoryModel(models.Model):
-    category = RichTextUploadingField(max_length=100, verbose_name=_('category'))
+    category = models.TextField(max_length=300, verbose_name=_('category'))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):

@@ -58,6 +58,7 @@ class LinesInfoModelAPIView(ListAPIView):
 class LinesCategoriesAPIView(ListAPIView):
     queryset = LineCategoryModel.objects.all()
     serializer_class = LineCategoryModelSerializer
+    pagination_class = NullStandardResultsSetPagination
 
 
 class LinesDetailAPIView(APIView):
