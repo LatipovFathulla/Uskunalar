@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rosetta',
     'django_filters',
     'drf_yasg',
+    'dbbackup',
 
     'home',
     'about',
