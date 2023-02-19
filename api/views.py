@@ -1,6 +1,8 @@
 from django.db.models import Count
 from django.shortcuts import render
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics
+from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.generics import ListAPIView
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
@@ -31,15 +33,28 @@ class NullStandardResultsSetPagination(PageNumberPagination):
     page_size_query_param = 'page_size'
     max_page_size = 0
 
+
+class CategoryFilter(APIView):
+    def get(self, request, pk=None):
+        queryset = BannerInfoModel.objects.filter(category__id=pk)
+        serializer = BannerInfoModelSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+
+class SubCategoryFilter(APIView):
+    def get(self, request, pk=None):
+        queryset = BannerInfoModel.objects.filter(subcategory__id=pk)
+        serializer = BannerInfoModelSerializer(queryset, many=True)
+        return Response(serializer.data)
+
 class BannerInfoModelAPIView(ListAPIView):
     queryset = BannerInfoModel.objects.all()
     serializer_class = BannerInfoModelSerializer
+    filter_backends = [SearchFilter, OrderingFilter, DjangoFilterBackend]
+    search_fields = ['title', 'sku', 'short_description', 'long_description']
+    ordering_fields = ['price', 'created_at']
+    filterset_fields = ['price', 'category', 'created_at']
 
-
-class ALLBannerInfoModelAPIView(ListAPIView):
-    queryset = BannerInfoModel.objects.all()
-    serializer_class = BannerInfoModelSerializer
-    pagination_class = StandardResultsSetPagination
 
 
 class BannerDetailAPIView(APIView):
