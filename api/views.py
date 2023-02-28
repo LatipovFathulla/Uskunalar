@@ -37,7 +37,7 @@ class NullStandardResultsSetPagination(PageNumberPagination):
 class CategoryFilter(APIView):
     def get(self, request, pk=None):
         queryset = BannerInfoModel.objects.filter(category__id=pk)
-        serializer = BannerInfoModelSerializer(queryset, many=True)
+        serializer = BannerInfoModelSerializer(queryset, many=True, context={'request': request})
         return Response(serializer.data)
 
 
