@@ -41,3 +41,15 @@ class RequestsModel(models.Model):
         verbose_name_plural = _('call center')
 
 
+class TransModel(models.Model):
+    img_uz = models.FileField(upload_to='banner_image_uz', verbose_name=_('img_uz'))
+    img_ru = models.FileField(upload_to='banner_image_ru', verbose_name=_('img_ru'))
+    img_en = models.FileField(upload_to='banner_image_en', verbose_name=_('img_en'))
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.img_uz)
+
+    class Meta:
+        verbose_name = _('Carousel')
+        verbose_name_plural = _('Carousels')

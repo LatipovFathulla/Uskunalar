@@ -247,3 +247,17 @@ class CarouselModel(models.Model):
 # back to top ))
 
 # jivo
+
+
+# django-embed-video 1.4.1 depends on Django>=2.2
+#     django-filter 22.1 depends on Django>=3.2
+#     django-humanize 0.1.2 depends on Django
+#     django-jazzmin 2.6.0 depends on django>=2.2
+#     django-jsonfield 1.4.1 depends on Django>=1.11
+#     django-modeltranslation 0.18.4 depends on Django>=3.2
+#     django-multiselectfield 0.1.12 depends on django>=1.4
+#     django-parler 2.3 depends on Django>=2.2
+#     django-redis 5.2.0 depends on Django>=2.2
+#     django-rosetta 0.9.8 depends on Django>=2.2
+#     django-taggit 1.2.0 depends on Django>=1.11
+#     django-user-visit 0.4 depends on django<4.0 and >=2.2

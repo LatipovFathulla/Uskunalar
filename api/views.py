@@ -8,10 +8,10 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from about.models import AboutModel
+from about.models import AboutModel, TransModel
 from api.serializer import BannerInfoModelSerializer, LinesModelSerializer, BiznesModelSerializer, VideoModelSerializer, \
     BlogModelSerializer, AboutModelSerializer, GalleryModelSerializer, WorkModelSerializer, CarouselSerializer, \
-    CategorySerializer, SubCategorySerializer, PartnerSerializer, LineCategoryModelSerializer
+    CategorySerializer, SubCategorySerializer, PartnerSerializer, LineCategoryModelSerializer, TransModelSerializer
 from biznes.models import BiznesModel
 from blog.models import BlogModel
 from clients.models import ClientModel
@@ -47,6 +47,7 @@ class SubCategoryFilter(APIView):
         serializer = BannerInfoModelSerializer(queryset, many=True)
         return Response(serializer.data)
 
+
 class BannerInfoModelAPIView(ListAPIView):
     queryset = BannerInfoModel.objects.all()
     serializer_class = BannerInfoModelSerializer
@@ -54,7 +55,6 @@ class BannerInfoModelAPIView(ListAPIView):
     search_fields = ['title', 'sku', 'short_description', 'long_description']
     ordering_fields = ['price', 'created_at']
     filterset_fields = ['price', 'category', 'created_at']
-
 
 
 class BannerDetailAPIView(APIView):
@@ -192,4 +192,10 @@ class SubCategoryAPIView(ListAPIView):
 class PartnersAPIView(ListAPIView):
     queryset = ClientModel.objects.all()
     serializer_class = PartnerSerializer
+    pagination_class = StandardResultsSetPagination
+
+
+class TransModelSerializerAPIView(ListAPIView):
+    queryset = TransModel.objects.all()
+    serializer_class = TransModelSerializer
     pagination_class = StandardResultsSetPagination

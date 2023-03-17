@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from about.models import AboutModel
+from about.models import AboutModel, TransModel
 from biznes.models import BiznesModel
 from blog.models import BlogModel
 from clients.models import ClientModel
@@ -137,4 +137,10 @@ class SubCategorySerializer(serializers.ModelSerializer):
 class PartnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = ClientModel
+        fields = '__all__'
+
+
+class TransModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TransModel
         fields = '__all__'

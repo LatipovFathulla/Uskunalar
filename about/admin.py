@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from about.models import AboutModel, RequestsModel
+from about.models import AboutModel, RequestsModel, TransModel
 from home.admin import MyTranslationAdmin
 
 
@@ -24,4 +24,6 @@ class RequestsModelAdmin(admin.ModelAdmin):
     list_filter = ['name', 'phone', 'created_at']
 
 
-
+@admin.register(TransModel)
+class TransModelAdmin(admin.ModelAdmin):
+    list_display = ['img_uz', 'img_ru', 'img_en']
