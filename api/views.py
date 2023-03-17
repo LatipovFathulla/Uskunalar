@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from about.models import AboutModel, TransModel
+from api.filter import ProductFilter
 from api.serializer import BannerInfoModelSerializer, LinesModelSerializer, BiznesModelSerializer, VideoModelSerializer, \
     BlogModelSerializer, AboutModelSerializer, GalleryModelSerializer, WorkModelSerializer, CarouselSerializer, \
     CategorySerializer, SubCategorySerializer, PartnerSerializer, LineCategoryModelSerializer, TransModelSerializer
@@ -52,14 +53,17 @@ class BannerInfoModelAPIView(ListAPIView):
     queryset = BannerInfoModel.objects.all()
     serializer_class = BannerInfoModelSerializer
     filter_backends = [SearchFilter, OrderingFilter, DjangoFilterBackend]
+    filterset_class = ProductFilter
     search_fields = ['title', 'sku', 'short_description', 'long_description']
     ordering_fields = ['price', 'created_at']
-    filterset_fields = ['price', 'category', 'subcategory', 'created_at']
+    filterset_fields = ['price', 'category', 'subcategory', 'view_count', 'created_at']
 
 
 class BannerDetailAPIView(APIView):
     def get(self, request, pk):
         products = BannerInfoModel.objects.get(pk=pk)
+        products.view_count += 1
+        products.save()
         serializer = BannerInfoModelSerializer(products, context={'request': request})
         return Response(serializer.data)
 
