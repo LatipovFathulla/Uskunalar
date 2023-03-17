@@ -26,4 +26,14 @@ class RequestsModelAdmin(admin.ModelAdmin):
 
 @admin.register(TransModel)
 class TransModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'img_uz', 'img_ru', 'img_en']
+    list_display = ['id', 'get_html_photo']
+
+    def get_html_photo(self, object):
+        if object.img_uz:
+            return mark_safe(f"<img src='{object.img_uz.url}', width=200, height=100>")
+        if object.img_ru:
+            return mark_safe(f"<img src='{object.img_ru.url}', width=200, height=100>")
+        if object.img_en:
+            return mark_safe(f"<img src='{object.img_en.url}', width=200, height=100>")
+
+    get_html_photo.short_description = "изб"

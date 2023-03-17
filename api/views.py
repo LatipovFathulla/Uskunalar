@@ -44,7 +44,7 @@ class CategoryFilter(APIView):
 class SubCategoryFilter(APIView):
     def get(self, request, pk=None):
         queryset = BannerInfoModel.objects.filter(subcategory__id=pk)
-        serializer = BannerInfoModelSerializer(queryset, many=True)
+        serializer = BannerInfoModelSerializer(queryset, many=True, context={'request': request})
         return Response(serializer.data)
 
 
@@ -54,7 +54,7 @@ class BannerInfoModelAPIView(ListAPIView):
     filter_backends = [SearchFilter, OrderingFilter, DjangoFilterBackend]
     search_fields = ['title', 'sku', 'short_description', 'long_description']
     ordering_fields = ['price', 'created_at']
-    filterset_fields = ['price', 'category', 'created_at']
+    filterset_fields = ['price', 'category', 'subcategory', 'created_at']
 
 
 class BannerDetailAPIView(APIView):
