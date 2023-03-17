@@ -26,4 +26,4 @@ class RequestsModelAdmin(admin.ModelAdmin):
 
 @admin.register(TransModel)
 class TransModelAdmin(admin.ModelAdmin):
-    list_display = ['img_uz', 'img_ru', 'img_en']
+    list_display = ['id', 'img_uz', 'img_ru', 'img_en']

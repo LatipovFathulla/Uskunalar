@@ -43,8 +43,9 @@ class RequestsModel(models.Model):
 
 class TransModel(models.Model):
     img_uz = models.FileField(upload_to='banner_image_uz', verbose_name=_('img_uz'))
-    img_ru = models.FileField(upload_to='banner_image_ru', verbose_name=_('img_ru'))
-    img_en = models.FileField(upload_to='banner_image_en', verbose_name=_('img_en'))
+    img_ru = models.FileField(upload_to='banner_image_ru', verbose_name=_('img_ru'), null=True, blank=True)
+    img_en = models.FileField(upload_to='banner_image_en', verbose_name=_('img_en'), null=True, blank=True)
+    link = models.URLField(max_length=900, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
