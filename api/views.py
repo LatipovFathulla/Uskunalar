@@ -55,8 +55,8 @@ class BannerInfoModelAPIView(ListAPIView):
     filter_backends = [SearchFilter, OrderingFilter, DjangoFilterBackend]
     filterset_class = ProductFilter
     search_fields = ['title', 'sku', 'short_description', 'long_description']
-    ordering_fields = ['price', 'created_at']
-    filterset_fields = ['price', 'category', 'subcategory', 'view_count', 'created_at']
+    ordering_fields = ['price', 'created_at', 'view_count']
+    filterset_fields = ['price', 'category', 'subcategory', 'created_at']
 
 
 class BannerDetailAPIView(APIView):
