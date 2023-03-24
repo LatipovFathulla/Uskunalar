@@ -12,7 +12,8 @@ from about.models import AboutModel, TransModel
 from api.filter import ProductFilter
 from api.serializer import BannerInfoModelSerializer, LinesModelSerializer, BiznesModelSerializer, VideoModelSerializer, \
     BlogModelSerializer, AboutModelSerializer, GalleryModelSerializer, WorkModelSerializer, CarouselSerializer, \
-    CategorySerializer, SubCategorySerializer, PartnerSerializer, LineCategoryModelSerializer, TransModelSerializer
+    CategorySerializer, SubCategorySerializer, PartnerSerializer, LineCategoryModelSerializer, TransModelSerializer, \
+    ALLBannerInfoModelSerializer
 from biznes.models import BiznesModel
 from blog.models import BlogModel
 from clients.models import ClientModel
@@ -57,6 +58,11 @@ class BannerInfoModelAPIView(ListAPIView):
     search_fields = ['title', 'sku', 'short_description', 'long_description']
     ordering_fields = ['price', 'created_at', 'view_count']
     filterset_fields = ['price', 'category', 'subcategory', 'created_at']
+
+
+class ALLBannerInfoModelAPIView(ListAPIView):
+    queryset = BannerInfoModel.objects.all()
+    serializer_class = ALLBannerInfoModelSerializer
 
 
 class BannerDetailAPIView(APIView):

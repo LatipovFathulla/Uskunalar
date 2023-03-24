@@ -6,8 +6,6 @@ from django.urls import path, include, re_path
 from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap
 
-from about.views import HomeView, AllSitemaps
-from home.views import CategoryTest, get_subcategory
 from .yasg import urlpatterns as doc_urls
 from home.models import BannerInfoModel
 from uskunalar.feeds import LatestPostsFeed
@@ -51,16 +49,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
-    path('blogs/', include('blog.urls', namespace='blog')),
-    path('works/', include('works.urls', namespace='work')),
-    path('gallery/', include('gallery.urls', namespace='galleries')),
-    path('videos/', include('videos.urls', namespace='video')),
-    path('lines/', include('lines.urls', namespace='line')),
-    path('biznes/', include('biznes.urls', namespace='biznes')),
-    path('products/', include('home.urls', namespace='products')),
-    path('test/', CategoryTest.as_view()),
     path('api-auth/', include('api.urls')),
-    path('getSubcategory/', get_subcategory, name='subcategory'),
     path('sitemap2.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
     path('sitemap_products_2.xml', sitemap, {'sitemaps': product_sitemaps},

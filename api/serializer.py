@@ -54,6 +54,12 @@ class BannerInfoModelSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class ALLBannerInfoModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BannerInfoModel
+        fields = ['pk', ]
+
+
 # lines
 class LineCategoryModelSerializer(serializers.ModelSerializer):
     class Meta:
