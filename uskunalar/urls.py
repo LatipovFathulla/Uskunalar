@@ -51,8 +51,6 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
-    path('', HomeView.as_view(), name='index'),
-    path('', include('about.urls', namespace='home')),
     path('blogs/', include('blog.urls', namespace='blog')),
     path('works/', include('works.urls', namespace='work')),
     path('gallery/', include('gallery.urls', namespace='galleries')),
