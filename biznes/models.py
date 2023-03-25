@@ -8,7 +8,7 @@ from django.utils.translation import gettext_lazy as _
 class BiznesModel(models.Model):
     title = models.CharField(max_length=250, verbose_name=_('title'), null=True, blank=True)
     image = models.FileField(upload_to='biznes', verbose_name=_('biznes_image'))
-    long_descriptions = RichTextUploadingField(verbose_name=_('long_descriptions'))
+    long_descriptions = models.TextField(verbose_name=_('long_descriptions'))
     views = models.IntegerField(default=0, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
