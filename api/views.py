@@ -63,6 +63,7 @@ class BannerInfoModelAPIView(ListAPIView):
 class ALLBannerInfoModelAPIView(ListAPIView):
     queryset = BannerInfoModel.objects.all()
     serializer_class = ALLBannerInfoModelSerializer
+    pagination_class = NullStandardResultsSetPagination
 
 
 class BannerDetailAPIView(APIView):
