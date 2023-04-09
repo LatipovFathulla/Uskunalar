@@ -89,8 +89,10 @@ class LinesCategoriesAPIView(ListAPIView):
 
 class LinesDetailAPIView(APIView):
     def get(self, request, pk):
-        products = LineModel.objects.get(pk=pk)
-        serializer = LinesModelSerializer(products, context={'request': request})
+        lines = LineModel.objects.get(pk=pk)
+        lines.views += 1
+        lines.save()
+        serializer = LinesModelSerializer(lines, context={'request': request})
         return Response(serializer.data)
 
 
@@ -102,8 +104,10 @@ class BiznesInfoModelAPIView(ListAPIView):
 
 class BiznesDetailAPIView(APIView):
     def get(self, request, pk):
-        products = BiznesModel.objects.get(pk=pk)
-        serializer = BiznesModelSerializer(products, context={'request': request})
+        biznes = BiznesModel.objects.get(pk=pk)
+        biznes.views += 1
+        biznes.save()
+        serializer = BiznesModelSerializer(biznes, context={'request': request})
         return Response(serializer.data)
 
 
@@ -115,8 +119,8 @@ class VideoInfoModelAPIView(ListAPIView):
 
 class VideoDetailAPIView(APIView):
     def get(self, request, pk):
-        products = VideoModel.objects.get(pk=pk)
-        serializer = VideoModelSerializer(products, context={'request': request})
+        video = VideoModel.objects.get(pk=pk)
+        serializer = VideoModelSerializer(video, context={'request': request})
         return Response(serializer.data)
 
 
@@ -128,8 +132,10 @@ class BlogInfoModelAPIView(ListAPIView):
 
 class BlogDetailAPIView(APIView):
     def get(self, request, pk):
-        products = BlogModel.objects.get(pk=pk)
-        serializer = BlogModelSerializer(products, context={'request': request})
+        blog = BlogModel.objects.get(pk=pk)
+        blog.views += 1
+        blog.save()
+        serializer = BlogModelSerializer(blog, context={'request': request})
         return Response(serializer.data)
 
 
@@ -141,8 +147,10 @@ class AboutInfoModelAPIView(ListAPIView):
 
 class AboutDetailAPIView(APIView):
     def get(self, request, pk):
-        products = AboutModel.objects.get(pk=pk)
-        serializer = AboutModelSerializer(products, context={'request': request})
+        about = AboutModel.objects.get(pk=pk)
+        about.views += 1
+        about.save()
+        serializer = AboutModelSerializer(about, context={'request': request})
         return Response(serializer.data)
 
 
@@ -154,8 +162,10 @@ class GalleryInfoModelAPIView(ListAPIView):
 
 class GalleryDetailAPIView(APIView):
     def get(self, request, pk):
-        products = GalleryModel.objects.get(pk=pk)
-        serializer = GalleryModelSerializer(products, context={'request': request})
+        gallery = GalleryModel.objects.get(pk=pk)
+        gallery.views += 1
+        gallery.save()
+        serializer = GalleryModelSerializer(gallery, context={'request': request})
         return Response(serializer.data)
 
 
@@ -167,8 +177,10 @@ class WorkInfoModelAPIView(ListAPIView):
 
 class WorkDetailAPIView(APIView):
     def get(self, request, pk):
-        products = WorkModel.objects.get(pk=pk)
-        serializer = WorkModelSerializer(products, context={'request': request})
+        work = WorkModel.objects.get(pk=pk)
+        work.views += 1
+        work.save()
+        serializer = WorkModelSerializer(work, context={'request': request})
         return Response(serializer.data)
 
 

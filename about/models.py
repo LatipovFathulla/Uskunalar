@@ -11,6 +11,7 @@ class AboutModel(models.Model):
     image = models.FileField(upload_to='about', verbose_name=_('image'))
     description = models.TextField(verbose_name=_('description'))
     url = EmbedVideoField(null=True, blank=True)
+    views = models.IntegerField(default=0, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):

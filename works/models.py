@@ -9,6 +9,7 @@ class WorkModel(models.Model):
     image = models.ImageField(upload_to='works', verbose_name=_('works'))
     short_descriptions = models.TextField(verbose_name=_('short_descriptions'), max_length=520, null=True, blank=True)
     descriptions = models.TextField(verbose_name=_('descriptions'), null=True, blank=True)
+    views = models.IntegerField(default=0, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def get_prev(self):

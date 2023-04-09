@@ -11,6 +11,7 @@ class GalleryModel(models.Model):
     long_descriptions = models.TextField(verbose_name=_('long_description'), null=True,)
     last_date = models.DateField(null=True, verbose_name=_('last_date'), blank=True)
     video = EmbedVideoField(null=True, verbose_name=_('video'), blank=True)
+    views = models.IntegerField(default=0, null=True, blank=True)
     created_at = models.DateField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
