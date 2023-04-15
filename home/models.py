@@ -110,7 +110,7 @@ class BannerInfoModel(models.Model):
     inbox = models.CharField(max_length=50, blank=True, verbose_name=_('inbox'))
     delivery = models.CharField(max_length=50, blank=True, verbose_name=_('delivery'))
     short_description = models.TextField(verbose_name=_('short_description'), null=True, blank=True)
-    long_description = models.TextField(verbose_name=_('long_description'), null=True, blank=True)
+    long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True, blank=True)
     price_title = models.CharField(max_length=300, verbose_name=_('price_title'), null=True, blank=True)
     price_image = models.ImageField(upload_to='price_image', verbose_name=_('price_image'), null=True, blank=True)
     price_short_description = models.TextField(null=True, blank=True, verbose_name=_('price_short'))
