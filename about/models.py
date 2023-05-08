@@ -9,7 +9,7 @@ from embed_video.fields import EmbedVideoField
 class AboutModel(models.Model):
     title = models.TextField(max_length=90, verbose_name=_('title'))
     image = models.FileField(upload_to='about', verbose_name=_('image'))
-    description = models.TextField(verbose_name=_('description'))
+    description = RichTextUploadingField(verbose_name=_('description'))
     url = EmbedVideoField(null=True, blank=True)
     views = models.IntegerField(default=0, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))

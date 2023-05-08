@@ -39,7 +39,7 @@ class LineModel(models.Model):
     description = models.TextField(verbose_name=_('description'))
     price = models.CharField(max_length=100, verbose_name=_('price'), null=True)
     views = models.IntegerField(default=0, null=True, blank=True)
-    long_description = models.TextField(verbose_name=_('long_description'), null=True, blank=True)
+    long_description = RichTextUploadingField(verbose_name=_('long_description'), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def get_prev(self):
